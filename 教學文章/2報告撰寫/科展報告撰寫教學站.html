@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科展報告撰寫完全教學站｜中小學科學展覽作品說明書深度指南</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=Noto+Serif+TC:wght@500;700;900&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f8f6;
+  --paper:#ffffff;
+  --ink:#1c2a2e;
+  --ink-soft:#3e5158;
+  --muted:#697e85;
+  --line:#e2e8e6;
+  --teal:#0f4c5c;
+  --teal-2:#16697a;
+  --green:#2a9d8f;
+  --green-soft:#e7f4f1;
+  --amber:#e09f3e;
+  --amber-soft:#fcf3e3;
+  --rose:#b23a48;
+  --rose-soft:#fbeaec;
+  --indigo:#3d5a80;
+  --indigo-soft:#eaf0f7;
+  --sidebar:300px;
+  --maxw:880px;
+  --radius:14px;
+  --shadow:0 1px 3px rgba(20,40,45,.06),0 8px 26px rgba(20,40,45,.06);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{
+  margin:0;
+  font-family:"Noto Sans TC",system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.9;
+  font-size:19px;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Noto Serif TC",serif;line-height:1.4;color:var(--teal)}
+a{color:var(--teal-2);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ---------- Layout ---------- */
+.shell{display:flex;align-items:flex-start}
+.sidebar{
+  width:var(--sidebar);
+  flex:0 0 var(--sidebar);
+  position:sticky;
+  top:0;
+  height:100vh;
+  overflow-y:auto;
+  background:linear-gradient(170deg,#0c3a47,#0f4c5c 55%,#13586a);
+  color:#dfeef0;
+  padding:30px 22px 60px;
+}
+.sidebar::-webkit-scrollbar{width:8px}
+.sidebar::-webkit-scrollbar-thumb{background:rgba(255,255,255,.18);border-radius:8px}
+.brand{display:flex;gap:12px;align-items:flex-start;margin-bottom:8px}
+.brand .logo{
+  width:42px;height:42px;flex:0 0 42px;border-radius:11px;
+  background:linear-gradient(135deg,#2a9d8f,#48c9b0);
+  display:flex;align-items:center;justify-content:center;font-size:22px;
+  box-shadow:0 4px 14px rgba(42,157,143,.4);
+}
+.brand h1{color:#fff;font-size:21px;margin:0;line-height:1.35}
+.brand p{margin:3px 0 0;font-size:14px;color:#9dc4cb;font-family:"Noto Sans TC"}
+.toc{margin-top:22px;list-style:none;padding:0}
+.toc>li{margin:2px 0}
+.toc a{
+  display:block;color:#cfe4e7;font-size:16px;padding:7px 12px;border-radius:99px;
+  border-left:3px solid transparent;transition:.15s;line-height:1.45;
+}
+.toc a:hover{background:rgba(255,255,255,.08);text-decoration:none;color:#fff}
+.toc a.active{background:rgba(72,201,176,.18);border-left-color:#48c9b0;color:#fff;font-weight:500}
+.toc .num{display:inline-block;width:22px;color:#6fb0b9;font-weight:700;font-family:"Noto Serif TC"}
+.toc a.active .num{color:#6ee7d3}
+.sb-foot{margin-top:26px;padding-top:16px;border-top:1px solid rgba(255,255,255,.13);font-size:13px;color:#8fb3ba;line-height:1.7}
+
+.main{flex:1 1 auto;min-width:0;padding:0 clamp(20px,5vw,70px) 120px;max-width:calc(var(--maxw) + 140px);margin:0 auto}
+
+/* ---------- Hero ---------- */
+.hero{
+  margin:0 calc(-1*clamp(20px,5vw,70px)) 40px;
+  padding:64px clamp(20px,5vw,70px) 52px;
+  background:
+    radial-gradient(1100px 400px at 80% -10%,rgba(42,157,143,.16),transparent),
+    linear-gradient(160deg,#0f4c5c,#13586a);
+  color:#eaf6f7;
+  position:relative;overflow:hidden;
+}
+.hero::after{
+  content:"";position:absolute;right:-60px;bottom:-80px;width:340px;height:340px;
+  background:radial-gradient(circle,rgba(72,201,176,.22),transparent 70%);
+}
+.hero .kicker{display:inline-block;font-size:15px;letter-spacing:.18em;color:#9fe5d8;
+  border:1px solid rgba(159,229,216,.4);padding:5px 14px;border-radius:30px;margin-bottom:20px}
+.hero h2{color:#fff;font-size:clamp(31px,5vw,48px);margin:0 0 16px;line-height:1.3;font-weight:900;max-width:18ch}
+.hero p{font-size:19px;color:#cfe6e8;max-width:62ch;margin:0}
+.hero .meta{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px}
+.hero .chip{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);
+  padding:7px 15px;border-radius:30px;font-size:15px;color:#e7f6f7}
+
+/* ---------- Sections ---------- */
+section{scroll-margin-top:20px;margin-bottom:30px}
+.sec-head{display:flex;align-items:center;gap:16px;margin:54px 0 22px;padding-top:14px}
+.sec-head .idx{
+  flex:0 0 auto;width:50px;height:50px;border-radius:13px;
+  background:var(--green-soft);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;
+  font-family:"Noto Serif TC";font-weight:900;font-size:24px;
+  border:1px solid #cfeae4;
+}
+.sec-head h2{font-size:clamp(25px,3.4vw,34px);margin:0;font-weight:900}
+.sec-head .sub{font-size:15px;color:var(--muted);margin-top:3px;font-family:"Noto Sans TC";letter-spacing:.04em}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);
+  padding:30px 32px;box-shadow:var(--shadow);margin-bottom:22px}
+.card.tight{padding:24px 26px}
+p{margin:0 0 16px}
+.lead{font-size:20.5px;color:var(--ink-soft)}
+strong,b{color:var(--teal);font-weight:700}
+em{font-style:normal;background:linear-gradient(transparent 62%,#bdeee4 62%);padding:0 1px;font-weight:500}
+h3.blk{font-size:22.5px;margin:30px 0 14px;padding-left:14px;border-left:5px solid var(--green);font-weight:700}
+h4.blk{font-size:18.5px;color:var(--teal-2);margin:22px 0 10px;font-weight:700}
+
+ul.clean,ol.clean{margin:0 0 16px;padding-left:0;list-style:none}
+ul.clean>li,ol.clean>li{position:relative;padding-left:30px;margin-bottom:11px}
+ul.clean>li::before{content:"";position:absolute;left:8px;top:13px;width:8px;height:8px;
+  border-radius:50%;background:var(--green)}
+ol.clean{counter-reset:n}
+ol.clean>li{counter-increment:n}
+ol.clean>li::before{content:counter(n);position:absolute;left:0;top:2px;width:22px;height:22px;
+  background:var(--teal);color:#fff;border-radius:50%;font-size:14px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;font-family:"Noto Sans TC"}
+
+/* ---------- Tables ---------- */
+.table-wrap{overflow-x:auto;border-radius:12px;border:1px solid var(--line);margin:6px 0 22px}
+table{border-collapse:collapse;width:100%;font-size:17.5px;background:#fff;min-width:540px}
+th,td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line)}
+thead th{background:var(--teal);color:#fff;font-family:"Noto Sans TC";font-weight:700;font-size:16.5px;letter-spacing:.03em}
+tbody tr:nth-child(even){background:#fafcfb}
+tbody tr:hover{background:var(--green-soft)}
+td .w{font-weight:900;color:var(--green);font-size:22px;font-family:"Noto Serif TC"}
+.row-label{font-weight:700;color:var(--teal);white-space:nowrap}
+
+/* ---------- Callouts ---------- */
+.callout{border-radius:12px;padding:18px 20px 18px 22px;margin:18px 0;border-left:5px solid;font-size:18px;line-height:1.85}
+.callout .t{font-weight:700;display:flex;align-items:center;gap:8px;margin-bottom:7px;font-family:"Noto Serif TC";font-size:18.5px}
+.callout p:last-child{margin-bottom:0}
+.callout.tip{background:var(--green-soft);border-color:var(--green)}
+.callout.tip .t{color:#1c7d70}
+.callout.warn{background:var(--amber-soft);border-color:var(--amber)}
+.callout.warn .t{color:#9a6a13}
+.callout.danger{background:var(--rose-soft);border-color:var(--rose)}
+.callout.danger .t{color:#9b2531}
+.callout.info{background:var(--indigo-soft);border-color:var(--indigo)}
+.callout.info .t{color:#2f4870}
+
+/* ---------- Collapsible ---------- */
+details.fold{border:1px solid var(--line);border-radius:12px;margin:16px 0;background:#fff;overflow:hidden;box-shadow:var(--shadow)}
+details.fold>summary{
+  cursor:pointer;padding:16px 20px;font-weight:700;font-family:"Noto Serif TC";font-size:18.5px;
+  color:var(--teal);list-style:none;display:flex;align-items:center;gap:11px;user-select:none;
+  background:linear-gradient(90deg,#f3f9f7,#fff);transition:.15s;
+}
+details.fold>summary:hover{background:#edf6f3}
+details.fold>summary::-webkit-details-marker{display:none}
+details.fold>summary .ico{
+  flex:0 0 auto;width:26px;height:26px;border-radius:7px;background:var(--green);color:#fff;
+  display:flex;align-items:center;justify-content:center;font-size:13px;font-family:"Noto Sans TC"
+}
+details.fold>summary .chev{margin-left:auto;color:var(--muted);transition:.2s;font-size:15px}
+details.fold[open]>summary .chev{transform:rotate(90deg)}
+details.fold .fold-body{padding:6px 22px 20px}
+details.fold .fold-body>*:first-child{margin-top:8px}
+.tag{display:inline-block;font-size:13px;font-weight:700;padding:2px 9px;border-radius:20px;
+  margin-left:4px;font-family:"Noto Sans TC";vertical-align:middle}
+.tag.eg{background:#e7f4f1;color:#1c7d70}
+.tag.err{background:#fbeaec;color:#9b2531}
+.tag.teach{background:#eaf0f7;color:#2f4870}
+
+/* ---------- Before/After ---------- */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0}
+.ba .box{border-radius:11px;padding:15px 17px;font-size:17px;line-height:1.8}
+.ba .bad{background:var(--rose-soft);border:1px solid #f0c9ce}
+.ba .good{background:var(--green-soft);border:1px solid #bfe6dd}
+.ba .lbl{font-weight:700;font-size:15px;font-family:"Noto Sans TC";margin-bottom:7px;display:flex;align-items:center;gap:6px}
+.ba .bad .lbl{color:var(--rose)}
+.ba .good .lbl{color:#1c7d70}
+
+/* ---------- Timeline ---------- */
+.timeline{position:relative;margin:10px 0 6px;padding-left:8px}
+.timeline::before{content:"";position:absolute;left:18px;top:6px;bottom:6px;width:3px;
+  background:linear-gradient(var(--green),var(--teal))}
+.tl-item{position:relative;padding:0 0 22px 52px}
+.tl-item .dot{position:absolute;left:9px;top:2px;width:22px;height:22px;border-radius:50%;
+  background:#fff;border:3px solid var(--green);z-index:1}
+.tl-item .when{font-size:15px;font-weight:700;color:var(--green);font-family:"Noto Sans TC";letter-spacing:.03em}
+.tl-item h4{margin:2px 0 6px;font-size:19px;color:var(--teal)}
+.tl-item p{font-size:17px;color:var(--ink-soft);margin:0}
+
+/* ---------- Stat / weight bars ---------- */
+.weights{display:grid;gap:16px;margin:8px 0 6px}
+.wrow{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+.wrow .top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:9px}
+.wrow .name{font-weight:700;font-family:"Noto Serif TC";font-size:19px;color:var(--teal)}
+.wrow .pct{font-weight:900;font-size:25px;font-family:"Noto Serif TC"}
+.bar{height:11px;border-radius:8px;background:#eef3f1;overflow:hidden}
+.bar i{display:block;height:100%;border-radius:8px}
+.wrow .desc{font-size:16.5px;color:var(--ink-soft);margin-top:10px}
+.c-creative .pct,.c-creative .name{color:#1c7d70}
+.c-creative .bar i{background:linear-gradient(90deg,#2a9d8f,#48c9b0)}
+.c-content .pct,.c-content .name{color:var(--indigo)}
+.c-content .bar i{background:linear-gradient(90deg,#3d5a80,#5b7aa8)}
+.c-text .pct,.c-text .name{color:var(--amber)}
+.c-text .bar i{background:linear-gradient(90deg,#e09f3e,#eec170)}
+
+/* ---------- Structure list (說明書架構) ---------- */
+.struct{display:grid;gap:9px;margin:8px 0}
+.struct .s{display:flex;gap:13px;align-items:center;background:#fff;border:1px solid var(--line);
+  border-radius:11px;padding:12px 16px;transition:.15s}
+.struct .s:hover{border-color:var(--green);box-shadow:var(--shadow)}
+.struct .s .n{flex:0 0 34px;height:34px;border-radius:9px;background:var(--green-soft);color:var(--teal);
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-family:"Noto Serif TC"}
+.struct .s .body{flex:1}
+.struct .s .ttl{font-weight:700;color:var(--teal)}
+.struct .s .d{font-size:15px;color:var(--muted)}
+.struct .s .sn{font-size:12px;color:#fff;background:var(--teal-2);padding:2px 9px;border-radius:20px;font-family:"Noto Serif TC"}
+
+/* ---------- Checklist ---------- */
+.checkwrap{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden}
+.checkbar{position:sticky;top:0;background:linear-gradient(90deg,#0f4c5c,#16697a);color:#fff;padding:16px 22px;z-index:5}
+.checkbar .lbl{display:flex;justify-content:space-between;align-items:center;font-size:16.5px;margin-bottom:9px}
+.checkbar .lbl b{font-size:18px;font-family:"Noto Serif TC"}
+.progress{height:10px;border-radius:8px;background:rgba(255,255,255,.22);overflow:hidden}
+.progress i{display:block;height:100%;width:0;background:linear-gradient(90deg,#48c9b0,#a7f3d8);transition:.4s}
+.checkgroups{padding:8px 22px 22px}
+.cgroup{margin-top:18px}
+.cgroup h4{font-size:17.5px;color:var(--teal-2);margin:0 0 8px;padding-bottom:6px;border-bottom:2px dotted var(--line)}
+.citem{display:flex;gap:12px;align-items:flex-start;padding:9px 8px;border-radius:9px;cursor:pointer;transition:.12s}
+.citem:hover{background:var(--green-soft)}
+.citem input{margin-top:5px;width:18px;height:18px;accent-color:var(--green);flex:0 0 auto;cursor:pointer}
+.citem span{font-size:17px;line-height:1.7;color:var(--ink-soft)}
+.citem input:checked + span{color:var(--muted);text-decoration:line-through;text-decoration-color:#bcd}
+.reset{margin-top:18px;background:none;border:1px solid var(--line);color:var(--muted);
+  padding:8px 16px;border-radius:9px;cursor:pointer;font-family:inherit;font-size:15px}
+.reset:hover{border-color:var(--rose);color:var(--rose)}
+
+/* ---------- Misc ---------- */
+.kbd{font-family:"JetBrains Mono",monospace;background:#eef3f1;border:1px solid var(--line);
+  border-radius:6px;padding:1px 7px;font-size:15px;color:var(--teal)}
+.cite-eg{font-family:"JetBrains Mono",monospace;font-size:16px;background:#f4f8f6;border:1px dashed #bcd9d1;
+  border-radius:8px;padding:11px 14px;margin:10px 0;color:var(--ink-soft);line-height:1.7}
+.pillrow{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0}
+.pill{background:var(--green-soft);color:#1c7d70;border:1px solid #bfe6dd;padding:6px 14px;
+  border-radius:30px;font-size:16px;font-weight:500}
+.divider{height:1px;background:var(--line);margin:30px 0}
+.note-num{font-size:11px;color:var(--muted);vertical-align:super}
+.endmark{text-align:center;color:var(--muted);font-size:16px;margin:50px 0 0;padding-top:24px;border-top:1px solid var(--line)}
+
+.backtop{position:fixed;right:26px;bottom:26px;width:48px;height:48px;border-radius:50%;
+  background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 20px rgba(15,76,92,.4);cursor:pointer;font-size:20px;opacity:0;
+  pointer-events:none;transition:.25s;z-index:50;border:none}
+.backtop.show{opacity:1;pointer-events:auto}
+
+.mobnav{display:none}
+
+/* ---------- Responsive ---------- */
+@media(max-width:980px){
+  :root{--sidebar:0px}
+  .sidebar{display:none}
+  .main{max-width:760px;padding:0 20px 90px}
+  .hero{margin:0 -20px 30px;padding:48px 20px 40px}
+  .ba{grid-template-columns:1fr}
+  .mobnav{display:block;position:sticky;top:0;z-index:40;background:#0f4c5c;color:#fff;
+    padding:13px 18px;margin:0 -20px 0;display:flex;align-items:center;justify-content:space-between}
+  .mobnav b{font-size:17px;font-family:"Noto Serif TC"}
+  .mobnav select{background:#16697a;color:#fff;border:1px solid rgba(255,255,255,.3);
+    border-radius:8px;padding:7px 10px;font-family:inherit;font-size:15px;max-width:55%}
+}
+@media print{
+  .sidebar,.backtop,.mobnav,.checkbar{display:none!important}
+  body{font-size:12pt;background:#fff}
+  .main{max-width:100%;padding:0}
+  .card,details.fold,.callout{box-shadow:none;break-inside:avoid}
+  details.fold{border:1px solid #ccc}
+  details.fold .fold-body{display:block!important}
+  .hero{color:#0f4c5c;background:#fff;border-bottom:3px solid #0f4c5c}
+  .hero h2,.hero p,.hero .chip{color:#0f4c5c}
+  a{color:#0f4c5c}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <!-- ===================== SIDEBAR ===================== -->
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="logo">🔬</div>
+      <div>
+        <h1>科展報告撰寫<br>完全教學站</h1>
+        <p>中小學科學展覽作品說明書深度指南</p>
+      </div>
+    </div>
+    <nav>
+      <ul class="toc" id="toc">
+        <li><a href="#s0"><span class="num">★</span>如何使用本站</a></li>
+        <li><a href="#s1"><span class="num">壹</span>評審如何給分</a></li>
+        <li><a href="#s2"><span class="num">貳</span>專案時程與生命週期</a></li>
+        <li><a href="#s3"><span class="num">參</span>選題策略與命題</a></li>
+        <li><a href="#s4"><span class="num">肆</span>研究日誌的法理</a></li>
+        <li><a href="#s5"><span class="num">伍</span>說明書結構與各章寫法</a></li>
+        <li><a href="#s6"><span class="num">陸</span>寫作規範與學術倫理</a></li>
+        <li><a href="#s7"><span class="num">柒</span>決審展示與安全禁制</a></li>
+        <li><a href="#s8"><span class="num">捌</span>口頭答辯策略</a></li>
+        <li><a href="#s9"><span class="num">玖</span>總結與精進策略</a></li>
+        <li><a href="#s10"><span class="num">✓</span>寫作自我檢核清單</a></li>
+      </ul>
+    </nav>
+    <div class="sb-foot">
+      原文：《中小學科學展覽作品說明書撰寫規範與各項目評析深度報告》<br>
+      補充教學內容由科學寫作與台灣科展指導觀點重新規劃整理，供課堂教學與學生自學使用。
+    </div>
+  </aside>
+
+  <!-- ===================== MAIN ===================== -->
+  <main class="main">
+    <div class="mobnav">
+      <b>🔬 科展報告教學站</b>
+      <select id="mobsel" onchange="location.hash=this.value">
+        <option value="#s0">跳到章節…</option>
+        <option value="#s1">壹 · 評審如何給分</option>
+        <option value="#s2">貳 · 專案時程</option>
+        <option value="#s3">參 · 選題策略</option>
+        <option value="#s4">肆 · 研究日誌</option>
+        <option value="#s5">伍 · 各章寫法</option>
+        <option value="#s6">陸 · 規範與倫理</option>
+        <option value="#s7">柒 · 展示與安全</option>
+        <option value="#s8">捌 · 口頭答辯</option>
+        <option value="#s9">玖 · 總結精進</option>
+        <option value="#s10">✓ 自我檢核清單</option>
+      </select>
+    </div>
+
+    <!-- HERO -->
+    <header class="hero" id="s0">
+      <span class="kicker">SCIENCE FAIR · 作品說明書撰寫深度指南</span>
+      <h2>從「知識消費者」到「知識生產者」的科學寫作之路</h2>
+      <p class="author" style="font-size: 19px; color: #9fe5d8; margin-top: -10px; margin-bottom: 20px; font-weight: 500; letter-spacing: 0.05em;">臺北市麗山高中林獻升老師</p>
+      <p>作品說明書不只是研究歷程的文字載體，更是檢驗科學邏輯、方法論嚴謹度與學術倫理成熟度的終極標準。本站完整收錄報告原文，並從科學寫作教學的角度補上各章寫法、常見錯誤對照、APA 引用範例與可勾選的檢核清單——適合教師課堂播放講解，也適合學生上網自學。</p>
+      <div class="meta">
+        <span class="chip">📊 評審三維度</span>
+        <span class="chip">🗓 跨年度時程</span>
+        <span class="chip">📓 研究日誌法理</span>
+        <span class="chip">✍️ IMRaD 各章寫法</span>
+        <span class="chip">⚖️ 學術倫理紅線</span>
+        <span class="chip">🎤 決審答辯策略</span>
+      </div>
+    </header>
+
+    <div class="callout info" style="margin-top:0">
+      <div class="t">📖 使用導引</div>
+      <p>左側<strong>目錄</strong>可點擊跳轉章節（手機版請用上方下拉選單）。文中藍綠色的<strong>「教師講解」「範例」「常見錯誤」摺疊區塊</strong>可點開閱讀；最後一章提供一份<strong>可勾選的自我檢核清單</strong>，學生可邊寫邊核對完成度。網頁亦支援<span class="kbd">列印 / 存成 PDF</span>。</p>
+    </div>
+
+    <!-- =============================================================== -->
+    <!-- 壹 評審如何給分 -->
+    <!-- =============================================================== -->
+    <section id="s1">
+      <div class="sec-head">
+        <div class="idx">壹</div>
+        <div><h2>評審如何給分：科學展覽的評估典範</h2>
+          <div class="sub">THE JUDGING FRAMEWORK · 教育哲學與三大評估維度</div></div>
+      </div>
+
+      <div class="card">
+        <p class="lead">科學展覽的核心教育哲學，是推動一場<strong>典範轉移</strong>：引導學生從被動的「知識消費者」（Consumers of Knowledge），轉型為具備獨立思辨、實證操作與問題解決能力的<em>「知識生產者」（Producers of Knowledge）</em>。</p>
+        <p>一件卓越的作品要在眾多競爭者中脫穎而出，必須同時滿足三大核心條件：<strong>研究主題具備實質意義與重要性</strong>、<strong>說明書展現高度的完整性與成熟度</strong>、以及<strong>團隊具備清晰流暢的口語與視覺簡報表達能力</strong>。要達成這些目標，研究者必須先讀懂評審委員會的評分結構。</p>
+
+        <h3 class="blk">臺北市中小學科展評審三維度</h3>
+        <div class="weights">
+          <div class="wrow c-creative">
+            <div class="top"><span class="name">創意及貢獻</span><span class="pct">50%</span></div>
+            <div class="bar"><i style="width:50%"></i></div>
+            <div class="desc"><b>原創性與影響力。</b>探討內容、過程及結果能否發展新觀念、產生新創意，並嚴格符合科學精神。題材需符合學生能力所及的環境事物；實驗結果需具備<strong>可重複性（再現性）、後續發展潛力或推廣應用價值</strong>。此維度強調科學研究的「拓荒精神」。</div>
+          </div>
+          <div class="wrow c-content">
+            <div class="top"><span class="name">內容及專業知識</span><span class="pct">30%</span></div>
+            <div class="bar"><i style="width:30%"></i></div>
+            <div class="desc"><b>方法論的嚴謹性。</b>檢視理論依據、科學研究程序的完整性與正確性，包含變因分析、器材操作、實驗步驟與資料處理的正確度。推論必須嚴謹精確，且能實質達成研究目的；<strong>佐證資料與原始紀錄的確實性</strong>亦在此受到嚴格檢驗。</div>
+          </div>
+          <div class="wrow c-text">
+            <div class="top"><span class="name">文字表達及組織</span><span class="pct">20%</span></div>
+            <div class="bar"><i style="width:20%"></i></div>
+            <div class="desc"><b>學術溝通的標準化。</b>評估說明書是否依規定格式編排、條列分明且排版整齊，圖表、單位、符號使用是否正確，參考文獻是否完整且清楚註明來源。此維度反映研究者對學術社群共同語言的熟稔度與尊重。</div>
+          </div>
+        </div>
+
+        <div class="callout tip">
+          <div class="t">🧭 評審的底層邏輯</div>
+          <p>高達 <strong>50% 的「創意及貢獻」</strong>揭示了科展的靈魂在於<em>創新</em>；但此創新必須受到<strong>科學方法（30%）</strong>的制約，並透過<strong>標準化的學術格式（20%）</strong>進行傳遞。換言之：好點子要靠嚴謹方法站得住腳，再用規範化的語言讓人讀得懂。三者缺一不可。</p>
+        </div>
+
+        <details class="fold">
+          <summary><span class="ico">師</span>教師講解：怎麼把「三維度」變成寫作的方向盤？<span class="tag teach">教學</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <p>把這三個百分比想成<strong>三個必須各自得分的帳戶</strong>，而不是一個總分。學生常犯的錯，是把全部力氣壓在「做出漂亮數據」（內容 30%），卻忽略了佔比最高的創意，以及最容易拿、卻最常被輕忽的格式分。</p>
+            <ul class="clean">
+              <li><b>創意帳戶（50%）</b>──在前言與討論章節主動回答：「我這題和別人有什麼不一樣？解決了什麼真實問題？」</li>
+              <li><b>內容帳戶（30%）</b>──在研究方法與結果章節證明：「我的變因控制嚴謹、有對照組、重複三次以上。」</li>
+              <li><b>表達帳戶（20%）</b>──這是<em>投資報酬率最高</em>的分數。標題層級、圖表標號、APA 引用、字數頁數規範，做到就有分，不需要任何額外實驗。</li>
+            </ul>
+            <p>教學現場可請學生在動筆前，先用一句話寫下「我這份報告打算在每個帳戶各拿什麼分」，等於先畫好自己的得分地圖。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 貳 專案時程 -->
+    <!-- =============================================================== -->
+    <section id="s2">
+      <div class="sec-head">
+        <div class="idx">貳</div>
+        <div><h2>專案生命週期與跨年度時程管理</h2>
+          <div class="sub">PROJECT LIFECYCLE · 從萌芽到國際賽的半年至一年工程</div></div>
+      </div>
+
+      <div class="card">
+        <p>科學研究是一項耗時且充滿變數的系統性工程。從萌生初步構想，到最終站上全國乃至國際舞臺進行口頭答辯，往往需要經歷長達<strong>半年至一年</strong>的專案生命週期。綜合國內外（如美國 NCSEF 規範與臺灣各縣市科展期程），一個完備的專案可分為以下階段：</p>
+
+        <div class="timeline">
+          <div class="tl-item"><span class="dot"></span>
+            <div class="when">8 月 — 9 月中旬</div>
+            <h4>萌芽與文獻期</h4>
+            <p>介紹科學方法與工程設計流程（Engineering Design Process）。進行腦力激盪、確立研究主題、尋找潛在導師，開始撰寫研究日誌並進行初步文獻探討。</p>
+          </div>
+          <div class="tl-item"><span class="dot"></span>
+            <div class="when">9 月中旬 — 10 月</div>
+            <h4>計畫與設計期</h4>
+            <p>確立核心科學問題或工程需求，擬定詳細研究計畫與實驗步驟，確認安全性與特殊許可（如化學品管控），完成所有期初必備表格審查。報名 TISF 者通常需於 10 月中下旬完成線上註冊、11 月上旬寄送紙本報名表與研究報告初審。</p>
+          </div>
+          <div class="tl-item"><span class="dot"></span>
+            <div class="when">10 月 — 12 月</div>
+            <h4>實證與數據期</h4>
+            <p>正式執行實驗，持續收集並記錄數據，實施研究日誌定期檢查。初步數據（Preliminary data）產生後，評估是否需要修正研究方法或調整假設。</p>
+          </div>
+          <div class="tl-item"><span class="dot"></span>
+            <div class="when">12 月 — 1 月</div>
+            <h4>分析與撰述期</h4>
+            <p>結束數據收集，進行深度統計分析與圖表繪製，撰寫結論與完整作品說明書，設計展板與摘要，準備報名地方初賽。</p>
+          </div>
+          <div class="tl-item"><span class="dot"></span>
+            <div class="when">2 月 — 4 月</div>
+            <h4>地方初賽與決賽</h4>
+            <p>各縣市科展啟動。以臺北市與桃園市為例，通常 2 月中下旬線上報名，3 月線上作品說明書初審（書面審），4 月中旬辦理現場決賽與安全審查。</p>
+          </div>
+          <div class="tl-item"><span class="dot"></span>
+            <div class="when">5 月之後</div>
+            <h4>全國與國際賽</h4>
+            <p>地方科展特優作品將被推薦參加全國中小學科學展覽會，甚至代表國家參與國際科學工程大獎賽（ISEF）等國際賽事。</p>
+          </div>
+        </div>
+
+        <div class="callout warn">
+          <div class="t">⏳ 為「失敗與重作」預留緩衝</div>
+          <p>這套時程表顯示，科展<strong>絕非可以靠「考前衝刺」完成</strong>的任務。特別是 10–12 月的實證期，學生往往會遭遇實驗失敗、數據不如預期等挫折。時程管理的精確度，直接決定了後續數據分析與報告撰寫的品質——務必為「失敗與重作」預留充足的時間緩衝。</p>
+        </div>
+
+        <details class="fold">
+          <summary><span class="ico">師</span>教師講解：用「倒推法」排你自己的甘特圖<span class="tag teach">教學</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <p>把上面的通用時程換算成<strong>自己這屆的真實日期</strong>：先在月曆上釘死兩個「不可移動」的截止日──地方科展<b>書面初審日</b>與<b>現場決賽日</b>，再從決賽日往前倒推：</p>
+            <ol class="clean">
+              <li>決賽前 1 週：展板完成、口頭報告演練至少 3 次。</li>
+              <li>決賽前 3 週：說明書定稿、送師長與「校長式」嚴審潤稿。</li>
+              <li>初審前：完成全文初稿、字數壓到 7,000 字內、頁數壓到 30 頁內。</li>
+              <li>再往前：數據分析與圖表，最晚必須在初稿前一個月完成。</li>
+            </ol>
+            <p>關鍵心法：<em>實驗一定會出包</em>。把「數據收集結束日」設定在真正死線的前一個月，那一個月就是你的救命緩衝。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 參 選題策略 -->
+    <!-- =============================================================== -->
+    <section id="s3">
+      <div class="sec-head">
+        <div class="idx">參</div>
+        <div><h2>選題策略、命題與工程設計視角</h2>
+          <div class="sub">TOPIC SELECTION · 決定成敗的第一個分水嶺</div></div>
+      </div>
+
+      <div class="card">
+        <p class="lead">研究主題的篩選是決定專案成敗的第一個分水嶺。評審不僅考量學術趣味性，更會嚴格審視主題的<strong>適齡性與可行性</strong>。</p>
+
+        <h3 class="blk">一、主題篩選的七大實務維度</h3>
+        <p>依據實務規範與學術原則，一個合格的科展主題必須通過以下七個維度的檢驗：</p>
+        <ol class="clean">
+          <li><b>學科與教材相關性：</b>國內科展強烈建議研究題目<strong>由課程教材內容選取並延伸</strong>，說明書中必須詳實填寫「作品與教材單元相關性說明」（註明教材單元名稱）。缺乏此連結，可能被視為不符參賽資格。</li>
+          <li><b>學術與社會意義：</b>研究結果應能解決現實生活中的痛點，或對特定基礎領域產生新的認識。</li>
+          <li><b>創新性（原創性）：</b>避免過度重複前人已充分證實的結論，應引入新的變因、不同的實驗環境，或採用跨領域的方法論。</li>
+          <li><b>可研究性與可測量性：</b>這是<em>最重要的科學濾網</em>。問題必須能轉化為「可被檢驗的假設」並量化出客觀數據。若主題僅能產生主觀論述、無法進行變因控制，則不屬於科展範疇。</li>
+          <li><b>研究者內在動機：</b>漫長的研究需要強大熱情支撐，研究者對主題必須具備真實的興趣。</li>
+          <li><b>資源與能力可行性：</b>經費、儀器、文獻權限與時間，必須在中小學生能力所及範圍內。過於前沿、依賴國家級實驗室設備的主題，常引發「代工」疑慮。</li>
+          <li><b>安全性與學術倫理：</b>絕不可觸碰主辦單位明訂的危險化學品、活體動物解剖等禁忌領域。</li>
+        </ol>
+
+        <h3 class="blk">二、科學方法 × 工程設計流程：雙軌並行</h3>
+        <p>除了傳統「科學方法（Scientific Method）」，現代科展亦高度重視「工程設計流程（Engineering Design Process）」。兩者的檢驗終點不同，但學術地位同等重要：</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>取向</th><th>核心流程</th><th>報告中要證明的事</th></tr></thead>
+            <tbody>
+              <tr><td class="row-label">科學方法</td><td>提出問題 → 建立假設 → 變因驗證</td><td>「<strong>假設是否成立</strong>」</td></tr>
+              <tr><td class="row-label">工程設計</td><td>發現痛點 → 定義設計標準 → 建立原型 → 效能優化</td><td>「<strong>是否達成預設的設計標準</strong>」</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p>工程類專案在撰寫報告時，必須<strong>明確陳述是否達成了預設的「設計標準（Design Criteria）」</strong>，這與科學專案檢驗「假設是否成立」具有同等重要的學術地位。</p>
+
+        <h3 class="blk">三、標題命名的學術莊重性與精確度</h3>
+        <p>理想的標題應讓評審一看便能大致掌握<strong>研究主題與變因結構</strong>。然而歷屆作品常見一種不良趨勢：濫用諧音字詞或流行語當作品名稱。從學術審查角度，這被視為<em>缺乏實質意義的文字遊戲</em>，而非真正的科學創意。</p>
+
+        <div class="ba">
+          <div class="box bad">
+            <div class="lbl">✗ 譁眾取寵的標題</div>
+            「『蚵』『葡』知多少？」（探討蚵殼粉與葡萄藤天然染）<br>「十月圍城」（探討矩形等差數列）<br><span style="font-size:13px;color:#9b2531">──諧音、流行語、過多引號，讀者看不出研究主題與變因。</span>
+          </div>
+          <div class="box good">
+            <div class="lbl">✓ 莊重精確的標題</div>
+            「蚵殼粉添加比例對棉布天然染色牢度之影響」<br>「矩形排列下等差數列項數與面積關係之探討」<br><span style="font-size:13px;color:#1c7d70">──直接呈現操縱變因與應變變因，一眼掌握。</span>
+          </div>
+        </div>
+        <p>標題亦應<strong>避免過度冗長</strong>，並減少濫用不必要的引號「」，以維持學術報告的莊重與客觀。科學研究旨在求真，真正的創意應表現於研究設計與突破，而非標題的花俏。</p>
+
+        <details class="fold">
+          <summary><span class="ico">範</span>範例：用「變因公式」一鍵生成好標題<span class="tag eg">範例</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <p>好標題往往可套入一條公式：</p>
+            <div class="cite-eg">【操縱變因】對【研究對象】之【應變變因】的影響</div>
+            <div class="pillrow">
+              <span class="pill">不同光照波長 → 綠藻生長速率</span>
+              <span class="pill">咖啡渣添加量 → 堆肥分解效率</span>
+              <span class="pill">翼面弧度 → 紙飛機滯空時間</span>
+            </div>
+            <p>若是工程類，把「影響」換成「之最佳化設計」：例如<em>「以回收寶特瓶製作低成本水質過濾裝置之設計與效能最佳化」</em>。一條公式，就能讓標題同時具備精確度與學術莊重。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 肆 研究日誌 -->
+    <!-- =============================================================== -->
+    <section id="s4">
+      <div class="sec-head">
+        <div class="idx">肆</div>
+        <div><h2>探究歷程的法理載體：研究日誌</h2>
+          <div class="sub">RESEARCH LOG · 決審現場最重要的查核憑證</div></div>
+      </div>
+
+      <div class="card">
+        <p>在科展評核體系中，<strong>「研究日誌」（實驗觀察原始紀錄本）</strong>具有特殊且無可取代的地位。它既不屬於說明書正文，也不在上傳審查的電子檔之列，<em>卻是決審現場評審委員查核的最重要憑證</em>。</p>
+
+        <h3 class="blk">一、物理結構的不可篡改性</h3>
+        <div class="callout danger">
+          <div class="t">🔒 防偽規範（剛性限制）</div>
+          <p>研究日誌必須是使用<strong>「騎馬釘」或「線膠裝訂成冊」</strong>的筆記本。<strong>絕對禁止</strong>使用活頁紙、線圈本或任何可輕易抽換內頁的紀錄媒介。內頁必須具備<strong>連續編排的頁碼</strong>，整個記錄過程中<strong>絕不可撕毀或裁切任何一頁</strong>。</p>
+        </div>
+        <p>這種物理上的剛性限制，背後的法理邏輯在於確保研究數據的<em>「時間序列不可逆性」</em>。在科學實驗中，失敗的數據、錯誤的假設或意外的誤差，都是研究歷程的真實資產。保留這些不完美的痕跡，不僅證明了學生的真實參與，更體現科學家誠實面對數據的最高道德標準。</p>
+
+        <h3 class="blk">二、紀錄內容的歷時性與詳實性</h3>
+        <p>研究日誌必須採用<strong>手寫</strong>方式，依實驗操作的時間順序<strong>逐日詳實記載</strong>。紀錄範疇不僅限於實驗桌上的操作，舉凡與指導老師的討論、與專家的諮詢互動、文獻閱讀的心得，均應一一載明。核心的實驗紀錄必須包含：</p>
+        <div class="pillrow">
+          <span class="pill">實驗設計草圖</span><span class="pill">操作步驟</span><span class="pill">觀測原始數據</span>
+          <span class="pill">數學計算方法</span><span class="pill">遭遇的困難阻礙</span><span class="pill">解決困難的方法</span>
+        </div>
+        <p>這些充滿塗改痕跡、汗水與污漬的原始紀錄，構成了科學研究的<em>「黑盒子」</em>。在評審流程中，研究日誌「<strong>應攜往評審會場供評審委員現場審閱</strong>」，且「請勿將研究日誌送交承辦學校」。</p>
+
+        <div class="callout warn">
+          <div class="t">⚠️ 沒有日誌，等於沒有信用</div>
+          <p>一份排版精美、數據毫無瑕疵的說明書，若缺乏一本<strong>充滿真實掙扎與試錯痕跡的研究日誌</strong>作為佐證，將立即面臨學術誠信的質疑。完美無瑕，反而可疑。</p>
+        </div>
+
+        <details class="fold">
+          <summary><span class="ico">師</span>教師講解：每天日誌只要回答這 5 個問句<span class="tag teach">教學</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <p>學生最常問「日誌到底要寫什麼」。給他們一個固定的每日模板，門檻就低了：</p>
+            <ol class="clean">
+              <li><b>日期與目標：</b>今天我想驗證/完成什麼？</li>
+              <li><b>做了什麼：</b>實際操作步驟、用了哪些器材與份量。</li>
+              <li><b>看到什麼：</b>原始數據、現象（連「沒反應」也要記）。</li>
+              <li><b>卡在哪：</b>遇到的困難、出錯的地方、和老師討論了什麼。</li>
+              <li><b>下一步：</b>明天要修正什麼、調整哪個變因。</li>
+            </ol>
+            <p>提醒學生：<em>用筆、不用立可白</em>，寫錯就劃一條線改在旁邊。那條劃掉的線，正是評審眼中「真的是你做的」最有力證據。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 伍 說明書結構與各章寫法 -->
+    <!-- =============================================================== -->
+    <section id="s5">
+      <div class="sec-head">
+        <div class="idx">伍</div>
+        <div><h2>說明書結構與各章節撰寫深度解析</h2>
+          <div class="sub">THE MANUSCRIPT · IMRaD 各章寫法逐章拆解</div></div>
+      </div>
+
+      <div class="card">
+        <p>作品說明書是研究成果的最終文字輸出，不僅要求內容詳實，更要求符合國際通用的學術論文架構。依主辦單位綱要，一份標準說明書應包含以下序列：</p>
+
+        <div class="struct">
+          <div class="s"><div class="n">★</div><div class="body"><span class="ttl">作品名稱</span> <span class="d">精煉呈現主題與變因</span></div></div>
+          <div class="s"><div class="n">—</div><div class="body"><span class="ttl">摘要 Abstract</span> <span class="d">唯一無標題序號的章節，須完全獨立可讀，限 300 字內</span></div></div>
+          <div class="s"><div class="n">—</div><div class="body"><span class="ttl">關鍵詞 Keywords</span> <span class="d">最多 3 個，作為研究的核心索引</span></div></div>
+          <div class="s"><div class="n">壹</div><div class="body"><span class="ttl">前言</span> <span class="d">研究動機與目的、文獻探討</span></div></div>
+          <div class="s"><div class="n">貳</div><div class="body"><span class="ttl">研究工具 / 設備</span> <span class="d">器材與材料</span></div></div>
+          <div class="s"><div class="n">參</div><div class="body"><span class="ttl">研究過程與方法</span> <span class="d">變因設計、實驗步驟、資料分析方法</span></div></div>
+          <div class="s"><div class="n">肆</div><div class="body"><span class="ttl">研究結果</span> <span class="d">純客觀的事實陳述，以圖表為主</span></div></div>
+          <div class="s"><div class="n">伍</div><div class="body"><span class="ttl">討論</span> <span class="d">賦予數據科學意義的主觀推論</span></div></div>
+          <div class="s"><div class="n">陸</div><div class="body"><span class="ttl">結論</span> <span class="d">歸納昇華為宏觀論述 + 研究限制與未來展望</span></div></div>
+          <div class="s"><div class="n">柒</div><div class="body"><span class="ttl">參考文獻</span> <span class="d">APA / MLA 格式，完整註明來源</span></div></div>
+          <div class="s"><div class="n">捌</div><div class="body"><span class="ttl">附錄（選擇性）</span> <span class="d">龐大原始數據、程式碼、額外圖表</span></div></div>
+        </div>
+
+        <div class="callout info">
+          <div class="t">🧩 認識 IMRaD 骨架</div>
+          <p>國際學術論文的通用骨架稱為 <strong>IMRaD</strong>：<b>I</b>ntroduction（前言）→ <b>M</b>ethods（方法）→ <b>R</b>esults（結果）→ <b>a</b>nd <b>D</b>iscussion（討論）。它對應一個沙漏形狀的敘事：<em>前言由廣到窄（從大背景縮到你的問題）→ 方法與結果聚焦在最窄處 → 討論與結論由窄到廣（從你的數據放大到普遍意義）</em>。科展綱要正是 IMRaD 的在地化版本。</p>
+        </div>
+
+        <!-- 摘要 -->
+        <h3 class="blk">（一）摘要與關鍵詞：微觀的研究全景</h3>
+        <p>在整份說明書中，唯獨「摘要」<strong>沒有標題序號</strong>，這象徵摘要必須具備完全的<em>獨立性</em>——它不能依附正文脈絡，必須是一篇能獨立閱讀、自成一體的小短文。字數規定極嚴，通常限制在 <strong>300 字以內（含標點）</strong>。在這極度壓縮的篇幅中，研究者必須精確交代五個核心要素：</p>
+        <ol class="clean">
+          <li>研究目的</li><li>方法與步驟</li><li>核心工具</li><li>關鍵結果</li><li>最終結論（或工程專案是否達成設計標準）</li>
+        </ol>
+        <p>摘要就像產品的 DM（傳單）：評審透過這短短 300 字建立第一印象，唯有摘要邏輯通透，才能吸引讀者深入數十頁的正文。關鍵詞（最多 3 個）則是研究的核心索引，應<strong>避免「研究」「分析」等太一般性的字詞</strong>，精煉出能與研究領域強烈連結的核心概念，以便日後被精準檢索。</p>
+
+        <div class="callout tip">
+          <div class="t">📐 篇幅哲學的國際差異</div>
+          <p>某些美國科展偏好<strong>極度精簡的 5 頁報告</strong>，考驗學生提煉核心資訊的能力；臺灣全國科展則給予<strong>最高 30 頁</strong>的空間，強調論述的完整性。摘要的「壓縮能力」，正是這種提煉訓練的縮影。</p>
+        </div>
+
+        <details class="fold">
+          <summary><span class="ico">範</span>範例：300 字摘要的「五句骨架」<span class="tag eg">範例</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <p>把五要素各寫成一句話，就是一份合格摘要的骨架：</p>
+            <div class="cite-eg">
+            （目的）本研究旨在探討咖啡渣添加比例對廚餘堆肥分解效率的影響。<br>
+            （方法）設置 0%、10%、20%、30% 四組添加比例，各重複三次，每日量測溫度、pH 值與重量變化，共觀測 21 天。<br>
+            （工具）使用電子秤、土壤溫度計與 pH 試紙進行量測。<br>
+            （結果）20% 添加組的重量減損率最高（達 48%），且堆體溫度上升最快。<br>
+            （結論）適量（約 20%）咖啡渣可顯著提升堆肥分解效率，過量則因酸化抑制微生物活性。
+            </div>
+            <p>關鍵詞示例：<span class="kbd">咖啡渣</span> <span class="kbd">堆肥分解</span> <span class="kbd">碳氮比</span>──而非「環保、研究、實驗」這類空泛詞。</p>
+          </div>
+        </details>
+
+        <details class="fold">
+          <summary><span class="ico">錯</span>常見錯誤：摘要寫成了「目錄」<span class="tag err">常見錯誤</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <div class="ba">
+              <div class="box bad"><div class="lbl">✗ 錯誤寫法</div>「本研究分為前言、方法、結果與討論四部分。首先介紹研究動機，接著說明實驗方法，最後提出結論……」<br><span style="font-size:13px;color:#9b2531">──只說「我會講什麼」，沒說「我發現了什麼」。</span></div>
+              <div class="box good"><div class="lbl">✓ 正確寫法</div>直接給出實際的目的、方法、<strong>具體數據結果</strong>與結論。摘要要讓人不讀正文也知道你做了什麼、發現了什麼。</div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 前言 -->
+        <h3 class="blk">（二）前言與文獻探討：知識傳承與問題定位</h3>
+        <p>前言（通常編排為「壹、前言」）是正文的起點，功能如同主持人的開場白，旨在引導讀者進入研究情境。前言篇幅不宜過長，核心任務是精準闡述<strong>「研究動機」與「研究目的」</strong>；研究目的建議採<strong>條列式</strong>陳述，使評審能快速掌握欲解答的問題焦點。</p>
+        <p>科學發展是站在巨人的肩膀上，因此<strong>文獻回顧（Literature Review）</strong>具有承先啟後的關鍵地位。文獻來源應具備學術權威性，包括各級學位論文、期刊、研討會論文集或官方文件，並需區分第一手與第二手資料。撰寫優質文獻探討需經歷六個系統性步驟：</p>
+        <ol class="clean">
+          <li>選擇主題</li>
+          <li>廣泛蒐集學術資訊</li>
+          <li>分析主要文獻的延伸網絡</li>
+          <li>總結每篇文章的核心資訊</li>
+          <li>將文獻概念與自身研究進行關聯</li>
+          <li>辨識不同文獻間的相互關係，以建立自身論點</li>
+        </ol>
+        <div class="callout info">
+          <div class="t">❓ 文獻探討必須回答的三個提問</div>
+          <p>① 前人的研究欲解決的問題為何？　② 作者是如何進行研究的？　③ 最後得出的結論為何？<br>透過分析前人研究的<strong>不足或侷限</strong>，研究者便能順理成章引出本研究的<em>假設</em>──這正是科學推論的邏輯原點。</p>
+        </div>
+
+        <details class="fold">
+          <summary><span class="ico">錯</span>常見錯誤：文獻探討寫成「百科全書抄寫」<span class="tag err">常見錯誤</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <p>最常見的失分，是把文獻探討寫成<em>名詞解釋的堆疊</em>──一段抄維基、一段抄課本，彼此之間沒有對話，最後也沒接到自己的研究。</p>
+            <div class="ba">
+              <div class="box bad"><div class="lbl">✗ 抄寫式</div>「光合作用是植物利用光能將二氧化碳與水轉化為葡萄糖的過程……葉綠素分為 a 與 b 兩種……」<br><span style="font-size:13px;color:#9b2531">──正確但無用，看不出和你的題目有何關係。</span></div>
+              <div class="box good"><div class="lbl">✓ 論證式</div>「林○○（2021）發現紅光最利於萵苣生長，但<strong>未探討不同生長階段是否有差異</strong>；本研究即針對此缺口，分苗期與成熟期分別施以不同波長光照。」<br><span style="font-size:13px;color:#1c7d70">──引述 → 指出缺口 → 帶出自己的研究。</span></div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 研究方法 -->
+        <h3 class="blk">（三）研究工具、過程與方法：建構實證邏輯的基石</h3>
+        <p>研究方法章節是評估科學訓練是否紮實的核心區域，必須鉅細靡遺地交代主題抽樣策略、研究設計、器材設備、執行流程以及資料分析方法。科學實驗的核心在於<strong>「變因（Variables）」的嚴密管理</strong>。一個完善的實驗設計，必須能清晰界定並操作以下三類變因：</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>變因類型</th><th>英文</th><th>定義</th></tr></thead>
+            <tbody>
+              <tr><td class="row-label">操縱變因</td><td>Independent Variable</td><td>研究者主動且系統性改變的<strong>單一</strong>條件。</td></tr>
+              <tr><td class="row-label">控制變因</td><td>Controlled Variables</td><td>為確保觀測結果純粹性，必須<strong>嚴格保持恆定不變</strong>的所有其他外部條件。任何未被妥善控制的干擾變因，都會導致研究結果被宣告無效。</td></tr>
+              <tr><td class="row-label">應變變因</td><td>Dependent Variable</td><td>隨操縱變因改變而產生的<strong>可測量結果</strong>。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout danger">
+          <div class="t">🧪 兩條不可妥協的科學鐵律</div>
+          <p>研究者必須遵循「自己提問、自己解答」的邏輯閉環：每一個假設都必須對應一組專屬的實驗步驟。此外──<br>① 任何量化實驗都必須進行<strong>至少三次的重複測試（Replicates）</strong>，以確保統計意義與可信度；<br>② <strong>絕對不能省略「對照組（Control Group）」</strong>。缺乏基準線的數據比較，在科學上是毫無意義的。</p>
+        </div>
+
+        <details class="fold">
+          <summary><span class="ico">範</span>範例：把一句假設拆成「可操作」的變因表<span class="tag eg">範例</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <p>假設：<em>「咖啡渣添加比例越高，堆肥分解越快。」</em>動筆寫方法前，先填好這張表：</p>
+            <div class="table-wrap"><table>
+              <thead><tr><th>項目</th><th>本研究設定</th></tr></thead>
+              <tbody>
+                <tr><td class="row-label">操縱變因</td><td>咖啡渣添加比例（0%、10%、20%、30%）</td></tr>
+                <tr><td class="row-label">應變變因</td><td>21 天後堆體重量減損率（%）</td></tr>
+                <tr><td class="row-label">控制變因</td><td>廚餘種類與總量、容器、環境溫濕度、翻堆頻率、含水量</td></tr>
+                <tr><td class="row-label">對照組</td><td>0% 添加組</td></tr>
+                <tr><td class="row-label">重複次數</td><td>每組 3 重複，共 12 組</td></tr>
+              </tbody>
+            </table></div>
+            <p>能填滿這張表，方法章節就已完成一半；評審也能一眼看出你的設計是否嚴謹。</p>
+          </div>
+        </details>
+
+        <!-- 結果與討論 -->
+        <h3 class="blk">（四）研究結果與討論：事實陳述與邏輯演繹的界線</h3>
+        <p>在專業期刊中，「結果」與「討論」有時合併敘述；但科展綱要通常<strong>強制要求拆分</strong>為「肆、研究結果」與「伍、討論」兩個獨立章節。這項硬性規定具有深刻的科學教育意義──它強迫學生將<em>「客觀測量到的事實」與「主觀的推論詮釋」嚴格剝離</em>。</p>
+
+        <h4 class="blk">研究結果：讓數據自我發聲</h4>
+        <p>研究結果必須是純粹的客觀闡述，此階段<strong>不應加入任何個人觀點</strong>，而應善用圖表讓數據說話。圖與表的規範務必區分清楚：</p>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>類型</th><th>功能</th><th>標題位置</th><th>編號</th></tr></thead>
+            <tbody>
+              <tr><td class="row-label">表 Table</td><td>有條理地摘述龐雜的<strong>準確數據</strong>。文字為主的報告應以表為主。</td><td>置於表格<strong>上方</strong></td><td>阿拉伯數字（表 1）</td></tr>
+              <tr><td class="row-label">圖 Figure</td><td>散佈圖、直方圖或照片，展現數據的<strong>樣貌與趨勢</strong>。</td><td>置於圖<strong>下方</strong></td><td>阿拉伯數字（圖 1）</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout tip">
+          <div class="t">📊 圖表的兩個細節</div>
+          <p>① 圖表位置應<strong>緊扣內文敘述段落</strong>，降低評審前後翻閱的認知負荷。② 實驗數據的<strong>有效位數必須高度一致</strong>，以展現測量的精確度（例如不要一下子寫 3.2、一下子寫 3.21478）。</p>
+        </div>
+
+        <h4 class="blk">討論：科學心智的高階運作</h4>
+        <p>討論（Discussion）是針對冰冷數據<strong>賦予科學意義</strong>的環節，重點包含：</p>
+        <ol class="clean">
+          <li><b>深入解釋</b>發現的數據現象。</li>
+          <li><b>勇敢面對預期落差：</b>將觀測結果與研究目的／預期假設比對。若結果與預期出現出入，必須<strong>誠實以對並透過文獻尋求合理解釋</strong>，絕對不能蓄意隱藏不利數據──隱匿數據涉及嚴重的學術倫理問題。</li>
+          <li><b>比較性對話：</b>將自身結果與文獻探討中同類型研究比對，討論為何得出相同或相異的結果。</li>
+        </ol>
+
+        <details class="fold">
+          <summary><span class="ico">錯</span>常見錯誤：把「討論」又寫了一次「結果」<span class="tag err">常見錯誤</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <p>結果與討論最容易混淆。判準很簡單：<em>結果是「相機」，討論是「大腦」</em>。</p>
+            <div class="ba">
+              <div class="box bad"><div class="lbl">✗ 討論寫成結果複述</div>「由圖 3 可知，20% 組重量減損率為 48%，10% 組為 35%，0% 組為 22%。」<br><span style="font-size:13px;color:#9b2531">──這是「結果」，只是把數字唸一遍。</span></div>
+              <div class="box good"><div class="lbl">✓ 真正的討論</div>「20% 組分解最快，<strong>推測因咖啡渣補足了廚餘偏高的碳氮比</strong>；30% 組反而下降，<strong>可能因酸化抑制微生物</strong>，此現象與王○○（2020）的觀察一致。」<br><span style="font-size:13px;color:#1c7d70">──解釋「為什麼」，並與文獻對話。</span></div>
+            </div>
+          </div>
+        </details>
+
+        <!-- 結論 -->
+        <h3 class="blk">（五）結論與未來展望：理論的昇華</h3>
+        <p>結論（Conclusion）<strong>絕非研究結果的複製貼上</strong>，而是將具體實驗結果歸納後，以更具一般性、宏觀的學術語言所表達的終極論述。</p>
+        <div class="ba">
+          <div class="box bad"><div class="lbl">微觀事實（屬於結果）</div>「A 組在 5 項力量檢測中皆優於 B 組，且達.05 顯著水準。」</div>
+          <div class="box good"><div class="lbl">昇華後的結論</div>「A 組的整體力量在統計學上<strong>顯著大於</strong> B 組。」</div>
+        </div>
+        <p>一個負責任的結論，還必須包含對研究邊界的自省：坦誠說明本次研究在推論或應用上的<strong>限制（Limitations）</strong>，並據此提出對<strong>未來後續研究（Ideas for future research）</strong>的具體構思。這展現了研究者具備批判性反思的學術素養。</p>
+
+        <!-- 附錄 -->
+        <h3 class="blk">（六）附錄與目錄機制</h3>
+        <p>附錄（Appendix）屬選擇性章節，通常放在參考文獻之後。當實驗產生<strong>極度龐大但具佐證價值</strong>的原始數據矩陣、程式碼或額外圖表時，若放入正文會嚴重干擾閱讀流暢度，便可移至附錄。</p>
+        <div class="callout info">
+          <div class="t">📑 「目次」還是「目錄」？</div>
+          <p>科展說明書是<strong>單一著作</strong>的邏輯脈絡集結，因此引導頁應使用<strong>「目次（Table of Contents）」</strong>；而「目錄（Catalog）」多用於商品清單或多個獨立著作的彙編。報告首頁的引導頁，請命名為<em>目次</em>。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 陸 寫作規範與倫理 -->
+    <!-- =============================================================== -->
+    <section id="s6">
+      <div class="sec-head">
+        <div class="idx">陸</div>
+        <div><h2>學術寫作規範、排版美學與倫理界線</h2>
+          <div class="sub">STYLE & ETHICS · 不可逾越的紅線</div></div>
+      </div>
+
+      <div class="card">
+        <p>科展說明書必須摒棄口語化與情緒性用語，改以冷靜、精準的學術語言（<strong>第三人稱、正式學術語體</strong>）敘述，專有名詞統一使用標準學名，避免歧義。排版格式與引用倫理更是不可逾越的紅線。</p>
+
+        <h3 class="blk">一、剛性的排版與字數限制</h3>
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>項目</th><th>規範</th></tr></thead>
+            <tbody>
+              <tr><td class="row-label">紙張與版面</td><td>一律 A4，由左至右橫式打字，段落<strong>1.5 倍行距</strong>。封面不標頁碼，正文自摘要起由第 1 頁開始編排。</td></tr>
+              <tr><td class="row-label">篇幅限制</td><td>依最新全國科展規範，總頁數以 <strong>30 頁為絕對上限</strong>（不含封面、封底及目次）。字數實施 <strong>7,000 字上限</strong>（涵蓋所有文字與標點，但<strong>不含圖表內容及其說明文字</strong>）。</td></tr>
+              <tr><td class="row-label">標題層次</td><td>章節標題必須嚴格依「<strong>壹、一、（一）、1、（1）</strong>」的次序降冪編排。不符規範會破壞閱讀體驗，並被視為對格式的不尊重。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout tip">
+          <div class="t">💡 7,000 字上限的隱藏訊息</div>
+          <p>字數不含圖表說明，等於主辦單位在鼓勵你<strong>用資訊密度更高的圖表呈現複雜數據</strong>，把寶貴的文字額度留給論證與推理。會用圖表的人，等於多了好幾千字的空間。</p>
+        </div>
+
+        <h3 class="blk">二、引用倫理與文獻格式</h3>
+        <p>任何學術論文都不可能無中生有，參考前人著作必須給予嚴謹的學術歸屬（Attribution）。引用分為兩種層次，並需符合領域公認格式（如 APA 或 MLA）：</p>
+
+        <h4 class="blk">直接引用 Direct Citation（屬重製行為）</h4>
+        <p>原封不動抄錄他人文字時，必須加上引號，並在內文明確標示出處與精確頁碼：</p>
+        <div class="cite-eg">格式：（作者姓名, 出版年代, 頁碼）<br>例：研究指出「適量咖啡渣可提升碳氮比」（王大明, 2020, 頁 45）。</div>
+        <p>依 APA 規範，當引用的外文文字<strong>超過 40 個字</strong>時，必須將其獨立成段、取消引號、左右縮排並以特殊字體處理，藉此與作者自身行文產生視覺隔離。</p>
+
+        <h4 class="blk">間接引用 Indirect Citation（即改寫 Paraphrasing）</h4>
+        <p>以研究者自身語言重新詮釋他人思想，非直接抄錄。此情況雖無需引號與頁碼，但仍必須明示出處：</p>
+        <div class="cite-eg">格式：（作者姓名, 出版年代）<br>例：先前研究發現咖啡渣有助於調節堆肥碳氮比（王大明, 2020）。</div>
+        <div class="callout warn">
+          <div class="t">⚠️ 模糊地帶最危險</div>
+          <p>實務上許多參賽者未能將直接與間接引用分清，這種模糊地帶往往引發<strong>剽竊的疑慮</strong>。原則：照抄就加引號＋頁碼；改寫就標作者＋年代。兩者都不能省略出處。</p>
+        </div>
+
+        <h3 class="blk">三、匿名雙盲審查與自我剽竊防範</h3>
+        <div class="callout danger">
+          <div class="t">🕶️ 絕對禁止出現的身分資訊</div>
+          <p>自說明書第一頁起，內容<strong>絕對禁止</strong>出現任何可辨識身分的資訊：校名、作者姓名、校長姓名、指導教師及諮詢專家學者的姓名與任職單位。此禁令延伸至視覺影像──所有照片與實驗紀錄影像中<strong>絕不得出現任何人的臉部</strong>；若需展示操作過程，必須以背影拍攝或徹底馬賽克遮蔽。引用的所有照片與圖片，皆應詳實註明出處來源。</p>
+        </div>
+        <p>針對持續多年投入同一領域的研究者，大會規定：「<strong>已參加其他競賽並獲獎之作品，不得再參加全國中小學科學展覽會</strong>」。若本次作品是建立在先前已發表的科展研究之上（延續性專案），研究者承擔<strong>舉證責任</strong>，必須在說明書中專闢段落，詳實界定「本次作品的創新部分」以及「自己本次參與研究的具體比重」。</p>
+        <div class="callout warn">
+          <div class="t">♻️ 自我剽竊也是剽竊</div>
+          <p>隱瞞過去獲獎紀錄、或將舊數據重新包裝，等同於學術上的<strong>自我剽竊（Self-plagiarism）</strong>，將面臨撤銷資格的嚴重處分。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 柒 展示與安全 -->
+    <!-- =============================================================== -->
+    <section id="s7">
+      <div class="sec-head">
+        <div class="idx">柒</div>
+        <div><h2>決審現場展示規範與安全禁制法規</h2>
+          <div class="sub">SAFETY RULES · 不容挑戰的禁止展出清單</div></div>
+      </div>
+
+      <div class="card">
+        <p>通過書面審查後，入選決審的作品必須將抽象的文字轉化為實體的<strong>「作品說明板」</strong>，於指定時間至大會現場佈展並接受安全審查。臺北市等地方科展通常於 4 月中旬舉辦，作者需攜帶海報至現場黏貼，並將彌封的參展資料表浮貼於指定位置。<strong>現場不提供任何文具與黏貼工具</strong>，考驗團隊的行前整備能力。</p>
+
+        <p>科展不僅是科學成果的競技場，更是科學倫理與環境安全的教育場域。依《中華民國中小學科學展覽會參展安全規則》，主辦單位訂定了不容挑戰的「禁止展出事項」清單：</p>
+
+        <div class="table-wrap">
+          <table>
+            <thead><tr><th>禁制類別</th><th>現場嚴格禁止展示之實體與內容</th><th>法理與倫理考量</th></tr></thead>
+            <tbody>
+              <tr><td class="row-label">生命科學<br>與動物福利</td><td>① 所有活體生物（動植物、胚胎、幼雛、蝌蚪）<br>② 動物標本或任何方式保存的脊椎／非脊椎動物遺體<br>③ 任何無生命的植物材料<br>④ 人類組織（牙齒、毛髮、指甲、細胞、血液、腦脊髓液等）<br>⑤ 含有殘害動物之虞的圖片或照片</td><td>防範傳染病媒介、維護會場衛生，落實生命教育，杜絕任何不必要的活體解剖或動物虐待展示。</td></tr>
+              <tr><td class="row-label">生化危害<br>與物質管制</td><td>① 所有微生物的試驗步驟與培養結果<br>② 所有化學品（<strong>即使是純水亦被禁止</strong>）<br>③ 乾冰或會昇華變相的固體<br>④ 食物、濃酸、濃鹼、易燃物</td><td>杜絕病原體氣溶膠擴散風險，確保展場絕對免於化學意外與火災隱患。</td></tr>
+              <tr><td class="row-label">物理性危險<br>與心理健康</td><td>① 尖銳物品（注射器、針、刀、玻璃吸管）<br>② 易碎之玻璃或玻璃物質<br>③ 土壤、砂、石或廢棄物<br>④ 有影響觀眾心理或生理健康之虞的圖片、幻燈片</td><td>防止割傷、刺穿等物理傷害。新修訂的心理健康條款擴大防護網，避免血腥、驚悚畫面造成觀展群眾心理創傷。</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="callout danger">
+          <div class="t">🖼️ 現場展示的核心原則</div>
+          <p>基於上述涵蓋生、化、物各層面的嚴峻禁令，現場展示只有一條鐵則：「<strong>所有的實驗操作與實體成果，必須且只能以繪圖、圖表、照片或影片等視覺化多媒體方式展出</strong>」。若作品未通過佈展首日的安全審查，大會將立即公告未通過名單，參賽者必須在極短的指定時間內完成修改與撤除違規品，否則喪失後續初審與決審資格。</p>
+        </div>
+
+        <details class="fold">
+          <summary><span class="ico">師</span>教師講解：行前打包的「不能帶 / 改用」對照<span class="tag teach">教學</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <div class="ba">
+              <div class="box bad"><div class="lbl">✗ 不能帶到現場</div>實驗用的真實樣本、培養皿、化學藥品、植物盆栽、玻璃器材、土壤砂石。</div>
+              <div class="box good"><div class="lbl">✓ 改用這些替代</div>高解析度照片、流程圖、數據圖表、影片（用筆電播放實驗紀錄）、安全的小型儀器模型或立體架構模型。</div>
+            </div>
+            <p>另外提醒：現場沒有膠帶剪刀，<strong>所有黏貼工具自備</strong>；海報、彌封資料表、研究日誌、筆電與充電線，做成一張行前清單逐項打勾。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 捌 口頭答辯 -->
+    <!-- =============================================================== -->
+    <section id="s8">
+      <div class="sec-head">
+        <div class="idx">捌</div>
+        <div><h2>決審口頭答辯與展板報告策略</h2>
+          <div class="sub">ORAL DEFENSE · 科學研究的最後一哩路</div></div>
+      </div>
+
+      <div class="card">
+        <p>科學研究的最後一哩路，是面對學術同儕與評審委員進行<strong>答辯（Oral Defense）</strong>。這不僅檢驗研究內容的深度，更考驗學生的知識內化程度與臨場反應。海報前的口頭報告時間通常極為緊湊，約 <strong>5 至 10 分鐘</strong>。在這短暫的時間視窗內，評審必須消化龐大資訊，因此簡報策略至關重要。</p>
+
+        <h3 class="blk">三大答辯策略</h3>
+        <ol class="clean">
+          <li><b>破冰與破題：</b>報告應簡潔、清晰與禮貌，<strong>最忌諱照稿宣科或從冗長的前言開始</strong>。報告者應在開場的「前兩句話」內，立刻點出實驗的最核心重點與最主要的突破性結果。這種<em>倒金字塔式敘事</em>，能瞬間抓取評審注意力。</li>
+          <li><b>視覺與輔助工具的極大化：</b>時間短暫，解說應「<strong>以圖為主、表為輔</strong>」，讓聽眾瞬間掌握數據趨勢。雖然現場禁止展出危險實體物，但強烈建議用筆電呈現實驗紀錄影片，或製作安全的小型儀器／立體架構模型輔助說明。實體模型的具象化效果，往往能大幅跨越語言溝通的障礙。</li>
+          <li><b>對答與批判性思考：</b>Q&A 階段回答必須<strong>清楚、簡潔且思考縝密</strong>。評審的提問往往具挑戰性，旨在刺探學生是否真正理解作品背後的基本科學原理，以及是否清楚認知該研究的「侷限性」。</li>
+        </ol>
+
+        <div class="callout warn">
+          <div class="t">👥 團體作品的致命傷</div>
+          <p>對於團體參賽作品，評審會透過<strong>交互詰問</strong>，確保每一位共同作者都對整個專案有深刻理解且具備實質貢獻。任何「僅負責美工」或「對實驗核心一知半解」的成員，都將成為團隊扣分的致命傷。</p>
+        </div>
+
+        <details class="fold">
+          <summary><span class="ico">範</span>範例：5 分鐘報告的黃金時間分配<span class="tag eg">範例</span><span class="chev">▶</span></summary>
+          <div class="fold-body">
+            <div class="table-wrap"><table>
+              <thead><tr><th>時間</th><th>內容</th><th>要點</th></tr></thead>
+              <tbody>
+                <tr><td class="row-label">0:00–0:30</td><td>破題</td><td>一句話講完「我做了什麼、最重要的發現是什麼」</td></tr>
+                <tr><td class="row-label">0:30–1:30</td><td>動機與問題</td><td>為什麼這題重要、前人缺口在哪（精簡！）</td></tr>
+                <tr><td class="row-label">1:30–2:30</td><td>方法</td><td>變因設計、對照組、用一張流程圖帶過</td></tr>
+                <tr><td class="row-label">2:30–4:00</td><td>結果與討論</td><td>主打 1–2 張關鍵圖，講趨勢與意義</td></tr>
+                <tr><td class="row-label">4:00–5:00</td><td>結論與限制</td><td>昇華結論＋誠實說出限制與未來方向</td></tr>
+              </tbody>
+            </table></div>
+            <p>練習時務必<strong>大聲計時演練至少三次</strong>，並請同學扮演評審丟出刁鑽問題。能從容回答「你這研究的限制是什麼？」往往是高分關鍵。</p>
+          </div>
+        </details>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 玖 總結 -->
+    <!-- =============================================================== -->
+    <section id="s9">
+      <div class="sec-head">
+        <div class="idx">玖</div>
+        <div><h2>總結分析與精進策略</h2>
+          <div class="sub">SYNTHESIS · 內化於每一個寫作環節的三大核心精神</div></div>
+      </div>
+
+      <div class="card">
+        <p class="lead">科展作品說明書的撰寫，實為一項揉合了「科學邏輯演繹」、「學術倫理堅守」與「標準化溝通傳達」的極端挑戰。要產出一份具備奪金潛力的頂尖報告，研究者應將以下三大核心精神內化於每一個寫作環節：</p>
+
+        <h3 class="blk">第一：擁抱真實的科學探索歷程</h3>
+        <p>50% 的創意配分是整個評分體系的重中之重。研究者應<strong>捨棄華而不實的文字遊戲標題</strong>，將精力投注於變因設計的突破與現實問題的解決。同時必須深刻體認「研究日誌」的神聖性──騎馬釘裝訂、不撕頁、逐日手寫的原始紀錄，不僅是防偽手段，更是<em>見證科學家從失敗中淬鍊真理的勳章</em>。</p>
+
+        <h3 class="blk">第二：嚴守事實與詮釋的楚河漢界</h3>
+        <p>報告的價值建立在數據的客觀性之上。論述時必須將「研究結果」中冰冷的實驗圖表，與「討論」中主觀的學術推演<strong>嚴格區分</strong>。對於不如預期的數據，不予隱瞞，反而能在討論章節展現批判性思考的深度；同時確保所有實驗皆具備<strong>對照組與足夠的重複次數</strong>，以捍衛數據的統計信度。</p>
+
+        <h3 class="blk">第三：以最高標準服膺學術社群規範</h3>
+        <p>從 A4 紙張、1.5 倍行距、不超過 30 頁且嚴守 7,000 字極限的物理框架；到嚴謹執行「壹、一、（一）」的標題降冪邏輯；再到精確區分直接引用與間接引用的 APA 格式；最後是貫徹匿名雙盲原則，徹底抹除任何身分及臉部資訊以維護競賽公平。這些看似繁文縟節的規定，實則是<strong>引導中小學生提前適應國際科學社群語境的必經之路</strong>。</p>
+
+        <div class="callout tip">
+          <div class="t">🏅 科學展覽的終極目的</div>
+          <p>不在於產出一份完美的報告，而在於透過撰寫這份報告的磨難，塑造出<strong>具備嚴謹邏輯、誠實品格與創新視野的未來科學家</strong>。唯有在尊重安全法規與學術倫理的堅實基石上，運用紮實的方法論進行實證，並以標準化的學術語言精準溝通，方能成就一件經得起時代考驗的卓越科學作品。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =============================================================== -->
+    <!-- 拾 檢核清單 -->
+    <!-- =============================================================== -->
+    <section id="s10">
+      <div class="sec-head">
+        <div class="idx">✓</div>
+        <div><h2>寫作自我檢核清單</h2>
+          <div class="sub">SELF-CHECK · 邊寫邊勾，掌握完成度（資料存於本機瀏覽器）</div></div>
+      </div>
+
+      <div class="checkwrap">
+        <div class="checkbar">
+          <div class="lbl"><b>完成進度</b><span id="cpct">0 / 0（0%）</span></div>
+          <div class="progress"><i id="cprog"></i></div>
+        </div>
+        <div class="checkgroups" id="checkgroups">
+          <div class="cgroup">
+            <h4>📌 主題與標題</h4>
+            <label class="citem"><input type="checkbox"><span>主題通過七大維度檢驗（教材相關、可測量、安全、能力可及…）</span></label>
+            <label class="citem"><input type="checkbox"><span>已填寫「作品與教材單元相關性說明」</span></label>
+            <label class="citem"><input type="checkbox"><span>標題精確呈現主題與變因，沒有諧音、流行語或多餘引號</span></label>
+            <label class="citem"><input type="checkbox"><span>（工程類）已界定明確的「設計標準」</span></label>
+          </div>
+          <div class="cgroup">
+            <h4>📓 研究日誌</h4>
+            <label class="citem"><input type="checkbox"><span>使用騎馬釘／線膠裝訂、有連續頁碼，全程未撕頁</span></label>
+            <label class="citem"><input type="checkbox"><span>逐日手寫，含草圖、步驟、原始數據、困難與解決方法</span></label>
+            <label class="citem"><input type="checkbox"><span>與師長、專家的討論也有記錄</span></label>
+          </div>
+          <div class="cgroup">
+            <h4>📝 摘要與前言</h4>
+            <label class="citem"><input type="checkbox"><span>摘要 300 字內，含目的／方法／工具／結果／結論五要素，可獨立閱讀</span></label>
+            <label class="citem"><input type="checkbox"><span>關鍵詞 ≤3 個，避免「研究」「分析」等空泛詞</span></label>
+            <label class="citem"><input type="checkbox"><span>研究目的以條列式呈現</span></label>
+            <label class="citem"><input type="checkbox"><span>文獻探討有「引述→指出缺口→帶出本研究」的論證，而非抄寫</span></label>
+          </div>
+          <div class="cgroup">
+            <h4>🧪 方法、結果與討論</h4>
+            <label class="citem"><input type="checkbox"><span>清楚界定操縱／控制／應變變因</span></label>
+            <label class="citem"><input type="checkbox"><span>設有對照組，每組至少重複三次</span></label>
+            <label class="citem"><input type="checkbox"><span>結果章節純客觀，表標題在上、圖標題在下，有效位數一致</span></label>
+            <label class="citem"><input type="checkbox"><span>討論章節有「解釋為什麼＋與文獻對話」，未隱藏不利數據</span></label>
+            <label class="citem"><input type="checkbox"><span>結論已昇華為宏觀論述，並誠實寫出研究限制與未來展望</span></label>
+          </div>
+          <div class="cgroup">
+            <h4>⚖️ 格式與倫理</h4>
+            <label class="citem"><input type="checkbox"><span>A4、1.5 倍行距、≤30 頁、≤7,000 字（不含圖表說明）</span></label>
+            <label class="citem"><input type="checkbox"><span>標題依「壹、一、（一）、1、（1）」降冪編排</span></label>
+            <label class="citem"><input type="checkbox"><span>直接／間接引用分清楚，符合 APA／MLA，文獻來源完整</span></label>
+            <label class="citem"><input type="checkbox"><span>全文無校名、姓名等身分資訊，照片無人臉</span></label>
+            <label class="citem"><input type="checkbox"><span>（延續性作品）已說明本次創新部分與個人貢獻比重</span></label>
+            <label class="citem"><input type="checkbox"><span>引用首頁命名為「目次」而非「目錄」</span></label>
+          </div>
+          <div class="cgroup">
+            <h4>🎤 決審展示與答辯</h4>
+            <label class="citem"><input type="checkbox"><span>實體成果改以圖、表、照片、影片或安全模型呈現</span></label>
+            <label class="citem"><input type="checkbox"><span>自備黏貼工具，行前清單逐項打勾</span></label>
+            <label class="citem"><input type="checkbox"><span>口頭報告前兩句即破題，演練計時 ≥3 次</span></label>
+            <label class="citem"><input type="checkbox"><span>每位組員都能回答研究核心原理與限制</span></label>
+          </div>
+          <button class="reset" id="resetBtn">↺ 清除所有勾選</button>
+        </div>
+      </div>
+
+      <p class="endmark">— 本教學站結合報告原文與科學寫作教學觀點整理，祝每位研究者都能在求真的歷程中，淬鍊出經得起考驗的卓越作品。 —</p>
+    </section>
+  </main>
+</div>
+
+<button class="backtop" id="backtop" aria-label="回到頂端">↑</button>
+
+<script>
+// ---------- Scrollspy ----------
+const links=[...document.querySelectorAll('.toc a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+const spy=()=>{
+  let cur=secs[0];
+  const y=window.scrollY+120;
+  for(const s of secs){ if(s.offsetTop<=y) cur=s; }
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+cur.id));
+};
+window.addEventListener('scroll',spy,{passive:true});
+window.addEventListener('load',spy);
+
+// ---------- Back to top ----------
+const bt=document.getElementById('backtop');
+window.addEventListener('scroll',()=>{bt.classList.toggle('show',window.scrollY>600)},{passive:true});
+bt.onclick=()=>window.scrollTo({top:0,behavior:'smooth'});
+
+// ---------- Checklist + progress + persistence ----------
+const KEY='sciFairChecklist_v1';
+const boxes=[...document.querySelectorAll('#checkgroups input[type=checkbox]')];
+const prog=document.getElementById('cprog');
+const pct=document.getElementById('cpct');
+function render(){
+  const done=boxes.filter(b=>b.checked).length, total=boxes.length;
+  const p=total?Math.round(done/total*100):0;
+  prog.style.width=p+'%';
+  pct.textContent=done+' / '+total+'（'+p+'%）';
+}
+function save(){ try{localStorage.setItem(KEY,JSON.stringify(boxes.map(b=>b.checked)))}catch(e){} }
+function load(){ try{const s=JSON.parse(localStorage.getItem(KEY)); if(Array.isArray(s)) boxes.forEach((b,i)=>b.checked=!!s[i]);}catch(e){} }
+boxes.forEach(b=>b.addEventListener('change',()=>{render();save()}));
+document.getElementById('resetBtn').onclick=()=>{boxes.forEach(b=>b.checked=false);render();save()};
+load();render();
+</script>
+</body>
+</html>

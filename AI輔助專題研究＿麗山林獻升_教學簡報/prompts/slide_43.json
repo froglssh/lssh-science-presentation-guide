@@ -1,0 +1,57 @@
+{
+  "slide": 43,
+  "title": "Claude：強大的程式撰寫與數據處理",
+  "prompt": "# Codex PPT Slide Image Prompt\n\n## Canvas\n{\n  \"type\": \"16:9 full-slide PowerPoint image\",\n  \"language\": \"Chinese\",\n  \"slide_number\": 43,\n  \"render_slide_number\": false\n}\n\n## Deck Goal\nOptimize and rewrite the presentation to make it visual, premium, and easy to read, preserving original screenshots.\n\n## Required Background\n{\n  \"deck_context\": {\n    \"source_summary\": \"Guide on using AI tools (LLMs, Search, NotebookLM, Data Analysis, Slide Design) to assist high school students in science projects and research.\",\n    \"core_claim\": \"AI is an Intelligence Amplifier (IA) that enhances human capabilities in scientific inquiry.\",\n    \"canonical_terms\": [\n      \"IA (Intelligence Amplification)\",\n      \"LLM (Large Language Model)\",\n      \"NotebookLM\",\n      \"Data Analysis\",\n      \"Matplotlib\",\n      \"Claude Artifacts\"\n    ]\n  }\n}\n\n## Global Style\n{\n  \"name\": \"清爽科技專業風\",\n  \"visual_direction\": \"clean tech-blue modern educational presentation\",\n  \"color_palette\": \"light-gray gradient background (#F8FAFC to #EFF6FF), tech-blue headers (#0B1B3D), dark gray body text, bright teal accents\",\n  \"typography\": \"bold sans-serif traditional Chinese titles, readable dark gray body text\"\n}\n\n## Style Reference Images To Inspect\n\n- Style Reference 1: /Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究＿麗山林獻升_教學簡報/origin_image/slide_11.png — approved sample slide style reference; match style only; do not copy layout or content\n\nInspect these images before generation to understand the approved deck style. Do not pass them to the image backend as input images unless this slide explicitly lists them under Input Images.\n\n## Input Images\n\n- Image 1: /Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究＿麗山林獻升_教學簡報/assets/figures/page_38_img_01.png — Claude Code; preserve data, axes, labels, legends, colors, and values\n\n\n## Slide\n{\n  \"number\": 43,\n  \"title\": \"Claude：強大的程式撰寫與數據處理\",\n  \"role\": \"data evidence\",\n  \"intent\": null\n}\n\n## Text\n{\n  \"title\": \"Claude：強大的程式撰寫與數據處理\",\n  \"key_points\": [\n    \"特色：代碼生成品質極高，邏輯縝密\",\n    \"專題應用：撰寫複雜的 Python 數據清理與統計分析腳本\",\n    \"適合需要進行大量程式建模的科展作品\",\n    \"Claude code generation; strict input asset; preserve screen\"\n  ],\n  \"speaker_focus\": null\n}\n\n## Style Reference Rule\nUse the approved sample-slide style reference as visual guidance only. Match its palette, typography mood, density, texture, and overall visual identity. Do not copy its exact layout unless this slide's layout explicitly asks for it. For normal new slide generation, use the generate endpoint and express the inspected style through the prompt instead of attaching the sample as an edit input.\n\n## Input Image Handling Rules\nFor any input image marked as a strict input asset, include it visibly and preserve its content. Do not redraw, replace, relabel, or invent a similar figure. Scale and crop only as needed for composition while keeping the important labels, arrows, data, and relationships recognizable.\n\n## Universal Constraints\n- The final image itself must contain the title and key points.\n- Render Chinese text exactly and legibly; avoid garbled characters.\n- Keep the confirmed deck style consistent while varying layout by slide role.\n- No watermark, unrelated logo, or extra slide number.\n",
+  "out": "slide_43.png",
+  "candidate_out": "drafts/slide_43_candidate.png",
+  "input_images": [
+    {
+      "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究＿麗山林獻升_教學簡報/assets/figures/page_38_img_01.png",
+      "role": "Claude Code",
+      "fidelity": "preserve data, axes, labels, legends, colors, and values"
+    }
+  ],
+  "style_reference_images": [
+    {
+      "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究＿麗山林獻升_教學簡報/origin_image/slide_11.png",
+      "role": "approved sample slide style reference",
+      "fidelity": "match style only; do not copy layout or content"
+    }
+  ],
+  "requires_context_images": true,
+  "expected_generation_mode": "edit",
+  "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+  "sample_generation_method": {
+    "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+    "tool_name": "scripts/image_gen.py",
+    "mode": "edit",
+    "prompt_source": "A high-quality 16:9 presentation slide based on Style A: 'Clean Tech Professional'. Layout: Balanced split-screen layout. Left 40% column: Contains the slide title in traditional Chinese '範例解析：ChatGPT 腦力激盪實作' in bold tech-blue (#0B1B3D). Below the title, there are three bullet points in readable dark gray. Right 60% column: The input image is displayed inside a beautiful card with rounded corners, a subtle light-gray border, and a soft, realistic drop shadow. Background: Minimalist light-gray gradient background.",
+    "size": "2048x1152 target",
+    "quality": "medium",
+    "approved_sample_path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究＿麗山林獻升_教學簡報/origin_image/slide_11.png",
+    "input_context_preparation": "inspect style references before generation; pass strict input assets with edit --image only when a slide job lists input_images",
+    "handoff_rule": "Subagents must use this same backend/tool/config; use generate for new slides unless the assigned job has strict input_images or is a repair."
+  },
+  "generation_contract": {
+    "must_use_selected_image_backend": true,
+    "must_match_sample_generation_method": true,
+    "default_mode": "generate",
+    "use_edit_only_when": [
+      "input_images is non-empty",
+      "repairing an existing generated slide"
+    ],
+    "must_inspect_style_reference_images": true,
+    "forbidden_final_image_methods": [
+      "local drawing/rendering scripts",
+      "Pillow-generated slides",
+      "SVG/HTML/CSS/canvas screenshots",
+      "python-pptx/PptxGenJS/native PPT layout screenshots",
+      "manually composited text/image overlays"
+    ],
+    "must_return": [
+      "backend_used",
+      "selected_source",
+      "qa_note"
+    ]
+  }
+}

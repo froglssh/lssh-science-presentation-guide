@@ -1,0 +1,30 @@
+{
+  "status": "slides_recorded",
+  "history": [
+    {
+      "from": "created",
+      "to": "jobs_prepared",
+      "at": "2026-06-27T16:01:20Z",
+      "note": "prepared slide prompt jobs"
+    },
+    {
+      "from": "jobs_prepared",
+      "to": "slides_dispatched",
+      "at": "2026-06-27T16:47:12Z",
+      "note": "all slide jobs dispatched"
+    },
+    {
+      "from": "slides_dispatched",
+      "to": "blocked",
+      "at": "2026-06-27T17:11:31Z",
+      "note": "slide_49: selected image backend (codex-oauth) hit rate limit (HTTP 429: usage limit reached, resets in 77020 seconds)"
+    },
+    {
+      "from": "blocked",
+      "to": "slides_recorded",
+      "at": "2026-06-27T17:12:48Z",
+      "note": "all slide images recorded"
+    }
+  ],
+  "updated_at": "2026-06-27T17:12:48Z"
+}

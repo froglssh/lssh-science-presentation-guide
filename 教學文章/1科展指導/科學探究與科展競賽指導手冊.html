@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科學探究與科展競賽的全方位指導手冊 ｜ 林獻升老師</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&family=Noto+Serif+TC:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ============ 設計系統 / Design tokens ============ */
+:root{
+  --paper:#f6f3ec;          /* 暖紙底 */
+  --paper-2:#fffdf8;        /* 卡片白 */
+  --ink:#1d2630;           /* 主文墨色 */
+  --ink-soft:#465260;      /* 次要文字 */
+  --ink-faint:#7c8794;     /* 註腳 */
+  --line:#e3ddd0;          /* 分隔線 */
+  --line-strong:#cfc7b6;
+  --primary:#0f6b6b;        /* 深青 — 主色 */
+  --primary-2:#0a4f4f;
+  --primary-soft:#e2efed;
+  --accent:#c2541d;         /* 赭橙 — 強調 */
+  --accent-soft:#fbe9dd;
+  --gold:#9a7515;
+  --gold-soft:#f6edd6;
+  --violet:#5b4b8a;
+  --violet-soft:#ece8f6;
+  --blue:#1f5f93;
+  --blue-soft:#e1edf7;
+  --rose:#a83254;
+  --rose-soft:#f8e3ea;
+  --green:#3f7d3a;
+  --green-soft:#e4f0df;
+  --shadow:0 1px 2px rgba(40,34,20,.05),0 8px 26px -12px rgba(40,34,20,.22);
+  --shadow-lg:0 24px 60px -28px rgba(20,40,40,.45);
+  --radius:16px;
+  --maxread:760px;
+  --fs:1.0625rem;          /* 基礎字級，簡報模式會放大 */
+  --lh:1.95;
+  --font-sans:"Noto Sans TC",system-ui,-apple-system,"PingFang TC","Microsoft JhengHei",sans-serif;
+  --font-serif:"Noto Serif TC",Georgia,"Songti TC",serif;
+}
+html[data-theme="dark"]{
+  --paper:#11161b;
+  --paper-2:#19212a;
+  --ink:#e9eef2;
+  --ink-soft:#b3c0cc;
+  --ink-faint:#7d8a96;
+  --line:#28333d;
+  --line-strong:#3a4753;
+  --primary:#3fb6ac;
+  --primary-2:#6fd0c6;
+  --primary-soft:#16312f;
+  --accent:#f08a4b;
+  --accent-soft:#3a2417;
+  --gold:#d9b657;
+  --gold-soft:#332b14;
+  --violet:#a99adf;
+  --violet-soft:#241f38;
+  --blue:#73aee0;
+  --blue-soft:#15263a;
+  --rose:#e2789a;
+  --rose-soft:#341a24;
+  --green:#7fc377;
+  --green-soft:#16291a;
+  --shadow:0 1px 2px rgba(0,0,0,.3),0 10px 30px -14px rgba(0,0,0,.6);
+  --shadow-lg:0 26px 70px -30px rgba(0,0,0,.8);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-sans);
+  background:var(--paper);
+  color:var(--ink);
+  font-size:var(--fs);
+  line-height:var(--lh);
+  -webkit-font-smoothing:antialiased;
+  letter-spacing:.01em;
+  transition:background .4s ease,color .4s ease;
+}
+/* 簡報模式：放大字、加寬閱讀欄、提高行高 */
+body.present{--fs:1.28rem;--lh:2.1;--maxread:900px;}
+body.present .chip-bar,body.present .crumbs{font-size:.95rem}
+
+/* ============ 進度條 ============ */
+#progress{position:fixed;top:0;left:0;height:4px;width:0;z-index:60;
+  background:linear-gradient(90deg,var(--primary),var(--accent));transition:width .15s ease}
+
+/* ============ 版面骨架 ============ */
+.shell{display:grid;grid-template-columns:312px minmax(0,1fr);}
+@media(max-width:1024px){.shell{grid-template-columns:1fr}}
+
+/* ---- 側欄導航 ---- */
+.sidebar{position:sticky;top:0;align-self:start;height:100vh;overflow-y:auto;
+  background:var(--paper-2);border-right:1px solid var(--line);padding:26px 20px 60px;}
+.sidebar::-webkit-scrollbar{width:8px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--line-strong);border-radius:8px}
+.brand{display:flex;gap:12px;align-items:center;margin-bottom:6px}
+.brand .mark{width:42px;height:42px;border-radius:12px;flex:none;
+  background:linear-gradient(135deg,var(--primary),var(--primary-2));
+  display:grid;place-items:center;color:#fff;font-family:var(--font-serif);font-weight:900;font-size:1.4rem;
+  box-shadow:var(--shadow)}
+.brand h1{font-family:var(--font-serif);font-size:1.06rem;line-height:1.4;font-weight:900;letter-spacing:.02em}
+.brand p{font-size:.74rem;color:var(--ink-faint);letter-spacing:.06em;margin-top:2px}
+.nav-search{margin:18px 0 10px;position:relative}
+.nav-search input{width:100%;padding:9px 12px 9px 34px;border-radius:10px;border:1px solid var(--line);
+  background:var(--paper);color:var(--ink);font-family:inherit;font-size:.86rem}
+.nav-search input:focus{outline:2px solid var(--primary-soft);border-color:var(--primary)}
+.nav-search svg{position:absolute;left:10px;top:50%;transform:translateY(-50%);width:15px;height:15px;color:var(--ink-faint)}
+nav.toc{margin-top:8px}
+nav.toc a{display:block;text-decoration:none;color:var(--ink-soft);padding:7px 12px;border-radius:9px;
+  font-size:.87rem;line-height:1.5;border-left:2px solid transparent;transition:.15s}
+nav.toc a .n{font-family:var(--font-serif);color:var(--primary);font-weight:700;font-size:.8rem;margin-right:7px}
+nav.toc a.sub{padding-left:30px;font-size:.8rem;color:var(--ink-faint)}
+nav.toc a:hover{background:var(--primary-soft);color:var(--ink)}
+nav.toc a.active{background:var(--primary-soft);color:var(--primary-2);border-left-color:var(--primary);font-weight:700}
+nav.toc .grp{font-size:.7rem;letter-spacing:.14em;color:var(--ink-faint);text-transform:uppercase;
+  padding:14px 12px 5px;font-weight:700}
+.toc-foot{margin-top:22px;padding:14px 12px;border-top:1px dashed var(--line-strong);font-size:.72rem;color:var(--ink-faint);line-height:1.7}
+
+/* ---- 主內容 ---- */
+main{min-width:0}
+.topbar{position:sticky;top:0;z-index:40;display:flex;align-items:center;gap:10px;
+  padding:11px 22px;background:color-mix(in srgb,var(--paper) 86%,transparent);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.topbar .menu-btn{display:none}
+.crumbs{font-size:.82rem;color:var(--ink-faint);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.crumbs b{color:var(--ink-soft);font-weight:700}
+.tool{appearance:none;border:1px solid var(--line);background:var(--paper-2);color:var(--ink-soft);
+  cursor:pointer;border-radius:10px;padding:8px 12px;font-family:inherit;font-size:.8rem;font-weight:500;
+  display:inline-flex;align-items:center;gap:6px;transition:.15s;white-space:nowrap}
+.tool:hover{border-color:var(--primary);color:var(--primary);background:var(--primary-soft)}
+.tool svg{width:15px;height:15px}
+.tool.on{background:var(--primary);color:#fff;border-color:var(--primary)}
+
+.wrap{max-width:var(--maxread);margin:0 auto;padding:0 26px 120px}
+.wide .wrap, .wrap.wide{max-width:1080px}
+
+/* ============ 封面 ============ */
+.cover{position:relative;overflow:hidden;color:#f3f7f6;
+  background:radial-gradient(120% 120% at 85% -10%,#15807c 0%,#0d5a59 42%,#093f40 100%);
+  padding:74px 26px 64px;border-bottom:4px solid var(--accent)}
+.cover .inner{max-width:880px;margin:0 auto;position:relative;z-index:2}
+.cover .kicker{display:inline-flex;align-items:center;gap:8px;font-size:.78rem;letter-spacing:.18em;
+  text-transform:uppercase;color:#bfe6e1;border:1px solid rgba(255,255,255,.28);padding:6px 14px;border-radius:30px}
+.cover h1{font-family:var(--font-serif);font-weight:900;font-size:clamp(2rem,5vw,3.3rem);line-height:1.22;margin:22px 0 14px;letter-spacing:.01em}
+.cover .sub{font-size:clamp(1rem,2.2vw,1.22rem);color:#d7ece8;font-weight:300;max-width:660px;line-height:1.7}
+.cover .by{margin-top:26px;display:flex;flex-wrap:wrap;gap:10px 22px;align-items:center;font-size:.92rem;color:#c8e4df}
+.cover .by .who{font-weight:700;color:#fff}
+.cover .deco{position:absolute;inset:0;z-index:1;opacity:.5}
+.cover .stat-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+.cover .stat{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.16);border-radius:14px;
+  padding:12px 18px;backdrop-filter:blur(4px)}
+.cover .stat b{display:block;font-family:var(--font-serif);font-size:1.55rem;color:#fff;line-height:1}
+.cover .stat span{font-size:.74rem;letter-spacing:.08em;color:#bfe6e1}
+
+/* ============ 章節排版 ============ */
+section.ch{padding-top:34px}
+.ch-head{margin:18px 0 26px;padding-bottom:18px;border-bottom:2px solid var(--line)}
+.ch-num{display:inline-block;font-family:var(--font-serif);font-weight:900;font-size:.8rem;letter-spacing:.16em;
+  color:var(--accent);background:var(--accent-soft);padding:4px 12px;border-radius:30px;text-transform:uppercase}
+h2.ch-title{font-family:var(--font-serif);font-weight:900;font-size:clamp(1.6rem,3.5vw,2.15rem);
+  line-height:1.3;margin:14px 0 8px;letter-spacing:.01em}
+.ch-lede{color:var(--ink-soft);font-size:1.02rem;line-height:1.85}
+h3{font-family:var(--font-serif);font-weight:700;font-size:1.34rem;margin:42px 0 14px;line-height:1.4;
+  padding-left:14px;border-left:4px solid var(--primary);}
+h4{font-weight:700;font-size:1.08rem;margin:26px 0 8px;color:var(--primary-2)}
+html[data-theme="dark"] h4{color:var(--primary-2)}
+p{margin:0 0 18px}
+.wrap p,.wrap li{text-wrap:pretty}
+strong{font-weight:700;color:var(--ink)}
+em{font-style:normal;background:linear-gradient(transparent 62%,var(--gold-soft) 62%);padding:0 2px;font-weight:500}
+ul,ol{margin:0 0 20px;padding-left:4px;list-style:none}
+.wrap li{position:relative;padding-left:26px;margin-bottom:11px;line-height:1.8}
+.wrap li::before{content:"";position:absolute;left:6px;top:.72em;width:7px;height:7px;border-radius:2px;
+  background:var(--primary);transform:rotate(45deg)}
+.wrap ol{counter-reset:li}
+.wrap ol>li{counter-increment:li}
+.wrap ol>li::before{content:counter(li);background:none;color:#fff;width:20px;height:20px;border-radius:50%;
+  background:var(--primary);font-size:.72rem;font-weight:700;display:grid;place-items:center;left:0;top:.38em;transform:none}
+.wrap li ul{margin:10px 0 4px}
+.wrap li li::before{background:var(--accent);width:6px;height:6px}
+.lead{font-size:1.12rem;line-height:1.9;color:var(--ink);border-left:3px solid var(--accent);
+  padding:2px 0 2px 20px;margin:0 0 26px;font-weight:400}
+.drop::first-letter{font-family:var(--font-serif);font-size:3.4em;float:left;line-height:.8;
+  padding:8px 12px 0 0;color:var(--primary);font-weight:900}
+
+/* ============ Callout 元件 ============ */
+.box{border-radius:var(--radius);padding:20px 22px 18px;margin:24px 0;border:1px solid var(--line);
+  background:var(--paper-2);box-shadow:var(--shadow);position:relative}
+.box .bx-h{display:flex;align-items:center;gap:9px;font-weight:700;font-size:.95rem;margin-bottom:6px;letter-spacing:.02em}
+.box .bx-h .ic{width:26px;height:26px;border-radius:8px;display:grid;place-items:center;flex:none;color:#fff;font-size:.9rem}
+.box p:last-child,.box li:last-child{margin-bottom:0}
+.box.judge{border-color:color-mix(in srgb,var(--blue) 35%,var(--line));background:linear-gradient(var(--blue-soft),var(--paper-2) 70%)}
+.box.judge .ic{background:var(--blue)} .box.judge .bx-h{color:var(--blue)}
+.box.flaw{border-color:color-mix(in srgb,var(--rose) 35%,var(--line));background:linear-gradient(var(--rose-soft),var(--paper-2) 70%)}
+.box.flaw .ic{background:var(--rose)} .box.flaw .bx-h{color:var(--rose)}
+.box.voice{border-color:color-mix(in srgb,var(--violet) 35%,var(--line));background:linear-gradient(var(--violet-soft),var(--paper-2) 70%)}
+.box.voice .ic{background:var(--violet)} .box.voice .bx-h{color:var(--violet)}
+.box.tip{border-color:color-mix(in srgb,var(--green) 38%,var(--line));background:linear-gradient(var(--green-soft),var(--paper-2) 70%)}
+.box.tip .ic{background:var(--green)} .box.tip .bx-h{color:var(--green)}
+.box.ask{border-color:color-mix(in srgb,var(--gold) 40%,var(--line));background:linear-gradient(var(--gold-soft),var(--paper-2) 70%)}
+.box.ask .ic{background:var(--gold)} .box.ask .bx-h{color:var(--gold)}
+/* 老師補充：醒目漸層邊 */
+.box.coach{border:none;background:var(--paper-2);box-shadow:var(--shadow-lg);
+  background-image:linear-gradient(var(--paper-2),var(--paper-2)),linear-gradient(135deg,var(--primary),var(--accent));
+  background-origin:border-box;background-clip:padding-box,border-box;border:2px solid transparent}
+.box.coach .bx-h{color:var(--accent)} .box.coach .ic{background:linear-gradient(135deg,var(--primary),var(--accent))}
+
+/* 名言 / 引述 */
+blockquote{margin:26px 0;padding:18px 24px;border-radius:14px;background:var(--primary-soft);
+  border-left:5px solid var(--primary);font-family:var(--font-serif);font-size:1.12rem;color:var(--primary-2);line-height:1.7}
+blockquote cite{display:block;margin-top:8px;font-family:var(--font-sans);font-size:.82rem;color:var(--ink-faint);font-style:normal}
+
+/* ============ 表格 ============ */
+.tbl{overflow-x:auto;margin:24px 0;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow)}
+table{width:100%;border-collapse:collapse;font-size:.92rem;background:var(--paper-2);min-width:520px}
+th,td{padding:12px 15px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;line-height:1.6}
+thead th{background:var(--primary);color:#fff;font-weight:700;font-size:.86rem;letter-spacing:.03em;border:none;position:sticky;top:0}
+tbody tr:last-child td{border-bottom:none}
+tbody tr:nth-child(even){background:color-mix(in srgb,var(--primary-soft) 40%,transparent)}
+td b{color:var(--primary-2)}
+
+/* ============ 卡片網格 ============ */
+.grid{display:grid;gap:16px;margin:24px 0}
+.g2{grid-template-columns:repeat(2,1fr)} .g3{grid-template-columns:repeat(3,1fr)}
+@media(max-width:680px){.g2,.g3{grid-template-columns:1fr}}
+.card{background:var(--paper-2);border:1px solid var(--line);border-radius:14px;padding:18px;box-shadow:var(--shadow);transition:.18s}
+.card:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);border-color:var(--primary)}
+.card .tag{font-size:.85rem;font-weight:700;letter-spacing:.05em;color:var(--accent);text-transform:uppercase}
+.card h4{margin:6px 0 8px;color:var(--ink);font-size:1.24rem;border:none;padding:0}
+.card p{font-size:1.05rem;color:var(--ink-soft);margin:0;line-height:1.7}
+.card .num{font-family:var(--font-serif);font-weight:900;font-size:2.0rem;color:var(--primary);line-height:1}
+
+/* 案例卡 */
+.case{border-left:5px solid var(--accent)}
+.case .meta{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+.case .pill{font-size:.8rem;background:var(--primary-soft);color:var(--primary-2);padding:3px 9px;border-radius:20px;font-weight:600}
+
+/* ============ 競賽階梯 ============ */
+.ladder{display:flex;flex-direction:column;gap:10px;margin:26px 0}
+.rung{display:grid;grid-template-columns:70px 1fr;gap:14px;align-items:stretch;background:var(--paper-2);
+  border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:var(--shadow)}
+.rung .lv{display:grid;place-items:center;color:#fff;font-family:var(--font-serif);font-weight:900;text-align:center;padding:8px;font-size:.78rem;line-height:1.2}
+.rung .bd{padding:13px 16px}
+.rung .bd h4{margin:0 0 4px;border:none;padding:0;font-size:1.04rem;color:var(--ink)}
+.rung .bd p{margin:0;font-size:.86rem;color:var(--ink-soft);line-height:1.65}
+.rung .bd .when{font-size:.74rem;color:var(--accent);font-weight:700;margin-top:5px}
+
+/* ============ 互動：摺疊題庫 ============ */
+.qa{border:1px solid var(--line);border-radius:12px;margin:11px 0;overflow:hidden;background:var(--paper-2)}
+.qa>button{width:100%;text-align:left;background:none;border:none;cursor:pointer;font-family:inherit;
+  padding:15px 18px;display:flex;gap:12px;align-items:flex-start;color:var(--ink);font-size:1rem;font-weight:500;line-height:1.6}
+.qa>button:hover{background:var(--primary-soft)}
+.qa .qmark{font-family:var(--font-serif);font-weight:900;color:var(--accent);flex:none}
+.qa .arr{margin-left:auto;flex:none;transition:.25s;color:var(--ink-faint)}
+.qa.open .arr{transform:rotate(90deg)}
+.qa .ans{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.qa .ans .inner{padding:0 18px 16px 44px;color:var(--ink-soft);font-size:.92rem;line-height:1.85}
+.qa .ans .inner .ex{font-size:.84rem;color:var(--ink-faint);margin-top:8px;border-top:1px dashed var(--line-strong);padding-top:8px}
+
+/* ============ 互動：自我檢核 ============ */
+.checkwrap{background:var(--paper-2);border:1px solid var(--line);border-radius:var(--radius);padding:6px 20px 16px;margin:22px 0;box-shadow:var(--shadow)}
+.checkwrap .ck-top{display:flex;align-items:center;gap:12px;padding:14px 0 10px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.checkwrap .ck-top h4{margin:0;border:none;padding:0;font-size:1.06rem}
+.ck-bar{flex:1;min-width:120px;height:9px;border-radius:6px;background:var(--line);overflow:hidden}
+.ck-bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--green));transition:width .3s}
+.ck-count{font-size:.82rem;font-weight:700;color:var(--primary);font-family:var(--font-serif)}
+.check{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-bottom:1px dashed var(--line);cursor:pointer;line-height:1.7}
+.check:last-child{border-bottom:none}
+.check input{appearance:none;width:21px;height:21px;flex:none;border:2px solid var(--line-strong);border-radius:6px;cursor:pointer;margin-top:3px;transition:.15s;position:relative}
+.check input:checked{background:var(--green);border-color:var(--green)}
+.check input:checked::after{content:"✓";position:absolute;color:#fff;font-size:.82rem;font-weight:900;left:3px;top:-2px}
+.check span{font-size:.93rem;color:var(--ink-soft)}
+.check input:checked + span{color:var(--ink-faint);text-decoration:line-through}
+
+/* 流程步驟條 */
+.steps{counter-reset:s;margin:24px 0;display:grid;gap:0}
+.step{display:grid;grid-template-columns:44px 1fr;gap:16px;position:relative;padding-bottom:18px}
+.step::before{counter-increment:s;content:counter(s);width:38px;height:38px;border-radius:50%;
+  background:var(--primary);color:#fff;display:grid;place-items:center;font-family:var(--font-serif);font-weight:900;z-index:2}
+.step:not(:last-child)::after{content:"";position:absolute;left:18px;top:38px;bottom:0;width:2px;background:var(--line-strong)}
+.step .sb h4{margin:6px 0 6px;border:none;padding:0}
+.step .sb p{font-size:.92rem;color:var(--ink-soft)}
+
+/* 章末分隔 */
+.endmark{text-align:center;color:var(--line-strong);font-size:1.4rem;margin:46px 0 6px;letter-spacing:.5em}
+
+/* 返回頂部 */
+#totop{position:fixed;right:22px;bottom:22px;width:46px;height:46px;border-radius:50%;border:none;cursor:pointer;
+  background:var(--primary);color:#fff;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.25s;z-index:50;display:grid;place-items:center}
+#totop.show{opacity:1;pointer-events:auto}
+#totop:hover{background:var(--primary-2);transform:translateY(-3px)}
+
+/* 搜尋無結果隱藏 */
+nav.toc a.hide{display:none}
+mark{background:var(--gold-soft);color:var(--ink);padding:0 1px;border-radius:3px}
+
+/* ============ 行動裝置 ============ */
+.scrim{display:none}
+@media(max-width:1024px){
+  .sidebar{position:fixed;z-index:70;width:300px;left:0;top:0;transform:translateX(-104%);transition:transform .3s ease;box-shadow:var(--shadow-lg)}
+  body.nav-open .sidebar{transform:translateX(0)}
+  body.nav-open .scrim{display:block;position:fixed;inset:0;background:rgba(0,0,0,.45);z-index:65}
+  .topbar .menu-btn{display:inline-flex}
+  .tool .lbl{display:none}
+}
+@media(max-width:520px){.wrap{padding:0 16px 90px}.cover{padding:54px 18px 44px}}
+
+/* ============ 列印 ============ */
+@media print{
+  .sidebar,.topbar,#totop,#progress,.scrim,.nav-search{display:none!important}
+  .shell{display:block}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.5}
+  .cover{background:#0d5a59!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .box,.card,.qa,.tbl,.checkwrap{break-inside:avoid;box-shadow:none}
+  .qa .ans{max-height:none!important}.qa .ans .inner{padding-top:0}
+  h2.ch-title,h3{break-after:avoid}
+  a{color:#000;text-decoration:none}
+  .wrap{max-width:none}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="scrim" onclick="document.body.classList.remove('nav-open')"></div>
+<div class="shell">
+
+  <!-- ===== 側欄 ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="mark">科</div>
+      <div><h1>科學探究與科展競賽<br>全方位指導手冊</h1><p>麗山高中 · 林獻升老師</p></div>
+    </div>
+    <div class="nav-search">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4-4"/></svg>
+      <input id="navSearch" type="search" placeholder="搜尋章節…" aria-label="搜尋章節">
+    </div>
+    <nav class="toc" id="toc">
+      <div class="grp">導讀</div>
+      <a href="#cover"><span class="n">—</span>封面與摘要</a>
+      <a href="#intro"><span class="n">序</span>踏上科展之路</a>
+      <div class="grp">手冊正文 · 八章</div>
+      <a href="#ch1"><span class="n">壹</span>核心理念與評審視角</a>
+      <a href="#ch2"><span class="n">貳</span>研究啟航與計畫奠基</a>
+      <a href="#ch3"><span class="n">參</span>研究核心歷程</a>
+      <a href="#ch4"><span class="n">肆</span>成果展現的藝術</a>
+      <a href="#ch5"><span class="n">伍</span>競賽演練與實戰</a>
+      <a href="#ch6"><span class="n">陸</span>答辯應對</a>
+      <a href="#ch7"><span class="n">柒</span>心態淬鍊與成長</a>
+      <a href="#ch8"><span class="n">捌</span>自我檢核清單</a>
+      <a href="#conclusion"><span class="n">結</span>結論</a>
+      <div class="grp">指導老師 · 專家延伸</div>
+      <a href="#x-map"><span class="n">＋</span>台灣科展競賽地圖</a>
+      <a href="#x-shift"><span class="n">＋</span>2026 評審典範轉移</a>
+      <a href="#x-weight"><span class="n">＋</span>評分權重對照</a>
+      <a href="#x-cases"><span class="n">＋</span>得獎案例剖析</a>
+      <a href="#x-toolbox"><span class="n">＋</span>黃金實驗設計工具箱</a>
+      <a href="#x-qbank"><span class="n">＋</span>評審提問互動題庫</a>
+    </nav>
+    <div class="toc-foot">
+      本網頁版由原手冊全文轉製，並加入指導老師延伸的競賽策略、評審趨勢與得獎案例。<br>適合課堂投影講授與學生線上自學。
+    </div>
+  </aside>
+
+  <!-- ===== 主內容 ===== -->
+  <main>
+    <div class="topbar">
+      <button class="tool menu-btn" onclick="document.body.classList.toggle('nav-open')" aria-label="目錄">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+      <div class="crumbs" id="crumbs"><b>科展指導手冊</b> · 線上閱讀版</div>
+      <button class="tool" id="presentBtn" onclick="togglePresent()" title="簡報模式（放大字級，適合投影講課）">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        <span class="lbl">簡報模式</span>
+      </button>
+      <button class="tool" id="themeBtn" onclick="toggleTheme()" title="深淺色切換">
+        <svg id="themeIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/></svg>
+        <span class="lbl">主題</span>
+      </button>
+      <button class="tool" onclick="window.print()" title="列印或匯出 PDF">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2M6 14h12v8H6z"/></svg>
+        <span class="lbl">列印</span>
+      </button>
+    </div>
+
+    <!-- 封面 -->
+    <header class="cover" id="cover">
+      <svg class="deco" viewBox="0 0 900 400" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg">
+        <g fill="none" stroke="#ffffff" stroke-opacity="0.14" stroke-width="1.2">
+          <circle cx="730" cy="80" r="120"/><circle cx="730" cy="80" r="80"/><circle cx="730" cy="80" r="40"/>
+          <path d="M0 320 Q150 260 300 310 T600 300 T900 330"/>
+          <path d="M0 350 Q150 300 300 345 T600 340 T900 360"/>
+        </g>
+        <g fill="#ffffff" fill-opacity="0.16"><circle cx="730" cy="80" r="5"/><circle cx="650" cy="120" r="3"/><circle cx="810" cy="60" r="3"/><circle cx="120" cy="90" r="3"/><circle cx="200" cy="150" r="2.5"/></g>
+      </svg>
+      <div class="inner">
+        <span class="kicker">SCIENCE FAIR · 科學探究指導</span>
+        <h1>科學探究與科展競賽的<br>全方位指導手冊</h1>
+        <p class="sub">從研究啟航、歷程挑戰，到心態淬鍊與成果展現的深度解析——一份寫給參賽學生與指導教師的實戰全景圖。</p>
+        <div class="by">
+          <span>作者　<span class="who">林獻升 老師</span></span>
+          <span>臺北市立麗山高中 · 生物科</span>
+          <span>線上閱讀 × 課堂講授版</span>
+        </div>
+        <div class="stat-row">
+          <div class="stat"><b>8</b><span>核心章節</span></div>
+          <div class="stat"><b>4</b><span>評審維度</span></div>
+          <div class="stat"><b>3</b><span>自我檢核清單</span></div>
+          <div class="stat"><b>2026</b><span>最新評審趨勢</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- 摘要 + 前言 -->
+    <section class="ch" id="intro">
+      <div class="wrap">
+        <div class="box coach">
+          <div class="bx-h"><span class="ic">摘</span>摘要</div>
+          <p>科學展覽（科展）不僅是培養學生科學探究能力、創新思維與實作技能的重要平台，更是一段充滿挑戰、淬鍊心智與深度學習的成長旅程。本文整合多方指導經驗、大量且多樣化的學生參賽歷程、國際通用科展評審標準、官方評審基準與評分指標，以及評審實際提問與反饋經驗，深入探討從<strong>研究啟航</strong>、<strong>過程執行</strong>、<strong>成果呈現</strong>（報告書撰寫、海報製作、簡報製作、競賽練習）、<strong>現場互動</strong>（比賽過程、答辯應對）到<strong>心態調整與反思成長</strong>等核心環節。透過對各階段策略、挑戰、常見缺失、應對方式及評審核心關注點（科學思考、原創創新、溝通表達、嚴謹性與完整性）的歸納與解析，勾勒出科展競賽完整的心路歷程與實戰策略——科展的價值不僅在於結果成敗，更在於過程中科學素養、研究能力與個人意志的全面提升，最終能有效地「分享自然的故事」。</p>
+        </div>
+
+        <div class="ch-head">
+          <span class="ch-num">前言</span>
+          <h2 class="ch-title">踏上科展之路的起點與意義</h2>
+          <p class="ch-lede">它遠非一份簡單的研究報告、一張精美的海報或一場流暢的口頭報告所能涵蓋，而是一段從無到有、從懵懂摸索到豁然開朗、從遭遇挫敗到堅韌不拔的完整探索過程。</p>
+        </div>
+
+        <p class="drop">科學展覽，對於許多高中生而言，是其學術生涯中一次極為獨特且意義深遠的經歷。科展之路往往充滿未知與變數：實驗可能遭遇瓶頸甚至失敗，數據的呈現可能遠不如預期理想，研究方向可能需要不斷調整甚至多次修改假說。許多參賽學生分享到賽前準備的異常辛苦——犧牲了睡眠、週末甚至大半寒假。</p>
+        <p>然而，正是在這樣持續不斷的試錯、修正、反思與再嘗試的循環之中，學生們得以真正地、深入地實踐科學方法的核心精神。科學的靈魂是<em>實證</em>（Experience，實驗／顯現證據）、是<em>分析推理</em>（Deduction，解讀證據）、是<em>不斷的求證</em>（Examination，檢驗解讀）。如評審教授所言：「『論』需基於實驗，『證』需及於檢驗。」透過這個過程，學生培養出獨立思考與解決複雜問題的關鍵能力，並磨練出面對困難時堅韌不拔的意志品質。</p>
+        <p>這段獨特旅程的起點，往往源於一個學生內心深處的好奇、一個對周遭現象的細微觀察，或對某一科學議題的濃厚興趣，進而逐步發展、聚焦成為一個具體且可執行的研究計畫。從研究初期的廣泛文獻回顧、實驗設計的縝密構思（需先「畫藍圖」：先用流程圖與甘特圖規劃架構與時程，再填寫文字細節，以減少返工），到研究中期的數據收集與深入分析，再到後期的成果視覺化呈現與答辯，科展的每一個階段都嚴峻地考驗著學生的知識儲備、邏輯思維、實作能力與溝通表達。</p>
+        <p>更重要的是，科展高度強調團隊合作與師生間的有效互動。學生需要在團隊內部合理分工、有效協作，並與指導老師／教授保持密切且頻繁的溝通，共同克服研究過程中的種種難關。本文將依循科展的自然進程，融入官方評審標準、評審實際提問範例與常見作品缺失分析，分項深入探討各關鍵環節的經驗與應對之道。</p>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+
+    <!-- ===== 第一章 ===== -->
+    <section class="ch" id="ch1">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">第一章</span>
+          <h2 class="ch-title">核心理念與指導哲學 — 定位、價值與評審視角</h2>
+          <p class="ch-lede">理解科展「為何而戰」，是一切策略的起點：它的教育價值、師生的角色定位，以及評審如何看待一件作品。</p>
+        </div>
+
+        <h3>一、科展的教育價值：歷程學習，超越獎項</h3>
+        <p class="lead">科展的真正價值，並非僅在於最終獎牌的顏色或名次的高低，而是深植於學生親身經歷的完整科學探究循環之中。</p>
+        <p>只要完完整整地從觀察日常生活問題開始，一路到成立假說、實驗設計、進行實驗、結果分析討論，寫一篇完整的報告、做海報，學生認真學習有所獲得，這樣就已經是非常棒的了。正如有經驗的指導老師所提醒的，在科展開始前就應該讓學生明白：「<strong>不一定會得獎，但一定能學到東西</strong>。」這段歷程本身就是最寶貴的學習經驗，它讓學生有機會：</p>
+        <ul>
+          <li><strong>實踐科學方法：</strong>從提出問題、建立假設，到設計實驗、收集數據、分析驗證，將課堂所學應用於真實情境。學生需學會設計對照組、控制變因、選擇合適的測量工具與分析技術，深刻理解科學方法的核心：實驗（揭示證據）、推論（解讀證據）、驗證（檢驗解讀）。</li>
+          <li><strong>培養探究精神：</strong>科展鼓勵學生保持好奇心、勇於質疑、不畏失敗。評審亦言：「科學只有理解與不理解的問題，沒有年齡問題」，強調理解深度而非年齡本身。這種鼓勵挑戰既有認知（「挑戰非相信」）的精神，是培養未來科學家的重要基石。</li>
+          <li><strong>提升問題解決能力：</strong>從實驗儀器故障、試劑污染，到數據與預期嚴重不符，學生需學習獨立思考、主動尋找資源（查閱文獻、請教專家、網路論壇）、分析問題根源並嘗試不同解決方案。這正是評審看重的「遭遇困難，如何解決」的能力。</li>
+          <li><strong>鍛鍊堅韌意志：</strong>實驗的重複與挫折是科展常態。學生劉蕙瑄體悟到「盡人事便不愧於己，不愧於己也算是一種成功吧！」也有學生體會到「<em>沒有真正的淘汰，只有舞台的轉換</em>」。</li>
+          <li><strong>深化知識理解：</strong>為完成研究，學生需深入鑽研特定領域知識，其深度往往超越課堂學習，並可能延伸到實驗技術、儀器原理、統計方法甚至跨領域知識。</li>
+        </ul>
+        <blockquote>「We reward the best, encourage the rest.」<cite>— ISEF 核心精神：科展旨在延續學生對科學的熱情與動力，而非僅僅篩選出少數贏家。</cite></blockquote>
+
+        <h3>二、師生角色定位：師徒引導，學生主體</h3>
+        <p>科展指導的核心在於「人」，是「帶人帶心」的過程。師生關係的恰當定位，對研究的順利進行與學生的成長至關重要。</p>
+        <div class="grid g2">
+          <div class="card"><span class="tag">教師角色</span><h4>師父・引導者・支持者</h4><p>教師如同研究路途上的「明燈」：擔任<b>引路人</b>（指引方向而不代勞）、<b>促進者</b>（營造氛圍、啟發創意）、<b>資源連結者</b>（連結專家、設備、文獻、經費）、<b>觀察評估者</b>（定期討論進度、給予建設性回饋）與<b>心靈支柱</b>（挫折時給予情感支持）。核心是「認知學徒制」——研究應由學生主導，教師避免過度介入。</p></div>
+          <div class="card"><span class="tag">學生角色</span><h4>研究者・學習者・主導者</h4><p>學生才是科展的<b>主體</b>與研究的真正擁有者，要有「我比評審更了解我的作品」的自信，展現「own the project」的態度；同時是<b>探索者</b>（Go beyond border、Go there）、<b>實踐者</b>（親身參與每一環節）、<b>學習者</b>與<b>合作者</b>。</p></div>
+        </div>
+        <div class="box judge">
+          <div class="bx-h"><span class="ic">⚖</span>評審視角：獨立性的拿捏</div>
+          <p>需警惕評審對於「指導教師參與程度過高」或「超出學生能力」的疑慮（如四年級學生難以認知的哺乳動物行為實驗、使用校外實驗室進行非學生操作的定量分析）。ISEF 評審會特別關注學生「實際參與的部分」、「對相關知識的理解程度」以及「教授扮演的角色」。</p>
+        </div>
+        <div class="box flaw">
+          <div class="bx-h"><span class="ic">!</span>團體作品的常見缺失</div>
+          <p>「成員分工不明確」、「無法表現出分工合作」是常見缺點。評審在面試時會向<strong>每位個人</strong>提問，確保每人都有發言機會，了解其負責部分與貢獻。團體作品應在背景研究深度、數據數量與質量、實驗重複次數等方面<strong>超過</strong>個人作品，展現協同效應與加成作用。</p>
+        </div>
+
+        <h3>三、評審標準解析：理解競賽的核心評價維度</h3>
+        <p>了解評審如何評價作品，有助於參賽者更具策略性地準備。國際與國內通用的評審標準通常圍繞以下四大核心維度（權重依賽事略有不同，核心精神相似）：</p>
+        <div class="grid g2">
+          <div class="card" style="border-left:5px solid var(--blue)"><span class="tag" style="color:var(--blue)">維度一</span><h4>科學思考 / 研究主題</h4><p>評估學生能否運用科學方法進行探究。重點：<b>問題／假設</b>是否清晰聚焦、<b>研究設計</b>能否有效檢驗假設、<b>結果與結論</b>是否誠實合邏輯且被數據支持、<b>討論深度</b>與限制、<b>未來工作</b>思考、<b>原理掌握</b>（常見劣勢：學理不清）與<b>推斷能力</b>。台灣科展另強調與鄉土、教材的相關性。</p></div>
+          <div class="card" style="border-left:5px solid var(--accent)"><span class="tag" style="color:var(--accent)">維度二</span><h4>原創性與創造性 / 價值</h4><p>即使研究相對簡單，也可能展現原創性。重點：問題或方法的<b>獨特性</b>、設計或方法的<b>創新</b>、資源運用的<b>巧思</b>、想法的<b>獨創性</b>、是否<b>超越課程水平</b>、對科學社會經濟的<b>潛在影響力</b>。ISEF 傾向獎勵學生自發、獨力完成度高的研究（Home projects）。</p></div>
+          <div class="card" style="border-left:5px solid var(--green)"><span class="tag" style="color:var(--green)">維度三</span><h4>科學方法之適切性 / 專業</h4><p>區分「參加獎」與「前三名」的技術核心：<b>研究計畫</b>是否周全、<b>變因控制</b>是否清楚（常見劣勢：變因失焦）、<b>數據處理</b>是否系統嚴謹、結果<b>再現性</b>、<b>數理統計</b>應用是否得當、<b>結論支持度</b>，以及內容專業度。</p></div>
+          <div class="card" style="border-left:5px solid var(--violet)"><span class="tag" style="color:var(--violet)">維度四</span><h4>溝通 / 展示及表達能力</h4><p>含八個面向：<b>視覺展示</b>（海報）、<b>口頭表達</b>、<b>研究報告</b>、<b>研究日誌</b>（Log Book）、<b>問答表現</b>（清楚簡潔縝密）、<b>理解與掌握度</b>、<b>獨立性與團隊貢獻</b>、<b>未來展望</b>。</p></div>
+        </div>
+        <div class="box ask">
+          <div class="bx-h"><span class="ic">？</span>評審要求重點（溝通維度）</div>
+          <p>海報需讓觀眾在<strong>一公尺處</strong>清楚讀取、配色具吸引力；口頭報告需<strong>充滿熱情</strong>、條理清晰、經演練而非逐字背稿、精準掌控時間；報告書需語法正確、無拼寫錯誤、正確使用國際單位（SI Units）、依規定格式撰寫；研究日誌需備妥供查閱、詳實反映研究過程。</p>
+        </div>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+    <!-- ===== 第二章 ===== -->
+    <section class="ch" id="ch2">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">第二章</span>
+          <h2 class="ch-title">研究啟航 — 主題探索與計畫奠基</h2>
+          <p class="ch-lede">研究的第一步，也是決定後續深度與持續性的關鍵一步：確定一個既引發熱情、又具科學價值與可行性的主題，並將它奠基為一份周密的計畫書。</p>
+        </div>
+
+        <h3>一、主題探索與聚焦：從興趣到問題</h3>
+        <p class="lead">科學探究的引擎往往由好奇心點燃。此階段的品質直接影響後續所有環節。</p>
+        <h4>興趣引領，問題導向</h4>
+        <p>研究應始於學生的內在興趣、對生活的好奇或觀察到的現象。選擇自己真正有興趣的題目，是投入漫長研究、克服重重困難的最強大原動力。但單純的興趣需轉化為具體、清晰、可探究的<strong>問題意識</strong>——不僅思考「我想知道什麼？」，更要深入思考「我想解決什麼具體問題？這個問題為何重要、對誰重要？目前科學界已知多少？還有哪些關鍵未知或爭議？」</p>
+        <h4>多元途徑發想，不設限</h4>
+        <div class="grid g3">
+          <div class="card"><span class="tag">來源</span><h4>生活經驗挖掘</h4><p>日常不便、特殊現象（校園植物的奇特生長、天氣異常）、對產品或技術的改進想法。</p></div>
+          <div class="card"><span class="tag">來源</span><h4>課程知識延伸</h4><p>某物理定律的適用邊界、某生物現象的分子機制、對教科書結論的質疑、課堂實驗的改良。</p></div>
+          <div class="card"><span class="tag">來源</span><h4>社會議題關懷</h4><p>環境保護、健康醫療、能源危機、糧食安全、社會公平等與社會發展息息相關的議題。</p></div>
+          <div class="card"><span class="tag">來源</span><h4>鄉土特色連結</h4><p>在地文化現象、特有種生物、地質景觀、地方產業（農漁業、觀光）——評審標準提及鄉土相關性。</p></div>
+          <div class="card"><span class="tag">來源</span><h4>閱讀與資訊啟發</h4><p>科普文章、科學新聞、學術期刊摘要、科幻小說的科學設想、專利資料庫的新技術。</p></div>
+          <div class="card"><span class="tag">來源</span><h4>他人建議與討論</h4><p>與老師、家長、同學、學長姐甚至校外專家交流，常能碰撞出意想不到的靈感火花。</p></div>
+        </div>
+
+        <h4>文獻回顧：關鍵的知識定位與可行性評估</h4>
+        <p>文獻回顧的目的在於避免重複研究、了解研究前沿、尋找切入點、學習研究方法、建立理論基礎、評估自身可行性。需善用學術期刊資料庫（PubMed／Medline、Scopus、Web of Science、Google Scholar）、專利資料庫，以及歷屆科展作品資料庫。建議採用「系統化兩輪掃描策略」：</p>
+        <div class="steps">
+          <div class="step"><div class="sb"><h4>第一輪 — 宏觀定位</h4><p>廣泛閱讀綜述性文章（Review articles）、教科書章節、重要會議報告，了解該領域基本概念、發展歷程、主要方向與研究熱點。目標是確認題目的研究價值、是否已有公認定論、以及可能的創新空間。</p></div></div>
+          <div class="step"><div class="sb"><h4>第二輪 — 深入聚焦</h4><p>針對初步鎖定的方向，深入閱讀核心論文（強烈建議近五年內文獻），仔細研究前人的研究方法、實驗設計、數據分析與結論限制。目標是評估可行性（技術門檻、設備、時間、知識），並找出可切入的研究缺口。<strong>需整合並理解至少 20 篇核心文獻</strong>，才算對背景有初步到位的掌握。</p></div></div>
+          <div class="step"><div class="sb"><h4>記錄與批判性閱讀</h4><p>養成表格化整理習慣（作者、年份、目的、方法、結果、限制），並進行批判性思考：該研究的優點？限制？方法可否借鑒改進？結論是否可靠？關注他人研究的空白。</p></div></div>
+        </div>
+        <div class="box ask">
+          <div class="bx-h"><span class="ic">？</span>評審提問實例（背景與文獻）</div>
+          <p>「是否有人做過相關研究？」「你的研究與前人有何不同？」「你的文獻看太少了，你確定別人沒有做過嗎？」「你們的作品跟之前的有何不同？（延續性作品）」——充分且深入的文獻回顧，正是回答這些問題的基礎。</p>
+        </div>
+
+        <h4>尋找突破點與創新價值</h4>
+        <p>創新不必是驚天動地的發現，可以是：<em>新問題</em>、<em>舊問題的新方法</em>、<em>新實驗設計</em>、<em>材料設備的巧思</em>、<em>數據解釋的新角度</em>、<em>跨域整合</em>。關鍵是「與前人區隔」——必須在報告書與口頭報告中，清晰具體地論述本研究相較於已有文獻或過往作品，在問題界定、研究角度、方法學、材料選擇、結果發現或應用價值上的獨特之處。</p>
+        <div class="box flaw">
+          <div class="bx-h"><span class="ic">!</span>主題常見陷阱</div>
+          <p>應避免過於飽和、缺乏新意、或僅是簡單驗證已知原理的題目。評審反饋常指出「主軸不明確」、「研究主題太發散」、「缺乏驚喜亮點」。科展題目切忌「大而空」或「小而碎」——應學習將宏觀議題（大題）拆解成數個可管理的子問題（小做），逐一深入。這就是<strong>「大題小做，聚焦核心」</strong>。</p>
+        </div>
+
+        <h3>二、研究計畫書撰寫：藍圖的規劃、溝通與精煉</h3>
+        <p>一份嚴謹周密的研究計畫書，不僅是執行指南，更是展現邏輯思維、學術素養與準備程度的關鍵文件。它強迫研究者在動手前進行系統性思考、釐清目的、預估困難、規劃資源與時程。評審標準中「設計周全之研究計畫」是關鍵評分點。</p>
+        <div class="box tip">
+          <div class="bx-h"><span class="ic">✦</span>實戰技巧：先畫藍圖再填肉</div>
+          <p><strong>研究流程圖（Flowchart）：</strong>視覺化呈現邏輯脈絡——從問題意識、文獻基礎、研究假設，到實驗設計（組別、變因控制）、數據收集流程、分析方法，直至預期結論。<br><strong>時程甘特圖（Gantt Chart）：</strong>將研究分解為任務階段，標示起止時間、里程碑與負責人，並<strong>預留緩衝時間</strong>應對突發狀況。<br>應及早熟練 Word 高級功能（樣式設定、自動目錄／圖表索引、交叉引用、文獻管理），這是科研基本功。</p>
+        </div>
+        <h4>計畫書核心內容要素</h4>
+        <div class="tbl"><table>
+          <thead><tr><th style="width:34%">要素</th><th>撰寫重點</th></tr></thead>
+          <tbody>
+            <tr><td><b>作品名稱</b></td><td>具吸引力、準確反映核心內容且具專業感。評審會問：「名稱為什麼這樣取？如何產生的？」</td></tr>
+            <tr><td><b>摘要</b></td><td>計畫書階段側重預期成果與計畫概述。</td></tr>
+            <tr><td><b>研究目的與背景</b></td><td>極其重要。背景需有理有據（引用數據或新聞）、動機需展現「立基點」、目的需具體可衡量、並強調理論／實踐／社會價值。</td></tr>
+            <tr><td><b>文獻探討</b></td><td>闡述理論框架、系統回顧相關研究、明確<b>研究缺口與定位</b>，凸顯本研究的必要性與創新性。</td></tr>
+            <tr><td><b>研究假設或目標</b></td><td>提出明確、可驗證的假設或具體目標。</td></tr>
+            <tr><td><b>名詞解釋</b></td><td>對關鍵術語精確界定。</td></tr>
+            <tr><td><b>工具設備器材</b></td><td>詳細列表，含規格型號、廠商、數量，確認資源可得性。</td></tr>
+            <tr><td><b>研究過程／方法</b></td><td>需<b>極度詳盡、具可重複性</b>：研究設計、對象／樣本（選擇標準、取樣、倫理）、變因界定與控制、執行步驟（流程圖必備）、數據收集與分析、信效度確保。</td></tr>
+            <tr><td><b>預期成果與分析</b></td><td>合理預測結果樣態，說明預計如何處理與分析數據。</td></tr>
+            <tr><td><b>進度規劃</b></td><td>甘特圖或時程表。</td></tr>
+            <tr><td><b>風險評估與應對</b></td><td>預想困難並提出預案。</td></tr>
+            <tr><td><b>安全與倫理考量</b></td><td>檢視潛在安全風險或倫理議題，說明將遵循的規範與許可。</td></tr>
+            <tr><td><b>團隊分工 / 參考文獻</b></td><td>規劃成員分工與協調機制；列出引用的主要文獻來源。</td></tr>
+          </tbody>
+        </table></div>
+        <p>計畫書是<strong>動態文件</strong>，允許在研究過程中調整，但初始版本需力求周延、嚴謹。反覆檢查邏輯性、可行性、文字精確性與格式規範性，並與指導老師充分討論。</p>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+    <!-- ===== 第三章 ===== -->
+    <section class="ch" id="ch3">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">第三章</span>
+          <h2 class="ch-title">研究核心歷程 — 執行、記錄、分析與迭代</h2>
+          <p class="ch-lede">這是將計畫付諸實踐、將好奇心轉化為實證數據的關鍵階段，也是整個科展中最耗費心力、最能體現科學精神的階段。評審標準中的「科學方法之適切性」很大程度在此體現。</p>
+        </div>
+
+        <h3>一、實驗執行：在嚴謹操作與靈活應變中試錯前進</h3>
+        <h4>按計畫操作與嚴謹控制</h4>
+        <ul>
+          <li><strong>忠於計畫：</strong>嚴格依照計畫書的步驟與參數操作，每一次操作都應力求精確、標準化，同時保持適應性。</li>
+          <li><strong>精確控制變因：</strong>這是實驗成功的核心。必須確保除自變項外，所有其他因素（溫度、濕度、光照、pH、反應時間、儀器設定等）保持恆定一致，並詳細記錄控制方法。對照組的設置尤其關鍵——必須確保控制組與實驗組之間僅存在自變項的差異。</li>
+          <li><strong>重複試驗的必要性：</strong>為確保結果可靠性與再現性，必須進行獨立的重複試驗，<strong>通常至少三次</strong>，以評估隨機誤差的影響。</li>
+        </ul>
+        <div class="box flaw"><div class="bx-h"><span class="ic">!</span>常見劣勢</div><p>評審高度關注變因控制是否清楚、適當、完整，最常見的失分即是「變因控制不清」或「過多變因導致失焦」。</p></div>
+        <h4>細心觀察與全面記錄</h4>
+        <p>科學發現往往來自對<strong>預期之外</strong>現象的敏銳觀察。實驗過程中不僅要記錄預計測量的數據，更要留意任何異常現象、微小變化、儀器反應、甚至環境改變——這些都可能是理解結果或發現新問題的線索。若涉及化學反應或生物培養，氣味、聲音、質地變化也應在安全前提下納入記錄，結合定性觀察與定量數據。</p>
+        <div class="box voice"><div class="bx-h"><span class="ic">”</span>擁抱不確定性</div><p>實驗結果不如預期、儀器故障、材料污染、甚至整個方向需要調整，都是科研常態。必須建立「<strong>失敗是正常</strong>」的心態。遇到問題時，關鍵在於冷靜分析原因：是隨機誤差？系統誤差？操作失誤？環境干擾？還是理論假設本身需要修正？再據此<strong>重複實驗、調整參數、改進方法或修正假設</strong>。所有調整與解決策略都必須記錄在實驗日誌中，這是展現問題解決能力的證據。</p></div>
+
+        <h3>二、系統記錄：研究的基石、憑證與反思載體</h3>
+        <p class="lead">詳實、準確、系統化且即時的實驗記錄，是後續分析、報告撰寫、成果展示及可信度的根本保障。評審會仔細翻閱實驗記錄本，評估研究的扎實度與學生投入程度。</p>
+        <p><strong>記錄的多重功能：</strong>便於<strong>自我查閱與追溯</strong>（「寫給一年後的自己看」）、作為向老師匯報與答辯時的<strong>溝通與展示依據</strong>、體現<strong>學術誠信</strong>，並在記錄過程中促成<strong>反思與知識生成</strong>。</p>
+        <h4>記錄內容要求（極致詳盡）</h4>
+        <ul>
+          <li><strong>標識信息：</strong>清晰日期（建議 YYYYMMDD）、實驗編號／名稱、連續頁碼、操作者姓名。</li>
+          <li><strong>材料與儀器：</strong>詳列試劑（廠商、批號、純度、濃度、配製方法）、材料、生物樣本（物種、品系、來源、培養條件）、儀器（廠牌、型號、關鍵參數、校準記錄）。</li>
+          <li><strong>詳細步驟：</strong>按時間順序記錄每步操作，含試劑體積／重量、時間、溫度、壓力、pH、攪拌速度等所有關鍵參數，具可重複性。</li>
+          <li><strong>觀察現象：</strong>記錄所有現象（無論是否符合預期）：顏色變化、沉澱、氣泡、形態、氣味、讀數波動，盡可能量化。</li>
+          <li><strong>原始數據：</strong>記錄所有直接測量的原始數據，<strong>務必包含明確單位</strong>，避免只記平均值或處理後結果。</li>
+          <li><strong>計算過程、圖表草圖、問題與解決方案、反思與初步結論、簽名與日期、附件管理</strong>（照片需標註日期、對象、比例尺、染色方法等）。</li>
+        </ul>
+        <div class="box ask"><div class="bx-h"><span class="ic">？</span>評審提問實例（材料來源）</div><p>「牡蠣殼哪裡取得的？」「油甘子粉末從哪裡取得？如何萃取？」——這些細節若無記錄佐證，將難以回答。</p></div>
+        <div class="box tip"><div class="bx-h"><span class="ic">✦</span>工具建議</div><p>使用<strong>線裝、頁碼連續、不易撕毀</strong>的硬殼記錄本，永久性墨水書寫，修改時劃掉原文（保留可辨識）並簽名註記。可採 <b>P-E-R-D 系統</b>（Plan-Experiment-Result-Discussion）分類標註。數位輔助（Excel、ELN、Google Docs、Notion）須確保安全備份、可追溯且不易篡改。若目標為<strong>國際賽事，建議從研究初期就以英文記錄</strong>，統一專業術語與變數命名。</p></div>
+
+        <h3>三、資料分析與結果詮釋：從數據到洞見</h3>
+        <p>「數據足以證實結論及釋義」是評審標準中的核心要求。如何將原始信息轉化為有意義的科學知識，是關鍵階段。</p>
+        <h4>數據整理與視覺化：讓數據說話</h4>
+        <ul>
+          <li><strong>及時整理與校驗：</strong>盡快輸入電子表格並核對，進行描述性統計（平均值、中位數、標準差、變異係數、分佈圖）以檢查整體樣貌、識別異常值。</li>
+          <li><strong>選擇合適圖表：</strong>根據數據類型與想表達的核心信息（比較、趨勢、相關、組成、分佈）選擇最恰當的圖表。<strong>建議優先使用圖表而非表格。</strong></li>
+          <li><strong>圖表製作規範：</strong>標題精煉、座標軸標示變量與單位、圖例清晰、字體適中；涉及統計比較須標示樣本量（n）與顯著性（*p&lt;0.05、**p&lt;0.01）；顯微照片須含比例尺；力求<strong>自明性</strong>。</li>
+          <li><strong>對待「不理想」的數據：</strong>如實呈現，並在討論中誠實分析可能原因，更能體現科學態度。</li>
+        </ul>
+        <h4>統計分析的應用：科學驗證的利器</h4>
+        <p>不能僅憑直觀判斷。需根據研究設計、數據類型、樣本量、數據分佈，選擇恰當方法（t-test、ANOVA、Chi-square、Correlation、Regression 等），理解 α=0.05 的慣例與 p 值意義，清晰報告所用方法、統計量及 p 值，並註明工具（Excel、SPSS、R、Python）。統計是難點，需主動學習或尋求協助。</p>
+        <h4>結果詮釋與討論（Discussion）：從現象到本質</h4>
+        <p>結果部分客觀呈現事實，討論部分深入詮釋。討論的核心任務包括：</p>
+        <div class="grid g3">
+          <div class="card"><h4>解釋意義</h4><p>回答「So What?」——這個發現代表什麼。</p></div>
+          <div class="card"><h4>連結目的／假設</h4><p>比較結果與預期是否一致。</p></div>
+          <div class="card"><h4>與文獻對話</h4><p>比較、解釋與前人研究的異同。</p></div>
+          <div class="card"><h4>機制探討</h4><p>嘗試提出解釋現象的機制或模型。</p></div>
+          <div class="card"><h4>分析異常／限制</h4><p>誠實分析異常數據，客觀指出研究限制。</p></div>
+          <div class="card"><h4>貢獻與展望</h4><p>屏除誇大、推論基於證據，點明獨特價值並建議後續方向。</p></div>
+        </div>
+
+        <h3>四、持續學習與反覆修正：螺旋式上升</h3>
+        <p>科展研究是迭代優化的過程，尤其在賽前培訓期。從計畫到報告、海報、簡報，<strong>修改是常態</strong>。應接受建議、視其為提升作品的機會而非否定；主動向老師、同儕、專家尋求意見並有效利用。透過 <strong>PDCA／PHT 循環</strong>（計劃-執行-檢查-行動／問題-假設-檢驗），每一次循環都加深理解、精進方法、完善呈現——這就是螺旋式上升。</p>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+    <!-- ===== 第四章 ===== -->
+    <section class="ch" id="ch4">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">第四章</span>
+          <h2 class="ch-title">成果展現 — 報告書、海報與簡報的藝術與科學</h2>
+          <p class="ch-lede">將研究成果有效地傳達給他人，是科學探究不可或缺的一環。評審標準與實戰經驗都高度重視溝通表達能力。</p>
+        </div>
+
+        <h3>一、成果報告書撰寫：研究歷程的嚴謹結晶</h3>
+        <p>報告書是評審深入了解研究的主要依據，需體現完整性、嚴謹性與學術性。它是初審關鍵、影響第一印象，<strong>格式錯誤可能導致淘汰</strong>。熟練 Word 高級功能（樣式、目錄、圖表、文獻管理）至關重要。報告書對大學申請（備審資料）亦有極大長遠價值。</p>
+        <h4>報告書結構（逐項精雕）</h4>
+        <div class="tbl"><table>
+          <thead><tr><th style="width:26%">章節</th><th>要點</th></tr></thead>
+          <tbody>
+            <tr><td><b>作品名稱</b></td><td>吸引人且反映核心。</td></tr>
+            <tr><td><b>摘要</b></td><td><b>300 字內</b>精煉全文（目的、方法、結果、結論、亮點／價值），建議第一句點明核心。</td></tr>
+            <tr><td><b>前言 / 動機目的</b></td><td>清晰闡述背景、動機、目的、意義，交代「為何做」。</td></tr>
+            <tr><td><b>文獻探討</b></td><td>論述理論基礎、評述相關研究、定位本研究的差異與貢獻。</td></tr>
+            <tr><td><b>名詞解釋 / 工具設備</b></td><td>界定關鍵術語；詳細列表含規格。</td></tr>
+            <tr><td><b>研究過程／方法</b></td><td>極度詳盡、具可重複性：設計、樣本、變因控制、流程圖、數據收集分析、信效度。<b>此部分需最詳細。</b></td></tr>
+            <tr><td><b>研究結果</b></td><td>客觀呈現數據、圖表。圖表規範（標題、編號、單位、圖例、樣本數、誤差線）需嚴謹，建議以圖表為主。</td></tr>
+            <tr><td><b>討論</b></td><td><b>核心！</b>解釋結果意義、連結目的假設、與文獻對話、探討機制、分析異常限制、屏除誇大。</td></tr>
+            <tr><td><b>結論</b></td><td>歸納核心發現、回應目的問題、強調價值、提出展望。簡明扼要回答問題。</td></tr>
+            <tr><td><b>參考文獻 / 致謝</b></td><td>格式規範（APA）、內容真實（親自讀過）；致謝為非必需。</td></tr>
+          </tbody>
+        </table></div>
+        <div class="box tip"><div class="bx-h"><span class="ic">✦</span>寫作原則</div><p>邏輯連貫、語言精煉客觀專業；具<strong>讀者意識</strong>（考慮非專家讀者，解釋術語、由淺入深）；圖文整合、格式統一、反覆校對；嚴守<strong>學術誠信</strong>（嚴禁抄襲造假）；體現學生口吻與思考。</p></div>
+
+        <h3>二、海報製作：靜態視覺的溝通藝術</h3>
+        <p>海報是現場第一印象，需兼顧科學性與視覺吸引力。<strong>海報 vs. 簡報</strong>：海報信息密度高、閱讀路徑非線性；簡報信息密度低、線性瀏覽。</p>
+        <div class="grid g2">
+          <div class="card"><span class="tag">設計原則</span><h4>清晰易讀</h4><p>標題醒目（&gt;72pt）、內文清晰（&gt;24pt）、高對比配色（白底黑字佳）、無襯線字體。</p></div>
+          <div class="card"><span class="tag">設計原則</span><h4>邏輯佈局</h4><p>遵循科研邏輯、分區明確（欄式佈局／F 或 Z 型閱讀路徑）。</p></div>
+          <div class="card"><span class="tag">設計原則</span><h4>視覺化主導</h4><p>圖 &gt; 表 &gt; 文。圖表清晰、規範、自明性強，圖文搭配（文字 &lt;50 字）。</p></div>
+          <div class="card"><span class="tag">設計原則</span><h4>重點突出・版面平衡</h4><p>用粗體、顏色、大小、位置強調亮點；圖文留白和諧、風格統一，避免擁擠或花俏。</p></div>
+        </div>
+        <p>內容要素：精煉核心（摘要／前言、方法、結果、討論／結論、關鍵文獻）。實務上需注意輸出材質、色彩、尺寸規範、運輸保護與現場張貼工具，並善用 <strong>QR Code</strong> 連結補充資料。</p>
+
+        <h3>三、簡報製作：動態演繹的技巧與策略</h3>
+        <p>簡報是口頭報告的視覺輔助，旨在引導思路、突出亮點。原則是<strong>「Less is More」</strong>：每頁一重點、文字精煉、圖表主導、字體大而統一、配色高對比、模板簡潔、風格一致、慎用動畫。</p>
+        <div class="box tip">
+          <div class="bx-h"><span class="ic">✦</span>12 頁黃金結構（科學故事）</div>
+          <p>封面 → 前言（2p）→ 問題／假設／方法（2p）→ 結果／討論（5–6p）→ 結論／展望（2p）→ 參考文獻／致謝（1p）。敘事邏輯講求起承轉合，並能用<strong>一句話概括核心主軸</strong>。建議準備<strong>多時長版本</strong>（3 / 5–7 / 8–10 分鐘）與<strong>補充簡報</strong>應對深入提問。線上簡報則需特別準備技術備援、營造互動感、整合影片／QR Code 以彌補無法展示實體。</p>
+        </div>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+    <!-- ===== 第五章 ===== -->
+    <section class="ch" id="ch5">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">第五章</span>
+          <h2 class="ch-title">競賽演練與實戰 — 從練習到臨場應對</h2>
+          <p class="ch-lede">無論研究多麼出色，缺乏充分演練導致臨場生澀、邏輯混亂或無法應對提問，都可能功虧一簣。充分的準備與練習，是決戰科展現場的信心之源。</p>
+        </div>
+
+        <h3>一、競賽練習：追求熟練、自信、自然與應變</h3>
+        <p>練習絕非簡單的重複朗讀或背誦講稿，而是有目標、有策略、多面向、反覆精進的過程。練習的最終目的，是實現從內到外的全面提升：</p>
+        <ol>
+          <li><strong>深度內化研究內容：</strong>將背景、動機、方法、結果、討論、結論、展望徹底消化，「長」在腦海裡。最終目標是能夠脫稿，或僅依靠少量<strong>關鍵詞卡片（Keyword Cards）</strong>就能自然、連貫、有邏輯地講解。</li>
+          <li><strong>精準掌握報告時間：</strong>口頭報告通常有嚴格時限（5、7、8、10、12 分鐘，ISEF 達 15 分鐘）。要能精確控制節奏與詳略，既完整呈現亮點與結論，又不超時或虎頭蛇尾。</li>
+          <li><strong>提升口語流暢度與說服力：</strong>練習清晰咬字、適宜語速（<strong>建議約 120 字／分鐘</strong>，避免緊張越講越快）、富變化的語調與情感投入（達到「快樂講故事」的境界）、自然的肢體語言與眼神交流。</li>
+          <li><strong>及早發現內容與邏輯盲點：</strong>透過反覆練習與他人反饋，發現圖表標示不清、邏輯跳躍、表達含糊或信息遺漏，及時修正。</li>
+          <li><strong>逐步建立臨場自信：</strong>熟能生巧帶來掌控感；透過高強度模擬評審環境，提升抗壓性。</li>
+          <li><strong>系統性模擬問答環節：</strong>講解熟練後，應將更多精力投入模擬答辯，預判評審問題、準備回答思路與佐證數據，提升臨場反應速度。</li>
+        </ol>
+        <h4>多樣化的練習方法</h4>
+        <div class="grid g2">
+          <div class="card"><span class="tag">方法</span><h4>計時演練與多版本</h4><p>嚴格使用計時器。準備至少三種版本：<b>精簡版</b>（電梯演講 2–3 分，聚焦核心動機與 1–2 個關鍵結果）、<b>標準版</b>（5–8 分，涵蓋所有主要環節）、<b>詳細版</b>（10–15 分，深入細節）。並練習在版本間靈活切換。</p></div>
+          <div class="card"><span class="tag">方法</span><h4>多元化聽眾反饋</h4><p>「講給很多人聽」：對<b>自己</b>（錄音錄影自我審視）、<b>指導老師</b>（學術深度）、<b>團隊夥伴</b>（銜接協調）、<b>跨組同學</b>（清晰度與壓力）、<b>家人</b>（是否通俗易懂）。</p></div>
+          <div class="card"><span class="tag">方法</span><h4>語言轉換與精煉</h4><p>國際賽：中文稿 → 精確英譯（人工校對＋英文老師潤飾）→ <b>關鍵詞卡片化</b>，練習時僅靠卡片提示，擺脫死記硬背的僵硬感。</p></div>
+          <div class="card"><span class="tag">方法</span><h4>模擬真實場景與壓力</h4><p>環境模擬（站立報告、實際使用投影與指標工具）；邀人扮演不同風格評審進行<b>壓力測試</b>（友善的、質疑的、追根究底的、甚至刁鑽偏題的「樁腳提問」）。</p></div>
+        </div>
+        <div class="box tip"><div class="bx-h"><span class="ic">✦</span>團隊賽演練重點</div><p>反覆練習<strong>報告權的交接</strong>（眼神、手勢或過渡語），確保自然無縫；演練<strong>問答協同</strong>（誰主答、誰補充、如何呼應、如何應對大家都沒把握的問題）；答辯時保持<strong>意見一致</strong>。</p></div>
+
+        <h3>二、比賽過程：現場的展現、互動與應變</h3>
+        <p>評審時間通常僅有 <strong>9–12 分鐘</strong>（含說明、操作、問答），每一分鐘都至關重要。</p>
+        <h4>1. 周密的現場佈置與賽前準備</h4>
+        <ul>
+          <li><strong>提前到場：</strong>建議比報到時間早 30 分鐘至 1 小時，熟悉展位、電源、動線、光線與噪音。</li>
+          <li><strong>規範佈置：</strong>與隊友合作，使用備好的工具（透明寬膠帶、無痕掛鉤、剪刀、水平儀）平整牢固地張貼海報，預留至少 1.5 小時。整理好報告書（多份）、實驗記錄本（原件）、補充資料，並可貼上 QR Code。</li>
+          <li><strong>技術設備萬無一失：</strong>仔細檢查筆電、投影、電源線、<strong>各類轉接頭</strong>（極易遺漏！）、指標工具，確保電量充足、接口兼容、關閉干擾通知。</li>
+        </ul>
+        <blockquote>備份！備份！備份！<cite>簡報務必儲存於多處（電腦、至少兩個不同品牌 USB、雲端），並建議攜帶備用筆電／平板與充電寶。</cite></blockquote>
+        <h4>2. 口頭報告環節的表現要點</h4>
+        <p>保持<strong>冷靜與自信</strong>（深呼吸、積極自我暗示「我最了解我的研究」、保持微笑）；<strong>表達清晰流暢、突出重點</strong>（聲音洪亮、吐字清晰、追求「讓外行也聽得懂」）；注重<strong>眼神交流</strong>（輪流看每位評審，觀察反應微調）；有效運用<strong>視覺輔助</strong>（穩定指向、看圖說話）；展現<strong>靈活應變</strong>（被打斷時禮貌簡答後自然銜接）；<strong>嚴格遵守時間</strong>（時間臨近能迅速收斂作結，結尾可用 1 分鐘小故事統整全作）。</p>
+        <div class="box tip"><div class="bx-h"><span class="ic">✦</span>非正式報告時段：抓住機會加深印象</div><p>評審可能隨時巡場提問，須<strong>時刻準備</strong>、不隨意離開展位。練好 <strong>30 秒~1 分鐘的電梯演講</strong>；若評審停留較久，主動展示實驗記錄本關鍵記錄、補充簡報或操作模型，進行深入交流。這種非正式互動對加深評審印象極為重要——曾有評審下午特意回來深入討論。</p></div>
+        <h4>3~5. 學習交流與突發狀況預案</h4>
+        <p>利用空檔<strong>觀摩學習</strong>其他作品、與同儕交流建立「革命情誼」與人脈（對未來升學、尋找大學實驗室機會可能帶來幫助）。對常見突發狀況（海報脫落、設備故障、評審遲到、現場嘈雜）預先準備<strong>物資備份與替代方案</strong>，並保持心理預期。從容應對突發狀況本身，也能給評審留下成熟穩重的良好印象。</p>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+
+    <!-- ===== 第六章 ===== -->
+    <section class="ch" id="ch6">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">第六章</span>
+          <h2 class="ch-title">答辯應對 — 科學思維、誠信態度與溝通智慧</h2>
+          <p class="ch-lede">問答環節往往是科展評審中極其重要、甚至決定性的組成部分。它不僅檢驗研究掌握程度，更考察科學思維的敏捷性、邏輯的嚴謹性、誠實的態度與臨場應變能力。</p>
+        </div>
+
+        <h3>一、充分的知識儲備與深度理解</h3>
+        <p>成功答辯的首要前提，是對自身研究擁有全面、透徹、深入的理解。參賽者必須對研究的<strong>背景動機、方法原理、數據統計、結果結論、限制展望、潛在應用</strong>每一環節都瞭若指掌。不僅要<strong>知其然，更要知其所以然</strong>——不僅知道使用了 ANOVA，更要理解其原理、適用條件與結果解釋。臨近比賽時務必重新梳理整個邏輯脈絡，甚至將所有可能被問到的問題與答案整理成冊、反覆演練。</p>
+        <div class="box ask"><div class="bx-h"><span class="ic">？</span>提問實例（方法與統計）</div><p>「pH 值與電位值如何量測，儀器如何使用？」「標準差是什麼？跟平均值哪個比較重要？」「何謂傅立葉轉換？」「p 值是什麼意思？你們認為要達到多少才算有顯著差異？」</p></div>
+
+        <h3>二、認真聆聽與準確理解</h3>
+        <p>許多不佳的回答都源於未能準確把握問題。應<strong>集中注意力、完整聽完再思考</strong>（稍作停頓約幾秒，展現穩重）、必要時<strong>禮貌請求澄清</strong>（用自己的話複述確認）、並<strong>記下問題要點</strong>確保涵蓋所有面向。請求澄清不會失分，反而體現認真嚴謹。</p>
+
+        <h3>三、堅持誠實與自信的原則</h3>
+        <p>回答的態度往往和內容本身同等重要。</p>
+        <ul>
+          <li><strong>針對問題、直接回答：</strong>先給核心觀點，再進行解釋佐證，避免繞圈子。</li>
+          <li><strong>善用 STAR 原則：</strong>對於闡述過程或經驗的問題，用 <b>S</b>ituation（情境）→ <b>T</b>ask（任務）→ <b>A</b>ction（行動）→ <b>R</b>esult（結果與學習）結構化回答。</li>
+          <li><strong>知之為知之，論證充分：</strong>盡可能引用自己研究的具體數據、圖表、觀察或文獻支持觀點，「讓證據自己說話」。</li>
+          <li><strong>不知為不知，坦誠說明：</strong>遇到確實不知道的問題，最明智的做法是誠實承認，切忌不懂裝懂。可用「目前尚未深入探討，但未來有興趣進一步研究」等<strong>正向方式</strong>回應。</li>
+          <li><strong>展現思考過程比完美答案更重要：</strong>即使無法給出確定答案，也可說明如何理解問題、會從哪些角度分析、需要哪些額外數據——這能體現科學思維與潛力。</li>
+          <li><strong>避免直接反駁評審：</strong>先禮貌表示理解其考量，再以客觀數據與文獻委婉解釋。以理服人，而非情緒對抗。</li>
+        </ul>
+
+        <h3>四~六、學習契機・團隊協作・專業風度</h3>
+        <p>將評審提問視為<strong>學習與交流的契機</strong>（啟發思考、指出盲點、學術交流），對建設性意見表達感謝並賽後研究。團體答辯需<strong>事先協調分工</strong>（主答人制度、領域分工或輪流主答）、<strong>現場默契配合</strong>（簡潔有效補充、禮貌過渡銜接、避免搶答冷場）、並保持<strong>一致性</strong>。整個過程始終保持禮貌、謙遜、理性溝通——即使遇到態度不佳或提出「愚蠢問題」的評審，仍需保持風度、認真回答。</p>
+        <div class="box flaw"><div class="bx-h"><span class="ic">!</span>團隊答辯常見劣勢</div><p>「回答問題時不要同時很多人講話」「回答題目做好分配」「問題答辯時默契要好一點」「回答時避免僅一人回答」「成員發表或回答順序可以安排更順暢」。</p></div>
+
+        <h3>七、常見評審提問類型分析</h3>
+        <p>知己知彼，百戰不殆。常見提問可歸納為八大類型（互動題庫請見後方<a href="#x-qbank" style="color:var(--accent);font-weight:700">「評審提問互動題庫」</a>）：</p>
+        <div class="grid g2">
+          <div class="card case"><div class="meta"><span class="pill">類型</span></div><h4>動機與價值類</h4><p>為何做此研究？重點／主軸／貢獻／亮點是什麼？題目為何如此命名？</p></div>
+          <div class="card case"><div class="meta"><span class="pill">類型</span></div><h4>背景與文獻類</h4><p>有沒有人做過類似研究？主要參考哪些文獻？與前人有何不同？</p></div>
+          <div class="card case"><div class="meta"><span class="pill">類型</span></div><h4>方法學與嚴謹性類</h4><p>為何選此方法／儀器？如何控制變因？誤差來源？再現性？樣本數？</p></div>
+          <div class="card case"><div class="meta"><span class="pill">類型</span></div><h4>結果詮釋與討論類</h4><p>這個數據說明什麼？背後機制？如何解釋異常？結論是否被數據支持？</p></div>
+          <div class="card case"><div class="meta"><span class="pill">類型</span></div><h4>困難與解決類</h4><p>研究中遇到哪些困難？如何突破？哪一部分最難？</p></div>
+          <div class="card case"><div class="meta"><span class="pill">類型</span></div><h4>獨立性與分工類</h4><p>是否獨立完成？師生付出占比？團隊如何分工？主題是誰定的？</p></div>
+          <div class="card case"><div class="meta"><span class="pill">類型</span></div><h4>未來展望與應用類</h4><p>還有哪些未完成？未來如何改進？有何應用價值？</p></div>
+          <div class="card case"><div class="meta"><span class="pill">類型</span></div><h4>挑戰性提問</h4><p>「為什麼一定要…如果不是…結果會如何？」「你確定別人沒做過嗎？」「數據好像有問題，確定對嗎？」</p></div>
+        </div>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+    <!-- ===== 第七章 ===== -->
+    <section class="ch" id="ch7">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">第七章</span>
+          <h2 class="ch-title">心態淬鍊與成長反思 — 科展之路的內在修煉</h2>
+          <p class="ch-lede">科展不僅是一場外部競賽，更是一場深刻的內在修煉。此處的「心態路徑」與前述的「技術路徑」同等重要，甚至在面對長期挑戰與不確定性時更為關鍵。</p>
+        </div>
+
+        <h3>一、壓力管理與情緒調節：駕馭科展馬拉松</h3>
+        <p>壓力是這場「科學馬拉松」的一部分。壓力來源是多元的：<strong>研究本身</strong>（實驗挫敗、進度壓力、知識挑戰）、<strong>學業與生活的衝突</strong>（時間分配、犧牲睡眠週末寒假）、<strong>外部期望</strong>（師長、家長、同儕、自我）、以及<strong>競賽現場壓力</strong>。有效的壓力管理並非消除壓力，而是學會與壓力共處，將其轉化為適度的動力。</p>
+        <div class="box tip">
+          <div class="bx-h"><span class="ic">✦</span>壓力管理工具箱</div>
+          <ul>
+            <li><strong>主動溝通，尋求社會支持：</strong>向師長坦誠求助、與同儕互助傾訴、爭取家庭理解。「千萬不要一個人悶在心裡，該哭的時候就哭，找個願意傾聽你的人——當局者迷，旁觀者清。」</li>
+            <li><strong>情緒管理與自我調節：</strong>識別並接納負面情緒；透過<strong>規律運動、興趣轉移、放鬆技巧</strong>（如 4-7-8 呼吸法：吸氣 4 秒、屏息 7 秒、呼氣 8 秒）、<strong>充足睡眠</strong>來舒壓；用「小本本」記錄每日心情與進度。</li>
+            <li><strong>強化計劃執行與掌控感：</strong>詳細規劃並分解任務、追蹤進度、專注當下，每日記錄「<strong>三件成功小事</strong>」累積成就感。</li>
+            <li><strong>理性看待不確定性與失敗：</strong>理解科研常態、從失敗中學習、接納不完美。「評審提問是幫助我發現盲點，而非否定價值。」</li>
+          </ul>
+        </div>
+        <div class="box voice"><div class="bx-h"><span class="ic">”</span>安定情緒（賽前夜）</div><p>建議師長與家長在賽前夜引導學生：<strong>安定情緒</strong>（圍成圈分享感受）、<strong>引導反思</strong>（聚焦過程的學習與成長）、<strong>預期管理</strong>（坦誠面對擔憂並思考因應）、<strong>調整目標</strong>（從單一結果轉移到多元過程價值）、<strong>建立信心</strong>（肯定一路走來的努力）、<strong>充分休息</strong>（避免賽前熬夜）。</p></div>
+
+        <h3>二、建立成長型思維：視挑戰為階梯</h3>
+        <p>擁有成長型思維（Growth Mindset）——相信能力可透過努力與學習提升——是應對挑戰、實現成長的關鍵心理素質。</p>
+        <div class="grid g3">
+          <div class="card"><span class="tag">學習維度（優先）</span><h4>過程 &gt; 結果</h4><p>將主要目標設定為學習新知、掌握新技能、提升探究與問題解決能力。</p></div>
+          <div class="card"><span class="tag">人際維度（並重）</span><h4>合作與人脈</h4><p>重視團隊合作中的溝通協調，以及競賽交流中的視野拓展與人脈建立。</p></div>
+          <div class="card"><span class="tag">成果維度（平常心）</span><h4>附帶指標</h4><p>將獎項視為對努力的肯定或「附帶指標」，而非衡量參與價值的唯一標準。</p></div>
+        </div>
+        <p>無論結果如何，過程中獲得的收穫是多方面且他人無法剝奪的：<strong>知識深化、技能提升、思維鍛煉、個人品質、人際互動</strong>。應<strong>擁抱挑戰與困難</strong>（視逆境為磨練、從錯誤中學習、提升韌性）、<strong>開放接納反饋</strong>（視建議為資源而非否定）、<strong>換位思考</strong>（理解評審視角）、並<strong>跳脫負面漩渦</strong>（區分「人」與「事」——評審質疑的是研究的某個環節，而非否定你個人）。</p>
+        <blockquote>科展如登山，重在登頂過程。<cite>從廣泛學習（進入知識圈）、專精領域（深入某點）、觸及前沿（抵達邊界），到艱苦探索突破邊界。即使取得突破，相較於浩瀚知識仍是渺小的——應保持謙遜，持續學習（Keep pushing）。</cite></blockquote>
+
+        <h3>三~五、團隊精神・研究初心・人際網絡</h3>
+        <p>科展常以團隊形式進行，<strong>1+1&gt;2 的實踐</strong>需要：有效溝通（定期交流、積極傾聽、建設性反饋）、明確分工與協作（依專長分工、責任共擔、避免勞役不均）、建立信任與支持、以及<strong>建設性衝突解決</strong>（對事不對人，「意見分歧時由數據決定」）。同時要<strong>堅守熱情與研究初心</strong>——在疲憊迷茫時回溯初衷，「永遠別忘了前行的理由」，並以「快樂講故事」的心情享受過程。科展更是一個匯聚科學熱情者的社群，積極<strong>觀摩學習、交流建立人脈、把握國際交流機遇</strong>，是重要的附加價值。</p>
+
+        <h3>六、面對成敗，重塑觀念：定義屬於自己的成功</h3>
+        <div class="grid g2">
+          <div class="card"><h4>盡人事，聽天命</h4><p>全力以赴、認真投入、做到最好，本身就是一種成功。結果除實力外也含運氣成分（評審偏好、臨場狀態），不必過於執著。</p></div>
+          <div class="card"><h4>失敗亦是成績單</h4><p>「失敗的經驗是成功的養分」（許名智老師語）。將失敗原因與教訓記錄在研究日誌中，下一個專題便能「脫胎換骨」。</p></div>
+          <div class="card"><h4>重新定義成功</h4><p>能力提升、知識增長、視野開闊、友誼建立、意志磨練——這些無形收穫的價值，往往遠超獎牌本身。</p></div>
+          <div class="card"><h4>感恩與傳承</h4><p>感謝指導老師、學長姐、隊友、家人；並將經驗分享給學弟妹，實現知識與精神的傳承。</p></div>
+        </div>
+        <blockquote>沒有真正的淘汰，只有舞台的轉換。<cite>科展只是人生眾多舞台中的一個。</cite></blockquote>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+
+    <!-- ===== 第八章：互動檢核 ===== -->
+    <section class="ch" id="ch8">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">第八章</span>
+          <h2 class="ch-title">自我檢核與持續精進 — 追求卓越的必經之路</h2>
+          <p class="ch-lede">以下三份檢核清單可直接勾選使用：在提交報告、反覆練習與賽前最後階段逐項自我審查，找出潛在不足並針對性強化。（勾選進度會即時顯示）</p>
+        </div>
+
+        <h3>一、科學寫作發表（報告書）自我檢核</h3>
+        <div class="checkwrap" data-check>
+          <div class="ck-top"><h4>📄 報告書內部審核</h4><div class="ck-bar"><i></i></div><span class="ck-count">0 / 12</span></div>
+          <label class="check"><input type="checkbox"><span>研究主題在標題、摘要、前言、結論中都得到清晰、一致且明顯的體現。</span></label>
+          <label class="check"><input type="checkbox"><span>所有內容（含圖表、討論）都緊密圍繞主題，無偏離或冗餘。</span></label>
+          <label class="check"><input type="checkbox"><span>內容完整且準確地回應了最初設定的研究目的與待答問題。</span></label>
+          <label class="check"><input type="checkbox"><span>呈現的第一手資料真實可靠，數據記錄詳實可追溯（可對應實驗記錄本）。</span></label>
+          <label class="check"><input type="checkbox"><span>研究結果的重要／突破性發現，在報告中得到充分強調。</span></label>
+          <label class="check"><input type="checkbox"><span>引用的文獻權威、相關且為該領域較新的資料，引用恰當必要。</span></label>
+          <label class="check"><input type="checkbox"><span>所有圖表添加了完整標註：圖／表號、標題（圖下表上）、圖例、座標軸名稱與單位、樣本數（n）、顯著性（p）、比例尺。</span></label>
+          <label class="check"><input type="checkbox"><span>正文中對所有圖表進行了引用與必要的文字說明、解釋。</span></label>
+          <label class="check"><input type="checkbox"><span>完整遵循主辦單位規定的科學寫作格式（封面、摘要、前言、方法、結果、討論、結論、參考文獻）。</span></label>
+          <label class="check"><input type="checkbox"><span>參考文獻列表齊全、格式統一規範（如 APA），引註準確無誤且有備份。</span></label>
+          <label class="check"><input type="checkbox"><span>已多次仔細校對，消除所有打字錯誤、冗字、漏字、語法錯誤及標點誤用。</span></label>
+          <label class="check"><input type="checkbox"><span>已觀摩學習同領域或歷屆優秀作品的長處，並應用於自身報告的改進。</span></label>
+        </div>
+
+        <h3>二、口頭發表（簡報／解說／答辯）自我檢核</h3>
+        <div class="checkwrap" data-check>
+          <div class="ck-top"><h4>🎤 口頭表達檢核</h4><div class="ck-bar"><i></i></div><span class="ck-count">0 / 12</span></div>
+          <label class="check"><input type="checkbox"><span>對所有資料、數據、圖表、結論的敘述都嚴謹、準確無誤。</span></label>
+          <label class="check"><input type="checkbox"><span>能丟開講稿，僅依靠簡報或關鍵詞提示流暢自然地報告，而非逐字念稿。</span></label>
+          <label class="check"><input type="checkbox"><span>能清晰、有條理地闡述邏輯脈絡，各部分銜接自然，不卡詞（不「吃螺絲」）。</span></label>
+          <label class="check"><input type="checkbox"><span>回答問題能簡短、清晰、直接切入重點，用簡單不複雜的語言回應。</span></label>
+          <label class="check"><input type="checkbox"><span>能仔細聆聽提問、準確記下重點，並在回答前對問題進行確認。</span></label>
+          <label class="check"><input type="checkbox"><span>能與評審進行適度、自信的眼神交流，不只看稿或屏幕。</span></label>
+          <label class="check"><input type="checkbox"><span>聲音洪亮清晰、語速適中（約 120 字／分）、語調有抑揚頓挫。</span></label>
+          <label class="check"><input type="checkbox"><span>肢體語言自然得體，手勢輔助說明而非亂晃。</span></label>
+          <label class="check"><input type="checkbox"><span>以真誠、有感情的態度發表，隨時保持抬頭挺胸、面帶笑容的自信儀態。</span></label>
+          <label class="check"><input type="checkbox"><span>不害怕承認自己不懂的地方，有勇氣虛心詢問評審意見，面對不確定問題能婉轉請評審澄清。</span></label>
+          <label class="check"><input type="checkbox"><span>能將複雜問題切割、簡化為自己能處理的範圍，回答時兼顧嚴謹與隨機應變。</span></label>
+          <label class="check"><input type="checkbox"><span>能精確掌握不同時長版本的報告時間，結束時記得向評審致謝。</span></label>
+        </div>
+
+        <h3>三、作品內容深度與廣度（賽前反思）</h3>
+        <div class="checkwrap" data-check>
+          <div class="ck-top"><h4>🎯 賽前策略反思</h4><div class="ck-bar"><i></i></div><span class="ck-count">0 / 8</span></div>
+          <label class="check"><input type="checkbox"><span>若必須刪減內容，我清楚會優先刪除哪些、為什麼（釐清核心）。</span></label>
+          <label class="check"><input type="checkbox"><span>若能增加內容，我清楚最想補充什麼來說明研究、為什麼（找到亮點）。</span></label>
+          <label class="check"><input type="checkbox"><span>我能用一句話清晰概括研究的重點／主軸／重心。</span></label>
+          <label class="check"><input type="checkbox"><span>我清楚研究最主要的貢獻／價值／有趣之處在哪裡。</span></label>
+          <label class="check"><input type="checkbox"><span>我清楚作品的優勢（方法新穎？新觀點？漂亮結果？高應用價值？）並知道如何最大化突出。</span></label>
+          <label class="check"><input type="checkbox"><span>我清楚作品的劣勢（深度／應用／數據量／變因控制／與前人相似度）並準備好策略性回應。</span></label>
+          <label class="check"><input type="checkbox"><span>若我是評審，我清楚最想了解什麼、可能對哪些地方產生疑問。</span></label>
+          <label class="check"><input type="checkbox"><span>要將作品評為前幾名所需的關鍵證據與論述，已在我的呈現中充分體現。</span></label>
+        </div>
+        <div class="endmark">❖ ❖ ❖</div>
+      </div>
+    </section>
+
+    <!-- ===== 結論 ===== -->
+    <section class="ch" id="conclusion">
+      <div class="wrap">
+        <div class="ch-head">
+          <span class="ch-num">結論</span>
+          <h2 class="ch-title">超越競賽本身 — 技術與心態雙軸精進的深度學習之旅</h2>
+        </div>
+        <p class="drop">科學展覽遠遠超出了傳統意義上學科競賽的範疇。它是一個高度濃縮、貼近真實科研生態的微縮型學習環境，引導學生深度參與、全程體驗科學探究從萌芽、成長到成果展現的完整生命週期。</p>
+        <p>從最初一個模糊靈感的閃現、一個源於生活觀察或課堂啟發的好奇問題的提出，學生們便踏上一段充滿未知與挑戰的探索之路。他們需要系統性地回顧文獻、找準研究定位與創新切入點；將抽象想法轉化為具體、嚴謹、可操作的研究計畫；在核心執行階段親身投入，面對儀器操作的複雜性與數據收集的繁瑣性，更要在反覆失敗的挫折中保持耐心與毅力，運用批判性思維解決實際問題；並養成詳實、系統化的記錄習慣——這不僅是科研誠信的體現，更是後續論證的基石。</p>
+        <p>而將研究成果有效傳達出去，則是旅程中同樣重要的另一半：撰寫符合學術規範的報告書、設計重點突出的海報、精心製作簡報，並透過大量練習磨練口語表達、時間掌控與臨場應變。更具挑戰性的答辯環節，要求學生以誠實、自信、有理有據的態度回應，在互動中展現思維的敏捷與深度。</p>
+        <p>貫穿整個<strong>技術路徑</strong>（研究方法、視覺敘事、口頭表達）的，是同樣關鍵的<strong>心態路徑</strong>（自主探究、合作共好、正向彈性）的淬鍊。學生們必須學會管理壓力、調節情緒、培養成長型思維、在團隊合作中學習，並以更成熟理性的視角看待成敗得失。</p>
+        <blockquote>「能從它（科展）那獲得的，遠比你想像的多更多！」「這段經歷都將成為日後探索科學世界的重要基石。」「沒有真正的淘汰，只有舞台的轉換。」<cite>— 多位學生在心得中所言</cite></blockquote>
+        <p>因此可以肯定地說，一次深刻的科展經驗，不僅是學術履歷上增添的一筆亮色，更是個人成長史上一個極其重要、具有里程碑意義的事件。願每位參與者以更大的勇氣去探索未知，以更堅定的步伐去無畏前行，真正做到如評審所期許的——<strong>分享一個關於自然的、有理有據的精彩故事，並在這個過程中，實現知識、能力與心靈的同步成長。</strong></p>
+        <div class="endmark">— 手冊正文・完 —</div>
+      </div>
+    </section>
+    <!-- ===== 延伸區隔幕 ===== -->
+    <section class="ch">
+      <div class="wrap wide">
+        <div class="box coach" style="text-align:center">
+          <div class="bx-h" style="justify-content:center"><span class="ic">＋</span>指導老師・專家延伸</div>
+          <p style="font-size:1.05rem">以下內容由指導老師補充，整合<strong>台灣科展競賽生態、2026 最新評審趨勢、得獎案例與實戰工具</strong>，協助師生把上面的「原則」轉化為可操作的「策略」。這是手冊的進階加值，非原文。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== 延伸一：競賽地圖 ===== -->
+    <section class="ch" id="x-map">
+      <div class="wrap wide">
+        <div class="ch-head">
+          <span class="ch-num" style="background:var(--primary-soft);color:var(--primary-2)">延伸 ①</span>
+          <h2 class="ch-title">台灣科展競賽地圖與晉級時程</h2>
+          <p class="ch-lede">同一份研究，可以投往不同層級與性質的舞台。了解整個賽事生態與時程，才能提早佈局、讓一份心血發揮最大價值。</p>
+        </div>
+        <div class="ladder">
+          <div class="rung"><div class="lv" style="background:var(--green)">校內<br>初選</div><div class="bd"><h4>校內科展</h4><p>多數高中每年舉辦，是晉級全國體系的第一關，也是練兵的最佳場域。重在完成完整探究循環、累積實驗日誌。</p><div class="when">時程：多在上學期（約 9–11 月）</div></div></div>
+          <div class="rung"><div class="lv" style="background:var(--blue)">縣市<br>賽</div><div class="bd"><h4>縣市科展（如臺北市中小學科學展覽會）</h4><p>校內優勝代表學校參加。前幾名晉級全國賽。評審開始嚴格檢視變因控制、統計嚴謹度與實驗日誌真實性。</p><div class="when">時程：多在每年 3–4 月</div></div></div>
+          <div class="rung"><div class="lv" style="background:var(--primary)">全國<br>賽</div><div class="bd"><h4>全國中小學科學展覽會（國立臺灣科學教育館主辦）</h4><p>台灣基礎科學教育的最高殿堂。分科評審（物理、化學、生物、地科、數學、工程、農業…），競爭激烈、技術門檻高。</p><div class="when">時程：多在每年 7–8 月（暑假）</div></div></div>
+          <div class="rung"><div class="lv" style="background:var(--violet)">國際<br>選拔</div><div class="bd"><h4>TISF 台灣國際科學展覽會（科教館主辦）</h4><p>另一條獨立國際選拔管道，不必先經全國賽。優勝者可獲選代表台灣參加 Regeneron ISEF 等國際賽事。</p><div class="when">時程：報名約 9–10 月，決賽次年 1–2 月</div></div></div>
+          <div class="rung"><div class="lv" style="background:var(--accent)">國際<br>頂峰</div><div class="bd"><h4>Regeneron ISEF（國際科學與工程大獎賽）</h4><p>全球最大規模的高中科學競賽，於美國舉辦。要求機制驗證、跨域整合與轉譯價值，是青少年科研的最高舞台。</p><div class="when">時程：每年 5 月於美國</div></div></div>
+          <div class="rung"><div class="lv" style="background:var(--gold)">獎項<br>路線</div><div class="bd"><h4>旺宏科學獎（旺宏教育基金會主辦）</h4><p>另一條重要的「專題研究＋論文＋成果報告」路線，獎金優渥、重視完整研究歷程與創新，與科展體系並行，可同題延伸投稿。</p><div class="when">時程：報名約上學期，複審／決審於下學期</div></div></div>
+        </div>
+        <div class="box tip"><div class="bx-h"><span class="ic">✦</span>策略提醒：一魚多吃，提早佈局</div><p>一份扎實的研究通常可同時銜接「校內 → 縣市 → 全國」主線，並平行投往 <strong>TISF</strong> 與 <strong>旺宏科學獎</strong>。不同賽事的繳件格式與字數規範各異，建議在計畫階段就把<strong>時程甘特圖</strong>對齊各賽事截止日，避免臨時趕件。延續型作品（第二年深化）在評審眼中需明確說明「與去年有何不同、新增了什麼」。<br><span style="color:var(--ink-faint);font-size:.85rem">＊各賽事確切日期、組別與規則每年微調，請以當年度官方簡章為準。</span></p></div>
+      </div>
+    </section>
+
+    <!-- ===== 延伸二：典範轉移 ===== -->
+    <section class="ch" id="x-shift">
+      <div class="wrap wide">
+        <div class="ch-head">
+          <span class="ch-num" style="background:var(--accent-soft);color:var(--accent)">延伸 ②</span>
+          <h2 class="ch-title">2026 評審典範轉移：從「現象描述」到「機制驗證」</h2>
+          <p class="ch-lede">分析近年 TISF / ISEF 與全國科展得獎趨勢，頂尖競賽正經歷一場深刻的典範轉移。理解評審邏輯的演變，是讓作品脫穎而出的關鍵。</p>
+        </div>
+        <div class="box judge"><div class="bx-h"><span class="ic">⚖</span>核心轉變：從「你做了什麼」到「你證明了什麼」</div><p>過去評審常問「你做了哪些實驗？」；如今核心問題已轉變為「<strong>你如何證明 A 直接導致了 B，而非僅是相關？</strong>」這種對「因果關係（Causality）」的極致追求，是當前評審標準的最大特徵。得獎作品往往能從現象深入到分子機制，構建「無懈可擊的邏輯鏈條」；未得獎作品雖數據豐富，卻流於「流水帳」，缺乏對背後機制的詮釋，或結論<strong>過度延伸</strong>（超出數據所能支持的範圍）。</p></div>
+        <div class="tbl"><table>
+          <thead><tr><th style="width:24%">面向</th><th>過去的「現象描述」</th><th>現在的「機制驗證」</th></tr></thead>
+          <tbody>
+            <tr><td><b>研究問題</b></td><td>某植物萃取物「有」抗菌效果</td><td>該萃取物作用於細菌「哪一個分子靶點」、透過何種路徑</td></tr>
+            <tr><td><b>因果論證</b></td><td>觀察到 A 與 B 同時出現（相關）</td><td>以救援實驗、點突變、功能獲得／喪失證實 A→B（因果）</td></tr>
+            <tr><td><b>題目尺度</b></td><td>大而空（如「氣候變遷對植物的影響」）</td><td>小題深挖（鎖定特定蛋白在特定細胞行為中的角色）</td></tr>
+            <tr><td><b>數據呈現</b></td><td>描述性統計、長條圖</td><td>推論統計（ANOVA）＋誤差棒＋正確有效位數（「數據衛生」）</td></tr>
+            <tr><td><b>價值論述</b></td><td>「我發現了一個現象」</td><td>回答「So What?」——連結到臨床、產業或社會的轉譯價值</td></tr>
+          </tbody>
+        </table></div>
+        <div class="grid g3">
+          <div class="card"><span class="tag" style="color:var(--rose)">趨勢</span><h4>實驗日誌危機</h4><p>評審前所未有地強調研究過程的真實性與<strong>失敗紀錄</strong>的價值。一本記錄了失敗、修正與原始數據的日誌，比一本整潔但疑似事後補謄的日誌更能贏得信任，甚至具有「一票否決」的效力。</p></div>
+          <div class="card"><span class="tag" style="color:var(--blue)">趨勢</span><h4>技術降維打擊</h4><p>高中生開始常規化使用過去僅見於大學／研究所的技術（WGS 全基因組定序、共軛焦顯微鏡、Tet-On 誘導系統、AI／YOLO 模型），構築出難以跨越的「技術護城河」。</p></div>
+          <div class="card"><span class="tag" style="color:var(--green)">趨勢</span><h4>科學精煉</h4><p>海報展示面積縮減（部分賽事降至往年 60%），迫使學生具備「<strong>科學精煉</strong>」能力——從龐雜數據中篩選最具新穎性與說服力的核心證據，構建清晰的科學敘事。</p></div>
+        </div>
+        <div class="box ask"><div class="bx-h"><span class="ic">？</span>評審心中隱性的那把尺</div><p><strong>機制優先原則</strong>（Mechanism over Phenomenon）：不僅證明某光照讓植物長得好，還要證明透過哪種光敏素、調控哪些酵素或基因。<br><strong>數據衛生</strong>（Data Hygiene）：有效位數誤用、誤差棒缺失、p 值誤用，都會被視為科學素養不足。<br><strong>誠實的失敗</strong>（Authentic Failure）：能具體描述失敗經驗並說明如何透過邏輯克服的學生，往往獲得更高評價。</p></div>
+      </div>
+    </section>
+
+    <!-- ===== 延伸三：評分權重 ===== -->
+    <section class="ch" id="x-weight">
+      <div class="wrap wide">
+        <div class="ch-head">
+          <span class="ch-num" style="background:var(--blue-soft);color:var(--blue)">延伸 ③</span>
+          <h2 class="ch-title">評分權重對照：把分數花在刀口上</h2>
+          <p class="ch-lede">不同賽事的評分維度與權重略有差異。理解「分數從哪裡來」，才能在有限時間內把心力投資在最具回報的環節。</p>
+        </div>
+        <h3>全國中小學科學展覽會（典型權重）</h3>
+        <div class="tbl"><table>
+          <thead><tr><th style="width:34%">評分維度</th><th style="width:14%">約略權重</th><th>評審實際在看什麼</th></tr></thead>
+          <tbody>
+            <tr><td><b>創意及貢獻</b></td><td><b>50%</b></td><td>問題與方法的獨特性、是否超越課程水平、對科學／社會的潛在影響——這是區分大小獎的最大權重。</td></tr>
+            <tr><td><b>內容及專業知識</b></td><td><b>30%</b></td><td>變因控制、樣本數與統計嚴謹度、理論依據、過程記錄完整正確——區分「參加獎」與「前三名」的技術核心。</td></tr>
+            <tr><td><b>文字表達及組織</b></td><td><b>20%</b></td><td>報告書結構、圖表規範、海報邏輯、口頭表達與答辯、實驗日誌品質。</td></tr>
+          </tbody>
+        </table></div>
+        <div class="box tip"><div class="bx-h"><span class="ic">✦</span>策略推論</div><p>「創意及貢獻」佔一半權重，意味著<strong>選題與創新切入點</strong>幾乎決定了作品的上限——再嚴謹的執行，也救不了一個缺乏新意的題目。因此在計畫階段就投入足夠時間做文獻回顧與「找突破點」，回報率最高。而「內容及專業知識」是<strong>守住前三名的門檻</strong>：變因控制與統計只要出現明顯瑕疵，就會被有經驗的評審一眼看穿。</p></div>
+        <h3>ISEF / TISF 評審維度（國際賽）</h3>
+        <div class="tbl"><table>
+          <thead><tr><th style="width:30%">維度</th><th>關注重點</th></tr></thead>
+          <tbody>
+            <tr><td><b>研究問題與假設</b></td><td>問題是否聚焦、假設是否可驗證、是否旨在產生重要新見解。</td></tr>
+            <tr><td><b>設計與方法</b></td><td>變因控制、對照組、再現性、統計適切性——強調因果論證的黃金標準。</td></tr>
+            <tr><td><b>執行（資料蒐集與分析）</b></td><td>數據量與品質、分析深度、是否親自執行（學生獨立性）。</td></tr>
+            <tr><td><b>創造力</b></td><td>原創問題或原創方法、跨域整合、資源運用的巧思。</td></tr>
+            <tr><td><b>展示與口頭答辯</b></td><td>海報敘事、口頭清晰度、問答的縝密度、對原理與限制的理解。</td></tr>
+          </tbody>
+        </table></div>
+        <p style="color:var(--ink-faint);font-size:.86rem">＊以上權重與維度為歷年常見架構之整理，各賽事各年度可能微調，正式評分請以當年度官方評審要點為準。</p>
+      </div>
+    </section>
+
+    <!-- ===== 延伸四：得獎案例 ===== -->
+    <section class="ch" id="x-cases">
+      <div class="wrap wide">
+        <div class="ch-head">
+          <span class="ch-num" style="background:var(--gold-soft);color:var(--gold)">延伸 ④</span>
+          <h2 class="ch-title">得獎案例剖析：頂尖作品的「成功 DNA」</h2>
+          <p class="ch-lede">抽象的原則，不如真實的範例。以下取材自近年全國科展與 TISF 得獎作品，解構它們為何能贏——每個案例都示範了「從現象到機制、從機制到價值」的邏輯閉環。</p>
+        </div>
+        <div class="grid g2">
+          <div class="card case">
+            <div class="meta"><span class="pill">TISF · 動物學</span><span class="pill">大會一等獎</span><span class="pill">表觀遺傳</span></div>
+            <h4>果蠅 Scny 基因與細胞命運調控</h4>
+            <p>利用 <b>UAS-Gal4 結合 FLP-out 克隆分析</b>，在同一隻果蠅卵巢中製造突變細胞與相鄰野生型細胞，形成完美的「<strong>內部對照</strong>」，排除個體差異。進而解析 Scny（去泛素化酶）如何透過 H3K4Me3 失衡導致細胞過早多倍體化，並指出其與臨床「多倍體巨大癌細胞（PGCCs）」的相似性——將基礎發育生物學發現，提升至<strong>抗癌靶點</strong>的轉譯高度。<br><span style="color:var(--accent);font-weight:700;font-size:.85rem">致勝關鍵：博士級的內部對照設計 ＋ 成功回答「So What?」</span></p>
+          </div>
+          <div class="card case">
+            <div class="meta"><span class="pill">全國科展 · 醫學</span><span class="pill">第一名</span><span class="pill">醣生物學</span></div>
+            <h4>SLC35C1 與甲狀腺癌骨轉移</h4>
+            <p>鎖定一個位於高基氏體膜的特定轉運蛋白，建構層層遞進的邏輯鏈：表現量 → 蛋白質岩藻糖化修飾 → 癌細胞遷移侵襲 → 與骨髓微環境交互作用 → 骨轉移。引入相對冷門但具高臨床價值的「<strong>醣生物學</strong>」領域，並建立<strong>細胞共培養模型</strong>模擬人體微環境。<br><span style="color:var(--accent);font-weight:700;font-size:.85rem">致勝關鍵：機制探討的完整性與證據的充分性「無懈可擊」</span></p>
+          </div>
+          <div class="card case">
+            <div class="meta"><span class="pill">TISF · 醫學</span><span class="pill">ISEF 代表</span><span class="pill">微流體</span></div>
+            <h4>仿免疫突觸微流體晶片</h4>
+            <p>面對傳統細胞分選（FACS／MACS）在處理極低濃度稀有細胞時流失率高的瓶頸，從「<strong>生物物理</strong>」角度切入，設計模擬「免疫突觸」的微流體晶片，提升 CAR-T 所需抗原特異性 T 細胞的純度。展示了如何<strong>用物理原理解決生物學難題</strong>的跨域整合。<br><span style="color:var(--accent);font-weight:700;font-size:.85rem">致勝關鍵：跨域整合（流體力學＋免疫學）解決真實臨床瓶頸</span></p>
+          </div>
+          <div class="card case">
+            <div class="meta"><span class="pill">全國科展 · 工程</span><span class="pill">第一名</span><span class="pill">邊緣 AI</span></div>
+            <h4>環語鏈：本地 LLM × 去中心化監測</h4>
+            <p>針對傳統 IoT 過度依賴雲端的隱私與單點故障問題，設計三層式模組化基地台，將生成式 AI 從雲端拉回「<strong>邊緣端</strong>」：小型基地台（ESP32C3）感測、中型（樹莓派）做霧運算、大型（GPU＋本地 LLM）做意圖分析。並自訂容錯通訊協定。<br><span style="color:var(--accent);font-weight:700;font-size:.85rem">致勝關鍵：異質硬體整合的高完整度 ＋ 真實系統工程能力</span></p>
+          </div>
+          <div class="card case">
+            <div class="meta"><span class="pill">全國科展 · 工程</span><span class="pill">第二名</span><span class="pill">多模態融合</span></div>
+            <h4>AI 無人機檢測建築磁磚剝落</h4>
+            <p>整合無人機、紅外線熱顯像與 YOLOv8，偵測外牆「空鼓」與剝落。關鍵在於作者<strong>不直接假設熱像儀有效</strong>，而是製作不同程度的空鼓樣本、在日照下測量溫差曲線，<strong>驗證 ΔT 的統計顯著性</strong>，為檢測方法提供堅實的物理基礎；再以 IoU 疊合分析整合多模態數據。<br><span style="color:var(--accent);font-weight:700;font-size:.85rem">致勝關鍵：先驗證物理原理，再談應用——而非「為用 AI 而用 AI」</span></p>
+          </div>
+          <div class="card case">
+            <div class="meta"><span class="pill">全國科展 · 工程</span><span class="pill">第三名</span><span class="pill">半導體模擬</span></div>
+            <h4>前瞻奈米片場效電晶體最佳化</h4>
+            <p>聚焦 2nm／1.5nm 製程的 GAA 奈米片電晶體，用 <b>TCAD</b> 模擬探討堆疊層數對 DIBL、次臨界擺幅、臨界電壓的影響，在效能與功耗間尋找最佳平衡，並緊扣國際元件路線圖（IRDS）。<br><span style="color:var(--accent);font-weight:700;font-size:.85rem">致勝關鍵：高門檻理論研究 ＋ 與國際產業趨勢接軌的視野</span></p>
+          </div>
+        </div>
+        <div class="box coach"><div class="bx-h"><span class="ic">★</span>從案例提煉的共同公式</div><p>無論生物或工程，頂尖作品都遵循同一個邏輯：<strong>小題深挖</strong>（鎖定明確標的）→ <strong>嚴謹因果論證</strong>（內部對照／救援實驗／物理驗證，而非僅相關）→ <strong>跨域或技術門檻</strong>（建立護城河）→ <strong>回答「So What?」</strong>（連結臨床、產業或社會價值）。當你準備作品時，不妨逐項自問：我的研究在這四格中各填了什麼？</p></div>
+      </div>
+    </section>
+
+    <!-- ===== 延伸五：工具箱 ===== -->
+    <section class="ch" id="x-toolbox">
+      <div class="wrap wide">
+        <div class="ch-head">
+          <span class="ch-num" style="background:var(--green-soft);color:var(--green)">延伸 ⑤</span>
+          <h2 class="ch-title">黃金實驗設計工具箱：把「相關」升級為「因果」</h2>
+          <p class="ch-lede">評審反覆追問「你如何證明 A 導致 B？」以下是頂尖作品常用的因果論證武器。即使無法全部做到，理解這些概念也能讓你的討論與答辯更有深度。</p>
+        </div>
+        <div class="grid g2">
+          <div class="card"><span class="tag">武器</span><h4>功能獲得 / 喪失（Gain/Loss of Function）</h4><p>剔除（敲除／敲低）某基因或因子若使表型消失，再補回若使表型恢復——這組互補實驗是證明「此因子為必要且充分」的標準做法。</p></div>
+          <div class="card"><span class="tag">武器</span><h4>救援實驗（Rescue Experiment）</h4><p>在喪失功能造成缺陷後，重新導入正常版本使表型「救回」。若能救回，強力支持「正是這個因子造成了該表型」，是反駁「脫靶效應」質疑的關鍵。</p></div>
+          <div class="card"><span class="tag">武器</span><h4>點突變驗證（Point Mutation）</h4><p>只改變單一關鍵胺基酸／鹼基，觀察功能是否喪失，可精準定位「真正起作用的位點」，把機制鎖到最細的層級。</p></div>
+          <div class="card"><span class="tag">武器</span><h4>內部對照（Internal Control）</h4><p>在同一樣本中讓實驗組與對照組並存（如克隆分析），排除個體差異與環境變因，是最乾淨的對照設計。</p></div>
+          <div class="card"><span class="tag">武器</span><h4>共培養 / 模型系統</h4><p>用共培養、類器官或微流體晶片模擬真實微環境，讓體外實驗更貼近體內情境，提升結論的外部效度。</p></div>
+          <div class="card"><span class="tag">武器</span><h4>劑量反應關係（Dose-Response）</h4><p>若刺激強度與反應呈現單調對應關係，能大幅增強因果論證——相關性偶然出現劑量梯度的機率很低。</p></div>
+        </div>
+        <h3>選題決策樹：用四個問題篩掉壞題目</h3>
+        <div class="steps">
+          <div class="step"><div class="sb"><h4>它夠「聚焦」嗎？</h4><p>能不能用一句話講清楚自變項與依變項？若題目像「探討環境對生物的影響」這種尺度，請繼續往下切，直到鎖定<strong>特定對象、特定機制、特定條件</strong>。</p></div></div>
+          <div class="step"><div class="sb"><h4>它夠「可行」嗎？</h4><p>用我能取得的儀器、時間（對齊甘特圖）、樣本與知識，真的做得出有統計意義的數據嗎？倫理與安全是否過關？做不到的題目再漂亮也是空想。</p></div></div>
+          <div class="step"><div class="sb"><h4>它夠「新」嗎？</h4><p>讀完核心文獻與歷屆作品後，我能不能清楚說出「我和前人不一樣的地方」？若說不出，這題的創意分（最大權重）會很危險。</p></div></div>
+          <div class="step"><div class="sb"><h4>它能回答「So What?」嗎？</h4><p>就算做出來了，這個發現對知識、臨床、產業或社會「所以呢」？想不出價值論述的題目，很難拿大獎。</p></div></div>
+        </div>
+        <div class="box flaw"><div class="bx-h"><span class="ic">!</span>新手最常踩的五個雷</div><p>① 變因太多、主軸失焦；② 樣本數不足又只用描述性統計；③ 圖表缺單位／誤差棒／樣本數；④ 結論過度延伸、超出數據支持；⑤ 實驗日誌事後補謄、看不到失敗與修正的痕跡。這五項任一出現，都足以讓作品從「前三名」掉到「佳作」。</p></div>
+      </div>
+    </section>
+
+    <!-- ===== 延伸六：互動題庫 ===== -->
+    <section class="ch" id="x-qbank">
+      <div class="wrap wide">
+        <div class="ch-head">
+          <span class="ch-num" style="background:var(--violet-soft);color:var(--violet)">延伸 ⑥</span>
+          <h2 class="ch-title">評審提問互動題庫：點開看「該怎麼答」</h2>
+          <p class="ch-lede">把第六章歸納的提問類型，做成可演練的題卡。點開每一題，看看回答的思路與要點——賽前請對著鏡子或夥伴實際演練。</p>
+        </div>
+
+        <div class="qa"><button onclick="toggleQA(this)"><span class="qmark">Q</span>用一句話說明，你的研究在做什麼？<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+          <div class="ans"><div class="inner">這是「電梯演講」的核心。先給<strong>一句主軸</strong>（我們研究 X 對 Y 的影響／我們開發了能解決 Z 的方法），再補一句<strong>價值</strong>（這對…很重要）。練到能在 30 秒內講完且讓外行聽懂。<div class="ex">提問變體：「你的研究重點／主軸／重心是什麼？」「最特別、最亮眼、最有價值的地方在哪裡？」</div></div></div></div>
+
+        <div class="qa"><button onclick="toggleQA(this)"><span class="qmark">Q</span>有沒有人做過類似研究？你和前人有何不同？<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+          <div class="ans"><div class="inner">先<strong>承認前人基礎</strong>（誠實，不假裝原創），再具體指出你的差異點：問題界定、研究角度、方法學、材料選擇、結果發現或應用價值。準備好 1–2 篇關鍵文獻名稱與你「站在它肩膀上多走的那一步」。<div class="ex">陷阱題：「你的文獻看太少了，確定別人沒做過嗎？」——切忌心虛，用你讀過的文獻清單與研究缺口回應。</div></div></div></div>
+
+        <div class="qa"><button onclick="toggleQA(this)"><span class="qmark">Q</span>你的變因是如何控制的？誤差來源有哪些？<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+          <div class="ans"><div class="inner">清楚說出<strong>自變項、依變項、控制變因</strong>各是什麼，以及對照組怎麼設。主動坦承<strong>系統誤差與隨機誤差</strong>來源，並說明你如何降低（重複三次以上、校準、標準化操作）。承認限制比假裝完美更得分。<div class="ex">延伸：「你的實驗有再現性嗎？」——用「獨立重複 N 次、結果一致」回應。</div></div></div></div>
+
+        <div class="qa"><button onclick="toggleQA(this)"><span class="qmark">Q</span>這個數據／圖表說明什麼？背後的機制是什麼？<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+          <div class="ans"><div class="inner">先<strong>客觀讀圖</strong>（趨勢／差異／相關），再<strong>解釋意義</strong>（So What），最後<strong>嘗試提出機制或模型</strong>。這正是評審區分佳作與首獎的地方——能不能從「What」走到「Why／How」。若機制尚未證實，誠實說「這是我們提出的假說，未來想用…實驗驗證」。<div class="ex">統計題：「p 值要多少才算顯著？」——答 α=0.05 慣例，並說明你的數據是否達標。</div></div></div></div>
+
+        <div class="qa"><button onclick="toggleQA(this)"><span class="qmark">Q</span>研究中遇到最大的困難是什麼？如何解決？<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+          <div class="ans"><div class="inner">用 <strong>STAR 原則</strong>結構化回答：情境（Situation）→ 任務（Task）→ 行動（Action）→ 結果（Result）。評審其實在測「<strong>誠實的失敗</strong>」——能具體描述失敗、並說明如何用邏輯推理克服的學生，比聲稱一切順利的人得分更高。翻開實驗日誌佐證更佳。</div></div></div>
+
+        <div class="qa"><button onclick="toggleQA(this)"><span class="qmark">Q</span>這個研究是你獨立完成的嗎？師生／團隊如何分工？<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+          <div class="ans"><div class="inner">誠實說明老師／教授扮演的角色（引導、提供設備）與<strong>你親自操作的部分</strong>。團隊賽要讓<strong>每位成員</strong>都能講出自己負責且理解的環節。評審最忌諱「過度依賴師長」與「只有一人懂」。<div class="ex">提問變體：「主題是誰定的？」「師生付出占比？」——展現學生的主導性是關鍵。</div></div></div></div>
+
+        <div class="qa"><button onclick="toggleQA(this)"><span class="qmark">Q</span>你的研究有什麼應用價值？未來如何延伸？<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+          <div class="ans"><div class="inner">分兩層：<strong>已完成的價值</strong>（對知識／臨床／產業／在地的貢獻）與<strong>未來展望</strong>（下一步實驗、可改進處、潛在應用場景及其挑戰如成本、可行性、倫理）。展現你對研究「還能走多遠」有清楚藍圖。</div></div></div>
+
+        <div class="qa"><button onclick="toggleQA(this)"><span class="qmark">Q</span>（挑戰題）為什麼一定要這樣？如果不是…結果會如何？<svg class="arr" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 6 6 6-6 6"/></svg></button>
+          <div class="ans"><div class="inner">這是壓力測試，評審想看你<strong>思考的彈性</strong>而非標準答案。先禮貌肯定其角度，再用數據與邏輯說明你的選擇理由，並坦承「若改用…可能會…，這也是值得探索的方向」。<strong>不與評審辯駁</strong>，以理服人。遇到確實不會的，誠實說「目前尚未深入，未來有興趣進一步研究」。</div></div></div>
+
+        <div class="box coach"><div class="bx-h"><span class="ic">✎</span>演練方法</div><p>把上面八張題卡印出來（或用本頁列印功能），請夥伴隨機抽問、計時 30 秒內作答；也可請人扮演「友善型／質疑型／追根究底型」三種評審輪流提問。錄影回放，檢查語速（約 120 字／分）、眼神與是否「吃螺絲」。賽前至少完整模擬三輪。</p></div>
+      </div>
+    </section>
+
+    <script>
+    /* 自我檢核：綁定所有 checklist */
+    document.querySelectorAll('[data-check]').forEach(wrap=>{
+      wrap.addEventListener('change',()=>tickCheck(wrap));
+      tickCheck(wrap);
+    });
+    </script>
+    <!-- ===== 頁尾 ===== -->
+    <footer style="border-top:1px solid var(--line);background:var(--paper-2);padding:36px 26px 56px;text-align:center">
+      <div style="max-width:760px;margin:0 auto">
+        <div style="font-family:var(--font-serif);font-weight:900;font-size:1.2rem;color:var(--primary-2);margin-bottom:8px">科學探究與科展競賽的全方位指導手冊</div>
+        <p style="color:var(--ink-soft);font-size:.92rem;margin-bottom:6px">原著：臺北市立麗山高中 生物科　林獻升 老師</p>
+        <p style="color:var(--ink-faint);font-size:.82rem;line-height:1.8">本網頁版完整轉錄手冊全文（八章＋摘要結論），並由指導老師加入競賽地圖、2026 評審趨勢、評分權重、得獎案例、實驗設計工具箱與互動題庫等延伸內容。<br>適合課堂投影講授（請按上方「簡報模式」）與學生線上自學。延伸段落中之賽事時程與規則，請以各年度官方簡章為準。</p>
+        <p style="color:var(--ink-faint);font-size:.78rem;margin-top:14px">分享自然的故事 · 在探索中實現知識、能力與心靈的同步成長</p>
+      </div>
+    </footer>
+
+  </main>
+</div>
+
+<button id="totop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="回到頂部">
+  <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 15 6-6 6 6"/></svg>
+</button>
+
+<script>
+/* 主題 */
+function toggleTheme(){
+  const h=document.documentElement;
+  const dark=h.getAttribute('data-theme')==='dark';
+  h.setAttribute('data-theme',dark?'light':'dark');
+  document.getElementById('themeIcon').innerHTML = dark
+    ? '<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4 12H2M22 12h-2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"/>'
+    : '<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+}
+/* 簡報模式 */
+function togglePresent(){
+  document.body.classList.toggle('present');
+  document.getElementById('presentBtn').classList.toggle('on',document.body.classList.contains('present'));
+}
+/* 題庫摺疊 */
+function toggleQA(b){
+  const qa=b.parentElement, ans=qa.querySelector('.ans');
+  const open=qa.classList.toggle('open');
+  ans.style.maxHeight = open ? ans.firstElementChild.scrollHeight+24+'px' : 0;
+}
+/* 自我檢核進度 */
+function tickCheck(wrap){
+  const all=wrap.querySelectorAll('input[type=checkbox]');
+  const done=wrap.querySelectorAll('input:checked').length;
+  wrap.querySelector('.ck-bar i').style.width=(done/all.length*100)+'%';
+  wrap.querySelector('.ck-count').textContent=done+' / '+all.length;
+}
+/* 進度條 + 返回頂部 */
+const prog=document.getElementById('progress'), totop=document.getElementById('totop');
+function onScroll(){
+  const sc=document.documentElement.scrollTop||document.body.scrollTop;
+  const h=document.documentElement.scrollHeight-document.documentElement.clientHeight;
+  prog.style.width=(h>0?sc/h*100:0)+'%';
+  totop.classList.toggle('show',sc>600);
+}
+window.addEventListener('scroll',onScroll,{passive:true});
+/* 捲動監看：高亮目錄 + 麵包屑 */
+const links=[...document.querySelectorAll('nav.toc a')];
+const map={};links.forEach(a=>{const id=a.getAttribute('href').slice(1);const el=document.getElementById(id);if(el)map[id]=a;});
+const obs=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(e.isIntersecting){
+      const id=e.target.id;
+      links.forEach(a=>a.classList.remove('active'));
+      if(map[id]){map[id].classList.add('active');
+        const t=map[id].textContent.replace(/^[—序壹貳參肆伍陸柒捌結＋]/,'').trim();
+        document.getElementById('crumbs').innerHTML='<b>'+ (map[id].querySelector('.n')?.textContent||'') +'</b> · '+t;
+      }
+    }
+  });
+},{rootMargin:'-45% 0px -50% 0px'});
+Object.keys(map).forEach(id=>{const el=document.getElementById(id);if(el)obs.observe(el);});
+/* 點導覽列後關閉行動選單 */
+document.querySelectorAll('nav.toc a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('nav-open')));
+/* 目錄搜尋 */
+document.getElementById('navSearch').addEventListener('input',function(){
+  const q=this.value.trim().toLowerCase();
+  document.querySelectorAll('nav.toc a').forEach(a=>{
+    a.classList.toggle('hide', q && !a.textContent.toLowerCase().includes(q));
+  });
+});
+onScroll();
+</script>
+</body>
+</html>

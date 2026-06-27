@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科展海報製作完全攻略｜從理論基礎到競賽策略</title>
+<style>
+  :root{
+    --bg:#0f1729;            /* 深底（hero/側欄） */
+    --paper:#f7f9fc;         /* 主內容背景 */
+    --ink:#1a2233;           /* 主文字 */
+    --ink-soft:#48556b;      /* 次文字 */
+    --line:#e2e8f2;          /* 分隔線 */
+    --primary:#1f6f6b;       /* 主色 teal */
+    --primary-d:#15514e;
+    --primary-l:#e6f2f1;
+    --accent:#e8851a;        /* 強調橘 */
+    --accent-l:#fdf0dd;
+    --indigo:#3b4fb0;
+    --indigo-l:#e8ebfb;
+    --rose:#c0445f;
+    --rose-l:#fbe7ec;
+    --good:#1f8a55;
+    --good-l:#e3f5ec;
+    --bad:#c0392b;
+    --bad-l:#fbe6e3;
+    --radius:16px;
+    --shadow:0 6px 24px rgba(20,40,70,.08);
+    --shadow-lg:0 18px 50px rgba(20,40,70,.16);
+    --sans:"Noto Sans TC","PingFang TC","Microsoft JhengHei","Helvetica Neue",Arial,sans-serif;
+    --maxw:1080px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:78px}
+  body{font-family:var(--sans);color:var(--ink);background:var(--paper);line-height:1.85;
+    font-size:20px;-webkit-font-smoothing:antialiased;letter-spacing:.01em}
+
+  /* ---------- 頂部行動列 ---------- */
+  .topbar{position:sticky;top:0;z-index:90;background:rgba(15,23,41,.97);backdrop-filter:blur(8px);
+    color:#fff;display:flex;align-items:center;justify-content:space-between;
+    padding:12px clamp(16px,4vw,40px);box-shadow:0 2px 18px rgba(0,0,0,.25)}
+  .topbar .brand{font-weight:800;font-size:20.5px;letter-spacing:.04em;display:flex;gap:10px;align-items:center}
+  .topbar .brand .dot{width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(232,133,26,.25)}
+  .topbar nav{display:flex;gap:6px;flex-wrap:wrap}
+  .topbar nav a{color:#cdd6e6;text-decoration:none;font-size:16.5px;padding:6px 11px;border-radius:8px;transition:.2s;white-space:nowrap}
+  .topbar nav a:hover{background:rgba(255,255,255,.12);color:#fff}
+  .menu-btn{display:none;background:none;border:1px solid rgba(255,255,255,.3);color:#fff;
+    border-radius:8px;font-size:22px;width:42px;height:38px;cursor:pointer}
+
+  /* ---------- HERO ---------- */
+  .hero{background:
+      radial-gradient(1200px 500px at 80% -10%,rgba(232,133,26,.18),transparent 60%),
+      radial-gradient(900px 500px at 0% 110%,rgba(31,111,107,.35),transparent 55%),
+      var(--bg);
+    color:#fff;padding:clamp(56px,9vw,110px) clamp(20px,5vw,48px) clamp(60px,8vw,96px);position:relative;overflow:hidden}
+  .hero-inner{max-width:var(--maxw);margin:0 auto;position:relative;z-index:2}
+  .hero .eyebrow{display:inline-block;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+    padding:7px 16px;border-radius:50px;font-size:16px;letter-spacing:.08em;margin-bottom:26px}
+  .hero h1{font-size:clamp(36px,6.5vw,66px);line-height:1.15;font-weight:900;letter-spacing:.01em;margin-bottom:22px}
+  .hero h1 .hl{color:#ffd28a}
+  .hero .lead{font-size:clamp(19px,2.7vw,24px);color:#d6deec;max-width:760px;line-height:1.8}
+  .hero .stat-row{display:flex;flex-wrap:wrap;gap:14px;margin-top:40px}
+  .hero .stat{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.14);border-radius:14px;
+    padding:18px 22px;min-width:150px;flex:1}
+  .hero .stat b{display:block;font-size:clamp(30px,4.5vw,44px);color:var(--accent);font-weight:900;line-height:1.1}
+  .hero .stat span{font-size:16.5px;color:#c3cde0}
+
+  /* ---------- 版面 ---------- */
+  main{max-width:var(--maxw);margin:0 auto;padding:0 clamp(16px,5vw,32px)}
+  section{padding:clamp(48px,7vw,84px) 0;border-bottom:1px solid var(--line)}
+  section:last-of-type{border-bottom:none}
+  .sec-tag{display:inline-flex;align-items:center;gap:9px;font-size:16px;font-weight:800;letter-spacing:.1em;
+    color:var(--primary);text-transform:uppercase;margin-bottom:14px}
+  .sec-tag .num{background:var(--primary);color:#fff;width:30px;height:30px;border-radius:9px;
+    display:grid;place-items:center;font-size:17px}
+  h2{font-size:clamp(30px,4.8vw,46px);font-weight:900;line-height:1.25;margin-bottom:14px;letter-spacing:.01em}
+  h3{font-size:clamp(22.5px,3.2vw,30px);font-weight:800;margin:34px 0 14px;color:var(--ink)}
+  h4{font-size:20.5px;font-weight:800;margin:22px 0 8px;color:var(--primary-d)}
+  .sec-intro{font-size:clamp(19px,2.5vw,22px);color:var(--ink-soft);max-width:780px;margin-bottom:8px}
+  p{margin:12px 0;color:var(--ink)}
+  strong{color:var(--ink);font-weight:800}
+  .em{color:var(--accent);font-weight:800}
+  ul,ol{margin:14px 0 14px 4px;padding-left:24px}
+  li{margin:9px 0}
+  a.inline{color:var(--primary-d);font-weight:700}
+
+  /* ---------- 卡片 ---------- */
+  .grid{display:grid;gap:20px;margin:24px 0}
+  .g2{grid-template-columns:repeat(2,1fr)}
+  .g3{grid-template-columns:repeat(3,1fr)}
+  .g4{grid-template-columns:repeat(4,1fr)}
+  .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:24px 24px;
+    box-shadow:var(--shadow);transition:.25s}
+  .card:hover{transform:translateY(-4px);box-shadow:var(--shadow-lg)}
+  .card .ico{font-size:30px;line-height:1;margin-bottom:12px}
+  .card h4{margin:0 0 6px;font-size:21.5px;color:var(--ink)}
+  .card p{font-size:17.5px;color:var(--ink-soft);margin:6px 0 0}
+  .card.t-primary{border-top:5px solid var(--primary)}
+  .card.t-accent{border-top:5px solid var(--accent)}
+  .card.t-indigo{border-top:5px solid var(--indigo)}
+  .card.t-rose{border-top:5px solid var(--rose)}
+
+  .badge{display:inline-block;font-size:15px;font-weight:800;padding:4px 12px;border-radius:50px;letter-spacing:.03em}
+  .b-primary{background:var(--primary-l);color:var(--primary-d)}
+  .b-accent{background:var(--accent-l);color:#b3650a}
+  .b-indigo{background:var(--indigo-l);color:#2a3a8f}
+  .b-rose{background:var(--rose-l);color:#9c2f47}
+
+  /* ---------- 重點框 ---------- */
+  .callout{border-radius:14px;padding:20px 24px;margin:22px 0;border-left:6px solid var(--primary);
+    background:var(--primary-l)}
+  .callout.tip{border-color:var(--good);background:var(--good-l)}
+  .callout.warn{border-color:var(--accent);background:var(--accent-l)}
+  .callout.danger{border-color:var(--bad);background:var(--bad-l)}
+  .callout .title{font-weight:900;margin-bottom:6px;display:flex;gap:8px;align-items:center;font-size:19px}
+  .callout p{margin:4px 0;font-size:18px}
+
+  /* ---------- 表格 ---------- */
+  .table-wrap{overflow-x:auto;margin:22px 0;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow)}
+  table{border-collapse:collapse;width:100%;min-width:540px;background:#fff;font-size:18px}
+  th,td{padding:14px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}
+  thead th{background:var(--primary);color:#fff;font-weight:800;font-size:17.5px;letter-spacing:.02em}
+  tbody tr:nth-child(even){background:#fafcff}
+  tbody tr:hover{background:var(--primary-l)}
+  td .k{font-weight:800;color:var(--primary-d)}
+
+  /* Do / Don't 對照 */
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:22px 0}
+  .vs .col{border-radius:14px;padding:22px;border:1px solid var(--line)}
+  .vs .do{background:var(--good-l);border-color:#bfe6d0}
+  .vs .dont{background:var(--bad-l);border-color:#f0c8c2}
+  .vs h4{display:flex;align-items:center;gap:8px;margin:0 0 12px;font-size:20px}
+  .vs .do h4{color:var(--good)} .vs .dont h4{color:var(--bad)}
+  .vs ul{margin:0;padding-left:20px}
+  .vs li{font-size:17.5px;margin:8px 0}
+
+  /* 流程步驟 */
+  .steps{counter-reset:s;margin:24px 0;display:grid;gap:14px}
+  .step{display:flex;gap:16px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px;box-shadow:var(--shadow)}
+  .step .n{counter-increment:s;flex-shrink:0;width:42px;height:42px;border-radius:12px;background:var(--primary);
+    color:#fff;font-weight:900;font-size:22px;display:grid;place-items:center}
+  .step .n::before{content:counter(s)}
+  .step h4{margin:0 0 4px}
+  .step p{margin:0;font-size:17.5px;color:var(--ink-soft)}
+
+  /* 三折板示意 */
+  .trifold{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:12px;margin:24px 0}
+  .trifold .panel{border:2px solid var(--primary);border-radius:12px;padding:18px 14px;background:#fff;min-height:200px}
+  .trifold .panel.center{background:var(--primary-l);border-width:3px}
+  .trifold .panel .lab{font-weight:900;color:var(--primary-d);font-size:18px;margin-bottom:4px}
+  .trifold .panel .sz{font-size:15px;color:var(--accent);font-weight:800;margin-bottom:10px}
+  .trifold .panel ul{margin:0;padding-left:18px;font-size:16.5px}
+  .trifold .panel li{margin:5px 0}
+  .header-board{border:2px dashed var(--accent);border-radius:10px;text-align:center;padding:14px;
+    margin-bottom:12px;background:var(--accent-l);font-weight:900;color:#b3650a}
+
+  /* 配色 60-30-10 */
+  .ratio{display:flex;border-radius:12px;overflow:hidden;margin:20px 0;height:64px;box-shadow:var(--shadow);font-weight:800}
+  .ratio div{display:grid;place-items:center;color:#fff;font-size:17px}
+  .r60{flex:60;background:#cfd9e6;color:#3a4860}
+  .r30{flex:30;background:var(--primary)}
+  .r10{flex:10;background:var(--accent)}
+
+  /* 字級階層示意 */
+  .typescale{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px;margin:22px 0;box-shadow:var(--shadow)}
+  .typescale .row{display:flex;align-items:baseline;gap:16px;padding:10px 0;border-bottom:1px dashed var(--line);flex-wrap:wrap}
+  .typescale .row:last-child{border:none}
+  .typescale .pt{color:var(--accent);font-weight:900;font-size:16px;min-width:120px}
+  .ts-title{font-size:40px;font-weight:900}
+  .ts-author{font-size:27px;font-weight:700}
+  .ts-head{font-size:25px;font-weight:800;color:var(--primary-d)}
+  .ts-body{font-size:19px}
+
+  /* 互動清單 */
+  .checklist{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow);margin:24px 0}
+  .checklist .progress{height:12px;border-radius:50px;background:var(--line);overflow:hidden;margin-bottom:6px}
+  .checklist .progress span{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--primary),var(--accent));transition:width .4s}
+  .checklist .ptext{font-size:16.5px;color:var(--ink-soft);margin-bottom:16px;font-weight:700}
+  .check-item{display:flex;gap:13px;align-items:flex-start;padding:13px 14px;border-radius:11px;cursor:pointer;transition:.2s;user-select:none}
+  .check-item:hover{background:var(--primary-l)}
+  .check-item input{appearance:none;width:24px;height:24px;border:2.5px solid #c5d0e0;border-radius:7px;
+    flex-shrink:0;margin-top:2px;cursor:pointer;position:relative;transition:.2s}
+  .check-item input:checked{background:var(--primary);border-color:var(--primary)}
+  .check-item input:checked::after{content:"✓";color:#fff;position:absolute;inset:0;display:grid;place-items:center;font-size:15px;font-weight:900}
+  .check-item label{cursor:pointer;font-size:18.5px;line-height:1.6}
+  .check-item input:checked + label{color:var(--ink-soft);text-decoration:line-through}
+
+  /* 折疊 FAQ / 案例 */
+  details{background:#fff;border:1px solid var(--line);border-radius:13px;margin:14px 0;box-shadow:var(--shadow);overflow:hidden}
+  details summary{cursor:pointer;padding:18px 22px;font-weight:800;font-size:19.5px;list-style:none;
+    display:flex;justify-content:space-between;align-items:center;gap:12px}
+  details summary::-webkit-details-marker{display:none}
+  details summary::after{content:"+";font-size:29px;color:var(--primary);font-weight:400;transition:.2s}
+  details[open] summary::after{transform:rotate(45deg)}
+  details summary:hover{background:var(--primary-l)}
+  details .body{padding:0 22px 22px;color:var(--ink-soft);font-size:18px}
+  details .body p{color:var(--ink-soft)}
+
+  /* 分頁標籤（競賽規範） */
+  .tabs{margin:24px 0}
+  .tab-btns{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:18px}
+  .tab-btns button{border:1px solid var(--line);background:#fff;padding:11px 20px;border-radius:50px;
+    font-size:17.5px;font-weight:800;cursor:pointer;color:var(--ink-soft);transition:.2s;font-family:inherit}
+  .tab-btns button.active{background:var(--primary);color:#fff;border-color:var(--primary)}
+  .tab-panel{display:none;animation:fade .3s}
+  .tab-panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+
+  /* 時間軸 */
+  .timeline{position:relative;margin:28px 0;padding-left:32px}
+  .timeline::before{content:"";position:absolute;left:9px;top:6px;bottom:6px;width:3px;background:linear-gradient(var(--primary),var(--accent))}
+  .tl-item{position:relative;margin-bottom:26px}
+  .tl-item::before{content:"";position:absolute;left:-31px;top:4px;width:18px;height:18px;border-radius:50%;
+    background:#fff;border:4px solid var(--primary)}
+  .tl-item .wk{font-weight:900;color:var(--accent);font-size:16px;letter-spacing:.04em}
+  .tl-item h4{margin:2px 0 4px}
+  .tl-item p{margin:0;font-size:17.5px;color:var(--ink-soft)}
+
+  /* 引用金句 */
+  .quote{font-size:clamp(22.5px,3.6vw,34px);font-weight:800;line-height:1.5;color:var(--primary-d);
+    border-left:8px solid var(--accent);padding:6px 0 6px 26px;margin:30px 0}
+
+  /* 頁尾 */
+  footer{background:var(--bg);color:#aab6cc;padding:48px clamp(20px,5vw,40px);text-align:center;font-size:16.5px}
+  footer .big{color:#fff;font-size:20px;font-weight:800;margin-bottom:10px}
+  footer a{color:#ffd28a;text-decoration:none}
+
+  /* 回頂 */
+  .totop{position:fixed;right:20px;bottom:20px;width:50px;height:50px;border-radius:50%;background:var(--primary);
+    color:#fff;border:none;font-size:22px;cursor:pointer;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;
+    transition:.3s;z-index:80}
+  .totop.show{opacity:1;pointer-events:auto}
+
+  /* 響應式 */
+  @media(max-width:880px){
+    .g4{grid-template-columns:repeat(2,1fr)}
+    .g3{grid-template-columns:1fr 1fr}
+  }
+  @media(max-width:680px){
+    body{font-size:17px}
+    .topbar nav{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+      background:var(--bg);padding:10px;gap:2px;box-shadow:var(--shadow-lg)}
+    .topbar nav.open{display:flex}
+    .topbar nav a{padding:12px;font-size:16px}
+    .menu-btn{display:block}
+    .g2,.g3,.g4{grid-template-columns:1fr}
+    .vs{grid-template-columns:1fr}
+    .trifold{grid-template-columns:1fr}
+    .typescale .pt{min-width:auto}
+  }
+  /* 投影模式：放大全站字級與間距，適合教室投影 */
+  body.present{font-size:24px}
+  body.present .topbar .brand .dot{background:#5ee0a0}
+  .present-toggle{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.25);color:#fff;
+    border-radius:8px;padding:6px 12px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit}
+  @media print{
+    .topbar,.totop,.present-toggle{display:none}
+    section{break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== 頂部行動列 ===== -->
+<div class="topbar">
+  <div class="brand"><span class="dot"></span>科展海報製作完全攻略</div>
+  <nav id="nav">
+    <a href="#hero">首頁</a>
+    <a href="#why">海報思維</a>
+    <a href="#plan">策略規劃</a>
+    <a href="#structure">內容架構</a>
+    <a href="#design">視覺設計</a>
+    <a href="#data">圖文數據</a>
+    <a href="#tools">工具製作</a>
+    <a href="#present">現場演示</a>
+    <a href="#rules">競賽規範</a>
+    <a href="#expert">專家補充</a>
+    <a href="#checklist">檢核清單</a>
+  </nav>
+  <div style="display:flex;gap:8px;align-items:center">
+    <button class="present-toggle" id="presentBtn" title="放大字級，適合教室投影">🔆 投影模式</button>
+    <button class="menu-btn" id="menuBtn">☰</button>
+  </div>
+</div>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">教師講課 ｜ 學生自學 ｜ 競賽備戰</span>
+    <h1>一份海報，是<span class="hl">三秒決勝</span>的科學舞台<br>也是通往科學殿堂的<span class="hl">入場券</span></h1>
+    <p class="author" style="font-size: 22px; color: #ffd28a; margin-top: -10px; margin-bottom: 22px; font-weight: 500; letter-spacing: 0.05em;">臺北市麗山高中林獻升老師</p>
+    <p class="lead">本指南整合學術傳播、認知心理學、視覺設計與競賽實務，帶你從零到一打造一份具備獲獎潛力的科展海報。從策略規劃、內容架構、視覺設計，到圖文數據、工具製作、現場演示與最終檢核——每一個環節，都是為了移除評審與你的科學發現之間的障礙。</p>
+    <div class="stat-row">
+      <div class="stat"><b>3 秒</b><span>抓住目光的黃金時間</span></div>
+      <div class="stat"><b>30 秒</b><span>鞏固注意力的關鍵</span></div>
+      <div class="stat"><b>6 萬倍</b><span>大腦處理圖像 vs 文字</span></div>
+      <div class="stat"><b>300–800 字</b><span>整張海報的建議字數</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+
+<!-- ===== 1. 海報思維 ===== -->
+<section id="why">
+  <span class="sec-tag"><span class="num">01</span>戰略基礎</span>
+  <h2>海報不是「放大的論文」，而是視覺摘要</h2>
+  <p class="sec-intro">許多初次參賽者最常犯的錯誤，就是把所有文字與數據塞滿版面。海報的本質是「視覺摘要（Visual Abstract）」與「溝通工具（Networking Tool）」。它要在喧鬧的展場中，於極短時間內讓評審掌握研究全貌、並引發深度對話。</p>
+
+  <div class="grid g4">
+    <div class="card t-primary"><div class="ico">🖼️</div><h4>論述的視覺化載體</h4><p>把抽象的實驗邏輯與繁複數據，「轉譯」為直觀的圖表與圖像，讓觀眾瞬間掌握全貌。</p></div>
+    <div class="card t-indigo"><div class="ico">🧠</div><h4>認知鷹架</h4><p>透過清晰架構降低觀眾的認知負荷，引導視線從研究動機順暢移動到結論。</p></div>
+    <div class="card t-accent"><div class="ico">💬</div><h4>互動對話的起點</h4><p>海報是口頭報告的視覺輔具，讓你能具體指向某個數據點佐證論點，引發深層討論。</p></div>
+    <div class="card t-rose"><div class="ico">🎯</div><h4>行銷與說服工具</h4><p>抓住目光（Hook）→ 留住注意（Retention）→ 認可價值（Conversion），如同產品包裝。</p></div>
+  </div>
+
+  <div class="quote">「一份設計精良的海報，必須在三秒內抓住目光，三十秒內引發興趣。」</div>
+
+  <div class="callout warn">
+    <div class="title">⚖️ 學術倫理是不可逾越的底線</div>
+    <p>所有引用的圖片、數據與文獻都必須清楚標示來源；非本人拍攝的照片須註明出處（如「圖片來源：…」）。誠實呈現數據，拒絕為了美觀而過度修飾或隱藏不利數據——這是科學精神的基本展現。</p>
+  </div>
+</section>
+
+<!-- ===== 2. 策略規劃 ===== -->
+<section id="plan">
+  <span class="sec-tag"><span class="num">02</span>第一階段</span>
+  <h2>策略規劃——成功的基石</h2>
+  <p class="sec-intro">在打開任何設計軟體之前，先確立海報的框架、溝通目標與客觀限制。這能避免後續因方向不明而浪費時間與心力。</p>
+
+  <h3>2.1　釐清規格與限制</h3>
+  <p>動手前務必確認主辦單位的所有先決條件——這不只是遵守規則，更是有效運用展示空間的第一步。</p>
+  <div class="grid g2">
+    <div class="card t-primary"><div class="ico">📐</div><h4>展示空間大小</h4><p>標準學術海報為 91.4 × 121.9 cm（36"×48"），但各競賽規定不同，務必再次確認。台灣全國科展為特殊的三折板結構（詳見競賽規範）。</p></div>
+    <div class="card t-primary"><div class="ico">📋</div><h4>格式要求</h4><p>字體最小尺寸、圖形大小、版面配置是否有特殊規定？仔細閱讀參展手冊，避免最後一刻被迫大改。</p></div>
+  </div>
+
+  <h3>2.2　定位觀眾與核心訊息</h3>
+  <p>觀眾可能是同領域專家，也可能是跨領域學者或一般大眾。內容必須在<strong>專業深度</strong>與<strong>淺顯易懂</strong>之間取得平衡。請牢記：海報的核心目標是<span class="em">「邀請討論」</span>，而非鉅細靡遺地呈現整份研究報告。</p>
+
+  <h3>2.3　5W1H 分析法：提煉核心敘事</h3>
+  <p>在設計前用 5W1H 從紛亂的實驗數據中釐清核心敘事線，避免資訊過載。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>維度</th><th>引導問題</th><th>海報設計應用策略</th></tr></thead>
+      <tbody>
+        <tr><td><span class="k">What 何事</span></td><td>研究的核心現象或技術為何？</td><td>決定「主視覺圖像」與「標題」，標題須精準且具吸引力。</td></tr>
+        <tr><td><span class="k">Why 何因</span></td><td>為何進行此研究？動機為何？</td><td>構成「研究動機」與「問題陳述」，強調必要性與知識缺口。</td></tr>
+        <tr><td><span class="k">Where 何地</span></td><td>知識應用於何處？</td><td>定位「應用價值」與「未來展望」，展示適用範圍。</td></tr>
+        <tr><td><span class="k">When 何時</span></td><td>議題的時效性或歷史背景？</td><td>建立前言中的急迫性，或文獻回顧的演進脈絡。</td></tr>
+        <tr><td><span class="k">Who 何人</span></td><td>誰受益？誰受影響？</td><td>賦予研究「社會意義」，連結人類生活以增強說服力。</td></tr>
+        <tr><td><span class="k">How 如何</span></td><td>機制為何？方法為何？</td><td>驅動「研究方法」流程圖與「結果」的邏輯推導。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>2.4　凝鍊內容：從報告書到海報的「減法藝術」</h3>
+  <p>將厚重的研究報告轉化為精簡海報，重點在於提煉精華並視覺化。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>報告書章節</th><th>海報呈現重點</th></tr></thead>
+      <tbody>
+        <tr><td><span class="k">引言／緒論</span></td><td>捨棄冗長背景，直接切入研究的重要性與知識缺口。最關鍵：把「研究目的」以<strong>條列式</strong>清楚列出。</td></tr>
+        <tr><td><span class="k">研究方法</span></td><td>避免大段步驟描述。優先用<strong>實驗流程圖、裝置示意圖或關鍵步驟列表</strong>概括設計。</td></tr>
+        <tr><td><span class="k">結果</span></td><td>海報的視覺核心。把數據轉成清晰圖表，搭配簡潔圖說——一張好圖表本身就應足以讓觀眾完全理解一組結果。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ===== 3. 內容架構 ===== -->
+<section id="structure">
+  <span class="sec-tag"><span class="num">03</span>第二階段</span>
+  <h2>內容架構——敘述你的研究故事</h2>
+  <p class="sec-intro">清晰的架構如同引導觀眾的路線圖。科展海報通常遵循類似學術論文的 IMRD（緒論、方法、結果、討論）格式，但更精簡、更視覺化。</p>
+
+  <h3>3.1　標準章節與佈局</h3>
+  <div class="steps">
+    <div class="step"><div class="n"></div><div><h4>作品名稱與作者</h4><p>海報的門面，清晰簡潔，置於最頂端最顯眼處。</p></div></div>
+    <div class="step"><div class="n"></div><div><h4>緒論 Introduction</h4><p>簡明介紹背景與重要性；最重要的是以條列式明確列出「研究目的」。</p></div></div>
+    <div class="step"><div class="n"></div><div><h4>研究方法 Methods</h4><p>以視覺化為主——流程圖、裝置示意圖、關鍵步驟列表，取代冗長文字。告訴觀眾「你做了什麼」，而非所有細節。</p></div></div>
+    <div class="step"><div class="n"></div><div><h4>研究結果 Results</h4><p>海報的心臟與視覺焦點。以高品質圖表為主，輔以簡潔圖說，每張圖獨立觀看也能傳達完整資訊。</p></div></div>
+    <div class="step"><div class="n"></div><div><h4>討論與結論 Discussion &amp; Conclusion</h4><p>綜合結果並呼應緒論問題，以條列式總結最重要的結論，點出價值、限制與未來展望。</p></div></div>
+    <div class="step"><div class="n"></div><div><h4>參考文獻與致謝</h4><p>極度精簡——僅列 1–3 篇核心文獻，致謝簡短，節省寶貴版面。</p></div></div>
+  </div>
+
+  <h3>3.2　敘事化流程設計</h3>
+  <p>海報元素的順序，就是你故事的順序。版面應自然引導視線：<strong>由左至右、由上到下</strong>。強烈建議用「方塊（Boxes）」區分各章節，創造視覺區隔，讓觀眾輕鬆消化每個區塊。</p>
+
+  <div class="callout tip">
+    <div class="title">💡 視覺動線的三種模式</div>
+    <p><strong>Z 字型</strong>：圖多文字少的海報，視線從左上 → 右上 → 斜下左 → 右下。<br>
+    <strong>F 字型</strong>：文字較多的版面，先讀頂部標題，再沿左緣向下掃描。<br>
+    <strong>縱向欄位流動</strong>：三折板或分欄海報，務必「先上後下，再左後右」，切勿讓內容跨欄閱讀。</p>
+  </div>
+</section>
+
+<!-- ===== 4. 視覺設計 ===== -->
+<section id="design">
+  <span class="sec-tag"><span class="num">04</span>第三階段</span>
+  <h2>視覺設計——讓資訊清晰易讀</h2>
+  <p class="sec-intro">視覺設計的首要目的不是美觀，而是提升傳達效率、降低認知負擔。好的設計能第一時間吸引目光，並讓研究成果更容易被吸收。</p>
+
+  <h3>4.1　認知心理學：格式塔（Gestalt）四原則</h3>
+  <p>人類視覺傾向把元素整合成整體。善用以下原則讓版面井然有序：</p>
+  <div class="grid g2">
+    <div class="card t-indigo"><div class="ico">🧲</div><h4>接近性 Proximity</h4><p>距離相近 = 同一組。圖說須緊貼圖片，圖表與其解釋放一起，不要讓評審視線來回跳躍找對應。</p></div>
+    <div class="card t-indigo"><div class="ico">🔁</div><h4>相似性 Similarity</h4><p>外觀相似 = 功能相同。所有章節標題用相同字體、顏色、大小；圖表標題格式一致，幫助大腦建立層級。</p></div>
+    <div class="card t-indigo"><div class="ico">⬛</div><h4>封閉性 Closure</h4><p>用細微邊框或淺色背景塊界定區域（如給「結論」加淺底框），大腦會自動視為獨立區塊。</p></div>
+    <div class="card t-indigo"><div class="ico">➡️</div><h4>連續性 Continuity</h4><p>視覺會跟隨線條方向移動。利用欄位引導視線由上而下，避免被突兀元素打斷。</p></div>
+  </div>
+
+  <h3>4.2　降低認知負荷</h3>
+  <div class="grid g3">
+    <div class="card t-primary"><div class="ico">🫁</div><h4>留白是呼吸孔</h4><p>留白不是浪費，是設計的靈魂。建議版面保留 <strong>20–30%</strong> 留白，區隔資訊、突出重點。</p></div>
+    <div class="card t-primary"><div class="ico">📊</div><h4>圖文比例</h4><p>圖像處理快文字 6 萬倍。圖表為主（<strong>40–50%</strong>）、標題次之（20%）、純文字降到最低（20%）。</p></div>
+    <div class="card t-primary"><div class="ico">🔇</div><h4>提高訊噪比</h4><p>移除無資訊價值的裝飾插圖、複雜邊框、3D 文字特效。每一滴墨水都應為科學內容服務。</p></div>
+  </div>
+
+  <h3>4.3　排版四原則 C.R.A.P.</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>原則</th><th>做法</th></tr></thead>
+      <tbody>
+        <tr><td><span class="k">Contrast 對比</span></td><td>用顏色、大小、粗細的強烈差異區分層級。標題必須顯著大於內文，別怕用「非常大」的標題字。</td></tr>
+        <tr><td><span class="k">Repetition 重複</span></td><td>重複使用相同項目符號、一致線條粗細、統一配色，建立統一感與專業感。</td></tr>
+        <tr><td><span class="k">Alignment 對齊</span></td><td>新手與專家的分水嶺。建議靠左或左右對齊，避免大量置中對齊。善用對齊工具與參考線。</td></tr>
+        <tr><td><span class="k">Proximity 接近</span></td><td>把相關資訊群組化，用空間距離表達邏輯關係。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>4.4　字體排印學 Typography</h3>
+  <div class="vs">
+    <div class="col do"><h4>✓ 建議</h4><ul>
+      <li>用對比建立階層：字級、粗體、顏色變化區分標題與內文。</li>
+      <li>堅持常見易讀的<strong>無襯線體</strong>：英文 Arial／Helvetica／Open Sans；中文<strong>微軟正黑體</strong>／黑體。</li>
+      <li>確保在任何電腦與印刷都能正確顯示。</li>
+    </ul></div>
+    <div class="col dont"><h4>✕ 避免</h4><ul>
+      <li>整張海報用超過 <strong>2–3 種</strong>字體，否則像「勒索信」一樣雜亂。</li>
+      <li>花俏或不尋常字體，遠距離難以閱讀。</li>
+      <li>襯線體如 Times New Roman／新細明體——遠看橫筆過細會消失、視覺過時。</li>
+    </ul></div>
+  </div>
+
+  <h4>字體大小建議（依觀看距離）</h4>
+  <div class="typescale">
+    <div class="row"><span class="pt">72–100 pt</span><span class="ts-title">主標題 Title</span></div>
+    <div class="row"><span class="pt">40–60 pt</span><span class="ts-author">作者／學校單位</span></div>
+    <div class="row"><span class="pt">36–50 pt</span><span class="ts-head">章節標題 Headers</span></div>
+    <div class="row"><span class="pt">24–32 pt</span><span class="ts-body">內文 Body Text（絕對不要小於 24pt）</span></div>
+  </div>
+
+  <h3>4.5　配色策略：60-30-10 法則</h3>
+  <div class="ratio">
+    <div class="r60">60% 主色（背景）</div>
+    <div class="r30">30% 輔助色</div>
+    <div class="r10">10% 強調</div>
+  </div>
+  <div class="grid g3">
+    <div class="card t-primary"><h4>60% 主色</h4><p>通常是背景。建議淺色系（白、淺灰、米白），文字最易讀、印刷成本低、不易色差。</p></div>
+    <div class="card t-primary"><h4>30% 輔助色</h4><p>用於區塊背景、標題列、邊框。可選學校代表色或主題色（生物=綠、海洋=藍、物理=冷灰）。</p></div>
+    <div class="card t-accent"><h4>10% 強調色</h4><p>強調關鍵數據、箭頭、結論框、趨勢線。與主色形成對比（藍配亮橘／金黃）。</p></div>
+  </div>
+
+  <div class="callout">
+    <div class="title">🎨 色彩系統的現實考量：RGB vs CMYK</div>
+    <p>螢幕用 RGB（光學），印刷廠用 CMYK（油墨）。螢幕上特別鮮豔的顏色（螢光綠、寶藍）印出來可能變暗淡。對顏色精準度要求高時，最終輸出前先印一張小尺寸樣本確認實際效果。</p>
+  </div>
+
+  <div class="callout danger">
+    <div class="title">♿ 色彩通用設計：約 8% 男性有色盲</div>
+    <p><strong>禁忌</strong>：避免同時用紅與綠作對比；避免彩虹色階（明度缺乏規律）。<br>
+    <strong>建議</strong>：用「藍／橘」或「紫／綠」等色盲友善組合。<br>
+    <strong>雙重編碼</strong>：折線圖不要只靠顏色，加上形狀標記（圓／三角／方）或線條樣式（實線／虛線），黑白列印也能辨識。用 Coblis、Viz Palette 模擬色盲視角檢查。</p>
+  </div>
+
+  <h3>4.6　「Better Poster」運動 × 台灣科展折衷</h3>
+  <p>近年由 Mike Morrison 提出的改革：中央留給一句「超大字體的白話結論」，詳細數據推至兩側，最大化傳遞效率。</p>
+  <div class="vs">
+    <div class="col do"><h4>✓ 優點</h4><ul><li>極度吸睛，數秒內傳達核心發現。</li><li>適合人流眾多的大型研討會。</li></ul></div>
+    <div class="col dont"><h4>✕ 缺點</h4><ul><li>對傳統科展評審可能顯得資訊量不足。</li><li>評審需依評分表逐項檢查（動機、方法、結果是否完整）。</li></ul></div>
+  </div>
+  <div class="callout tip">
+    <div class="title">🇹🇼 台灣科展的混合式佈局</div>
+    <p>保留傳統三欄式架構與必要章節標題（符合評分結構），但在中間展板引入 Better Poster 精神——用醒目的<strong>圖解摘要（Graphical Abstract）</strong>或關鍵結論作為視覺焦點，而非密密麻麻的文字。</p>
+  </div>
+</section>
+
+<!-- ===== 5. 圖文數據 ===== -->
+<section id="data">
+  <span class="sec-tag"><span class="num">05</span>第四階段</span>
+  <h2>圖文整合與數據呈現</h2>
+  <p class="sec-intro">圖表與數據是科學海報的靈魂——不只是結果的呈現，更是論點最有力的證據。</p>
+
+  <h3>5.1　文字策略：條列化是必須</h3>
+  <p>評審沒有時間讀段落文章，必須把長句轉成條列清單。</p>
+  <div class="vs">
+    <div class="col dont"><h4>✕ 原句（段落）</h4><ul><li>「實驗結果顯示，在控制變因不變的情況下，我們觀察到加入催化劑後的反應速率有了顯著的提升，約為原本的三倍。」</li></ul></div>
+    <div class="col do"><h4>✓ 修正（條列）</h4><ul><li><strong>結果顯示：加入催化劑後，反應速率提升 3 倍。</strong></li></ul></div>
+  </div>
+  <div class="callout warn">
+    <div class="title">✍️ 字數控制</div>
+    <p>整張海報總字數建議 <strong>300–800 字</strong>。永遠不要寫超過一行的句子。詳細推導與額外數據放在手邊的「實驗日誌」或補充講義，而非海報上。</p>
+  </div>
+
+  <h3>5.2　圖像與照片處理</h3>
+  <div class="grid g2">
+    <div class="card t-primary"><div class="ico">🔍</div><h4>解析度</h4><p>印刷圖片不應低於 <strong>300 DPI</strong>（點陣圖至少 150–300 DPI）。低解析度放大會模糊或馬賽克。向量圖（SVG／EPS）可無限放大不失真，是最佳選擇。</p></div>
+    <div class="card t-primary"><div class="ico">©️</div><h4>來源</h4><p>避免直接用網路搜尋的圖片（版權＋解析度問題）。建議使用自己拍攝或繪製的圖像，並標註出處。</p></div>
+  </div>
+  <h4>📷 實驗裝置／樣本攝影技巧</h4>
+  <ul>
+    <li>使用乾淨、單色背景（如深色絨布）突顯主體。</li>
+    <li>用三腳架穩定相機，避免晃動模糊。</li>
+    <li>用描圖紙或白色薄布柔化光源，減少刺眼陰影與反光。</li>
+    <li>拍玻璃器皿或水面時，用偏光鏡（CPL）消除反光。</li>
+  </ul>
+
+  <h3>5.3　數據視覺化優於表格</h3>
+  <div class="grid g3">
+    <div class="card t-accent"><div class="ico">📊</div><h4>長條圖</h4><p>適合<strong>比較</strong>不同組別。</p></div>
+    <div class="card t-accent"><div class="ico">📈</div><h4>折線圖</h4><p>適合展示<strong>趨勢</strong>變化。</p></div>
+    <div class="card t-accent"><div class="ico">⚬</div><h4>散布圖</h4><p>適合呈現<strong>相關性</strong>。</p></div>
+  </div>
+  <div class="callout">
+    <div class="title">📐 一張好圖表的必備要素</div>
+    <p>清晰的標題（如：乳酸菌數量）／明確的座標軸標示（Y 軸：Log₁₀ population CFU/mL；X 軸：不同樣本）／完整的單位與圖例。除非是精確參考數值，否則盡量把表格轉成圖表。</p>
+  </div>
+
+  <h3>5.4　實驗裝置圖與流程圖</h3>
+  <div class="vs">
+    <div class="col dont"><h4>✕ 不佳：「瞎子摸象」</h4><ul><li>把燒杯、電極、電錶逐一排列照片。</li><li>無法呈現器材相對比例。</li><li>看不出彼此的連接關係與空間佈局。</li></ul></div>
+    <div class="col do"><h4>✓ 推薦：「呈現整體樣貌」</h4><ul><li>把整個實驗裝置完整拍攝／繪製在同一張圖。</li><li>用編號標示各重要部分。</li><li>在圖說集中說明每個編號對應的器材與功能，清晰直觀。</li></ul></div>
+  </div>
+  <p>對於複雜步驟或演算法，<strong>流程圖（Flowchart）</strong>把邏輯關係視覺化，遠比大段文字清晰。可用 DrawExpress Diagram、Microsoft Visio 等繪製。</p>
+</section>
+
+<!-- ===== 6. 工具製作 ===== -->
+<section id="tools">
+  <span class="sec-tag"><span class="num">06</span>第五階段</span>
+  <h2>實用工具與製作技巧</h2>
+  <p class="sec-intro">把規劃與設計理念付諸實踐。以下涵蓋軟體選擇、PowerPoint 核心操作、材質與黏貼架設。</p>
+
+  <h3>6.1　製作軟體選擇</h3>
+  <div class="grid g2">
+    <div class="card t-primary"><div class="ico">🅿️</div><h4>Microsoft PowerPoint</h4><p>最普及易上手。<strong>開始設計前</strong>先到「設計 → 投影片大小 → 自訂」設定海報實際尺寸（如 84×118.8 cm），切勿做完才放大。善用「投影片母片」統一背景與標題樣式。</p></div>
+    <div class="card t-indigo"><div class="ico">🎨</div><h4>Illustrator / Inkscape</h4><p>專業級向量繪圖：排版精準、放大不失真、CMYK 色彩管理專業。學習曲線較陡。Inkscape 是免費開源替代品。</p></div>
+    <div class="card t-accent"><div class="ico">🧬</div><h4>BioRender</h4><p>生物醫學領域神器，大量專業美觀的科學插圖素材。</p></div>
+    <div class="card t-rose"><div class="ico">✨</div><h4>Canva</h4><p>豐富現代化模板、設計感強。匯出時務必選「PDF 列印（高品質）」，避免解析度不足。</p></div>
+  </div>
+
+  <h3>6.2　PowerPoint 核心操作指令</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>功能</th><th>操作與訣竅</th></tr></thead>
+      <tbody>
+        <tr><td><span class="k">尺規與參考線</span></td><td>檢視（VIEW）→ 勾選尺規（Rulers）與參考線（Guides），作為對齊文字方塊與圖片的基準。</td></tr>
+        <tr><td><span class="k">插入圖片</span></td><td>插入 → 圖片 → 從檔案。直接插入能嵌入完整解析度；「複製貼上」常只貼低解析度螢幕預覽，印刷畫質差。</td></tr>
+        <tr><td><span class="k">調整大小</span></td><td>選取後<strong>按住 SHIFT</strong> 拖角落控點，維持原始長寬比，避免變形。</td></tr>
+        <tr><td><span class="k">對齊與分佈</span></td><td>按住 SHIFT 多選 → 繪圖工具 → 對齊，完美靠左／置中／均分。</td></tr>
+        <tr><td><span class="k">堆疊順序</span></td><td>物件重疊時：繪圖工具 → 順序 → 移到最前／最後，調整層次。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>6.3　材質選擇：紙張 vs 布質</h3>
+  <div class="vs">
+    <div class="col do"><h4>📄 相紙／海報紙</h4><ul><li>解析度最高、色彩飽和銳利。</li><li>價格相對低廉、台灣印刷方便。</li><li>缺點：笨重、需海報筒、易捲曲折損。</li><li><strong>建議國內全國科展使用。</strong></li></ul></div>
+    <div class="col do" style="background:var(--indigo-l);border-color:#c7d0f0"><h4 style="color:var(--indigo)">🧵 布質海報</h4><ul><li>可折疊放行李箱，攜帶極便、不易破損、可重複用、無反光。</li><li>缺點：銳利度略遜、價格較高、製作期較長。</li><li><strong>出國參賽（TISF／ISEF）強烈建議使用。</strong></li></ul></div>
+  </div>
+
+  <h3>6.4　黏貼與架設技巧（三折板）</h3>
+  <div class="grid g2">
+    <div class="card t-primary"><h4>分塊輸出（推薦）</h4><p>依標題、圖表切成多個 A4／A3 區塊，或按左中右三欄輸出。<strong>容錯率高</strong>，貼歪或錯誤可單塊更換，較保險。</p></div>
+    <div class="card t-accent"><h4>全版輸出</h4><p>直接設計成符合展板的大圖（需精準測量轉折處）。視覺整體感最強，但黏貼難度高、易貼歪或起氣泡。</p></div>
+  </div>
+  <div class="callout tip">
+    <div class="title">🧷 黏著劑選擇</div>
+    <p><strong>雙面膠</strong>：推薦鹿頭牌等「不殘膠／萬黏」款式，避免普通膠帶脫落發黃。<br>
+    <strong>噴膠</strong>（如 3M 77）：平整度極佳無膠痕，但需通風操作，一旦黏上難撕重貼。<br>
+    <strong>魔鬼氈</strong>：適合需重複使用的展板，或黏輕量立體模型。</p>
+  </div>
+
+  <h3>6.5　提升互動性的巧思</h3>
+  <div class="grid g2">
+    <div class="card t-rose"><div class="ico">🧑‍🔬</div><h4>個人照片</h4><p>在作者資訊旁放清晰專業的大頭照，幫助感興趣的觀眾在會場中找到你本人、開啟對話。</p></div>
+    <div class="card t-rose"><div class="ico">📱</div><h4>QR Code</h4><p>用 linktr.ee 等免費服務，把論文全文、補充影片、實驗數據、聯絡方式整合成一頁，生成 QR Code 放在角落，大幅延伸海報資訊承載量。</p></div>
+  </div>
+</section>
+
+<!-- ===== 7. 現場演示 ===== -->
+<section id="present">
+  <span class="sec-tag"><span class="num">07</span>第六階段</span>
+  <h2>現場演示與互動策略</h2>
+  <p class="sec-intro">海報是死物，人是靈魂。海報再完美，解說者無法有效溝通，依然難以獲獎。</p>
+
+  <h3>7.1　電梯簡報（Elevator Pitch）</h3>
+  <p>評審常問「請簡介你的作品」。準備一套熟記於心的 1 分鐘開場白：</p>
+  <div class="steps">
+    <div class="step"><div class="n"></div><div><h4>問題 The Problem</h4><p>這個研究解決了什麼痛點？</p></div></div>
+    <div class="step"><div class="n"></div><div><h4>方法 The Solution</h4><p>你做了什麼核心實驗？</p></div></div>
+    <div class="step"><div class="n"></div><div><h4>發現 The Result</h4><p>最重要的數據是什麼？</p></div></div>
+    <div class="step"><div class="n"></div><div><h4>影響 The Impact</h4><p>這有什麼意義？</p></div></div>
+  </div>
+
+  <h3>7.2　肢體語言與互動</h3>
+  <div class="grid g3">
+    <div class="card t-primary"><div class="ico">🧍</div><h4>站位</h4><p>站在海報側面，永遠不要背對評審，也不要擋住內容，保持開放姿態。</p></div>
+    <div class="card t-primary"><div class="ico">👉</div><h4>引導</h4><p>用手掌或簡報筆明確指向圖表：「如圖三所示…」，把注意力聚焦到證據上。</p></div>
+    <div class="card t-primary"><div class="ico">👁️</div><h4>眼神接觸</h4><p>與評審保持眼神交流，展現自信、從容與禮貌。</p></div>
+  </div>
+
+  <h3>7.3　應對提問的策略</h3>
+  <div class="callout tip">
+    <div class="title">🗣️ 誠實為上，善用海報</div>
+    <p>遇到不會的問題不要瞎掰，自信回答：「這是一個非常好的問題，目前的實驗尚未涵蓋這部分，但我推測…」或「這將是我們未來的研究方向。」<br>
+    回答時盡量連結回海報數據：「關於這個問題，您可以參考表二，我們發現…」讓海報成為你的論據庫。</p>
+  </div>
+</section>
+
+<!-- ===== 8. 競賽規範 ===== -->
+<section id="rules">
+  <span class="sec-tag"><span class="num">08</span>速查手冊</span>
+  <h2>競賽規範與硬體規格</h2>
+  <p class="sec-intro">不同層級的科展，對海報尺寸、材質與展示方式規定截然不同。忽視規範可能導致資格被取消——遵守規則是製作海報的第一要務。</p>
+
+  <div class="tabs">
+    <div class="tab-btns">
+      <button class="active" data-tab="t-national">🇹🇼 全國科展（三折板）</button>
+      <button data-tab="t-isef">🌐 TISF / ISEF</button>
+      <button data-tab="t-ban">🚫 禁止展示項目</button>
+    </div>
+
+    <div class="tab-panel active" id="t-national">
+      <p>台灣全國中小學科學展覽會採用獨特的「三折式（ㄇ字型）」展板，物理結構直接影響版面邏輯。閱讀順序必然由左至右、由上而下。</p>
+      <div class="header-board">上方標題板　寬 75 cm × 高 20 cm（作品名稱）</div>
+      <div class="trifold">
+        <div class="panel"><div class="lab">左側展板</div><div class="sz">寬 65 × 高 120 cm</div>
+          <p style="font-size:13px;color:var(--ink-soft);margin:0 0 6px">研究的「起點」</p>
+          <ul><li>摘要 Abstract</li><li>研究動機</li><li>文獻探討</li><li>研究設備與器材</li></ul></div>
+        <div class="panel center"><div class="lab">中間展板 ★</div><div class="sz">寬 75 × 高 120 cm</div>
+          <p style="font-size:13px;color:var(--ink-soft);margin:0 0 6px">研究的「核心」（評審目光停留最久）</p>
+          <ul><li>研究過程／方法</li><li>主要研究結果</li><li>圖表數據分析</li></ul></div>
+        <div class="panel"><div class="lab">右側展板</div><div class="sz">寬 65 × 高 120 cm</div>
+          <p style="font-size:13px;color:var(--ink-soft);margin:0 0 6px">研究的「終點」</p>
+          <ul><li>討論 Discussion</li><li>結論 Conclusion</li><li>參考文獻</li><li>未來展望</li></ul></div>
+      </div>
+      <div class="callout warn"><div class="title">📦 材質與限制</div><p>展品放桌面時深度通常限制 60–70 cm，高度等需參照當年度實施計畫。內容可輸出多張 A3／A4 或裁切大圖，黏貼於大會提供的瓦楞板／保麗龍板；近年多人直接輸出符合各區塊尺寸的背膠海報黏貼，求整體美觀。</p></div>
+    </div>
+
+    <div class="tab-panel" id="t-isef">
+      <p>進入國際賽事（TISF 選拔或代表台灣參加 ISEF），規範向國際標準靠攏，空間彈性較大但安全審查更嚴。</p>
+      <h4>ISEF 最大尺寸限制</h4>
+      <ul>
+        <li>深度（前後）：<strong>76 cm（30 吋）</strong></li>
+        <li>寬度（左右）：<strong>122 cm（48 吋）</strong></li>
+        <li>高度（地板到頂）：<strong>274 cm（108 吋）</strong>，含桌高（約 76 cm）</li>
+      </ul>
+      <h4>2026 年台灣國際科展展示板規格</h4>
+      <ul>
+        <li>三折式設計，總高度 <strong>122 cm（48 吋）</strong>，由三片面板組成。</li>
+        <li>中央面板寬 <strong>61 cm（24 吋）</strong>；左右側翼各寬 <strong>30.5 cm（12 吋）</strong>，展開總寬 122 cm。</li>
+        <li>最上方加裝獨立標題板：寬 <strong>91.5 cm（36 吋）</strong>、高 <strong>24 cm（9.5 吋）</strong>；下方設兩處長 5.5 cm 插孔，距左右兩端各 9.5 cm。</li>
+      </ul>
+      <div class="callout danger"><div class="title">⚠️ 最常被忽略的細節：摘要呈現方式不同</div><p>台灣全國科展：摘要通常直接印在海報左上角。<br><strong>ISEF：建議「不要」把摘要直接印在海報板上</strong>，而須將大會蓋章核可的官方摘要正本，垂直展示於桌前或指定位置，確保內容符合審查且未經修改。這是從國內賽轉戰國際賽最常忽略的細節。</p></div>
+    </div>
+
+    <div class="tab-panel" id="t-ban">
+      <p>無論國內外，為了安全與公平，以下項目嚴格禁止出現在展板或展桌上：</p>
+      <div class="grid g3">
+        <div class="card t-rose"><div class="ico">🌱</div><h4>生物活體</h4><p>植物、動物、微生物均不可現場展示。</p></div>
+        <div class="card t-rose"><div class="ico">☣️</div><h4>危險物質</h4><p>化學藥品、毒性／易燃物、乾冰等。</p></div>
+        <div class="card t-rose"><div class="ico">🍱</div><h4>食品</h4><p>人類或動物食物（建議以照片代替）。</p></div>
+        <div class="card t-rose"><div class="ico">🔪</div><h4>尖銳物品</h4><p>針頭、刀片等。</p></div>
+        <div class="card t-rose"><div class="ico">🕵️</div><h4>個資（匿名審查）</h4><p>匿名審查階段，通常不得出現學校名稱、校徽或指導老師姓名，以維護公正。</p></div>
+        <div class="card t-rose"><div class="ico">🔞</div><h4>不雅內容</h4><p>不得展示具攻擊性或不雅的內容。</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 9. 專家補充 ===== -->
+<section id="expert">
+  <span class="sec-tag"><span class="num">09</span>指導老師補充</span>
+  <h2>專家補充：超越攻略的實戰心法</h2>
+  <p class="sec-intro">以下內容由科展指導經驗整理，補充原始文件未涵蓋、但實戰中常決定勝負的關鍵：論文與海報的差異、評分結構對照、常見致命錯誤、教學活動設計、製作時程，以及學科案例。</p>
+
+  <h3>9.1　論文 vs 口頭報告 vs 海報——三種載體的分工</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>面向</th><th>研究報告／論文</th><th>口頭報告</th><th>海報</th></tr></thead>
+      <tbody>
+        <tr><td><span class="k">目的</span></td><td>完整記錄與存證</td><td>說服與展演</td><td>邀請討論、視覺摘要</td></tr>
+        <tr><td><span class="k">資訊密度</span></td><td>極高、鉅細靡遺</td><td>中、依時間取捨</td><td>低、提煉精華</td></tr>
+        <tr><td><span class="k">主導者</span></td><td>讀者自行閱讀</td><td>講者主導</td><td>觀眾＋講者互動</td></tr>
+        <tr><td><span class="k">理想字數</span></td><td>數千～數萬字</td><td>講稿千字內</td><td><strong>300–800 字</strong></td></tr>
+        <tr><td><span class="k">致命傷</span></td><td>邏輯不嚴謹</td><td>超時、照稿念</td><td>文字牆、看不懂的圖</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout"><div class="title">🔑 核心觀念</div><p>海報不是論文的縮影，而是論文的「預告片」。它的任務是讓評審「想停下來、想發問」，把細節留給你親口補充、把證據留給手邊的實驗日誌。</p></div>
+
+  <h3>9.2　評分結構對照——讓版面替你「對齊評分表」</h3>
+  <p>評審依評分表逐項打分，海報區塊應與評分向度一一對應，讓評審「找得到分數」。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>常見評分向度</th><th>權重（參考）</th><th>海報對應區塊／加分作法</th></tr></thead>
+      <tbody>
+        <tr><td><span class="k">創意與貢獻</span></td><td>約 40–50%</td><td>標題與研究動機點出「新在哪、缺口在哪」；用一句話說清楚原創性。</td></tr>
+        <tr><td><span class="k">內容與專業知識</span></td><td>約 30%</td><td>方法流程圖嚴謹、變因控制清楚、結果圖表有統計支持。</td></tr>
+        <tr><td><span class="k">文字表達與組織</span></td><td>約 20%</td><td>邏輯動線順暢、條列化、無錯字、圖說完整。</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p style="font-size:14.5px;color:var(--ink-soft)">＊各競賽與年度權重略有差異，請以當年度實施計畫為準。台北市科展常見配比為創意及貢獻 50%、內容及專業知識 30%、文字表達及組織 20%。</p>
+
+  <h3>9.3　12 個常見致命錯誤（評審一眼看穿）</h3>
+  <div class="grid g2">
+    <div class="card t-rose"><h4>① 文字牆</h4><p>整段整段的論文搬上海報，評審直接跳過。</p></div>
+    <div class="card t-rose"><h4>② 標題太長太籠統</h4><p>10 字內講不清核心，吸引力歸零。</p></div>
+    <div class="card t-rose"><h4>③ 圖表沒有標題／座標軸</h4><p>圖無法獨立傳達資訊，等於沒放。</p></div>
+    <div class="card t-rose"><h4>④ 馬賽克圖片</h4><p>低解析度＝不專業的第一印象。</p></div>
+    <div class="card t-rose"><h4>⑤ 字級過小（&lt;24pt）</h4><p>評審需貼著海報才看清，體驗極差。</p></div>
+    <div class="card t-rose"><h4>⑥ 紅綠配色</h4><p>色盲評審無法判讀你的關鍵數據。</p></div>
+    <div class="card t-rose"><h4>⑦ 沒有留白</h4><p>塞好塞滿＝壓迫、找不到重點。</p></div>
+    <div class="card t-rose"><h4>⑧ 跨欄閱讀混亂</h4><p>三折板讀完左欄第一行跳右欄，動線崩潰。</p></div>
+    <div class="card t-rose"><h4>⑨ 結論與動機脫節</h4><p>開頭問的問題，結尾沒回答。</p></div>
+    <div class="card t-rose"><h4>⑩ 圖片未標來源</h4><p>觸碰學術倫理紅線，可能被扣分或取消資格。</p></div>
+    <div class="card t-rose"><h4>⑪ 字體像勒索信</h4><p>超過 3 種字體、花俏字型，版面雜亂。</p></div>
+    <div class="card t-rose"><h4>⑫ 只有一份海報</h4><p>遺失／損毀就無法參賽，毫無備援。</p></div>
+  </div>
+
+  <h3>9.4　學科配色與視覺風格建議</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>學科領域</th><th>建議色調</th><th>視覺風格</th></tr></thead>
+      <tbody>
+        <tr><td><span class="k">生物 / 農業</span></td><td>綠色系、大地色、奶油粉彩</td><td>自然主義，冷靜客觀，適合 New Naturalism。</td></tr>
+        <tr><td><span class="k">化學</span></td><td>藍紫＋亮橘強調</td><td>分子結構圖、反應流程圖為主視覺。</td></tr>
+        <tr><td><span class="k">物理 / 數學</span></td><td>冷灰、深藍＋電光藍</td><td>大膽極簡，公式與示意圖清晰。</td></tr>
+        <tr><td><span class="k">地科 / 海洋</span></td><td>藍色系、漸層</td><td>地圖、剖面圖、時間序列。</td></tr>
+        <tr><td><span class="k">資訊 / 工程</span></td><td>高飽和＋大量留白</td><td>Bold Minimalism，系統架構圖、流程圖。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>9.5　製作時程建議（賽前 4 週倒數）</h3>
+  <div class="timeline">
+    <div class="tl-item"><div class="wk">第 4 週｜規劃</div><h4>策略定調</h4><p>確認競賽規格與展板尺寸；用 5W1H 提煉核心敘事；畫出手繪版面草圖（紙上分欄）。</p></div>
+    <div class="tl-item"><div class="wk">第 3 週｜內容</div><h4>內容減法</h4><p>把報告書濃縮成條列；整理數據、繪製圖表與流程圖；確認所有圖片解析度與來源標註。</p></div>
+    <div class="tl-item"><div class="wk">第 2 週｜設計</div><h4>排版與配色</h4><p>套用 C.R.A.P. 與 60-30-10；統一字體與標題樣式；做色盲檢查；完成初稿。</p></div>
+    <div class="tl-item"><div class="wk">第 1 週｜檢核</div><h4>校對與試印</h4><p>逐項跑完檢核清單；印小尺寸樣本確認色彩；練習電梯簡報；<strong>印製至少兩份</strong>。</p></div>
+    <div class="tl-item"><div class="wk">賽前 1–2 天｜彩排</div><h4>實戰演練</h4><p>對著真海報練習指圖解說；模擬評審提問；準備備份與黏貼工具（雙面膠／噴膠）。</p></div>
+  </div>
+
+  <h3>9.6　教學活動設計（給指導老師）</h3>
+  <p>把海報製作變成可操作的課堂活動，而非只交代「回去做海報」。</p>
+  <div class="grid g2">
+    <div class="card t-primary"><div class="ico">📝</div><h4>活動一：5W1H 提煉工作坊</h4><p>學生用便利貼回答 6 個維度，貼在白板上，全班互評哪個是「最有吸引力的標題候選」。</p></div>
+    <div class="card t-primary"><div class="ico">✂️</div><h4>活動二：減法挑戰</h4><p>給一段論文段落，限時把它改寫成「一行條列」與「一張圖表構想」。訓練視覺轉譯能力。</p></div>
+    <div class="card t-primary"><div class="ico">🖼️</div><h4>活動三：海報健檢</h4><p>用本頁「檢核清單」互評他組海報草稿，每人至少提出 3 點具體修改建議。</p></div>
+    <div class="card t-primary"><div class="ico">🎤</div><h4>活動四：電梯簡報快問快答</h4><p>1 分鐘開場 + 評審刁鑽提問演練，培養臨場誠實應對的能力。</p></div>
+  </div>
+  <div class="callout tip"><div class="title">👩‍🏫 給老師的提醒</div><p>本頁右上角「🔆 投影模式」會放大全站字級，適合教室投影；按瀏覽器列印（Ctrl/⌘+P）可輸出 PDF 講義發給學生。建議搭配學生自己的研究數據，邊講邊改，比單純講原則更有效。</p></div>
+
+  <h3>9.7　學科應用範例（從生物出發的跨領域思維）</h3>
+  <details>
+    <summary>🧬 生物：乳酸菌數量統計海報</summary>
+    <div class="body"><p>結果區用長條圖呈現不同樣本的菌數，Y 軸標示 Log₁₀ population CFU/mL、X 軸為樣本，附完整圖例。方法區用流程圖呈現培養與計數步驟，避免純文字。中央展板用「加入 X 後菌數提升 N 倍」作為圖解摘要焦點。配色採綠色系，符合生物領域的自然主義風格。</p></div>
+  </details>
+  <details>
+    <summary>⚗️ 化學：催化劑對反應速率的影響</summary>
+    <div class="body"><p>核心結論一句話：「加入催化劑後，反應速率提升 3 倍」放大置中。裝置圖採「整體樣貌」拍法並編號標示。趨勢用折線圖、不同條件用不同形狀端點（雙重編碼），確保黑白列印與色盲皆可辨識。</p></div>
+  </details>
+  <details>
+    <summary>🌊 地科：水質監測時間序列</summary>
+    <div class="body"><p>用折線圖呈現長期趨勢，搭配採樣地點地圖。藍色漸層主色，強調色標出異常波動點。方法區用裝置示意圖＋編號說明取代步驟文字。</p></div>
+  </details>
+  <details>
+    <summary>💻 資訊／工程：演算法或系統作品</summary>
+    <div class="body"><p>採 Bold Minimalism：高飽和強調色＋大量留白。用系統架構圖與流程圖呈現邏輯，向量圖（SVG）確保放大不失真。中央放「效能提升 / 準確率」的關鍵數字作為視覺鉤子。</p></div>
+  </details>
+</section>
+
+<!-- ===== 10. 檢核清單 ===== -->
+<section id="checklist">
+  <span class="sec-tag"><span class="num">10</span>送印前最後防線</span>
+  <h2>最終檢核清單</h2>
+  <p class="sec-intro">「魔鬼藏在細節裡。」送印前逐項打勾，確保每一項都達標。勾選會即時更新下方進度條。</p>
+
+  <div class="checklist">
+    <div class="progress"><span id="bar"></span></div>
+    <div class="ptext" id="ptext">完成度 0%（0 / 16）</div>
+    <div id="items">
+      <div class="check-item"><input type="checkbox" id="c1"><label for="c1"><strong>標題</strong>是否在 10 字內精準傳達核心？字體夠大（&gt;72pt）能從遠處辨識？</label></div>
+      <div class="check-item"><input type="checkbox" id="c2"><label for="c2"><strong>三秒吸引力</strong>：整體視覺能否在 3 秒內抓住路過觀眾目光？</label></div>
+      <div class="check-item"><input type="checkbox" id="c3"><label for="c3"><strong>內文</strong>是否已條列化？字體是否大於 24pt？</label></div>
+      <div class="check-item"><input type="checkbox" id="c4"><label for="c4"><strong>版面與可讀性</strong>：是否乾淨易讀、保留足夠留白（&gt;20%）不擁擠？</label></div>
+      <div class="check-item"><input type="checkbox" id="c5"><label for="c5"><strong>圖表清晰度</strong>：每張圖是否都有標題、座標軸標示與簡潔圖說，獨立看也懂？</label></div>
+      <div class="check-item"><input type="checkbox" id="c6"><label for="c6"><strong>圖片品質</strong>：是否清晰無馬賽克（&gt;150 DPI）？是否已標註出處？</label></div>
+      <div class="check-item"><input type="checkbox" id="c7"><label for="c7"><strong>配色</strong>：是否符合 60-30-10 法則？是否通過色盲測試（避開紅綠）？</label></div>
+      <div class="check-item"><input type="checkbox" id="c8"><label for="c8"><strong>字體</strong>：是否不超過 2–3 種、皆為易讀無襯線體？</label></div>
+      <div class="check-item"><input type="checkbox" id="c9"><label for="c9"><strong>邏輯動線</strong>：是否順暢（前言→方法→結果→結論）、不需跨欄閱讀？</label></div>
+      <div class="check-item"><input type="checkbox" id="c10"><label for="c10"><strong>作者資訊</strong>：姓名、單位、聯絡資訊是否完整清晰？（注意匿名審查規定）</label></div>
+      <div class="check-item"><input type="checkbox" id="c11"><label for="c11"><strong>文字校對</strong>：是否仔細校對所有文字（含圖表內），杜絕錯字與文法錯誤？</label></div>
+      <div class="check-item"><input type="checkbox" id="c12"><label for="c12"><strong>違禁品</strong>：是否確認移除（無生物活體、危險品、食品、尖銳物）？</label></div>
+      <div class="check-item"><input type="checkbox" id="c13"><label for="c13"><strong>競賽規格</strong>：尺寸、材質、摘要呈現方式是否符合該賽事規定？</label></div>
+      <div class="check-item"><input type="checkbox" id="c14"><label for="c14"><strong>互動設計</strong>：是否加上個人大頭照與整合補充資料的 QR Code？</label></div>
+      <div class="check-item"><input type="checkbox" id="c15"><label for="c15"><strong>電梯簡報</strong>：1 分鐘開場白（問題→方法→發現→影響）是否已熟記？</label></div>
+      <div class="check-item"><input type="checkbox" id="c16"><label for="c16"><strong>備援</strong>：是否印製至少兩份，一份隨身、一份請人保管？</label></div>
+    </div>
+  </div>
+
+  <div class="quote">當這張清單上每一個勾選都被填滿時，你手中的就不只是一張海報，而是一張通往科學殿堂的入場券。</div>
+</section>
+
+</main>
+
+<footer>
+  <div class="big">你的研究，值得被看見 ✦</div>
+  <p>本網頁整合《科展海報製作全攻略》與《全方位科學展覽海報設計與製作實務》兩份文件，並由科展指導觀點補充實戰內容。</p>
+  <p style="margin-top:10px;opacity:.7">適合教師投影講課 ｜ 學生線上自學 ｜ 競賽備戰速查 ｜ 可列印為 PDF 講義</p>
+</footer>
+
+<button class="totop" id="totop" title="回到頂端">↑</button>
+
+<script>
+  // 行動選單
+  const menuBtn=document.getElementById('menuBtn'),nav=document.getElementById('nav');
+  menuBtn.addEventListener('click',()=>nav.classList.toggle('open'));
+  nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+
+  // 投影模式
+  const pBtn=document.getElementById('presentBtn');
+  pBtn.addEventListener('click',()=>{
+    document.body.classList.toggle('present');
+    pBtn.textContent=document.body.classList.contains('present')?'🔅 一般模式':'🔆 投影模式';
+  });
+
+  // 分頁
+  document.querySelectorAll('.tab-btns button').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id=btn.dataset.tab;
+      document.querySelectorAll('.tab-btns button').forEach(b=>b.classList.remove('active'));
+      document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById(id).classList.add('active');
+    });
+  });
+
+  // 檢核清單進度
+  const boxes=document.querySelectorAll('#items input'),bar=document.getElementById('bar'),ptext=document.getElementById('ptext');
+  const total=boxes.length;
+  function upd(){
+    const done=[...boxes].filter(b=>b.checked).length;
+    const pct=Math.round(done/total*100);
+    bar.style.width=pct+'%';
+    ptext.textContent=`完成度 ${pct}%（${done} / ${total}）`;
+    if(pct===100){ptext.textContent='🎉 全部完成！你的海報已準備好登上科學舞台。';}
+  }
+  boxes.forEach(b=>b.addEventListener('change',upd));
+
+  // 回頂按鈕
+  const totop=document.getElementById('totop');
+  window.addEventListener('scroll',()=>{
+    totop.classList.toggle('show',window.scrollY>600);
+  });
+  totop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+  // 導覽列高亮
+  const sections=[...document.querySelectorAll('section[id], header[id]')];
+  const links=[...document.querySelectorAll('#nav a')];
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){
+        links.forEach(l=>l.style.background=l.getAttribute('href')==='#'+e.target.id?'rgba(255,255,255,.15)':'');
+      }
+    });
+  },{rootMargin:'-40% 0px -55% 0px'});
+  sections.forEach(s=>obs.observe(s));
+</script>
+</body>
+</html>

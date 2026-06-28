@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科展生物領域得獎策略全解析｜從現象觀察到機制解析的典範轉移</title>
+<style>
+:root{
+  --bg:#f6f8fb;
+  --paper:#ffffff;
+  --ink:#1f2733;
+  --ink-soft:#4a5564;
+  --line:#e4e9f0;
+  --brand:#2563eb;      /* 主藍 */
+  --brand-d:#1d4ed8;
+  --green:#0f9d6e;      /* 科學綠 */
+  --coral:#f0644b;      /* 生醫珊瑚 */
+  --leaf:#2fa84f;       /* 植物綠 */
+  --amber:#f0a500;      /* 農食琥珀 */
+  --violet:#7c5cff;     /* 行為紫 */
+  --teal:#0aa6b8;       /* 環境青 */
+  --pink:#e84393;       /* 國際桃 */
+  --shadow:0 6px 24px rgba(31,39,51,.08);
+  --shadow-lg:0 14px 40px rgba(31,39,51,.13);
+  --radius:16px;
+}
+*{box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  margin:0;
+  font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,-apple-system,"Segoe UI",sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.85;
+  font-size:17px;
+  letter-spacing:.2px;
+}
+a{color:var(--brand);text-decoration:none;}
+img{max-width:100%;}
+
+/* ===== Layout ===== */
+.shell{display:flex;max-width:1320px;margin:0 auto;gap:0;}
+.sidebar{
+  width:280px;flex:0 0 280px;
+  position:sticky;top:0;align-self:flex-start;
+  height:100vh;overflow-y:auto;
+  padding:26px 18px 60px;
+  background:linear-gradient(180deg,#ffffff 0%,#f3f7ff 100%);
+  border-right:1px solid var(--line);
+}
+.main{flex:1 1 auto;min-width:0;padding:0 clamp(18px,4vw,64px) 80px;}
+
+/* ===== Sidebar nav ===== */
+.brandmark{display:flex;align-items:center;gap:10px;margin-bottom:6px;}
+.brandmark .dot{width:34px;height:34px;border-radius:10px;background:linear-gradient(135deg,var(--brand),var(--green));display:grid;place-items:center;color:#fff;font-weight:800;font-size:18px;box-shadow:var(--shadow);}
+.brandmark b{font-size:16px;letter-spacing:.5px;}
+.sb-sub{font-size:12.5px;color:var(--ink-soft);margin:0 0 18px;padding-left:2px;}
+.toc{list-style:none;margin:0;padding:0;}
+.toc li{margin:1px 0;}
+.toc a{
+  display:flex;gap:10px;align-items:center;
+  padding:8px 12px;border-radius:10px;
+  color:var(--ink-soft);font-size:14.5px;font-weight:500;
+  transition:.18s;border-left:3px solid transparent;
+}
+.toc a .n{font-size:12px;font-weight:700;color:#aab4c2;min-width:20px;}
+.toc a:hover{background:#eaf1ff;color:var(--brand-d);}
+.toc a.active{background:#e6efff;color:var(--brand-d);font-weight:700;border-left-color:var(--brand);}
+.toc a.active .n{color:var(--brand);}
+
+/* ===== Hero ===== */
+.hero{
+  margin:0 0 30px;padding:46px clamp(24px,5vw,60px);
+  border-radius:var(--radius);
+  background:
+    radial-gradient(900px 400px at 90% -10%,rgba(15,157,110,.16),transparent 60%),
+    radial-gradient(700px 360px at -5% 110%,rgba(124,92,255,.14),transparent 55%),
+    linear-gradient(135deg,#ffffff,#eef4ff);
+  border:1px solid var(--line);box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.hero .kick{display:inline-block;background:#fff;border:1px solid var(--line);color:var(--brand-d);font-weight:700;font-size:13px;padding:6px 14px;border-radius:999px;box-shadow:var(--shadow);}
+.hero h1{font-size:clamp(28px,4.4vw,46px);line-height:1.25;margin:18px 0 10px;letter-spacing:.5px;}
+.hero h1 .grad{background:linear-gradient(120deg,var(--brand),var(--green) 60%,var(--teal));-webkit-background-clip:text;background-clip:text;color:transparent;}
+.hero p.lead{font-size:18px;color:var(--ink-soft);max-width:760px;margin:8px 0 0;}
+.hero .stats{display:flex;flex-wrap:wrap;gap:14px;margin-top:26px;}
+.stat{background:#fff;border:1px solid var(--line);border-radius:14px;padding:14px 20px;min-width:140px;box-shadow:var(--shadow);}
+.stat b{display:block;font-size:26px;color:var(--brand-d);line-height:1.1;}
+.stat span{font-size:13px;color:var(--ink-soft);}
+
+/* ===== Sections ===== */
+section{scroll-margin-top:18px;margin-bottom:46px;}
+.sec-head{display:flex;align-items:center;gap:14px;margin:6px 0 20px;}
+.sec-head .badge{
+  width:46px;height:46px;flex:0 0 46px;border-radius:13px;display:grid;place-items:center;
+  color:#fff;font-weight:800;font-size:20px;box-shadow:var(--shadow);
+}
+.sec-head h2{font-size:clamp(22px,3vw,30px);margin:0;letter-spacing:.4px;}
+.sec-head .en{display:block;font-size:12.5px;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:#9aa6b5;}
+
+/* color tags for section badges */
+.c-brand{background:linear-gradient(135deg,#2563eb,#3b82f6);}
+.c-green{background:linear-gradient(135deg,#0f9d6e,#27c08a);}
+.c-coral{background:linear-gradient(135deg,#f0644b,#ff8a6b);}
+.c-leaf{background:linear-gradient(135deg,#2fa84f,#67c97f);}
+.c-amber{background:linear-gradient(135deg,#f0a500,#ffce4d);}
+.c-violet{background:linear-gradient(135deg,#7c5cff,#a18bff);}
+.c-teal{background:linear-gradient(135deg,#0aa6b8,#3ec9d6);}
+.c-pink{background:linear-gradient(135deg,#e84393,#ff79b8);}
+
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:26px clamp(20px,3vw,34px);box-shadow:var(--shadow);}
+.card + .card{margin-top:18px;}
+p{margin:0 0 14px;}
+h3{font-size:20px;margin:24px 0 10px;}
+h4{font-size:16.5px;margin:18px 0 6px;color:var(--brand-d);}
+
+/* grid */
+.grid{display:grid;gap:16px;}
+.g2{grid-template-columns:repeat(2,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g4{grid-template-columns:repeat(4,1fr);}
+@media(max-width:880px){.g2,.g3,.g4{grid-template-columns:1fr;}}
+
+/* mini cards */
+.mini{background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 18px;box-shadow:var(--shadow);position:relative;transition:.2s;}
+.mini:hover{transform:translateY(-3px);box-shadow:var(--shadow-lg);}
+.mini .ic{font-size:26px;}
+.mini h4{margin:8px 0 6px;color:var(--ink);font-size:17px;}
+.mini p{font-size:14.5px;color:var(--ink-soft);margin:0;}
+.mini .tag{position:absolute;top:14px;right:14px;font-size:11px;font-weight:700;color:#fff;padding:3px 9px;border-radius:999px;}
+
+/* principle cards */
+.principle{display:flex;gap:18px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow);}
+.principle .num{font-size:34px;font-weight:800;line-height:1;color:var(--brand);opacity:.4;flex:0 0 auto;width:44px;}
+.principle h4{margin:0 0 6px;font-size:18px;color:var(--ink);}
+.principle p{margin:0;font-size:15px;color:var(--ink-soft);}
+.principle .kw{display:inline-block;font-size:12px;font-weight:700;color:var(--brand-d);background:#e9f1ff;padding:2px 9px;border-radius:6px;margin-bottom:8px;}
+
+/* callout */
+.callout{border-left:5px solid var(--amber);background:#fff8e8;border-radius:0 12px 12px 0;padding:16px 20px;margin:18px 0;font-size:15px;}
+.callout.warn{border-color:var(--coral);background:#fdeeea;}
+.callout.tip{border-color:var(--green);background:#e9f8f1;}
+.callout b{color:var(--ink);}
+
+/* tables */
+.tablewrap{overflow-x:auto;border-radius:14px;border:1px solid var(--line);box-shadow:var(--shadow);}
+table{border-collapse:collapse;width:100%;background:#fff;font-size:14.5px;min-width:560px;}
+th,td{padding:13px 16px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;}
+thead th{background:#eef4ff;color:var(--brand-d);font-weight:700;position:sticky;top:0;}
+tbody tr:nth-child(even){background:#fafcff;}
+tbody tr:hover{background:#f1f6ff;}
+td .pill{font-weight:700;}
+
+.vs-win{color:var(--green);font-weight:700;}
+.vs-lose{color:var(--coral);font-weight:700;}
+
+/* flow */
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:10px;margin:18px 0;}
+.flow .step{flex:1 1 140px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px;text-align:center;box-shadow:var(--shadow);position:relative;}
+.flow .step .s{font-size:12px;font-weight:700;color:#fff;background:var(--brand);border-radius:999px;padding:2px 10px;}
+.flow .step h5{margin:9px 0 4px;font-size:15px;}
+.flow .step p{font-size:12.5px;color:var(--ink-soft);margin:0;}
+.flow .arrow{align-self:center;color:var(--brand);font-size:22px;font-weight:800;}
+@media(max-width:880px){.flow .arrow{transform:rotate(90deg);}}
+
+/* project case */
+.case{background:linear-gradient(135deg,#fff,#f7faff);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:var(--shadow);}
+.case .rank{display:inline-block;font-size:12px;font-weight:800;color:#fff;padding:3px 11px;border-radius:999px;margin-bottom:8px;}
+.r1{background:var(--coral);}.r2{background:var(--amber);}.r3{background:var(--brand);}.rx{background:var(--violet);}
+.case h4{margin:4px 0 6px;color:var(--ink);font-size:17px;}
+.case .code{font-size:12px;color:#9aa6b5;font-weight:600;}
+.case ul{margin:10px 0 0;padding-left:18px;}
+.case li{font-size:14px;color:var(--ink-soft);margin-bottom:6px;}
+.case li b{color:var(--ink);}
+
+ul.clean{list-style:none;padding:0;margin:8px 0;}
+ul.clean li{padding:7px 0 7px 30px;position:relative;font-size:15px;color:var(--ink-soft);border-bottom:1px dashed var(--line);}
+ul.clean li:before{content:"✦";position:absolute;left:4px;top:7px;color:var(--green);}
+ul.clean li b{color:var(--ink);}
+
+/* checklist */
+.checkbox-wrap{background:linear-gradient(135deg,#eef9f3,#eef4ff);border:1px solid var(--line);border-radius:var(--radius);padding:26px clamp(20px,3vw,34px);box-shadow:var(--shadow);}
+.progress{height:14px;background:#e4e9f0;border-radius:999px;overflow:hidden;margin:14px 0 6px;}
+.progress .bar{height:100%;width:0;background:linear-gradient(90deg,var(--green),var(--brand));transition:width .4s ease;border-radius:999px;}
+.progress-label{font-weight:700;color:var(--brand-d);font-size:15px;}
+.cl-group{margin-top:20px;}
+.cl-group > .gt{font-weight:800;font-size:16px;color:var(--ink);margin:14px 0 8px;display:flex;align-items:center;gap:8px;}
+.cl-group > .gt .em{font-size:20px;}
+.check{display:flex;gap:12px;align-items:flex-start;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px;margin:8px 0;cursor:pointer;transition:.18s;}
+.check:hover{border-color:var(--brand);}
+.check input{margin-top:4px;width:20px;height:20px;accent-color:var(--green);cursor:pointer;flex:0 0 auto;}
+.check span{font-size:14.5px;color:var(--ink-soft);}
+.check.done span{color:#9aa6b5;text-decoration:line-through;}
+.check b{color:var(--ink);}
+.reset-btn{margin-top:16px;background:#fff;border:1px solid var(--line);color:var(--ink-soft);padding:8px 18px;border-radius:10px;font-size:14px;cursor:pointer;font-weight:600;}
+.reset-btn:hover{border-color:var(--coral);color:var(--coral);}
+.verdict{margin-top:14px;font-size:15px;font-weight:700;padding:12px 16px;border-radius:12px;display:none;}
+
+/* footer */
+footer{margin-top:50px;padding:26px 0;border-top:1px solid var(--line);color:#9aa6b5;font-size:13px;text-align:center;}
+
+/* back to top */
+.toTop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--brand);color:#fff;border:none;font-size:22px;cursor:pointer;box-shadow:var(--shadow-lg);opacity:0;pointer-events:none;transition:.25s;z-index:50;}
+.toTop.show{opacity:1;pointer-events:auto;}
+
+/* mobile menu */
+.mtoggle{display:none;}
+@media(max-width:980px){
+  .sidebar{position:fixed;left:0;top:0;z-index:60;transform:translateX(-100%);transition:.25s;box-shadow:var(--shadow-lg);}
+  .sidebar.open{transform:translateX(0);}
+  .mtoggle{display:flex;position:fixed;top:14px;left:14px;z-index:70;background:var(--brand);color:#fff;border:none;width:46px;height:46px;border-radius:12px;font-size:22px;cursor:pointer;box-shadow:var(--shadow-lg);align-items:center;justify-content:center;}
+  .main{padding-top:70px;}
+}
+</style>
+</head>
+<body>
+
+<button class="mtoggle" id="mtoggle" aria-label="目錄">☰</button>
+
+<div class="shell">
+  <!-- ===== SIDEBAR ===== -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brandmark"><div class="dot">科</div><b>科展生物得獎策略</b></div>
+    <p class="sb-sub">從現象觀察到機制解析的典範轉移</p>
+    <nav>
+      <ul class="toc" id="toc">
+        <li><a href="#s0"><span class="n">00</span>導讀總覽</a></li>
+        <li><a href="#s1"><span class="n">01</span>認識論轉向</a></li>
+        <li><a href="#s2"><span class="n">02</span>評鑑體系解構</a></li>
+        <li><a href="#s3"><span class="n">03</span>五大勝利方程式</a></li>
+        <li><a href="#s4"><span class="n">04</span>得獎 vs 未得獎</a></li>
+        <li><a href="#s5"><span class="n">05</span>高中各學科剖析</a></li>
+        <li><a href="#s6"><span class="n">06</span>國中 × 國小比較</a></li>
+        <li><a href="#s7"><span class="n">07</span>國際舞台 TISF/ISEF</a></li>
+        <li><a href="#s8"><span class="n">08</span>得獎作品速查表</a></li>
+        <li><a href="#s9"><span class="n">09</span>專家延伸戰略</a></li>
+        <li><a href="#s10"><span class="n">10</span>得獎自評檢核表</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <!-- ===== MAIN ===== -->
+  <main class="main">
+
+    <!-- HERO -->
+    <section id="s0">
+      <div class="hero">
+        <span class="kick">科展指導戰略 ｜ 生物相關領域 ｜ 教師備課 × 學生自學</span>
+        <h1>科展生物領域<span class="grad">得獎策略全解析</span></h1>
+        <p class="lead">整合第 65 屆全國中小學科展、2026 台灣國際科展（TISF）與 Regeneron ISEF 的得獎作品與評審趨勢，提煉跨學層、跨學科的「獲獎規律」與「決策要素」。一句話總結這場質變：得獎公式已從「<b>新奇點子＋漂亮展板</b>」轉為「<b>在地觀察的熱情＋學術研究的嚴謹</b>」。</p>
+        <div class="stats">
+          <div class="stat"><b>What→Why/How</b><span>從現象描述到機制驗證</span></div>
+          <div class="stat"><b>5 大</b><span>跨科共通勝利方程式</span></div>
+          <div class="stat"><b>1 票否決</b><span>實驗日誌真實性</span></div>
+          <div class="stat"><b>60%</b><span>國際海報面積縮減＝考驗精煉力</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:6px;">這份解析怎麼用？</h3>
+        <p>本頁適合兩種讀者：<b>指導老師</b>可投影逐段講解選題、研究設計與評審心理；<b>參賽學生</b>可線上自學，並用最後一章的「<a href="#s10">得獎自評檢核表</a>」逐項檢視自己的作品是否到位。左側目錄可一鍵跳轉，行動裝置請按左上角 ☰ 開啟目錄。</p>
+        <div class="callout tip"><b>核心心法：</b>評審心中那把「隱形的尺」量的不是器材多貴，而是<b>科學邏輯的密度</b>與<b>探究歷程的真實</b>。本頁所有策略，都在回答同一個問題——如何讓你的研究從「做完實驗」升級為「完成科學」。</div>
+      </div>
+    </section>
+
+    <!-- 01 認識論轉向 -->
+    <section id="s1">
+      <div class="sec-head"><div class="badge c-brand">01</div><div><span class="en">Epistemological Shift</span><h2>當代科展的認識論轉向</h2></div></div>
+      <div class="card">
+        <p>近年全國科展與國際科展的結果，共同傳遞了一場深刻且不可逆的「<b>認識論轉向</b>」（Epistemological Shift）。過去以「自然觀察」與「現象描述」為主軸的博物學式研究，正逐漸失去在頂尖競賽中的優勢；取而代之的，是強調<b>機制探討</b>、<b>精確量化</b>與<b>跨領域整合</b>的準學術研究範式。</p>
+        <p>本質的質變在於問題的層次：單純發現「<b>A 對 B 有影響</b>」已不足以躋身頂尖行列；得獎作品必須進一步回答「<b>A 是透過什麼路徑、什麼分子機制、在什麼物理條件下影響 B</b>」。這就是從 <b>What</b> 到 <b>Why / How</b> 的跨越，也是區分佳作與首獎的分水嶺。</p>
+
+        <h3>三股並進的主旋律</h3>
+        <div class="grid g3">
+          <div class="mini"><div class="ic">🔬</div><h4>機制探討 Mechanistic Inquiry</h4><p>不只觀察現象，更要驗證背後的作用機制（MoA）：是哪種光敏素、調控哪些酵素或基因。</p></div>
+          <div class="mini"><div class="ic">📊</div><h4>精確量化 Quantitative Precision</h4><p>超越平均值與百分比，導入推論統計（t-test／ANOVA）、誤差棒與正確的有效數字。</p></div>
+          <div class="mini"><div class="ic">🧩</div><h4>跨領域整合 Interdisciplinary</h4><p>把物理、化學、資訊、工程、社會科學的工具與語言，借用來解決生物問題。</p></div>
+        </div>
+
+        <h3>技術門檻的躍升：「降維打擊」</h3>
+        <p>方法論上出現顯著的「<b>技術降維打擊</b>」（Technological Dimension Reduction）：全基因組定序（WGS）、視網膜電位圖（ERG）、穿透式電子顯微鏡（TEM）、Tet-On 誘導系統、心理物理學實驗範式等過去僅見於大學或研究所層級的技術，已成為高中生探索科學問題的標準工具，構築起一道難以跨越的<b>技術護城河</b>。</p>
+
+        <div class="callout warn"><b>但是——「回歸基本面」的反向訊號：</b>在技術加速的同時，評審團爆發了所謂的「<b>實驗日誌危機</b>」（Logbook Crisis）。評審前所未有地強調研究過程的真實性與失敗紀錄的價值，將實驗日誌視為檢驗科學誠信與探究深度的核心濾網。未來的科展不再只是「完美結果」的展示，更是「<b>求真過程</b>」的較量。</div>
+      </div>
+    </section>
+
+    <!-- 02 評鑑體系 -->
+    <section id="s2">
+      <div class="sec-head"><div class="badge c-green">02</div><div><span class="en">Evaluation System</span><h2>評鑑體系解構：官方標準與隱性權重</h2></div></div>
+      <div class="card">
+        <p>科展評審並非單純的分數加總，而是<b>官方明文標準</b>與<b>評審團隱性學術期待</b>之間的動態博弈。各維度的權重會隨學科屬性與年度趨勢而微妙位移，而在生物相關領域，決策權重正從「現象層」大幅向「機制層」移動。</p>
+
+        <h3>官方四大評審維度</h3>
+        <div class="grid g2">
+          <div class="mini"><span class="tag" style="background:var(--brand)">主題</span><div class="ic">🎯</div><h4>研究主題 Research Theme</h4><p>青睞「<b>小題目、深挖掘</b>」。空泛宏大議題得分低；鎖定特定蛋白（如 SLC35C1）在特定細胞行為中的角色則脫穎而出。在地相關性（Glocalization）是加分項。</p></div>
+          <div class="mini"><span class="tag" style="background:var(--green)">價值</span><div class="ic">💡</div><h4>創意 / 學術 / 實用價值</h4><p>「創意」定義擴充——不再只是發明裝置，更體現在「<b>方法論的借用</b>」（如把麥片圈效應用於植物生態）。農食領域重視商業轉化與專利潛力。</p></div>
+          <div class="mini"><span class="tag" style="background:var(--coral)">方法</span><div class="ic">⚙️</div><h4>科學方法之適切性</h4><p>區分「參加獎」與「前三名」的<b>技術核心</b>：變因控制是否嚴謹（正／負對照組）、樣本數是否具統計意義、是否使用推論統計而非僅描述統計。</p></div>
+          <div class="mini"><span class="tag" style="background:var(--violet)">表達</span><div class="ic">📒</div><h4>展示及表達能力</h4><p>實驗日誌具「<b>一票否決</b>」效力：記錄失敗、修正與原始數據的日誌，比整潔但疑似事後補謄的更能贏得信任。</p></div>
+        </div>
+
+        <h3>評審心中的「隱性決策因素」</h3>
+        <ul class="clean">
+          <li><b>機制優先原則（Mechanism Over Phenomenon）：</b>僅觀察到現象遠遠不夠，必須提出並驗證背後的作用機制。</li>
+          <li><b>數據衛生（Data Hygiene）：</b>有效位數誤用（低精度儀器卻列出小數點後五位）、缺誤差棒、P-value 誤用，都被視為素養不足。</li>
+          <li><b>誠實的失敗（Authentic Failure）：</b>口頭詢問常追問「實驗中遇到最大的困難是什麼？」能具體描述失敗並說明如何以邏輯克服者，評價更高。</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- 03 五大方程式 -->
+    <section id="s3">
+      <div class="sec-head"><div class="badge c-coral">03</div><div><span class="en">The Winning Formula</span><h2>五大勝利方程式（跨科共通）</h2></div></div>
+      <div class="card">
+        <p>綜合各學層與學科的深度分析，可提煉出構成評審那把隱形尺的五大核心原則。它們決定了獎項的大小，也是得獎與未得獎的真正分水嶺。</p>
+        <div class="grid" style="gap:14px;">
+          <div class="principle"><div class="num">1</div><div><span class="kw">Logbook Authenticity</span><h4>實驗日誌是研究的靈魂</h4><p>過程導向（詳實記錄失敗到成功）、原始真實（原子筆書寫、不撕頁、保留潦草原始數據）、拒絕事後補造。「一人一本、邊做邊寫」是鐵律。</p></div></div>
+          <div class="principle"><div class="num">2</div><div><span class="kw">Mechanistic Inquiry</span><h4>機制探討優於現象觀察</h4><p>層次遞進：現象觀察(What) → 變因隔離(Control) → 機制解析(Why/How) → 多重驗證(Triangulation)。選題時就要問：「你打算如何證明它透過什麼機制發生？」</p></div></div>
+          <div class="principle"><div class="num">3</div><div><span class="kw">Triangulation of Evidence</span><h4>證據的三角測量</h4><p>單一證據薄弱，頂尖作品用多種方法證明同一結論。例：糖尿病視網膜病變研究同時用行為學(趨光)＋生理學(ERG)＋形態學(TEM)＋分子(Western Blot) 互相佐證。</p></div></div>
+          <div class="principle"><div class="num">4</div><div><span class="kw">Data Hygiene & Statistics</span><h4>統計素養與數據衛生</h4><p>使用 t-test／ANOVA／回歸證明顯著性；所有圖表標示誤差棒（SD／SE）；嚴守測量精確度極限的有效數字。這往往是佳作與前三名的最後一里路。</p></div></div>
+          <div class="principle"><div class="num">5</div><div><span class="kw">Glocalization</span><h4>在地題材，全球視野</h4><p>取材自臺灣特有生物（銀葉樹、牛樟芝）、地質（金山溫泉）或產業問題（酪農衝擊），再連結全球議題（氣候變遷、SDGs、抗藥性細菌），並用國際標準方法（如 IPCC 規範）研究。</p></div></div>
+        </div>
+        <div class="callout"><b>進階心法——因果驗證（Causality）：</b>在國際科展，特別要求用「<b>救援實驗</b>」（Rescue Experiment）或「<b>功能獲得／喪失</b>」（Gain/Loss of Function）證明 A 是 B 的<b>必要條件</b>，而非僅是相關。詳見第 7 章。</div>
+      </div>
+    </section>
+
+    <!-- 04 得獎 vs 未得獎 -->
+    <section id="s4">
+      <div class="sec-head"><div class="badge c-amber">04</div><div><span class="en">Winning vs Non-winning</span><h2>得獎作品 vs 未得獎作品：關鍵差異對照</h2></div></div>
+      <div class="card">
+        <p>同一份研究素材，落在不同手法上，結果天差地別。下表是評審區分「卓越」與「一般」的六大維度——這也是你逐項自我體檢的最佳藍圖。</p>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>評鑑維度</th><th>✅ 得獎 / 頂尖作品</th><th>⚠️ 未得獎 / 一般作品</th></tr></thead>
+            <tbody>
+              <tr><td><b>研究問題</b></td><td><span class="vs-win">機制導向 (Why & How)</span>：探討現象背後的分子機理或生理路徑。</td><td><span class="vs-lose">現象描述 (What)</span>：僅描述觀察到的現象或簡單比較。</td></tr>
+              <tr><td><b>實驗設計</b></td><td><span class="vs-win">因果驗證 (Causality)</span>：救援實驗、功能缺失／獲得、點突變驗證，具嚴格對照組。</td><td><span class="vs-lose">相關性觀察 (Correlation)</span>：A 與 B 同時發生，缺乏反證、變因控制不佳。</td></tr>
+              <tr><td><b>數據深度</b></td><td><span class="vs-win">微觀與定量</span>：高階影像分析、分子標記、推論統計、誤差棒。</td><td><span class="vs-lose">巨觀與定性</span>：肉眼觀察、簡單計數、樣本數不足(N&lt;3)、忽視統計。</td></tr>
+              <tr><td><b>跨域整合</b></td><td><span class="vs-win">高度整合</span>：結合 AI、物理、化學材料解決生物問題。</td><td><span class="vs-lose">單一學科</span>：使用標準化套件，缺乏技術創新或跨域思維。</td></tr>
+              <tr><td><b>轉譯價值</b></td><td><span class="vs-win">明確的 So What</span>：連結癌症治療、藥物開發、環境永續等大議題。</td><td><span class="vs-lose">價值模糊</span>：僅止於實驗結果本身，缺乏對科學或社會的貢獻論述。</td></tr>
+              <tr><td><b>報告呈現</b></td><td><span class="vs-win">科學精煉</span>：篩選核心數據、構建完整故事，圖表為假說服務，日誌詳實。</td><td><span class="vs-lose">流水帳</span>：羅列所有步驟與數據，重點模糊；日誌造假或形式違規。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout warn"><b>一個血淋淋的教訓（環境學科）：</b>「溫泉防治登革熱」作品點子極具創意且在地化，卻因對「硫酸根轉化為二氧化硫」的化學機制推論過於大膽、缺乏直接證據而名次受限。<b>相關性不等於因果性</b>——僅觀察到孑孓死亡不夠，必須證明致死機制，否則創意再好也難登頂。</div>
+      </div>
+    </section>
+
+    <!-- 05 高中各學科 -->
+    <section id="s5">
+      <div class="sec-head"><div class="badge c-leaf">05</div><div><span class="en">High School · By Discipline</span><h2>高中各學科深度剖析</h2></div></div>
+      <div class="card">
+        <p>高中階段競爭最為激烈，呈現高度專業化與技術化。以下逐一拆解五大子領域的「得獎密碼」與首獎典範。</p>
+
+        <h3 style="color:var(--coral)">🧬 動物與醫學：分子轉向與轉譯醫學</h3>
+        <p>核心趨勢：從巨觀解剖與生理觀察，全面轉向微觀的分子機制解析與基因工程應用。</p>
+        <div class="grid g3">
+          <div class="case"><span class="rank r1">第一名</span><div class="code">052014</div><h4>甲狀腺癌 SLC35C1 醣基化機制</h4><ul><li><b>機制深度：</b>從 SLC35C1 表現量 → 岩藻糖化修飾 → 癌細胞遷移侵襲 → 與骨髓微環境交互 → 骨轉移，層層遞進。</li><li><b>技術門檻：</b>引入冷門但高臨床價值的「醣生物學」，建立細胞共培養模型。</li><li><b>關鍵：</b>機制完整性與證據充分性無懈可擊，準博士級素養。</li></ul></div>
+          <div class="case"><span class="rank r2">第二名</span><div class="code">052007</div><h4>TAOK1 對神經系統基因表現</h4><ul><li><b>核心技術：</b>Tet-On 誘導系統（Doxycycline 控制基因開關），能探討劑量效應與時間效應。</li><li><b>跨域整合：</b>以單一激酶 TAOK1 連結神經退化與精神疾病。</li><li><b>關鍵：</b>提出 BDNF 上升為「代償性保護機制」的批判性思考。</li></ul></div>
+          <div class="case"><span class="rank r3">第三名</span><div class="code">052009</div><h4>腫瘤新抗原 × 幹細胞疫苗</h4><ul><li><b>方法論：</b>In Silico（乾實驗）→ In Vitro（濕實驗）。以 NetMHCcons 預測最具潛力新抗原再回實驗驗證。</li><li><b>關鍵：</b>大幅降低盲目嘗試成本，展現成熟研究規劃力。</li></ul></div>
+        </div>
+
+        <h3 style="color:var(--leaf)">🌿 植物學：生物物理學與仿生工程的交匯</h3>
+        <p>核心趨勢：脫離單純「種植觀察」，轉向結合物理、流體力學與工程的跨領域機制探討。植物學的得獎密碼在於「<b>跨界</b>」。</p>
+        <div class="grid g3">
+          <div class="case"><span class="rank r1">第一名</span><div class="code">052106</div><h4>「萍」分秋色：浮萍季節消長</h4><ul><li><b>物理引入：</b>用流體力學「麥片圈效應」解釋浮萍群聚佔據水面。</li><li><b>分子驗證：</b>光週期 → 光敏素 → POD／ROS 平衡 → 連結數。</li><li><b>關鍵：</b>宏觀生態×中觀物理×微觀分子的多層次串聯。</li></ul></div>
+          <div class="case"><span class="rank r2">第二名</span><div class="code">052101</div><h4>銀葉樹果實「生物船艦」</h4><ul><li><b>仿生視角：</b>以船舶工程術語（龍骨 Keel、浮心）分析果實結構。</li><li><b>自製裝置：</b>模擬海流追蹤漂流軌跡，賦予形態學新生命。</li></ul></div>
+          <div class="case"><span class="rank r3">第三名</span><div class="code">052105</div><h4>颱風草葉片「軟體機器人」</h4><ul><li><b>工程化：</b>量化泡狀細胞微觀形變與葉片摺疊角度的關係。</li><li><b>驗證：</b>製作氣動仿生模型，展現高應用潛力。</li></ul></div>
+        </div>
+
+        <h3 style="color:var(--amber)">🌾 農業與食品：臨床規格驗證與循環經濟</h3>
+        <p>核心趨勢：強調「解決真實問題」，導入醫學等級檢測驗證功能，並高度關注 SDGs。</p>
+        <div class="grid g3">
+          <div class="case"><span class="rank r1">第一名</span><div class="code">052207</div><h4>益生菌促進傷口癒合</h4><ul><li><b>嚴謹驗證：</b>傷口癒合試驗證明機制為促「細胞遷移」而非增殖；WGS 確認菌株不含抗藥基因（藥物安全黃金標準）。</li><li><b>關鍵：</b>具「準學術論文」規格，把食品科學提升至精準醫療層次。</li></ul></div>
+          <div class="case"><span class="rank r3">第三名</span><div class="code">052209</div><h4>牛樟芝改善糖尿病視網膜病變</h4><ul><li><b>聰明策略：</b>低等模型（果蠅）＋高階檢測（ERG 電生理、TEM 超微結構），既避開脊椎動物倫理限制，又保證數據深度。</li></ul></div>
+          <div class="case"><span class="rank r3">第三名</span><div class="code">052206</div><h4>水資源再利用到農業應用</h4><ul><li><b>系統整合：</b>畜牧廢水 → 微藻養殖 → 作物生物刺激素的完整循環鏈，直接回應 SDGs。</li></ul></div>
+        </div>
+
+        <h3 style="color:var(--violet)">🧠 行為與社會科學：社會科學的硬科學化</h3>
+        <p>核心趨勢：告別單純問卷，全面擁抱心理物理學、神經科學與計算機模擬。捷徑是「<b>引入自然科學的工具</b>」提供客觀生理證據。</p>
+        <div class="grid g3">
+          <div class="case"><span class="rank r1">第一名</span><div class="code">052713</div><h4>短影片對注意力與時間知覺</h4><ul><li><b>方法論革新：</b>摒棄主觀問卷，設計嚴謹「時間區辨任務」，以 Psytoolkit 記錄毫秒級反應時間。</li><li><b>關鍵：</b>將主觀感受轉化為客觀數據，並用 Greenhouse-Geisser 校正。</li></ul></div>
+          <div class="case"><span class="rank r2">第二名</span><div class="code">052708</div><h4>斑馬魚酒精成癮模型</h4><ul><li><b>跨域創新：</b>神經藥理學研究＋分子料理晶球化製作給藥載體，解決社會性成癮問題。</li></ul></div>
+          <div class="case"><span class="rank r3">第三名</span><div class="code">052705</div><h4>EEG 驗證學習「冗餘原則」</h4><ul><li><b>神經教育學：</b>穿戴式腦波儀以 Gamma 波等生理訊號驗證教育心理學理論。</li></ul></div>
+        </div>
+
+        <h3 style="color:var(--teal)">🌍 環境學科：精密量化與機制驗證</h3>
+        <p>核心趨勢：從定性觀測轉向精密定量，並要求對治理策略進行嚴謹的化學或物理機制驗證。</p>
+        <div class="grid g2">
+          <div class="case"><span class="rank r1">第一名</span><div class="code">052608</div><h4>校園樹木固碳力量化</h4><ul><li><b>數據霸權：</b>全校 927 棵樹地毯式普查，引用 IPCC 國際標準參數，再用 Li-6400 光合作用儀做微觀生理驗證。</li><li><b>關鍵：</b>完成「宏觀普查 → 微觀驗證 → 碳中和政策建議」的完整閉環。</li></ul></div>
+          <div class="case"><span class="rank rx">警示案例</span><div class="code">052610</div><h4>溫泉地理環境防治登革熱</h4><ul><li><b>教訓：</b>創意在地化十足，但化學機制推論大膽且缺直接證據，導致名次受限。<b>相關 ≠ 因果</b>。</li></ul></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 國中國小 -->
+    <section id="s6">
+      <div class="sec-head"><div class="badge c-teal">06</div><div><span class="en">Junior High × Elementary</span><h2>國中組 × 國小組：殊途同歸</h2></div></div>
+      <div class="card">
+        <p>相較於高中的高度學術化，國中與國小展現了不同的發展軸線：<b>國小組</b>側重「社會實踐」與「行動科學」，<b>國中組</b>側重「生理機制探討」與「精密量化」。但兩者都呈現從「定性描述」走向「定量分析」的強烈意圖。</p>
+
+        <h3 style="color:var(--leaf)">🟢 國小組：行動科學（Action Science）與 SDG 連結</h3>
+        <div class="grid g3">
+          <div class="case"><span class="rank r1">第一名</span><div class="code">080309 · 中山國小</div><h4>樂不思「眠」：睡前娛樂的影響</h4><ul><li><b>雙軌驗證：</b>問卷揭露主觀偏差 → 建立 ICR 小鼠四組模型（對照／環境探索／飲食／藍光），把複雜睡前行為拆為可控單變因。</li><li><b>神經行為學：</b>水迷宮、Y 迷宮、三箱社交、築巢；藍光組水迷宮尋台時間多 163%。</li></ul></div>
+          <div class="case"><span class="rank r2">第二名</span><div class="code">080307 · 竹圍國小</div><h4>潮間貝包客：河口棲地與貝類</h4><ul><li><b>大尺度調查：</b>跨 9 公里、10 樣區的生態基線資料。</li><li><b>生物指標：</b>證實重金屬「生物放大作用」（紅樹蜆鉛含量達水體 33 倍）；設計棲地復育操作實驗。</li></ul></div>
+          <div class="case"><span class="rank r3">第三名</span><div class="code">080301 · 墾丁國小</div><h4>鰻後餘生 Rescue! We Can Do It!</h4><ul><li><b>制度創新：</b>引入經濟學「生態系服務付費(PES)」概念，與漁民建立補償機制。</li><li><b>政策倡議：</b>與 NGO 合作推政策，直接實踐 SDG14、SDG17。</li></ul></div>
+        </div>
+
+        <h3 style="color:var(--violet)">🟣 國中組：生理機制探討與精密量化</h3>
+        <div class="grid g3">
+          <div class="case"><span class="rank r1">第一名</span><div class="code">030302 · 長榮中學</div><h4>長足衛蜈蚣型態與生態行為</h4><ul><li><b>系統性生物學典範：</b>完成卵→幼蟲(八齡期)→成蟲完整生活史，繪 Type II 存活曲線，填補本土物種空白。</li><li><b>量化機制：</b>標準化棲地實驗量化打鬥行為的「領域大小」與「主場優勢」。</li></ul></div>
+          <div class="case"><span class="rank r2">第二名</span><div class="code">030312 · 宏仁國中</div><h4>氣體與溫度對大刀螳螂存活</h4><ul><li><b>挑戰教科書：</b>熱像儀證實螳螂體溫平均高於環境 2.79°C，挑戰昆蟲為「外溫動物」的傳統定義。</li><li><b>精密監測：</b>低氧高碳環境呼吸速率暴增 400%。</li></ul></div>
+          <div class="case"><span class="rank rx">佳作</span><div class="code">030304 / 030303</div><h4>跨領域工具創新應用</h4><ul><li><b>生物力學：</b>球馬陸研究用 Tracker 影像分析步足「波傳遞」運動模式。</li><li><b>數學模型：</b>用 GeoGebra 追蹤黏菌重心移動軌跡。</li></ul></div>
+        </div>
+
+        <h3>兩組比較分析</h3>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>比較維度</th><th>國小組 Elementary</th><th>國中組 Junior High</th></tr></thead>
+            <tbody>
+              <tr><td><b>核心目標</b></td><td>行動科學：解決社會問題、改善現狀。</td><td>生理機制：探索現象底層的物理化學原因。</td></tr>
+              <tr><td><b>選題策略</b></td><td>生活化與廣度：源於生活困擾或環境現象，範疇較廣。</td><td>機制化與深度：深入生理耐受性、發育機制、生物力學，範疇聚焦。</td></tr>
+              <tr><td><b>實驗設計</b></td><td>雙軌驗證與操作性實驗：問卷＋模型，或進行棲地改造。</td><td>精密控制與生理監測：實驗室精確控制氣體、溫度。</td></tr>
+              <tr><td><b>工具應用</b></td><td>標準化調查工具：穿越線、行為測驗、簡易水質檢測。</td><td>跨領域精密儀器：紅外線熱像儀、氣體偵測器、Tracker。</td></tr>
+              <tr><td><b>數據統計</b></td><td>描述性統計為主（平均值、百分比），優秀作品開始引入標準差。</td><td>推論性統計為必要：標示 SD／SE，並進行 t-test／ANOVA。</td></tr>
+              <tr><td><b>社會連結</b></td><td>直接的社會實踐：與社區／NGO 合作，提政策建議。</td><td>潛在的環境啟示：為全球暖化、空汙等宏觀議題提供理論基礎。</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="callout tip"><b>共同趨勢：在地性 × 科學實證。</b>無論國小或國中，評審都高度肯定「在地性」研究——選臺灣本土物種或在地環境問題，既符合鄉土相關性，也確保樣本取得便利與實驗可重複性。臺灣常見物種往往蘊藏未被發現的科學秘密，不必盲目追求珍稀。</div>
+      </div>
+    </section>
+
+    <!-- 07 國際 -->
+    <section id="s7">
+      <div class="sec-head"><div class="badge c-pink">07</div><div><span class="en">TISF · ISEF Strategy</span><h2>邁向世界舞台：TISF / ISEF 戰略對接</h2></div></div>
+      <div class="card">
+        <p>對有志挑戰國際科展的學生，2026 年的評審趨勢顯示更嚴苛的「範式轉移」。海報面積較往年縮減約 60%，直接迫使參賽者必須具備高度的「<b>科學精煉</b>」（Scientific Distillation）能力——這不是物理空間的縮減，而是對「<b>決策能力</b>」的考驗。</p>
+
+        <h3>區分頂尖與普通的四大關鍵邏輯</h3>
+        <div class="grid g2">
+          <div class="mini"><span class="tag" style="background:var(--coral)">門檻</span><div class="ic">🔁</div><h4>因果關係的驗證 Causality</h4><p>不再滿足於相關性。頂尖作品用三步驟證明 A 是 B 的必要條件。</p></div>
+          <div class="mini"><span class="tag" style="background:var(--pink)">格局</span><div class="ic">🌐</div><h4>So What? 轉譯價值</h4><p>把微觀發現連結宏觀意義：果蠅卵巢異常 → 癌症治療靶點；神經再生 → 多發性硬化症療法。</p></div>
+          <div class="mini"><span class="tag" style="background:var(--brand)">表達</span><div class="ic">✂️</div><h4>科學精煉與邏輯敘事</h4><p>像說故事一樣呈現研究：從引人入勝的問題出發，每張圖表都必須為推動故事而存在。</p></div>
+          <div class="mini"><span class="tag" style="background:var(--violet)">賦能</span><div class="ic">🤖</div><h4>跨域整合與 AI 賦能</h4><p>AI 不只是輔助，而是解析機制的核心引擎（如 CNN 從明視野影像預測基因編輯效率）。</p></div>
+        </div>
+
+        <h3>救援實驗（Rescue Experiment）三步驟——進入決選的門檻</h3>
+        <div class="flow">
+          <div class="step"><span class="s">Step 1</span><h5>Loss of Function</h5><p>移除 A（基因敲除／抑制劑），觀察到 B 消失 → 證明 A 是必要的。</p></div>
+          <div class="arrow">→</div>
+          <div class="step"><span class="s">Step 2</span><h5>Rescue</h5><p>在移除 A 的基礎上回補 A，觀察到 B 恢復 → 證明 B 確因缺 A。</p></div>
+          <div class="arrow">→</div>
+          <div class="step"><span class="s">Step 3</span><h5>Mechanistic Check</h5><p>回補喪失特定功能的 A 突變體，B 無法恢復 → 證明 A 的功能透過該特定機制實現。</p></div>
+        </div>
+        <div class="callout"><b>案例：</b>2026 TISF 二等獎 Naa40 研究，透過回補催化活性喪失的突變體無法救援神經管發育缺陷，精確證明了 Naa40 的<b>酵素活性</b>才是關鍵，而非蛋白結構本身。</div>
+
+        <h3>國際得獎作品速覽</h3>
+        <div class="grid g2">
+          <div class="case"><span class="rank rx">TISF 青少年科學獎</span><h4>果蠅 Scny 基因與卵巢發育</h4><p style="font-size:14px;color:var(--ink-soft);margin:6px 0 0;">UAS-Gal4／FLP-out 精準遺傳操作建立「內部對照」克隆分析；Scny 缺失致 H3K4me3 異常累積 → 多核化，與臨床「多倍體巨大癌細胞(PGCCs)」表型相似，提出新治療靶點。</p></div>
+          <div class="case"><span class="rank r1">TISF 一等獎(醫學)</span><h4>仿免疫突觸微流體晶片</h4><p style="font-size:14px;color:var(--ink-soft);margin:6px 0 0;">以生物物理切入，用精算的微流道剪切力創造篩選環境，使稀有特異性 T 細胞富集倍數從常規提升至 20 倍，臨床轉化價值高。</p></div>
+          <div class="case"><span class="rank r1">ISEF 一等獎(Neurology)</span><h4>Uma Sthanu：神經再生策略</h4><p style="font-size:14px;color:var(--ink-soft);margin:6px 0 0;">特定劑量 dmPGE2 促軸突再生達 126%；結合 GWAS 大數據發現 MS 患者前列腺素相關基因上調，提出「保護性反應」而非致病的新解釋。濕實驗×乾實驗的標準範式。</p></div>
+          <div class="case"><span class="rank rx">ISEF 創新獎(Chemistry)</span><h4>Aza-C-Nucleosides 全合成</h4><p style="font-size:14px;color:var(--ink-soft);margin:6px 0 0;">以廉價環保糠醇為起始原料，新合成路徑將抗病毒藥 Galidesivir 成本降低至少 625%，直接解決藥物可及性，公共衛生價值極高。</p></div>
+        </div>
+        <div class="callout tip"><b>ISEF 數據觀察：</b>細胞與分子生物學類別獲獎率最高（達 43%）；約 11% 得獎者使用 AI/ML 且比例上升中；約 65% 得獎者擁有專業實驗室資源——這提示尋求<b>導師（Mentorship）</b>的重要性，但評審會嚴格檢視學生的<b>獨立貢獻度</b>，務必清楚說明哪些工作由自己完成。</div>
+      </div>
+    </section>
+
+    <!-- 08 速查表 -->
+    <section id="s8">
+      <div class="sec-head"><div class="badge c-brand">08</div><div><span class="en">Quick Reference</span><h2>重點得獎作品速查表</h2></div></div>
+      <div class="card">
+        <h3>高中組（第 65 屆全國科展）</h3>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>科別</th><th>作品核心</th><th>關鍵技術／機制</th><th>獲獎原因</th></tr></thead>
+            <tbody>
+              <tr><td>動物與醫學</td><td>甲狀腺癌 SLC35C1 醣基化</td><td>解析 SLC35C1→醣基化→骨轉移路徑</td><td>機制探討完整，具臨床價值</td></tr>
+              <tr><td>植物學</td><td>浮萍季節消長機制</td><td>光敏素調控＋流體力學(麥片圈效應)</td><td>跨領域整合物理與生物，邏輯嚴密</td></tr>
+              <tr><td>農業與食品</td><td>益生菌治療傷口</td><td>WGS 定序確認安全；證實促細胞遷移</td><td>準學術論文規格，全基因組定序應用</td></tr>
+              <tr><td>行為與社會</td><td>短影音與時間知覺</td><td>心理物理學測毫秒級反應時間</td><td>客觀量化主觀感受，統計高階</td></tr>
+              <tr><td>環境科學</td><td>校園樹木固碳力量化</td><td>宏觀普查＋微觀生理(Li-6400)</td><td>數據密度極大，引用 IPCC 標準</td></tr>
+              <tr><td>動物與醫學</td><td>牛樟芝改善視網膜病變</td><td>ERG 電生理＋TEM 超微結構</td><td>高階儀器應用，證據鏈完整</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>國中組與國小組</h3>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>組別／獎項</th><th>作品</th><th>學校</th><th>關鍵亮點</th></tr></thead>
+            <tbody>
+              <tr><td>國小 第一名</td><td>樂不思「眠」</td><td>中山國小</td><td>雙軌驗證、小鼠模型、神經行為學、多巴胺機制</td></tr>
+              <tr><td>國小 第二名</td><td>潮間貝包客</td><td>竹圍國小</td><td>大尺度流域調查、生物放大作用、棲地復育實驗</td></tr>
+              <tr><td>國小 第三名</td><td>鰻後餘生</td><td>墾丁國小</td><td>行動科學、PES 制度、SDGs、與 NGO 政策倡議</td></tr>
+              <tr><td>國中 第一名</td><td>長足衛蜈蚣型態行為</td><td>長榮中學</td><td>完整生活史(8 齡期)、Type II 存活曲線、領域量化</td></tr>
+              <tr><td>國中 第二名</td><td>氣體溫度對大刀螳螂</td><td>宏仁國中</td><td>精密氣體控制、熱像儀發現體溫調節、挑戰變溫定義</td></tr>
+              <tr><td>國中 佳作</td><td>陸遙知馬力 / 黏黏有移</td><td>武崙 / 東興</td><td>Tracker 步足波傳遞、GeoGebra 軌跡量化</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- 09 專家延伸 -->
+    <section id="s9">
+      <div class="sec-head"><div class="badge c-violet">09</div><div><span class="en">Expert Playbook</span><h2>專家延伸戰略（指導老師實戰補充）</h2></div></div>
+      <div class="card">
+        <p>以下是站在臺灣科展指導老師與評審角度，對前述分析的延伸補充——涵蓋競賽地圖、選題引擎、研究設計、口頭答辯與倫理，幫你把策略落地。</p>
+
+        <h3>🗺️ 五大競賽地圖：把目標想清楚</h3>
+        <div class="tablewrap">
+          <table>
+            <thead><tr><th>競賽</th><th>層級與時程</th><th>評審重點</th><th>適合對象</th></tr></thead>
+            <tbody>
+              <tr><td><b>校內 / 縣市科展</b></td><td>每年上半年，入門起點</td><td>探究歷程完整、變因控制、在地題材</td><td>初次參賽，練基本功</td></tr>
+              <tr><td><b>全國中小學科展</b></td><td>每年 7 月，縣市晉級</td><td>機制深度、統計素養、實驗日誌真實性</td><td>已有成果、想衝全國名次</td></tr>
+              <tr><td><b>台灣國際科展 TISF</b></td><td>每年 1–2 月，個人為主</td><td>因果驗證、轉譯價值、科學精煉</td><td>長期深耕、可達準學術水準</td></tr>
+              <tr><td><b>旺宏科學獎</b></td><td>每年下半年截止</td><td>創意、研究計畫書與成果報告</td><td>高中生，重視書面論述</td></tr>
+              <tr><td><b>Regeneron ISEF</b></td><td>由 TISF 等遴選代表</td><td>因果鏈、AI 賦能、獨立貢獻度</td><td>頂尖選手，挑戰世界舞台</td></tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h3>🎯 選題引擎：四條高勝率推薦方向</h3>
+        <div class="grid g2">
+          <div class="mini"><div class="ic">🧬</div><h4>鎖定精密調控機制</h4><p>表觀遺傳（組蛋白修飾、DNA 甲基化）、非編碼 RNA（miRNA、lncRNA）、細胞自噬、訊息傳遞路徑——當前生物學的熱點。</p></div>
+          <div class="mini"><div class="ic">🐟</div><h4>疾病模型化</h4><p>用模式生物（果蠅、線蟲、斑馬魚）模擬人類疾病，建立「基因型→表型→治療靶點」的轉譯論述鏈。</p></div>
+          <div class="mini"><div class="ic">🔗</div><h4>系統性生理軸線</h4><p>探索跨器官交互作用：腸-腦軸、腎-腸-肌軸、腸-肝軸，符合系統生物學趨勢。</p></div>
+          <div class="mini"><div class="ic">🏝️</div><h4>在地性與環境韌性</h4><p>針對本土特有種或環境問題（氣候變遷下的代謝適應、抗藥性細菌、微塑膠污染），提出具分子機制的解釋。</p></div>
+        </div>
+        <div class="callout"><b>選題自檢三問：</b>① 題目夠聚焦嗎？（避免「全球暖化」，改成「校園特定樹種的固碳效率差異」）② 我能不能設計實驗證明它的「機制」？③ 它連結到什麼更大的議題（So What）？三問都答得出，才算好題目。</div>
+
+        <h3>🧪 研究設計：乾濕整合與邏輯閉環</h3>
+        <ul class="clean">
+          <li><b>乾實驗先行（In Silico First）：</b>進實驗室前先用 AlphaFold／ColabFold 預測蛋白結構，用 TCGA／GEO 挖掘候選基因，用 Elicit／scite 做高效文獻回顧找知識缺口。</li>
+          <li><b>救援實驗是標配：</b>做基因功能研究時就要規劃 Rescue Experiment——「如果我破壞 A 導致 B，那修復 A 是否能恢復 B？」</li>
+          <li><b>三角驗證策略：</b>設計「行為＋生理＋分子」或「宏觀＋微觀」的多維度驗證。</li>
+          <li><b>嚴格對照與樣本數：</b>設正／負對照組（甚至空白對照），固定棲地大小、精確控溫，樣本數建議 N≧3 以具備再現性。</li>
+        </ul>
+
+        <h3>🧰 降維打擊工具箱</h3>
+        <div class="grid g3">
+          <div class="mini"><div class="ic">📹</div><h4>影像與行為</h4><p>Tracker、ImageJ、DeepLabCut 把影像數據精準量化。</p></div>
+          <div class="mini"><div class="ic">📐</div><h4>數學建模</h4><p>GeoGebra 追蹤軌跡、Arduino 自動控制與感測。</p></div>
+          <div class="mini"><div class="ic">🧫</div><h4>分子與生理</h4><p>Western Blot、PCR、EEG、ERG、TEM、WGS（Nanopore 定序）。</p></div>
+          <div class="mini"><div class="ic">🤖</div><h4>AI / 生資</h4><p>AlphaFold、CNN 影像辨識、TCGA／GEO 大數據。</p></div>
+          <div class="mini"><div class="ic">🎨</div><h4>科學視覺化</h4><p>BioRender 製作專業 Graphical Abstract。</p></div>
+          <div class="mini"><div class="ic">📊</div><h4>統計</h4><p>t-test、ANOVA、回歸；務必標誤差棒與樣本數 n。</p></div>
+        </div>
+
+        <h3>🎤 科學溝通與口頭答辯</h3>
+        <ul class="clean">
+          <li><b>3 分鐘電梯簡報：</b>練到能在 3 分鐘內講清楚「問題、方法、發現、影響」。</li>
+          <li><b>12 分鐘深度防禦：</b>評審時間主要用於問答，要對實驗原理、限制與誤差來源有深刻理解，而非背稿。</li>
+          <li><b>誠實面對負面數據：</b>主動提及困難與失敗的克服過程，往往比一帆風順的報告更有說服力。</li>
+          <li><b>每張圖表都要有任務：</b>不能回答核心問題或支持核心論點的圖表，應該刪除。</li>
+        </ul>
+
+        <h3>⚖️ 學術倫理與引用規範</h3>
+        <ul class="clean">
+          <li><b>親自操作：</b>實驗必須由作者親自完成，完全掌握數據來源；清楚切分學生與實驗室的貢獻。</li>
+          <li><b>引用規範：</b>確實引述參考文獻（建議 APA 格式），多讀綜論性論文（Review Article）建立理論基礎。</li>
+          <li><b>研究倫理：</b>問卷調查需受訪者同意書；動物實驗遵守 3R 原則（替代、減量、精緻化）；引入外來種需嚴格防逸機制。</li>
+        </ul>
+        <div class="callout warn"><b>致命違規（一票否決級）：</b>引用不實、抄襲、不當挪用大學實驗室成果（如 NMR 圖譜）、未經同意進行人體／動物實驗，或日誌造假（鉛筆書寫、大量空白頁、事後補謄）——皆屬嚴重違規，直接導致淘汰。</div>
+      </div>
+    </section>
+
+    <!-- 10 自評檢核 -->
+    <section id="s10">
+      <div class="sec-head"><div class="badge c-green">10</div><div><span class="en">Self-Assessment</span><h2>得獎自評檢核表</h2></div></div>
+      <div class="checkbox-wrap">
+        <p style="margin-top:0;">勾選你的作品<b>已經做到</b>的項目，下方進度條會即時更新。這份清單依五大勝利方程式設計，是送件前的最後體檢。</p>
+        <div class="progress"><div class="bar" id="bar"></div></div>
+        <div class="progress-label"><span id="pct">0%</span>　已完成 <span id="cnt">0</span> / <span id="total">0</span> 項</div>
+        <div class="verdict" id="verdict"></div>
+
+        <div class="cl-group">
+          <div class="gt"><span class="em">📒</span>原則一：實驗日誌真實性</div>
+          <label class="check"><input type="checkbox"><span><b>一人一本、邊做邊寫：</b>用原子筆即時記錄，不撕頁、不塗改原始數據。</span></label>
+          <label class="check"><input type="checkbox"><span><b>失敗也記錄：</b>詳實記錄參數調整、儀器故障排除與失敗過程，而非只有完美結果。</span></label>
+          <label class="check"><input type="checkbox"><span><b>格式合規：</b>電腦列印結果有騎縫章與見證人簽名，無事後補謄之嫌。</span></label>
+        </div>
+
+        <div class="cl-group">
+          <div class="gt"><span class="em">🔬</span>原則二：機制探討</div>
+          <label class="check"><input type="checkbox"><span><b>回答 Why/How：</b>不只證明「A 影響 B」，更解析背後的分子或生理機制。</span></label>
+          <label class="check"><input type="checkbox"><span><b>層次遞進：</b>研究從現象觀察→變因隔離→機制解析展開，邏輯清晰。</span></label>
+          <label class="check"><input type="checkbox"><span><b>導入機制工具：</b>使用分子生物（WB/PCR）、生理（EEG/ERG）或物理模型探討機制。</span></label>
+        </div>
+
+        <div class="cl-group">
+          <div class="gt"><span class="em">🔁</span>原則三：因果與三角驗證</div>
+          <label class="check"><input type="checkbox"><span><b>規劃因果驗證：</b>有救援實驗或功能獲得／喪失設計，證明必要條件（非僅相關）。</span></label>
+          <label class="check"><input type="checkbox"><span><b>多重證據佐證：</b>用「行為＋生理＋分子」或「宏觀＋微觀」多維度互相印證。</span></label>
+          <label class="check"><input type="checkbox"><span><b>嚴格對照組：</b>設有正／負（或空白）對照，變因控制嚴謹。</span></label>
+        </div>
+
+        <div class="cl-group">
+          <div class="gt"><span class="em">📊</span>原則四：數據衛生與統計</div>
+          <label class="check"><input type="checkbox"><span><b>推論統計：</b>使用 t-test／ANOVA／回歸證明顯著性，而非只列平均值。</span></label>
+          <label class="check"><input type="checkbox"><span><b>誤差棒與樣本數：</b>所有圖表標示誤差棒(SD/SE)與樣本數 n（建議 N≧3）。</span></label>
+          <label class="check"><input type="checkbox"><span><b>有效數字正確：</b>嚴守測量工具精確度，不盲列計算機小數位。</span></label>
+        </div>
+
+        <div class="cl-group">
+          <div class="gt"><span class="em">🌐</span>原則五：在地視野與轉譯價值</div>
+          <label class="check"><input type="checkbox"><span><b>在地題材：</b>取材臺灣本土物種、地質或產業問題，題目聚焦不空泛。</span></label>
+          <label class="check"><input type="checkbox"><span><b>So What 論述：</b>把發現連結到癌症治療、藥物開發、環境永續等更大議題。</span></label>
+          <label class="check"><input type="checkbox"><span><b>跨域整合：</b>借用物理／化學／資訊／社會科學的工具或視角解決生物問題。</span></label>
+        </div>
+
+        <div class="cl-group">
+          <div class="gt"><span class="em">🎤</span>送件與答辯準備</div>
+          <label class="check"><input type="checkbox"><span><b>科學精煉：</b>圖表都為假說服務，能在 3 分鐘內講清問題／方法／發現／影響。</span></label>
+          <label class="check"><input type="checkbox"><span><b>誠實答辯：</b>能說明實驗限制、誤差來源與失敗的克服過程。</span></label>
+          <label class="check"><input type="checkbox"><span><b>倫理合規：</b>文獻 APA 引用、3R 原則、同意書、貢獻度切分清楚。</span></label>
+        </div>
+
+        <button class="reset-btn" id="reset">↺ 重設檢核表</button>
+      </div>
+    </section>
+
+    <footer>
+      本頁由四份來源文件深度整合並補充指導專家觀點製作：《科展生物領域得獎策略分析》《第65屆高中生物獲獎因素分析》《第65屆國中國小生物獲獎因素分析》《台灣國際科展指導戰略・生物領域》。<br>
+      內容依據第 65 屆全國中小學科展、2026 TISF 與 ISEF 之得獎作品與評審趨勢整理，供教學與研究參考。
+    </footer>
+
+  </main>
+</div>
+
+<button class="toTop" id="toTop" aria-label="回到頂部">↑</button>
+
+<script>
+// ===== Sidebar active highlight on scroll =====
+const links=[...document.querySelectorAll('#toc a')];
+const sections=links.map(a=>document.querySelector(a.getAttribute('href')));
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      const id='#'+e.target.id;
+      links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')===id));
+    }
+  });
+},{rootMargin:'-25% 0px -65% 0px'});
+sections.forEach(s=>s&&obs.observe(s));
+
+// ===== Mobile menu =====
+const sb=document.getElementById('sidebar');
+document.getElementById('mtoggle').addEventListener('click',()=>sb.classList.toggle('open'));
+links.forEach(l=>l.addEventListener('click',()=>sb.classList.remove('open')));
+
+// ===== Back to top =====
+const toTop=document.getElementById('toTop');
+window.addEventListener('scroll',()=>{toTop.classList.toggle('show',window.scrollY>500);});
+toTop.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+// ===== Checklist =====
+const boxes=[...document.querySelectorAll('.checkbox-wrap input[type=checkbox]')];
+const bar=document.getElementById('bar');
+const pct=document.getElementById('pct');
+const cnt=document.getElementById('cnt');
+const verdict=document.getElementById('verdict');
+document.getElementById('total').textContent=boxes.length;
+function update(){
+  const done=boxes.filter(b=>b.checked).length;
+  const p=Math.round(done/boxes.length*100);
+  bar.style.width=p+'%';
+  pct.textContent=p+'%';
+  cnt.textContent=done;
+  boxes.forEach(b=>b.closest('.check').classList.toggle('done',b.checked));
+  verdict.style.display='block';
+  if(p===100){verdict.textContent='🏆 全數到位！你的作品已具備衝擊前三名的完整體質——剩下的就是把故事說好。';verdict.style.background='#e9f8f1';verdict.style.color='var(--green)';}
+  else if(p>=80){verdict.textContent='🔥 接近頂尖！再補齊剩下幾項機制或統計細節，就能進入決選層級。';verdict.style.background='#fff8e8';verdict.style.color='#b9820a';}
+  else if(p>=50){verdict.textContent='💪 已有不錯基礎，但「機制」與「因果驗證」可能還不夠扎實，往深處再挖。';verdict.style.background='#eef4ff';verdict.style.color='var(--brand-d)';}
+  else if(p>0){verdict.textContent='🌱 起步階段：目前較偏向現象描述，請優先強化機制探討與統計分析。';verdict.style.background='#fdeeea';verdict.style.color='var(--coral)';}
+  else{verdict.style.display='none';}
+}
+boxes.forEach(b=>b.addEventListener('change',update));
+document.getElementById('reset').addEventListener('click',()=>{boxes.forEach(b=>b.checked=false);update();});
+update();
+</script>
+</body>
+</html>

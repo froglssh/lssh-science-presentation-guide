@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科展安全審查與研究倫理 ｜ 教學與自我檢核平台</title>
+<style>
+  :root{
+    --navy:#0f2d4a;
+    --teal:#0e7c86;
+    --teal-light:#e6f4f5;
+    --amber:#b5760a;
+    --amber-bg:#fff5e3;
+    --red:#b3261e;
+    --red-bg:#fdecea;
+    --green:#1f7a43;
+    --green-bg:#e8f5ec;
+    --ink:#1c2733;
+    --ink-soft:#43545f;
+    --line:#d8e0e6;
+    --bg:#f5f7f9;
+    --card:#ffffff;
+    --shadow:0 2px 10px rgba(15,45,74,.07);
+    --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:84px;font-size:18.5px;}
+  body{
+    margin:0;font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;
+    background:var(--bg);color:var(--ink);line-height:1.9;font-size:1rem;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{line-height:1.4;color:var(--navy);font-weight:700;}
+  a{color:var(--teal);}
+  /* ---------- Top Nav ---------- */
+  header.topbar{
+    position:sticky;top:0;z-index:100;background:rgba(255,255,255,.96);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);box-shadow:var(--shadow);
+  }
+  .topbar-inner{max-width:1180px;margin:0 auto;display:flex;align-items:center;gap:14px;
+    padding:10px 22px;flex-wrap:wrap;}
+  .brand{font-weight:800;color:var(--navy);font-size:1.15rem;display:flex;align-items:center;gap:9px;white-space:nowrap;}
+  .brand .dot{width:14px;height:14px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 4px var(--teal-light);}
+  nav.menu{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;}
+  nav.menu a{
+    text-decoration:none;color:var(--ink-soft);font-size:.92rem;font-weight:600;
+    padding:7px 12px;border-radius:9px;transition:.15s;white-space:nowrap;
+  }
+  nav.menu a:hover{background:var(--teal-light);color:var(--teal);}
+  /* ---------- Hero ---------- */
+  .hero{
+    background:linear-gradient(135deg,#0f2d4a 0%,#11465f 55%,#0e7c86 100%);
+    color:#fff;padding:54px 22px 60px;position:relative;overflow:hidden;
+  }
+  .hero::after{content:"";position:absolute;right:-90px;top:-90px;width:340px;height:340px;
+    background:radial-gradient(circle,rgba(255,255,255,.12),transparent 70%);border-radius:50%;}
+  .hero-inner{max-width:1180px;margin:0 auto;position:relative;z-index:1;}
+  .hero .eyebrow{font-size:.95rem;letter-spacing:3px;color:#9fe0e6;font-weight:700;margin-bottom:10px;}
+  .hero h1{color:#fff;font-size:2.7rem;margin:0 0 14px;max-width:880px;}
+  .hero p.author{font-size:1.3rem;font-weight:700;color:#9fe0e6;margin:0 0 26px;letter-spacing:1px;}
+  .hero p.lead{font-size:1.22rem;max-width:760px;color:#dcecef;margin:0 0 26px;}
+  .hero .tags{display:flex;gap:10px;flex-wrap:wrap;}
+  .hero .tags span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+    padding:7px 15px;border-radius:30px;font-size:.92rem;font-weight:600;}
+  .hero .meta{margin-top:24px;font-size:.86rem;color:#a9c8cf;}
+  /* ---------- Layout ---------- */
+  main{max-width:1180px;margin:0 auto;padding:10px 22px 60px;}
+  section{padding:46px 0 10px;border-top:1px solid transparent;}
+  .sec-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:8px;}
+  .sec-num{flex:none;width:46px;height:46px;border-radius:12px;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.25rem;}
+  .sec-head h2{font-size:1.7rem;margin:2px 0 2px;}
+  .sec-head p{margin:0;color:var(--ink-soft);font-size:1rem;}
+  .section-intro{color:var(--ink-soft);margin:6px 0 22px;max-width:900px;}
+  /* ---------- Cards ---------- */
+  .grid{display:grid;gap:18px;}
+  .grid-2{grid-template-columns:repeat(2,1fr);}
+  .grid-3{grid-template-columns:repeat(3,1fr);}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:22px 24px;box-shadow:var(--shadow);}
+  .card h3{margin:0 0 12px;font-size:1.2rem;display:flex;align-items:center;gap:9px;}
+  .card ul{margin:0;padding-left:1.2em;}
+  .card li{margin-bottom:7px;}
+  .pill{display:inline-block;font-size:.8rem;font-weight:700;padding:3px 11px;border-radius:30px;}
+  .pill-red{background:var(--red-bg);color:var(--red);}
+  .pill-amber{background:var(--amber-bg);color:var(--amber);}
+  .pill-green{background:var(--green-bg);color:var(--green);}
+  .pill-teal{background:var(--teal-light);color:var(--teal);}
+  .ico{font-size:1.3rem;line-height:1;}
+  /* color cards */
+  .c-red{border-top:5px solid var(--red);}
+  .c-amber{border-top:5px solid var(--amber);}
+  .c-green{border-top:5px solid var(--green);}
+  .c-teal{border-top:5px solid var(--teal);}
+  /* ---------- Tables ---------- */
+  .table-wrap{overflow-x:auto;border-radius:var(--radius);box-shadow:var(--shadow);border:1px solid var(--line);}
+  table{border-collapse:collapse;width:100%;background:#fff;min-width:640px;}
+  th,td{padding:13px 16px;text-align:left;vertical-align:top;border-bottom:1px solid var(--line);font-size:.97rem;}
+  thead th{background:var(--navy);color:#fff;font-weight:700;position:sticky;top:0;}
+  tbody tr:nth-child(even){background:#f8fafb;}
+  tbody tr:hover{background:var(--teal-light);}
+  td.subj{font-weight:700;color:var(--navy);white-space:nowrap;}
+  .same{color:var(--green);font-weight:700;}
+  .diff{color:var(--amber);font-weight:700;}
+  /* ---------- Accordion ---------- */
+  .acc{background:#fff;border:1px solid var(--line);border-radius:12px;margin-bottom:12px;overflow:hidden;box-shadow:var(--shadow);}
+  .acc-head{padding:16px 20px;cursor:pointer;display:flex;align-items:center;gap:12px;font-weight:700;
+    color:var(--navy);font-size:1.08rem;user-select:none;background:#fff;transition:.15s;}
+  .acc-head:hover{background:var(--teal-light);}
+  .acc-head .chev{margin-left:auto;transition:transform .25s;color:var(--teal);font-size:1.2rem;}
+  .acc.open .chev{transform:rotate(90deg);}
+  .acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease;}
+  .acc-body-inner{padding:4px 22px 20px;}
+  .acc .tag-letter{flex:none;width:30px;height:30px;border-radius:8px;display:flex;align-items:center;justify-content:center;
+    font-weight:800;color:#fff;font-size:.95rem;}
+  .acc-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:6px;}
+  .acc-block h4{margin:0 0 8px;font-size:1rem;}
+  .acc-block.case h4{color:var(--red);}
+  .acc-block.fix h4{color:var(--green);}
+  .acc-block ul{margin:0;padding-left:1.15em;}
+  .acc-block li{margin-bottom:6px;font-size:.95rem;}
+  .acc-note{margin-top:14px;background:var(--teal-light);border-radius:10px;padding:12px 16px;font-size:.93rem;}
+  .acc-note b{color:var(--teal);}
+  /* ---------- Subject case tabs ---------- */
+  .tabs{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px;}
+  .tab-btn{border:1px solid var(--line);background:#fff;color:var(--ink-soft);font-weight:600;
+    padding:8px 15px;border-radius:30px;cursor:pointer;font-size:.92rem;transition:.15s;font-family:inherit;}
+  .tab-btn:hover{border-color:var(--teal);color:var(--teal);}
+  .tab-btn.active{background:var(--navy);color:#fff;border-color:var(--navy);}
+  .tab-panel{display:none;}
+  .tab-panel.active{display:block;animation:fade .3s;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:none;}}
+  .case-list{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 24px;box-shadow:var(--shadow);}
+  .case-list ol{margin:0;padding-left:1.3em;}
+  .case-list li{margin-bottom:8px;}
+  .case-list .subj-name{font-size:1.15rem;color:var(--navy);font-weight:800;margin:0 0 10px;display:flex;align-items:center;gap:8px;}
+  /* ---------- Q&A / judge ---------- */
+  .qa-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);
+    padding:0;overflow:hidden;margin-bottom:18px;}
+  .qa-top{background:linear-gradient(120deg,var(--navy),var(--teal));color:#fff;padding:14px 22px;font-weight:700;font-size:1.1rem;display:flex;align-items:center;gap:10px;}
+  .qa-body{padding:20px 24px;}
+  .qa-q{font-weight:700;color:var(--navy);margin:0 0 4px;}
+  .qa-block{margin-bottom:16px;}
+  .qa-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:8px;}
+  .qa-good,.qa-bad{border-radius:10px;padding:12px 15px;font-size:.93rem;}
+  .qa-good{background:var(--green-bg);border-left:4px solid var(--green);}
+  .qa-bad{background:var(--red-bg);border-left:4px solid var(--red);}
+  .qa-good b{color:var(--green);}
+  .qa-bad b{color:var(--red);}
+  .judge-q{margin:6px 0;padding-left:1.4em;position:relative;}
+  .judge-q::before{content:"❓";position:absolute;left:0;}
+  /* ---------- Checklist ---------- */
+  .check-tool{background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);padding:24px 26px;}
+  .progress-wrap{position:sticky;top:74px;z-index:20;background:#fff;padding:14px 0;margin-bottom:8px;}
+  .bar{height:16px;background:var(--line);border-radius:30px;overflow:hidden;}
+  .bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--teal),var(--green));transition:width .3s;border-radius:30px;}
+  .bar-label{font-weight:700;color:var(--navy);margin-bottom:6px;display:flex;justify-content:space-between;}
+  .check-group{margin-top:22px;}
+  .check-group h4{display:flex;align-items:center;gap:9px;font-size:1.1rem;margin:0 0 10px;padding-bottom:8px;border-bottom:2px solid var(--teal-light);}
+  label.chk{display:flex;gap:11px;align-items:flex-start;padding:9px 12px;border-radius:9px;cursor:pointer;transition:.12s;}
+  label.chk:hover{background:var(--teal-light);}
+  label.chk input{margin-top:5px;width:18px;height:18px;accent-color:var(--teal);flex:none;cursor:pointer;}
+  label.chk.checked span{color:var(--ink-soft);text-decoration:line-through;}
+  .reset-btn{margin-top:18px;background:var(--navy);color:#fff;border:none;padding:10px 20px;border-radius:9px;
+    font-weight:700;cursor:pointer;font-family:inherit;font-size:.95rem;}
+  .reset-btn:hover{background:var(--teal);}
+  /* ---------- callout ---------- */
+  .callout{border-radius:var(--radius);padding:18px 22px;margin:18px 0;font-size:1rem;border-left:6px solid;}
+  .callout-red{background:var(--red-bg);border-color:var(--red);}
+  .callout-amber{background:var(--amber-bg);border-color:var(--amber);}
+  .callout-teal{background:var(--teal-light);border-color:var(--teal);}
+  .callout b{color:var(--navy);}
+  /* ---------- principle chips ---------- */
+  .chips3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:10px;}
+  .chip-big{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;text-align:center;box-shadow:var(--shadow);}
+  .chip-big .n{width:44px;height:44px;border-radius:50%;background:var(--teal);color:#fff;font-weight:800;font-size:1.2rem;
+    display:flex;align-items:center;justify-content:center;margin:0 auto 12px;}
+  .chip-big h4{margin:0 0 6px;}
+  .chip-big p{margin:0;font-size:.92rem;color:var(--ink-soft);}
+  /* footer */
+  footer{background:var(--navy);color:#c7d6de;padding:34px 22px;text-align:center;font-size:.9rem;}
+  footer b{color:#fff;}
+  .footer-disc{max-width:760px;margin:10px auto 0;font-size:.82rem;color:#8fa9b4;line-height:1.7;}
+  /* back to top */
+  #toTop{position:fixed;right:22px;bottom:22px;width:48px;height:48px;border-radius:50%;background:var(--teal);
+    color:#fff;border:none;font-size:1.3rem;cursor:pointer;box-shadow:0 4px 14px rgba(14,124,134,.45);
+    opacity:0;pointer-events:none;transition:.25s;z-index:90;}
+  #toTop.show{opacity:1;pointer-events:auto;}
+  /* responsive */
+  @media(max-width:860px){
+    .grid-2,.grid-3,.acc-grid,.qa-row,.chips3{grid-template-columns:1fr;}
+    .hero h1{font-size:1.9rem;}
+    nav.menu{display:none;}
+    body{font-size:1rem;}
+  }
+  @media print{
+    header.topbar,#toTop,.tabs,.reset-btn{display:none;}
+    .acc-body{max-height:none!important;}
+    section{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <div class="brand"><span class="dot"></span>科展安全審查 × 研究倫理</div>
+    <nav class="menu">
+      <a href="#overview">總覽</a>
+      <a href="#compare">規則對照</a>
+      <a href="#rules">核心規定</a>
+      <a href="#selfcheck">研究前檢核</a>
+      <a href="#failed">未通過原因</a>
+      <a href="#cases">歷屆案例</a>
+      <a href="#judge">評審問答</a>
+      <a href="#checklist">自我檢核表</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">SCIENCE FAIR · SAFETY & ETHICS</div>
+    <h1>科展作品安全審查與研究倫理<br>教學與自我檢核平台</h1>
+    <p class="author">臺北市麗山高中　林獻升老師</p>
+    <div class="tags">
+      <span>✓ 兩大科展規則對照</span>
+      <span>✓ 七大類未通過原因</span>
+      <span>✓ 第61–65屆實際案例</span>
+      <span>✓ 評審提問題庫＋模擬問答</span>
+      <span>✓ 互動式自我檢核表</span>
+    </div>
+    <div class="meta">適用對象：指導教師課堂講授、學生線上自學與報名前自我審查 ｜ 資料來源：國立臺灣科學教育館參展安全規則與安全審查說明</div>
+  </div>
+</div>
+
+<main>
+
+<!-- ============ 總覽 ============ -->
+<section id="overview">
+  <div class="sec-head">
+    <div class="sec-num">1</div>
+    <div><h2>制度總覽：安全審查在做什麼？</h2>
+    <p>安全審查不是刁難，而是培養正確的研究道德觀念，並維護作者與觀眾的安全健康。</p></div>
+  </div>
+  <p class="section-intro">我國自民國78年起參考美國國際科展（ISEF）建立安全審查制度，目的有三：<b>培養學生正確的科學研究道德觀念</b>、<b>維護作者自身與觀眾的安全健康</b>、<b>保護生物的生存環境</b>。審查貫穿「研究前 → 實驗中 → 現場展示」三個階段，缺一不可。</p>
+
+  <div class="grid grid-3">
+    <div class="card c-teal">
+      <h3><span class="ico">🎯</span>審查宗旨</h3>
+      <ul>
+        <li>善待生物、不影響生態</li>
+        <li>不得虐待動物、影響稀有植物生存</li>
+        <li>以維護作者與觀眾安全健康為首要考量</li>
+        <li>對保育類動植物研究須取得<b>農業部同意書</b></li>
+      </ul>
+    </div>
+    <div class="card c-amber">
+      <h3><span class="ico">⚖️</span>審查處分</h3>
+      <ul>
+        <li><span class="pill pill-amber">請即改正</span>不合規定但可補正者</li>
+        <li><span class="pill pill-red">不准參展</span>違反不准參展規定者</li>
+        <li><span class="pill pill-red">撤銷資格</span>違反限制研究事項者</li>
+        <li>收件時即依安全規則逐項檢查</li>
+      </ul>
+    </div>
+    <div class="card c-green">
+      <h3><span class="ico">🧭</span>三階段防線</h3>
+      <ul>
+        <li><b>研究前</b>：主題與對象檢核、繳交表件</li>
+        <li><b>實驗中</b>：限制研究事項、防護措施</li>
+        <li><b>現場展示</b>：禁止展出事項、許可操作事項</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout callout-teal" style="margin-top:22px;">
+    <b>四份必備表件：</b>①電壓雷射 X 光風險性評估表　②脊椎動物研究切結書　③人類研究切結書（＋受試者同意書）　④基因重組實驗同意書。凡涉及對應研究對象，<b>報名時務必繳交</b>，否則初審即不通過。
+  </div>
+</section>
+
+<!-- ============ 規則對照 ============ -->
+<section id="compare">
+  <div class="sec-head">
+    <div class="sec-num">2</div>
+    <div><h2>全國科展 vs. 臺灣國際科展：規則對照</h2>
+    <p>兩套規則高度一致，差異主要在脊椎動物審查與部分用語。</p></div>
+  </div>
+  <p class="section-intro">下表逐項比對兩會的安全規則。整體而言條文幾乎相同，最關鍵差異在於全國科展自我檢核已導入 <b>IACUC（實驗動物照護及使用委員會）審查與 3R 原則</b>，要求更為嚴謹。</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th style="width:18%">項目</th><th style="width:41%">全國中小學科展</th><th style="width:41%">臺灣國際科展</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="subj">不准參展物品</td>
+          <td>有害微生物與危險性生物、劇毒/爆炸/放射性（不含 X 光繞射）/致癌/致突變/麻禁藥物品、違反雷射規範、違反電力電工法規</td>
+          <td><span class="same">完全相同</span>，四款內容一字不差</td></tr>
+        <tr><td class="subj">禁止現場展出</td>
+          <td>動植物活體與標本、土砂石、人體組織、微生物試驗、所有化學品（含水）、乾冰、尖銳物、玻璃、食物濃酸鹼易燃物等 11 項</td>
+          <td><span class="same">完全相同</span>，須改以繪圖、圖表、照片或影片展出</td></tr>
+        <tr><td class="subj">脊椎動物研究</td>
+          <td><span class="diff">較嚴格</span>：切結書＋<b>3R 原則</b>＋研究計畫須送 <b>IACUC 審查</b>（見自我檢核說明）</td>
+          <td>需附脊椎動物研究切結書、培養正確道德觀念、不得使動物受傷或死亡</td></tr>
+        <tr><td class="subj">人類研究</td>
+          <td>須符合人體研究法、醫療法；附人類研究切結書＋受試者同意書；視情況送 IRB</td>
+          <td><span class="same">相同</span>（國際科展引用同一份人類研究切結書格式）</td></tr>
+        <tr><td class="subj">基因重組</td>
+          <td colspan="2" style="text-align:center"><span class="same">兩會相同</span>：須附基因重組實驗同意書，符合國科會《基因重組實驗守則》，安全措施以 <b>P1 等級</b>為限並出具實驗室證明</td></tr>
+        <tr><td class="subj">生物安全等級</td>
+          <td colspan="2" style="text-align:center"><span class="same">兩會相同</span>：不得從事 <b>BSL-3、BSL-4</b>；BSL-2 須於同等級實驗室並有合格科學家監督並出具證明</td></tr>
+        <tr><td class="subj">用電規範</td>
+          <td colspan="2" style="text-align:center"><span class="same">兩會相同</span>：交流 ≤220V 或直流 ≤36V；110V/60Hz 加裝保險絲、電流 ≤3A；停止操作立即斷電</td></tr>
+        <tr><td class="subj">壓力操作</td>
+          <td colspan="2" style="text-align:center"><span class="same">兩會相同</span>：以 <b>1.5 大氣壓</b>為原則</td></tr>
+        <tr><td class="subj">雷射規範</td>
+          <td colspan="2" style="text-align:center"><span class="same">兩會相同</span>：符合 IEC 60825 <b>第二等級 1mW 以下</b>；涉雷射另須符合 CNS 11640</td></tr>
+        <tr><td class="subj">現場操作</td>
+          <td colspan="2" style="text-align:center"><span class="same">兩會相同</span>：作者親自操作、設置防護措施防觀眾靠近、設明顯標示；評審期間禁用對外網路</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 核心規定 ============ -->
+<section id="rules">
+  <div class="sec-head">
+    <div class="sec-num">3</div>
+    <div><h2>核心安全規定：四大類紅綠燈</h2>
+    <p>把規則拆成「不准、禁止、限制、許可」四盞燈，一眼看懂界線在哪。</p></div>
+  </div>
+
+  <div class="grid grid-2">
+    <div class="card c-red">
+      <h3><span class="ico">🚫</span>不准參展（作品本身違規）<span class="pill pill-red">紅燈</span></h3>
+      <ul>
+        <li>有害微生物及危險性生物</li>
+        <li>劇毒性、爆炸性、放射性（不含 X 光繞射）、致癌性、致突變性及麻禁藥物品<br><small>＊與危險化學品接觸過、但經專業淨化且有文件證明者除外</small></li>
+        <li>雷射使用違反我國及國際雷射標準</li>
+        <li>違反我國電力規範、電工法規及電器安全規定</li>
+      </ul>
+    </div>
+
+    <div class="card c-red">
+      <h3><span class="ico">🖼️</span>禁止現場展出（須改用圖照影片）<span class="pill pill-red">紅燈</span></h3>
+      <ul>
+        <li>動植物活體、胚胎、幼雛、蝌蚪等活的生命物質</li>
+        <li>動物標本、保存之脊椎/非脊椎動物</li>
+        <li>有無生命的植物材料；土壤、砂、石、廢棄物</li>
+        <li>人類牙齒、頭髮、指甲、組織、血液、腦脊髓液等所有人體部分</li>
+        <li>微生物試驗步驟與結果；所有化學品（含水）</li>
+        <li>乾冰等昇華固體；尖銳物（針、吸管、刀）；玻璃</li>
+        <li>食物、濃酸濃鹼、易燃物及經委員認定不安全之設備</li>
+      </ul>
+    </div>
+
+    <div class="card c-amber">
+      <h3><span class="ico">⚠️</span>限制研究事項（須防護＋繳件）<span class="pill pill-amber">黃燈</span></h3>
+      <ul>
+        <li>不可在<b>未設防護措施</b>的環境下做研究</li>
+        <li>涉高電壓、雷射、X 光 → 繳<b>電壓雷射 X 光風險性評估表</b></li>
+        <li>脊椎動物 → 切結書＋在校生物教師許可＋不虐待</li>
+        <li>人類 → 符合人體研究法＋切結書＋同意書</li>
+        <li>基因重組 → 同意書＋P1 等級＋實驗室證明</li>
+        <li>不得從事 BSL-3、BSL-4；BSL-2 須合格實驗室與監督</li>
+        <li>實驗中不得使用劇毒、爆炸、放射、致癌、致突變、麻禁藥物品</li>
+      </ul>
+    </div>
+
+    <div class="card c-green">
+      <h3><span class="ico">✅</span>許可操作事項（符合即可操作）<span class="pill pill-green">綠燈</span></h3>
+      <ul>
+        <li>作者必須<b>在現場親自操作</b></li>
+        <li>交流 ≤220V 或直流 ≤36V，符合用電安全；110V/60Hz 加保險絲、電流 ≤3A</li>
+        <li>壓力操作以 <b>1.5 大氣壓</b>為原則</li>
+        <li>雷射符合 IEC 60825 第二等級 <b>1mW 以下</b></li>
+        <li>停止操作須<b>立即切斷電源</b></li>
+        <li>須設置防護措施防止觀眾靠近，並設明顯標示</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 研究前檢核 ============ -->
+<section id="selfcheck">
+  <div class="sec-head">
+    <div class="sec-num">4</div>
+    <div><h2>研究前：對研究主題與對象的檢核原則</h2>
+    <p>研究主題若落入下列類別，報名時務必繳交對應表件，審查時會加強檢視。</p></div>
+  </div>
+  <p class="section-intro">點開各類別檢視重點規定。<b>關鍵原則：愈早把安全與倫理納入研究設計，愈不會在報名前手忙腳亂補件。</b></p>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--amber)">設</span>涉及危險性設備／有害或危險性活動<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <ul>
+        <li>須在設置適當防護措施的環境中進行，並說明如何降低運用危險設備時的安全風險。</li>
+        <li>實驗涉及<b>高電壓、雷射裝置或 X 光</b>，必須填寫「電壓雷射 X 光風險性評估表」（須於實驗進行前填妥）。</li>
+        <li>涉雷射須符合 CNS 11640、原能會規範及 IEC 60825；涉高電壓須符合我國電力、電工與電器安全規範。</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--red)">化</span>使用有毒或危險性化學品<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <ul>
+        <li>研究前建議至臺灣網路科教館科展學習資源「<b>毒性及關注化學物質專區</b>」查詢。</li>
+        <li><b>不得</b>進行有毒或危險性化學品相關研究，並須查閱文獻，確保產物或副產物不會產生劇毒性。</li>
+        <li>含毒或與危險化學品接觸過的物質，經專業淨化且有文件證明有效者，不在此限。</li>
+        <li>須在防護環境中進行，說明研究者接觸化學物質的防護規劃，及化學性廢棄物的正確處理方式。</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--green)">菌</span>微生物／細菌／真菌／寄生蟲／病毒／動植物<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <ul>
+        <li><b>不得</b>從事 BSL-3、BSL-4 有害微生物或危險性生物研究。</li>
+        <li>未知或未鑑定的微生物：放在密閉容器（如培養皿）內可視為 <b>BSL-1</b>，研究後容器須高壓滅菌或消毒；若<b>打開</b>容器則須視為 <b>BSL-2</b> 並採 BSL-2 防護。</li>
+        <li>基因重組實驗 → 填基因重組實驗同意書，符合國科會守則，安全措施以 <b>P1</b> 為限並出具實驗室等級證明。</li>
+        <li>使用 <b>RG2 以上</b>微生物或病原體 → 先提「RG2 以上感染性生物材料實驗同意申請書」，於 BSL-2 以上實驗室進行並有合格科學家監督。</li>
+        <li>須說明生物性廢棄物的正確處理方式。</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--teal)">獸</span>脊椎動物（動物實驗）<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <ul>
+        <li>須培養正確道德觀念、合法取得實驗生物，提供動物適當照護，<b>不得進行足以使動物受傷或死亡的實驗</b>。</li>
+        <li><b>無脊椎動物</b>：現階段無相關限制（鼓勵多以單細胞或無脊椎動物為題材）。</li>
+        <li><b>脊椎動物</b>：研究設計應遵循 <b>3R 原則</b>（替代 Replacement、減量 Reduction、精緻化 Refinement），研究計畫須送 <b>IACUC（實驗動物照護及使用委員會）</b>審查，並填脊椎動物研究切結書，詳述生物來源與指導人員專業背景。</li>
+        <li>保育類動物須取得農業部同意書；解剖或傷害動物須由合格獸醫師或相關領域科學家操作並附證明函。</li>
+      </ul>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--navy)">人</span>以人類為研究對象（含問卷、影像）<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <p style="margin:4px 0 10px">須符合人體研究法、醫療法等規範，於不影響生理、心理且不具危險性的前提下進行。依人體研究法第 5 條，研究前原則上應經<b>倫理審查委員會（IRB）</b>審查通過。以下為 IRB 判別原則：</p>
+      <div class="acc-grid">
+        <div class="acc-block case">
+          <h4>⚠️ 須送 IRB 審查者</h4>
+          <ul>
+            <li><b>研究對象</b>：未成年人、收容人、原住民、孕婦、身心障礙、精神病患，或受不當脅迫／無法自由意願決定者。</li>
+            <li><b>研究項目</b>：涉健康照護資料、使用醫療儀器、侵入性研究或採集人體檢體、於醫療機構進行、為特定醫療或疾病探索目的之研究。</li>
+          </ul>
+        </div>
+        <div class="acc-block fix">
+          <h4>✅ 得免 IRB 審查者（衛福部公告）</h4>
+          <ul>
+            <li>公開場合非記名、非互動、非介入且無從辨識個人之研究。</li>
+            <li>使用已合法公開週知且用途相符之資訊。</li>
+            <li>公務機關之公共政策成效評估。</li>
+            <li>一般教學環境的教育評量／測試（排除有實驗組對照組設計者）。</li>
+            <li>屬最低風險（不高於日常生活風險）之研究。</li>
+          </ul>
+        </div>
+      </div>
+      <div class="acc-note"><b>必備：</b>須先取得受試者<b>知情同意書</b>；未成年者須取得<b>法定代理人</b>同意。以人類圖片進行蒐集分析者，須取得圖片所有人授權同意書或引用許可。進行人體試驗研究須附「人體試驗委員會同意書」，指導人員最近六年須研習醫學倫理課程九小時以上。</div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ============ 未通過原因 ============ -->
+<section id="failed">
+  <div class="sec-head">
+    <div class="sec-num">5</div>
+    <div><h2>安全審查未通過：七大類原因與對策</h2>
+    <p>知道地雷在哪，才能提早拆除。每類都附「常見案例」與「解決方式」。</p></div>
+  </div>
+
+  <div class="callout callout-amber">
+    <b>未通過五大集中點：</b>① 實驗操作安全性不足　② 微生物與化學品處理不當　③ 人類倫理與受試者保護缺失　④ 高風險儀器使用未具體安全設計　⑤ 圖像與資料來源未清楚註明。
+  </div>
+
+  <!-- 摘要表 -->
+  <div class="table-wrap" style="margin-bottom:22px;">
+    <table>
+      <thead><tr><th style="width:22%">類別</th><th>常見問題</th></tr></thead>
+      <tbody>
+        <tr><td class="subj">🧪 化學安全</td><td>強酸鹼、氣體、燃燒設備未說明防護</td></tr>
+        <tr><td class="subj">🦠 生物安全</td><td>菌種來源、感染風險、廢棄物滅菌未說明</td></tr>
+        <tr><td class="subj">🧑‍🔬 人類研究</td><td>缺 IRB／切結書／受試者同意書</td></tr>
+        <tr><td class="subj">🔥 設備防護</td><td>火源、UV、高壓機具操作缺乏防護</td></tr>
+        <tr><td class="subj">🖼️ 資料來源</td><td>面部圖像、AI 訓練資料未說明授權</td></tr>
+        <tr><td class="subj">🐷 特殊材料</td><td>豬血、福壽螺等處理與傳染風險未說明</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="section-intro">展開各類別，查看「常見案例 → 解決方式 → 提早因應」：</p>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--red)">A</span>化學操作與危險物質未說明防護<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <div class="acc-grid">
+        <div class="acc-block case"><h4>常見案例</h4><ul>
+          <li>強酸鹼（NaOH、HCl、H₂SO₄、Ca(OH)₂）無操作說明</li>
+          <li>過氧化氫、DCPIP、鐵氰化鉀未說明毒性</li>
+          <li>使用燃燒爐、火焰裝置無防護設計</li>
+          <li>缺乏強酸鹼殘液等廢棄物處理說明</li>
+        </ul></div>
+        <div class="acc-block fix"><h4>解決方式</h4><ul>
+          <li>明確列出化學品性質（毒性、易燃性、腐蝕性）</li>
+          <li>說明個人防護裝備（手套、護目鏡、防火衣）</li>
+          <li>說明通風、滅火設施與緊急處置方式</li>
+          <li>提供 <b>MSDS（化學品安全資料表）</b>作為附件</li>
+        </ul></div>
+      </div>
+      <div class="acc-note"><b>提早因應：</b>研究設計階段先查 MSDS、在計畫書加入「危害辨識與風險管理」章節、編製實驗 SOP、教學前師生預演標示危險熱點。</div>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--green)">B</span>微生物實驗安全與廢棄物處理未說明<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <div class="acc-grid">
+        <div class="acc-block case"><h4>常見案例</h4><ul>
+          <li>使用益生菌、自製菌種無來源與培養規範</li>
+          <li>培養後未說明如何滅菌與丟棄</li>
+          <li>使用大腸桿菌、酵母菌無菌株編號與處理流程</li>
+        </ul></div>
+        <div class="acc-block fix"><h4>解決方式</h4><ul>
+          <li>說明菌株來源（標準菌株／食物分離／自然取得）</li>
+          <li>描述無菌操作環境（酒精消毒、酒精燈）</li>
+          <li>說明廢棄物處理（121°C 高壓滅菌、漂白水浸泡）</li>
+          <li>操作人員穿戴手套、口罩並洗手</li>
+        </ul></div>
+      </div>
+      <div class="acc-note"><b>提早因應：</b>限定「食品級」或商用菌株、附菌種來源確認表、建立無菌作業 SOP，避免自然分離野生菌株。</div>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--navy)">C</span>人類研究缺乏切結與同意文件<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <div class="acc-grid">
+        <div class="acc-block case"><h4>常見案例</h4><ul>
+          <li>受試者照光（光療）、運動介入未提供同意書</li>
+          <li>問卷調查或使用個資無受測者授權</li>
+          <li>使用孩童影像、面部辨識未申請 IRB 或文件不足</li>
+        </ul></div>
+        <div class="acc-block fix"><h4>解決方式</h4><ul>
+          <li>補齊人類研究切結書（師生共同簽署）</li>
+          <li>受試者同意書（受試者或監護人簽名）</li>
+          <li>問卷樣本（含研究目的、保密說明、聯絡方式）</li>
+          <li>脆弱族群（兒童、長者）建議送學校倫理小組審核</li>
+        </ul></div>
+      </div>
+      <div class="acc-note"><b>提早因應：</b>課前進行研究倫理簡介（知情同意、尊重受試、風險最小化），先與學校倫理委員會確認是否需審查，製作同意書模板。</div>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--amber)">D</span>火源／高溫／高壓／紫外光缺乏防護<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <div class="acc-grid">
+        <div class="acc-block case"><h4>常見案例</h4><ul>
+          <li>瓦斯爐、焊槍、加熱器未列防火措施</li>
+          <li>走馬燈、升空天燈無防火罩說明</li>
+          <li>紫外燈照射人體或物體無護目鏡、遮罩</li>
+          <li>瓦斯罐、氣壓裝置爆炸風險被忽略</li>
+        </ul></div>
+        <div class="acc-block fix"><h4>解決方式</h4><ul>
+          <li>附實驗設計圖說明火源防護罩／隔熱裝置</li>
+          <li>操作配戴護目鏡、絕緣手套並有老師陪同</li>
+          <li>場地具滅火器與應變機制、通風良好</li>
+          <li>照射人體須說明時長、強度與非照射部位防護</li>
+        </ul></div>
+      </div>
+      <div class="acc-note"><b>提早因應：</b>納入火源使用規劃表（火焰長度、控制方式、隔熱材質、防火罩），先用 LED 模擬火源、低壓設備替代高壓氣體驗證。</div>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:#6b4f9e">E</span>機具與設備缺乏安全設計<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <div class="acc-grid">
+        <div class="acc-block case"><h4>常見案例</h4><ul>
+          <li>自製鋸床、木工機具無防護罩設計</li>
+          <li>自製氣壓瓶、氣球升空未說明壓力控制與釋放</li>
+          <li>高壓氣瓶未標壓力值與安全閥設置</li>
+        </ul></div>
+        <div class="acc-block fix"><h4>解決方式</h4><ul>
+          <li>加上防護罩設計、緊急停止開關</li>
+          <li>操作有教師陪同、說明操作順序與注意事項</li>
+          <li>安全設計繪圖標註於計畫書或展示海報</li>
+          <li>說明異常壓力／電流／溫度時的停機設計</li>
+        </ul></div>
+      </div>
+      <div class="acc-note"><b>提早因應：</b>裝置外觀圖標明防護元件（罩、安全鎖、緊急斷電），兩人一組操作（一人專責安全觀察），先用無電無火低風險材料製作初版模型演練。</div>
+    </div></div>
+  </div>
+
+  <div class="acc">
+    <div class="acc-head"><span class="tag-letter" style="background:var(--teal)">F</span>影像／圖文資料來源不明或未授權<span class="chev">›</span></div>
+    <div class="acc-body"><div class="acc-body-inner">
+      <div class="acc-grid">
+        <div class="acc-block case"><h4>常見案例</h4><ul>
+          <li>AI 辨識人臉資料無說明來源是否公開或授權</li>
+          <li>使用圖片、影片未附原始網址與授權說明</li>
+          <li>海報圖片未註明網路下載來源 URL</li>
+        </ul></div>
+        <div class="acc-block fix"><h4>解決方式</h4><ul>
+          <li>說明影像是否自行拍攝或已取得授權</li>
+          <li>網路來源列出網址，說明是否 CC 授權或合理使用</li>
+          <li>AI 生成圖像標註生成工具（如 DALL·E、Stable Diffusion）</li>
+          <li>AI 訓練資料用公開訓練集（如 FER2013、OpenFace）並附說明</li>
+        </ul></div>
+      </div>
+      <div class="acc-note"><b>提早因應：</b>製作圖文資源出處表格，避免使用未授權的人像照片與影片（尤其孩童與醫療影像），自行拍攝須取得肖像權同意書並載明可用於科展展示。</div>
+    </div></div>
+  </div>
+
+  <h3 style="margin-top:30px;">提早因應三大原則</h3>
+  <div class="chips3">
+    <div class="chip-big"><div class="n">1</div><h4>風險預測前置</h4><p>實驗設計初期即評估每一動作是否有危險，主動提出對應措施。</p></div>
+    <div class="chip-big"><div class="n">2</div><h4>文件同意齊備</h4><p>凡涉及人、菌、動物、影像的項目，皆附正式授權或同意文件。</p></div>
+    <div class="chip-big"><div class="n">3</div><h4>SOP 與演練</h4><p>製作完整流程圖，師生共同模擬所有步驟、危險點與應變。</p></div>
+  </div>
+</section>
+
+<!-- ============ 歷屆案例 ============ -->
+<section id="cases">
+  <div class="sec-head">
+    <div class="sec-num">6</div>
+    <div><h2>歷屆全國科展實際案例（第61–65屆）</h2>
+    <p>各科別安全審查未通過初審的真實理由——別人踩過的雷，你可以避開。</p></div>
+  </div>
+  <p class="section-intro">點選科別查看該科實際被要求補正或移除的項目。多數可透過「補件」或「移除展示品」改正，但少數嚴重者直接撤銷資格。</p>
+
+  <div class="tabs" id="caseTabs">
+    <button class="tab-btn active" data-tab="phy">物理／天文</button>
+    <button class="tab-btn" data-tab="chem">化學</button>
+    <button class="tab-btn" data-tab="bio">生物</button>
+    <button class="tab-btn" data-tab="earth">地科</button>
+    <button class="tab-btn" data-tab="animal">動物與醫學</button>
+    <button class="tab-btn" data-tab="plant">植物</button>
+    <button class="tab-btn" data-tab="agri">農業與食品</button>
+    <button class="tab-btn" data-tab="social">行為與社會</button>
+    <button class="tab-btn" data-tab="applied">生活與應用</button>
+    <button class="tab-btn" data-tab="eng">工程</button>
+    <button class="tab-btn" data-tab="cs">電腦與資訊</button>
+    <button class="tab-btn" data-tab="env">環境</button>
+  </div>
+
+  <div class="tab-panel active" data-panel="phy"><div class="case-list">
+    <div class="subj-name">🔭 物理科、物理與天文學科</div>
+    <ol>
+      <li>使用雷射設備應補交電壓雷射 X 光風險評估表。</li>
+      <li>移除尖銳物品、雷射筆、玻璃、手電筒、膠、牙籤、強力磁鐵、行動電源。</li>
+      <li>展示物品評審時不可直立擺設。</li>
+      <li>提供人類研究切結書及受試者同意書。</li>
+      <li>說明火焰／火源使用的安全防護事項。</li>
+      <li>說明風扇外罩安全防護事項。</li>
+      <li>熱風烤箱是否會造成砂球爆裂、烤箱玻璃破裂之防護說明。</li>
+      <li>瓦斯爐加熱產生蒸氣高溫、瓦斯罐易燃，須提實驗安全防護措施。</li>
+      <li>補使用鋸子之安全防護措施。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="chem"><div class="case-list">
+    <div class="subj-name">🧪 化學科</div>
+    <ol>
+      <li>移除石板、探針、金屬片、燈具、膠帶台、行動電源、碳棒、伏特計、鐵絲、鐵針、開孔器、玻璃瓶、食物（豆渣、糖果）、植物材料、錄音筆、藥品。</li>
+      <li>提供生菌廢棄物之處理方式。</li>
+      <li>補充燃燒爐／瓦斯噴槍／高壓釜使用之防護措施。</li>
+      <li>補充對皮膚、眼睛有刺激性藥品（DCPIP、強酸鹼如 Ca(OH)₂、NaOH）之防護及操作安全措施。</li>
+      <li>細菌生長須提供廢棄物處理方式。</li>
+      <li>研究中使用細菌及黴菌，補交基因重組實驗同意書。</li>
+      <li>補充鐵氰化鉀安全注意事項：不當操作（加熱或強酸鹼）是否釋放氰毒氣？</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="bio"><div class="case-list">
+    <div class="subj-name">🧬 生物科</div>
+    <ol>
+      <li>未繳交基因重組實驗同意書。</li>
+      <li>未繳交脊椎動物研究切結書。</li>
+      <li>未繳交人類研究切結書及受試者同意書。</li>
+      <li>實驗使用「金黃色葡萄球菌」，須在 BSL-2 實驗室操作，並檢附合格科學家監督與實驗室證明。</li>
+      <li>補充乙醚操作時教師指導說明。</li>
+      <li>移除玻璃管、行動電源、燒杯、竹管、鐵線、鋼管、標本。</li>
+      <li>標籤有個資露出須覆蓋；海報照片來源須註明。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="earth"><div class="case-list">
+    <div class="subj-name">🌏 地球與行星科學科</div>
+    <ol><li>補充說明實驗過程中使用硫酸之安全防護措施。</li></ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="animal"><div class="case-list">
+    <div class="subj-name">🐭 動物與醫學學科</div>
+    <ol>
+      <li>脊椎動物研究切結書研究過程說明不夠清楚，須補說明 RNA/DNA 從小鼠何種細胞取得、取細胞步驟。</li>
+      <li>作品說明書看不出是否使用人體血清；若有須 IRB，若使用新冠病毒則禁止參展。</li>
+      <li>研究中已做 RT-PCR，須補交基因重組證明。</li>
+      <li>須出具此研究之人類研究切結書（可接受所屬實驗室申請者）。</li>
+      <li>移除動物材料、食品、玻璃碗。</li>
+      <li>說明實驗中傷害動物及犧牲動物時，學生之角色。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="plant"><div class="case-list">
+    <div class="subj-name">🌱 植物學科</div>
+    <ol>
+      <li>實驗實際培養黃麴菌、產生致癌性黃麴毒素，<b>違反安全規則</b>（審查第二項第二款及限制研究事項第三項）。</li>
+      <li>移除鋼管。</li>
+      <li>補交基因重組實驗同意書。</li>
+      <li>設計人體試驗，必須要有人體試驗切結書。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="agri"><div class="case-list">
+    <div class="subj-name">🌾 農業與食品學科</div>
+    <ol>
+      <li>移除雷射筆。</li>
+      <li>補交基因重組實驗同意書。</li>
+      <li>補交人類研究切結書及受試者同意書。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="social"><div class="case-list">
+    <div class="subj-name">👥 行為與社會科學科</div>
+    <ol>
+      <li>未繳交人類研究切結書及受試者同意書。</li>
+      <li>人類研究切結書須有更詳細說明。</li>
+      <li>補充說明訪談、問卷資料蒐集，及取得受訪／受試者同意證明。</li>
+      <li>補充說明切結書中老師或醫療人員之指導內容、受試者同意書、問卷內容。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="applied"><div class="case-list">
+    <div class="subj-name">🛠️ 生活與應用科學科（一／二／三）</div>
+    <ol>
+      <li>移除行動電源、電源供應器、雷射筆、骨骼長度測量器、乳液、紫外燈管、食品、雞蛋、鑼、藥品、膏狀物、砂石、貝殼、淡菜殼、熱熔膠槍、咖啡渣、尖銳鐵片、粉筆、燈泡。</li>
+      <li>展示品過大須移除；展示品之電源關閉。</li>
+      <li>補交人類研究切結書及受試者同意書。</li>
+      <li>補充使用甲醛、用火、黑光燈（UV）紫外光時的安全防護說明。</li>
+      <li>進行金黃葡萄球菌操作須補交 BSL-2 實驗室證明。</li>
+      <li>說明操作正丙醇、異丙醇、正丁醇等有毒溶劑是否在安全環境下進行。</li>
+      <li>補充益生菌來源及實驗後微生物廢棄處理方式；細菌培養防護與高溫實驗防護。</li>
+      <li>受試者光療照光時間、手背手臂照射範圍與非照射區防護。</li>
+      <li>福壽螺活體可能有寄生蟲，操作過程須有防護措施。</li>
+      <li>海報個資、展示物校名須覆蓋；補充參考文獻出處來源。</li>
+      <li><b>備註：</b>有委員指出使用酸鹼性溶液（pH 已到 &lt;0 和 &gt;13）操作未戴手套，防護不足，應加強師生宣導。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="eng"><div class="case-list">
+    <div class="subj-name">⚙️ 工程學科（一／二）</div>
+    <ol>
+      <li>移除行動電源、雷射筆、尖銳工具、細金屬棒、粉末物品、尖銳金屬、玻璃片。</li>
+      <li>補交電壓雷射 X 光風險性評估表，並補充輸出電壓電流。</li>
+      <li>TVOC、HCHO、CO 等有毒氣體補充防護措施。</li>
+      <li>說明集氣裝置氣密問題。</li>
+      <li>補充燃燒發射、滅火實驗、高濃度 H₂／CO／瓦斯、重金屬實驗之相關防護措施。</li>
+      <li>使用高電壓設備須提供電壓雷射 X 光風險性評估表。</li>
+      <li>使用雞糞菌、大腸桿菌須補菌株來源編號、使用安全及廢棄物處理。</li>
+      <li>補交人類研究切結書、受測者同意書。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="cs"><div class="case-list">
+    <div class="subj-name">💻 電腦與資訊科學科</div>
+    <ol>
+      <li>綠光雷射筆（超過 1mW）不得現場操作，僅供展示。</li>
+      <li>海報使用的圖片須取得授權同意書或引用許可證明。</li>
+      <li>海報「表說」不可出現指導教授資訊。</li>
+      <li>補附受試者同意書、脊椎動物研究切結書。</li>
+      <li>作品說明書圖片未註明網路下載來源 URL（說明是否公開或同意下載）。</li>
+      <li>圖片來源須清楚說明，非公開來源需提供照片中受試者參與實驗同意書。</li>
+    </ol>
+  </div></div>
+
+  <div class="tab-panel" data-panel="env"><div class="case-list">
+    <div class="subj-name">♻️ 環境學科</div>
+    <ol>
+      <li>移除尖銳電線、三用電表、行動電源、尖銳薄片。</li>
+      <li>展品禁止操作。</li>
+      <li>海報上死亡生物圖片、拆解生物翅膀照片須覆蓋。</li>
+      <li><b>備註：</b>第61屆有作品使用氯化汞等毒性化學物質，因濃度低經委員判斷不須補充說明而通過（個案認定）。</li>
+    </ol>
+  </div></div>
+
+  <div class="callout callout-red" style="margin-top:24px;">
+    <b>⛔ 歷屆「撤銷參展資格」案例（最嚴重）：</b><br>
+    ① <b>第55屆</b>：使用經致癌性農藥（鋅錳乃浦）施作之小白菜進行體內共生菌篩選，雖陳述於防護實驗室進行，仍違反「不得使用致癌性物品」而撤銷。<br>
+    ② <b>第62屆</b>：進行具致癌性黃麴毒素產生風險之實驗。<br>
+    ③ <b>第62屆</b>：金黃葡萄球菌操作未於 BSL-2 實驗室，且無適當防護措施。
+  </div>
+</section>
+
+<!-- ============ 評審問答 ============ -->
+<section id="judge">
+  <div class="sec-head">
+    <div class="sec-num">7</div>
+    <div><h2>評審視角：安全與倫理提問題庫 ＋ 模擬問答</h2>
+    <p>以科展評審與研究倫理專家身分設計，幫助師生預演口試中最常被追問的安全問題。</p></div>
+  </div>
+  <p class="section-intro">安全審查不只看書面文件，評審在<b>口試現場</b>也會追問。以下依領域整理「評審會問什麼」，並附一組<b>模擬問答</b>，對照<span style="color:var(--green);font-weight:700">加分回答</span>與<span style="color:var(--red);font-weight:700">扣分回答</span>，讓學生練習如何展現對安全與倫理的真正理解。</p>
+
+  <!-- 化學 -->
+  <div class="qa-card">
+    <div class="qa-top"><span class="ico">🧪</span>領域一：化學品與危險物質</div>
+    <div class="qa-body">
+      <div class="qa-block">
+        <div class="qa-q">評審常見提問</div>
+        <div class="judge-q">你這個實驗用到的每一種化學品，毒性、腐蝕性、易燃性分別如何？查過 MSDS 嗎？</div>
+        <div class="judge-q">操作強酸鹼時，你穿戴了哪些防護裝備？照片裡為什麼沒戴手套？</div>
+        <div class="judge-q">實驗產生的廢液與副產物怎麼處理？會不會生成劇毒物（如氰化物、氯氣）？</div>
+        <div class="judge-q">這個反應在不當條件（加熱、強酸鹼）下，有沒有可能產生你沒預期的有毒氣體？</div>
+      </div>
+      <div class="qa-block">
+        <div class="qa-q">模擬問答：「你用鐵氰化鉀，遇強酸會不會有危險？」</div>
+        <div class="qa-row">
+          <div class="qa-good"><b>加分回答：</b>「會。鐵氰化鉀在強酸或加熱下可能釋出氰化氫，所以我全程在通風櫥內、室溫、中性條件操作，並避免與強酸混合；廢液以鹼性溶液中和後交由學校統一回收，MSDS 我附在計畫書附錄。」</div>
+          <div class="qa-bad"><b>扣分回答：</b>「應該不會吧，我們做的時候都沒事。」（無風險意識、無防護依據、無廢棄物規劃）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 生物微生物 -->
+  <div class="qa-card">
+    <div class="qa-top"><span class="ico">🦠</span>領域二：微生物與生物安全</div>
+    <div class="qa-body">
+      <div class="qa-block">
+        <div class="qa-q">評審常見提問</div>
+        <div class="judge-q">你的菌株從哪裡來？是標準菌株、商用菌株，還是自然界自行分離？菌株編號是？</div>
+        <div class="judge-q">這支菌屬於哪個生物安全等級（BSL）／危險群（RG）？為什麼你判斷可在校內操作？</div>
+        <div class="judge-q">培養皿有沒有打開過？打開過就屬 BSL-2，你的防護有到位嗎？</div>
+        <div class="judge-q">實驗結束後的菌液、培養基怎麼滅菌與丟棄？滅菌條件（溫度、時間）是？</div>
+      </div>
+      <div class="qa-block">
+        <div class="qa-q">模擬問答：「你用金黃色葡萄球菌，這在校內可以做嗎？」</div>
+        <div class="qa-row">
+          <div class="qa-good"><b>加分回答：</b>「金黃色葡萄球菌屬 RG2，依規定須在 BSL-2 實驗室、由合格科學家監督進行。我的實驗是在○○大學○○實驗室完成，已附實驗室等級證明與監督者證明函；廢棄物以 121°C 高壓滅菌 20 分鐘後處理。」</div>
+          <div class="qa-bad"><b>扣分回答：</b>「我們在生物教室的桌上做的，做完用酒精擦一擦就丟掉了。」（等級錯置、無監督、廢棄物未滅菌——這正是第62屆撤銷案例）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 脊椎動物 -->
+  <div class="qa-card">
+    <div class="qa-top"><span class="ico">🐭</span>領域三：脊椎動物與動物倫理</div>
+    <div class="qa-body">
+      <div class="qa-block">
+        <div class="qa-q">評審常見提問</div>
+        <div class="judge-q">你的研究為什麼<b>非用脊椎動物不可</b>？能不能用無脊椎動物或細胞替代？（3R 的 Replacement）</div>
+        <div class="judge-q">你用了幾隻？這個數量是怎麼算出來的？有沒有辦法更少？（Reduction）</div>
+        <div class="judge-q">實驗過程動物會不會痛苦？你如何將傷害降到最低？（Refinement）</div>
+        <div class="judge-q">研究計畫送過 IACUC 嗎？取材、犧牲動物的步驟由誰執行？學生扮演什麼角色？</div>
+      </div>
+      <div class="qa-block">
+        <div class="qa-q">模擬問答：「實驗中犧牲小鼠的部分，是你親手做的嗎？」</div>
+        <div class="qa-row">
+          <div class="qa-good"><b>加分回答：</b>「犧牲與取材由合作實驗室的合格研究人員依 IACUC 核准的方案執行，我負責後續的細胞分析。我們以 3R 為原則，先用文獻與細胞模型縮減動物數，最終僅用最小必要數量，並附獸醫師證明函。」</div>
+          <div class="qa-bad"><b>扣分回答：</b>「我自己抓來解剖的，想說多做幾隻數據比較漂亮。」（無 3R 概念、無資格、無 IACUC——直接違反限制研究事項）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 人類研究 -->
+  <div class="qa-card">
+    <div class="qa-top"><span class="ico">🧑‍🔬</span>領域四：人類研究與受試者保護</div>
+    <div class="qa-body">
+      <div class="qa-block">
+        <div class="qa-q">評審常見提問</div>
+        <div class="judge-q">你的受試者有誰？是否包含未成年人或其他脆弱族群？取得法定代理人同意了嗎？</div>
+        <div class="judge-q">這個研究需不需要送 IRB？你依什麼判別原則認定免審？</div>
+        <div class="judge-q">受試者同意書包含哪些內容？有沒有告知風險、保密與退出權利？</div>
+        <div class="judge-q">問卷／影像資料如何保護個資？有沒有去識別化？圖片授權拿到了嗎？</div>
+      </div>
+      <div class="qa-block">
+        <div class="qa-q">模擬問答：「你對國小學生做問卷，需要什麼文件？」</div>
+        <div class="qa-row">
+          <div class="qa-good"><b>加分回答：</b>「受試者是未成年人屬脆弱族群，我取得了每位學生<b>法定代理人</b>的知情同意書，內容含研究目的、保密條款與退出權利；問卷為非記名、去識別化。我也先向學校倫理小組確認本案屬最低風險的教育評量範圍。」</div>
+          <div class="qa-bad"><b>扣分回答：</b>「就發給班上同學寫，老師同意就好了，反正不記名。」（缺法代同意、未確認 IRB 判別、忽略脆弱族群保護）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 物理設備 -->
+  <div class="qa-card">
+    <div class="qa-top"><span class="ico">⚡</span>領域五：電壓／雷射／X光／高溫設備</div>
+    <div class="qa-body">
+      <div class="qa-block">
+        <div class="qa-q">評審常見提問</div>
+        <div class="judge-q">你的電源是交流還直流？多少伏特？有沒有超過 220V／36V 的上限？</div>
+        <div class="judge-q">雷射是第幾等級、輸出幾 mW？超過 1mW 還能在現場操作嗎？</div>
+        <div class="judge-q">電壓雷射 X 光風險性評估表填了嗎？指導老師簽名了嗎？</div>
+        <div class="judge-q">火源／高溫／UV 的防護罩、護目鏡、隔熱與斷電機制在哪裡？</div>
+      </div>
+      <div class="qa-block">
+        <div class="qa-q">模擬問答：「你展示的綠光雷射筆要現場示範對吧？」</div>
+        <div class="qa-row">
+          <div class="qa-good"><b>加分回答：</b>「不會現場操作。我的雷射超過 1mW，依規定<b>僅供展示、不得現場操作</b>，我以影片呈現實驗結果；風險評估表已由指導老師簽署，標明輸出功率與防護方式。」</div>
+          <div class="qa-bad"><b>扣分回答：</b>「我想現場打給評審看效果比較清楚。」（違反雷射等級與許可操作規定，且雷射筆屬須移除物品）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- AI 資料倫理 -->
+  <div class="qa-card">
+    <div class="qa-top"><span class="ico">🖼️</span>領域六：資料來源、AI 與智慧財產／隱私</div>
+    <div class="qa-body">
+      <div class="qa-block">
+        <div class="qa-q">評審常見提問</div>
+        <div class="judge-q">你訓練 AI 模型的人臉資料從哪來？是公開資料集還是自己蒐集？有授權嗎？</div>
+        <div class="judge-q">海報與說明書的每張圖片，來源與授權（CC／合理使用）標清楚了嗎？</div>
+        <div class="judge-q">照片裡的人有沒有簽肖像權同意？是否包含孩童或醫療影像？</div>
+        <div class="judge-q">AI 生成的圖有沒有標註生成工具？個資（姓名、校名）有沒有去識別？</div>
+      </div>
+      <div class="qa-block">
+        <div class="qa-q">模擬問答：「你的人臉辨識資料是怎麼來的？」</div>
+        <div class="qa-row">
+          <div class="qa-good"><b>加分回答：</b>「我使用公開且可學術使用的資料集（FER2013），並在說明書標明來源與授權；少數自拍樣本皆取得本人肖像權同意書，載明可用於科展展示，海報上的個資與校名我都已覆蓋。」</div>
+          <div class="qa-bad"><b>扣分回答：</b>「網路上抓的，還有同學的照片，方便就用了。」（侵害著作權與肖像權、無授權、未保護個資）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 現場展示 -->
+  <div class="qa-card">
+    <div class="qa-top"><span class="ico">🪧</span>領域七：現場展示與佈展</div>
+    <div class="qa-body">
+      <div class="qa-block">
+        <div class="qa-q">評審常見提問</div>
+        <div class="judge-q">你的展示桌上有沒有禁止展出物品（活體、標本、化學品、玻璃、尖銳物、食物、行動電源）？</div>
+        <div class="judge-q">海報上有沒有露出個資、校名、指導教授資訊或未授權圖片？</div>
+        <div class="judge-q">展示品會不會直立傾倒、是否需要關閉電源、是否禁止觀眾操作？</div>
+        <div class="judge-q">原本的實物你打算怎麼替代展示？（規定須改用繪圖、圖表、照片或影片）</div>
+      </div>
+      <div class="qa-block">
+        <div class="qa-q">模擬問答：「這些菌種培養皿和燒杯可以擺出來嗎？」</div>
+        <div class="qa-row">
+          <div class="qa-good"><b>加分回答：</b>「不行。微生物試驗結果、玻璃器材、化學品都屬禁止展出，我改以高解析照片與流程圖呈現；展示品不含尖銳物、行動電源與食物，評審時電源關閉、不開放觀眾操作。」</div>
+          <div class="qa-bad"><b>扣分回答：</b>「擺真的東西比較有說服力，我都帶來了。」（違反多項禁止展出事項，現場將被要求移除）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 自我檢核表 ============ -->
+<section id="checklist">
+  <div class="sec-head">
+    <div class="sec-num">8</div>
+    <div><h2>報名前互動式自我檢核表</h2>
+    <p>勾選確認每一項，進度條會即時更新。建議全部達標再送件。</p></div>
+  </div>
+  <p class="section-intro">這份檢核表整合上述所有規定。勾選你已完成的項目，下方進度條會顯示完成度（資料僅存於本機瀏覽器，重新整理不保留）。</p>
+
+  <div class="check-tool">
+    <div class="progress-wrap">
+      <div class="bar-label"><span>檢核完成度</span><span id="pct">0%　(0 / 0)</span></div>
+      <div class="bar"><div class="bar-fill" id="barFill"></div></div>
+    </div>
+
+    <div class="check-group">
+      <h4><span class="ico">🧪</span>化學與危險物質</h4>
+      <label class="chk"><input type="checkbox"><span>已查閱所有化學品 MSDS，確認非劇毒、爆炸、放射、致癌、致突變、麻禁藥物品</span></label>
+      <label class="chk"><input type="checkbox"><span>已說明個人防護裝備（手套、護目鏡等）與通風、滅火、緊急處置</span></label>
+      <label class="chk"><input type="checkbox"><span>已說明化學性廢棄物與殘液的正確處理方式</span></label>
+      <label class="chk"><input type="checkbox"><span>已確認反應產物／副產物不會生成劇毒物質</span></label>
+    </div>
+
+    <div class="check-group">
+      <h4><span class="ico">🦠</span>微生物與生物安全</h4>
+      <label class="chk"><input type="checkbox"><span>已說明菌株來源與編號，未使用 BSL-3／BSL-4 生物</span></label>
+      <label class="chk"><input type="checkbox"><span>RG2／BSL-2 實驗已於合格實驗室進行，並附監督者與實驗室證明</span></label>
+      <label class="chk"><input type="checkbox"><span>已說明生物性廢棄物滅菌方式（如 121°C 高壓滅菌）</span></label>
+      <label class="chk"><input type="checkbox"><span>涉基因重組者已備「基因重組實驗同意書」（P1 等級＋實驗室證明）</span></label>
+    </div>
+
+    <div class="check-group">
+      <h4><span class="ico">🐭</span>動物與人類研究倫理</h4>
+      <label class="chk"><input type="checkbox"><span>脊椎動物：已遵循 3R、送 IACUC、備「脊椎動物研究切結書」</span></label>
+      <label class="chk"><input type="checkbox"><span>保育類動物已取得農業部同意書</span></label>
+      <label class="chk"><input type="checkbox"><span>人類研究：已備「人類研究切結書」＋受試者同意書</span></label>
+      <label class="chk"><input type="checkbox"><span>未成年受試者已取得法定代理人同意；已判別是否須送 IRB</span></label>
+    </div>
+
+    <div class="check-group">
+      <h4><span class="ico">⚡</span>設備、電壓、雷射與防護</h4>
+      <label class="chk"><input type="checkbox"><span>用電符合：交流 ≤220V／直流 ≤36V，停止操作立即斷電</span></label>
+      <label class="chk"><input type="checkbox"><span>雷射符合 IEC 60825 第二等級 1mW 以下；超過者僅供展示</span></label>
+      <label class="chk"><input type="checkbox"><span>涉高電壓／雷射／X光者已填「電壓雷射 X 光風險性評估表」並經簽署</span></label>
+      <label class="chk"><input type="checkbox"><span>火源／高溫／UV／機具已有防護罩、護目鏡、緊急停止與教師陪同</span></label>
+    </div>
+
+    <div class="check-group">
+      <h4><span class="ico">🖼️</span>資料來源與智慧財產</h4>
+      <label class="chk"><input type="checkbox"><span>所有圖片／影片／AI 訓練資料已標明來源與授權</span></label>
+      <label class="chk"><input type="checkbox"><span>人像照片已取得肖像權同意；AI 生成圖已標註工具</span></label>
+    </div>
+
+    <div class="check-group">
+      <h4><span class="ico">🪧</span>現場展示佈展</h4>
+      <label class="chk"><input type="checkbox"><span>展示桌已移除所有禁止展出物品（活體、標本、化學品、玻璃、尖銳物、食物、行動電源等）</span></label>
+      <label class="chk"><input type="checkbox"><span>實物改以繪圖／圖表／照片／影片呈現</span></label>
+      <label class="chk"><input type="checkbox"><span>海報已覆蓋個資、校名、指導教授資訊；展示品穩固、評審時電源關閉</span></label>
+    </div>
+
+    <button class="reset-btn" id="resetBtn">重設所有勾選</button>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div><b>科展安全審查與研究倫理｜教學與自我檢核平台</b></div>
+  <div>綜整自《全國中小學科學展覽會參展安全規則》、《臺灣國際科學展覽會參展安全規則》、全國科展安全審查未通過項目，及中小學科展作品安全審查重點與自我檢核參考原則說明。</div>
+  <div class="footer-disc">本網頁為教學輔助整理，評審提問題庫與模擬問答由教學設計者依評審與研究倫理觀點補充，僅供師生練習參考。實際報名時請以國立臺灣科學教育館公告之最新版安全規則與表件為準。各屆未通過案例為協助學習之歷史紀錄整理，個案認定仍以當屆安全審查委員會決議為準。</div>
+</footer>
+
+<button id="toTop" aria-label="回到頂部">↑</button>
+
+<script>
+  // Accordion
+  document.querySelectorAll('.acc-head').forEach(function(h){
+    h.addEventListener('click',function(){
+      var acc=h.parentElement;
+      var body=acc.querySelector('.acc-body');
+      var open=acc.classList.toggle('open');
+      body.style.maxHeight=open?body.scrollHeight+'px':null;
+    });
+  });
+
+  // Tabs
+  var tabBtns=document.querySelectorAll('.tab-btn');
+  tabBtns.forEach(function(b){
+    b.addEventListener('click',function(){
+      var t=b.getAttribute('data-tab');
+      document.querySelectorAll('.tab-btn').forEach(function(x){x.classList.remove('active');});
+      document.querySelectorAll('.tab-panel').forEach(function(x){x.classList.remove('active');});
+      b.classList.add('active');
+      document.querySelector('.tab-panel[data-panel="'+t+'"]').classList.add('active');
+    });
+  });
+
+  // Checklist progress
+  var checks=document.querySelectorAll('.check-tool input[type=checkbox]');
+  var pct=document.getElementById('pct');
+  var fill=document.getElementById('barFill');
+  function updateProgress(){
+    var total=checks.length, done=0;
+    checks.forEach(function(c){
+      if(c.checked){done++;c.closest('.chk').classList.add('checked');}
+      else{c.closest('.chk').classList.remove('checked');}
+    });
+    var p=total?Math.round(done/total*100):0;
+    fill.style.width=p+'%';
+    pct.textContent=p+'%　('+done+' / '+total+')';
+  }
+  checks.forEach(function(c){c.addEventListener('change',updateProgress);});
+  document.getElementById('resetBtn').addEventListener('click',function(){
+    checks.forEach(function(c){c.checked=false;});updateProgress();
+  });
+  updateProgress();
+
+  // Back to top
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){
+    if(window.scrollY>500)toTop.classList.add('show');else toTop.classList.remove('show');
+  });
+  toTop.addEventListener('click',function(){window.scrollTo({top:0,behavior:'smooth'});});
+</script>
+</body>
+</html>

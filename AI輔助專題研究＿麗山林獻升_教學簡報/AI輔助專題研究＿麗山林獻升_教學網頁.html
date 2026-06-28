@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI輔助教學_實驗探究</title>
+<style>
+:root{
+  --bg:#ffffff; --panel:#f5f6f8; --text:#1a1a1a; --sub:#555;
+  --accent:#1565c0; --accent2:#0d47a1; --border:#e0e0e0; --shadow:rgba(0,0,0,.12);
+  --filmstrip:#eceef1; --thumb-active:#1565c0;
+}
+body.dark{
+  --bg:#0d0f12; --panel:#16191e; --text:#f2f2f2; --sub:#b5b9c0;
+  --accent:#4fa3ff; --accent2:#7cc0ff; --border:#2a2f37; --shadow:rgba(0,0,0,.6);
+  --filmstrip:#16191e; --thumb-active:#4fa3ff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+  background:var(--bg); color:var(--text);
+  display:flex; flex-direction:column; height:100vh; overflow:hidden;
+  transition:background .3s,color .3s;
+}
+/* ---------- Header ---------- */
+header{
+  flex:0 0 auto; padding:14px 26px; background:var(--panel);
+  border-bottom:1px solid var(--border);
+  display:flex; align-items:center; gap:18px; flex-wrap:wrap;
+}
+header h1{font-size:1.5rem; letter-spacing:1px; color:var(--accent2); white-space:nowrap}
+.toolbar{display:flex; align-items:center; gap:10px; margin-left:auto; flex-wrap:wrap}
+.btn{
+  background:var(--accent); color:#fff; border:none; border-radius:8px;
+  padding:9px 15px; font-size:.95rem; cursor:pointer; display:inline-flex;
+  align-items:center; gap:6px; transition:filter .2s, transform .1s;
+  font-family:inherit;
+}
+.btn:hover{filter:brightness(1.08)}
+.btn:active{transform:translateY(1px)}
+.btn.secondary{background:transparent; color:var(--text); border:1px solid var(--border)}
+.speed-box{
+  display:flex; align-items:center; gap:6px; font-size:.9rem; color:var(--sub);
+  background:transparent; border:1px solid var(--border); border-radius:8px; padding:5px 10px;
+}
+.speed-box input{
+  width:56px; padding:4px 6px; border:1px solid var(--border); border-radius:5px;
+  background:var(--bg); color:var(--text); font-family:inherit; font-size:.9rem; text-align:center;
+}
+/* ---------- Main ---------- */
+main{flex:1 1 auto; display:flex; min-height:0}
+.stage{
+  flex:0 0 66%; display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:18px 22px; position:relative; background:var(--bg);
+}
+.slide-wrap{position:relative; width:100%; height:100%; display:flex; align-items:center; justify-content:center}
+.slide-wrap img{
+  max-width:100%; max-height:100%; object-fit:contain;
+  border-radius:8px; box-shadow:0 6px 24px var(--shadow);
+  background:#fff;
+}
+.nav-arrow{
+  position:absolute; top:50%; transform:translateY(-50%);
+  background:var(--accent); color:#fff; border:none; width:46px; height:46px;
+  border-radius:50%; font-size:1.5rem; cursor:pointer; opacity:.82;
+  display:flex; align-items:center; justify-content:center; transition:opacity .2s, transform .1s;
+  z-index:5;
+}
+.nav-arrow:hover{opacity:1}
+.nav-arrow:active{transform:translateY(-50%) scale(.94)}
+.nav-prev{left:6px} .nav-next{right:6px}
+.page-tag{
+  position:absolute; bottom:10px; left:50%; transform:translateX(-50%);
+  background:rgba(0,0,0,.6); color:#fff; padding:4px 14px; border-radius:20px; font-size:.85rem;
+}
+/* ---------- Side text ---------- */
+.side{
+  flex:1 1 34%; background:var(--panel); border-left:1px solid var(--border);
+  display:flex; flex-direction:column; min-width:0;
+}
+.side-head{
+  padding:12px 22px 8px; border-bottom:1px solid var(--border);
+}
+.side-head .num{color:var(--accent); font-weight:700; font-size:1rem; letter-spacing:1px}
+.side-head .title{font-size:1.2rem; line-height:1.35; margin-top:5px; color:var(--text)}
+.side-body{
+  padding:14px 22px 22px; overflow-y:auto; flex:1 1 auto;
+  font-size:1.05rem; line-height:1.7; color:var(--text);
+}
+.side-body p{margin-bottom:.7em}
+.side-body p:last-child{margin-bottom:0}
+/* ---------- Filmstrip ---------- */
+.filmstrip{
+  flex:0 0 auto; background:var(--filmstrip); border-top:1px solid var(--border);
+  display:flex; gap:8px; padding:10px 14px; overflow-x:auto; overflow-y:hidden;
+  scroll-behavior:smooth;
+}
+.filmstrip::-webkit-scrollbar{height:9px}
+.filmstrip::-webkit-scrollbar-thumb{background:var(--border); border-radius:5px}
+.thumb{
+  flex:0 0 auto; width:120px; height:68px; border-radius:5px; cursor:pointer;
+  border:3px solid transparent; object-fit:cover; background:#fff; transition:border-color .2s, transform .15s;
+  position:relative;
+}
+.thumb:hover{transform:translateY(-3px)}
+.thumb.active{border-color:var(--thumb-active)}
+.thumb-cell{flex:0 0 auto; position:relative}
+.thumb-cell .tn{
+  position:absolute; top:2px; left:4px; background:rgba(0,0,0,.6); color:#fff;
+  font-size:.7rem; padding:1px 5px; border-radius:8px; pointer-events:none;
+}
+/* ---------- Fullscreen presentation ---------- */
+.present{
+  position:fixed; inset:0; background:#000; z-index:100; display:none;
+  align-items:center; justify-content:center;
+}
+.present.active{display:flex}
+.present img{max-width:100%; max-height:100%; object-fit:contain}
+.present .pcontrols{
+  position:absolute; bottom:22px; left:50%; transform:translateX(-50%);
+  display:flex; align-items:center; gap:14px; background:rgba(0,0,0,.55);
+  padding:10px 18px; border-radius:30px; opacity:0; transition:opacity .3s;
+}
+.present:hover .pcontrols{opacity:1}
+.present .pcontrols button{
+  background:none; border:none; color:#fff; font-size:1.4rem; cursor:pointer; padding:4px 8px;
+}
+.present .ptag{
+  position:absolute; top:18px; right:24px; color:#fff; background:rgba(0,0,0,.5);
+  padding:5px 16px; border-radius:20px; font-size:1rem;
+}
+.present .parrow{
+  position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.12);
+  border:none; color:#fff; width:60px; height:90px; font-size:2.2rem; cursor:pointer; opacity:0; transition:opacity .3s;
+}
+.present:hover .parrow{opacity:.7}
+.present .parrow:hover{opacity:1}
+.pprev{left:0} .pnext{right:0}
+/* ---------- Footer ---------- */
+footer{
+  flex:0 0 auto; text-align:center; padding:9px; font-size:.92rem; color:var(--sub);
+  background:var(--panel); border-top:1px solid var(--border);
+}
+/* ---------- Responsive ---------- */
+@media (max-width:900px){
+  main{flex-direction:column}
+  .stage{flex:0 0 48%} .side{flex:1 1 auto; border-left:none; border-top:1px solid var(--border)}
+  header h1{font-size:1.15rem}
+  .side-body{font-size:1.12rem; line-height:1.85}
+}
+</style>
+</head>
+<body>
+<header>
+  <h1>AI輔助教學_實驗探究</h1>
+  <div class="toolbar">
+    <div class="speed-box">秒/頁
+      <input id="speedInput" type="number" min="1" max="120" value="8" step="1">
+    </div>
+    <button class="btn" id="autoBtn">▶ 自動播放</button>
+    <button class="btn" id="presentBtn">⛶ 全螢幕播放</button>
+    <button class="btn secondary" id="themeBtn">🌙 深色</button>
+  </div>
+</header>
+
+<main>
+  <section class="stage">
+    <button class="nav-arrow nav-prev" id="prevBtn" title="上一頁">‹</button>
+    <div class="slide-wrap">
+      <img id="mainImg" src="" alt="slide">
+    </div>
+    <button class="nav-arrow nav-next" id="nextBtn" title="下一頁">›</button>
+    <div class="page-tag" id="pageTag">1 / 61</div>
+  </section>
+
+  <aside class="side">
+    <div class="side-head">
+      <div class="num" id="sideNum">Slide 1</div>
+      <div class="title" id="sideTitle"></div>
+    </div>
+    <div class="side-body" id="sideBody"></div>
+  </aside>
+</main>
+
+<div class="filmstrip" id="filmstrip"></div>
+
+<footer>臺北市立麗山高中　林獻升老師</footer>
+
+<!-- Fullscreen presentation -->
+<div class="present" id="present">
+  <button class="parrow pprev" id="pPrev">‹</button>
+  <img id="presentImg" src="" alt="slide">
+  <button class="parrow pnext" id="pNext">›</button>
+  <div class="ptag" id="pTag">1 / 61</div>
+  <div class="pcontrols">
+    <button id="pPlay" title="播放/暫停">▶</button>
+    <span style="color:#fff;font-size:.9rem">秒/頁</span>
+    <input id="pSpeed" type="number" min="1" max="120" value="8" step="1"
+      style="width:54px;text-align:center;border-radius:5px;border:none;padding:4px;font-family:inherit">
+    <button id="pExit" title="離開">✕</button>
+  </div>
+</div>
+
+<script>
+const TOTAL = 61;
+const IMG = n => `origin_image/slide_${String(n).padStart(2,'0')}.png`;
+
+// 標題與解說（林獻升老師風格改寫）
+const SLIDES = [
+{t:"AI 輔助專題研究與科學展覽",
+b:["大家好，我是麗山高中生物科的林獻升老師。在麗山，科學探究與實作一直是我們很看重的一塊，尤其是科展跟專題研究。這幾年生成式 AI 來得又快又猛，不少同學和老師其實有點不知所措——做專題的時候，AI 到底該放在什麼位置？我想先把話講清楚：AI 不是拿來代替我們思考的，而是要當我們的「智能增強器」，也就是 IA。從一開始的腦力激盪、找文獻，到實驗設計、畫圖表，一路到最後的簡報，AI 在每個環節都幫得上忙。這份簡報，就是想帶大家把這些工具，真正變成自己做專題的本事。"]},
+
+{t:"講師簡介：林獻升 老師",
+b:["在正式開始前，先簡單跟大家介紹一下我自己。我是麗山高中的生物科老師林獻升，這些年一直在帶學生的跨領域專題和科展，也很積極地把 AI 工具放進平常的教學裡。我自己的核心想法很單純：帶著同學從課本上那些日常的基礎實驗出發，把 AI 當成能力的放大器，去實現所謂的「智能增強」。對我來說，AI 真正的價值不只是幫我們省下卡在瑣碎流程上的時間，更重要的是它能逼出更深一層的科學思考。今天我想分享的，都是我自己實際用這些工具帶學生時的心得，希望對大家的專題之路有點幫助。"]},
+
+{t:"從 AI 到 IA：智能增強的教育實踐",
+b:["這一頁點出我們整堂課的核心心法：從 AI 走到 IA。AI 是 Artificial Intelligence，人工智慧；IA 則是 Intelligence Amplification，智能增強。差別在哪裡？AI 容易讓人聯想到機器要來取代人類，但 IA 強調的是以「人」為主體，把 AI 當成你大腦和能力的放大器。在我們做專題的現場，主體永遠是學生的好奇心和那股想弄清楚的探究精神。不論是課堂教學、實驗設計，還是導師輔導甚至行政庶務，AI 扮演的都是旁邊那位「副駕駛」，幫我們把重複性的雜事簡化掉，好讓我們把心力留給真正的核心——科學假說的驗證。"]},
+
+{t:"第一單元：LLM AI 語言模型與工具概覽",
+b:["接下來進入第一單元。要把工具用好，第一步是先對工具有正確的認識。做專題不能只認得 ChatGPT 一個，因為現在主流的大型語言模型和輔助工具其實非常多種。接下來幾頁，我會帶大家快速看過目前主流的幾款 LLM，以及它們各自的特色。摸清楚這些工具的脾氣，就像進實驗室前要先熟悉各種儀器一樣——你得清楚哪種工具適合哪種工作，後面在發想題目、整理文獻的時候，才能用得順手，也才算替整個專題打下扎實的智能基礎。"]},
+
+{t:"主流 LLM 語言模型與專題定位",
+b:["這一頁，我幫大家把主流的模型放回專題研究的脈絡裡定位一下。OpenAI 的 ChatGPT，邏輯推演和創意發想都很強，很適合拿來寫大綱、做發散式的思考。Microsoft Copilot 則是跟微軟 Office 和 Bing 搜尋整合在一起，要查即時的網頁資訊很方便。Google 的 Gemini 多模態能力出眾，又跟 Google 雲端硬碟綁得很深，讀圖表、整合資料是它的強項。最後，像 Claude Artifacts 這類偏程式的 AI 助手，能直接幫我們把 Matplotlib 的繪圖程式碼寫出來、還能當場除錯，等於把高階數據分析的門檻一口氣壓低了。"]},
+
+{t:"第二單元：專題研究與題目發想",
+b:["第二單元，我們來談專題研究跟題目發想。這大概是所有做專題的同學最頭痛的一關——「老師，我想不出題目怎麼辦？」或者「我這個題目會不會太簡單？」這個單元，我想帶大家看怎麼借助 AI，去找出真正有價值的研究題目。我們的方向是：從日常生活裡的小觀察，或是從現成的文獻、課堂實驗裡，把科學問題慢慢提煉出來。透過 AI 一來一回的引導，把模糊的點子收斂、篩選，做出一個在高中階段既有新意、又站得住學術腳跟的起點。"]},
+
+{t:"專題研究核心工具組合",
+b:["這頁是我心目中專題前期的「黃金工具箱」。我把它分成兩類任務：一類是腦力激盪、題目發想，交給 ChatGPT、Gemini 和 Claude，它們像是你隨身的智囊團，很會幫你梳理文字、激出點子；另一類是文獻搜尋和實驗設計，由 Perplexity 跟 Felo Search 上場，這兩個是會聯網的搜尋型 AI，能直接抓到最新論文還附上出處。這五個工具彼此補位，從你心裡只有一個模糊念頭，一直陪你走到寫出第一份實驗設計草案，前期會用到的需求幾乎都被它們包了，非常實用。"]},
+
+{t:"科展選題的「黃金三角」評估法",
+b:["這是我帶麗山科展學生時最常拿出來用的「黃金三角評估法」。一個好的科展題目，得同時顧到三個面向：科學價值、可行性，還有創新性。科學價值是問——這真的是一個科學問題嗎？可行性最關鍵，要老實評估高中實驗室的器材跟你手上的時間，到底做不做得出來？創新性則是看你的研究跟別人差在哪。以前同學要自己評這些其實很難，現在我們可以把初步的點子餵給 AI，請它扮演評審，針對這三個面向做一次「壓力測試」，幫你把設計上的盲點挑出來、給出改良建議，少走很多冤枉路。"]},
+
+{t:"如何向 AI 提問？專題發想 Prompt 結構",
+b:["跟 AI 溝通，其實就跟向專家請教一樣——你問得越籠統，它答得就越敷衍。想拿到高品質的題目建議，提示詞（Prompt）就得結構化。我習慣把它拆成四塊：第一，設定角色，叫它扮演資深的生物科展指導教授；第二，提供背景，把學生年級、研究領域、學校現有的設備都講清楚；第三，明確任務，請它給五個操縱變因具體、做得出來的題目；第四，限制條件，明白要求排除高階儀器，聚焦在日常拿得到的耗材上。這樣問出來的答案，才真的能落地用。"]},
+
+{t:"ChatGPT：科學展覽題目的腦力激盪",
+b:["接下來看實際的工具應用，先從 ChatGPT 講起。在專題最前期的題目發想，ChatGPT 是很好的對話夥伴，它最強的地方在「發散」，能丟給你很多元、又跨領域的研究角度。比方說你想研究植物生理，就直接把你的興趣範圍告訴它，請它給五個可行的科展方向。聊的過程中你可以一路追問下去：「如果我想把實驗週期縮短，可以怎麼改？」就是靠這種一來一回的對話，ChatGPT 能幫你把一開始很模糊的念頭，一點一點收斂成一個具體的科學問題。"]},
+
+{t:"範例解析：ChatGPT 腦力激盪實作",
+b:["這頁是一個學生跟 AI 互動的實際歷程。很多同學一開始跟 ChatGPT 聊，只會丟一句：「我想做植物科展，給我題目。」這樣問，拿回來的多半是課本上就有的無趣答案。這張圖想示範的是「怎麼追問」：學生先說自己對多肉植物有興趣，AI 給了方向後，學生再補一句「我們學校只有 LED 燈和基本溫室」，就這樣一步步逼近、收斂，最後生出「探討特定波長對水分吸收與氣孔開閉的影響」這個操縱變因具體又新穎的題目。這就是用 AI 做智能增強最標準的一套作法。"]},
+
+{t:"Gemini：從高中生物實驗延伸發想",
+b:["再來認識 Google 的 Gemini。我特別推薦大家拿 Gemini 來做「課堂基礎實驗的延伸發想」。對高中生來說，要憑空生出一個全新又高難度的實驗，真的很難；最穩的作法，其實是從課本既有的實驗去改良。Gemini 對課綱教材和基礎科學實驗的理解相當深。舉個例子，從生物課經典的「酵母菌發酵實驗」出發，你可以請它幫你想：怎麼引進新的操縱變因——像光照、磁場或某種添加物——再用學校現成的量筒、針筒做定量測量。這樣一來，實驗的可行性跟器材的取得就都顧到了。"]},
+
+{t:"範例解析：Gemini 生物實驗發想實作",
+b:["這頁是用 Gemini 改良生物實驗的實際畫面。這個例子裡，我們想改良酵素活性實驗，於是請 Gemini 評估：如果拿市售的家用清潔劑當作酵素抑制劑，去探討不同 pH 值下的反應，這樣的設計可行嗎？Gemini 不只幫我們列出詳細的操縱變因和控制變因，還給了一份實驗設計初稿，甚至主動提醒了操作時要注意的安全隱患，像是強酸強鹼的防護。透過這樣的發想，同學就能在既有實驗的基礎上，順順地延伸出一個屬於自己的探究計畫。"]},
+
+{t:"Claude：從歷屆科展報告提煉研究靈感",
+b:["科學研究裡很核心的一步，是文獻回顧——搞清楚前人到底做到哪了。這時候，Claude 會是你的好幫手，它特別擅長精讀長文本和 PDF。當你從科展網站抓下學長姐的得獎報告，就直接把檔案丟給 Claude，然後下指令：「幫我精讀這篇，找出作者提到的『研究局限』和『未來展望』，再據此幫我想三個可以接著做下去的改良方向。」這就是「站在巨人的肩膀上」的意思。Claude 能很有效率地幫你揪出前人報告裡還沒被講透的科學漏洞，那往往就是你研究靈感的起點。"]},
+
+{t:"範例解析：Claude 分析歷屆報告實作",
+b:["這頁是 Claude 的實作畫面。我們上傳了一篇關於「植物排他作用」的科展得獎報告 PDF，請 Claude 分析。它很精準地指出：原作者雖然探討了不同濃度的化學物質對作物的影響，卻漏掉了真實土壤裡微生物對這個物質的分解效應——而這正好是原作者在報告結尾的未來展望裡提到的。有了這條線索，學生就可以把「不同土壤菌群對該化學排他物質分解速率的影響」設成新題目。這就是用 Claude 深度精讀、專門找科學漏洞的經典示範。"]},
+
+{t:"Perplexity：聯網文獻搜尋與實驗架構設計",
+b:["有了題目，接著就要把實驗步驟設計出來，這時候得有可靠的學術文獻撐腰，Perplexity 就是首選。它最大的優勢是「聯網而且附上精準引用」。你輸入一個具體的科學問題，比方說「怎麼萃取大蒜裡的大蒜素，再拿去做大腸桿菌的抑菌圈實驗？」它不會憑空亂講，而是即時去檢索學術期刊，把標準的實驗步驟整理出來，每個關鍵步驟後面還標好引用出處。你點下去就能讀到原始論文，這對提升實驗架構的學術嚴謹度，幫助非常大。"]},
+
+{t:"範例解析：Perplexity 設計實驗實作",
+b:["這頁是 Perplexity 的搜尋結果。當我們問起某個植物萃取物抑菌實驗該怎麼設計，它給的不是空泛的建議，而是一份蠻完整的實驗指南：萃取溶劑怎麼選（例如 95% 乙醇）、實驗組和對照組的濃度怎麼設、培養箱的溫度和時間又該抓多少。最棒的是，這些數據後面都掛著藍色的文獻來源。做專題最忌諱的，就是實驗參數「自己亂猜」；有了 Perplexity，我們就能理直氣壯地在報告裡寫明：我的實驗設計是參考某某學術文獻而來。這才是做科學該有的態度。"]},
+
+{t:"Felo Search：跨語言學術搜尋與設計",
+b:["很多同學做專題，卡住的往往不是科學邏輯，而是「英文文獻讀不動」。偏偏最新、最深入的研究多半是英文發表的。這時候，Felo Search 就是你的跨語言救星。它是一個很強的跨語言學術搜尋引擎，你只要用最熟悉的中文把研究問題打進去，比方說「微塑膠對水蚤心跳率的影響」，它會在後台自動把問題翻成英文，去全球頂尖的學術資料庫裡檢索，再把找到的英文文獻用流暢的中文摘要回給你，語言這道牆就這樣輕鬆跨過去了。"]},
+
+{t:"範例解析：Felo Search 介面與搜尋實作",
+b:["來看一下 Felo Search 的實作介面。這張圖裡，我們用中文輸入了「微塑膠水蚤實驗」相關的查詢。你會發現，右側的檢索結果其實背後查的是一堆英文學術論文，像 PubMed 之類的。Felo Search 真正的價值在「系統化整理」——它會把這些論文的核心結論、實驗方法，用中文條列在左邊。對同學在寫報告前期做「背景文獻調研」、或是動筆寫前言的時候，這是個效率很高的工具。你可以在幾分鐘內把好幾篇國外論文的精華看完，很快就把自己的文獻基礎建起來。"]},
+
+{t:"Felo AI：文獻搜尋與多模式整理",
+b:["最後看 Felo AI 的文獻搜尋和多模式整理。做專題要用到的資料其實很雜：有時候你需要很嚴謹的學術論文，有時候想看看社群上其他實驗愛好者怎麼討論，甚至偶爾還得追即時的新聞。Felo AI 提供了不同檢索模式可以切換，讓你一鍵在「學術模式」、「社交模式」和「即時模式」之間跳。它有個我很喜歡的本事，是會自動把搜到的文獻做「觀點分類」。比方說你查一個有爭議的科學議題，它能幫你分門別類，把「支持方的實驗證據」和「反對方的實驗證據」各自整理出來——這對寫專題的討論章節，真的很有幫助。"]},
+
+{t:"範例解析：Felo AI 文獻整理實作",
+b:["同學們，剛開始做專題，最頭痛的就是找文獻。這頁我想分享一個我很常用的工具——Felo AI。",
+"看這張實作畫面。以前我們用 Google 搜尋，回來的東西常常夾雜一堆論壇文章、商業廣告。但 Felo AI 的「學術專用模式」很厲害，它會自動幫我們把那些無效的雜訊濾掉，把範圍限縮在經過同儕審查（Peer-reviewed）的學術論文裡。",
+"更厲害的是，它不只把文獻找出來，還會自動分類，甚至直接生出一張結構清楚的主題對比表格，把每篇文獻的研究目的、方法、結論排得一清二楚。這就是我常講的 IA——讓 AI 幫我們省掉繁瑣的整理時間，把心力留給真正重要的科學思辨。"]},
+
+{t:"Felo AI：基於文獻自動生成實驗步驟",
+b:["看完文獻，接著就是設計實驗步驟。以前大家常犯一個錯：從好幾篇不同論文裡東抄一句、西湊一段，結果搬進實驗室根本做不出來。",
+"現在我們可以讓 Felo AI 幫忙設計流程。它的邏輯是：主動去整合多篇相關論文的實驗方法，把其中最關鍵、最合理的步驟濾出來，輸出一條邏輯完整的實驗流程。",
+"拿「植物色素層析實驗」來說，AI 不只能列出層析液的配比、點樣點該間隔多遠，還會提醒你哪些變因可能影響結果。這樣做最大的好處，就是能大幅減少同學「自己拼湊」造成的漏洞跟錯誤；還沒動手，你手上就先有一份有文獻撐腰的科學指南。"]},
+
+{t:"範例解析：Felo AI 步驟生成實作",
+b:["好，我們直接看這個實作範例。把植物色素層析的初步想法丟給 Felo AI 之後，它是怎麼處理的呢？",
+"你會看到，AI 不只是給一張簡單的步驟清單，它很貼心地整理成一份完整的「實驗手冊」，裡面清楚分成三塊：詳細的實驗步驟、需要的各項耗材（連規格和安全量級都標了），還有最重要的——實驗安全注意事項。",
+"在麗山，我們對實驗室的安全跟嚴謹是很要求的。有了這份自動生成的手冊，同學就能帶著明確的清單和步驟，直接進實驗室做初步的預備測試，不會因為丟三落四而白白浪費掉寶貴的材料。"]},
+
+{t:"Deep Research：AI 深度調研與文獻探討",
+b:["同學們，做專題，文獻探討不能只停在表面。這裡要介紹一個進階概念——「Deep Research（深度調研）」，主要靠 Felo Search 和 Perplexity 這兩個工具來實現。",
+"傳統搜尋，你輸入關鍵字，它就回你一次結果。但 Deep Research 的邏輯完全不同：你給它一個研究主題，它會像個專業研究員一樣做「多步驟搜尋」——先查第一批文獻，從裡面找出關鍵線索，再自動發起第二次、第三次的延伸搜尋，一路追蹤文獻的引用鏈。",
+"最後，它能幫你生出一份結構很完整、又附上詳實學術引用的文獻探討初稿，讓你很快就把研究背景的知識地圖建起來。"]},
+
+{t:"ChatGPT：從深度文獻調研到專業報告",
+b:["當我們靠 Deep Research 搜到夠多文獻之後，下一步就是把這些零散的資訊彙整成一份像樣的學術報告，這時候可以請 ChatGPT 出手。",
+"看這張實作圖。我們把多篇文獻的核心發現和觀點輸進去，引導 ChatGPT 去寫報告初稿。它的長處是語言組織能力很強，能用流暢又嚴謹的學術筆調，把研究動機、背景說明和文獻引言都鋪陳出來。",
+"不過我要特別提醒大家：AI 寫出來的初稿，一定要逐字審查、查核，確認它沒有憑空捏造的幻覺。AI 是幫我們加快寫作速度沒錯，但科學的真實性，得由我們自己百分之百把關。"]},
+
+{t:"Gemini：研究計畫的可行性評估",
+b:["實驗設計寫好了，正式動手之前，我們該怎麼判斷它到底可不可行？這時可以用 Google 的 Gemini，幫整個研究計畫做一次全面的「預審」。",
+"看這頁的實作畫面。我們把寫好的化學實驗設計上傳給 Gemini，它的分析能力很強，能幫我們點出很多容易被忽略的漏洞：化學藥品的廢棄物要怎麼處理？實驗過程會不會產生有毒氣體？是不是漏了關鍵的空白對照組？",
+"透過這種「虛擬評審」的對話，我們能在真正下實驗之前就先修正設計，把潛在的漏洞跟安全風險避開。這在專題裡，是很關鍵的一道防錯機制。"]},
+
+{t:"Gemini：科展報告的深度診斷與優化",
+b:["寫科展或專題報告到了後期，最常見的毛病就是「數據很漂亮，但結論推過頭」。這時候，Gemini 就能當一個很嚴格的評審。",
+"我通常會帶學生把寫好的科展說明書整份上傳給 Gemini，下指令：「請扮演嚴格的科展評審，針對這份報告的邏輯和結構做深度診斷。」",
+"Gemini 會很犀利地指出，你某些結論是不是推得太牽強，或者你的數據量其實撐不起這個論點。它還會給很具體的修改方向，告訴你哪段論述要加強、哪裡得補實驗。這樣磨出來的報告，等到真的面對評審提問時，才站得住腳。"]},
+
+{t:"第三單元：研究文獻與資料整理",
+b:["各位同學，我們進到第三單元：「研究文獻與資料整理」。",
+"做專題，很多同學一開始熱血滿滿，下載了上百篇文獻，結果一個月後，桌面塞滿了 document (1).pdf、test.pdf 這種檔名，根本想不起來哪一篇講了什麼。這種「文獻一團亂、追不回來」的痛，我相信每個人都嘗過。",
+"這個單元，我想帶大家建立一個現代科學家該有的習慣——「建構自己的科學知識庫」。我們會學怎麼搭配 Notion 和 Google 的 NotebookLM 這兩個工具，把文獻有系統地搜集、精讀、提煉，做出一條井然有序的專題工作流。"]},
+
+{t:"文獻管理的痛點與知識管理思維",
+b:["常說「工欲善其事，必先利其器」，但在動用利器之前，腦袋裡的觀念得先換掉。",
+"文獻管理通常有兩個痛點：一是下載了幾十篇，過幾天就忘了每篇的核心結論和關鍵數據擺在哪；二是寫報告要標引用時，回頭去翻原始文獻，結果怎麼都對不上。",
+"要解決它，得引進知識管理裡最重要的一個觀念——「單一真理來源（Single Source of Truth）」。意思是，所有的文獻大綱、數據、閱讀筆記，都該集中在同一個查得到的數位筆記系統裡。再搭配 AI 幫我們快速擷取文獻的關鍵欄位、自動生成結構化大綱，零散的資料就真的能變成知識。"]},
+
+{t:"Notion：系統化搜集與整理研究文獻",
+b:["那「單一真理來源」要怎麼落地？我很推薦大家用 Notion。",
+"在 Notion 裡，你可以替自己的專題建一個「科展文獻管理資料庫」。這個資料庫就像一個聰明的圖書館目錄，用表格記下每篇文獻的標題、作者、發表年份，再加上自訂標籤，像「光合作用」、「葉綠素螢光」，甚至標上閱讀狀態，例如「未讀」、「閱讀中」、「已提煉」。",
+"這樣結構化整理之後，不管研究走到哪個階段，你都能在幾秒內篩出需要的文獻。對於多人線上協作的科展團隊來說，這更是提升效率的利器。"]},
+
+{t:"Notion：提煉文獻核心重點與研究方法",
+b:["在 Notion 資料庫裡，每一個文獻條目點開，其實都是一個獨立的筆記頁面。這個頁面，就是我們做更深一層「提煉」的地方。",
+"我會建議同學在每頁裡建一套固定的閱讀模板，抓三個重點：這篇文獻的核心摘要、它用的關鍵圖表和研究方法，還有你自己的閱讀心得跟它對你專題的啟發。",
+"尤其，你可以把這篇論文的研究變因整理成一張「實驗變因對照表」。等之後要寫說明書的文獻探討，直接把這些卡片裡提煉好的文字複製過去、稍微調一下，文獻探討就成形了，再也不用回頭翻那一疊厚厚的 PDF。"]},
+
+{t:"NotebookLM：專屬文獻閱讀與理解助理",
+b:["接下來要介紹的，是最近在學術圈很紅的一款工具——Google 做的 NotebookLM。這是我目前看過，最適合高中生拿來做專題的文獻閱讀助理。",
+"它的核心設計很特別。一般的 AI 對話工具，回答是建立在整個網路的海量資料上，所以很容易產生「AI 幻覺」、開始胡說。但 NotebookLM 走的是「封閉式知識庫」的邏輯。",
+"你可以在裡面開一個主題筆記本，丟進你自己的 10 篇、20 篇 PDF。從此之後，它所有的回答都只會根據你上傳的這些文獻，不只精準，還會在答案裡附上引用的原文出處和頁碼，點下去就能對照——AI 幻覺這個痛點，等於被它直接解掉了。"]},
+
+{t:"NotebookLM：從文獻中挖掘後續研究題目",
+b:["做專題的同學最常來問我：「老師，我想做這個主題，可是接下來不知道能做什麼？」這就是我們常說的，找不到「研究空白（Research gap）」。",
+"這時候，看投影片上 NotebookLM 的對話實作。你可以上傳五篇跟你主題高度相關的植物生理學論文，然後在對話框直接問：「根據這幾篇文獻，目前科學界在這個領域還有哪些沒解決的問題？或者作者在 Future Work 裡建議了什麼？」",
+"AI 會瞬間幫你掃過這五篇的討論章節，把現在的研究空白整理出來。從這裡頭去挑、去發想你的題目，你的題目就會有很扎實的學術根基——這就是科學研究起步的方法。"]},
+
+{t:"NotebookLM：建構您的專屬研究工作室",
+b:["當你把所有文獻、筆記都整理進 NotebookLM 之後，它就不只是個閱讀器，而是你的「專屬研究工作室」了。它支援的文檔輸入很多元，Google 文件、PDF，甚至網頁連結都行。",
+"它有個很酷、也是很多同學最愛的功能，叫「一鍵生成音訊簡報（Audio Overview）」。它會把你上傳的複雜英文論文，自動變成一段很生動的雙人對話英文 Podcast。",
+"很多同學怕讀英文論文，我常建議：在硬啃文獻之前，先用 NotebookLM 生一段 Podcast，戴上耳機用聽的，幾分鐘內就能很輕鬆地抓住這幾篇論文的核心概念和爭辯焦點。這招對減輕讀英文文獻的焦慮，效果真的很好。"]},
+
+{t:"Gemini Canvas：將研究轉換為網頁與語音",
+b:["研究有了一點成果之後，怎麼向大眾或評審展示，也是很重要的能力。這時候可以用 Google Gemini 的 Canvas 功能來幫忙。",
+"看這張實作圖。我們可以用 Canvas，把科展說明書或摘要報告直接改寫、生成一個漂亮的 HTML 網頁，用來呈現實驗流程、數據圖表和互動成果。",
+"而且它還能一鍵把文字轉成高音質的語音發表。在做海報展示（Poster presentation）演練時，這就是一份很標準的中英文發表範本。靠這種多元的媒體呈現，能讓你的專題成果看起來更立體、更有吸引力。"]},
+
+{t:"第四單元：數據統計與圖表製作",
+b:["同學們，第四單元來了：「數據統計與圖表製作」。",
+"在科學探究裡，數據就是靈魂。可是很多時候，我們做實驗記下來的數據又雜又亂，欄位不齊，甚至不知道從何整理起。",
+"這個單元，我想教大家把 AI 當成數據分析助手。我們不只要學會用 AI 清洗、整理那些亂糟糟的實驗數據，更重要的是，要畫出符合學術規範、出版等級的精美科學圖表。我們還會把統計檢定的基本邏輯弄清楚，讓 AI 幫我們跑 t 檢定或 ANOVA——因為只有通過了統計檢定，我們才能很有底氣地說：我的實驗結果，是有「顯著差異」的。"]},
+
+{t:"科學圖表繪製規範與美化原則",
+b:["動手畫圖之前，先講一個很重要的觀念：科學圖表是有嚴格規範的，絕對不能隨便亂畫。",
+"第一是清晰度，坐標軸的名稱和物理單位一定要標清楚，不能只丟一串數字。第二是資料完整度，如果你做了三次重複，圖上就一定要有標準差或標準誤的誤差線，不然你的數據就是不完整的。第三是配色，千萬別用 Excel 預設的那種亮紅、亮綠、亮藍，看起來很不專業；我們該用低飽和度、和諧一點的學術配色。",
+"我很推薦大家用 Python 的 Matplotlib 或 Seaborn 來做圖，至於做圖的程式碼，等一下就請 AI 幫忙生。"]},
+
+{t:"ChatGPT：實驗數據統計與圖表生成",
+b:["好，我們具體看看怎麼請 ChatGPT 幫我們分析數據、畫圖。",
+"ChatGPT 有個很強的功能叫 Advanced Data Analysis（進階數據分析）。你可以直接把實驗記錄的 Excel 或 CSV 丟上去，然後用平常講話的口吻下指令，例如：「幫我算這三組重複實驗的平均值和標準差，畫成一張含誤差線的長條圖，配色用莫蘭迪色系。」",
+"ChatGPT 就會在後台自動寫 Python、跑運算、把圖生給你。如果坐標軸標籤出現亂碼，你也可以直接跟它說「把坐標軸字體換成 Times New Roman」，它馬上幫你改。這比我們自己在 Excel 慢慢拉圖表，快得多、也專業得多。"]},
+
+{t:"Gemini：實驗數據分析與做圖",
+b:["除了 ChatGPT，Google 的 Gemini 在數據分析和做圖上也很出色，看這張實作圖。",
+"Gemini 的優勢是繪圖風格簡潔大方，處理大數據集的速度也快。比方說做「溫度與酵素活性關係」這種題目，我們累積了不同溫度下好幾十組活性數據。",
+"我們可以把數據表直接傳給 Gemini，請它分析酵素活性的最大值和溫度趨勢，再生出對應的 Python 繪圖程式碼。最棒的是，它會主動解釋這個趨勢在科學上代表什麼意思，連繪圖程式碼都附上註解——讓同學不只拿到一張圖，還順便學會背後的 Python 繪圖邏輯，這才叫真的學到東西。"]},
+
+{t:"Gemini：實驗數據的統計檢定",
+b:["最後，當我們把實驗組和對照組的圖畫出來，看到實驗組好像比較高，就能直接下結論說它有效嗎？不行。在科學上，我們得透過「統計檢定」來證明，這不是偶然發生的隨機誤差。",
+"這時可以把數據交給 Gemini，下指令：「幫我對 A 肥料組和 B 肥料組的植物生長高度，做獨立樣本 t 檢定。」",
+"Gemini 會在後台跑統計分析，把 p 值算出來。更好的是，它不會只丟一堆統計術語給你，而是用白話解釋：「因為 p 值小於 0.05，代表這兩種肥料對植物高度的影響達到了顯著差異。」這能讓你的報告，在嚴謹度上一口氣往上跳好幾級。"]},
+
+{t:"Gemini：使用 Canvas 生成數據互動網頁",
+b:["各位同學，麗山的專題不只要求實驗扎實，怎麼把成果呈現出來也是關鍵。以前你想做一個酵母菌生長曲線的模擬，大概只能在簡報放一張靜態圖。現在，透過 Gemini 的 Canvas，你只要用自然語言描述，它就能幫你生出 HTML 加 JavaScript 的互動網頁。你可以把它當成數據模擬器，讓評審在現場拉動拉桿，調整溫度或養分濃度，即時看到生長曲線怎麼跟著變。這種「動態模擬」的互動感，絕對能讓你的發表在一堆作品裡跳出來，也是 AI 作為智能增強器最漂亮的一種實踐。"]},
+
+{t:"科學圖表視覺化示例",
+b:["大家看看這張符合科展規範的統計圖表。在科學傳播裡，數據圖表就是你的說服力。一張合格的學術圖表，絕不能雜亂無章，也不能套 Excel 預設樣式。幾條鐵律請記牢：坐標軸要有清楚的標籤、明確的單位、好讀的圖例，還有把話講完整的標題。圖表設計要捨掉那些花俏又沒用的元素，版面保持清爽、解析度要夠。當評審看到這麼精美又嚴謹的數據可視化，他對你研究成果的信任度，會在那一瞬間拉高。記住，圖表是讀者和評審理解你研究最快的一條路，絕對不能馬虎。"]},
+
+{t:"Claude：強大的程式撰寫與數據處理",
+b:["麗山的專題，有不少組會碰到程式建模或是大量的數據處理，這時候 Claude 就是你們最強的後盾。在這麼多 LLM 裡頭，Claude 的程式碼品質和邏輯縝密度，是公認頂尖的。不管你是要寫一段複雜的 Python 去清理亂掉的實驗數據，還是要建統計分析模型，Claude 都能寫出結構清楚、註解詳細的程式碼。如果你的作品需要大量建模或機器學習，多用 Claude 幫你抓程式裡的 Bug，整個研究步調會快很多，你也才能把精力專心放在科學機制的討論上。"]},
+
+{t:"Claude.AI：利用 Artifacts 即時呈現互動程式",
+b:["我特別想跟同學推薦 Claude.AI 的 Artifacts 功能。以前我們要展示自己寫的演算法，像是基因序列比對工具或生態系模擬程式，通常得先在電腦上架一套複雜的開發環境。現在，Claude 可以直接在右側視窗執行 HTML/JS 的互動應用，你在對話中就能測試這些程式，當場看到演算法怎麼跑、視覺效果長什麼樣。這對口頭報告幫助很大——你可以直接秀一個活生生的互動模擬給評審看，研究的互動性和視覺吸引力都大大加分，絕對是科展展示的一大利器。"]},
+
+{t:"Claude：實驗數據分析與折線圖繪製",
+b:["收集到實驗數據之後，怎麼把它變成折線圖來呈現趨勢呢？我們可以用 Claude 來寫 Python 的 Matplotlib 繪圖程式。舉個例子，你想畫出不同時間點下細菌菌落數的變化，只要把數據丟給 Claude、把繪圖需求講清楚，它就能寫出高度客製的程式碼：折線粗細、數據點樣式、格線透明度都幫你調好，連符合學術論文美感的配色都替你挑。這比你在一般試算表裡拉出來的預設圖表專業太多，能很精準地把實驗的動態趨勢呈現出來。"]},
+
+{t:"Claude：實驗數據分析與散佈圖/長條圖",
+b:["除了呈現時間趨勢的折線圖，在探討變因關係時，我們也常需要畫散佈圖或長條圖。比方說要分析葉片長度和寬度的相關性，或是比較實驗組和對照組的差異。Claude 不只能幫你寫程式畫散佈圖，還能順手幫你做線性擬合，在圖上自動標出判定係數 R 平方值和擬合曲線方程式。這樣評審一眼就能看出你的變因之間有沒有顯著相關，用嚴謹的數學方程式去佐證你的生物學發現，數據的呈現也就更有說服力、更有學術厚度。"]},
+
+{t:"實作指南：引導 Claude 進行科學做圖",
+b:["想讓 Claude 幫你畫出完美的科學圖表，有幾個引導技巧一定要學會。第一，給它明確的資料格式，比方把 CSV 的欄位名稱和前幾筆範例數據貼給它。第二，指定清楚要用 Python 的 matplotlib 和 seaborn。第三，下具體的樣式指令，例如「用 Arial 字體、解析度設 300 DPI、採無框線的極簡風格」。最後，一定要要求它輸出「完整、可以直接執行的程式碼」，別讓它丟你片段。照這套指南走，你一次就能拿到能直接放進論文或海報的高品質科學圖表。"]},
+
+{t:"Julius.AI：專為數據分析而生的 AI",
+b:["如果你的專題碰到非常龐大或複雜的數據表格，一般的 AI 工具可能會運算超載，這時我推薦專為數據分析設計的 Julius.AI。你直接把 Excel 或 CSV 上傳，它就能讀懂表格結構，自動生出精美的分析圖表。更強的是，它能幫你做高階的統計分析，像多元線性迴歸、主成分分析（PCA）或變異數分析（ANOVA）。對做高階科展、或大學專題的同學來說，Julius.AI 能省掉你手寫統計程式的繁瑣過程，幫你很快地從一堆雜亂數據裡，挖出背後的關鍵科學規律。"]},
+
+{t:"NotebookLM：從文獻直接產出簡報大綱",
+b:["實驗做完，準備開始做投影片時，很多同學會盯著空白畫面不知道怎麼下筆。這時可以請 Google 的 NotebookLM 幫忙。你把讀過的所有參考文獻、實驗日誌、草稿全部上傳，建一個專屬筆記本，再用它內建的研究指南功能，請它根據這些資料，整理出一份緊扣你研究內容、邏輯清楚的簡報大綱。這樣產出來的架構不只邏輯嚴密，每一頁的論點都扣著文獻和你的實驗證據——能幫學生很快把口頭報告的專業骨架搭起來。"]},
+
+{t:"NotebookLM：文獻工作室的資訊可視化",
+b:["NotebookLM 不只會幫我們整理文字，它也是文獻工作室裡的資訊可視化幫手。大家知道，科展海報的版面配置很講究邏輯的流向。你可以請 NotebookLM 把繁雜的文獻和實驗步驟，先生成簡明的摘要或 FAQ 問答集，再進一步轉成適合做資訊圖表（Infographics）的結構大綱。這能很有效地幫你規劃海報版面——決定哪裡該擺示意圖、哪裡放流程圖。整個科學傳播的效率會拉高很多，把枯燥的學術文字，變成評審一秒就懂的視覺盛宴。"]},
+
+{t:"科展數據清理與異常值處理原則",
+b:["在麗山，我們對科學誠實的要求是沒有妥協空間的。清理實驗數據的時候，絕對不能因為某些數據不合你的預期或假說，就隨手把它刪掉——這在學術倫理上是嚴重違規。我們得用嚴謹的統計方法去定義異常值，例如用 1.5 倍四分位距（IQR）規則。你可以請 AI 幫你寫程式去偵測、標示這些異常值，但在最後的報告裡，你必須誠實註明：這些數據是基於什麼統計原因被排除的。唯有這樣，你的數據分析才談得上可重複、也才是真實的。"]},
+
+{t:"數據顯著性分析 (p值) 的 AI 判讀",
+b:["專題裡我們常會看到顯著性分析，也就是大家常聽到的 p 值。當 p 小於 0.05，代表兩組數據在統計上有顯著差異，你的實驗處理效果不是碰巧的。AI 可以當個好幫手，幫你寫 t 檢定或單因子變異數分析的程式，做初步的判讀。但我要提醒一個常見的盲點：統計上的顯著差異，不等於生物學上的因果關係。你還是得結合生物學原理，去合理解釋為什麼會出現這樣的差異。我們也可以用 AI 做事後多重比較（Post-hoc test）的雙重驗證，讓推論更嚴謹。"]},
+
+{t:"第五單元：簡報設計與海報生成",
+b:["各位同學，我們進到第五單元：簡報設計與海報生成。做科學研究，除了實驗本身要扎實，怎麼把成果「說出來」、「展示出來」，同樣決定了一份研究的成敗。這個單元，我們要學怎麼借助 AI，把辛苦得來的實驗數據和科學推論，變成視覺效果好、邏輯又清楚的口頭簡報初稿和科展海報。把 AI 用好，排版和配色這些惱人的事它能幫你扛，你就能空出時間，專心去顧口頭發表的邏輯，還有評審問答的準備——上台時的說服力，自然就上來了。"]},
+
+{t:"科展海報的版面結構與視覺流向",
+b:["科展海報的版面規劃，就像一張地圖，要能牽著評審的視線走。標準的科展海報通常採三欄式：左欄放研究動機、目的和方法；中欄擺最核心的數據圖表；右欄是結論和討論。視覺重量最重、最吸睛的核心圖表，要擺在正中間去抓評審的目光。整個閱讀動線得遵循由左到右、由上到下，不能亂。大家可以先用 AI 簡報或排版工具，把各區塊的資訊圖表輸出、排好，預覽一下視覺流向，確認評審在短短幾分鐘內，就能看懂你研究的精髓。"]},
+
+{t:"Gemini：科學研究簡報的邏輯規劃",
+b:["在規劃簡報的初期，Gemini 是很好的邏輯引導工具。很多同學一做簡報，就直接打開 PowerPoint 開始刻投影片，結果邏輯零零碎碎、東一塊西一塊。我建議大家，把寫好的研究摘要先輸給 Gemini，要求它：「請根據這份摘要，生成一份 10 頁科學簡報的邏輯大綱。」Gemini 會照著標準的學術論文架構，從動機、假說、方法、結果一路到討論，幫你把合理的簡報敘事流鋪出來。這能省下你摸索架構的時間，也讓口頭報告的起承轉合，符合科學的邏輯。"]},
+
+{t:"Gamma：文獻整理報告的 AI 快速生成",
+b:["做專題的過程中，我們每週都要開實驗室會議報進度。如果每週都花上好幾個小時做精美投影片，其實很浪費時間。這時我推薦大家用 Gamma。你只要輸入想報告的主題、或一份簡單的大綱，Gamma 的 AI 就會自動幫你生出整份排版漂亮、配色又有現代感的簡報，它特別擅長卡片式的精緻版面。這種工具很適合每週的進度匯報，讓大家用最少的時間成本，快速整出一份結構完整的進度投影片，把寶貴的時間留給實驗室裡真正的討論和操作。"]},
+
+{t:"Canva AI：設計感十足的簡報生成",
+b:["當你的報告場合需要很高的視覺質感，比方要在全校的專題發表會上台，或對大眾做科普演講，Canva AI 就會是首選。它結合了本身非常龐大又精美的範本庫，再搭上 Magic Design AI 功能。你只要給它主題，它就能很快調好配色、字體和插圖風格，生出一份設計感十足的簡報。這能幫我們把專業的科學研究，用更有親和力、又不失專業質感的視覺包裝呈現出來，讓你的科學故事更吸引人，把年輕科學家的那股風采，好好地秀出來。"]},
+
+{t:"Felo AI：快速生成作品與專題簡報",
+b:["除了前面介紹的工具，Felo AI 也很值得試試。它最大的特色是「一鍵把長文檔變成簡報投影片」。當你已經寫好一份完整的專題計畫書、或是結案報告，只要直接餵給 Felo AI，它就能自動解析文件邏輯、抓出關鍵句，再幫你配上合適的圖標和排版。這能讓我們在很短的時間內，把一大篇純文字報告，提煉成一份清楚的展示大綱——要快速生出專題計畫簡報的時候，它是個很省時省力的好幫手。"]},
+
+{t:"Skywork：簡報自動生成工具",
+b:["做研究，閱讀和導讀學術論文是基本功。可是要把一篇十幾頁、滿滿專有名詞的英文論文，整理成一份導讀簡報，往往讓人很頭痛。Skywork 這款簡報自動生成工具，特別擅長把長篇文章提煉、結構化。你可以把複雜的學術論文交給它，它能自動把文章的架構抽出來，產出一份結構分明、重點突出的導讀簡報。在我們做文獻閱讀報告（Journal Club）的時候，它是個很好的輔助，讓你快速抓住文獻重點，再有條理地分享給同學和老師。"]},
+
+{t:"科展中的 AI 學術倫理與使用聲明",
+b:["簡報的最後，我要特別把最核心的一條原則講清楚，那就是學術倫理和 AI 使用聲明。我們用 AI，是為了「增強」自己的能力，不是「取代」自己的思考。寫科展說明書或簡報時，大家一定要遵守「誠實揭露原則」，在附錄裡把 AI 在選題、文獻整理、程式撰寫或排版上，用到的範圍和工具都講明白。請記得：實驗一定是你們親手做的，數據一定是真實的，AI 只是輔助工具。你的簡報、你的論文，裡頭每一個數據、每一句話的真實性，都得由你自己負起完全的責任。"]},
+
+{t:"結語與討論：開啟您的 AI 輔助專題研究之旅",
+b:["最後，我想送給同學們一句話：AI 是很強大的工具，是智能增強器（Intelligence Amplifier），但人類的科學思維、探究精神，還有對未知的那股熱情，才是科學研究最核心的靈魂。希望大家在用 AI 的同時，隨時保持批判性思考，守住學術倫理，老老實實地記下每一個數據。我相信，把這些 AI 工具掌握好，大家一定能展開一段非常精彩的 AI 輔助專題研究之旅。今天的課就到這裡，接下來進入 Q&A，很歡迎各位提出你的問題或想法，我們一起交流討論！"]}
+];
+
+let cur = 0;
+let autoTimer = null;       // stage autoplay
+let presentTimer = null;    // fullscreen autoplay
+let presentPlaying = false;
+
+const $ = id => document.getElementById(id);
+const mainImg = $('mainImg'), sideNum=$('sideNum'), sideTitle=$('sideTitle'),
+      sideBody=$('sideBody'), pageTag=$('pageTag'), filmstrip=$('filmstrip');
+
+// Build filmstrip
+SLIDES.forEach((s,i)=>{
+  const cell=document.createElement('div'); cell.className='thumb-cell';
+  const img=document.createElement('img'); img.className='thumb';
+  img.loading='lazy'; img.src=IMG(i+1); img.dataset.idx=i;
+  img.title=`第 ${i+1} 頁：${s.t}`;
+  img.addEventListener('click',()=>{stopAuto();goTo(i);});
+  const tn=document.createElement('span'); tn.className='tn'; tn.textContent=i+1;
+  cell.appendChild(img); cell.appendChild(tn);
+  filmstrip.appendChild(cell);
+});
+
+function render(){
+  const s=SLIDES[cur];
+  mainImg.src=IMG(cur+1);
+  sideNum.textContent=`Slide ${cur+1}`;
+  sideTitle.textContent=s.t;
+  sideBody.innerHTML=s.b.map(p=>`<p>${p}</p>`).join('');
+  sideBody.scrollTop=0;
+  pageTag.textContent=`${cur+1} / ${TOTAL}`;
+  // filmstrip active
+  document.querySelectorAll('.thumb').forEach(t=>{
+    const on = (+t.dataset.idx===cur);
+    t.classList.toggle('active',on);
+    if(on) t.scrollIntoView({block:'nearest',inline:'center'});
+  });
+  // present view
+  if($('present').classList.contains('active')){
+    $('presentImg').src=IMG(cur+1);
+    $('pTag').textContent=`${cur+1} / ${TOTAL}`;
+  }
+}
+function goTo(i){ cur=(i+TOTAL)%TOTAL; render(); }
+function next(){ goTo(cur+1); }
+function prev(){ goTo(cur-1); }
+
+// ---- Stage autoplay ----
+function getSpeed(){ let v=parseFloat($('speedInput').value); return (isNaN(v)||v<1)?8:v; }
+function startAuto(){
+  stopAuto();
+  $('autoBtn').textContent='⏸ 暫停播放';
+  autoTimer=setInterval(next, getSpeed()*1000);
+}
+function stopAuto(){
+  if(autoTimer){clearInterval(autoTimer); autoTimer=null;}
+  $('autoBtn').textContent='▶ 自動播放';
+}
+$('autoBtn').addEventListener('click',()=>{ autoTimer?stopAuto():startAuto(); });
+$('speedInput').addEventListener('change',()=>{ if(autoTimer) startAuto(); });
+
+$('nextBtn').addEventListener('click',()=>{stopAuto();next();});
+$('prevBtn').addEventListener('click',()=>{stopAuto();prev();});
+
+// ---- Theme ----
+$('themeBtn').addEventListener('click',()=>{
+  document.body.classList.toggle('dark');
+  const d=document.body.classList.contains('dark');
+  $('themeBtn').textContent = d?'☀️ 淺色':'🌙 深色';
+});
+
+// ---- Fullscreen presentation ----
+function getPSpeed(){ let v=parseFloat($('pSpeed').value); return (isNaN(v)||v<1)?8:v; }
+function openPresent(){
+  stopAuto();
+  $('present').classList.add('active');
+  $('presentImg').src=IMG(cur+1);
+  $('pTag').textContent=`${cur+1} / ${TOTAL}`;
+  $('pSpeed').value=$('speedInput').value;
+  if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(()=>{});
+  startPresentPlay();
+}
+function closePresent(){
+  stopPresentPlay();
+  $('present').classList.remove('active');
+  if(document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+}
+function startPresentPlay(){
+  stopPresentPlay();
+  presentPlaying=true; $('pPlay').textContent='⏸';
+  presentTimer=setInterval(next, getPSpeed()*1000);
+}
+function stopPresentPlay(){
+  if(presentTimer){clearInterval(presentTimer); presentTimer=null;}
+  presentPlaying=false; $('pPlay').textContent='▶';
+}
+$('presentBtn').addEventListener('click',openPresent);
+$('pExit').addEventListener('click',closePresent);
+$('pPlay').addEventListener('click',()=>{ presentPlaying?stopPresentPlay():startPresentPlay(); });
+$('pSpeed').addEventListener('change',()=>{ if(presentPlaying) startPresentPlay(); });
+$('pNext').addEventListener('click',()=>{stopPresentPlay();next();});
+$('pPrev').addEventListener('click',()=>{stopPresentPlay();prev();});
+document.addEventListener('fullscreenchange',()=>{
+  if(!document.fullscreenElement && $('present').classList.contains('active')) closePresent();
+});
+
+// ---- Keyboard ----
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown'){ stopAuto();stopPresentPlay();next(); }
+  else if(e.key==='ArrowLeft'||e.key==='PageUp'){ stopAuto();stopPresentPlay();prev(); }
+  else if(e.key==='Escape'){ if($('present').classList.contains('active')) closePresent(); }
+  else if(e.key===' '){ e.preventDefault();
+    if($('present').classList.contains('active')){ presentPlaying?stopPresentPlay():startPresentPlay(); }
+    else { autoTimer?stopAuto():startAuto(); }
+  }
+  else if(e.key==='f'||e.key==='F'){ if(!$('present').classList.contains('active')) openPresent(); }
+});
+
+// ---- Touch swipe (stage + present) ----
+let tsx=0, tsy=0;
+function bindSwipe(el, onLeft, onRight){
+  el.addEventListener('touchstart',e=>{tsx=e.changedTouches[0].clientX; tsy=e.changedTouches[0].clientY;},{passive:true});
+  el.addEventListener('touchend',e=>{
+    const dx=e.changedTouches[0].clientX-tsx, dy=e.changedTouches[0].clientY-tsy;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0?onLeft():onRight(); }
+  },{passive:true});
+}
+bindSwipe(document.querySelector('.stage'),()=>{stopAuto();next();},()=>{stopAuto();prev();});
+bindSwipe($('present'),()=>{stopPresentPlay();next();},()=>{stopPresentPlay();prev();});
+
+render();
+</script>
+</body>
+</html>

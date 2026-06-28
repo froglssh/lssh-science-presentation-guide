@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI輔助教學_實驗探究</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#ffffff; --ink:#1d2330; --sub:#5a6478;
+    --line:#e2e5ec; --accent:#2f6fed; --accent-soft:#eaf1ff;
+    --shadow:0 10px 30px rgba(30,40,70,.10);
+    --thumb-bg:#eef0f5;
+  }
+  body.dark{
+    --bg:#0e1116; --panel:#161b22; --ink:#e9edf4; --sub:#9aa4b6;
+    --line:#262c36; --accent:#5b8cff; --accent-soft:#1b2436;
+    --shadow:0 10px 30px rgba(0,0,0,.45);
+    --thumb-bg:#1b212b;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;height:100%;}
+  body{
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",sans-serif;
+    background:var(--bg); color:var(--ink);
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+    transition:background .3s,color .3s;
+  }
+  /* ===== Top bar ===== */
+  header{
+    flex:0 0 auto; display:flex; align-items:center; gap:16px;
+    padding:12px 22px; background:var(--panel); border-bottom:1px solid var(--line);
+    box-shadow:var(--shadow); z-index:5;
+  }
+  .title{font-size:clamp(18px,2vw,26px); font-weight:800; letter-spacing:.5px; white-space:nowrap;}
+  .title .tag{color:var(--accent);}
+  .controls{margin-left:auto; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .btn{
+    border:1px solid var(--line); background:var(--panel); color:var(--ink);
+    padding:8px 14px; border-radius:10px; font-size:15px; cursor:pointer;
+    display:inline-flex; align-items:center; gap:6px; transition:.18s; font-weight:600;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent);}
+  .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent);}
+  .btn.primary:hover{filter:brightness(1.08); color:#fff;}
+  .btn.active{background:var(--accent-soft); border-color:var(--accent); color:var(--accent);}
+  .sec-box{display:flex; align-items:center; gap:6px; font-size:14px; color:var(--sub);}
+  .sec-box input{
+    width:58px; padding:7px 8px; border:1px solid var(--line); border-radius:8px;
+    background:var(--panel); color:var(--ink); font-size:15px; text-align:center;
+  }
+  /* ===== Main ===== */
+  main{flex:1 1 auto; display:flex; min-height:0; gap:0;}
+  .stage{
+    flex:0 0 66%; max-width:66%; display:flex; align-items:center; justify-content:center;
+    padding:22px; position:relative; min-width:0;
+  }
+  .stage img{
+    max-width:100%; max-height:100%; object-fit:contain;
+    border-radius:12px; box-shadow:var(--shadow); background:#fff;
+  }
+  .nav-arrow{
+    position:absolute; top:50%; transform:translateY(-50%);
+    width:46px; height:46px; border-radius:50%; border:none; cursor:pointer;
+    background:rgba(0,0,0,.42); color:#fff; font-size:22px; display:flex;
+    align-items:center; justify-content:center; transition:.18s; opacity:.6;
+  }
+  .nav-arrow:hover{opacity:1; background:var(--accent);}
+  .nav-arrow.left{left:14px;} .nav-arrow.right{right:14px;}
+  .panel{
+    flex:1 1 34%; max-width:34%; background:var(--panel); border-left:1px solid var(--line);
+    display:flex; flex-direction:column; min-width:0;
+  }
+  .panel-head{
+    padding:20px 26px 12px; border-bottom:1px solid var(--line);
+  }
+  .panel-head .num{font-size:15px; color:var(--accent); font-weight:700; letter-spacing:1px;}
+  .panel-head h2{margin:6px 0 0; font-size:clamp(20px,1.7vw,26px); line-height:1.3; font-weight:800;}
+  .panel-body{
+    padding:18px 24px; overflow-y:auto; flex:1 1 auto;
+    font-size:clamp(16px,1.25vw,20px); line-height:1.85; color:var(--ink);
+    letter-spacing:.3px; text-align:justify;
+  }
+  .panel-body p{margin:0 0 14px;}
+  .panel-body::-webkit-scrollbar{width:8px;}
+  .panel-body::-webkit-scrollbar-thumb{background:var(--line); border-radius:8px;}
+  /* ===== Thumbnail strip ===== */
+  .strip-wrap{flex:0 0 auto; background:var(--panel); border-top:1px solid var(--line); position:relative;}
+  .counter{
+    position:absolute; top:-34px; left:22px; background:var(--accent); color:#fff;
+    font-size:14px; font-weight:700; padding:5px 12px; border-radius:20px 20px 0 0;
+  }
+  .strip{
+    display:flex; gap:10px; overflow-x:auto; padding:12px 16px; scroll-behavior:smooth;
+    -webkit-overflow-scrolling:touch;
+  }
+  .strip::-webkit-scrollbar{height:8px;}
+  .strip::-webkit-scrollbar-thumb{background:var(--line); border-radius:8px;}
+  .thumb{
+    flex:0 0 auto; width:124px; height:70px; border-radius:8px; overflow:hidden;
+    border:2px solid transparent; cursor:pointer; background:var(--thumb-bg); position:relative;
+    transition:.15s;
+  }
+  .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .thumb .tn{
+    position:absolute; left:4px; top:4px; background:rgba(0,0,0,.6); color:#fff;
+    font-size:11px; padding:1px 6px; border-radius:6px;
+  }
+  .thumb.active{border-color:var(--accent); box-shadow:0 0 0 2px var(--accent-soft);}
+  .thumb:hover{transform:translateY(-2px);}
+  /* ===== Footer ===== */
+  footer{
+    flex:0 0 auto; text-align:center; padding:8px; font-size:14px; color:var(--sub);
+    background:var(--panel); border-top:1px solid var(--line);
+  }
+  footer b{color:var(--ink);}
+  /* ===== Fullscreen show ===== */
+  .fs{
+    position:fixed; inset:0; background:#000; z-index:50; display:none;
+    align-items:center; justify-content:center;
+  }
+  .fs.on{display:flex;}
+  .fs img{max-width:100%; max-height:100%; object-fit:contain;}
+  .fs-bar{
+    position:absolute; bottom:18px; left:50%; transform:translateX(-50%);
+    display:flex; align-items:center; gap:14px; background:rgba(20,24,32,.78);
+    padding:10px 16px; border-radius:40px; color:#fff; font-size:15px;
+    opacity:.25; transition:.25s; backdrop-filter:blur(4px);
+  }
+  .fs-bar:hover{opacity:1;}
+  .fs-bar button{
+    background:none; border:none; color:#fff; font-size:20px; cursor:pointer;
+    width:34px; height:34px; border-radius:50%; transition:.15s;
+  }
+  .fs-bar button:hover{background:rgba(255,255,255,.18);}
+  .fs-bar .pg{min-width:64px; text-align:center; font-weight:600;}
+  .fs-bar input{
+    width:50px; padding:5px; border-radius:6px; border:none; text-align:center; font-size:14px;
+  }
+  .fs-close{
+    position:absolute; top:18px; right:22px; background:rgba(20,24,32,.6); color:#fff;
+    border:none; width:44px; height:44px; border-radius:50%; font-size:22px; cursor:pointer;
+    opacity:.4; transition:.2s;
+  }
+  .fs-close:hover{opacity:1; background:var(--accent);}
+  .progress{position:absolute; top:0; left:0; height:4px; background:var(--accent); width:0;}
+  /* responsive */
+  @media(max-width:860px){
+    main{flex-direction:column;}
+    .stage{flex:0 0 50%; max-width:100%; padding:12px;}
+    .panel{flex:1 1 auto; max-width:100%; border-left:none; border-top:1px solid var(--line);}
+    .panel-body{font-size:18px;}
+    .title{font-size:17px;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="title">AI輔助教學<span class="tag">_實驗探究</span></div>
+  <div class="controls">
+    <button class="btn" id="autoBtn">▶ 自動播放</button>
+    <div class="sec-box">每頁 <input id="secInput" type="number" min="1" max="120" value="8"> 秒</div>
+    <button class="btn" id="themeBtn">🌙 深色</button>
+    <button class="btn primary" id="fsBtn">⛶ 全螢幕播放</button>
+  </div>
+</header>
+
+<main>
+  <div class="stage">
+    <button class="nav-arrow left" id="prevBtn">‹</button>
+    <img id="slideImg" src="" alt="投影片">
+    <button class="nav-arrow right" id="nextBtn">›</button>
+  </div>
+  <aside class="panel">
+    <div class="panel-head">
+      <div class="num" id="pNum"></div>
+      <h2 id="pTitle"></h2>
+    </div>
+    <div class="panel-body" id="pBody"></div>
+  </aside>
+</main>
+
+<div class="strip-wrap">
+  <div class="counter" id="counter">1 / 64</div>
+  <div class="strip" id="strip"></div>
+</div>
+
+<footer>製作老師：臺北市立麗山高中　<b>林獻升老師</b></footer>
+
+<!-- Fullscreen -->
+<div class="fs" id="fs">
+  <div class="progress" id="fsProgress"></div>
+  <img id="fsImg" src="" alt="全螢幕投影片">
+  <button class="fs-close" id="fsClose">✕</button>
+  <div class="fs-bar">
+    <button id="fsPrev">‹</button>
+    <button id="fsPlay">▶</button>
+    <span class="pg" id="fsPage">1 / 64</span>
+    <button id="fsNext">›</button>
+    <span>秒</span><input id="fsSec" type="number" min="1" max="120" value="8">
+  </div>
+</div>
+
+<script>
+const SLIDES = [
+ {t:"科學探究與科展競賽的全方位指導手冊", x:"我常跟學生說，科展不是一場為了獎牌的比賽，而是一趟完整的探究旅程。真正要問的，不是「這個能不能得獎」，而是「你有沒有學會提出問題、設計方法、拿到證據、把話講清楚」——而且在被追問的時候，誠實說出自己懂到哪裡、還有哪裡沒把握。\n這套簡報，就是陪大家從研究啟航一路走到成果呈現與答辯，最後再回頭談談心態和賽後的反思。"},
+ {t:"這套課程要解決什麼問題", x:"帶過幾屆學生之後，我發現大家卡關的地方其實很像：選題、執行、呈現、答辯，每一關都有人掉下來。科展從來不是把一件作品包裝漂亮就好，它是一連串從問題、方法、證據到表達的訓練。\n這套課程想給老師的，是一套真的能拿來用的指導框架，而不是又一堆要學生背的名詞。"},
+ {t:"全套簡報的學習路線", x:"先給大家一張地圖。這套簡報會走過四大段：科展的價值與師生角色、評審到底在看什麼、完整的研究流程，最後是成果的呈現與答辯。\n知道自己現在站在哪一段，學習起來才不會迷路。每一段都可以單獨抽出來，當成一次課堂活動或一場指導會議。"},
+ {t:"科展的真正價值", x:"科展最珍貴的地方，是把課本裡的知識真的拿出來用一次。學生在這個過程中練的是解決問題、把研究講清楚、再回頭反省自己做得如何。\n我總是提醒：分數和名次會過去，但這段歷程養出來的能力會留下來。"},
+ {t:"科展是一個微縮科研生態", x:"可以把科展想成一個縮小版的科研世界。一切從一個問題開始，靠證據去支持推論，旁邊有同儕和老師不斷給回饋。\n至於競賽本身，它只是最後驗收成果的場地，不是研究的目的。學生若能體會這一點，做研究的心態會穩很多。"},
+ {t:"科學方法的三個核心動作", x:"科學方法說穿了就是三個動作：用實驗把證據攤開、用推論去解讀證據、再用驗證去檢查自己的解讀對不對。\n關鍵在於——每一步都要禁得起別人追問。學生如果答不出「你怎麼知道」，那一步就還沒站穩。"},
+ {t:"教師角色不是代做者", x:"這一頁我想特別跟老師們講。我們的角色是引路人、促進者、資源的連結者，有時候還是學生的心理後盾——但唯獨不是「代做的人」。\n給方法、給方向可以，替學生想、替學生做不行。一旦我們搶著動手，學生就失去了最該練的那一塊。"},
+ {t:"學生角色的五種轉換", x:"在科展裡，學生要學著轉換好幾種身份：好奇的觀察者、主動的研究者、嚴謹的記錄者，還有懂得協作的團隊成員。\n這些角色不是天生會的，是在一次次實作裡慢慢長出來的。老師可以不時問學生：你現在是哪一種角色？做得夠不夠？"},
+ {t:"團隊作品的特殊挑戰", x:"團隊作品有個容易被忽略的陷阱：把工作切成幾塊各做各的，最後拼起來。但評審會一個個問下去，看每個人到底懂多少。\n真正好的團隊是互補而且彼此理解的——不管被問到哪一段，每個成員都要能說清楚整個研究在做什麼。"},
+ {t:"評審到底在看什麼", x:"換到評審的位子來想一想。他們看的不外乎這幾件事：你的科學思考清不清楚、題目有沒有原創與新意、研究設計站不站得住、數據和證據夠不夠力。\n這頁很適合做模擬問答：一人扮評審丟尖銳問題，另一人練習先講結論、再補證據、最後說明限制。"},
+ {t:"評審標準一：問題與原創性", x:"先談第一個標準：問題與原創性。評審會看你問的問題有沒有意義，有沒有避開大家都做爛了的題目，方法或切入角度有沒有一點自己的東西。\n最好還能跟生活、課堂或在地的議題接得上。一個好問題，往往就決定了整個研究的高度。"},
+ {t:"評審標準二：科學方法適切性", x:"第二個標準，是方法用得對不對。研究設計有沒有想周全、變因控制清不清楚、對照組合不合理、別人照你的步驟做能不能得到一樣的結果。\n這些細節撐起的是整份研究的可信度，馬虎不得。"},
+ {t:"評審標準三：數據與推論品質", x:"第三個標準看的是數據和推論的品質。資料量夠不夠、品質好不好、統計和圖表有沒有畫對。\n更重要的是——結論只能說到證據撐得起的地方，並且老實交代限制在哪裡。學生最常犯的，就是把話說得比證據還大。"},
+ {t:"評審標準四：表達與現場互動", x:"最後一個標準，是表達。報告書、海報、簡報、口頭說明要彼此呼應，講同一個故事。現場回答要清楚、誠實、精準，連互動時的態度都會被看在眼裡。\n研究做得好，也得讓人聽得懂，才算完整。"},
+ {t:"好題目從哪裡來", x:"好題目不是憑空冒出來的。它可能藏在你的興趣裡、藏在每天的生活觀察、藏在課堂上那個沒被解答的疑問，或是某篇研究留下來的缺口。\n但有一個底線：這個題目最後要能用實驗或資料去檢驗，不然就只是個漂亮的想法。"},
+ {t:"把興趣變成可研究問題", x:"學生常帶著一個很大的興趣來找我，像是「我想研究海洋」。這時候要做的是把它縮小、再縮小，變成一個具體、可以測量、可以比較的問題。\n如果到最後只是把已知的東西展示一遍、驗證一次，那就還不是研究。"},
+ {t:"文獻回顧的第一輪：宏觀定位", x:"文獻回顧我習慣分兩輪。第一輪是抓大方向：先讀綜述、教科書、還有歷屆的競賽資料庫，弄清楚這個領域大概在做什麼、常用哪些方法，順便判斷自己的題目到底值不值得做。\n這一步沒站穩，後面很容易白忙。"},
+ {t:"文獻回顧的第二輪：深入聚焦", x:"第二輪就要往深處鑽。把近五年的核心論文找來細讀，比較前人用了什麼方法、得到什麼結果、又卡在哪裡。\n你要找的，是一個可以改良、或是可以再往前推一步的位置——那通常就是你研究的切入點。"},
+ {t:"避免選題常見陷阱", x:"選題常踩的坑我列在這裡：題目大到做不完、跟別人撞題沒有新意、或只是把課本上的原理再驗證一次。還有一種最現實的——設備或時間根本不允許。\n帶學生時，這幾項我會一個一個幫他們檢查過。"},
+ {t:"題目評估矩陣", x:"猶豫在幾個題目之間時，我會請學生畫一張評估矩陣，從四個角度打分數：你有多想做、它的科學價值、實際做得做不來、還有夠不夠創新。\n把感覺攤成可比較的格子，選擇就不會只憑一時衝動。"},
+ {t:"研究計畫書是先畫藍圖", x:"動手之前，先把藍圖畫出來。我會請學生先用流程圖和甘特圖把整個研究的邏輯擺好，再回頭填文字細節。\n一份想清楚的計畫書，能省掉後面一大堆返工和臨時補破洞的時間。"},
+ {t:"研究計畫書的核心構件", x:"一份計畫書，骨架不外乎這幾塊：背景與動機、研究問題與假設、研究設計、還有要用到的材料設備。\n這些不是公文格式，而是逼著學生把「我為什麼做、要怎麼做」從頭到尾想一遍。"},
+ {t:"研究流程圖怎麼畫", x:"流程圖怎麼畫？從問題意識走到假設，從實驗設計走到資料收集，再從分析方法走到預期的結論。\n檢驗它好不好的標準很簡單：把圖拿給別人看，他能不能照著重走一遍你的研究。看得懂，才算畫對了。"},
+ {t:"甘特圖讓研究可管理", x:"甘特圖是讓研究變得可管理的工具。把整件事拆成文獻、準備、實驗、分析、撰寫、呈現幾個階段，各自設好里程碑。\n我特別會提醒學生——一定要預留修正的時間，因為研究幾乎不可能一次到位。"},
+ {t:"實驗設計的核心：變因控制", x:"實驗設計的核心，就是變因控制。哪個是自變項、哪個是依變項、哪些要被控制住，都要交代清楚；對照組要設得合理、測量條件要穩定。\n最後別忘了——紀錄要做到讓別人能照著重現。可重複，是實驗的命脈。"},
+ {t:"實驗執行：嚴謹與彈性並存", x:"執行階段要拿捏嚴謹和彈性。一方面忠於原本的計畫，一方面遇到失敗要老實記下來、再做修正。\n有一條紅線絕對不能碰：不能因為結果不漂亮就去改數據。那些修正的過程，本身就是研究的一部分，不是污點。"},
+ {t:"研究失敗不是結束", x:"我常跟學生說，失敗不是研究的終點。一次失敗往往會暴露出方法上的問題，甚至逼你回去修正假設。\n重點是把失敗的證據，和你當下為什麼這樣決定，都清楚留下來。那才是研究真實的樣子。"},
+ {t:"實驗記錄本是研究的黑盒子", x:"實驗記錄本，我把它叫做研究的黑盒子。它要即時、完整、能追溯，裡面有步驟、數據、異常、照片，還有討論和修改的痕跡。\n評審其實很會從這本記錄裡，看出一份研究到底是不是真的做出來的。"},
+ {t:"一份好記錄應該有哪些內容", x:"那一份好記錄該寫些什麼？最基本的——日期時間、操作條件、材料規格，還有最重要的原始數據。\n聽起來瑣碎，但等到要回頭追一個怪結果時，就會慶幸當初有寫下來。"},
+ {t:"數位工具可以用，但要保留可信度", x:"現在學生很習慣用雲端工具，這沒問題，共享真的方便。但有幾件事要顧好：版本紀錄和備份、核心原始資料的可追溯性，還有權限管理。\n工具再方便，也不能犧牲掉資料的可信度。"},
+ {t:"數據整理的第一原則", x:"整理數據的第一原則，是先別急著美化。原始資料一定要原封不動留一份，再去建欄位定義、統一單位。\n遇到異常值，標記起來、想清楚原因，而不是手一滑就刪掉。刪掉的那一筆，有時候正是最有故事的一筆。"},
+ {t:"圖表不是裝飾，是證據呈現", x:"學生常以為把數據做成漂亮的圖就算完成了，但真正要問的是——這張圖到底回答了哪一個研究問題？壞圖表少了軸名單位、圖例不清，甚至用尺度誤導人；好圖表會讓人一眼看懂資料來源、變項關係和結論的範圍。\n帶學生修圖時，我會要他先講一句話：「這張圖要回答什麼？」講不清楚，這張圖就還沒準備好。"},
+ {t:"從結果到討論的邏輯橋", x:"從結果走到討論，中間有一座邏輯橋要搭好。結果只負責呈現你觀察到什麼，討論才去解釋它的意義，結論則要回頭回應一開始的問題。\n最後，限制和未來展望要寫得誠實——這不是示弱，反而是研究成熟的表現。"},
+ {t:"反覆修正是研究的常態", x:"要先讓學生有心理準備：反覆修正是研究的常態。計畫、方法、報告、海報、簡報，沒有一樣是一次就定稿的。\n判斷有沒有改對方向，標準也很簡單——每改一次，邏輯有沒有更清楚、證據有沒有更完整。"},
+ {t:"報告書是研究故事的正式版本", x:"報告書，是把整個研究說成一個正式故事的版本。從作品名稱、摘要、動機、目的，一路到文獻、方法、結果、討論、結論，這些段落要串成一條主線，而不是各章各說各話。\n讀者順著讀下來，要能感覺到你在帶他走一段路。"},
+ {t:"摘要 300 字內要說清楚什麼", x:"摘要很短，三百字內，卻最難寫。它要在這麼小的空間裡講清楚目的、方法、結果、結論和亮點。\n我給學生的訣竅是：第一句就點出核心，別花力氣鋪空泛的背景，也別塞太多細節。摘要是門面，要讓人三十秒就抓到重點。"},
+ {t:"研究動機與目的怎麼寫", x:"動機和目的這一段，要回答一個問題：這件事為什麼值得做？把問題的來源講出來，接到文獻裡那個還沒被解決的缺口，然後讓你的目的是能被方法檢驗的。\n寫得好的動機，會讓人讀完就想知道後面發生了什麼。"},
+ {t:"方法章要寫到能重做", x:"方法這一章，標準只有一個：別人照著你寫的，要能把實驗重做一遍。研究對象、材料設備、步驟、變因、控制、樣本數、分析方法，全都要具體到不能含糊。\n可重複性，一直是評審心裡很在意的一塊。"},
+ {t:"結果與討論不能混在一起", x:"結果和討論一定要分開。結果只負責把數據攤出來，讓事實自己說話；討論才去解釋為什麼會這樣、跟文獻比起來如何、又有哪些限制。\n兩者混在一起，讀者就分不清哪些是你觀察到的、哪些是你的推測。"},
+ {t:"海報是讓評審快速讀懂的地圖", x:"海報的任務，是讓評審在很短的時間內讀懂你的研究，像一張地圖。標題要醒目、分區要清楚、能用圖表就別用大段文字，而且站在一公尺外要看得到。\n記住，評審在你的海報前，往往只停留幾分鐘。這頁也很適合拿來做模擬問答。"},
+ {t:"海報版面常見問題", x:"海報最常見的毛病，我直接點出來：字塞太多、圖放太小、配色花到讓人分心、還有看不出該從哪裡讀到哪裡的動線問題。\n修海報時，先把這四項一個個檢查掉，畫面馬上會清爽很多。"},
+ {t:"科展簡報是口語說明的導航", x:"要先破除一個迷思：簡報不是把報告書縮小貼上去。它是你口頭說明時的導航，每一頁只承擔一個任務，用視覺把觀眾的注意力帶到重點上。\n簡報在前面領路，你的話在旁邊補充，兩者要分工。"},
+ {t:"簡報內容的取捨原則", x:"做簡報，取捨比堆砌更重要。只放講解當下需要的資訊，方法和結果盡量視覺化，細節就留到口頭補充或問答時再說。\n每一頁最好都有一個清楚的結論，讓觀眾即使分神了，也能抓回你的主線。"},
+ {t:"練習的目標不是背稿", x:"我要先講清楚：練習的目標不是把稿子背起來。練習是為了把研究內容真的內化、抓準時間、練出臨場的應變，最後能把整份研究講成一個清楚的故事。\n背稿的人一被打斷就慌，內化的人才能從容回應。"},
+ {t:"三種版本的口頭報告", x:"我會請學生準備三種長度的版本：兩三分鐘的精簡版、五到八分鐘的標準版，還有一個更完整的延伸版。\n現場狀況千變萬化，能依情境隨時切換，才不會被時間綁死。"},
+ {t:"計時演練的操作方法", x:"計時演練怎麼做？每一次練習都拿碼表計時，記下自己卡在哪一段，再回去調整各段落的比例。\n開場、轉場和收束這三個地方要特別練——它們決定了觀眾對你的第一印象和最後印象。"},
+ {t:"模擬評審要找不同角色", x:"找人當模擬評審時，我建議找不同角色：專業老師幫你看科學性、外行的人幫你測聽不聽得懂、同儕幫你抓節奏、家人幫你看故事說得動不動人。\n每一種人，都會照出你沒注意到的盲點。這頁也適合搭配模擬問答練習。"},
+ {t:"團隊報告要練默契", x:"團隊報告，比的是默契。分工要清楚，彼此交接的那句話要接得自然，而且每個人都要能在隊友卡住時補上一句。\n最怕的就是各自只懂自己那段——評審一跨段問，整組就露餡了。"},
+ {t:"比賽現場的準備清單", x:"比賽當天，現場的東西要事先清點：場地與設備、海報與模型、衣著與證件，連水和備品都別漏。\n這一頁很適合直接變成檢核清單，請學生一項項勾。不確定的別硬勾，標起來當作下次會議要討論的題目。"},
+ {t:"口頭報告現場的四個關鍵", x:"真正上場時，有四件事要顧好：講得自信清楚、時間控得精準、記得跟評審有眼神交流、用語盡量簡潔。\n這些聽起來基本，但在緊張的當下，往往就是這幾項決定了表現的水準。"},
+ {t:"現場互動不是被動等待", x:"現場互動，不是站在那裡被動等問題。要會觀察評審的反應，該拿出記錄本或補充資料時就主動拿，把握每一次能深入交流的機會，甚至可以禮貌地請教他們的建議。\n一場好的互動，往往能替研究加不少分。"},
+ {t:"答辯是評審理解研究的關鍵時刻", x:"答辯，是評審真正理解你研究的關鍵時刻。問答不只在測你對研究熟不熟，更在看你的科學思維、誠實的態度和臨場應變。\n回答的原則很單純——簡潔，而且有證據。這頁很適合直接拿來做模擬問答。"},
+ {t:"評審常問的六大類問題", x:"評審的問題其實有跡可循，大致逃不出幾類：動機與原創、方法與控制、數據與統計、還有限制與誤差。\n把這幾類先想過、練過，上場時就不容易被問倒。這頁拿來做模擬問答最合適。"},
+ {t:"答題結構：先結論，再證據", x:"回答問題有個好用的結構：先直接給結論，再補上依據，需要的話誠實承認限制，最後把話題拉回你研究的主軸。\n先講結論這一步最重要——別讓評審聽了半天，還在猜你到底想說什麼。"},
+ {t:"不會回答時怎麼辦", x:"被問到不會的，怎麼辦？最好的做法是誠實說自己還不確定，接著講出你目前的理解，再提一個可能的查證方式，甚至把這個問題轉成未來可以研究的方向。\n誠實面對未知，遠比硬掰一個答案來得有說服力。這頁適合做模擬問答。"},
+ {t:"把質疑轉成加分機會", x:"要讓學生先有個認知：評審的質疑通常是針對研究，不是針對你這個人。被問到反而是機會——你可以趁機補上剛才沒講到的亮點。\n整場保持平和、理性，質疑就能變成加分的時刻。"},
+ {t:"科展壓力從哪裡來", x:"科展的壓力其實是有來源的：趕不完的時間、做不出來的實驗、團隊之間的摩擦，還有對評審期待的緊張。\n先把壓力的來源指認出來，學生才知道自己在跟什麼搏鬥，而不是被一團模糊的焦慮淹沒。"},
+ {t:"壓力管理的實用策略", x:"壓力管理有些很實際的做法：把大任務拆小、固定討論的節奏讓進度有依靠、用深呼吸或正念穩住情緒，必要時短暫轉移一下注意力。\n這些不是雞湯，是真的能讓學生喘口氣、再回到桌前的方法。"},
+ {t:"教師如何陪學生走過低潮", x:"學生陷入低潮時，老師能做的，是先承認他的挫折是真的，再陪他釐清下一步，把注意力拉回那些他還能控制的事情上。\n引導他反思，而不是一直追問結果。很多時候，學生需要的不是答案，是有人陪他撐過那一段。"},
+ {t:"團隊合作的高風險時刻", x:"團隊合作有幾個高風險的時刻要特別留意：分工不均、進度拉開落差、意見起衝突、還有臨場的失誤。\n這些遲早會出現，與其等它爆發，不如事先跟學生談好，當它來的時候要怎麼面對。"},
+ {t:"賽後反思比名次更長久", x:"比賽結束了，我最在意的反而是賽後這一段。帶學生回顧這趟學到了什麼知識和技能、分析研究還有哪些限制、整理出可以再延伸的題目，並把作品和歷程資料好好留下來。\n名次很快會被忘記，這些反思卻會跟著他們很久。"},
+ {t:"定義屬於自己的成功", x:"最後，我想跟學生聊聊「成功」這件事。成功不是只有得獎。能提出一個好問題、把研究完整做完、清楚表達出來、又誠實面對自己的限制——這些每一項，都是了不起的成長。\n每個人，都該定義屬於自己的成功。"},
+ {t:"科展完整自我檢核表", x:"這是一張完整的自我檢核表：主題清不清楚、方法能不能重複、數據可不可信、表達順不順暢。\n我會請學生一項項自己勾。不確定的別硬勾，標起來，當成下次指導會議要一起討論的題目。"},
+ {t:"下一步：把研究帶進真實世界", x:"走到最後一頁，其實是回到最初。回到那份好奇心，把它變成一個可行的研究計畫，持續記錄、持續修正，最後把你的成果清楚地說給這個世界聽。\n科展會結束，但探究這件事，可以一直帶著走進真實的世界。"}
+];
+
+const pad = n => String(n).padStart(2,'0');
+const imgPath = i => `origin_image/slide_${pad(i+1)}.png`;
+const TOTAL = SLIDES.length;
+let cur = 0;
+let autoTimer = null, autoOn = false;
+let fsTimer = null, fsOn = false, fsPlaying = false, fsProgTimer = null;
+
+const $ = id => document.getElementById(id);
+const slideImg=$('slideImg'), pNum=$('pNum'), pTitle=$('pTitle'), pBody=$('pBody'),
+      counter=$('counter'), strip=$('strip');
+
+// build thumbnails
+SLIDES.forEach((s,i)=>{
+  const d=document.createElement('div'); d.className='thumb'; d.dataset.i=i;
+  d.innerHTML=`<span class="tn">${i+1}</span><img loading="lazy" src="${imgPath(i)}" alt="${i+1}">`;
+  d.onclick=()=>go(i);
+  strip.appendChild(d);
+});
+const thumbs=[...strip.children];
+
+function render(){
+  const s=SLIDES[cur];
+  slideImg.src=imgPath(cur);
+  pNum.textContent=`第 ${cur+1} 頁 ／ 共 ${TOTAL} 頁`;
+  pTitle.textContent=s.t;
+  pBody.innerHTML=s.x.split('\n').map(p=>`<p>${p}</p>`).join('');
+  pBody.scrollTop=0;
+  counter.textContent=`${cur+1} / ${TOTAL}`;
+  thumbs.forEach((t,i)=>t.classList.toggle('active',i===cur));
+  const at=thumbs[cur];
+  if(at) at.scrollIntoView({block:'nearest',inline:'center'});
+  if(fsOn){ $('fsImg').src=imgPath(cur); $('fsPage').textContent=`${cur+1} / ${TOTAL}`; }
+}
+function go(i){ cur=(i+TOTAL)%TOTAL; render(); if(autoOn) restartAuto(); }
+function next(){ go(cur+1); }
+function prev(){ go(cur-1); }
+
+// auto play (split view)
+function secVal(){ let v=parseInt($('secInput').value)||8; return Math.max(1,v); }
+function restartAuto(){ clearInterval(autoTimer); autoTimer=setInterval(next, secVal()*1000); }
+function setAuto(on){
+  autoOn=on;
+  $('autoBtn').classList.toggle('active',on);
+  $('autoBtn').textContent= on ? '⏸ 暫停播放' : '▶ 自動播放';
+  if(on) restartAuto(); else clearInterval(autoTimer);
+}
+$('autoBtn').onclick=()=>setAuto(!autoOn);
+$('secInput').onchange=()=>{ if(autoOn) restartAuto(); };
+$('nextBtn').onclick=next; $('prevBtn').onclick=prev;
+
+// theme
+$('themeBtn').onclick=()=>{
+  document.body.classList.toggle('dark');
+  const d=document.body.classList.contains('dark');
+  $('themeBtn').textContent= d ? '☀ 淺色' : '🌙 深色';
+};
+
+// fullscreen show
+function openFS(){
+  fsOn=true; $('fs').classList.add('on');
+  $('fsImg').src=imgPath(cur); $('fsPage').textContent=`${cur+1} / ${TOTAL}`;
+  $('fsSec').value=$('secInput').value;
+  if(document.documentElement.requestFullscreen) document.documentElement.requestFullscreen().catch(()=>{});
+  setFSPlay(true);
+}
+function closeFS(){
+  fsOn=false; $('fs').classList.remove('on');
+  setFSPlay(false);
+  if(document.fullscreenElement && document.exitFullscreen) document.exitFullscreen().catch(()=>{});
+}
+function fsSecVal(){ let v=parseInt($('fsSec').value)||8; return Math.max(1,v); }
+function setFSPlay(on){
+  fsPlaying=on; $('fsPlay').textContent= on ? '⏸' : '▶';
+  clearInterval(fsTimer); cancelAnimationFrame(fsProgTimer);
+  if(on){ runProgress(); fsTimer=setInterval(()=>{ next(); runProgress(); }, fsSecVal()*1000); }
+  else { $('fsProgress').style.width='0'; }
+}
+function runProgress(){
+  const bar=$('fsProgress'); const dur=fsSecVal()*1000; let start=performance.now();
+  cancelAnimationFrame(fsProgTimer);
+  function step(now){
+    const p=Math.min(1,(now-start)/dur); bar.style.width=(p*100)+'%';
+    if(p<1 && fsPlaying) fsProgTimer=requestAnimationFrame(step);
+  }
+  fsProgTimer=requestAnimationFrame(step);
+}
+$('fsBtn').onclick=openFS;
+$('fsClose').onclick=closeFS;
+$('fsPlay').onclick=()=>setFSPlay(!fsPlaying);
+$('fsNext').onclick=()=>{ next(); if(fsPlaying) setFSPlay(true); };
+$('fsPrev').onclick=()=>{ prev(); if(fsPlaying) setFSPlay(true); };
+$('fsSec').onchange=()=>{ if(fsPlaying) setFSPlay(true); };
+
+// keyboard
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='PageDown') next();
+  else if(e.key==='ArrowLeft'||e.key==='PageUp') prev();
+  else if(e.key===' '){ e.preventDefault(); fsOn?setFSPlay(!fsPlaying):setAuto(!autoOn); }
+  else if(e.key==='Escape'&&fsOn) closeFS();
+  else if(e.key==='f'||e.key==='F'){ fsOn?closeFS():openFS(); }
+});
+
+// swipe (touch) on stage & fullscreen
+function addSwipe(el){
+  let x0=null;
+  el.addEventListener('touchstart',e=>{ x0=e.touches[0].clientX; },{passive:true});
+  el.addEventListener('touchend',e=>{
+    if(x0===null) return;
+    const dx=e.changedTouches[0].clientX-x0;
+    if(Math.abs(dx)>45){ dx<0?next():prev(); }
+    x0=null;
+  },{passive:true});
+}
+addSwipe(document.querySelector('.stage'));
+addSwipe($('fs'));
+
+render();
+</script>
+</body>
+</html>

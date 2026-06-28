@@ -1,0 +1,1764 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科學展覽完整指南 | 臺北市 × 全國科展</title>
+<style>
+  :root {
+    --primary: #1a56db;
+    --primary-dark: #1341a8;
+    --primary-light: #e8f0fe;
+    --secondary: #0e7c5a;
+    --secondary-light: #e6f4f0;
+    --accent: #d97706;
+    --accent-light: #fef3c7;
+    --danger: #c0392b;
+    --danger-light: #fdecea;
+    --purple: #6d28d9;
+    --purple-light: #ede9fe;
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --border: #e2e8f0;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --text-light: #94a3b8;
+    --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+    --shadow-md: 0 4px 12px rgba(0,0,0,0.10);
+    --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+    --radius: 12px;
+    --radius-sm: 8px;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    background: var(--bg);
+    color: var(--text-main);
+    line-height: 1.8;
+    font-size: 20px;
+  }
+
+  /* ── 頂部橫幅 ── */
+  .hero {
+    background: linear-gradient(135deg, #1341a8 0%, #1a56db 50%, #0e7c5a 100%);
+    color: white;
+    padding: 48px 32px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  }
+  .hero-badge {
+    display: inline-block;
+    background: rgba(255,255,255,0.18);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 6px 20px;
+    font-size: 17px;
+    letter-spacing: 1px;
+    margin-bottom: 16px;
+  }
+  .hero h1 {
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 12px;
+  }
+  .hero p {
+    font-size: 22px;
+    opacity: 0.92;
+    max-width: 700px;
+    margin: 0 auto 24px;
+  }
+  .hero-tags {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .hero-tag {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 6px 18px;
+    font-size: 16px;
+  }
+
+  /* ── 主體佈局 ── */
+  .layout {
+    display: flex;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    gap: 28px;
+    align-items: flex-start;
+  }
+
+  /* ── 側邊導覽 ── */
+  .sidebar {
+    width: 240px;
+    flex-shrink: 0;
+    position: sticky;
+    top: 20px;
+  }
+  .sidebar-card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+  }
+  .sidebar-title {
+    background: var(--primary);
+    color: white;
+    padding: 12px 16px;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 16px;
+    cursor: pointer;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+    font-size: 17px;
+    color: var(--text-muted);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-item:last-child { border-bottom: none; }
+  .nav-item:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-left-color: var(--primary);
+  }
+  .nav-item.active {
+    background: var(--primary-light);
+    color: var(--primary);
+    border-left-color: var(--primary);
+    font-weight: 600;
+  }
+  .nav-icon { font-size: 20px; flex-shrink: 0; }
+
+  /* ── 主內容區 ── */
+  .main { flex: 1; min-width: 0; }
+
+  .section { display: none; }
+  .section.active { display: block; }
+
+  /* ── 卡片 ── */
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 24px;
+    overflow: hidden;
+  }
+  .card-header {
+    padding: 18px 24px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .card-header h2 {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--text-main);
+  }
+  .card-header .subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-top: 2px;
+  }
+  .card-body { padding: 24px; }
+
+  /* ── 配分條 ── */
+  .score-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-bottom: 28px;
+  }
+  .score-box {
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .score-box.blue { background: linear-gradient(135deg, #1a56db, #3b82f6); color: white; }
+  .score-box.green { background: linear-gradient(135deg, #0e7c5a, #10b981); color: white; }
+  .score-box.orange { background: linear-gradient(135deg, #d97706, #f59e0b); color: white; }
+  .score-box.purple { background: linear-gradient(135deg, #6d28d9, #8b5cf6); color: white; }
+  .score-box.teal { background: linear-gradient(135deg, #0891b2, #06b6d4); color: white; }
+  .score-num {
+    font-size: 36px;
+    font-weight: 900;
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+  .score-label { font-size: 16px; opacity: 0.9; font-weight: 500; }
+
+  /* ── 評分指標 ── */
+  .criteria-section {
+    border-radius: var(--radius-sm);
+    margin-bottom: 20px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .criteria-header {
+    padding: 14px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    user-select: none;
+  }
+  .criteria-header:hover { opacity: 0.9; }
+  .criteria-header.blue-h { background: linear-gradient(90deg, #1a56db, #3b82f6); color: white; }
+  .criteria-header.green-h { background: linear-gradient(90deg, #0e7c5a, #10b981); color: white; }
+  .criteria-header.orange-h { background: linear-gradient(90deg, #d97706, #f59e0b); color: white; }
+  .criteria-header.purple-h { background: linear-gradient(90deg, #6d28d9, #8b5cf6); color: white; }
+  .criteria-header.teal-h { background: linear-gradient(90deg, #0891b2, #06b6d4); color: white; }
+  .criteria-title { font-size: 20px; font-weight: 700; flex: 1; }
+  .criteria-score {
+    background: rgba(255,255,255,0.25);
+    border-radius: 20px;
+    padding: 4px 14px;
+    font-size: 16px;
+    font-weight: 600;
+  }
+  .criteria-toggle { font-size: 22px; transition: transform 0.2s; }
+  .criteria-toggle.open { transform: rotate(180deg); }
+
+  .criteria-body {
+    padding: 0;
+    background: var(--surface);
+  }
+  .criteria-body.collapsed { display: none; }
+
+  .indicator {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 20px;
+    border-bottom: 1px solid var(--border);
+    transition: background 0.15s;
+  }
+  .indicator:last-child { border-bottom: none; }
+  .indicator:hover { background: var(--bg); }
+  .ind-num {
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 700;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .ind-num.blue { background: var(--primary-light); color: var(--primary); }
+  .ind-num.green { background: var(--secondary-light); color: var(--secondary); }
+  .ind-num.orange { background: var(--accent-light); color: var(--accent); }
+  .ind-num.purple { background: var(--purple-light); color: var(--purple); }
+  .ind-num.teal { background: #e0f2fe; color: #0891b2; }
+  .ind-text { font-size: 18px; color: var(--text-main); padding-top: 2px; }
+  .ind-tip {
+    margin-top: 8px;
+    font-size: 16px;
+    color: var(--text-muted);
+    background: var(--bg);
+    border-left: 3px solid var(--border);
+    padding: 8px 12px;
+    border-radius: 4px;
+  }
+
+  /* ── 比較表格 ── */
+  .compare-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .compare-table th {
+    padding: 14px 18px;
+    text-align: left;
+    font-weight: 700;
+    font-size: 16px;
+  }
+  .compare-table td {
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 16px;
+  }
+  .compare-table tr:last-child td { border-bottom: none; }
+  .compare-table tr:hover td { background: var(--bg); }
+  .th-label { background: #334155; color: white; border-radius: 6px 0 0 0; }
+  .th-taipei { background: #1a56db; color: white; }
+  .th-national { background: #0e7c5a; color: white; }
+  .th-label59 { background: #6d28d9; color: white; border-radius: 0 6px 0 0; }
+
+  .badge {
+    display: inline-block;
+    border-radius: 12px;
+    padding: 3px 12px;
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .badge-blue { background: var(--primary-light); color: var(--primary); }
+  .badge-green { background: var(--secondary-light); color: var(--secondary); }
+  .badge-orange { background: var(--accent-light); color: var(--accent); }
+  .badge-purple { background: var(--purple-light); color: var(--purple); }
+
+  /* ── 流程圖 ── */
+  .flow {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    position: relative;
+  }
+  .flow-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    position: relative;
+  }
+  .flow-left {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+  }
+  .flow-dot {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    color: white;
+    flex-shrink: 0;
+    z-index: 1;
+  }
+  .flow-line {
+    width: 2px;
+    flex: 1;
+    min-height: 24px;
+    background: var(--border);
+    margin: 4px 0;
+  }
+  .flow-content {
+    flex: 1;
+    padding-bottom: 24px;
+  }
+  .flow-title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: var(--text-main);
+  }
+  .flow-desc { font-size: 17px; color: var(--text-muted); line-height: 1.8; }
+  .flow-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+  .flow-tag {
+    font-size: 15px;
+    padding: 3px 12px;
+    border-radius: 10px;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+  }
+
+  /* ── 自評核取清單 ── */
+  .checklist-group { margin-bottom: 24px; }
+  .checklist-group-title {
+    font-size: 19px;
+    font-weight: 700;
+    padding: 12px 18px;
+    border-radius: var(--radius-sm) var(--radius-sm) 0 0;
+    margin-bottom: 0;
+  }
+  .checklist-group-title.blue { background: var(--primary-light); color: var(--primary); border: 1px solid #bfdbfe; }
+  .checklist-group-title.green { background: var(--secondary-light); color: var(--secondary); border: 1px solid #a7f3d0; }
+  .checklist-group-title.orange { background: var(--accent-light); color: var(--accent); border: 1px solid #fcd34d; }
+  .checklist-group-title.purple { background: var(--purple-light); color: var(--purple); border: 1px solid #c4b5fd; }
+  .checklist-items {
+    border: 1px solid var(--border);
+    border-top: none;
+    border-radius: 0 0 var(--radius-sm) var(--radius-sm);
+    overflow: hidden;
+  }
+  .check-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+    transition: background 0.15s;
+  }
+  .check-item:last-child { border-bottom: none; }
+  .check-item:hover { background: var(--bg); }
+  .check-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+  .check-item label {
+    font-size: 18px;
+    cursor: pointer;
+    flex: 1;
+    color: var(--text-main);
+  }
+  .check-item.checked label { text-decoration: line-through; color: var(--text-light); }
+
+  .score-display {
+    background: linear-gradient(135deg, var(--primary), #3b82f6);
+    color: white;
+    border-radius: var(--radius);
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 24px;
+  }
+  .score-display .big-num {
+    font-size: 56px;
+    font-weight: 900;
+    line-height: 1;
+  }
+  .score-display .score-sub { font-size: 18px; opacity: 0.85; margin-top: 8px; }
+  .score-display .score-bar-wrap {
+    background: rgba(255,255,255,0.2);
+    border-radius: 10px;
+    height: 10px;
+    margin: 16px 0 8px;
+    overflow: hidden;
+  }
+  .score-display .score-bar {
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    transition: width 0.5s ease;
+  }
+
+  /* ── 秘笈卡片 ── */
+  .tip-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+  .tip-card {
+    border-radius: var(--radius-sm);
+    padding: 20px;
+    border: 1px solid var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+  .tip-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+  }
+  .tip-card.blue::before { background: var(--primary); }
+  .tip-card.green::before { background: var(--secondary); }
+  .tip-card.orange::before { background: var(--accent); }
+  .tip-card.purple::before { background: var(--purple); }
+  .tip-card.teal::before { background: #0891b2; }
+  .tip-card.red::before { background: var(--danger); }
+  .tip-card .tip-icon { font-size: 28px; margin-bottom: 10px; }
+  .tip-card .tip-title { font-size: 19px; font-weight: 700; margin-bottom: 8px; color: var(--text-main); }
+  .tip-card .tip-body { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
+
+  /* ── 常見錯誤 ── */
+  .mistake-list { list-style: none; }
+  .mistake-item {
+    display: flex;
+    gap: 14px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--border);
+    align-items: flex-start;
+  }
+  .mistake-item:last-child { border-bottom: none; }
+  .mistake-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+  .mistake-title { font-size: 19px; font-weight: 600; color: var(--danger); margin-bottom: 4px; }
+  .mistake-fix { font-size: 16px; color: var(--text-muted); }
+  .mistake-fix strong { color: var(--secondary); }
+
+  /* ── 科展等級 ── */
+  .level-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .level-card {
+    border-radius: var(--radius-sm);
+    overflow: hidden;
+    border: 1px solid var(--border);
+    text-align: center;
+  }
+  .level-header { padding: 16px; color: white; }
+  .level-medal { font-size: 40px; margin-bottom: 8px; }
+  .level-name { font-size: 18px; font-weight: 800; }
+  .level-body { padding: 16px; background: var(--surface); }
+  .level-desc { font-size: 16px; color: var(--text-muted); line-height: 1.8; }
+
+  /* ── 頁籤 ── */
+  .tab-group {
+    display: flex;
+    gap: 4px;
+    border-bottom: 2px solid var(--border);
+    margin-bottom: 20px;
+    overflow-x: auto;
+    padding-bottom: 0;
+  }
+  .tab-btn {
+    padding: 9px 18px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--text-muted);
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    white-space: nowrap;
+    border-radius: 6px 6px 0 0;
+    transition: all 0.2s;
+  }
+  .tab-btn:hover { background: var(--bg); color: var(--primary); }
+  .tab-btn.active {
+    color: var(--primary);
+    border-bottom-color: var(--primary);
+    background: var(--primary-light);
+  }
+  .tab-panel { display: none; }
+  .tab-panel.active { display: block; }
+
+  /* ── 高亮框 ── */
+  .info-box {
+    border-radius: var(--radius-sm);
+    padding: 18px 22px;
+    margin-bottom: 20px;
+    display: flex;
+    gap: 12px;
+    align-items: flex-start;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+  .info-box.blue { background: var(--primary-light); border-left: 4px solid var(--primary); }
+  .info-box.green { background: var(--secondary-light); border-left: 4px solid var(--secondary); }
+  .info-box.orange { background: var(--accent-light); border-left: 4px solid var(--accent); }
+  .info-box.red { background: var(--danger-light); border-left: 4px solid var(--danger); }
+  .info-box-icon { font-size: 20px; flex-shrink: 0; }
+
+  /* ── 表格 ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .data-table th {
+    background: #1e293b;
+    color: white;
+    padding: 13px 16px;
+    text-align: left;
+    font-size: 17px;
+    font-weight: 600;
+  }
+  .data-table td {
+    padding: 13px 16px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+    font-size: 16px;
+  }
+  .data-table tr:nth-child(even) td { background: var(--bg); }
+  .data-table tr:hover td { background: var(--primary-light); }
+
+  /* ── 響應式 ── */
+  @media (max-width: 900px) {
+    .layout { flex-direction: column; padding: 16px; }
+    .sidebar { width: 100%; position: static; }
+    .sidebar-card { display: flex; flex-wrap: wrap; overflow: visible; }
+    .sidebar-title { width: 100%; border-radius: var(--radius) var(--radius) 0 0; }
+    .nav-item { flex: 1 0 auto; min-width: 120px; border-left: none; border-bottom: 3px solid transparent; justify-content: center; font-size: 12px; padding: 10px 8px; }
+    .nav-item.active { border-bottom-color: var(--primary); border-left: none; }
+    .score-grid { grid-template-columns: repeat(2, 1fr); }
+    .tip-grid { grid-template-columns: 1fr; }
+    .level-cards { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .score-grid { grid-template-columns: 1fr; }
+  }
+
+  /* ── 動畫 ── */
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .section.active { animation: fadeIn 0.25s ease; }
+
+  /* ── Footer ── */
+  .footer {
+    text-align: center;
+    padding: 24px;
+    color: var(--text-light);
+    font-size: 16px;
+    border-top: 1px solid var(--border);
+    margin-top: 8px;
+  }
+
+  /* ── Print ── */
+  @media print {
+    .sidebar, .hero-tags { display: none; }
+    .layout { display: block; }
+    .main { width: 100%; }
+    .section { display: block !important; page-break-before: always; }
+    .criteria-body { display: block !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+<div class="hero">
+  <div class="hero-badge">🔬 科展完整指南 2024</div>
+  <h1>科學展覽評審標準與研究指南</h1>
+  <p>臺北市麗山高中林獻升老師</p>
+  <div class="hero-tags">
+    <span class="hero-tag">📋 北市科展評分表（第59屆）</span>
+    <span class="hero-tag">📐 北市評審基準（第51屆）</span>
+    <span class="hero-tag">🏆 全國科展評審標準</span>
+    <span class="hero-tag">✅ 互動式自評工具</span>
+    <span class="hero-tag">💡 指導老師秘笈</span>
+  </div>
+</div>
+
+<!-- ══ LAYOUT ══ -->
+<div class="layout">
+
+  <!-- 側邊導覽 -->
+  <nav class="sidebar">
+    <div class="sidebar-card">
+      <div class="sidebar-title">📌 導覽選單</div>
+      <div class="nav-item active" onclick="showSection('home')">
+        <span class="nav-icon">🏠</span>總覽
+      </div>
+      <div class="nav-item" onclick="showSection('taipei59')">
+        <span class="nav-icon">📋</span>北市評分表（59屆）
+      </div>
+      <div class="nav-item" onclick="showSection('taipei51')">
+        <span class="nav-icon">📐</span>北市評審基準（51屆）
+      </div>
+      <div class="nav-item" onclick="showSection('national')">
+        <span class="nav-icon">🏆</span>全國科展標準
+      </div>
+      <div class="nav-item" onclick="showSection('compare')">
+        <span class="nav-icon">⚖️</span>標準比較表
+      </div>
+      <div class="nav-item" onclick="showSection('checklist')">
+        <span class="nav-icon">✅</span>互動自評清單
+      </div>
+      <div class="nav-item" onclick="showSection('process')">
+        <span class="nav-icon">🗺️</span>研究流程指南
+      </div>
+      <div class="nav-item" onclick="showSection('tips')">
+        <span class="nav-icon">💡</span>得獎關鍵秘笈
+      </div>
+      <div class="nav-item" onclick="showSection('mistakes')">
+        <span class="nav-icon">⚠️</span>常見錯誤排行
+      </div>
+    </div>
+  </nav>
+
+  <!-- 主內容 -->
+  <main class="main">
+
+    <!-- ══ 總覽 ══ -->
+    <div id="home" class="section active">
+
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">🔬</span>
+          <div>
+            <h2>科展競賽總覽</h2>
+            <div class="subtitle">了解臺灣科展競賽架構與晉級體系</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="info-box blue">
+            <span class="info-box-icon">ℹ️</span>
+            <div>臺灣中小學科展採<strong>分層晉級制</strong>：校內選拔 → 臺北市科展 → 全國科展 → 國際科展（ISEF）。每個層級的評審標準互相銜接，但重點略有不同。</div>
+          </div>
+
+          <!-- 競賽層級 -->
+          <div class="level-cards">
+            <div class="level-card">
+              <div class="level-header" style="background: linear-gradient(135deg, #475569, #64748b)">
+                <div class="level-medal">🏫</div>
+                <div class="level-name">校內選拔</div>
+              </div>
+              <div class="level-body">
+                <div class="level-desc">由學校自行評選，通過者代表學校參加臺北市科展。著重研究構想的可行性與初步成果。</div>
+              </div>
+            </div>
+            <div class="level-card">
+              <div class="level-header" style="background: linear-gradient(135deg, #1a56db, #3b82f6)">
+                <div class="level-medal">🏙️</div>
+                <div class="level-name">臺北市科展</div>
+              </div>
+              <div class="level-body">
+                <div class="level-desc">評審分<strong>初審</strong>（說明書）與<strong>複審</strong>（現場）兩階段。每件作品現場評審 9-12 分鐘，以複審成績為準。</div>
+              </div>
+            </div>
+            <div class="level-card">
+              <div class="level-header" style="background: linear-gradient(135deg, #0e7c5a, #10b981)">
+                <div class="level-medal">🏆</div>
+                <div class="level-name">全國科展</div>
+              </div>
+              <div class="level-body">
+                <div class="level-desc">由科教館主辦，具安全審查機制。評審標準與北市相似，但對研究深度與創意的要求更高。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 快速查看各大類配分 -->
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:24px">📊</span>
+          <div>
+            <h2>四大評審向度快覽</h2>
+            <div class="subtitle">所有層級科展共用的核心評審框架</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="score-grid" style="grid-template-columns: repeat(2,1fr)">
+            <div class="score-box blue">
+              <div class="score-num">①</div>
+              <div class="score-label" style="font-size:16px;font-weight:700;margin-bottom:8px">研究主題</div>
+              <div style="font-size:13px;opacity:0.9">清楚聚焦・有貢獻・可科學檢驗・鄉土教材相關性</div>
+            </div>
+            <div class="score-box green">
+              <div class="score-num">②</div>
+              <div class="score-label" style="font-size:16px;font-weight:700;margin-bottom:8px">創意與學術價值</div>
+              <div style="font-size:13px;opacity:0.9">原創性・可行性・對科學/社會/經濟的影響潛力</div>
+            </div>
+            <div class="score-box orange">
+              <div class="score-num">③</div>
+              <div class="score-label" style="font-size:16px;font-weight:700;margin-bottom:8px">科學方法適切性</div>
+              <div style="font-size:13px;opacity:0.9">研究設計・變因控制・數據分析・再現性・統計方法</div>
+            </div>
+            <div class="score-box purple">
+              <div class="score-num">④</div>
+              <div class="score-label" style="font-size:16px;font-weight:700;margin-bottom:8px">展示與表達能力</div>
+              <div style="font-size:13px;opacity:0.9">海報邏輯・口頭答辯・實驗日誌・獨立研究能力</div>
+            </div>
+          </div>
+
+          <div class="info-box orange">
+            <span class="info-box-icon">⭐</span>
+            <div><strong>北市第59屆說明書</strong>特別強調：<strong>創意及貢獻佔 50%</strong>，是比重最高的向度。做出真正有新意的研究，才是得高分的關鍵。</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 科展科別 -->
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:24px">🧪</span>
+          <div>
+            <h2>科展參展科別</h2>
+            <div class="subtitle">依學科分組競賽，選對科別事半功倍</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>科別</th>
+                <th>適合主題方向</th>
+                <th>競爭說明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="badge badge-blue">生物</span></td>
+                <td>植物生理、動物行為、微生物、生態、遺傳</td>
+                <td>報名人數最多，需有明確實驗設計</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-orange">化學</span></td>
+                <td>化學反應、材料科學、食品科學、環境化學</td>
+                <td>需注意安全審查，強調實用性</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-purple">物理</span></td>
+                <td>力學、光學、電磁、熱學、聲學</td>
+                <td>重視數學化與量化分析</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-green">地球科學</span></td>
+                <td>氣象、地質、天文、海洋、土壤</td>
+                <td>報名人數相對少，鄉土關聯加分</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-blue">數學</span></td>
+                <td>數論、幾何、統計、應用數學</td>
+                <td>需有嚴謹的推論過程</td>
+              </tr>
+              <tr>
+                <td><span class="badge badge-orange">工程</span></td>
+                <td>機器人、環保裝置、節能設計、APP開發</td>
+                <td>重視實用創新，STEM跨域佳</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══ 北市評分表 第59屆 ══ -->
+    <div id="taipei59" class="section">
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">📋</span>
+          <div>
+            <h2>臺北市第59屆科展 作品說明書評分表</h2>
+            <div class="subtitle">說明書（書面報告）評審標準 · 三大向度</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="info-box blue">
+            <span class="info-box-icon">📌</span>
+            <div>本評分表適用於<strong>作品說明書（書面報告）初審</strong>。評審依據說明書內容，不含現場口頭報告。三大向度合計 100 分。</div>
+          </div>
+
+          <!-- 配分總覽 -->
+          <div class="score-grid">
+            <div class="score-box blue">
+              <div class="score-num">50<span style="font-size:20px">%</span></div>
+              <div class="score-label">一、創意及貢獻</div>
+            </div>
+            <div class="score-box green">
+              <div class="score-num">30<span style="font-size:20px">%</span></div>
+              <div class="score-label">二、內容及專業知識</div>
+            </div>
+            <div class="score-box orange">
+              <div class="score-num">20<span style="font-size:20px">%</span></div>
+              <div class="score-label">三、文字表達及組織</div>
+            </div>
+          </div>
+
+          <!-- 向度一 -->
+          <div class="criteria-section">
+            <div class="criteria-header blue-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">💡</span>
+              <span class="criteria-title">一、創意及貢獻</span>
+              <span class="criteria-score">配分 50%</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator">
+                <div class="ind-num blue">1</div>
+                <div>
+                  <div class="ind-text">研究內容、過程及結果能<strong>發展新觀念、產生新創意</strong>並符合科學精神。</div>
+                  <div class="ind-tip">💬 評審看的是：你的研究有沒有提出前人沒想過的問題，或用新方法解決舊問題？「重複別人做過的實驗」難以在這一項得高分。</div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="ind-num blue">2</div>
+                <div>
+                  <div class="ind-text">研究題材以<strong>學生能力所及的環境事物</strong>為主。</div>
+                  <div class="ind-tip">💬 不需要高精設備才能做的題目反而加分。貼近生活、取材自身周遭的研究更符合中小學科展精神。</div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="ind-num blue">3</div>
+                <div>
+                  <div class="ind-text">實驗結果具有<strong>可重複性及後續發展潛力</strong>，或具有推廣、應用價值。</div>
+                  <div class="ind-tip">💬 結論要有普遍性，不能只是「這次剛好這樣」。能說明成果如何應用於實際生活或引發後續研究方向，評分更高。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 向度二 -->
+          <div class="criteria-section">
+            <div class="criteria-header green-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">🔬</span>
+              <span class="criteria-title">二、內容及專業知識</span>
+              <span class="criteria-score">配分 30%</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator">
+                <div class="ind-num green">1</div>
+                <div>
+                  <div class="ind-text">內容完整充實，切合主題並能<strong>配合學生學習階段與能力</strong>。</div>
+                  <div class="ind-tip">💬 說明書的深度要符合你的學習階段。高中生可運用大學知識，但不可直接複製大學論文語言。</div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="ind-num green">2</div>
+                <div>
+                  <div class="ind-text"><strong>理論依據及科學研究程序</strong>完整正確。</div>
+                  <div class="ind-tip">💬 文獻探討要引用可靠來源（期刊、教科書），並清楚說明你的研究問題從哪個已知知識出發。</div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="ind-num green">3</div>
+                <div>
+                  <div class="ind-text">科學研究之程序、過程的<strong>紀錄、佐證資料</strong>完整確實。</div>
+                  <div class="ind-tip">💬 實驗日誌（研究日誌）非常重要！要有日期、詳細步驟、失敗記錄、數據原始資料，不能只有最後的漂亮結果。</div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="ind-num green">4</div>
+                <div>
+                  <div class="ind-text">研究過程<strong>分析變因、器材操作、實驗步驟及資料處理</strong>正確。</div>
+                  <div class="ind-tip">💬 要明確列出自變因、依變因、控制變因，器材要有規格說明，步驟要能讓人重現實驗。</div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="ind-num green">5</div>
+                <div>
+                  <div class="ind-text"><strong>推論嚴謹精確</strong>，研究結果能達成研究目的。</div>
+                  <div class="ind-tip">💬 結論要從數據直接推導，不可超越數據範圍過度推論。討論要說明結果與假說一致或不一致的原因。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 向度三 -->
+          <div class="criteria-section">
+            <div class="criteria-header orange-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">📝</span>
+              <span class="criteria-title">三、文字表達及組織</span>
+              <span class="criteria-score">配分 20%</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator">
+                <div class="ind-num orange">1</div>
+                <div>
+                  <div class="ind-text">依據科展規定的<strong>格式</strong>，條列分明且排版整齊，並有良好的文字表達能力。</div>
+                  <div class="ind-tip">💬 說明書格式要完全符合規定（封面、摘要、研究動機、研究目的、文獻探討、研究方法、結果討論、結論、參考資料）。</div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="ind-num orange">2</div>
+                <div>
+                  <div class="ind-text">研究結果、結論、討論所用的<strong>圖表、單位符號</strong>之使用正確完整。</div>
+                  <div class="ind-tip">💬 圖表要有標題、座標軸標示、單位，數值要有適當有效數字，統計誤差要顯示。</div>
+                </div>
+              </div>
+              <div class="indicator">
+                <div class="ind-num orange">3</div>
+                <div>
+                  <div class="ind-text"><strong>參考資料</strong>完整、確實並清楚註明來源與出處。</div>
+                  <div class="ind-tip">💬 引用格式要一致（建議APA格式）。網路資料要有URL和存取日期。不可引用維基百科作為主要文獻。</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 北市評審基準 第51屆 ══ -->
+    <div id="taipei51" class="section">
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">📐</span>
+          <div>
+            <h2>臺北市第51屆科展 參展作品評審基準</h2>
+            <div class="subtitle">含初審+複審（現場口頭報告）全程標準 · 四大向度</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="info-box green">
+            <span class="info-box-icon">📌</span>
+            <div>本基準涵蓋<strong>說明書初審與現場複審</strong>兩階段。複審時學生需現場說明、操作並<strong>回答評審問題（9-12分鐘）</strong>，以複審成績為最終成績。</div>
+          </div>
+
+          <div class="score-grid" style="grid-template-columns: repeat(4,1fr)">
+            <div class="score-box blue">
+              <div class="score-num">20<span style="font-size:16px">%</span></div>
+              <div class="score-label">研究主題</div>
+            </div>
+            <div class="score-box green">
+              <div class="score-num">40<span style="font-size:16px">%</span></div>
+              <div class="score-label">創意學術實用</div>
+            </div>
+            <div class="score-box orange">
+              <div class="score-num">20<span style="font-size:16px">%</span></div>
+              <div class="score-label">科學方法</div>
+            </div>
+            <div class="score-box purple">
+              <div class="score-num">20<span style="font-size:16px">%</span></div>
+              <div class="score-label">展示表達</div>
+            </div>
+          </div>
+
+          <!-- 一 研究主題 -->
+          <div class="criteria-section">
+            <div class="criteria-header blue-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">🎯</span>
+              <span class="criteria-title">（一）研究主題</span>
+              <span class="criteria-score">20%</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator"><div class="ind-num blue">1</div><div><div class="ind-text"><strong>清楚且聚焦</strong>──研究問題明確，不空泛模糊。</div><div class="ind-tip">💬 好題目範例：「不同光照強度對菠菜葉光合速率的影響」；差題目：「光合作用的研究」。</div></div></div>
+              <div class="indicator"><div class="ind-num blue">2</div><div><div class="ind-text"><strong>對相關研究領域有貢獻</strong>──填補知識空缺或驗證爭議。</div></div></div>
+              <div class="indicator"><div class="ind-num blue">3</div><div><div class="ind-text"><strong>可用科學方法檢驗</strong>──問題可操作、可測量、可分析。</div><div class="ind-tip">💬 無法量化的主觀問題不適合科展（如「哪種音樂最好聽？」）。</div></div></div>
+              <div class="indicator"><div class="ind-num blue">4</div><div><div class="ind-text"><strong>鄉土之相關性</strong>──與在地環境、文化、議題有連結。</div><div class="ind-tip">💬 以臺灣本地生物、環境、食品、農業等為題材可得鄉土加分。</div></div></div>
+              <div class="indicator"><div class="ind-num blue">5</div><div><div class="ind-text"><strong>教材之相關性</strong>──與課程學習有所連結。</div></div></div>
+            </div>
+          </div>
+
+          <!-- 二 創意 -->
+          <div class="criteria-section">
+            <div class="criteria-header green-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">✨</span>
+              <span class="criteria-title">（二）創意、學術或實用價值</span>
+              <span class="criteria-score">40%</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator"><div class="ind-num green">1</div><div><div class="ind-text"><strong>有原創性，方法具可行性</strong>──不是重複前人實驗。</div><div class="ind-tip">💬 原創性不代表「從來沒人做過」，而是在既有基礎上有新觀點、新變因或新應用。</div></div></div>
+              <div class="indicator"><div class="ind-num green">2</div><div><div class="ind-text"><strong>對科學、社會或經濟有產生影響之潛力</strong>。</div><div class="ind-tip">💬 在結論中說明你的研究成果如何能解決實際問題，或開創新的研究方向，此項評分即可提升。</div></div></div>
+            </div>
+          </div>
+
+          <!-- 三 科學方法 -->
+          <div class="criteria-section">
+            <div class="criteria-header orange-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">⚗️</span>
+              <span class="criteria-title">（三）科學方法之適切性</span>
+              <span class="criteria-score">20%</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator"><div class="ind-num orange">1</div><div><div class="ind-text"><strong>設計周全之研究計畫</strong>──有清楚的研究架構。</div></div></div>
+              <div class="indicator"><div class="ind-num orange">2</div><div><div class="ind-text"><strong>控因及變因清楚、適當及完整</strong>。</div><div class="ind-tip">💬 三大變因（自變因、依變因、控制變因）要完整列出，且控制變因的「如何控制」要說明。</div></div></div>
+              <div class="indicator"><div class="ind-num orange">3</div><div><div class="ind-text"><strong>有系統地收集數據及分析</strong>。</div><div class="ind-tip">💬 每組至少重複3次以上，數據要有平均值、標準差，異常值要說明處理方式。</div></div></div>
+              <div class="indicator"><div class="ind-num orange">4</div><div><div class="ind-text"><strong>結果具有再現性</strong>──同樣條件可以得到相同結果。</div></div></div>
+              <div class="indicator"><div class="ind-num orange">5</div><div><div class="ind-text"><strong>適當地應用數學及統計方法</strong>。</div><div class="ind-tip">💬 依資料性質選用適當統計（如t-test、ANOVA、卡方檢定）。生物實驗至少需有平均值與標準差比較。</div></div></div>
+              <div class="indicator"><div class="ind-num orange">6</div><div><div class="ind-text"><strong>數據足以證實結論及釋義</strong>。</div></div></div>
+            </div>
+          </div>
+
+          <!-- 四 展示 -->
+          <div class="criteria-section">
+            <div class="criteria-header purple-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">🎤</span>
+              <span class="criteria-title">（四）展示及表達能力</span>
+              <span class="criteria-score">20%</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator"><div class="ind-num purple">1</div><div><div class="ind-text"><strong>海報資料具邏輯性</strong>──布局清晰、讀者容易理解。</div><div class="ind-tip">💬 海報閱讀動線：研究問題→動機→假設→方法→結果→結論。不可讓人找不到重點。</div></div></div>
+              <div class="indicator"><div class="ind-num purple">2</div><div><div class="ind-text"><strong>海報有清晰之圖表及圖例</strong>。</div></div></div>
+              <div class="indicator"><div class="ind-num purple">3</div><div><div class="ind-text"><strong>備實驗紀錄簿（研究日誌）及參考文獻</strong>。</div><div class="ind-tip">💬 研究日誌是展示研究誠信的最重要文件，評審可能隨時翻看。要有每次實驗的完整記錄。</div></div></div>
+              <div class="indicator"><div class="ind-num purple">4</div><div><div class="ind-text"><strong>回答問題，清楚、簡潔、且思考縝密</strong>。</div><div class="ind-tip">💬 現場9-12分鐘內，評審會問你3-5個問題。不會的可以誠實說「這是未來研究方向」，不可瞎猜。</div></div></div>
+              <div class="indicator"><div class="ind-num purple">5</div><div><div class="ind-text"><strong>了解與作品相關之基本科學原理</strong>。</div></div></div>
+              <div class="indicator"><div class="ind-num purple">6</div><div><div class="ind-text"><strong>了解結果與結論之釋義及限制</strong>。</div><div class="ind-tip">💬 主動說出你的研究有哪些限制（樣本數、環境控制等），反而顯示你的科學素養高。</div></div></div>
+              <div class="indicator"><div class="ind-num purple">7</div><div><div class="ind-text"><strong>處理與執行作品之獨立度</strong>──研究是自己做的。</div><div class="ind-tip">💬 評審可能問「這個步驟你怎麼做的？」來判斷是否為學生獨立完成。指導老師要避免過度介入。</div></div></div>
+              <div class="indicator"><div class="ind-num purple">8</div><div><div class="ind-text">團體作品：<strong>所有作者對於作品都理解且都有貢獻</strong>。</div><div class="ind-tip">💬 分組作品評審可能分別詢問每位成員，確認每人都真正參與。</div></div></div>
+              <div class="indicator"><div class="ind-num purple">9</div><div><div class="ind-text"><strong>未來進一步研究構思與方向</strong>。</div><div class="ind-tip">💬 能說出「如果繼續研究，下一步可以探討什麼」，是展示科學思維的加分項目。</div></div></div>
+            </div>
+          </div>
+
+          <!-- 附註 -->
+          <div class="info-box orange" style="margin-top:20px">
+            <span class="info-box-icon">⚠️</span>
+            <div>
+              <strong>重要規定：</strong>參展作品全冊（說明書）<strong>請勿出現校名、作者姓名、校長及指導老師姓名</strong>，且<strong>照片中不得出現作者或指導教師之臉部</strong>，以確保評審公平客觀。
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 全國科展 ══ -->
+    <div id="national" class="section">
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">🏆</span>
+          <div>
+            <h2>全國科學展覽會評審標準</h2>
+            <div class="subtitle">科教館主辦 · 含安全審查機制 · 四大評審向度</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="info-box green">
+            <span class="info-box-icon">🔒</span>
+            <div><strong>安全審查機制：</strong>全國科展設有獨立的「科學展覽作品安全審查會」，對參展作品進行安全預審。涉及化學品、生物危害、輻射、電氣安全等的作品必須通過安全審查才能參展。</div>
+          </div>
+
+          <!-- 評審標準 -->
+          <div class="criteria-section">
+            <div class="criteria-header blue-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">🎯</span>
+              <span class="criteria-title">1. 研究主題</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator"><div class="ind-num blue">1</div><div><div class="ind-text">清楚且聚焦</div></div></div>
+              <div class="indicator"><div class="ind-num blue">2</div><div><div class="ind-text">對相關研究領域有貢獻</div></div></div>
+              <div class="indicator"><div class="ind-num blue">3</div><div><div class="ind-text">可用科學方法檢驗</div></div></div>
+              <div class="indicator"><div class="ind-num blue">4</div><div><div class="ind-text">鄉土之相關性</div></div></div>
+              <div class="indicator"><div class="ind-num blue">5</div><div><div class="ind-text">教材之相關性</div></div></div>
+            </div>
+          </div>
+
+          <div class="criteria-section">
+            <div class="criteria-header green-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">✨</span>
+              <span class="criteria-title">2. 創意、學術或實用價值</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator"><div class="ind-num green">1</div><div><div class="ind-text">有原創性，方法具可行性</div></div></div>
+              <div class="indicator"><div class="ind-num green">2</div><div><div class="ind-text">對科學、社會或經濟有產生影響之潛力</div></div></div>
+            </div>
+          </div>
+
+          <div class="criteria-section">
+            <div class="criteria-header orange-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">⚗️</span>
+              <span class="criteria-title">3. 科學方法之適切性</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator"><div class="ind-num orange">1</div><div><div class="ind-text">設計周全之研究計畫</div></div></div>
+              <div class="indicator"><div class="ind-num orange">2</div><div><div class="ind-text">控因及變因清楚、適當及完整</div></div></div>
+              <div class="indicator"><div class="ind-num orange">3</div><div><div class="ind-text">有系統地收集數據及分析</div></div></div>
+              <div class="indicator"><div class="ind-num orange">4</div><div><div class="ind-text">結果具有再現性</div></div></div>
+              <div class="indicator"><div class="ind-num orange">5</div><div><div class="ind-text">適當地應用數學及統計方法</div></div></div>
+              <div class="indicator"><div class="ind-num orange">6</div><div><div class="ind-text">數據足以證實結論及釋義</div></div></div>
+            </div>
+          </div>
+
+          <div class="criteria-section">
+            <div class="criteria-header purple-h" onclick="toggleCriteria(this)">
+              <span style="font-size:20px">🎤</span>
+              <span class="criteria-title">4. 展示及表達能力</span>
+              <span class="criteria-toggle open">▾</span>
+            </div>
+            <div class="criteria-body">
+              <div class="indicator"><div class="ind-num purple">1</div><div><div class="ind-text">海報資料具邏輯性</div></div></div>
+              <div class="indicator"><div class="ind-num purple">2</div><div><div class="ind-text">海報有清晰之圖表及圖例</div></div></div>
+              <div class="indicator"><div class="ind-num purple">3</div><div><div class="ind-text">備實驗紀錄簿（研究日誌）及參考文獻</div></div></div>
+              <div class="indicator"><div class="ind-num purple">4</div><div><div class="ind-text">回答問題，清楚、簡潔、且思考縝密</div></div></div>
+              <div class="indicator"><div class="ind-num purple">5</div><div><div class="ind-text">了解與作品相關之基本科學原理</div></div></div>
+              <div class="indicator"><div class="ind-num purple">6</div><div><div class="ind-text">了解結果與結論之釋義及限制</div></div></div>
+              <div class="indicator"><div class="ind-num purple">7</div><div><div class="ind-text">處理與執行作品之獨立度</div></div></div>
+              <div class="indicator"><div class="ind-num purple">8</div><div><div class="ind-text">團體作品所有之作者對於作品都理解且都有貢獻</div></div></div>
+              <div class="indicator"><div class="ind-num purple">9</div><div><div class="ind-text">未來進一步研究構思與方向</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 標準比較表 ══ -->
+    <div id="compare" class="section">
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">⚖️</span>
+          <div>
+            <h2>三份評審標準比較表</h2>
+            <div class="subtitle">一目了然看出異同，掌握跨層級準備策略</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="info-box blue">
+            <span class="info-box-icon">💡</span>
+            <div>三份文件源自同一評審框架。<strong>北市第51屆</strong>與<strong>全國科展</strong>標準幾乎完全相同；<strong>北市第59屆說明書評分表</strong>是針對書面報告的精簡版，配分比例不同。</div>
+          </div>
+          <div style="overflow-x:auto">
+            <table class="compare-table" style="border:1px solid var(--border);border-radius:8px;overflow:hidden">
+              <thead>
+                <tr>
+                  <th class="th-label" style="width:200px">評審向度</th>
+                  <th class="th-taipei" style="text-align:center">北市 第59屆<br><span style="font-weight:400;font-size:12px">說明書評分表</span></th>
+                  <th class="th-national" style="text-align:center">北市 第51屆<br><span style="font-weight:400;font-size:12px">參展評審基準</span></th>
+                  <th class="th-label59" style="text-align:center">全國科展<br><span style="font-weight:400;font-size:12px">評審標準</span></th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>研究主題 / 聚焦程度</strong></td>
+                  <td style="text-align:center">✅ 含於創意及貢獻中</td>
+                  <td style="text-align:center"><strong style="color:var(--primary)">20%</strong><br>5細項</td>
+                  <td style="text-align:center">✅ 5細項</td>
+                </tr>
+                <tr>
+                  <td><strong>創意 / 學術 / 實用價值</strong></td>
+                  <td style="text-align:center"><strong style="color:var(--primary)">50%</strong><br>3細項（含可重複性）</td>
+                  <td style="text-align:center"><strong style="color:var(--primary)">40%</strong><br>2細項</td>
+                  <td style="text-align:center">✅ 2細項</td>
+                </tr>
+                <tr>
+                  <td><strong>內容 / 科學方法</strong></td>
+                  <td style="text-align:center"><strong style="color:var(--primary)">30%</strong><br>5細項</td>
+                  <td style="text-align:center"><strong style="color:var(--primary)">20%</strong><br>6細項</td>
+                  <td style="text-align:center">✅ 6細項</td>
+                </tr>
+                <tr>
+                  <td><strong>文字 / 展示 / 表達</strong></td>
+                  <td style="text-align:center"><strong style="color:var(--primary)">20%</strong><br>3細項（書面格式）</td>
+                  <td style="text-align:center"><strong style="color:var(--primary)">20%</strong><br>9細項（含口頭）</td>
+                  <td style="text-align:center">✅ 9細項（含口頭）</td>
+                </tr>
+                <tr>
+                  <td><strong>評審形式</strong></td>
+                  <td style="text-align:center">📄 書面初審</td>
+                  <td style="text-align:center">📄 初審 + 🎤 複審</td>
+                  <td style="text-align:center">🔒 安全審查 + 🎤 現場</td>
+                </tr>
+                <tr>
+                  <td><strong>照片/匿名要求</strong></td>
+                  <td style="text-align:center">✅ 不得露臉/校名</td>
+                  <td style="text-align:center">✅ 不得露臉/校名</td>
+                  <td style="text-align:center">✅ 同上</td>
+                </tr>
+                <tr>
+                  <td><strong>鄉土相關性</strong></td>
+                  <td style="text-align:center">間接要求</td>
+                  <td style="text-align:center">✅ 明確列項</td>
+                  <td style="text-align:center">✅ 明確列項</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div style="margin-top:24px">
+            <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;color:var(--text-main)">📌 備戰策略小結</h3>
+            <div class="tip-grid">
+              <div class="tip-card blue">
+                <div class="tip-icon">📄</div>
+                <div class="tip-title">說明書初審（書面）</div>
+                <div class="tip-body">重點在創意（50%）。寫出讓評審眼睛一亮的研究動機，強調你的研究「哪裡不一樣」。內容完整（30%）是基本功，格式正確（20%）是最低門檻。</div>
+              </div>
+              <div class="tip-card green">
+                <div class="tip-icon">🎤</div>
+                <div class="tip-title">現場複審（口頭）</div>
+                <div class="tip-body">創意學術佔40%最重，其次是研究主題（20%）。口頭表達佔20%，要練習到能在9-12分鐘內清楚說完整個研究，並流暢回答追問。</div>
+              </div>
+              <div class="tip-card orange">
+                <div class="tip-icon">🏆</div>
+                <div class="tip-title">全國科展加分關鍵</div>
+                <div class="tip-body">與北市標準相同，但深度要求更高。要能展示你對相關研究領域文獻的掌握，說明自己的研究在整個領域的定位與貢獻。</div>
+              </div>
+              <div class="tip-card purple">
+                <div class="tip-icon">📒</div>
+                <div class="tip-title">研究日誌是關鍵</div>
+                <div class="tip-body">三種評審標準都提到「實驗紀錄簿」。從研究第一天就開始記錄，包含失敗的嘗試。評審翻日誌的時間可能比看海報還長。</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 互動自評清單 ══ -->
+    <div id="checklist" class="section">
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">✅</span>
+          <div>
+            <h2>互動式自評清單</h2>
+            <div class="subtitle">依全國科展標準 · 提交前請逐項確認</div>
+          </div>
+        </div>
+        <div class="card-body">
+
+          <div class="score-display">
+            <div class="score-sub">目前完成進度</div>
+            <div class="big-num" id="scoreNum">0</div>
+            <div class="score-sub">/ <span id="totalNum">26</span> 項已完成</div>
+            <div class="score-bar-wrap">
+              <div class="score-bar" id="scoreBar" style="width:0%"></div>
+            </div>
+            <div id="scoreMsg" style="font-size:13px;opacity:0.85">開始勾選，檢查你的研究準備狀況</div>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-title blue">🎯 一、研究主題</div>
+            <div class="checklist-items">
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>研究問題清楚且聚焦，能用一句話說明</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>研究對相關領域有知識上的貢獻</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>問題可以用科學方法（實驗、觀察、分析）來檢驗</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>題材與臺灣在地環境、文化、生態或社會有連結</label></label>
+            </div>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-title green">✨ 二、創意、學術或實用價值</div>
+            <div class="checklist-items">
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>研究有原創性，不是單純重複前人實驗</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>研究方法在學生能力範圍內可行</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>能說明研究成果對科學、社會或生活的可能影響</label></label>
+            </div>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-title orange">⚗️ 三、科學方法適切性</div>
+            <div class="checklist-items">
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>有完整的研究計畫（問題→假設→方法→預期結果）</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>自變因、依變因、控制變因均明確列出</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>說明各控制變因「如何控制」</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>每組實驗至少重複3次，有原始數據記錄</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>使用適當統計方法（至少有平均值與標準差）</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>結論有數據支持，未過度推論</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>實驗結果具再現性（別人照步驟做可得相近結果）</label></label>
+            </div>
+          </div>
+
+          <div class="checklist-group">
+            <div class="checklist-group-title" style="background:var(--purple-light);color:var(--purple);border:1px solid #c4b5fd">🎤 四、展示及表達</div>
+            <div class="checklist-items">
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>說明書/海報符合官方格式規定</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>說明書全文無出現校名、作者姓名、老師姓名</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>照片中無作者或教師臉部出現</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>海報布局有清楚閱讀動線，重點突出</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>所有圖表有標題、座標軸、單位、圖例</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>研究日誌（實驗紀錄簿）完整，有日期與每次記錄</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>參考文獻格式一致，來源可靠（非維基百科）</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>能在10分鐘內流暢介紹完整研究</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>能說明研究的限制與後續可延伸的方向</label></label>
+              <label class="check-item"><input type="checkbox" onchange="updateScore(this)"><label>（分組）每位成員都能獨立說明各自負責的部分</label></label>
+            </div>
+          </div>
+
+          <div style="text-align:center;margin-top:16px">
+            <button onclick="resetChecklist()" style="background:var(--danger-light);color:var(--danger);border:1px solid var(--danger);border-radius:8px;padding:10px 24px;font-size:14px;cursor:pointer;font-weight:600">🔄 重置清單</button>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 研究流程指南 ══ -->
+    <div id="process" class="section">
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">🗺️</span>
+          <div>
+            <h2>科學專題研究完整流程</h2>
+            <div class="subtitle">從選題發想到正式參展的 8 大步驟</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="flow">
+            <div class="flow-item">
+              <div class="flow-left">
+                <div class="flow-dot" style="background:linear-gradient(135deg,#1a56db,#3b82f6)">1</div>
+                <div class="flow-line"></div>
+              </div>
+              <div class="flow-content">
+                <div class="flow-title">🔍 選擇研究主題（2-4週）</div>
+                <div class="flow-desc">從日常生活中觀察有趣的現象，或從課程內容出發，提出「為什麼？」的問題。聚焦在你能用現有設備回答的問題。
+                <br><br>
+                <strong>好主題三要素：</strong>可測量、有比較組、答案未知或有爭議。避開「太大」（氣候變遷對生物的影響）或「太小」（同一品種的兩顆草莓哪顆比較甜）的問題。</div>
+                <div class="flow-tags">
+                  <span class="flow-tag">腦力激盪</span>
+                  <span class="flow-tag">文獻初步搜尋</span>
+                  <span class="flow-tag">主題聚焦</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-left">
+                <div class="flow-dot" style="background:linear-gradient(135deg,#0e7c5a,#10b981)">2</div>
+                <div class="flow-line"></div>
+              </div>
+              <div class="flow-content">
+                <div class="flow-title">📚 文獻探討（2-3週）</div>
+                <div class="flow-desc">系統性查閱相關文獻，了解已知知識與研究現況。找出你的研究「切入點」——前人沒做過、有不同結論、或有新方法可以驗證的部分。
+                <br><br>
+                <strong>推薦資料庫：</strong>PubMed、Google Scholar、臺灣期刊論文索引（TCI）、教育部數位典藏。引用至少5-10篇可靠文獻。</div>
+                <div class="flow-tags">
+                  <span class="flow-tag">文獻搜尋</span>
+                  <span class="flow-tag">摘要整理</span>
+                  <span class="flow-tag">研究缺口辨識</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-left">
+                <div class="flow-dot" style="background:linear-gradient(135deg,#d97706,#f59e0b)">3</div>
+                <div class="flow-line"></div>
+              </div>
+              <div class="flow-content">
+                <div class="flow-title">💡 建立研究假說（1週）</div>
+                <div class="flow-desc">依據文獻知識，提出具體、可驗證的假說。格式：「若____（自變因）改變，則____（依變因）會____（預測方向），因為____（科學依據）。」
+                <br><br>
+                假說要明確、可能被推翻（可偽證性），不可是確定答案。</div>
+                <div class="flow-tags">
+                  <span class="flow-tag">假說撰寫</span>
+                  <span class="flow-tag">變因分析</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-left">
+                <div class="flow-dot" style="background:linear-gradient(135deg,#6d28d9,#8b5cf6)">4</div>
+                <div class="flow-line"></div>
+              </div>
+              <div class="flow-content">
+                <div class="flow-title">⚗️ 實驗設計（1-2週）</div>
+                <div class="flow-desc">設計嚴謹的實驗，列出所有變因（自變因、依變因、控制變因）。規劃實驗次數（每組至少3次）、樣本數量、測量方法與儀器。考慮對照組與實驗組的設置。
+                <br><br>
+                <strong>建議：</strong>先做小規模預實驗，確認方法可行後再正式進行。</div>
+                <div class="flow-tags">
+                  <span class="flow-tag">變因規劃</span>
+                  <span class="flow-tag">對照組設計</span>
+                  <span class="flow-tag">器材確認</span>
+                  <span class="flow-tag">預實驗</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-left">
+                <div class="flow-dot" style="background:linear-gradient(135deg,#0891b2,#06b6d4)">5</div>
+                <div class="flow-line"></div>
+              </div>
+              <div class="flow-content">
+                <div class="flow-title">🔬 執行實驗與記錄（4-12週）</div>
+                <div class="flow-desc">按照計畫執行實驗，詳細記錄每次實驗的日期、條件、步驟、觀察現象和原始數據。失敗也要記錄原因。
+                <br><br>
+                <strong>研究日誌格式：</strong>日期 | 實驗條件 | 步驟記錄 | 觀察/數據 | 異常狀況 | 心得與下一步。日誌要有手寫或數位原始記錄，不可事後補寫。</div>
+                <div class="flow-tags">
+                  <span class="flow-tag">原始數據記錄</span>
+                  <span class="flow-tag">重複實驗</span>
+                  <span class="flow-tag">研究日誌</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-left">
+                <div class="flow-dot" style="background:linear-gradient(135deg,#059669,#34d399)">6</div>
+                <div class="flow-line"></div>
+              </div>
+              <div class="flow-content">
+                <div class="flow-title">📊 數據分析與統計（2週）</div>
+                <div class="flow-desc">整理原始數據，計算平均值、標準差、標準誤差。選用適當統計檢定（t-test、ANOVA、卡方等）判斷差異顯著性。製作清晰的圖表（折線圖、長條圖、散點圖）。
+                <br><br>
+                <strong>常見統計工具：</strong>Excel、SPSS、R、Python（pandas/scipy）、Prism。圖表須包含誤差線（error bar）。</div>
+                <div class="flow-tags">
+                  <span class="flow-tag">統計檢定</span>
+                  <span class="flow-tag">圖表製作</span>
+                  <span class="flow-tag">顯著性分析</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-left">
+                <div class="flow-dot" style="background:linear-gradient(135deg,#dc2626,#ef4444)">7</div>
+                <div class="flow-line"></div>
+              </div>
+              <div class="flow-content">
+                <div class="flow-title">📝 撰寫說明書（3-4週）</div>
+                <div class="flow-desc">依照科展規定格式撰寫完整說明書。各章節要求：<br>
+                <strong>封面</strong>（無校名/姓名）→ <strong>摘要</strong>（200-400字）→ <strong>研究動機</strong>（故事性，引人入勝）→ <strong>研究目的</strong>（條列式）→ <strong>文獻探討</strong>（引用文獻，建立理論基礎）→ <strong>研究方法</strong>（可重現性）→ <strong>研究結果</strong>（圖表為主）→ <strong>討論</strong>（比較假說、解釋異常）→ <strong>結論</strong>（對應研究目的）→ <strong>參考資料</strong>（APA格式）</div>
+                <div class="flow-tags">
+                  <span class="flow-tag">格式規範</span>
+                  <span class="flow-tag">APA引用</span>
+                  <span class="flow-tag">匿名處理</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="flow-item">
+              <div class="flow-left">
+                <div class="flow-dot" style="background:linear-gradient(135deg,#d97706,#f59e0b)">8</div>
+              </div>
+              <div class="flow-content" style="padding-bottom:0">
+                <div class="flow-title">🎤 準備現場展示（1-2週）</div>
+                <div class="flow-desc">製作海報（A0或規定尺寸）、整理實驗日誌、練習口頭報告。預設可能被問的問題並準備回答。複審時需穿著競賽制服並配戴作者證。
+                <br><br>
+                <strong>練習技巧：</strong>錄影自己說一遍，找同學或老師扮演評審提問，計時練習在10分鐘內說完重點。</div>
+                <div class="flow-tags">
+                  <span class="flow-tag">海報製作</span>
+                  <span class="flow-tag">口頭練習</span>
+                  <span class="flow-tag">Q&A準備</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 得獎秘笈 ══ -->
+    <div id="tips" class="section">
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">💡</span>
+          <div>
+            <h2>得獎關鍵秘笈</h2>
+            <div class="subtitle">資深評審老師視角 × 歷屆優秀作品分析</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <div class="tip-grid">
+            <div class="tip-card blue">
+              <div class="tip-icon">🎯</div>
+              <div class="tip-title">問題要「小而精」</div>
+              <div class="tip-body">得獎作品的研究問題往往非常聚焦。「一個清晰的問題做深」遠優於「五個問題做淺」。評審偏愛能挖到底部的研究，而非蜻蜓點水式的廣泛探索。</div>
+            </div>
+            <div class="tip-card green">
+              <div class="tip-icon">📊</div>
+              <div class="tip-title">數據要夠豐富</div>
+              <div class="tip-body">數據量要讓評審信服。每個條件至少3-5次重複，重要發現要有10次以上。用統計檢定說明差異是否「顯著」，不能只說「比較高」或「好像多一點」。</div>
+            </div>
+            <div class="tip-card orange">
+              <div class="tip-icon">🔄</div>
+              <div class="tip-title">失敗也要寫進去</div>
+              <div class="tip-body">研究日誌記錄失敗實驗，說明書討論章節說明遇到的困難與如何克服，這反而大大加分。評審知道真正的研究一定會遇到問題，誠實面對才顯專業。</div>
+            </div>
+            <div class="tip-card purple">
+              <div class="tip-icon">🌱</div>
+              <div class="tip-title">說出「下一步」</div>
+              <div class="tip-body">在討論或結論末尾，主動提出「如果繼續研究，可以探討X變因的影響」或「此結果可應用於Y方向」。展示你的科學思維沒有在完成作品後停止。</div>
+            </div>
+            <div class="tip-card teal">
+              <div class="tip-icon">🗣️</div>
+              <div class="tip-title">口頭表達是決勝關鍵</div>
+              <div class="tip-body">複審成績=最終成績。10分鐘口頭報告要「自信、清楚、有重點」。不要唸稿，要能自然說明。評審提問時，不確定可以誠實說「這是我的推測，還需要更多實驗驗證」。</div>
+            </div>
+            <div class="tip-card red">
+              <div class="tip-icon">🎨</div>
+              <div class="tip-title">海報設計要專業</div>
+              <div class="tip-body">字體大小至少24pt，確保3公尺外可讀。配色對比清楚（深底淺字或淺底深字）。圖表比文字更有說服力。海報是評審的第一印象，要讓人一眼抓到研究亮點。</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 評審心理解析 -->
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:24px">🧠</span>
+          <div>
+            <h2>評審視角解析</h2>
+            <div class="subtitle">了解評審如何做決定</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>評審在問自己的問題</th>
+                <th>你的對策</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>「這個學生真的做了這個研究嗎？」</td>
+                <td>準備完整日誌，能說出每個細節，包括失敗的嘗試。</td>
+              </tr>
+              <tr>
+                <td>「這個問題以前有人做過嗎？」</td>
+                <td>在文獻探討中清楚說明你的研究與前人有何不同。</td>
+              </tr>
+              <tr>
+                <td>「這個結論是數據說話的嗎？」</td>
+                <td>結論要逐條對應實驗結果，不可做無數據支持的推測。</td>
+              </tr>
+              <tr>
+                <td>「如果我多問幾個問題，他說得出來嗎？」</td>
+                <td>把自己當成評審，列出所有「可能被問的問題」一一準備。</td>
+              </tr>
+              <tr>
+                <td>「這個研究讓我學到了什麼新東西？」</td>
+                <td>在口頭報告開場就點明你的研究亮點與突破在哪裡。</td>
+              </tr>
+              <tr>
+                <td>「如果我是這個學生的指導老師，我是否過度介入？」</td>
+                <td>說明哪些是自己獨立完成的，哪些有老師協助，要誠實。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ 常見錯誤 ══ -->
+    <div id="mistakes" class="section">
+      <div class="card">
+        <div class="card-header">
+          <span style="font-size:28px">⚠️</span>
+          <div>
+            <h2>最常見的扣分項目排行</h2>
+            <div class="subtitle">評審最常看到的問題 × 如何避免</div>
+          </div>
+        </div>
+        <div class="card-body">
+          <ul class="mistake-list">
+            <li class="mistake-item">
+              <span class="mistake-icon">🥇</span>
+              <div>
+                <div class="mistake-title">#1 說明書出現校名或作者姓名</div>
+                <div class="mistake-fix">直接導致評審公平性爭議，嚴重可取消資格。<strong>解決：</strong>提交前逐頁搜尋「學校名稱」、「老師姓名」、「學生姓名」，包括頁首頁尾、圖片說明、致謝辭。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">🥈</span>
+              <div>
+                <div class="mistake-title">#2 控制變因沒有說明「如何控制」</div>
+                <div class="mistake-fix">光列出控制變因名稱不夠。<strong>解決：</strong>每個控制變因後面加上「以___方式控制，確保___維持在___」的說明。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">🥉</span>
+              <div>
+                <div class="mistake-title">#3 重複次數不足（N=1 或 N=2）</div>
+                <div class="mistake-fix">單次實驗結果無法排除偶然性。<strong>解決：</strong>每個條件至少重複3次，生物實驗建議5次以上，並計算平均值與標準差。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">4️⃣</span>
+              <div>
+                <div class="mistake-title">#4 圖表缺少軸標籤或單位</div>
+                <div class="mistake-fix">圖表是數據的臉，格式不完整顯示粗心。<strong>解決：</strong>每張圖都要有：圖標題、X軸名稱+單位、Y軸名稱+單位、圖例（若有多組數據）、誤差線。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">5️⃣</span>
+              <div>
+                <div class="mistake-title">#5 結論超越數據範圍（過度推論）</div>
+                <div class="mistake-fix">如實驗只測試了3種濃度，不能說「所有濃度都…」。<strong>解決：</strong>結論只說你測試範圍內的結果，超出範圍的用「推測」或「需要進一步研究」表達。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">6️⃣</span>
+              <div>
+                <div class="mistake-title">#6 文獻探討引用維基百科</div>
+                <div class="mistake-fix">維基百科不是學術文獻，會讓評審對你的研究嚴謹度存疑。<strong>解決：</strong>用PubMed、Google Scholar找期刊論文，或引用教科書、政府機關報告。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">7️⃣</span>
+              <div>
+                <div class="mistake-title">#7 研究日誌不完整或事後補寫</div>
+                <div class="mistake-fix">評審一眼看出是否是事後補寫的「完美日誌」。<strong>解決：</strong>從研究第一天開始記錄，保留錯誤、塗改、失敗記錄，真實的日誌才有說服力。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">8️⃣</span>
+              <div>
+                <div class="mistake-title">#8 口頭報告時無法回答追問</div>
+                <div class="mistake-fix">評審最常問：為什麼選這個濃度/溫度/材料？這個異常值如何解釋？<strong>解決：</strong>對研究的每個決策都要有「為什麼這樣做」的理由，提前與同學模擬Q&A問答。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">9️⃣</span>
+              <div>
+                <div class="mistake-title">#9 分組作品只有一人能說明</div>
+                <div class="mistake-fix">評審可能分別詢問每位成員，確認是否真正共同參與。<strong>解決：</strong>分組作品要明確分工，每人負責解說自己負責的部分，且對全部研究都有基本了解。</div>
+              </div>
+            </li>
+            <li class="mistake-item">
+              <span class="mistake-icon">🔟</span>
+              <div>
+                <div class="mistake-title">#10 海報文字過多，找不到重點</div>
+                <div class="mistake-fix">海報不是說明書的縮印版。<strong>解決：</strong>海報用圖表+關鍵數據+短句子，詳細說明留給口頭報告。每個區塊的文字以不超過100字為原則。</div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="footer">
+  📊 資料來源：臺北市第59屆中小學科展評分表・臺北市第51屆科展評審基準・全國科學展覽會評審標準・科展評審自評表<br>
+  💡 教師指導補充內容由科學專題指導老師與臺北市科展評審委員視角整理 | 僅供教學參考使用
+</div>
+
+<script>
+  // 導覽切換
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    event.currentTarget.classList.add('active');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // 展開/收合指標
+  function toggleCriteria(header) {
+    const body = header.nextElementSibling;
+    const toggle = header.querySelector('.criteria-toggle');
+    body.classList.toggle('collapsed');
+    toggle.classList.toggle('open');
+  }
+
+  // 自評清單計分
+  function updateScore(cb) {
+    const item = cb.closest('.check-item');
+    item.classList.toggle('checked', cb.checked);
+    const total = document.querySelectorAll('.checklist-items input[type=checkbox]').length;
+    const done = document.querySelectorAll('.checklist-items input[type=checkbox]:checked').length;
+    document.getElementById('scoreNum').textContent = done;
+    document.getElementById('totalNum').textContent = total;
+    const pct = Math.round(done / total * 100);
+    document.getElementById('scoreBar').style.width = pct + '%';
+    const msgs = [
+      [0, '開始勾選，檢查你的研究準備狀況'],
+      [30, '繼續努力！還有許多重要項目需要完成'],
+      [60, '進展不錯！記得確認細節部分'],
+      [80, '已接近完成！再仔細確認幾個關鍵項目'],
+      [95, '幾乎完整！準備好迎接評審了！'],
+      [100, '🎉 全部完成！祝你在科展中脫穎而出！']
+    ];
+    let msg = msgs[0][1];
+    for (const [threshold, m] of msgs) { if (pct >= threshold) msg = m; }
+    document.getElementById('scoreMsg').textContent = msg;
+  }
+
+  function resetChecklist() {
+    document.querySelectorAll('.checklist-items input[type=checkbox]').forEach(cb => {
+      cb.checked = false;
+      cb.closest('.check-item').classList.remove('checked');
+    });
+    document.getElementById('scoreNum').textContent = '0';
+    document.getElementById('scoreBar').style.width = '0%';
+    document.getElementById('scoreMsg').textContent = '開始勾選，檢查你的研究準備狀況';
+  }
+
+  // 初始化 totalNum
+  window.addEventListener('DOMContentLoaded', () => {
+    const total = document.querySelectorAll('.checklist-items input[type=checkbox]').length;
+    document.getElementById('totalNum').textContent = total;
+  });
+</script>
+
+</body>
+</html>

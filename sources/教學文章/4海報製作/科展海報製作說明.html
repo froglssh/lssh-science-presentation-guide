@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科展海報製作與演示技巧互動指南</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #f8fafc; /* Warm neutral/light gray */
+            color: #334155; /* Slate 700 */
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+        .poster-grid-item {
+            transition: all 0.3s ease;
+        }
+        .poster-grid-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+        .active-tab {
+            border-bottom: 2px solid #0f766e; /* Teal 700 */
+            color: #0f766e;
+            font-weight: 700;
+        }
+    </style>
+    <!-- Chosen Palette: Scientific Teal & Slate - A clean, professional palette using Warm Neutrals (Slate) for text/bg and Teal/Cyan for accents to represent science and clarity. -->
+    <!-- Application Structure Plan: The app is designed as a "Digital Workshop" divided into 4 logical phases: 1. 策劃 (Planning/Strategy), 2. 架構 (Structure/Anatomy), 3. 設計 (Design/Visuals), 4. 演示 (Presentation). This moves the user from the abstract concept of research to the concrete layout, then to visual refinement, and finally to the oral defense, mirroring the actual workflow of a student preparing for a science fair. Navigation is tab-based for easy non-linear exploration. -->
+    <!-- Visualization & Content Choices: 
+         1. Poster Composition (Pie Chart): Visually demonstrates the importance of White Space and Graphics over Text (approx 40/40/20 rule implied in good design) - Goal: Inform/Balance.
+         2. Font Readability Simulator (Interactive Text): Allows users to experience why font size matters - Goal: Inform/Change.
+         3. 5W1H Interactive Cards: Breaks down the brainstorming process - Goal: Organize.
+         4. Interactive Poster Anatomy (CSS Grid map): Users click sections of a virtual poster to learn specific content requirements (Abstract vs Conclusion) - Goal: Inform/Structure.
+         5. Checklist Data (Dynamic Lists): For checking report requirements (Figure captions vs Table captions) - Goal: Organize. 
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="bg-slate-50 min-h-screen flex flex-col">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-slate-800">🔬 科展海報大師</span>
+                </div>
+                <div class="hidden sm:flex space-x-8 items-center" id="nav-menu">
+                    <button data-target="section-planning" class="nav-btn active-tab px-3 py-2 text-sm font-medium text-slate-600 hover:text-teal-700 transition">1. 策劃與選題</button>
+                    <button data-target="section-structure" class="nav-btn px-3 py-2 text-sm font-medium text-slate-600 hover:text-teal-700 transition">2. 海報架構</button>
+                    <button data-target="section-design" class="nav-btn px-3 py-2 text-sm font-medium text-slate-600 hover:text-teal-700 transition">3. 視覺設計</button>
+                    <button data-target="section-presentation" class="nav-btn px-3 py-2 text-sm font-medium text-slate-600 hover:text-teal-700 transition">4. 演示技巧</button>
+                </div>
+                <!-- Mobile Menu Button (Simplified for this view) -->
+                <div class="flex items-center sm:hidden">
+                    <button id="mobile-menu-btn" class="text-slate-600 hover:text-teal-700 font-bold">選單</button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden sm:hidden bg-white border-t border-slate-200">
+             <button data-target="section-planning" class="nav-btn block w-full text-left px-4 py-3 text-sm font-medium text-slate-600 border-b border-slate-100">1. 策劃與選題</button>
+             <button data-target="section-structure" class="nav-btn block w-full text-left px-4 py-3 text-sm font-medium text-slate-600 border-b border-slate-100">2. 海報架構</button>
+             <button data-target="section-design" class="nav-btn block w-full text-left px-4 py-3 text-sm font-medium text-slate-600 border-b border-slate-100">3. 視覺設計</button>
+             <button data-target="section-presentation" class="nav-btn block w-full text-left px-4 py-3 text-sm font-medium text-slate-600">4. 演示技巧</button>
+        </div>
+    </nav>
+
+    <!-- Main Content Area -->
+    <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-12">
+
+        <!-- Intro -->
+        <div class="text-center mb-8">
+            <h1 class="text-3xl md:text-4xl font-extrabold text-slate-800 tracking-tight">打造完美的科學展覽海報</h1>
+            <p class="mt-4 text-lg text-slate-600 max-w-3xl mx-auto">
+                從選題策略、版面配置到最終的口頭發表。本指南整合了專家建議與實戰技巧，協助您將複雜的研究成果轉化為吸睛且易懂的科學故事。
+            </p>
+        </div>
+
+        <!-- SECTION 1: PLANNING (策劃) -->
+        <section id="section-planning" class="tab-content transition-opacity duration-500">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+                <div class="flex items-center mb-6">
+                    <div class="w-10 h-10 rounded-full bg-teal-100 flex items-center justify-center text-teal-700 font-bold mr-4">1</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">研究策劃與題目擬定</h2>
+                        <p class="text-slate-500 text-sm">好的開始是成功的一半：運用 5W1H 與科學方法</p>
+                    </div>
+                </div>
+
+                <div class="prose max-w-none text-slate-600 mb-8">
+                    <p>科展的核心在於激發創意與解決問題的能力。一個優秀的題目應具備<strong>獨創性 (Originality)</strong>、<strong>完整性</strong>並適合學生程度。透過下方的互動卡片，探索如何運用 5W1H 分析法來深化您的研究主題。</p>
+                </div>
+
+                <!-- 5W1H Interactive Grid -->
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-10">
+                    <button class="5w1h-btn bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 rounded-xl p-4 text-left transition group" onclick="update5W1H('what')">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Subject</span>
+                        <span class="text-xl font-bold text-slate-700 group-hover:text-teal-700">What 什麼</span>
+                    </button>
+                    <button class="5w1h-btn bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 rounded-xl p-4 text-left transition group" onclick="update5W1H('why')">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Reason</span>
+                        <span class="text-xl font-bold text-slate-700 group-hover:text-teal-700">Why 為什麼</span>
+                    </button>
+                    <button class="5w1h-btn bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 rounded-xl p-4 text-left transition group" onclick="update5W1H('where')">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Place</span>
+                        <span class="text-xl font-bold text-slate-700 group-hover:text-teal-700">Where 何處</span>
+                    </button>
+                    <button class="5w1h-btn bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 rounded-xl p-4 text-left transition group" onclick="update5W1H('when')">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Time</span>
+                        <span class="text-xl font-bold text-slate-700 group-hover:text-teal-700">When 何時</span>
+                    </button>
+                    <button class="5w1h-btn bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 rounded-xl p-4 text-left transition group" onclick="update5W1H('who')">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">People</span>
+                        <span class="text-xl font-bold text-slate-700 group-hover:text-teal-700">Who 誰</span>
+                    </button>
+                    <button class="5w1h-btn bg-slate-50 hover:bg-teal-50 border border-slate-200 hover:border-teal-300 rounded-xl p-4 text-left transition group" onclick="update5W1H('how')">
+                        <span class="block text-xs font-bold text-slate-400 uppercase tracking-wider mb-1">Method</span>
+                        <span class="text-xl font-bold text-slate-700 group-hover:text-teal-700">How 如何</span>
+                    </button>
+                </div>
+
+                <!-- Dynamic Content Display for 5W1H -->
+                <div id="5w1h-content" class="bg-teal-50 rounded-xl p-6 border-l-4 border-teal-500">
+                    <h3 id="5w1h-title" class="text-xl font-bold text-teal-800 mb-2">請點擊上方卡片</h3>
+                    <p id="5w1h-desc" class="text-teal-700">選擇一個面向來了解如何深入剖析您的研究題目。</p>
+                </div>
+
+                <!-- Scientific Method Flow -->
+                <div class="mt-12">
+                    <h3 class="text-xl font-bold text-slate-800 mb-6 border-b pb-2">科學研究完整流程</h3>
+                    <div class="flex flex-wrap justify-between items-center gap-4 text-center">
+                        <div class="flex-1 min-w-[120px] bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <div class="text-2xl mb-2">🔍</div>
+                            <div class="font-bold text-slate-700">發現問題</div>
+                        </div>
+                        <div class="text-slate-400">➜</div>
+                        <div class="flex-1 min-w-[120px] bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <div class="text-2xl mb-2">💡</div>
+                            <div class="font-bold text-slate-700">成立假說</div>
+                        </div>
+                        <div class="text-slate-400">➜</div>
+                        <div class="flex-1 min-w-[120px] bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <div class="text-2xl mb-2">⚙️</div>
+                            <div class="font-bold text-slate-700">建立模型</div>
+                        </div>
+                        <div class="text-slate-400">➜</div>
+                        <div class="flex-1 min-w-[120px] bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <div class="text-2xl mb-2">🧪</div>
+                            <div class="font-bold text-slate-700">實驗驗證</div>
+                        </div>
+                        <div class="text-slate-400">➜</div>
+                        <div class="flex-1 min-w-[120px] bg-white p-4 rounded-lg shadow-sm border border-slate-200">
+                            <div class="text-2xl mb-2">✅</div>
+                            <div class="font-bold text-slate-700">解決問題</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 2: STRUCTURE (架構) -->
+        <section id="section-structure" class="tab-content hidden transition-opacity duration-500">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+                <div class="flex items-center mb-6">
+                    <div class="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-bold mr-4">2</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">海報標準架構</h2>
+                        <p class="text-slate-500 text-sm">解剖 A0 海報：點擊下方區塊了解各部分撰寫重點</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Left: Interactive Poster Map -->
+                    <div class="bg-slate-100 p-4 rounded-xl border border-slate-300 aspect-[1/1.414] relative shadow-inner">
+                        <div class="absolute top-0 left-0 bg-slate-800 text-white text-xs px-2 py-1 rounded-br">A0 規格: 84cm x 118.8cm</div>
+                        
+                        <!-- Grid Layout simulating a poster -->
+                        <div class="h-full flex flex-col gap-2 p-2 pt-8">
+                            <!-- Title -->
+                            <div onclick="showPosterDetail('title')" class="cursor-pointer bg-white border-2 border-dashed border-blue-300 hover:border-blue-500 hover:bg-blue-50 p-2 text-center rounded flex items-center justify-center h-[10%] transition">
+                                <span class="font-bold text-blue-900">題目 & 作者 (Title)</span>
+                            </div>
+                            
+                            <!-- Columns -->
+                            <div class="flex gap-2 h-[88%]">
+                                <!-- Col 1 -->
+                                <div class="w-1/3 flex flex-col gap-2">
+                                    <div onclick="showPosterDetail('abstract')" class="cursor-pointer bg-white border border-slate-300 hover:bg-blue-50 p-2 rounded flex-grow flex items-center justify-center text-center transition">
+                                        <span class="text-sm font-semibold text-slate-700">摘要<br>(Abstract)</span>
+                                    </div>
+                                    <div onclick="showPosterDetail('motivation')" class="cursor-pointer bg-white border border-slate-300 hover:bg-blue-50 p-2 rounded flex-[2] flex items-center justify-center text-center transition">
+                                        <span class="text-sm font-semibold text-slate-700">研究動機<br>(Motivation)</span>
+                                    </div>
+                                    <div onclick="showPosterDetail('methods')" class="cursor-pointer bg-white border border-slate-300 hover:bg-blue-50 p-2 rounded flex-[2] flex items-center justify-center text-center transition">
+                                        <span class="text-sm font-semibold text-slate-700">材料與方法<br>(Methods)</span>
+                                    </div>
+                                </div>
+                                <!-- Col 2 -->
+                                <div class="w-1/3 flex flex-col gap-2">
+                                    <div onclick="showPosterDetail('results')" class="cursor-pointer bg-white border border-slate-300 hover:bg-blue-50 p-2 rounded h-full flex items-center justify-center text-center transition bg-blue-50/30">
+                                        <span class="text-sm font-semibold text-slate-700">結果與討論<br>(Results & Discussion)<br><span class="text-xs font-normal text-slate-500">(圖表重點區)</span></span>
+                                    </div>
+                                </div>
+                                <!-- Col 3 -->
+                                <div class="w-1/3 flex flex-col gap-2">
+                                    <div onclick="showPosterDetail('results')" class="cursor-pointer bg-white border border-slate-300 hover:bg-blue-50 p-2 rounded flex-[2] flex items-center justify-center text-center transition bg-blue-50/30">
+                                        <span class="text-sm font-semibold text-slate-700">結果續...</span>
+                                    </div>
+                                    <div onclick="showPosterDetail('conclusion')" class="cursor-pointer bg-white border border-slate-300 hover:bg-blue-50 p-2 rounded flex-grow flex items-center justify-center text-center transition">
+                                        <span class="text-sm font-semibold text-slate-700">結論<br>(Conclusions)</span>
+                                    </div>
+                                    <div onclick="showPosterDetail('refs')" class="cursor-pointer bg-white border border-slate-300 hover:bg-blue-50 p-2 rounded flex-grow-0 h-16 flex items-center justify-center text-center transition">
+                                        <span class="text-xs font-semibold text-slate-700">參考文獻<br>(References)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right: Info Panel -->
+                    <div class="flex flex-col justify-center">
+                        <div id="poster-detail-panel" class="bg-blue-50 rounded-xl p-6 border border-blue-100 shadow-sm h-full">
+                            <h3 id="detail-title" class="text-2xl font-bold text-blue-900 mb-4">點擊左側海報區塊</h3>
+                            <div id="detail-content" class="text-slate-700 space-y-4">
+                                <p>海報製作應掌握「由左而右，由上而下」的閱讀動線。點擊各區域以查看詳細的撰寫建議與注意事項。</p>
+                                <div class="bg-white p-4 rounded-lg border border-blue-200 mt-4">
+                                    <h4 class="font-bold text-blue-800 mb-2">💡 核心原則</h4>
+                                    <ul class="list-disc list-inside text-sm space-y-1">
+                                        <li>每單元一概念 (One Concept per Section)</li>
+                                        <li>3-5 分鐘內可閱讀完畢</li>
+                                        <li>圖表勝於純文字</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 3: DESIGN (設計) -->
+        <section id="section-design" class="tab-content hidden transition-opacity duration-500">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+                <div class="flex items-center mb-6">
+                    <div class="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-700 font-bold mr-4">3</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">視覺設計與圖表規範</h2>
+                        <p class="text-slate-500 text-sm">美工是海報的「化妝師」，但清晰的數據才是靈魂</p>
+                    </div>
+                </div>
+
+                <div class="grid lg:grid-cols-2 gap-12">
+                    
+                    <!-- Chart: Layout Ratio -->
+                    <div>
+                        <h3 class="text-lg font-bold text-slate-700 mb-4 text-center">黃金版面比例 (建議)</h3>
+                        <p class="text-sm text-slate-500 mb-4 text-center">好的海報不應被文字塞滿。適度的留白能減少閱讀壓力。</p>
+                        <div class="chart-container">
+                            <canvas id="layoutChart"></canvas>
+                        </div>
+                        <div class="mt-4 bg-slate-50 p-4 rounded-lg text-sm text-slate-600 border border-slate-200">
+                            <p><strong>注意：</strong>視覺設計應有「吸睛效果」，但不可喧賓奪主。背景建議使用淺色系，避免干擾閱讀。</p>
+                        </div>
+                    </div>
+
+                    <!-- Visual Rules & Font Simulator -->
+                    <div class="space-y-8">
+                        
+                        <!-- Font Simulator -->
+                        <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100">
+                            <h3 class="text-lg font-bold text-indigo-900 mb-4">字體大小模擬器 (虛擬距離 2公尺)</h3>
+                            <p class="text-sm text-indigo-700 mb-4">拖動滑桿查看標題與內文在遠處的清晰度。</p>
+                            
+                            <input type="range" id="fontSizeSlider" min="50" max="150" value="100" class="w-full h-2 bg-indigo-200 rounded-lg appearance-none cursor-pointer mb-6">
+                            
+                            <div class="bg-white p-6 rounded shadow-inner border border-slate-200 overflow-hidden text-center transition-all">
+                                <h1 id="sim-title" class="font-bold text-slate-900 leading-tight mb-2">科學展覽題目範例</h1>
+                                <h2 id="sim-header" class="font-bold text-slate-700 mb-2">研究動機與目的</h2>
+                                <p id="sim-body" class="text-slate-600 leading-relaxed">這是內文範例。字體若太小，評審必須貼得很近才看得到，會降低閱讀意願。建議內文至少 24pt 以上。</p>
+                            </div>
+                            <div class="mt-2 flex justify-between text-xs text-indigo-400">
+                                <span>太小 (難以閱讀)</span>
+                                <span>適中 (建議尺寸)</span>
+                                <span>極大 (標題適用)</span>
+                            </div>
+                        </div>
+
+                        <!-- Table/Figure Rules -->
+                        <div class="bg-white border border-slate-200 p-6 rounded-xl">
+                            <h3 class="text-lg font-bold text-slate-800 mb-3">圖表製作規範 (必讀)</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">✅</span>
+                                    <span class="text-sm text-slate-600"><strong>表格 (Table)：</strong>表說 (Caption) 置於表格<strong>上方</strong>。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">✅</span>
+                                    <span class="text-sm text-slate-600"><strong>圖片 (Figure)：</strong>圖說 (Caption) 置於圖片<strong>下方</strong>。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-green-500 mr-2">✅</span>
+                                    <span class="text-sm text-slate-600"><strong>方程式：</strong>需編號，且符號不得重覆或缺號。</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <span class="text-red-500 mr-2">❌</span>
+                                    <span class="text-sm text-slate-600">避免表格或圖說跨頁。</span>
+                                </li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 4: PRESENTATION (演示) -->
+        <section id="section-presentation" class="tab-content hidden transition-opacity duration-500">
+            <div class="bg-white rounded-2xl shadow-lg p-6 md:p-8 border border-slate-100">
+                <div class="flex items-center mb-6">
+                    <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center text-amber-700 font-bold mr-4">4</div>
+                    <div>
+                        <h2 class="text-2xl font-bold text-slate-800">口頭演示與問答</h2>
+                        <p class="text-slate-500 text-sm">海報是輔助，您才是主角。掌握關鍵 3-5 分鐘。</p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-6">
+                    <!-- Tip Card 1 -->
+                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100 hover:shadow-md transition">
+                        <div class="text-3xl mb-4">👔</div>
+                        <h3 class="font-bold text-slate-800 mb-2">儀態與服裝</h3>
+                        <p class="text-sm text-slate-600">服裝整齊清潔，保持自信。演示時眼神應與評審接觸 (Eye Contact)，切勿只盯著海報唸稿。</p>
+                    </div>
+
+                    <!-- Tip Card 2 -->
+                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100 hover:shadow-md transition">
+                        <div class="text-3xl mb-4">⏱️</div>
+                        <h3 class="font-bold text-slate-800 mb-2">時間掌控</h3>
+                        <p class="text-sm text-slate-600">評審時間有限。需準備不同長度的講稿：3分鐘精簡版 (重點結論) 與 5分鐘完整版 (含細節)。</p>
+                    </div>
+
+                    <!-- Tip Card 3 -->
+                    <div class="bg-amber-50 rounded-xl p-6 border border-amber-100 hover:shadow-md transition">
+                        <div class="text-3xl mb-4">🗣️</div>
+                        <h3 class="font-bold text-slate-800 mb-2">表達技巧</h3>
+                        <p class="text-sm text-slate-600">清楚明白的結論，無需過多口頭解說也能看懂。回答問題時誠實為上，不懂的不要強辯。</p>
+                    </div>
+                </div>
+
+                <!-- Simulation Tool -->
+                <div class="mt-8 bg-slate-800 text-white rounded-xl p-6 md:p-8 flex flex-col md:flex-row items-center justify-between">
+                    <div class="mb-4 md:mb-0">
+                        <h3 class="text-xl font-bold">演示計時練習</h3>
+                        <p class="text-slate-400 text-sm">按下開始，嘗試在 3 分鐘內講完您的摘要與結論。</p>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <div id="timer-display" class="text-4xl font-mono font-bold text-teal-400">03:00</div>
+                        <button id="timer-btn" class="bg-teal-600 hover:bg-teal-500 text-white px-6 py-2 rounded-full font-bold transition shadow-lg shadow-teal-900/50" onclick="toggleTimer()">開始計時</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-slate-200 py-8 mt-auto">
+        <div class="max-w-7xl mx-auto px-4 text-center text-slate-500 text-sm">
+            <p>資料來源：2017青培期中研習營海報製作講義 & Poster製作技巧暨精簡報告撰寫注意事項</p>
+            <p class="mt-2">Designed for Science Fair Participants</p>
+        </div>
+    </footer>
+
+    <script>
+        // --- Data & Content ---
+        const w1hData = {
+            what: { title: "What 什麼", desc: "什麼是這個主題？定義您的研究對象。例如：「什麼是奈米科技？」" },
+            why: { title: "Why 為什麼", desc: "為什麼要研究這個？探討研究動機與背景。例如：「為什麼會有奈米科技的產生？」" },
+            where: { title: "Where 何處", desc: "應用場域在哪裡？例如：「何處需要用到奈米科技？」" },
+            when: { title: "When 何時", desc: "發生的時間點或時機？例如：「何時需要用到奈米科技？」" },
+            who: { title: "Who 誰", desc: "影響的對象是誰？例如：「奈米科技會對誰產生影響？」" },
+            how: { title: "How 如何", desc: "如何運作或解決問題？這是方法論的核心。例如：「奈米科技如何改變生活？」" }
+        };
+
+        const posterDetails = {
+            title: {
+                title: "題目 (Title)",
+                content: "題目需簡捷有力，能完整詮釋作品內容。避免過長或過於抽象。字體應為海報中最大 (建議 72pt+)，讓評審在遠處即可看見。"
+            },
+            abstract: {
+                title: "摘要 (Abstract)",
+                content: "以不超過 200-300 字為原則。將研究重點、方法與核心發現做精要介紹。這是評審閱讀的第一個區塊，決定了他們是否有興趣往下看。"
+            },
+            motivation: {
+                title: "研究動機 (Motivation)",
+                content: "敘述為何要做這個研究？引領觀眾了解作品的背景與意涵。可運用 5W1H 分析法來闡述問題的來龍去脈。"
+            },
+            methods: {
+                title: "材料與方法 (Materials & Methods)",
+                content: "介紹研究材料來源與實驗設計。重點在於「可重覆驗證性」。可多利用流程圖 (Flowchart) 取代冗長的文字敘述。"
+            },
+            results: {
+                title: "結果與討論 (Results & Discussion)",
+                content: "<strong>海報的核心戰區。</strong><br>1. 以適當大小的圖表呈現勝於純文字。<br>2. 圖片說明 (Figure Caption) 置於下方。<br>3. 表格說明 (Table Caption) 置於上方。<br>4. 討論數據背後的意義，而非只念數據。"
+            },
+            conclusion: {
+                title: "結論 (Conclusion)",
+                content: "清楚明白的條列式結論。必須與「研究目的」呼應，回答您最初提出的問題。好的結論無需口頭解說，觀眾自行閱讀也能理解核心價值。"
+            },
+            refs: {
+                title: "參考文獻 (References)",
+                content: "列出主要的參考資料。確定文獻引用格式正確，這顯示了您的學術嚴謹度。"
+            }
+        };
+
+        // --- Interaction Logic ---
+
+        // 5W1H Interaction
+        function update5W1H(key) {
+            const data = w1hData[key];
+            document.getElementById('5w1h-title').textContent = data.title;
+            document.getElementById('5w1h-desc').textContent = data.desc;
+            
+            // Highlight active button
+            document.querySelectorAll('.5w1h-btn').forEach(btn => {
+                btn.classList.remove('ring-2', 'ring-teal-500', 'bg-teal-50');
+            });
+            event.currentTarget.classList.add('ring-2', 'ring-teal-500', 'bg-teal-50');
+        }
+
+        // Poster Detail Interaction
+        function showPosterDetail(key) {
+            const data = posterDetails[key];
+            const panel = document.getElementById('poster-detail-panel');
+            const titleEl = document.getElementById('detail-title');
+            const contentEl = document.getElementById('detail-content');
+
+            // Simple animation
+            panel.classList.add('opacity-50');
+            setTimeout(() => {
+                titleEl.textContent = data.title;
+                contentEl.innerHTML = data.content;
+                panel.classList.remove('opacity-50');
+            }, 200);
+        }
+
+        // Navigation Tab Logic
+        const navBtns = document.querySelectorAll('.nav-btn');
+        const sections = document.querySelectorAll('.tab-content');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+
+        navBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Update buttons
+                navBtns.forEach(b => b.classList.remove('active-tab', 'text-teal-700'));
+                btn.classList.add('active-tab');
+                
+                // Hide all sections
+                sections.forEach(s => {
+                    s.classList.add('hidden');
+                    s.classList.remove('block');
+                });
+
+                // Show target section
+                const targetId = btn.getAttribute('data-target');
+                const targetSection = document.getElementById(targetId);
+                targetSection.classList.remove('hidden');
+                targetSection.classList.add('block'); // Add block to make it visible
+                
+                // Trigger chart resize if design section is opened
+                if(targetId === 'section-design') {
+                    setTimeout(() => {
+                        if (layoutChart) layoutChart.resize();
+                    }, 100);
+                }
+
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Font Simulator Logic
+        const slider = document.getElementById('fontSizeSlider');
+        const simTitle = document.getElementById('sim-title');
+        const simHeader = document.getElementById('sim-header');
+        const simBody = document.getElementById('sim-body');
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            const scale = val / 100;
+            
+            simTitle.style.fontSize = `${2.25 * scale}rem`; // base 4xl
+            simHeader.style.fontSize = `${1.5 * scale}rem`; // base 2xl
+            simBody.style.fontSize = `${1 * scale}rem`;    // base base
+        });
+
+        // Timer Logic
+        let timerInterval;
+        let timeLeft = 180; // 3 minutes
+        let isRunning = false;
+        const timerDisplay = document.getElementById('timer-display');
+        const timerBtn = document.getElementById('timer-btn');
+
+        function toggleTimer() {
+            if (isRunning) {
+                clearInterval(timerInterval);
+                timerBtn.textContent = "繼續計時";
+                timerBtn.classList.remove('bg-red-500', 'hover:bg-red-600');
+                timerBtn.classList.add('bg-teal-600', 'hover:bg-teal-500');
+                isRunning = false;
+            } else {
+                timerBtn.textContent = "暫停";
+                timerBtn.classList.remove('bg-teal-600', 'hover:bg-teal-500');
+                timerBtn.classList.add('bg-red-500', 'hover:bg-red-600');
+                isRunning = true;
+                timerInterval = setInterval(() => {
+                    timeLeft--;
+                    if (timeLeft <= 0) {
+                        clearInterval(timerInterval);
+                        timeLeft = 0;
+                        isRunning = false;
+                        timerBtn.textContent = "時間到";
+                    }
+                    updateTimerDisplay();
+                }, 1000);
+            }
+        }
+
+        function updateTimerDisplay() {
+            const m = Math.floor(timeLeft / 60).toString().padStart(2, '0');
+            const s = (timeLeft % 60).toString().padStart(2, '0');
+            timerDisplay.textContent = `${m}:${s}`;
+        }
+
+        // --- Chart.js Implementation ---
+        
+        // Wait for window load to ensure Chart.js is ready
+        window.addEventListener('load', () => {
+            const ctx = document.getElementById('layoutChart').getContext('2d');
+            
+            // Global Chart defaults for aesthetics
+            Chart.defaults.font.family = "'Noto Sans TC', sans-serif";
+            Chart.defaults.color = '#64748b';
+
+            layoutChart = new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['圖片與圖表 (Graphics)', '文字說明 (Text)', '留白 (White Space)'],
+                    datasets: [{
+                        data: [40, 40, 20], // Standard golden ratio often cited for posters
+                        backgroundColor: [
+                            '#0d9488', // Teal 600
+                            '#94a3b8', // Slate 400
+                            '#f1f5f9'  // Slate 100
+                        ],
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                padding: 20,
+                                usePointStyle: true
+                            }
+                        },
+                        title: {
+                            display: true,
+                            text: '理想海報版面配置比例',
+                            font: {
+                                size: 16,
+                                weight: 'bold'
+                            },
+                            padding: {
+                                top: 10,
+                                bottom: 10
+                            }
+                        },
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return ` ${context.label}: ${context.raw}%`;
+                                },
+                                afterLabel: function(context) {
+                                    if(context.label.includes('Graphics')) return '圖表能讓觀眾在短時間內理解數據趨勢。';
+                                    if(context.label.includes('Text')) return '文字應精簡，輔助說明圖表。';
+                                    if(context.label.includes('White Space')) return '適度留白可減少視覺疲勞，增加閱讀意願。';
+                                }
+                            },
+                            backgroundColor: 'rgba(15, 23, 42, 0.9)',
+                            padding: 12
+                        }
+                    },
+                    cutout: '65%'
+                }
+            });
+
+            // Trigger click on first tab to initialize state correctly if needed
+            // (Currently handled by HTML default visibility, but good for robustness)
+        });
+
+        let layoutChart; // Global variable for the chart instance
+
+    </script>
+</body>
+</html>

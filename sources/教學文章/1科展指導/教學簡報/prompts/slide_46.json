@@ -1,0 +1,52 @@
+{
+  "slide": 46,
+  "title": "計時演練的操作方法",
+  "prompt": "# Codex PPT Slide Image Prompt\n\n## Canvas\n{\n  \"type\": \"16:9 full-slide PowerPoint image\",\n  \"language\": \"Traditional Chinese\",\n  \"slide_number\": 46,\n  \"render_slide_number\": false\n}\n\n## Deck Goal\n將科學探究與科展競賽全方位指導手冊重構成高中專題研究與科展培訓用的 64 頁教學簡報。\n\n## Required Background\n{\n  \"deck_context\": {\n    \"source_summary\": \"來源手冊涵蓋科展教育價值、師生角色、評審標準、選題、文獻回顧、研究計畫、實驗執行、研究記錄、數據分析、報告撰寫、海報簡報、競賽練習、現場互動、答辯、壓力管理、團隊合作與賽後反思。\",\n    \"core_claim\": \"科展不是只追求獎牌，而是讓學生完整經歷真實科學探究循環，學會以證據說話、以邏輯設計研究、以誠實態度面對限制，並把成果清楚表達給評審與社群。\",\n    \"canonical_terms\": [\n      \"科學方法\",\n      \"問題意識\",\n      \"變因控制\",\n      \"對照組\",\n      \"實驗記錄本\",\n      \"證據鏈\",\n      \"報告書\",\n      \"海報\",\n      \"口頭報告\",\n      \"答辯\",\n      \"自我檢核\",\n      \"反思成長\"\n    ],\n    \"audience\": \"高中專題研究教師、科展指導教師、高中學生研究團隊\",\n    \"teaching_tone\": \"清楚、務實、可操作，像教師研習與學生工作坊使用的正式教材。\"\n  },\n  \"slide_local_context\": {\n    \"required_background\": \"本頁根據來源手冊重構為高中科展教學頁。教學重點：計時演練的操作方法。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。\"\n  }\n}\n\n## Global Style\n{\n  \"name\": \"清爽專業風\",\n  \"visual_direction\": \"clean modern professional teacher-facing science fair training deck; calm technical presentation; structured evidence-driven layouts; light background with crisp hierarchy; clear diagrams, process flows, comparison panels, checklists, and teaching cards\",\n  \"color_palette\": \"warm white #FFFFFF, light gray #F8FAFC, very pale blue #F6F9FF; professional blue #2563EB or slate blue #334155; calm teal #0F766E or muted cyan #0891B2; soft amber #F59E0B only for attention notes; slate gray #475569 and light border #E2E8F0\",\n  \"typography\": \"clear bold sans-serif Traditional Chinese headings; readable left-aligned body labels; strong hierarchy; avoid tiny dense text; exact non-garbled Chinese text\",\n  \"texture_and_finish\": \"flat clean slide design, subtle shadows and borders only, no decorative gradients, no playful stickers\",\n  \"deck_consistency\": \"match approved slide 32 palette, typography mood, density, crisp card edges, teaching-diagram language, and professional workshop tone while varying layout by page role\"\n}\n\n## Style Reference Images To Inspect\n\n- Style Reference 1: /Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png — approved sample slide style reference; match style only; do not copy exact layout or content except for slide 32 itself\n\nInspect these images before generation to understand the approved deck style. Do not pass them to the image backend as input images unless this slide explicitly lists them under Input Images.\n\n## Slide\n{\n  \"number\": 46,\n  \"title\": \"計時演練的操作方法\",\n  \"role\": \"workshop activity.\",\n  \"intent\": \"teach this science fair concept with a clear visual structure and practical takeaway\"\n}\n\n## Text\n{\n  \"title\": \"計時演練的操作方法\",\n  \"key_points\": [\n    \"每次練習都計時\",\n    \"記錄卡在哪裡\",\n    \"調整段落比例\",\n    \"練習開場、轉場與收束。\"\n  ],\n  \"speaker_focus\": null\n}\n\n## Layout\n{\n  \"composition\": \"clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful\",\n  \"content_zones\": \"title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway\",\n  \"variation_rule\": \"same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page\",\n  \"spacing\": \"clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements\"\n}\n\n## Visual Elements\n{\n  \"main_visual\": \"計時器加講稿標記。\",\n  \"supporting_elements\": \"simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful\"\n}\n\n## Constraints\n[\n  \"Use Traditional Chinese text only.\",\n  \"Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.\",\n  \"Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.\",\n  \"The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster.\"\n]\n\n## Style Reference Rule\nUse the approved sample-slide style reference as visual guidance only. Match its palette, typography mood, density, texture, and overall visual identity. Do not copy its exact layout unless this slide's layout explicitly asks for it. For normal new slide generation, use the generate endpoint and express the inspected style through the prompt instead of attaching the sample as an edit input.\n\n## Universal Constraints\n- The final image itself must contain the title and key points.\n- Render Chinese text exactly and legibly; avoid garbled characters.\n- Keep the confirmed deck style consistent while varying layout by slide role.\n- No watermark, unrelated logo, or extra slide number.\n",
+  "out": "slide_46.png",
+  "candidate_out": "drafts/slide_46_candidate.png",
+  "input_images": [],
+  "style_reference_images": [
+    {
+      "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+      "role": "approved sample slide style reference",
+      "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+    }
+  ],
+  "requires_context_images": false,
+  "expected_generation_mode": "generate",
+  "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+  "sample_generation_method": {
+    "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+    "tool_name": "scripts/image_gen.py",
+    "mode": "generate",
+    "prompt_source": "direct --prompt used for approved sample slide 32",
+    "model": "gpt-image-2",
+    "size": "2048x1152 requested; provider returned 1672x941 PNG with 16:9 aspect ratio",
+    "quality": "medium",
+    "approved_sample_path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+    "input_context_preparation": "inspect approved sample slide as style reference before generation; use generate for normal slides; pass strict input assets with edit --image only when a slide job lists input_images",
+    "handoff_rule": "Subagents must use this same backend/tool/config; use generate for new slides unless the assigned job has strict input_images or is a repair."
+  },
+  "generation_contract": {
+    "must_use_selected_image_backend": true,
+    "must_match_sample_generation_method": true,
+    "default_mode": "generate",
+    "use_edit_only_when": [
+      "input_images is non-empty",
+      "repairing an existing generated slide"
+    ],
+    "must_inspect_style_reference_images": true,
+    "forbidden_final_image_methods": [
+      "local drawing/rendering scripts",
+      "Pillow-generated slides",
+      "SVG/HTML/CSS/canvas screenshots",
+      "python-pptx/PptxGenJS/native PPT layout screenshots",
+      "manually composited text/image overlays"
+    ],
+    "must_return": [
+      "backend_used",
+      "selected_source",
+      "qa_note"
+    ]
+  }
+}

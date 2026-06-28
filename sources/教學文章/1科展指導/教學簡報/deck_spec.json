@@ -1,0 +1,2041 @@
+{
+  "deck_name": "科學探究與競賽全方位指導手冊_教學簡報",
+  "language": "Traditional Chinese",
+  "goal": "將科學探究與科展競賽全方位指導手冊重構成高中專題研究與科展培訓用的 64 頁教學簡報。",
+  "deck_context": {
+    "source_summary": "來源手冊涵蓋科展教育價值、師生角色、評審標準、選題、文獻回顧、研究計畫、實驗執行、研究記錄、數據分析、報告撰寫、海報簡報、競賽練習、現場互動、答辯、壓力管理、團隊合作與賽後反思。",
+    "core_claim": "科展不是只追求獎牌，而是讓學生完整經歷真實科學探究循環，學會以證據說話、以邏輯設計研究、以誠實態度面對限制，並把成果清楚表達給評審與社群。",
+    "canonical_terms": [
+      "科學方法",
+      "問題意識",
+      "變因控制",
+      "對照組",
+      "實驗記錄本",
+      "證據鏈",
+      "報告書",
+      "海報",
+      "口頭報告",
+      "答辯",
+      "自我檢核",
+      "反思成長"
+    ],
+    "audience": "高中專題研究教師、科展指導教師、高中學生研究團隊",
+    "teaching_tone": "清楚、務實、可操作，像教師研習與學生工作坊使用的正式教材。"
+  },
+  "selected_image_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+  "max_concurrent_slides": 6,
+  "sample_generation_method": {
+    "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+    "tool_name": "scripts/image_gen.py",
+    "mode": "generate",
+    "prompt_source": "direct --prompt used for approved sample slide 32",
+    "model": "gpt-image-2",
+    "size": "2048x1152 requested; provider returned 1672x941 PNG with 16:9 aspect ratio",
+    "quality": "medium",
+    "approved_sample_path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+    "input_context_preparation": "inspect approved sample slide as style reference before generation; use generate for normal slides; pass strict input assets with edit --image only when a slide job lists input_images",
+    "handoff_rule": "Subagents must use this same backend/tool/config; use generate for new slides unless the assigned job has strict input_images or is a repair."
+  },
+  "style": {
+    "name": "清爽專業風",
+    "visual_direction": "clean modern professional teacher-facing science fair training deck; calm technical presentation; structured evidence-driven layouts; light background with crisp hierarchy; clear diagrams, process flows, comparison panels, checklists, and teaching cards",
+    "color_palette": "warm white #FFFFFF, light gray #F8FAFC, very pale blue #F6F9FF; professional blue #2563EB or slate blue #334155; calm teal #0F766E or muted cyan #0891B2; soft amber #F59E0B only for attention notes; slate gray #475569 and light border #E2E8F0",
+    "typography": "clear bold sans-serif Traditional Chinese headings; readable left-aligned body labels; strong hierarchy; avoid tiny dense text; exact non-garbled Chinese text",
+    "texture_and_finish": "flat clean slide design, subtle shadows and borders only, no decorative gradients, no playful stickers",
+    "deck_consistency": "match approved slide 32 palette, typography mood, density, crisp card edges, teaching-diagram language, and professional workshop tone while varying layout by page role"
+  },
+  "approved_style_reference": {
+    "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+    "role": "approved sample slide style reference",
+    "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+  },
+  "slides": [
+    {
+      "number": 1,
+      "title": "科學探究與科展競賽的全方位指導手冊",
+      "role": "cover.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "從研究啟航到成果展現",
+        "聚焦科展完整生命週期",
+        "面向高中師生的教學簡報。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：科學探究與科展競賽的全方位指導手冊。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "large title, subtitle, and science-fair journey map across the canvas; restrained blue-teal professional look",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "科展旅程地圖，從好奇心、實驗、數據、報告、答辯到反思成長。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 2,
+      "title": "這套課程要解決什麼問題",
+      "role": "context / problem.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "科展不是只拚獎牌",
+        "學生常卡在選題、執行、呈現、答辯",
+        "教師需要可操作的指導框架。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：這套課程要解決什麼問題。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "四個痛點卡片：題目、方法、表達、臨場。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 3,
+      "title": "全套簡報的學習路線",
+      "role": "agenda.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "價值與角色",
+        "評審標準",
+        "研究流程",
+        "成果呈現",
+        "競賽現場",
+        "心態與成長。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：全套簡報的學習路線。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "horizontal or vertical six-step learning route with compact labels and a clear start-to-finish path",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "六站式學習路線圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 4,
+      "title": "科展的真正價值",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "把課堂知識轉化為真實探究",
+        "培養問題解決能力",
+        "訓練科學表達與反思",
+        "重點在歷程而不只結果。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：科展的真正價值。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "知識、方法、態度、表達四象限。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 5,
+      "title": "科展是一個微縮科研生態",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "研究從問題出發",
+        "證據支持推論",
+        "同儕與師長形成回饋環境",
+        "競賽只是成果檢驗場。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：科展是一個微縮科研生態。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "微型研究生態系，包含學生、教師、文獻、實驗室、評審。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 6,
+      "title": "科學方法的三個核心動作",
+      "role": "process.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "實驗揭示證據",
+        "推論解讀證據",
+        "驗證檢驗解讀",
+        "每一步都要可被追問。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：科學方法的三個核心動作。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "實驗、推論、驗證三段閉環。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 7,
+      "title": "教師角色不是代做者",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "教師是引路人、促進者、資源連結者、心理支持者",
+        "教師提供方法與方向，不取代學生思考。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：教師角色不是代做者。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "教師站在學生旁邊持導航圖，而非拉著學生過終點。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 8,
+      "title": "學生角色的五種轉換",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "好奇的觀察者",
+        "主動的研究者",
+        "嚴謹的記錄者",
+        "協作的團隊成員",
+        "能面對質疑的表達者。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：學生角色的五種轉換。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "學生角色進化階梯。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 9,
+      "title": "團隊作品的特殊挑戰",
+      "role": "comparison.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "評審會檢視個人貢獻",
+        "團隊要有互補與共同理解",
+        "不能只把工作切碎",
+        "每個人都要能說明整體研究。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：團隊作品的特殊挑戰。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "two-column comparison with clear weak-vs-strong or result-vs-discussion contrast",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "團隊分工矩陣與共同核心區。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 10,
+      "title": "評審到底在看什麼",
+      "role": "section overview.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "科學思考",
+        "原創與創新",
+        "研究設計",
+        "數據證據",
+        "溝通表達",
+        "學生自主性。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：評審到底在看什麼。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "評審雷達圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 11,
+      "title": "評審標準一：問題與原創性",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "是否提出有意義的問題",
+        "是否避開過度飽和題目",
+        "方法或角度是否有新意",
+        "是否與生活、教材或地方議題有關。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：評審標準一：問題與原創性。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "從普通題目到好題目的篩選漏斗。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 12,
+      "title": "評審標準二：科學方法適切性",
+      "role": "checklist.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "研究設計是否周全",
+        "變因控制是否清楚",
+        "對照組是否合理",
+        "結果是否可重複與可驗證。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：評審標準二：科學方法適切性。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "structured checklist dashboard with grouped check marks, clear headings, and restrained accent color",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "方法檢核儀表板。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 13,
+      "title": "評審標準三：數據與推論品質",
+      "role": "process.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "數據量與品質是否足夠",
+        "統計與圖表是否正確",
+        "結論是否只說證據能支持的範圍",
+        "能否解釋限制。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：評審標準三：數據與推論品質。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "從原始數據到可信結論的證據鏈。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 14,
+      "title": "評審標準四：表達與現場互動",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "報告書、海報、簡報與口頭說明要互相支援",
+        "現場回答要清楚、誠實、精準",
+        "互動態度也會影響評價。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：評審標準四：表達與現場互動。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "四個呈現媒介互相連線。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 15,
+      "title": "好題目從哪裡來",
+      "role": "section divider / concept.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "從興趣、生活觀察、課堂疑問、地方問題與既有研究缺口出發",
+        "題目要能被實驗或資料檢驗。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：好題目從哪裡來。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "好奇心轉成研究問題的轉換器。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 16,
+      "title": "把興趣變成可研究問題",
+      "role": "process.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "興趣太大時要縮小範圍",
+        "問題要具體、可測量、可比較",
+        "避免只做展示或簡單驗證。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：把興趣變成可研究問題。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "大題目收斂成可操作問題的靶心圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 17,
+      "title": "文獻回顧的第一輪：宏觀定位",
+      "role": "process.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "先讀綜述、教科書、競賽資料庫",
+        "理解領域背景與常見方法",
+        "判斷題目是否有研究價值。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：文獻回顧的第一輪：宏觀定位。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "文獻地圖的遠景掃描。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 18,
+      "title": "文獻回顧的第二輪：深入聚焦",
+      "role": "process.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "深入近五年核心論文",
+        "比較前人方法、限制與結果",
+        "尋找可以改良或延伸的位置。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：文獻回顧的第二輪：深入聚焦。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "放大鏡聚焦到方法與缺口。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 19,
+      "title": "避免選題常見陷阱",
+      "role": "warning / checklist.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "過於龐大",
+        "缺乏新意",
+        "只驗證已知原理",
+        "設備或時間不可行",
+        "與學生能力落差太大。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：避免選題常見陷阱。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "structured checklist dashboard with grouped check marks, clear headings, and restrained accent color",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "五個選題警示牌。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 20,
+      "title": "題目評估矩陣",
+      "role": "decision framework.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "興趣強度",
+        "科學價值",
+        "可行性",
+        "創新性",
+        "資源需求",
+        "競賽適配度。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：題目評估矩陣。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "matrix or framework grid with labeled criteria and a highlighted decision path",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "六軸題目評估表。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 21,
+      "title": "研究計畫書是先畫藍圖",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "先用流程圖與甘特圖整理邏輯",
+        "再填入文字細節",
+        "計畫書能減少返工與臨時補洞。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：研究計畫書是先畫藍圖。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "研究建築藍圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 22,
+      "title": "研究計畫書的核心構件",
+      "role": "checklist.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "背景與動機",
+        "研究問題與假設",
+        "研究設計",
+        "材料設備",
+        "資料收集",
+        "分析方法",
+        "風險與時程。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：研究計畫書的核心構件。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "structured checklist dashboard with grouped check marks, clear headings, and restrained accent color",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "計畫書零件分解圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 23,
+      "title": "研究流程圖怎麼畫",
+      "role": "method demonstration.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "從問題意識到假設",
+        "從實驗設計到資料收集",
+        "從分析方法到預期結論",
+        "流程要能被他人重複理解。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：研究流程圖怎麼畫。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "可視化研究流程模板。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 24,
+      "title": "甘特圖讓研究可管理",
+      "role": "timeline.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "把研究拆成文獻、準備、實驗、分析、撰寫、呈現",
+        "設定里程碑",
+        "預留修正時間。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：甘特圖讓研究可管理。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "project timeline or gantt-style visual with milestone cards and risk buffers",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "科展專題時間軸。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 25,
+      "title": "實驗設計的核心：變因控制",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "自變項、依變項、控制變因要清楚",
+        "對照組要合理",
+        "測量條件要穩定",
+        "紀錄要支持可重複性。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：實驗設計的核心：變因控制。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "變因控制控制台。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 26,
+      "title": "實驗執行：嚴謹與彈性並存",
+      "role": "process.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "忠於計畫",
+        "遇到失敗要記錄與修正",
+        "不能因結果不理想而任意改數據",
+        "修正本身也是研究歷程。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：實驗執行：嚴謹與彈性並存。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "實驗路徑中的分岔與回饋。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 27,
+      "title": "研究失敗不是結束",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "失敗可暴露方法問題",
+        "失敗能促成假設修正",
+        "要留下清楚的失敗證據與決策理由。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：研究失敗不是結束。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "失敗、診斷、修正、再試的迭代循環。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 28,
+      "title": "實驗記錄本是研究的黑盒子",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "記錄要即時、完整、可追溯",
+        "包含步驟、數據、異常、照片、討論與修改",
+        "評審會從記錄看研究真實性。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：實驗記錄本是研究的黑盒子。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "實驗記錄本與飛機黑盒子類比。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 29,
+      "title": "一份好記錄應該有哪些內容",
+      "role": "checklist.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "日期時間",
+        "操作條件",
+        "材料規格",
+        "原始數據",
+        "觀察描述",
+        "照片或圖像",
+        "問題與下一步。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：一份好記錄應該有哪些內容。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "structured checklist dashboard with grouped check marks, clear headings, and restrained accent color",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "實驗記錄頁面拆解。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 30,
+      "title": "數位工具可以用，但要保留可信度",
+      "role": "workflow.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "雲端表格方便共享",
+        "版本紀錄與備份很重要",
+        "核心原始資料要可追溯",
+        "權限管理不能忽略。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：數位工具可以用，但要保留可信度。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "紙本與數位記錄的混合工作流。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 31,
+      "title": "數據整理的第一原則",
+      "role": "method.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "不先美化，先保留原始資料",
+        "建立欄位定義",
+        "統一單位",
+        "標記異常值而非任意刪除。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：數據整理的第一原則。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "原始資料到清理資料的管線。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 32,
+      "title": "圖表不是裝飾，是證據呈現",
+      "role": "comparison.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "圖表要回答研究問題",
+        "標題、軸名、單位、圖例完整",
+        "圖型要符合資料型態",
+        "避免誤導尺度。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：圖表不是裝飾，是證據呈現。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "two-column comparison with clear weak-vs-strong or result-vs-discussion contrast",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "好圖表與壞圖表對照。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ],
+      "sample_approved": true
+    },
+    {
+      "number": 33,
+      "title": "從結果到討論的邏輯橋",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "結果只呈現觀察",
+        "討論解釋意義",
+        "結論要回應問題",
+        "限制與未來展望要誠實。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：從結果到討論的邏輯橋。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "結果、解釋、限制、展望四階橋。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 34,
+      "title": "反覆修正是研究的常態",
+      "role": "process.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "計畫、方法、報告、海報、簡報都會多輪修正",
+        "每次修正都應讓邏輯更清楚、證據更完整。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：反覆修正是研究的常態。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "螺旋式上升的修正循環。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 35,
+      "title": "報告書是研究故事的正式版本",
+      "role": "section divider / overview.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "作品名稱、摘要、動機、目的、文獻、方法、結果、討論、結論要形成一條主線。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：報告書是研究故事的正式版本。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "writing anatomy layout: left example structure, right rule cards, bottom revision principle",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "報告書章節串成研究故事線。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 36,
+      "title": "摘要 300 字內要說清楚什麼",
+      "role": "writing guide.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "目的、方法、結果、結論、亮點",
+        "第一句點明核心",
+        "避免空泛背景與過多細節。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：摘要 300 字內要說清楚什麼。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "writing anatomy layout: left example structure, right rule cards, bottom revision principle",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "摘要五格壓縮器。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 37,
+      "title": "研究動機與目的怎麼寫",
+      "role": "writing guide.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "交代為何值得做",
+        "說明問題來源",
+        "連結文獻缺口",
+        "讓目的可被方法檢驗。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：研究動機與目的怎麼寫。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "從觀察現象到研究目的的箭頭鏈。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 38,
+      "title": "方法章要寫到能重做",
+      "role": "checklist.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "研究對象、材料設備、步驟、變因、控制、樣本數、分析方法都要具體",
+        "可重複性是評審重點。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：方法章要寫到能重做。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "structured checklist dashboard with grouped check marks, clear headings, and restrained accent color",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "方法章可重複性檢核表。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 39,
+      "title": "結果與討論不能混在一起",
+      "role": "comparison.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "結果呈現數據",
+        "討論解釋原因",
+        "比較文獻",
+        "說明限制",
+        "避免過度推論。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：結果與討論不能混在一起。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "two-column comparison with clear weak-vs-strong or result-vs-discussion contrast",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "左側數據、右側解釋的分欄對照。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 40,
+      "title": "海報是讓評審快速讀懂的地圖",
+      "role": "design guide.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "標題醒目",
+        "分區清楚",
+        "圖表優先",
+        "一公尺外可讀",
+        "讓評審快速抓到研究亮點。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：海報是讓評審快速讀懂的地圖。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "visual-design teaching layout with page mockup, reading path, and concise design rules",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "海報閱讀動線 F/Z 型路徑。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 41,
+      "title": "海報版面常見問題",
+      "role": "warning / checklist.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "字太多",
+        "圖太小",
+        "配色干擾",
+        "邏輯動線不清",
+        "結論藏太深",
+        "缺少研究亮點。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：海報版面常見問題。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "structured checklist dashboard with grouped check marks, clear headings, and restrained accent color",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "海報錯誤診斷圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 42,
+      "title": "科展簡報是口語說明的導航",
+      "role": "concept explanation.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "簡報不是報告書縮小版",
+        "每頁只承擔一個任務",
+        "用視覺引導觀眾理解重點。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：科展簡報是口語說明的導航。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "visual-design teaching layout with page mockup, reading path, and concise design rules",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "簡報、講者、觀眾三方關係。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 43,
+      "title": "簡報內容的取捨原則",
+      "role": "decision framework.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "只放講解需要的資訊",
+        "方法與結果要視覺化",
+        "把細節留給口頭補充或問答",
+        "每頁有清楚結論。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：簡報內容的取捨原則。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "matrix or framework grid with labeled criteria and a highlighted decision path",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "內容篩選漏斗。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 44,
+      "title": "練習的目標不是背稿",
+      "role": "section divider / concept.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "練習是內化研究內容",
+        "訓練時間掌控",
+        "提升應變與互動",
+        "把研究講成清楚故事。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：練習的目標不是背稿。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "practice routine layout with time/version cards and coaching notes",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "從背稿到內化的轉換階梯。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 45,
+      "title": "三種版本的口頭報告",
+      "role": "training framework.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "2-3 分鐘精簡版",
+        "5-8 分鐘標準版",
+        "更完整的延伸版",
+        "不同情境要能切換。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：三種版本的口頭報告。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "matrix or framework grid with labeled criteria and a highlighted decision path",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "三段式報告版本卡。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 46,
+      "title": "計時演練的操作方法",
+      "role": "workshop activity.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "每次練習都計時",
+        "記錄卡在哪裡",
+        "調整段落比例",
+        "練習開場、轉場與收束。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：計時演練的操作方法。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "計時器加講稿標記。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 47,
+      "title": "模擬評審要找不同角色",
+      "role": "training framework.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "找專業老師看科學性",
+        "找非專業者看可懂性",
+        "找同儕看節奏",
+        "找家人測試故事性。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：模擬評審要找不同角色。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "matrix or framework grid with labeled criteria and a highlighted decision path",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "四種模擬評審角色圍繞學生。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 48,
+      "title": "團隊報告要練默契",
+      "role": "process.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "分工要清楚",
+        "交接語要自然",
+        "每人都能補位",
+        "不能只懂自己的部分。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：團隊報告要練默契。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "團隊接力報告流程。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 49,
+      "title": "比賽現場的準備清單",
+      "role": "checklist.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "場地與設備",
+        "海報與模型",
+        "衣著與證件",
+        "水與備品",
+        "提早熟悉評審動線。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：比賽現場的準備清單。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "structured checklist dashboard with grouped check marks, clear headings, and restrained accent color",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "現場準備工具箱。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 50,
+      "title": "口頭報告現場的四個關鍵",
+      "role": "presentation skills.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "自信清楚",
+        "控時精準",
+        "眼神交流",
+        "用語簡潔",
+        "把亮點放在評審容易記住的位置。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：口頭報告現場的四個關鍵。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "practice routine layout with time/version cards and coaching notes",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "四鍵儀表板。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 51,
+      "title": "現場互動不是被動等待",
+      "role": "communication guide.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "觀察評審反應",
+        "適時展示記錄本或補充資料",
+        "把握深入交流",
+        "禮貌詢問建議。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：現場互動不是被動等待。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "評審互動對話循環。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 52,
+      "title": "答辯是評審理解研究的關鍵時刻",
+      "role": "section divider / concept.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "問答檢驗研究掌握度",
+        "也看科學思維、誠實態度與應變",
+        "回答要簡潔、有證據。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：答辯是評審理解研究的關鍵時刻。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "judge Q&A coaching layout with question categories, answer flow, and calm response cues",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "答辯聚光燈照在研究邏輯上。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 53,
+      "title": "評審常問的六大類問題",
+      "role": "Q&A framework.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "動機與原創",
+        "方法與控制",
+        "數據與統計",
+        "限制與誤差",
+        "分工與自主性",
+        "未來展望。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：評審常問的六大類問題。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "matrix or framework grid with labeled criteria and a highlighted decision path",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "六格問題地圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 54,
+      "title": "答題結構：先結論，再證據",
+      "role": "communication framework.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "先直接回答",
+        "補充依據",
+        "承認限制",
+        "回扣研究主軸",
+        "避免繞圈與過度辯解。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：答題結構：先結論，再證據。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "matrix or framework grid with labeled criteria and a highlighted decision path",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "答題四步驟流程。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 55,
+      "title": "不會回答時怎麼辦",
+      "role": "crisis handling.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "誠實承認不確定",
+        "說明目前理解",
+        "提出可能查證方式",
+        "把問題轉為未來研究方向。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：不會回答時怎麼辦。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "numbered workflow diagram with arrows, short labels, and one bottom takeaway",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "不確定問題的安全回應路徑。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 56,
+      "title": "把質疑轉成加分機會",
+      "role": "mindset / communication.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "評審質疑通常針對研究，不是針對個人",
+        "可補充未說出的亮點",
+        "保持平和與理性。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：把質疑轉成加分機會。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "質疑、澄清、補強、展望的轉換箭頭。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 57,
+      "title": "科展壓力從哪裡來",
+      "role": "section divider / diagnosis.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "時間壓力",
+        "實驗不確定",
+        "團隊摩擦",
+        "評審期待",
+        "自我要求",
+        "比賽現場緊張。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：科展壓力從哪裡來。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "壓力來源雷達圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 58,
+      "title": "壓力管理的實用策略",
+      "role": "strategy.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "拆小任務",
+        "固定討論節奏",
+        "深呼吸與正念",
+        "短暫轉移注意",
+        "尋求師長同儕支持。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：壓力管理的實用策略。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "壓力管理工具卡。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 59,
+      "title": "教師如何陪學生走過低潮",
+      "role": "mentor guide.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "承認挫折",
+        "協助釐清下一步",
+        "把注意力拉回可控制事項",
+        "引導反思而非只追結果。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：教師如何陪學生走過低潮。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "教師與學生站在研究路線圖旁討論。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 60,
+      "title": "團隊合作的高風險時刻",
+      "role": "team management.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "分工不均",
+        "進度落差",
+        "意見衝突",
+        "臨場失誤",
+        "要建立責任共擔與互相補位。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：團隊合作的高風險時刻。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "團隊風險熱點圖。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 61,
+      "title": "賽後反思比名次更長久",
+      "role": "reflection.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "回顧學到的知識與技能",
+        "分析研究限制",
+        "整理可延伸題目",
+        "保留作品與歷程資料。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：賽後反思比名次更長久。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "賽後回顧工作坊白板。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 62,
+      "title": "定義屬於自己的成功",
+      "role": "closing concept.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "成功不只得獎",
+        "能提出問題、完成研究、清楚表達、誠實面對限制，就是重要成長。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：定義屬於自己的成功。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "獎牌旁邊延伸出能力成長樹。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 63,
+      "title": "科展完整自我檢核表",
+      "role": "checklist / summary.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "主題是否清楚",
+        "方法是否可重複",
+        "數據是否可信",
+        "表達是否流暢",
+        "答辯是否準備",
+        "團隊是否協作。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：科展完整自我檢核表。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "structured checklist dashboard with grouped check marks, clear headings, and restrained accent color",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "最終檢核儀表板。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    },
+    {
+      "number": 64,
+      "title": "下一步：把研究帶進真實世界",
+      "role": "closing / call to action.",
+      "intent": "teach this science fair concept with a clear visual structure and practical takeaway",
+      "key_points": [
+        "回到好奇心",
+        "建立可行研究計畫",
+        "持續記錄與修正",
+        "把成果清楚說給世界聽。"
+      ],
+      "local_context": {
+        "required_background": "本頁根據來源手冊重構為高中科展教學頁。教學重點：下一步：把研究帶進真實世界。應把概念轉成教師可講解、學生可執行的規則、流程或檢核。"
+      },
+      "layout": {
+        "composition": "clean professional slide with title zone, structured content zone, diagram or card-based visual zone, and a concise takeaway strip when useful",
+        "content_zones": "title zone; main teaching visual; 2-4 concise explanation blocks; optional bottom takeaway",
+        "variation_rule": "same clean professional style as approved sample, but vary composition by slide role; do not repeat the exact sample layout unless content is a direct comparison/process page",
+        "spacing": "clear hierarchy, generous enough spacing for readable Chinese, no overlapping elements"
+      },
+      "visual_elements": {
+        "main_visual": "學生帶著研究成果走向更大的科學舞台。",
+        "supporting_elements": "simple line icons, process arrows, check marks, light cards, subtle blue-teal dividers, soft amber attention tags only when useful"
+      },
+      "constraints": [
+        "Use Traditional Chinese text only.",
+        "Keep visible text concise; prioritize exact readable Chinese over dense paragraphs.",
+        "Do not include invented school logos, watermarks, real brand marks, or extra slide numbers.",
+        "The slide should feel like a teacher-facing science fair workshop deck, not a marketing poster."
+      ]
+    }
+  ]
+}

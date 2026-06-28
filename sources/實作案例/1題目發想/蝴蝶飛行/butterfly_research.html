@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>花飛蝶舞 — 延伸研究計劃總覽</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700;900&family=Noto+Sans+TC:wght@300;400;500&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1208;
+    --parchment: #faf6ee;
+    --amber: #d4890a;
+    --amber-light: #f5c842;
+    --teal: #1e6b6b;
+    --teal-light: #3a9e9e;
+    --rose: #b84a4a;
+    --moss: #4a6741;
+    --slate: #3d4f5e;
+    --cream: #f0e8d4;
+    --shadow: rgba(26,18,8,0.12);
+    --gold: #c9a227;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--parchment);
+    color: var(--ink);
+    font-family: 'Noto Sans TC', sans-serif;
+    font-weight: 300;
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 4rem 2rem;
+    background: radial-gradient(ellipse 80% 60% at 50% 40%, #fff8ed 0%, #f0e4c8 60%, #d9c9a8 100%);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      radial-gradient(circle at 15% 20%, rgba(212,137,10,0.08) 0%, transparent 40%),
+      radial-gradient(circle at 85% 75%, rgba(30,107,107,0.08) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  /* floating butterflies */
+  .butterfly {
+    position: absolute;
+    font-size: 2rem;
+    opacity: 0.15;
+    animation: flutter var(--dur, 8s) ease-in-out infinite var(--delay, 0s);
+    pointer-events: none;
+    filter: sepia(1) saturate(2) hue-rotate(var(--hue, 0deg));
+  }
+  @keyframes flutter {
+    0%   { transform: translate(0,0) rotate(0deg) scale(1); }
+    25%  { transform: translate(20px,-30px) rotate(10deg) scale(1.05); }
+    50%  { transform: translate(-15px,-50px) rotate(-5deg) scale(0.95); }
+    75%  { transform: translate(30px,-20px) rotate(8deg) scale(1.02); }
+    100% { transform: translate(0,0) rotate(0deg) scale(1); }
+  }
+
+  .hero-badge {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber);
+    border: 1px solid var(--amber);
+    padding: 0.4rem 1.2rem;
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2.5rem, 7vw, 5.5rem);
+    line-height: 1.05;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-title-zh {
+    font-family: 'Noto Serif TC', serif;
+    font-size: clamp(1.6rem, 4vw, 3rem);
+    font-weight: 900;
+    color: var(--teal);
+    margin-bottom: 1.5rem;
+    display: block;
+  }
+
+  .hero-desc {
+    max-width: 580px;
+    font-size: 0.95rem;
+    line-height: 1.9;
+    color: #5a4e3a;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 2.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    text-align: center;
+  }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.2rem;
+    color: var(--amber);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: #8a7a62;
+  }
+
+  .scroll-hint {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    color: #a09070;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    animation: bobble 2s ease-in-out infinite;
+  }
+  @keyframes bobble {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(6px); }
+  }
+
+  /* ── FILTER BAR ── */
+  .filter-section {
+    background: var(--ink);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    padding: 0.8rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    justify-content: center;
+    box-shadow: 0 2px 20px rgba(0,0,0,0.3);
+  }
+
+  .filter-label {
+    color: #a09070;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .filter-btn {
+    border: 1px solid #444;
+    background: transparent;
+    color: #ccc;
+    padding: 0.35rem 1rem;
+    font-size: 0.78rem;
+    font-family: 'Noto Sans TC', sans-serif;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.2s;
+    white-space: nowrap;
+  }
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--amber);
+    border-color: var(--amber);
+    color: var(--ink);
+  }
+
+  /* ── GRID ── */
+  .grid-section {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+
+  .section-heading {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.75rem;
+    letter-spacing: 0.3em;
+    color: var(--amber);
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2rem;
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 3rem;
+  }
+
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 1.5rem;
+  }
+
+  /* ── CARD ── */
+  .plan-card {
+    background: #fff;
+    border: 1px solid #e8dfc8;
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.3s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .plan-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px var(--shadow);
+  }
+  .plan-card.hidden { display: none; }
+
+  .card-accent {
+    height: 4px;
+    width: 100%;
+  }
+
+  .card-header {
+    padding: 1.4rem 1.4rem 0.8rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .card-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3rem;
+    line-height: 1;
+    color: #e8dfc8;
+    flex-shrink: 0;
+    margin-top: -0.3rem;
+  }
+
+  .card-meta { flex: 1; }
+
+  .card-category {
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
+    font-weight: 500;
+  }
+
+  .card-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+
+  .card-concept {
+    padding: 0 1.4rem 1rem;
+    font-size: 0.82rem;
+    line-height: 1.75;
+    color: #6a5e4a;
+    border-bottom: 1px solid #f0e8d4;
+    flex: 1;
+  }
+
+  .card-ratings {
+    padding: 0.8rem 1.4rem;
+    display: flex;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .rating-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    flex: 1;
+    min-width: 60px;
+  }
+
+  .rating-label {
+    font-size: 0.6rem;
+    color: #9a8e7a;
+    letter-spacing: 0.05em;
+    text-align: center;
+  }
+
+  .stars { font-size: 0.7rem; letter-spacing: 0.1em; }
+
+  .card-footer {
+    padding: 0.7rem 1.4rem;
+    background: #faf6ee;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f0e8d4;
+  }
+
+  .grade-badge {
+    font-size: 0.7rem;
+    padding: 0.2rem 0.7rem;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+
+  .expand-btn {
+    font-size: 0.72rem;
+    color: var(--amber);
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: 'Noto Sans TC', sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: gap 0.2s;
+  }
+  .expand-btn:hover { gap: 0.5rem; }
+
+  /* ── MODAL ── */
+  .modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(26,18,8,0.7);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s;
+    backdrop-filter: blur(4px);
+  }
+  .modal-overlay.open {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .modal {
+    background: var(--parchment);
+    max-width: 820px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    position: relative;
+    transform: translateY(20px);
+    transition: transform 0.35s cubic-bezier(.25,.8,.25,1);
+    border-top: 5px solid var(--amber);
+  }
+  .modal-overlay.open .modal { transform: translateY(0); }
+
+  .modal-close {
+    position: sticky;
+    top: 0;
+    right: 0;
+    float: right;
+    margin: 1rem;
+    width: 32px; height: 32px;
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+  }
+
+  .modal-body { padding: 2rem 2.5rem 2.5rem; clear: both; }
+
+  .modal-badge {
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+  }
+
+  .modal-title {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    line-height: 1.4;
+  }
+
+  .modal-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 4rem;
+    color: #e8dfc8;
+    position: absolute;
+    top: 1rem; right: 2rem;
+    line-height: 1;
+    pointer-events: none;
+  }
+
+  .modal-concept {
+    background: #fff;
+    border-left: 3px solid var(--amber);
+    padding: 1rem 1.2rem;
+    margin: 1.2rem 0;
+    font-size: 0.88rem;
+    line-height: 1.85;
+    color: #4a3e2a;
+  }
+
+  /* SWOT grid */
+  .swot-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+
+  .swot-cell {
+    padding: 1rem 1.1rem;
+    font-size: 0.82rem;
+    line-height: 1.8;
+  }
+
+  .swot-cell h4 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.85rem;
+    font-weight: 700;
+    margin-bottom: 0.6rem;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+  }
+
+  .swot-S { background: #edf7ed; border-top: 3px solid #4a6741; }
+  .swot-W { background: #fdf3ed; border-top: 3px solid #b84a4a; }
+  .swot-O { background: #edf4f7; border-top: 3px solid #1e6b6b; }
+  .swot-T { background: #f7f3ed; border-top: 3px solid #8b7355; }
+
+  .swot-S h4 { color: #2e5c2b; }
+  .swot-W h4 { color: #8b2a2a; }
+  .swot-O h4 { color: #1e5555; }
+  .swot-T h4 { color: #6b5030; }
+
+  .swot-cell ul { padding-left: 1rem; }
+  .swot-cell li { margin-bottom: 0.4rem; }
+
+  /* suggestions */
+  .suggestions {
+    background: var(--ink);
+    color: #f0e8d4;
+    padding: 1.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .suggestions h3 {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.85rem;
+    letter-spacing: 0.2em;
+    color: var(--amber-light);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+  }
+
+  .suggestion-item {
+    display: flex;
+    gap: 0.8rem;
+    margin-bottom: 0.8rem;
+    font-size: 0.82rem;
+    line-height: 1.75;
+  }
+
+  .suggestion-dot {
+    width: 6px; height: 6px;
+    background: var(--amber);
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+  }
+
+  /* ── COMPARISON TABLE ── */
+  .table-section {
+    background: var(--ink);
+    padding: 4rem 2rem;
+    overflow-x: auto;
+  }
+
+  .table-wrap {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .table-heading {
+    font-size: 0.7rem;
+    letter-spacing: 0.3em;
+    color: var(--amber);
+    text-transform: uppercase;
+    text-align: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .table-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.8rem;
+    color: #f0e8d4;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+    color: #d0c8b8;
+  }
+
+  thead tr {
+    border-bottom: 1px solid var(--amber);
+  }
+
+  th {
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: var(--amber-light);
+    text-align: center;
+    padding: 0.8rem 0.6rem;
+    white-space: nowrap;
+    font-weight: 400;
+  }
+
+  td {
+    padding: 0.7rem 0.6rem;
+    text-align: center;
+    border-bottom: 1px solid #2a2010;
+    transition: background 0.15s;
+  }
+
+  tr:hover td { background: rgba(212,137,10,0.07); }
+
+  .td-name {
+    text-align: left;
+    font-family: 'Noto Serif TC', serif;
+    font-size: 0.8rem;
+    color: #f0e8d4;
+    padding-right: 1rem;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .td-name:hover { color: var(--amber-light); }
+
+  .dot-row { display: flex; gap: 2px; justify-content: center; }
+  .dot {
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: #3a3020;
+  }
+  .dot.filled { background: var(--amber); }
+
+  .tag {
+    font-size: 0.68rem;
+    padding: 0.15rem 0.6rem;
+    border-radius: 2px;
+    display: inline-block;
+  }
+  .tag-bio   { background: rgba(74,103,65,0.3); color: #a0d098; }
+  .tag-phys  { background: rgba(30,107,107,0.3); color: #88d0d0; }
+  .tag-eng   { background: rgba(61,79,94,0.3); color: #a0b8cc; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: #120e06;
+    color: #6a5e4a;
+    text-align: center;
+    padding: 2rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    line-height: 2;
+  }
+
+  /* responsive */
+  @media (max-width: 600px) {
+    .swot-grid { grid-template-columns: 1fr; }
+    .modal-body { padding: 1.2rem 1.2rem 2rem; }
+    .modal-num { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- floating butterflies -->
+<div class="butterfly" style="top:10%;left:8%;--dur:9s;--delay:0s;--hue:10deg">🦋</div>
+<div class="butterfly" style="top:20%;right:10%;--dur:11s;--delay:2s;--hue:40deg">🦋</div>
+<div class="butterfly" style="top:55%;left:5%;--dur:13s;--delay:4s;--hue:-20deg">🦋</div>
+<div class="butterfly" style="top:70%;right:6%;--dur:8s;--delay:1s;--hue:60deg">🦋</div>
+<div class="butterfly" style="top:40%;left:50%;--dur:15s;--delay:3s;--hue:30deg">🦋</div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">第 50 屆全國科展 物理科第三名 延伸研究</div>
+  <h1 class="hero-title">Butterfly<br>in Flight</h1>
+  <span class="hero-title-zh">花飛蝶舞 — 高中科展延伸計劃</span>
+  <p class="hero-desc">
+    從蝴蝶拍翅渦流與升力的探討，延伸出十個適合高中生深入研究的方向。
+    每項計劃附完整 SWOT 分析與可行性建議，協助老師與學生選定最佳研究路線。
+  </p>
+  <div class="hero-stats">
+    <div class="stat-item"><span class="stat-num">10</span><span class="stat-label">研究計劃</span></div>
+    <div class="stat-item"><span class="stat-num">3</span><span class="stat-label">研究方向</span></div>
+    <div class="stat-item"><span class="stat-num">5★</span><span class="stat-label">最高潛力評級</span></div>
+  </div>
+  <div class="scroll-hint">▼ 向下探索</div>
+</section>
+
+<!-- FILTER BAR -->
+<div class="filter-section">
+  <span class="filter-label">篩選方向</span>
+  <button class="filter-btn active" data-filter="all">全部</button>
+  <button class="filter-btn" data-filter="bio">仿生生物</button>
+  <button class="filter-btn" data-filter="phys">流體力學</button>
+  <button class="filter-btn" data-filter="eng">工程應用</button>
+  <span class="filter-label" style="margin-left:1rem">年級</span>
+  <button class="filter-btn" data-filter="g10">高一適合</button>
+  <button class="filter-btn" data-filter="g11">高二適合</button>
+</div>
+
+<!-- CARDS GRID -->
+<section class="grid-section">
+  <p class="section-heading">Ten Research Proposals</p>
+  <h2 class="section-title">十個延伸研究計劃</h2>
+  <div class="cards-grid" id="cardsGrid"></div>
+</section>
+
+<!-- COMPARISON TABLE -->
+<section class="table-section">
+  <div class="table-wrap">
+    <p class="table-heading">Comparative Overview</p>
+    <h2 class="table-title">綜合比較一覽表</h2>
+    <table>
+      <thead>
+        <tr>
+          <th style="text-align:left">計劃名稱</th>
+          <th>技術難度</th>
+          <th>設備門檻</th>
+          <th>原創性</th>
+          <th>應用價值</th>
+          <th>推薦年級</th>
+          <th>方向</th>
+        </tr>
+      </thead>
+      <tbody id="tableBody"></tbody>
+    </table>
+  </div>
+</section>
+
+<!-- TEACHER TIP -->
+<section style="background:#f5ede0;padding:3rem 2rem;">
+  <div style="max-width:720px;margin:0 auto;text-align:center;">
+    <p style="font-size:0.7rem;letter-spacing:0.25em;color:var(--amber);text-transform:uppercase;margin-bottom:0.5rem">Teacher's Guide</p>
+    <h2 style="font-family:'Noto Serif TC',serif;font-size:1.4rem;margin-bottom:1.5rem;color:var(--ink)">指導老師選題建議</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:1rem;text-align:left">
+      <div style="background:#fff;padding:1.2rem;border-top:3px solid var(--moss)">
+        <div style="font-size:0.7rem;letter-spacing:0.1em;color:var(--moss);margin-bottom:0.5rem">🌱 初次參賽 / 資源有限</div>
+        <div style="font-family:'Noto Serif TC',serif;font-weight:700;margin-bottom:0.3rem">計劃 1、4、9</div>
+        <div style="font-size:0.78rem;color:#6a5e4a;line-height:1.7">設備需求低，實驗設計清晰，適合建立研究信心</div>
+      </div>
+      <div style="background:#fff;padding:1.2rem;border-top:3px solid var(--teal)">
+        <div style="font-size:0.7rem;letter-spacing:0.1em;color:var(--teal);margin-bottom:0.5rem">⚙️ 具物理基礎</div>
+        <div style="font-family:'Noto Serif TC',serif;font-weight:700;margin-bottom:0.3rem">計劃 2、6、7</div>
+        <div style="font-size:0.78rem;color:#6a5e4a;line-height:1.7">需電控設計，但量測目標明確，挑戰與回報平衡</div>
+      </div>
+      <div style="background:#fff;padding:1.2rem;border-top:3px solid var(--rose)">
+        <div style="font-size:0.7rem;letter-spacing:0.1em;color:var(--rose);margin-bottom:0.5rem">🏆 衝擊全國賽</div>
+        <div style="font-family:'Noto Serif TC',serif;font-weight:700;margin-bottom:0.3rem">計劃 8、10</div>
+        <div style="font-size:0.78rem;color:#6a5e4a;line-height:1.7">風險最高但潛力最大，需工程背景師生合作</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div>花飛蝶舞 — 探討蝴蝶拍翅渦流與升力之關係</div>
+  <div style="color:#4a3e2a">中華民國第 50 屆中小學科學展覽會 · 國中組 物理科第三名</div>
+  <div style="margin-top:0.5rem;color:#3a3020">延伸研究計劃分析 · 麗山高中數理資優班</div>
+</footer>
+
+<!-- MODAL -->
+<div class="modal-overlay" id="modalOverlay" onclick="closeModalOnBg(event)">
+  <div class="modal" id="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-body" id="modalBody"></div>
+  </div>
+</div>
+
+<script>
+const PLANS = [
+  {
+    id: 1,
+    title: "翅脈分布對渦流結構與升力的影響",
+    category: "仿生生物",
+    cat: "bio",
+    grade: "g10",
+    concept: "原作採均質塑膠片，忽略真實翅脈的骨架結構。翅脈不只是支撐骨架，更可能影響翼面局部剛性分布，進而改變渦流的生成位置與強度。",
+    tech: 2, equip: 1, novel: 4, value: 3,
+    color: "#4a6741",
+    swot: {
+      S: ["直接承接原作風洞裝置與方法論，銜接感強", "翅脈仿生有明確的生物學依據（脈序分類），研究框架清晰", "原作空缺：翅脈結構變數從未被納入探討"],
+      W: ["製作具有精確翅脈分布的透氣翼面困難，公差控制不易", "翅脈影響的量化（剛性梯度）需要材料力學背景知識"],
+      O: ["微型無人機（MAV）研究熱門，學術界對翅脈影響有持續關注", "可與台灣昆蟲標本館或大學昆蟲系合作取得材料"],
+      T: ["競爭者多：『仿昆蟲翼』是科展常見題目，需明確標示創新點"]
+    },
+    suggestions: [
+      "以 3D 列印製作不同翅脈密度的翼面模型（3種：無脈、疏脈、密脈），保持展弦比一致以隔離變因",
+      "除升力外，測量渦核形成位置隨攻角的位移量（mm），以影片逐格分析",
+      "設「無翅脈-實心翼」為基準組，所有翅脈組對比之",
+      "明確聚焦『翅脈密度梯度對前緣渦核穩定性的影響』，與一般形狀研究區隔"
+    ]
+  },
+  {
+    id: 2,
+    title: "拍翅相位差對雙翼耦合升力的影響",
+    category: "流體力學",
+    cat: "phys",
+    grade: "g11",
+    concept: "原作將蝴蝶前後翅視為單一翼面。真實蝴蝶拍翅時，左右兩翼存在細微相位差（phase lag）。此相位差是否能強化渦流耦合，提升整體升力效率？",
+    tech: 4, equip: 3, novel: 5, value: 5,
+    color: "#1e6b6b",
+    swot: {
+      S: ["主題明確且原創——「相位差」是仿生飛行研究的前沿問題", "可沿用原作的電子秤升力測量系統"],
+      W: ["需自製可獨立控制兩翼相位的雙軸振盪器，電路與機械設計挑戰大", "實驗變數增加，數據量龐大，分析複雜"],
+      O: ["與 MAV（微型飛行器）工程直接相關，應用價值高", "可引用 Nature、Science 等頂尖期刊文獻，學術深度佳"],
+      T: ["若振盪器精度不足，相位差控制誤差可能掩蓋真實效應"]
+    },
+    suggestions: [
+      "使用兩顆獨立的步進馬達加 Arduino 控制板，以程式設定相位差（0°、45°、90°、135°、180° 共5組）",
+      "固定展弦比（採C翼）、固定攻角（15°）、固定頻率（5Hz），僅改變相位差",
+      "先以單翼驗證電子秤讀數穩定性，再升級雙翼系統",
+      "每組至少重複5次量測，計算平均值與標準差，繪製升力–相位差曲線"
+    ]
+  },
+  {
+    id: 3,
+    title: "亂流強度對前緣渦流穩定性的影響",
+    category: "流體力學",
+    cat: "phys",
+    grade: "g11",
+    concept: "原作風洞測試段風速極均勻（9個量測點均為0.8 m/s）。但蝴蝶真實飛行環境充滿亂流——花叢間、林緣、溪流旁。不均勻流場中，渦流穩定性如何改變？",
+    tech: 3, equip: 4, novel: 4, value: 4,
+    color: "#3d4f5e",
+    swot: {
+      S: ["填補原作「理想化風洞」的最大限制，具反思原作的學術價值", "問題來自真實生態情境，動機敘述自然有力"],
+      W: ["可控的「已知亂流強度」難以製造，需在整流段加裝亂流產生網", "亂流量化需要熱線測速儀，設備成本較高"],
+      O: ["生態應用明確：蝴蝶棲地保育、微氣候設計", "可向大學航太或機械系借用量測設備"],
+      T: ["「亂流」主題在高中層級較少見，評審對學生理解深度要求更嚴格"]
+    },
+    suggestions: [
+      "在整流段出口加裝不同網眼大小的金屬網（2mm、5mm、10mm），模擬低中高亂流強度",
+      "以多次10秒風速計取樣的變異係數（CV值）估計亂流強度作為操作型定義",
+      "固定翼型（C翼）、攻角（20°）、頻率（6 Hz），改變亂流強度",
+      "以影像分析軟體 ImageJ 測量前緣渦核面積隨亂流強度的變化"
+    ]
+  },
+  {
+    id: 4,
+    title: "翅膀柔性（彈性係數）對渦流升力的影響",
+    category: "仿生生物",
+    cat: "bio",
+    grade: "g10",
+    concept: "原作翅膀材料為黑色塑膠片（相對剛硬）。真實蝴蝶翅膀具有局部柔性，拍翅時翼面會微幅彎曲形變（passive deformation）。此形變是否為渦流升力產生的關鍵要素之一？",
+    tech: 3, equip: 2, novel: 4, value: 4,
+    color: "#8b6914",
+    swot: {
+      S: ["直指原作最大材料假設的缺口，原創性強", "結合物理（流體力學）與材料科學的跨科性，評審印象分高"],
+      W: ["控制『彈性係數』而保持其他幾何條件不變，材料選擇困難", "形變量的量化（高速攝影+影像追蹤）技術門檻較高"],
+      O: ["被動形變（passive morphing）是近年空氣動力學熱門領域", "柔性翼面應用於軟性機器人飛行器"],
+      T: ["高速攝影設備若無法取得，影像分析精度受限"]
+    },
+    suggestions: [
+      "製備3種不同柔性的翼面：①聚酯薄膜PET（較硬）②PE塑膠袋（中）③咖啡濾紙浸蠟（較軟），展弦比統一為1.67（C翼）",
+      "以簡易懸臂樑彎曲測試計算等效彈性模量作為操作型定義",
+      "相同攻角（20°）、頻率（6 Hz）下，比較三種柔性翼的升力及前緣渦核大小",
+      "「砂紙粗糙度研究」可作為先導實驗，確認現象後再升級精密實驗"
+    ]
+  },
+  {
+    id: 5,
+    title: "仿蝶翅微結構表面對邊界層分離的影響",
+    category: "仿生生物",
+    cat: "bio",
+    grade: "g11",
+    concept: "蝴蝶翅膀表面覆蓋著微細鱗片，形成特殊微觀紋理。原作鑽孔模擬通煙，但鱗片的空氣動力學效果從未被探討。仿生微結構表面是否能延遲邊界層分離、提升失速攻角？",
+    tech: 4, equip: 4, novel: 4, value: 5,
+    color: "#7a3a8a",
+    swot: {
+      S: ["跨尺度研究（宏觀流體＋微觀仿生），主題新穎", "蝴蝶鱗片已被證實有超疏水、減阻功能，學術背景豐富"],
+      W: ["製作精確微結構表面需要精密加工（雷射雕刻或微影），高中難以自製", "微結構對流場的影響在本研究尺度（雷諾數~9000）可能效果微弱"],
+      O: ["應用連結明確：飛機蒙皮、風力發電葉片減阻", "可委託學校或大學的雷射切割機製作紋理模板"],
+      T: ["需要足夠高解析度的影像設備才能觀察微結構效果差異"]
+    },
+    suggestions: [
+      "以砂紙（不同粗糙度P100、P400、P1000）貼附翼面代替精密微結構，以「表面粗糙度」作為操作型定義的替代指標",
+      "量測不同表面粗糙度翼面的「失速攻角」（升力驟降時的攻角），而非只看絕對升力大小",
+      "設計砂紙粗糙度研究作為探索性先導實驗，若結果顯著再申請雷射加工升級",
+      "數位顯微鏡拍攝各表面的微觀形貌，作為報告中的視覺佐證"
+    ]
+  },
+  {
+    id: 6,
+    title: "拍翅振幅角度對升力─功耗比的最佳化研究",
+    category: "工程應用",
+    cat: "eng",
+    grade: "g10",
+    concept: "原作控制拍翅頻率，但振幅（翅膀上下擺動的最大角度）固定不變。飛行效率的關鍵指標應是「單位消耗能量所產生的升力」（升力─功耗比）。哪一振幅角度最有效率？",
+    tech: 3, equip: 3, novel: 4, value: 4,
+    color: "#1e6b6b",
+    swot: {
+      S: ["引入「效率」概念，比純粹測升力更有工程深度", "振幅角度的機械控制相對頻率更直觀易改變"],
+      W: ["「功耗」的量測需要電流計與電壓計即時讀數，增加複雜度", "振幅角度改變時，幾何效應本身就會改變升力，需區隔"],
+      O: ["直接對應仿生飛行器的設計最佳化問題", "可引入最佳化（optimization）概念，提升報告的分析層次"],
+      T: ["電機效率可能隨負載改變，使功耗估算引入系統誤差"]
+    },
+    suggestions: [
+      "設計5種振幅（30°、45°、60°、75°、90°），保持頻率固定（5 Hz）",
+      "以數位電力計量測驅動馬達的電功率，以電功率作為「功耗」的操作型定義",
+      "計算「升力（gw）/ 電功率（W）」的比值，繪製效率─振幅曲線，找最大值",
+      "展弦比固定C翼，攻角固定15°，確保單一變因原則"
+    ]
+  },
+  {
+    id: 7,
+    title: "環境溫度與空氣密度改變對渦流升力的影響",
+    category: "流體力學",
+    cat: "phys",
+    grade: "g10",
+    concept: "Buckingham π 理論推導出 F ∝ ρv³·⁴r⁰·⁶f⁻¹·⁴，其中空氣密度 ρ 是關鍵變數。高海拔、高溫環境中空氣密度降低。本研究可實驗驗證此數學關係式中 ρ 的次方係數是否準確。",
+    tech: 3, equip: 3, novel: 3, value: 3,
+    color: "#c87820",
+    swot: {
+      S: ["直接對原作的數學模型進行實驗驗證，是科學精神的體現", "可透過控制溫度改變空氣密度，設備相對簡單"],
+      W: ["若溫度範圍不夠大，密度變化幅度約4%，對升力影響可能落入量測誤差", "溫度改變同時影響空氣黏度（μ），雷諾數會同步改變，變因控制複雜"],
+      O: ["氣候變遷連結：溫暖化環境對蝴蝶飛行能力的影響", "可連結台灣「平地–山地蝴蝶」的生態觀察"],
+      T: ["若無溫控風洞，以環境溫度作為代替的操作精度有限"]
+    },
+    suggestions: [
+      "以密封保冷箱改裝，控制翼模型周圍空氣溫度（5°C、15°C、25°C、35°C四組），並以溫濕度計監控",
+      "使用理想氣體方程式 ρ=PM/RT 計算各溫度下的空氣密度，作為代入驗算的理論值",
+      "直接檢驗「低溫（高ρ）是否對應較大升力」即可，不須完整重做π理論推導",
+      "在研究動機加入「氣溫影響蝴蝶飛行效率，對遷徙型蝴蝶（如紫斑蝶）的生態意義」"
+    ]
+  },
+  {
+    id: 8,
+    title: "仿蝶拍翅微型飛行器（MAV）原型機設計與升力測試",
+    category: "工程應用",
+    cat: "eng",
+    grade: "g11",
+    concept: "從理論研究進入工程實作，以原作的渦流升力機制為設計依據，自製一台仿蝴蝶拍翅的微型飛行器原型，並系統性測試其懸停（hovering）能力。",
+    tech: 5, equip: 4, novel: 3, value: 5,
+    color: "#3d4f5e",
+    swot: {
+      S: ["應用性強、視覺震撼，評審與觀眾印象深刻", "工程製作歷程本身即展現跨學科能力（機械、電子、流體）"],
+      W: ["開發難度高，失敗風險大；若飛不起來，研究價值急遽下降", "高中生在馬達選型、機架減重、電控設計上可能遭遇多重技術瓶頸"],
+      O: ["符合108課綱「素養導向」強調的實作與應用", "MAV 領域有豐富的開源設計可參考（Harvard RoboBee等）"],
+      T: ["成品若採購現成零件組裝，評審可能質疑研究原創性"]
+    },
+    suggestions: [
+      "目標設定為「可產生足以支撐自身重量10%的額外升力的原型機」，而非完整懸停，降低技術壓力",
+      "若為雙人組：一人負責翼面流體力學最佳化，一人負責驅動機構設計",
+      "機架採巴沙木（輕質）、翼面採透明PC膜（輕量兼可觀察渦流）、驅動採空心杯馬達",
+      "製作地面固定測試架，先確認升力數據後再嘗試自由飛行"
+    ]
+  },
+  {
+    id: 9,
+    title: "不同蝴蝶科翅形幾何的升力效率比較（鳳蝶vs.粉蝶vs.斑蝶）",
+    category: "仿生生物",
+    cat: "bio",
+    grade: "g10",
+    concept: "原作的5種翼型展弦比為人為設定，並未對應真實蝶種。台灣有400多種蝴蝶，各科翅形差異顯著：鳳蝶細長（高展弦比）、粉蝶圓潤（低展弦比）、斑蝶介中。翅形是否反映飛行生態棲位的自然最佳化？",
+    tech: 2, equip: 1, novel: 4, value: 3,
+    color: "#8b2a2a",
+    swot: {
+      S: ["生物多樣性與物理結合，跨科吸引力強", "台灣蝴蝶資源豐富，指導老師可連結昆蟲或生態背景", "翅形可從蝴蝶標本精確掃描複製"],
+      W: ["若只有3種蝴蝶的翅形，統計樣本小，代表性存疑", "蝴蝶科內個體間翅形變異不小，難以定義「代表翅形」"],
+      O: ["生態演化問題具科普傳播價值，報告敘事性強", "可申請與台大昆蟲系或蝴蝶保育協會合作"],
+      T: ["翅形描述需引入翅形指數等生物量化指標，學習門檻稍高"]
+    },
+    suggestions: [
+      "向學校生物教師或蝴蝶館借用標本掃描，或以蝴蝶生態照數位化量測翅形",
+      "以 ImageJ 測量翅展、翅面積，計算展弦比與翅尖形指數（wing tip index）",
+      "以「飛行生態」為研究假說——長距離遷徙的紫斑蝶應有最高效的升阻比，並以實驗檢驗",
+      "每科取3個代表種、每種製作3個模型，以單因子ANOVA分析升力差異"
+    ]
+  },
+  {
+    id: 10,
+    title: "蝴蝶拍翅「剪刀效應（Clap-and-Fling）」的可視化與量化研究",
+    category: "流體力學",
+    cat: "phys",
+    grade: "g11",
+    concept: "Weis-Fogh（1973）發現小型昆蟲在每次拍翅循環的頂點，雙翼相互拍合（Clap），接著快速展開（Fling），此過程可額外產生一股升力。蝴蝶是否也使用此機制？原作僅分析單翼靜態渦流，未觸及雙翼動態交互作用。",
+    tech: 5, equip: 4, novel: 5, value: 5,
+    color: "#1e4a7a",
+    swot: {
+      S: ["直指昆蟲飛行研究的經典未解問題，學術深度最高", "高速攝影可視化「拍翅頂點雙翼間隙」，實驗現象直觀震撼", "從原作「單翼」升級到「雙翼動態」，是自然且具深度的延伸"],
+      W: ["Clap-and-Fling 發生的時間尺度極短（毫秒級），需要高速攝影機（≥500fps）", "雙翼運動學的幾何分析複雜，需建立三維座標系"],
+      O: ["Ellington等人的Nature論文（原作已引用）正是此領域的奠基文獻，站在巨人肩膀上", "若成功量化，具頂尖科展競爭力"],
+      T: ["高速攝影設備若無法借用，可替代性低，是本計劃最大瓶頸"]
+    },
+    suggestions: [
+      "智慧型手機高速攝影（240fps）作為先導，再向大學借用500fps以上機型進行精密實驗",
+      "先以側視二維分析「拍翅頂點翼面間距」隨頻率的變化，再升級為三維分析",
+      "定義「相對間距」= 翅尖間最小距離/翅展，當此值<0.05時定義為「有效clap事件」，統計各頻率下的發生率",
+      "第一個月僅做高速影像可視化（質性），確認現象後再進入第二個月升力量化（量性）"
+    ]
+  }
+];
+
+const catColors = {
+  bio: "#4a6741",
+  phys: "#1e6b6b",
+  eng: "#3d4f5e"
+};
+
+const catLabels = {
+  bio: "仿生生物",
+  phys: "流體力學",
+  eng: "工程應用"
+};
+
+const catTagClass = {
+  bio: "tag-bio",
+  phys: "tag-phys",
+  eng: "tag-eng"
+};
+
+function stars(n, max=5) {
+  let s = '<div class="dot-row">';
+  for (let i=1;i<=max;i++) s += `<div class="dot${i<=n?' filled':''}"></div>`;
+  return s+'</div>';
+}
+
+function renderCards() {
+  const grid = document.getElementById('cardsGrid');
+  grid.innerHTML = '';
+  PLANS.forEach((p,i) => {
+    const card = document.createElement('div');
+    card.className = 'plan-card';
+    card.dataset.cat = p.cat;
+    card.dataset.grade = p.grade;
+    card.style.animationDelay = (i*0.07)+'s';
+    card.innerHTML = `
+      <div class="card-accent" style="background:${p.color}"></div>
+      <div class="card-header">
+        <div class="card-num">0${p.id}</div>
+        <div class="card-meta">
+          <div class="card-category" style="color:${p.color}">${p.category}</div>
+          <div class="card-title">${p.title}</div>
+        </div>
+      </div>
+      <div class="card-concept">${p.concept}</div>
+      <div class="card-ratings">
+        <div class="rating-item">
+          <div class="rating-label">技術難度</div>
+          ${stars(p.tech)}
+        </div>
+        <div class="rating-item">
+          <div class="rating-label">設備門檻</div>
+          ${stars(p.equip)}
+        </div>
+        <div class="rating-item">
+          <div class="rating-label">原創性</div>
+          ${stars(p.novel)}
+        </div>
+        <div class="rating-item">
+          <div class="rating-label">應用價值</div>
+          ${stars(p.value)}
+        </div>
+      </div>
+      <div class="card-footer">
+        <span class="grade-badge" style="background:${p.color}22;color:${p.color}">${p.grade==='g10'?'高一適合':'高二適合'}</span>
+        <button class="expand-btn" onclick="openModal(${p.id})">詳細 SWOT ›</button>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function renderTable() {
+  const tbody = document.getElementById('tableBody');
+  PLANS.forEach(p => {
+    const tr = document.createElement('tr');
+    tr.innerHTML = `
+      <td class="td-name" onclick="openModal(${p.id})">計劃 ${p.id}｜${p.title}</td>
+      <td>${stars(p.tech)}</td>
+      <td>${stars(p.equip)}</td>
+      <td>${stars(p.novel)}</td>
+      <td>${stars(p.value)}</td>
+      <td style="color:#d0c8b8">${p.grade==='g10'?'高一':'高二'}</td>
+      <td><span class="tag ${catTagClass[p.cat]}">${catLabels[p.cat]}</span></td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+function openModal(id) {
+  const p = PLANS.find(x=>x.id===id);
+  const body = document.getElementById('modalBody');
+  body.innerHTML = `
+    <div class="modal-num">0${p.id}</div>
+    <div class="modal-badge" style="color:${p.color}">${p.category} · ${p.grade==='g10'?'高一適合':'高二適合'}</div>
+    <h2 class="modal-title">${p.title}</h2>
+    <div class="modal-concept">
+      <strong style="font-size:0.7rem;letter-spacing:0.15em;color:#888">核心概念</strong><br>
+      ${p.concept}
+    </div>
+    <div class="swot-grid">
+      <div class="swot-cell swot-S">
+        <h4>✦ 優勢 Strengths</h4>
+        <ul>${p.swot.S.map(s=>`<li>${s}</li>`).join('')}</ul>
+      </div>
+      <div class="swot-cell swot-W">
+        <h4>✦ 劣勢 Weaknesses</h4>
+        <ul>${p.swot.W.map(s=>`<li>${s}</li>`).join('')}</ul>
+      </div>
+      <div class="swot-cell swot-O">
+        <h4>✦ 機會 Opportunities</h4>
+        <ul>${p.swot.O.map(s=>`<li>${s}</li>`).join('')}</ul>
+      </div>
+      <div class="swot-cell swot-T">
+        <h4>✦ 威脅 Threats</h4>
+        <ul>${p.swot.T.map(s=>`<li>${s}</li>`).join('')}</ul>
+      </div>
+    </div>
+    <div class="suggestions">
+      <h3>✦ 可行性建議</h3>
+      ${p.suggestions.map(s=>`<div class="suggestion-item"><div class="suggestion-dot"></div><div>${s}</div></div>`).join('')}
+    </div>
+    <div style="display:flex;gap:0.8rem;margin-top:1.2rem;flex-wrap:wrap">
+      <div style="flex:1;min-width:120px;background:#fff;padding:0.8rem;text-align:center;border-top:2px solid ${p.color}">
+        <div style="font-size:1.4rem;font-family:'DM Serif Display',serif;color:${p.color}">${'★'.repeat(p.tech)}${'☆'.repeat(5-p.tech)}</div>
+        <div style="font-size:0.65rem;color:#888;margin-top:0.2rem">技術難度</div>
+      </div>
+      <div style="flex:1;min-width:120px;background:#fff;padding:0.8rem;text-align:center;border-top:2px solid ${p.color}">
+        <div style="font-size:1.4rem;font-family:'DM Serif Display',serif;color:${p.color}">${'★'.repeat(p.equip)}${'☆'.repeat(5-p.equip)}</div>
+        <div style="font-size:0.65rem;color:#888;margin-top:0.2rem">設備門檻</div>
+      </div>
+      <div style="flex:1;min-width:120px;background:#fff;padding:0.8rem;text-align:center;border-top:2px solid ${p.color}">
+        <div style="font-size:1.4rem;font-family:'DM Serif Display',serif;color:${p.color}">${'★'.repeat(p.novel)}${'☆'.repeat(5-p.novel)}</div>
+        <div style="font-size:0.65rem;color:#888;margin-top:0.2rem">原創性</div>
+      </div>
+      <div style="flex:1;min-width:120px;background:#fff;padding:0.8rem;text-align:center;border-top:2px solid ${p.color}">
+        <div style="font-size:1.4rem;font-family:'DM Serif Display',serif;color:${p.color}">${'★'.repeat(p.value)}${'☆'.repeat(5-p.value)}</div>
+        <div style="font-size:0.65rem;color:#888;margin-top:0.2rem">應用價值</div>
+      </div>
+    </div>
+  `;
+  document.getElementById('modalOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('modalOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+function closeModalOnBg(e) {
+  if (e.target === document.getElementById('modalOverlay')) closeModal();
+}
+
+// filters
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const f = this.dataset.filter;
+    // toggle active within group
+    const group = f==='all'||f==='bio'||f==='phys'||f==='eng' ? 'cat' : 'grade';
+    if (group==='cat') {
+      document.querySelectorAll('.filter-btn[data-filter="all"],.filter-btn[data-filter="bio"],.filter-btn[data-filter="phys"],.filter-btn[data-filter="eng"]').forEach(b=>b.classList.remove('active'));
+    } else {
+      document.querySelectorAll('.filter-btn[data-filter="g10"],.filter-btn[data-filter="g11"]').forEach(b=>b.classList.remove('active'));
+    }
+    this.classList.add('active');
+
+    // get current active cat and grade
+    const activeCat = document.querySelector('.filter-btn[data-filter="all"].active,.filter-btn[data-filter="bio"].active,.filter-btn[data-filter="phys"].active,.filter-btn[data-filter="eng"].active')?.dataset.filter || 'all';
+    const activeGrade = document.querySelector('.filter-btn[data-filter="g10"].active,.filter-btn[data-filter="g11"].active')?.dataset.filter || null;
+
+    document.querySelectorAll('.plan-card').forEach(card => {
+      const matchCat = activeCat==='all' || card.dataset.cat===activeCat;
+      const matchGrade = !activeGrade || card.dataset.grade===activeGrade;
+      card.classList.toggle('hidden', !(matchCat && matchGrade));
+    });
+  });
+});
+
+document.addEventListener('keydown', e => { if (e.key==='Escape') closeModal(); });
+
+renderCards();
+renderTable();
+</script>
+</body>
+</html>

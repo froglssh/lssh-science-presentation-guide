@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科學研究題目 SWOT 分析工具</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700;900&family=Noto+Sans+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #f5f0e8;
+  --bg2:       #ede8de;
+  --surface:   #faf8f4;
+  --card:      #ffffff;
+  --border:    #ddd8cc;
+  --border2:   #c8c0b0;
+
+  --ink:       #1e1c18;
+  --ink2:      #4a4640;
+  --ink3:      #8a847a;
+  --ink4:      #b8b2a8;
+
+  --s-bg:      #edf7f2;
+  --s-border:  #a8d9be;
+  --s-text:    #1a6b45;
+  --s-dot:     #2ea06a;
+
+  --w-bg:      #fff4ec;
+  --w-border:  #f0c4a0;
+  --w-text:    #8a3d10;
+  --w-dot:     #e07030;
+
+  --o-bg:      #eff4ff;
+  --o-border:  #b0c8f0;
+  --o-text:    #1e3d8a;
+  --o-dot:     #3060d0;
+
+  --t-bg:      #fff0f2;
+  --t-border:  #f0b0b8;
+  --t-text:    #8a1a28;
+  --t-dot:     #d03048;
+
+  --gold:      #c8860a;
+  --gold-bg:   #fff8ec;
+  --gold-bd:   #e8c878;
+
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.06), 0 1px 2px rgba(0,0,0,.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,.08), 0 2px 4px rgba(0,0,0,.04);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,.10), 0 4px 8px rgba(0,0,0,.05);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-weight: 400;
+  min-height: 100vh;
+  position: relative;
+}
+
+/* ── Subtle paper grain overlay ── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+  opacity: .5;
+}
+
+/* ── Warm gradient blobs ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background:
+    radial-gradient(ellipse 700px 500px at 10% 0%, rgba(200,134,10,.06) 0%, transparent 70%),
+    radial-gradient(ellipse 500px 400px at 90% 100%, rgba(46,160,106,.05) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ── Header ── */
+header {
+  position: relative;
+  z-index: 20;
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+  padding: 0;
+}
+
+.header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.5rem 2rem;
+  display: flex;
+  align-items: flex-end;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.header-left { flex: 1; min-width: 280px; }
+
+.eyebrow {
+  font-family: 'DM Mono', monospace;
+  font-size: .65rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-bd);
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .22rem .7rem;
+  border-radius: 3px;
+  margin-bottom: .7rem;
+}
+
+.eyebrow::before { content: '◆'; font-size: .5rem; }
+
+header h1 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1.5rem, 2.8vw, 2.2rem);
+  font-weight: 900;
+  line-height: 1.25;
+  color: var(--ink);
+  letter-spacing: -.01em;
+}
+
+header h1 em {
+  font-style: normal;
+  color: var(--gold);
+  border-bottom: 2px solid var(--gold-bd);
+}
+
+.header-sub {
+  margin-top: .45rem;
+  font-size: .8rem;
+  color: var(--ink3);
+  font-weight: 300;
+  line-height: 1.6;
+}
+
+.legend-strip {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  align-items: center;
+  padding: .6rem 1rem;
+  background: var(--bg2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.leg {
+  display: flex;
+  align-items: center;
+  gap: .45rem;
+  font-size: .72rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--ink2);
+}
+
+.leg-sq {
+  width: 12px; height: 12px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+/* ── App layout ── */
+.app {
+  position: relative;
+  z-index: 1;
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 1.75rem 2rem 5rem;
+  display: grid;
+  grid-template-columns: 290px 1fr;
+  gap: 1.75rem;
+  align-items: start;
+}
+
+/* ── Sidebar ── */
+.sidebar {
+  position: sticky;
+  top: 1.5rem;
+}
+
+.sidebar-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  padding: 0 .25rem .6rem;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: .75rem;
+}
+
+.topic-list { display: flex; flex-direction: column; gap: .35rem; }
+
+.topic-btn {
+  display: flex;
+  align-items: flex-start;
+  gap: .7rem;
+  padding: .7rem .9rem;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  transition: all .18s ease;
+  width: 100%;
+  position: relative;
+}
+
+.topic-btn:hover {
+  background: var(--surface);
+  border-color: var(--border);
+  box-shadow: var(--shadow-sm);
+}
+
+.topic-btn.active {
+  background: var(--card);
+  border-color: var(--gold-bd);
+  box-shadow: var(--shadow-md);
+}
+
+.topic-btn.active::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 3px;
+  background: var(--gold);
+  border-radius: 0 2px 2px 0;
+}
+
+.t-num {
+  font-family: 'DM Mono', monospace;
+  font-size: .68rem;
+  font-weight: 500;
+  color: var(--ink4);
+  min-width: 1.4rem;
+  padding-top: .1rem;
+  flex-shrink: 0;
+}
+
+.topic-btn.active .t-num { color: var(--gold); }
+
+.t-label {
+  font-size: .8rem;
+  color: var(--ink2);
+  line-height: 1.4;
+  font-weight: 400;
+}
+
+.topic-btn.active .t-label { color: var(--ink); font-weight: 500; }
+
+.t-score {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: .62rem;
+  padding: .15rem .4rem;
+  border-radius: 4px;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+}
+
+/* ── Main ── */
+.main-panel { display: flex; flex-direction: column; gap: 1.25rem; }
+
+/* animation */
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.anim { animation: slideUp .3s ease both; }
+.anim-d1 { animation-delay: .04s; }
+.anim-d2 { animation-delay: .08s; }
+.anim-d3 { animation-delay: .12s; }
+.anim-d4 { animation-delay: .16s; }
+
+/* ── Topic hero card ── */
+.hero-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.8rem 2rem;
+  box-shadow: var(--shadow-md);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--gold) 0%, #e8b040 50%, var(--s-dot) 100%);
+}
+
+.hero-top {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin-bottom: 1.1rem;
+}
+
+.hero-num {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 3.5rem;
+  font-weight: 900;
+  color: var(--border2);
+  line-height: 1;
+  flex-shrink: 0;
+  user-select: none;
+  letter-spacing: -.04em;
+}
+
+.hero-right { flex: 1; }
+
+.hero-tags {
+  display: flex;
+  gap: .4rem;
+  flex-wrap: wrap;
+  margin-bottom: .6rem;
+}
+
+.htag {
+  font-size: .65rem;
+  padding: .2rem .6rem;
+  border-radius: 20px;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  border: 1px solid;
+}
+
+.htag-food    { background: #fff8ec; border-color: #e8c878; color: #8a5e10; }
+.htag-chem    { background: #eff4ff; border-color: #b0c8f0; color: #1e3d8a; }
+.htag-bio     { background: #edf7f2; border-color: #a8d9be; color: #1a6b45; }
+.htag-physics { background: #f5f0ff; border-color: #c8b0f0; color: #4a1a8a; }
+.htag-env     { background: #fff4ec; border-color: #f0c4a0; color: #8a3d10; }
+
+.hero-right h2 {
+  font-family: 'Noto Serif TC', serif;
+  font-size: clamp(1rem, 1.6vw, 1.25rem);
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--ink);
+}
+
+.hero-right h2 mark {
+  background: linear-gradient(120deg, var(--gold-bg) 0%, #fef0c0 100%);
+  color: var(--gold);
+  padding: 0 .2rem;
+  border-radius: 3px;
+  font-style: normal;
+}
+
+.hero-desc {
+  font-size: .84rem;
+  color: var(--ink2);
+  line-height: 1.8;
+  padding-top: .8rem;
+  border-top: 1px dashed var(--border);
+}
+
+/* ── SWOT grid ── */
+.swot-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.swot-card {
+  border-radius: 10px;
+  border: 1px solid;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow .2s;
+}
+
+.swot-card:hover { box-shadow: var(--shadow-md); }
+
+.swot-card.s-card { background: var(--s-bg); border-color: var(--s-border); }
+.swot-card.w-card { background: var(--w-bg); border-color: var(--w-border); }
+.swot-card.o-card { background: var(--o-bg); border-color: var(--o-border); }
+.swot-card.t-card { background: var(--t-bg); border-color: var(--t-border); }
+
+.swot-head {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  padding: .9rem 1.2rem;
+  border-bottom: 1px solid;
+}
+
+.s-card .swot-head { border-color: var(--s-border); background: rgba(46,160,106,.06); }
+.w-card .swot-head { border-color: var(--w-border); background: rgba(224,112,48,.06); }
+.o-card .swot-head { border-color: var(--o-border); background: rgba(48,96,208,.06); }
+.t-card .swot-head { border-color: var(--t-border); background: rgba(208,48,72,.06); }
+
+.swot-letter {
+  font-family: 'Noto Serif TC', serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.s-card .swot-letter { color: var(--s-text); }
+.w-card .swot-letter { color: var(--w-text); }
+.o-card .swot-letter { color: var(--o-text); }
+.t-card .swot-letter { color: var(--t-text); }
+
+.swot-head-info {}
+.swot-en {
+  font-family: 'DM Mono', monospace;
+  font-size: .58rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink4);
+}
+
+.swot-zh {
+  font-size: .85rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.swot-hint {
+  margin-left: auto;
+  font-size: .65rem;
+  color: var(--ink4);
+  font-style: italic;
+  font-family: 'Noto Serif TC', serif;
+  text-align: right;
+  max-width: 110px;
+  line-height: 1.4;
+}
+
+.swot-body { padding: .8rem 1.1rem 1rem; }
+
+.swot-item {
+  display: flex;
+  gap: .65rem;
+  align-items: flex-start;
+  padding: .4rem .55rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background .15s;
+  border: 1px solid transparent;
+  margin-bottom: .25rem;
+  font-size: .81rem;
+  color: var(--ink2);
+  line-height: 1.55;
+}
+
+.swot-item:hover { background: rgba(0,0,0,.04); }
+
+.swot-item.hi {
+  border-color: inherit;
+  font-weight: 500;
+}
+
+.s-card .swot-item.hi { background: rgba(46,160,106,.1); border-color: var(--s-border); color: var(--s-text); }
+.w-card .swot-item.hi { background: rgba(224,112,48,.1); border-color: var(--w-border); color: var(--w-text); }
+.o-card .swot-item.hi { background: rgba(48,96,208,.1); border-color: var(--o-border); color: var(--o-text); }
+.t-card .swot-item.hi { background: rgba(208,48,72,.1); border-color: var(--t-border); color: var(--t-text); }
+
+.si-dot {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: .42rem;
+  transition: transform .15s;
+}
+
+.swot-item:hover .si-dot { transform: scale(1.3); }
+.swot-item.hi .si-dot    { transform: scale(1.4); }
+
+.s-card .si-dot { background: var(--s-dot); }
+.w-card .si-dot { background: var(--w-dot); }
+.o-card .si-dot { background: var(--o-dot); }
+.t-card .si-dot { background: var(--t-dot); }
+
+.si-star {
+  margin-left: auto;
+  flex-shrink: 0;
+  font-size: .7rem;
+  opacity: 0;
+  transition: opacity .15s;
+}
+
+.swot-item:hover .si-star { opacity: .4; }
+.swot-item.hi .si-star    { opacity: 1; }
+
+/* ── Discussion panel ── */
+.disc-panel {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 1.5rem 1.8rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.disc-header {
+  display: flex;
+  align-items: center;
+  gap: .8rem;
+  margin-bottom: 1.1rem;
+  padding-bottom: .8rem;
+  border-bottom: 1px solid var(--border);
+}
+
+.disc-icon {
+  width: 32px; height: 32px;
+  border-radius: 8px;
+  background: var(--gold-bg);
+  border: 1px solid var(--gold-bd);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+.disc-title {
+  font-weight: 700;
+  font-size: .9rem;
+  color: var(--ink);
+}
+
+.disc-sub {
+  font-size: .7rem;
+  font-family: 'DM Mono', monospace;
+  color: var(--ink4);
+  margin-top: .1rem;
+}
+
+.q-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: .75rem;
+  margin-bottom: 1.2rem;
+}
+
+.q-item {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .8rem 1rem;
+  font-size: .79rem;
+  color: var(--ink2);
+  line-height: 1.6;
+  cursor: pointer;
+  transition: all .18s;
+  position: relative;
+  overflow: hidden;
+}
+
+.q-item::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  transform: scaleY(0);
+  transition: transform .18s;
+  transform-origin: bottom;
+}
+
+.q-item:hover {
+  background: var(--gold-bg);
+  border-color: var(--gold-bd);
+  color: var(--ink);
+}
+
+.q-item:hover::before { transform: scaleY(1); }
+
+.q-num {
+  display: block;
+  font-family: 'DM Mono', monospace;
+  font-size: .6rem;
+  color: var(--gold);
+  font-weight: 500;
+  margin-bottom: .25rem;
+}
+
+.note-label {
+  font-family: 'DM Mono', monospace;
+  font-size: .62rem;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--ink4);
+  margin-bottom: .5rem;
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+}
+
+.note-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.note-area {
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--ink);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: .82rem;
+  line-height: 1.7;
+  padding: .85rem 1rem;
+  resize: vertical;
+  min-height: 96px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.note-area:focus {
+  border-color: var(--gold-bd);
+  box-shadow: 0 0 0 3px rgba(200,134,10,.1);
+}
+
+.note-area::placeholder { color: var(--ink4); }
+
+/* ── Rating row ── */
+.rating-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: .75rem;
+}
+
+.rate-card {
+  background: var(--card);
+  border: 1.5px solid var(--border);
+  border-radius: 10px;
+  padding: 1rem .75rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all .2s ease;
+  box-shadow: var(--shadow-sm);
+}
+
+.rate-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--border2);
+}
+
+.rate-emoji { font-size: 1.6rem; display: block; margin-bottom: .3rem; }
+
+.rate-label {
+  font-size: .7rem;
+  color: var(--ink3);
+  font-family: 'DM Mono', monospace;
+  line-height: 1.3;
+}
+
+.rate-card.sel-1 { background: var(--t-bg); border-color: var(--t-border); }
+.rate-card.sel-1 .rate-label { color: var(--t-text); font-weight: 600; }
+.rate-card.sel-2 { background: var(--w-bg); border-color: var(--w-border); }
+.rate-card.sel-2 .rate-label { color: var(--w-text); font-weight: 600; }
+.rate-card.sel-3 { background: var(--gold-bg); border-color: var(--gold-bd); }
+.rate-card.sel-3 .rate-label { color: var(--gold); font-weight: 600; }
+.rate-card.sel-4 { background: var(--s-bg); border-color: var(--s-border); }
+.rate-card.sel-4 .rate-label { color: var(--s-text); font-weight: 600; }
+
+/* ── Nav row ── */
+.nav-row {
+  display: flex;
+  align-items: center;
+  gap: .75rem;
+}
+
+.nbtn {
+  padding: .6rem 1.5rem;
+  border-radius: 7px;
+  font-size: .8rem;
+  font-family: 'DM Mono', monospace;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all .18s;
+  border: 1.5px solid var(--border);
+  background: var(--card);
+  color: var(--ink2);
+  box-shadow: var(--shadow-sm);
+}
+
+.nbtn:hover:not(:disabled) {
+  border-color: var(--gold-bd);
+  color: var(--gold);
+  background: var(--gold-bg);
+}
+
+.nbtn:disabled { opacity: .35; cursor: default; box-shadow: none; }
+
+.nbtn.primary {
+  background: var(--gold);
+  border-color: var(--gold);
+  color: #fff;
+  font-weight: 700;
+}
+
+.nbtn.primary:hover { background: #b87800; border-color: #b87800; }
+
+.nav-progress {
+  margin-left: auto;
+  font-family: 'DM Mono', monospace;
+  font-size: .72rem;
+  color: var(--ink4);
+}
+
+.nav-progress span { color: var(--gold); font-weight: 700; }
+
+/* ── Bottom progress bar ── */
+.prog-bar {
+  position: fixed;
+  bottom: 0; left: 0; right: 0;
+  height: 4px;
+  background: var(--border);
+  z-index: 100;
+}
+
+.prog-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--gold), var(--s-dot));
+  transition: width .5s cubic-bezier(.4,0,.2,1);
+  border-radius: 0 2px 2px 0;
+}
+
+/* ── Responsive ── */
+@media (max-width: 960px) {
+  .app { grid-template-columns: 1fr; padding: 1.25rem 1rem 5rem; }
+  .sidebar { position: static; }
+  .topic-list { flex-direction: row; flex-wrap: wrap; gap: .4rem; }
+  .topic-btn { flex: none; width: auto; }
+  .t-label { display: none; }
+  .t-num { font-size: .8rem; }
+  .topic-btn.active .t-label { display: block; }
+  .swot-grid { grid-template-columns: 1fr; }
+  .q-grid { grid-template-columns: 1fr; }
+  .rating-row { grid-template-columns: repeat(2, 1fr); }
+  .header-inner { gap: 1rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="header-left">
+      <div class="eyebrow">Science Fair Research Explorer · 高中科展研究工具</div>
+      <h1>科學研究題目 <em>SWOT</em> 分析</h1>
+      <div class="header-sub">10個創新高中科研題目 · 師生互動討論 · 源自莫札瑞拉起司科展報告 (第65屆全國中小學科展)</div>
+    </div>
+    <div class="legend-strip">
+      <div class="leg"><div class="leg-sq" style="background:var(--s-dot);border-radius:3px"></div>優勢 Strengths</div>
+      <div class="leg"><div class="leg-sq" style="background:var(--w-dot);border-radius:3px"></div>劣勢 Weaknesses</div>
+      <div class="leg"><div class="leg-sq" style="background:var(--o-dot);border-radius:3px"></div>機會 Opportunities</div>
+      <div class="leg"><div class="leg-sq" style="background:var(--t-dot);border-radius:3px"></div>威脅 Threats</div>
+    </div>
+  </div>
+</header>
+
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar-label">選擇題目 · 10 Topics</div>
+    <div class="topic-list" id="topicList"></div>
+  </aside>
+  <main class="main-panel" id="mainPanel"></main>
+</div>
+
+<div class="prog-bar">
+  <div class="prog-fill" id="progFill" style="width:0%"></div>
+</div>
+
+<script>
+const TOPICS = [
+  {
+    id:1, short:"豆腐也能牽絲嗎？",
+    title:"「豆腐也能牽絲嗎？」——不同凝固劑對嫩豆腐質地與拉伸性之影響",
+    mark:"豆腐也能牽絲嗎",
+    tags:["食品科學","蛋白質化學"], tagCls:["htag-food","htag-bio"],
+    desc:"傳統豆腐使用硫酸鈣、鹽滷（氯化鎂）或葡萄糖酸內酯（GDL）凝固，三種凝固劑對豆腐的蛋白質網絡結構影響迥異。嘗試以 GDL 製作超低 pH 的「酸性嫩豆腐」，觀察加熱後是否出現類似 pasta-filata 起司的拉伸現象，直接對應莫札瑞拉起司的酪蛋白網絡理論。",
+    swot:{
+      S:["直接對應起司酪蛋白網絡理論，學術連結明確","豆腐原料廉價易得，實驗成本極低","大豆蛋白與酪蛋白同屬球蛋白類，具比較基礎","手機顯微鏡即可視覺化斷面纖維結構"],
+      W:["大豆蛋白與酪蛋白結構差異大，拉伸現象可能不顯著","GDL 在台灣高中實驗室取得需額外申請","pH 精確控制需要精密 pH 計，儀器誤差影響重現性","缺乏標準化的豆腐拉伸性測試方法"],
+      O:["素食市場擴大，植物性可拉伸起司替代品具商業潛力","跨食品類別比較為文獻空白，具發表潛力","可延伸至豆製品功能改良的應用研究","與食品工程系所合作的機會"],
+      T:["實驗結果若無拉伸現象，研究亮點大幅降低","豆腐品牌間成分差異大，批次重現性難控制","文獻資料多為英文，高中生解讀難度較高","需要多次重複試驗，時間成本高"]
+    },
+    questions:["大豆蛋白的凝固機制與酪蛋白有何根本差異？","什麼條件下大豆蛋白的網絡結構最有可能產生拉伸性？","如何設計對照組讓實驗結果更具說服力？","若豆腐無法拉伸，這個「負面結果」本身是否也具有研究價值？"]
+  },
+  {
+    id:2, short:"隔夜飯的抗性澱粉",
+    title:"「隔夜飯的科學」——冷藏時間與再加熱方式對米飯抗性澱粉含量的影響",
+    mark:"隔夜飯的科學",
+    tags:["食品化學","營養科學"], tagCls:["htag-food","htag-chem"],
+    desc:"米飯冷藏後澱粉會回凝（retrogradation）形成抗性澱粉，理論上可降低消化率。以碘液染色半定量法估算不同冷藏時間及再加熱方式（微波、電鍋蒸、乾鍋炒）對抗性澱粉的影響，並以葡萄糖試紙模擬體外消化速率。",
+    swot:{
+      S:["直接連結學生日常飲食，研究動機親切感極強","碘液染色法為高中化學基本實驗，操作門檻低","「隔夜飯是否更健康」是民間廣泛流傳的爭議議題","體外消化模擬不需倫理審查，流程安全"],
+      W:["碘液染色屬半定量，精確度有限，需大量重複樣本","抗性澱粉與血糖反應的直接因果關係難以在高中層級驗證","不同品種米（秈米、粳米）結果差異大，需控制變因","再加熱溫度與時間標準化困難"],
+      O:["高糖尿病盛行率社會背景下，低GI食物研究受關注","可延伸至其他根莖類（地瓜、芋頭）的比較研究","結果可直接轉化為民眾飲食建議，社會影響力大","與食品科技相關競賽的申請潛力"],
+      T:["市面上已有部分相關研究，創新性需更明確定位","體外模擬消化速率與真實人體反應存在差距","碘液染色受其他因素干擾，結果解讀需謹慎","「健康效果」訴求需避免過度宣稱"]
+    },
+    questions:["澱粉回凝的化學機制是什麼？溫度如何影響這個過程？","體外消化模擬實驗的信效度如何？有哪些潛在誤差？","如何選擇控制最嚴謹的米飯品種與烹煮條件？","「抗性澱粉增加=更健康」這個推論有哪些前提假設需要驗證？"]
+  },
+  {
+    id:3, short:"烘焙褐變色差建模",
+    title:"「讓麵包自己量熱量」——以焦糖化程度建立烘焙食品梅納反應的快速評估模型",
+    mark:"讓麵包自己量熱量",
+    tags:["食品化學","物理量測"], tagCls:["htag-food","htag-physics"],
+    desc:"烘焙溫度與時間的組合決定麵包表皮的梅納反應程度，而梅納反應產物（AGEs）的過量攝取與慢性疾病相關。以色差計測量不同烘烤條件下吐司的 L*、a*、b* 值，建立色澤與梅納反應程度間的相關模型，直接借鑑本篇科展報告的色差計分析方法。",
+    swot:{
+      S:["直接延伸科展報告的色差計（L*a*b*）分析方法","吐司麵包原料來源穩定，批次變異小","梅納反應是高中化學有機反應的延伸應用","建立色澤-AGEs的快速評估模型具工具開發潛力"],
+      W:["色差計儀器取得仰賴學校設備，非所有高中皆有","糠氨酸等AGEs指標精確定量需大學設備","模型建立需大量數據點，實驗工作量大","梅納反應受水分、pH等複合因子影響，難以單因子控制"],
+      O:["食品安全意識提升，AGEs議題受消費者關注","「用手機拍照判斷烘焙程度」的APP開發延伸可能","可與烘焙業者合作，建立實際應用模型","跨領域：連結食品化學、色彩物理、數學建模"],
+      T:["色澤與AGEs含量的相關性假設需謹慎驗證","不同麵包配方（含糖量、蛋白質種類）干擾結果","研究若僅停留在色澤記錄而無AGEs定量，說服力有限","過度宣稱健康影響可能引起爭議"]
+    },
+    questions:["梅納反應與焦糖化反應有何本質差異？兩者如何區分？","L*、a*、b* 值分別代表什麼？為何選擇這三個指標？","如果無法精確測量AGEs，可以用什麼替代指標作為proxy？","這個「快速評估模型」在實際應用中有哪些限制？"]
+  },
+  {
+    id:4, short:"珍珠奶茶的物理學",
+    title:"「珍珠奶茶的物理學」——粉圓粒徑、煮製時間與糖漿濃度對質地及懸浮穩定性的影響",
+    mark:"珍珠奶茶的物理學",
+    tags:["食品物性","流體力學"], tagCls:["htag-food","htag-physics"],
+    desc:"粉圓口感「Q彈」源於澱粉的糊化與老化程度控制。改變粉圓粒徑、水煮時間及糖漿濃度，以TPA物性分析儀（或簡易測試裝置）測定硬度與彈性，同時以沉降速率測定懸浮穩定性，以台灣代表性飲料為科研對象。",
+    swot:{
+      S:["珍珠奶茶為台灣代表性飲食文化，研究主題具辨識度","粉圓原料廉價易取，可大量製備樣品","「為什麼珍珠放久會變硬」是消費者真實困惑","可仿科展報告精神自製簡易質地測試裝置"],
+      W:["市售粉圓配方各品牌保密，原料成分難以完全控制","家用煮製條件（火候、水量）標準化困難","糖漿濃度與密度的精確調配需要折射計","懸浮穩定性測定需長時間觀察，效率較低"],
+      O:["台灣珍珠奶茶輸出全球，研究成果具國際科普潛力","可延伸至「珍珠奶茶老化機制」與食品保鮮研究","連結流體力學（Stokes沉降定律）與食品科學，跨領域亮點","手搖飲業者的潛在合作夥伴"],
+      T:["珍珠奶茶研究已有相當多業界研發，創新空間需精確定位","若研究發現「珍珠有健康疑慮」，可能引發業界爭議","木薯澱粉的批次差異影響重現性","研究結果對消費者飲食行為的實質影響有限"]
+    },
+    questions:["澱粉糊化與老化（回凝）的機制如何影響珍珠的口感？","Stokes 沉降定律如何應用於計算珍珠在糖液中的沉降速率？","如何設計一個公平比較不同粒徑珍珠的實驗方案？","「Q彈」這個感官描述如何轉化為可測量的物理參數？"]
+  },
+  {
+    id:5, short:"油的記憶：反覆加熱劣化",
+    title:"「油的記憶」——反覆加熱對不同食用油極性化合物生成及炸物吸油率的影響",
+    mark:"油的記憶",
+    tags:["食品安全","有機化學"], tagCls:["htag-env","htag-chem"],
+    desc:"油品反覆高溫使用後極性化合物（TPC）增加，與健康風險相關。以酸價作為TPC的替代指標，比較豬油、大豆油、橄欖油、椰子油在相同加熱循環下的劣化速率，並以薯條吸油量作為應用端指標，直接呼應台灣法規的食安議題。",
+    swot:{
+      S:["酸價測定為高中化學課程延伸，操作門檻低且標準化","「哪種油最耐高溫」是市面上眾說紛紜的消費議題","直接連結食品安全法規（TPC 25%廢棄標準），具政策相關性","結果具立即的消費者指引價值"],
+      W:["酸價僅為TPC的間接替代指標，精確度有限","油炸溫度需恆溫控制，家用爐具難以精確維持200°C","不同品牌油品初始品質差異大，需進行空白對照","油炸實驗安全風險較高，需嚴格監管"],
+      O:["食用油安全是民眾高度關注的食安議題，社會影響廣","可延伸至植物油摻偽檢測方法的開發","與衛福部食安標準對接，具政策應用價值","連結有機化學（酯鍵水解）、脂質化學等課程核心"],
+      T:["酸價測定誤差大，可能導致組間差異不顯著","油炸實驗的安全性需嚴格把關，不當操作有火災風險","薯條吸油率受馬鈴薯批次、切割方式等干擾因素影響","研究結論若過於簡化，可能引發相關產業的反駁"]
+    },
+    questions:["酸價、碘值、皂化值分別測量油品的哪個性質？","飽和脂肪酸與不飽和脂肪酸在高溫下的穩定性差異及其原因？","實驗中如何確保每次加熱循環的條件一致性？","台灣法規規定油炸用油TPC超過25%應廢棄，這個標準的科學依據是什麼？"]
+  },
+  {
+    id:6, short:"牛乳結皮的形成機制",
+    title:"「牛奶為什麼會結皮？」——加熱溫度與時間對乳皮形成機制及成分的探討",
+    mark:"牛奶為什麼會結皮",
+    tags:["食品科學","蛋白質化學"], tagCls:["htag-food","htag-bio"],
+    desc:"牛乳加熱後表面形成的「乳皮」是 β-乳球蛋白變性後與酪蛋白及脂肪層結合的產物。直接承接科展報告核心理論，以不同加熱條件系統性觀察乳皮形成速率、重量及蛋白質含量，探討乳清蛋白變性的閾值溫度，與本篇報告形成學術對話。",
+    swot:{
+      S:["直接承接本篇科展報告核心理論（乳蛋白熱變性），學術連貫性最強","「乳皮」是幾乎所有人見過的現象，但缺乏高中層級的嚴謹探究","實驗材料僅需市售鮮乳、恆溫水浴槽及天平，取得容易","可討論乳皮形成是否與起司拉伸性喪失為相同機制"],
+      W:["不同品牌鮮乳脂肪含量差異大，影響乳皮重量的可比性","乳皮蛋白質組成分析需電泳或質譜，高中實驗室難以執行","乳皮形成速率受空氣流動、蒸發速率等環境因素影響","研究主題相對基礎，創新性需從比較角度強化"],
+      O:["可直接與莫札瑞拉起司研究對話，形成系列研究的延伸","連結乳品加工工業（避免乳皮形成的工廠技術）","高溫殺菌後乳清蛋白變性程度與本報告結論相互印證","發展成「牛乳加工科學」完整科展系列的機會"],
+      T:["研究主題相對傳統，評審可能認為創新性不足","乳皮重量的微小差異在統計上可能不顯著","加熱期間鍋具材質對乳皮形成有影響，難以控制","視覺化呈現乳皮微結構需顯微設備"]
+    },
+    questions:["β-乳球蛋白的熱變性溫度閾值大約在哪個範圍？","乳皮的化學組成中，蛋白質與脂肪的比例大約是多少？","如何定量測量乳皮的「形成速率」？什麼是最合理的測量指標？","均質化處理是否影響乳皮的形成？為什麼？"]
+  },
+  {
+    id:7, short:"酸化方式對起司拉伸的影響",
+    title:"「優格能取代凝乳酶嗎？」——不同酸化方式對仿莫札瑞拉起司製成率與質地的影響",
+    mark:"優格能取代凝乳酶嗎",
+    tags:["食品科學","微生物學"], tagCls:["htag-food","htag-bio"],
+    desc:"本篇報告使用檸檬酸作為酸化劑，但傳統配方也可使用優格（乳酸菌發酵）或天然果汁（含有機酸）進行酸化。不同酸化方式產生的pH下降速率不同，對凝乳均一性影響顯著。比較三種酸化路徑所製成起司的製成率、pH值、色澤與拉伸性，直接補充本篇研究的空白。",
+    swot:{
+      S:["直接延伸本篇科展報告未探討的「酸化方式」變因","優格、檸檬汁均為家庭易得材料，成本極低","天然果酸酸化路線在發酵食品社群受關注但缺乏科學驗證","可直接引用本報告方法論，研究設計嚴謹有據"],
+      W:["優格（乳酸菌發酵）的酸化速率受室溫影響，難以精確控制","天然果汁含多種有機酸與糖分，干擾因素複雜","不同酸化方式達到相同最終pH，但路徑差異難以單獨比較","凝乳酶的活性受pH動態變化影響，反應動力學複雜"],
+      O:["「家庭DIY起司」趨勢興起，天然酸化方法具大眾推廣潛力","與本篇科展報告形成「系列研究」，具延伸發表潛力","可探討不同有機酸種類（檸檬酸、乳酸、醋酸）的作用差異","連結微生物學（乳酸菌）與食品化學的跨領域研究"],
+      T:["優格發酵酸化時間長（4~8小時），實驗節奏難以在學校課程中安排","鳳梨汁中的鳳梨蛋白酶可能干擾凝乳酶的作用","「天然」酸化不等於品質更佳，過度宣稱需謹慎","結果若三種方式差異不顯著，研究結論說服力減弱"]
+    },
+    questions:["檸檬酸（直接酸化）與乳酸（發酵酸化）在化學結構上有何差異？","pH下降的速率（動力學）與最終pH值，哪個對凝乳品質影響更大？","如何設計實驗讓三種酸化方式在「最終pH相同」的條件下進行公平比較？","鳳梨汁中的蛋白酶（bromelain）對凝乳酶（rennet）的活性有什麼影響？"]
+  },
+  {
+    id:8, short:"蛋殼鈣再利用評估",
+    title:"「蛋殼的第二生命」——蛋殼衍生碳酸鈣作為鈣補充劑的溶出率及生物可利用性評估",
+    mark:"蛋殼的第二生命",
+    tags:["食品安全","環境科學"], tagCls:["htag-env","htag-chem"],
+    desc:"蛋殼主成分為碳酸鈣（CaCO₃），研磨後可作為鈣補充劑。以模擬胃液（鹽酸溶液 pH 1~2）及模擬腸液（碳酸氫鈉緩衝液）測定蛋殼粉與市售鈣片的溶出速率，比較不同粒徑蛋殼粉的溶出效率差異，同時定量鈣離子濃度。",
+    swot:{
+      S:["廢棄物再利用議題符合永續發展目標（SDGs），時代性強","模擬消化溶出實驗設計簡單，高中化學課程完全涵蓋","不需動物實驗，無倫理審查障礙","碳酸鈣反應為高中化學基礎，學科連結自然"],
+      W:["蛋殼中除CaCO₃外尚含有機質（角蛋白膜），影響溶出速率","模擬胃腸液的pH設定難以精確重現真實消化環境","鈣離子定量需EDTA滴定或原子吸收光譜，後者高中少見","體外溶出率與人體實際吸收率差距可能很大"],
+      O:["循環經濟與食品廢棄物利用為熱門研究議題","結果可直接建議家庭廚餘再利用，社區教育應用廣","可延伸至不同來源蛋殼（雞/鴨/鵝）的比較研究","連結環境科學、化學、營養學三領域，跨科整合"],
+      T:["蛋殼含有鉛等重金屬，需先確認安全性","粒徑測量需粒徑分析儀，或需尋求大學實驗室協助","EDTA 滴定終點判斷主觀性大，影響數據精確度","市售鈣片配方複雜（碳酸鈣vs.檸檬酸鈣），比較基準難統一"]
+    },
+    questions:["碳酸鈣在胃酸環境中的溶解反應方程式是什麼？影響溶解速率的因素有哪些？","為什麼不同粒徑的碳酸鈣粉末其溶出速率會不同？（表面積與反應速率的關係）","蛋殼膜（內層有機薄膜）對鈣離子溶出可能有什麼影響？如何去除它？","體外溶出實驗的結果能多大程度預測人體的實際鈣吸收率？"]
+  },
+  {
+    id:9, short:"黑糖熬煮條件與抗氧化",
+    title:"「黑糖的秘密」——不同熬煮溫度與時間對黑糖梅納反應產物及抗氧化活性的影響",
+    mark:"黑糖的秘密",
+    tags:["食品化學","食品安全"], tagCls:["htag-food","htag-chem"],
+    desc:"黑糖廣受消費者青睞，但市售品質差異大且有重金屬超標爭議。以DPPH自由基清除法測定不同熬煮條件製成黑糖的抗氧化活性，以色差計追蹤梅納反應程度，探討熬煮條件是否影響功效與安全性，兼顧食品功效與食安雙面向。",
+    swot:{
+      S:["黑糖為台灣傳統食品，研究具文化根基與消費者關注度","DPPH 抗氧化測定為高中延伸實驗中可操作的項目","結合功效（抗氧化）與安全（重金屬）雙面向，研究完整度高","可自製黑糖進行條件控制，排除商業配方的干擾"],
+      W:["重金屬精確定量需原子吸收光譜，高中難以執行","熬煮過程中溫度控制需要精密溫度計與加熱設備","DPPH 試劑購買管道與保存條件有一定門檻","自製黑糖的成分與市售品差異大，比較基準需說明"],
+      O:["黑糖市場規模龐大，研究具直接消費者指引價值","可延伸至其他糖類（白糖、二砂、冰糖）的比較研究","梅納反應研究跨越食品化學與有機化學課程","重金屬濃縮機制連結環境科學（土壤污染來源）"],
+      T:["若無法定量重金屬，食安面向的研究結論說服力大幅下降","「黑糖有抗氧化功效」的說法在學術上仍有爭議","不同甘蔗品種、產地對黑糖成分影響大，變因控制困難","DPPH 法測得的抗氧化力與人體實際效果關聯性有限"]
+    },
+    questions:["DPPH 自由基清除法的原理是什麼？吸光度變化代表什麼意義？","梅納反應與焦糖化在黑糖熬煮中哪個更佔主導地位？如何區分？","如果要評估黑糖的「真實」抗氧化能力，DPPH法有哪些限制？","重金屬在製糖過程中如何濃縮？哪些加工步驟最影響重金屬殘留量？"]
+  },
+  {
+    id:10, short:"鳳梨酵素嫩化效率量化",
+    title:"「鳳梨酵素的生死時速」——鳳梨蛋白酶（Bromelain）在不同條件下的活性變化及嫩化效率評估",
+    mark:"鳳梨酵素的生死時速",
+    tags:["生物化學","食品科學"], tagCls:["htag-bio","htag-food"],
+    desc:"鳳梨中的鳳梨蛋白酶具有嫩肉效果。以明膠水解速率（澄清度法）定量不同條件（新鮮/加熱/罐頭/冷凍解凍）下鳳梨汁蛋白酶活性，並以豬肉片的TPA硬度變化驗證嫩化效率，直接驗證「罐頭鳳梨不能嫩肉」這個廣為流傳的廚房知識。",
+    swot:{
+      S:["「罐頭鳳梨不能嫩肉是真的嗎？」直接驗證廣為流傳的廚房知識","明膠水解澄清度法簡便，高中實驗室完全可執行","可仿科展報告自製簡易質地測試裝置，展現工具創新","酵素失活機制連結高中生物課程（蛋白質變性）核心概念"],
+      W:["明膠澄清度法屬半定量，精確度有限，需建立標準曲線","不同品牌罐頭鳳梨的加熱殺菌條件不同，變因難以完全控制","豬肉片的質地個體差異大，需大量重複樣本","鳳梨蛋白酶活性受 pH 影響大，肉品 pH 與果汁 pH 需考量"],
+      O:["酵素活性測定是食品工業的重要技術，具產業應用潛力","可延伸至木瓜蛋白酶（木瓜）、無花果蛋白酶的比較研究","連結廚房科學（molecular gastronomy）的科普教育推廣","嫩化技術的優化對畜牧業加工具有實際應用價值"],
+      T:["鳳梨蛋白酶是一族酵素的統稱，不同條件下活性的來源複雜","冷凍解凍對鳳梨汁酵素活性的影響在文獻上有矛盾結果","肉品嫩化效果除酵素外，還受鹽分、醃製時間等複合影響","酵素濃度不同但體積相同的比較設計需小心控制"]
+    },
+    questions:["酵素活性受溫度影響的機制是什麼？為什麼高溫會使酵素不可逆失活？","明膠水解澄清度法如何定量酵素活性？如何建立校正曲線？","鳳梨蛋白酶的最適pH和最適溫度大約是多少？這對實驗設計有什麼啟示？","為什麼罐頭製造過程（高溫殺菌）會讓鳳梨失去嫩肉效果？這個溫度大約是多少？"]
+  }
+];
+
+const QUADS = [
+  { key:'S', cls:'s-card', letter:'S', en:'Strengths',    zh:'優勢', hint:'為什麼這個題目可行？' },
+  { key:'W', cls:'w-card', letter:'W', en:'Weaknesses',   zh:'劣勢', hint:'執行上有哪些挑戰？' },
+  { key:'O', cls:'o-card', letter:'O', en:'Opportunities',zh:'機會', hint:'延伸與發展空間？' },
+  { key:'T', cls:'t-card', letter:'T', en:'Threats',      zh:'威脅', hint:'可能遇到哪些風險？' },
+];
+
+const SCORES = [
+  { emoji:'😅', label:'難度過高',  cls:'sel-1', val:1 },
+  { emoji:'🤔', label:'需再評估', cls:'sel-2', val:2 },
+  { emoji:'✅', label:'值得嘗試', cls:'sel-3', val:3 },
+  { emoji:'🔥', label:'強烈推薦', cls:'sel-4', val:4 },
+];
+
+const state = {
+  cur: 0,
+  scores: Array(TOPICS.length).fill(0),
+  notes:  Array(TOPICS.length).fill(''),
+  hi: {}   // ti -> { S:[...], W:[...], O:[...], T:[...] }
+};
+
+function getHi(ti, q) { return state.hi[ti]?.[q] ?? []; }
+function toggleHi(ti, q, ii) {
+  if (!state.hi[ti]) state.hi[ti] = {S:[],W:[],O:[],T:[]};
+  const arr = state.hi[ti][q];
+  const idx = arr.indexOf(ii);
+  idx === -1 ? arr.push(ii) : arr.splice(idx, 1);
+  renderMain();
+}
+
+/* ── Sidebar ── */
+function renderSidebar() {
+  const sc = ['','sel-1','sel-2','sel-3','sel-4'];
+  const sl = ['','★1','★2','★3','★4'];
+  const sc2 = ['','#d03048','#e07030','#c8860a','#2ea06a'];
+  el('topicList').innerHTML = TOPICS.map((t,i) => `
+    <button class="topic-btn ${i===state.cur?'active':''}" onclick="go(${i})">
+      <span class="t-num">${String(i+1).padStart(2,'0')}</span>
+      <span class="t-label">${t.short}</span>
+      ${state.scores[i]?`<span class="t-score" style="background:${sc2[state.scores[i]]}20;color:${sc2[state.scores[i]]};border:1px solid ${sc2[state.scores[i]]}40">${sl[state.scores[i]]}</span>`:''}
+    </button>
+  `).join('');
+}
+
+/* ── Main ── */
+function renderMain() {
+  const t  = TOPICS[state.cur];
+  const ti = state.cur;
+  const sc = state.scores[ti];
+
+  el('mainPanel').innerHTML = `
+    <!-- Hero -->
+    <div class="hero-card anim">
+      <div class="hero-top">
+        <div class="hero-num">${String(ti+1).padStart(2,'0')}</div>
+        <div class="hero-right">
+          <div class="hero-tags">
+            ${t.tags.map((tg,i)=>`<span class="htag ${t.tagCls[i]}">${tg}</span>`).join('')}
+          </div>
+          <h2>${t.title.replace(t.mark,`<mark>${t.mark}</mark>`)}</h2>
+        </div>
+      </div>
+      <p class="hero-desc">${t.desc}</p>
+    </div>
+
+    <!-- SWOT -->
+    <div class="swot-grid anim anim-d1">
+      ${QUADS.map(q => `
+        <div class="swot-card ${q.cls}">
+          <div class="swot-head">
+            <div class="swot-letter">${q.letter}</div>
+            <div class="swot-head-info">
+              <div class="swot-en">${q.en}</div>
+              <div class="swot-zh">${q.zh}</div>
+            </div>
+            <div class="swot-hint">${q.hint}</div>
+          </div>
+          <div class="swot-body">
+            ${t.swot[q.key].map((item,ii)=>`
+              <div class="swot-item ${getHi(ti,q.key).includes(ii)?'hi':''}"
+                   onclick="toggleHi(${ti},'${q.key}',${ii})">
+                <span class="si-dot"></span>
+                <span>${item}</span>
+                <span class="si-star">★</span>
+              </div>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- Discussion -->
+    <div class="disc-panel anim anim-d2">
+      <div class="disc-header">
+        <div class="disc-icon">💬</div>
+        <div>
+          <div class="disc-title">師生討論引導問題</div>
+          <div class="disc-sub">Discussion Guide · 點擊題目展開課堂討論</div>
+        </div>
+      </div>
+      <div class="q-grid">
+        ${t.questions.map((q,i)=>`
+          <div class="q-item">
+            <span class="q-num">Q${i+1}</span>${q}
+          </div>
+        `).join('')}
+      </div>
+      <div class="note-label">課堂筆記 · Notes</div>
+      <textarea class="note-area"
+        placeholder="記錄師生討論的重點、學生的想法、待追蹤的問題……"
+        oninput="state.notes[${ti}]=this.value">${state.notes[ti]}</textarea>
+    </div>
+
+    <!-- Rating -->
+    <div class="rating-row anim anim-d3">
+      ${SCORES.map(s=>`
+        <div class="rate-card ${sc===s.val?s.cls:''}" onclick="setScore(${ti},${s.val})">
+          <span class="rate-emoji">${s.emoji}</span>
+          <div class="rate-label">${s.label}</div>
+        </div>
+      `).join('')}
+    </div>
+
+    <!-- Nav -->
+    <div class="nav-row anim anim-d4">
+      <button class="nbtn" onclick="go(${ti-1})" ${ti===0?'disabled':''}>← 上一題</button>
+      <button class="nbtn primary" onclick="go(${ti+1})" ${ti===TOPICS.length-1?'disabled':''}>下一題 →</button>
+      <div class="nav-progress">已評估 <span>${state.scores.filter(s=>s>0).length}</span> / ${TOPICS.length} 題</div>
+    </div>
+  `;
+
+  el('progFill').style.width = (state.scores.filter(s=>s>0).length/TOPICS.length*100)+'%';
+}
+
+function go(i) {
+  if (i<0||i>=TOPICS.length) return;
+  state.cur = i;
+  renderSidebar();
+  renderMain();
+  document.querySelector('.main-panel').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function setScore(ti, v) {
+  state.scores[ti] = state.scores[ti]===v ? 0 : v;
+  renderSidebar();
+  renderMain();
+}
+
+function el(id) { return document.getElementById(id); }
+
+renderSidebar();
+renderMain();
+</script>
+</body>
+</html>

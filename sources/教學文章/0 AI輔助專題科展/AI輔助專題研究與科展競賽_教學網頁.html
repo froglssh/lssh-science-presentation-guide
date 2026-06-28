@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI 輔助專題研究與科展競賽 — 教師教學指南</title>
+<style>
+:root{
+  --bg:#f6f4ee; --bg2:#fffdf8; --ink:#1c1b18; --ink-soft:#4a4742; --muted:#7a766d;
+  --line:#e2ddd1; --line2:#ece8dd;
+  --accent:#0f6e63; --accent-soft:#0f6e6314; --accent-ink:#0a544b;
+  --gold:#b5872a; --gold-soft:#b5872a18;
+  --card:#fffdf8; --code-bg:#13201e; --code-ink:#e9efe9; --code-line:#2a3a37;
+  --warn:#9a4a1f; --warn-bg:#f5e8de; --warn-line:#e3c9b4;
+  --teach-bg:#0f6e6310; --teach-line:#0f6e6333;
+  --hand-bg:#b5872a14; --hand-line:#b5872a3a;
+  --shadow:0 1px 2px #0000000a,0 8px 28px -12px #0000001f;
+  --radius:14px; --maxw:920px;
+  --serif:"Noto Serif TC",Georgia,"Songti TC",serif;
+  --sans:"Noto Sans TC",-apple-system,BlinkMacSystemFont,"PingFang TC","Microsoft JhengHei",sans-serif;
+}
+html[data-theme="dark"]{
+  --bg:#14171a; --bg2:#1a1e22; --ink:#eceae4; --ink-soft:#c4c1b8; --muted:#8f8c84;
+  --line:#2b3036; --line2:#242a2f;
+  --accent:#48b3a4; --accent-soft:#48b3a418; --accent-ink:#6ecabd;
+  --gold:#d8a849; --gold-soft:#d8a84918;
+  --card:#1b2025; --code-bg:#0d1413; --code-ink:#dfe8e4; --code-line:#243531;
+  --warn:#e0a373; --warn-bg:#2a201a; --warn-line:#473527;
+  --teach-bg:#48b3a414; --teach-line:#48b3a440;
+  --hand-bg:#d8a84912; --hand-line:#d8a84940;
+  --shadow:0 1px 2px #00000030,0 10px 30px -14px #00000070;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  line-height:1.9;font-size:19px;-webkit-font-smoothing:antialiased;
+  transition:background .35s ease,color .35s ease;
+}
+a{color:var(--accent-ink);text-decoration:none}
+::selection{background:var(--accent-soft);color:var(--accent-ink)}
+
+/* ===== top bar ===== */
+.topbar{
+  position:sticky;top:0;z-index:60;display:flex;align-items:center;gap:14px;
+  padding:11px clamp(14px,4vw,30px);background:color-mix(in srgb,var(--bg) 86%,transparent);
+  backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid var(--line);
+}
+.topbar .brand{font-family:var(--serif);font-weight:700;font-size:17.5px;letter-spacing:.3px;display:flex;align-items:center;gap:9px}
+.brand .dot{width:11px;height:11px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
+.topbar .spacer{flex:1}
+.menu-btn{display:none;background:none;border:1px solid var(--line);color:var(--ink);border-radius:9px;padding:7px 10px;cursor:pointer;font-size:14px}
+.theme-btn{
+  display:inline-flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--line);
+  color:var(--ink-soft);border-radius:999px;padding:8px 15px;cursor:pointer;font-size:15px;font-family:var(--sans);
+  transition:.2s;
+}
+.theme-btn:hover{border-color:var(--accent);color:var(--accent-ink)}
+.theme-btn svg{width:16px;height:16px}
+
+/* ===== layout ===== */
+.shell{display:grid;grid-template-columns:262px minmax(0,1fr);gap:0;align-items:start}
+.sidebar{
+  position:sticky;top:57px;height:calc(100vh - 57px);overflow-y:auto;
+  padding:26px 16px 60px 22px;border-right:1px solid var(--line);
+}
+.sidebar h4{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:22px 0 9px;font-weight:700}
+.sidebar h4:first-child{margin-top:0}
+.nav a{
+  display:flex;gap:10px;align-items:baseline;padding:7px 11px;border-radius:9px;color:var(--ink-soft);
+  font-size:15.5px;line-height:1.45;transition:.15s;margin-bottom:1px;
+}
+.nav a .ix{font-family:var(--serif);font-size:13px;color:var(--accent);min-width:22px;font-weight:700}
+.nav a:hover{background:var(--accent-soft);color:var(--ink)}
+.nav a.active{background:var(--accent-soft);color:var(--accent-ink);font-weight:600}
+
+.content{padding:0 clamp(16px,4vw,56px) 120px;min-width:0}
+.wrap{max-width:var(--maxw);margin:0 auto}
+
+/* ===== hero ===== */
+.hero{padding:64px 0 40px;border-bottom:1px solid var(--line);margin-bottom:8px}
+.kicker{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent-ink);background:var(--accent-soft);padding:6px 14px;border-radius:999px;font-weight:700;margin-bottom:22px}
+.hero h1{font-family:var(--serif);font-size:clamp(30px,5vw,46px);line-height:1.18;margin:0 0 18px;letter-spacing:-.5px;font-weight:800}
+.hero .lede{font-size:20.5px;color:var(--ink-soft);max-width:700px;margin:0 0 26px}
+.byline{display:flex;align-items:center;gap:13px;flex-wrap:wrap;padding-top:22px;border-top:1px dashed var(--line)}
+.byline .who{font-family:var(--serif);font-weight:700;font-size:17px}
+.byline .who span{color:var(--muted);font-weight:400;font-family:var(--sans);font-size:15px}
+.avatar{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-ink));display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:18px}
+.hero-stats{display:flex;gap:26px;flex-wrap:wrap;margin-top:30px}
+.hero-stats .s{display:flex;flex-direction:column}
+.hero-stats .n{font-family:var(--serif);font-size:26px;font-weight:800;color:var(--accent-ink);line-height:1}
+.hero-stats .l{font-size:14.5px;color:var(--muted);margin-top:5px}
+
+/* ===== sections ===== */
+section.chapter{padding:52px 0 12px;scroll-margin-top:74px;border-top:1px solid var(--line)}
+section.chapter:first-of-type{border-top:none}
+.ch-head{display:flex;align-items:flex-start;gap:16px;margin-bottom:22px}
+.ch-num{font-family:var(--serif);font-size:13px;font-weight:800;color:#fff;background:var(--accent);min-width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;letter-spacing:.04em;box-shadow:var(--shadow)}
+.ch-head h2{font-family:var(--serif);font-size:clamp(23px,3.4vw,31px);margin:0;line-height:1.25;font-weight:800;letter-spacing:-.3px}
+.ch-head .sub{color:var(--muted);font-size:16.5px;margin-top:5px}
+.content h3{font-family:var(--serif);font-size:23px;margin:36px 0 13px;font-weight:700;color:var(--ink)}
+.content h3::before{content:"";display:inline-block;width:7px;height:18px;background:var(--gold);border-radius:3px;margin-right:11px;vertical-align:-2px}
+.content p{margin:13px 0;color:var(--ink-soft)}
+.content strong{color:var(--ink);font-weight:700}
+.content ul.clean{list-style:none;padding:0;margin:14px 0}
+.content ul.clean>li{position:relative;padding:6px 0 6px 26px;color:var(--ink-soft)}
+.content ul.clean>li::before{content:"";position:absolute;left:6px;top:15px;width:7px;height:7px;border-radius:2px;background:var(--accent);transform:rotate(45deg)}
+.content ol.steps{counter-reset:st;list-style:none;padding:0;margin:16px 0}
+.content ol.steps>li{counter-increment:st;position:relative;padding:4px 0 14px 44px;color:var(--ink-soft)}
+.content ol.steps>li::before{content:counter(st);position:absolute;left:0;top:2px;width:29px;height:29px;border-radius:50%;background:var(--accent-soft);color:var(--accent-ink);font-family:var(--serif);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+
+/* ===== callouts ===== */
+.callout{border-radius:var(--radius);padding:17px 21px 17px 19px;margin:18px 0;border:1px solid;position:relative;font-size:17.5px}
+.callout .ct{font-weight:700;font-size:16px;letter-spacing:.02em;margin-bottom:7px;display:flex;align-items:center;gap:8px}
+.callout p{margin:6px 0;color:inherit}
+.callout.teacher{background:var(--teach-bg);border-color:var(--teach-line)}
+.callout.teacher .ct{color:var(--accent-ink)}
+.callout.hand{background:var(--hand-bg);border-color:var(--hand-line)}
+.callout.hand .ct{color:var(--gold)}
+.callout.warn{background:var(--warn-bg);border-color:var(--warn-line)}
+.callout.warn .ct{color:var(--warn)}
+.callout .badge{font-size:16px}
+
+/* ===== prompt card (chat box) ===== */
+.prompt{
+  margin:22px 0;border:1px solid var(--code-line);border-radius:var(--radius);overflow:hidden;
+  background:var(--code-bg);box-shadow:var(--shadow);
+}
+.prompt .phead{
+  display:flex;align-items:center;gap:11px;padding:11px 14px;background:#ffffff05;border-bottom:1px solid var(--code-line);
+}
+.prompt .lights{display:flex;gap:6px}
+.prompt .lights i{width:11px;height:11px;border-radius:50%;display:block}
+.prompt .lights i:nth-child(1){background:#ff5f57}
+.prompt .lights i:nth-child(2){background:#febc2e}
+.prompt .lights i:nth-child(3){background:#28c840}
+.prompt .ptitle{color:#cfe6e1;font-size:15px;font-weight:600;font-family:var(--sans);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.prompt .ptag{font-size:12.5px;color:#7fb9b0;border:1px solid #2f4b46;padding:3px 9px;border-radius:999px;white-space:nowrap}
+.copy-btn{
+  display:inline-flex;align-items:center;gap:7px;background:#1d2e2b;border:1px solid #2f4b46;color:#bfe6df;
+  border-radius:8px;padding:7px 13px;font-size:14.5px;cursor:pointer;font-family:var(--sans);transition:.18s;white-space:nowrap;
+}
+.copy-btn:hover{background:var(--accent);border-color:var(--accent);color:#fff}
+.copy-btn.done{background:#1f7a4d;border-color:#1f7a4d;color:#fff}
+.copy-btn svg{width:14px;height:14px}
+.prompt pre{
+  margin:0;padding:18px 19px;color:var(--code-ink);font-size:16.5px;line-height:1.85;
+  white-space:pre-wrap;word-break:break-word;font-family:"SFMono-Regular",ui-monospace,"Menlo",monospace;
+}
+.prompt pre .ph{color:#ffd479}
+.prompt pre .md{color:#7fb9b0}
+
+/* table */
+.tablewrap{overflow-x:auto;margin:20px 0;border:1px solid var(--line);border-radius:var(--radius)}
+table{border-collapse:collapse;width:100%;font-size:16px;background:var(--card)}
+th,td{text-align:left;padding:12px 15px;border-bottom:1px solid var(--line2);vertical-align:top}
+th{background:var(--accent-soft);color:var(--accent-ink);font-weight:700;font-size:15px}
+tr:last-child td{border-bottom:none}
+
+/* tool chips */
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0}
+.chip{font-size:15px;background:var(--bg2);border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--ink-soft)}
+.chip b{color:var(--accent-ink)}
+
+/* back to top */
+.totop{position:fixed;right:22px;bottom:22px;z-index:50;width:46px;height:46px;border-radius:50%;background:var(--accent);color:#fff;border:none;cursor:pointer;box-shadow:var(--shadow);display:none;align-items:center;justify-content:center;font-size:20px}
+.totop.show{display:flex}
+
+footer.site{border-top:1px solid var(--line);margin-top:40px;padding:40px 0 60px;color:var(--muted);font-size:15.5px}
+footer.site .wrap{display:flex;flex-direction:column;gap:6px}
+footer.site b{color:var(--ink-soft)}
+
+.scrim{display:none}
+@media(max-width:880px){
+  .shell{grid-template-columns:1fr}
+  .sidebar{position:fixed;left:0;top:57px;width:280px;background:var(--bg2);z-index:55;transform:translateX(-102%);transition:transform .3s ease;box-shadow:var(--shadow)}
+  .sidebar.open{transform:none}
+  .menu-btn{display:inline-block}
+  .scrim.show{display:block;position:fixed;inset:57px 0 0;background:#0006;z-index:54}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <button class="menu-btn" id="menuBtn" aria-label="目錄">☰ 目錄</button>
+  <div class="brand"><span class="dot"></span>AI × 專題研究 · 科展指南</div>
+  <div class="spacer"></div>
+  <button class="theme-btn" id="themeBtn" aria-label="切換主題">
+    <svg id="thIcon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+    <span id="thLabel">深色</span>
+  </button>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<div class="shell">
+  <aside class="sidebar" id="sidebar"><nav class="nav" id="nav"></nav></aside>
+  <main class="content">
+    <div class="wrap">
+      <header class="hero">
+        <span class="kicker">教師教學指南 · Teaching Companion</span>
+        <h1>AI 輔助專題研究<br>與科展競賽</h1>
+        <p class="lede">在「不取代學生思考」的前提下，運用生成式 AI 與資料分析工具，協助學生走完從題目發想到科展答辯的完整研究歷程。本指南把每一步驟拆解成可操作的方法，並附上可直接複製使用的提示詞。</p>
+        <div class="byline">
+          <div class="avatar">林</div>
+          <div class="who">臺北市麗山高中　林獻升老師　<span>整理製作</span></div>
+        </div>
+        <div class="hero-stats">
+          <div class="s"><span class="n">7</span><span class="l">核心研究流程</span></div>
+          <div class="s"><span class="n">90+</span><span class="l">可複製提示詞</span></div>
+          <div class="s"><span class="n">4</span><span class="l">學科領域範例</span></div>
+          <div class="s"><span class="n">11</span><span class="l">主題章節</span></div>
+        </div>
+      </header>
+      <div id="app"></div>
+      <footer class="site"><div class="wrap">
+        <div><b>AI 輔助專題研究與科展競賽 — 教師教學指南</b></div>
+        <div>臺北市麗山高中　林獻升老師　整理製作</div>
+        <div>核心理念：人主導 · AI 協作 · 可查核。AI 是研究助教與檢核器，不是代寫作者。</div>
+      </div></footer>
+    </div>
+  </main>
+</div>
+<button class="totop" id="toTop" aria-label="回到頂端">↑</button>
+
+<script>
+/* ============ CONTENT DATA ============ */
+const SECTIONS = [
+{
+  group:"開始", id:"intro", num:"導", title:"背景、目的與核心原則",
+  sub:"為什麼導入 AI？教師該守住哪些底線？",
+  blocks:[
+    {type:"p",text:"在探究與實作、跨領域學習與素養導向的趨勢下，越來越多學校以專題研究或科展作為學生展現學習成果的方式。理想的專題，應讓學生完整經歷「<strong>提出問題 → 查證資料 → 設計方法 → 蒐集與分析數據 → 形成論證 → 對外發表</strong>」的歷程。"},
+    {type:"p",text:"生成式 AI 讓「蒐集資訊、整理重點、生成初稿、協助統計、製作視覺化」變得更容易，但也可能帶來<strong>錯誤資訊（幻覺）、不當引用、抄寫式依賴與個資外洩</strong>。本指南提供一套「教師可落地執行」的 AI 輔助流程，在提升效率的同時兼顧研究品質、學生自主與學術誠信。"},
+    {type:"h3",text:"教師使用 AI 的五大原則"},
+    {type:"steps",items:[
+      "<strong>AI 是輔助，不是作者</strong>：研究問題、假設、方法決策與結論必須由學生主導，且能用自己的話說明。",
+      "<strong>先求可驗證，再求呈現漂亮</strong>：AI 產出的主張須回到原始來源（文獻、數據、實作紀錄）查核；無法查核者不得當作事實寫入。",
+      "<strong>保留歷程證據</strong>：保留研究日誌、版本紀錄、提示詞與 AI 產出（可放附錄），以利追溯與學術誠信說明。",
+      "<strong>資料與隱私優先</strong>：避免上傳可識別個資、受保護資料或未授權內容；必要時採去識別化或合成資料示範。",
+      "<strong>引用與揭露要清楚</strong>：在報告中交代 AI 使用範圍（潤稿、摘要、程式協助等），並對所有引用資料正確標註來源。"
+    ]},
+    {type:"callout",variant:"teacher",title:"一句話定位",text:"AI 最有價值的角色是「研究助教與檢核器」，不是「代寫作者」。把 AI 用進流程、每週固定交付物，比「偶爾問一下」更有效。"}
+  ]
+},
+{
+  group:"開始", id:"tools", num:"工", title:"AI 工具類型總覽",
+  sub:"依任務挑工具：發想、文獻、數據、視覺表達",
+  blocks:[
+    {type:"h3",text:"① 生成式 AI（對話／寫作／教學助理）"},
+    {type:"p",text:"用於腦力激盪、提綱、改寫、摘要、問答與答辯模擬。"},
+    {type:"tools",items:["ChatGPT","Claude","Gemini","Microsoft Copilot","Perplexity"]},
+    {type:"h3",text:"② 文獻搜尋／閱讀／整理與引文查核"},
+    {type:"p",text:"用於找文獻、理解 PDF、做重點摘錄、建立文獻矩陣與檢查引用可靠度。"},
+    {type:"tools",items:["Google Scholar","Semantic Scholar","Elicit","Consensus","SciSpace","NotebookLM","Scite","Zotero"]},
+    {type:"h3",text:"③ 資料整理／統計分析／程式輔助"},
+    {type:"p",text:"用於資料清理、統計摘要、迴歸／檢定、圖表生成與結果解讀。"},
+    {type:"tools",items:["Excel + Copilot","ChatGPT 資料分析","Julius AI","Google Colab (Python)","RStudio (R)","JASP / jamovi"]},
+    {type:"h3",text:"④ 簡報／海報與視覺表達"},
+    {type:"tools",items:["PowerPoint + Copilot","Canva","Gamma","Google Slides"]},
+    {type:"h3",text:"⑤（選用）文獻地圖／研究脈絡探索"},
+    {type:"tools",items:["ResearchRabbit","Connected Papers","Litmaps"]},
+    {type:"callout",variant:"warn",title:"資料政策提醒",text:"外掛型工具（如 Excel 內的 AI 側邊欄）通常需連網並可能將工作簿送到服務端處理。請先確認學校／單位的資料政策，避免上傳含個資或敏感資訊的檔案；建議以去識別化資料、或複製練習檔再讓 AI 自動修改。"}
+  ]
+},
+{
+  group:"研究流程", id:"ideate", num:"1", title:"專題發想：找題目、縮題、可行性",
+  sub:"先量、再篩、再定稿——把「想做」轉成「做得到」",
+  blocks:[
+    {type:"p",text:"先引導學生從生活問題、校園情境、地方特色、課程單元或社會議題出發，再用 AI 協助「擴散」與「收斂」。實作上採「<strong>先量、再篩、再定稿</strong>」：先列 20–30 個想法，再依可行性篩成 5 個候選，最後把 1 個題目改寫成可驗證的研究問題。"},
+    {type:"h3",text:"題目收斂四步法（擴散→聚焦→可測→可做）"},
+    {type:"steps",items:[
+      "<strong>擴散</strong>（量大不求準）：10–15 分鐘快速列 20–30 個想法，不評論、先記錄。<em>學生必交：至少 20 題清單＋每題一句「為什麼有趣」。</em>",
+      "<strong>聚焦</strong>（選 5 個候選）：用「有趣度、可測量、資源可得、時間可完成、風險可控」五指標各打 1–5 分。<em>學生必交：評分表（含淘汰理由）。</em>",
+      "<strong>可測</strong>（把名詞變指標）：抽象概念改成可量化依變項，如「健康」→ 生長高度／葉面積／存活率。<em>學生必交：每題至少 2 個依變項指標（含單位與量測方法）。</em>",
+      "<strong>可做</strong>（變成最小可行實驗）：設計 1–2 週能做完的前導試驗（pilot）。<em>學生必交：一頁 pilot 設計。</em>"
+    ]},
+    {type:"h3",text:"把題目寫成研究問題：四種句型"},
+    {type:"list",items:[
+      "<strong>句型 A 比較型</strong>：在（情境）中，（自變項 A vs B）是否造成（依變項指標）的差異？",
+      "<strong>句型 B 最佳化型</strong>：在（限制條件）下，（自變項）取何值能使（依變項）達到最佳？",
+      "<strong>句型 C 關係型</strong>：（自變項 X）與（依變項 Y）之間是否呈現（正／負／非線性）關係？",
+      "<strong>句型 D 機制／解釋型</strong>：若觀察到（現象），可能由哪些因素造成？哪個是主要影響因子？"
+    ]},
+    {type:"callout",variant:"teacher",text:"先讓學生用句型 A（比較型）或 B（最佳化型）定稿，這兩種最容易做出清楚對照與結論。若研究問題裡出現 3 個以上的「以及／同時／並且」，通常代表題目太大，應先拆成主問題與次問題。"},
+
+    {type:"h3",text:"提示詞：發想／縮題／評估"},
+    {type:"prompt",tag:"發想",label:"模板 A — 題目大量發想（含跨領域）",text:"我想做（學科／領域）科展，偏好研究型態（實驗／裝置／調查／資料分析）。我能用的資源有（設備／材料／場域），限制是（時間／經費／安全）。請提出 30 個題目，每個題目都要用表格輸出以下欄位：研究問題、研究型態、可量測的依變項（含單位與量測工具）、最低需要的設備、主要控制變因、對照概念、1–2 週 pilot 設計、潛在風險與替代方案。若你需要更多資訊，請先列出【待補問題】。"},
+    {type:"prompt",tag:"縮題",label:"模板 B — 把大題縮成可驗證研究問題",text:"我的大方向是（例如：節能／保鮮／水質／學習）。請把它拆成 10 個可檢驗的研究問題，每個都要包含：自變項（含水平）、依變項（含單位與量測方法）、對象／材料、控制變因、對照組，以及一個 1–2 週可完成的 pilot。最後請從 10 題中推薦 3 題最適合「校內資源可做、低風險、可重複」的題目，並說明淘汰其他題目的理由。"},
+    {type:"prompt",tag:"挑錯",label:"模板 C — 可行性與風險挑錯（扮演嚴格評審）",text:"你是科展評審。這是我的題目、研究問題與初步方法（貼上）。請指出 10 個最可能被追問或扣分的點，並逐點給出「可執行修正」，至少涵蓋：對照組、控制變因、樣本數 n、量測與校正、批次效應、資料記錄欄位、倫理與安全、過度推論。最後請列出我需要補做的最小證據清單（做什麼、要留什麼紀錄、要產出什麼圖或表）。"},
+
+    {type:"h3",text:"提示詞範例庫 — 依研究屬性與尺度"},
+    {type:"prompt",tag:"通用·微觀",label:"微觀尺度（顯微／細胞／材料微結構）",text:"我想研究（微觀對象：如細胞、菌、晶體、纖維、粉末）在（處理條件：濃度／溫度／光照／時間）下，是否影響（可量測指標：如菌落數、吸光值、粒徑、硬度、表面形貌）。器材只有（顯微鏡／培養皿／天平／手機鏡頭…）。請提出 3 個可做題目與最小可行實驗，並列出污染控制／安全注意。"},
+    {type:"prompt",tag:"通用·巨觀",label:"巨觀尺度（環境／工程／校園量測）",text:"我想在（教室／走廊／操場／河川／社區）量測（物理量或環境指標：溫濕度、CO₂、噪音、PM2.5、光照、水質指標），比較（情境 A／B 或不同時段／不同位置）的差異。請幫我把題目縮成可驗證的研究問題，並給出取樣策略（頻率、位置、樣本數）與混淆變因控制。"},
+    {type:"prompt",tag:"通用·模型",label:"模型／理論驗證（物理或地科常用）",text:"我有一個現象／規律想驗證：（描述）。請提出 2 種不同層次的模型（簡化模型與較完整模型），說明各自的假設、預測可觀測量、需要的量測方法，以及如何用實驗或資料來比較模型好壞。"},
+    {type:"prompt",tag:"通用·裝置",label:"裝置／最佳化（工程設計取向）",text:"我要改良／自製（裝置名稱：濾水器、太陽能集熱、隔音結構、減震裝置），目標是讓（性能指標）變好。限制是（材料／尺寸／成本）。請提出 3 種設計變因與可測的性能指標，並規劃 DOE 風格的實驗矩陣（至少 6 組條件）與評分方式。"},
+    {type:"prompt",tag:"通用·資料科學",label:"資料科學／AI（公開或自蒐資料）",text:"我想用資料回答（研究問題），資料來源是（公開資料連結名稱或自蒐方式），欄位包含（列出欄位）。請建議我做：資料清理規則、基準模型、評估指標、避免資料洩漏的方法，並提醒我授權／隱私注意事項。最後請把題目表述成科展可接受的研究問題與可重現流程。"},
+    {type:"prompt",tag:"物理",label:"物理 — 力學（巨觀）",text:"我想比較（不同材質／結構／厚度）的梁或橋模型在受力下的變形與破壞。可用材料有（冰棒棍／紙板／3D 列印）。請幫我定義自變項、依變項（最大承重、位移、破壞型態）、控制變因（跨距、黏著方式），並規劃 1 週內可完成的前導試驗與量測方法（含不確定度）。"},
+    {type:"prompt",tag:"物理",label:"物理 — 摩擦與表面（微觀到巨觀）",text:"不同表面粗糙度或材質會如何影響摩擦係數？我有（斜面、不同砂紙、手機慢動作）。請提出可測量的方案（角度法／拉力法），並提醒可能誤差來源與如何校正。"},
+    {type:"prompt",tag:"物理",label:"物理 — 熱學（巨觀）",text:"我想研究不同保溫材料（自變項：材質／厚度／層數）對降溫速率（依變項：溫度-時間曲線、時間常數）的影響。請規劃取樣頻率、對照組、以及如何用同一個模型（牛頓冷卻定律）比較結果。"},
+    {type:"prompt",tag:"物理",label:"物理 — 波動與聲學（環境量測）",text:"我想比較（不同材質／形狀／孔洞率）的吸音或隔音效果。量測工具是（手機分貝計、同一段音源）。請提出實驗設計來降低環境噪音干擾，並建議如何呈現頻率差異（若只能測總分貝也請提出替代指標）。"},
+    {type:"prompt",tag:"化學",label:"化學 — 反應速率（微觀機制到巨觀量測）",text:"我想研究（溫度／濃度／表面積／催化劑）如何影響反應速率。請建議適合學校操作、風險低的反應系統（可用市售材料），並提供：速率的可量測指標（產氣體積、顏色變化、滴定時間等）、控制變因、資料分析方式。"},
+    {type:"prompt",tag:"化學",label:"化學 — 酸鹼與緩衝（巨觀）",text:"我想比較不同飲料／清潔用品的酸鹼度與緩衝能力。工具只有（pH 試紙或 pH 計）。請教我如何設計「加入固定量酸／鹼」的測試，並把結果用圖表呈現（pH-加入量曲線），同時提醒安全與廢液處理。"},
+    {type:"prompt",tag:"化學",label:"化學 — 分離與檢測（紙層析）",text:"我想用紙層析或簡易色譜分離（色素／墨水／植物色素），探討（溶劑比例／紙材／溫度）對 Rf 值的影響。請提供操作步驟、資料記錄表（含照片取樣規則）、以及如何計算與比較 Rf。"},
+    {type:"prompt",tag:"生物",label:"生物 — 植物生長（巨觀）",text:"我想研究（光照顏色／肥料濃度／鹽度／澆水頻率）對（發芽率、株高、葉面積、乾重）的影響。請提出控制變因（種子批次、土壤、盆器、溫度）、重複次數建議與觀測週期，並提醒如何避免主觀偏差（例如盲測量尺、固定拍照角度）。"},
+    {type:"prompt",tag:"生物",label:"生物 — 微生物（微觀，含安全）",text:"我想比較（清潔方式／天然抑菌成分／不同材質表面）對微生物生長的影響。請先判斷學校是否適合做「培養」，若不適合請提出替代指標或安全版本（例如使用酵母或市售益生菌、避免培養未知病原）。並規劃污染控制與廢棄物處理。"},
+    {type:"prompt",tag:"生物",label:"生物 — 行為／人因（倫理敏感）",text:"我想探討（睡眠／噪音／光照／手機使用）與（反應時間／記憶測驗表現）的關係。請先列出倫理與個資風險、需要的同意程序，並提供不涉及個資的替代設計（例如匿名、只收集測驗分數與環境指標；或以公開資料取代）。"},
+    {type:"prompt",tag:"地科",label:"地科 — 都市熱島（巨觀／環境量測）",text:"我想研究校園或社區的都市熱島效應：不同地表（草地、柏油、磁磚、遮蔭）對（地表溫度／氣溫／體感指標）的差異。請給我取樣設計（時段、位置、重複天數）、需要控制的天氣因素、以及如何用地圖或熱力圖呈現。"},
+    {type:"prompt",tag:"地科",label:"地科 — 水質（巨觀／指標化）",text:"我想比較不同水體（自來水、河川、雨水、池塘）在（濁度、導電度、pH、溶氧）上的差異。請協助我把題目寫成研究問題，規劃採樣與保存、對照組（空白／標準液）、以及如何避免一次性測量造成誤判。"},
+    {type:"callout",variant:"hand",title:"進入文獻階段前必交",items:[
+      "研究問題定稿（1 句，含自／依變項與單位）",
+      "變因表（自／依／控／對照）",
+      "pilot 一頁設計",
+      "3 篇「種子文獻」＋初版文獻矩陣（每篇至少：研究問題、方法、指標、限制）"
+    ]}
+  ]
+},
+{
+  group:"研究流程", id:"litreview", num:"2", title:"文獻搜尋、閱讀與引用",
+  sub:"找得到、找得全、找得準——並避免 AI 幻覺引用",
+  blocks:[
+    {type:"p",text:"進入文獻搜尋的目的有三：①確認是否已有人做過（避免重複與踩雷）②找到可複製的方法與量測指標（少走冤枉路）③找出你能差異化與提升嚴謹性的缺口（更容易拿到高分）。"},
+    {type:"h3",text:"三層閱讀法"},
+    {type:"steps",items:[
+      "先讀<strong>摘要與圖表</strong>，判斷相關性。",
+      "再讀<strong>方法</strong>，看是否可複製、條件與樣本數 n 是否相符。",
+      "最後讀<strong>討論</strong>，找限制與可延伸方向。"
+    ]},
+    {type:"callout",variant:"warn",title:"避免 AI 幻覺引用",text:"AI 可能編造不存在的論文與 DOI。引用只走「資料庫 → 原文 → 引用」三步：先在 Scholar／Semantic Scholar／期刊官網找到原文，再用 Zotero 管理，最後才寫進報告。禁止「先請 AI 列參考文獻」；查不到就不寫進正文。"},
+    {type:"h3",text:"建議的「一條龍」文獻工作流"},
+    {type:"steps",items:[
+      "用 <strong>Semantic Scholar／Google Scholar</strong> 粗搜：拿到 10 篇候選。",
+      "用<strong>文獻地圖</strong>（ResearchRabbit／Litmaps／Connected Papers）補齊：擴到 30–60 篇。",
+      "用 <strong>Elicit</strong> 做表格化篩選與抽取：保留最相關 10–20 篇。",
+      "用 <strong>SciSpace</strong> 讀懂方法細節：把可複製參數整理進「方法表」。",
+      "用 <strong>Scite</strong> 做關鍵主張查核：確保引用不是被反駁或已撤稿的結果。",
+      "用 <strong>Zotero／NotebookLM</strong> 管理與輸出：每點要附出處。"
+    ]},
+    {type:"h3",text:"提示詞 A — 搜尋策略與關鍵字產生"},
+    {type:"prompt",tag:"關鍵字",label:"拆解研究問題、產生布林檢索式",text:"我的研究問題是（貼上）。請把它拆成：主題名詞、處理／自變項、量測／依變項三組，並各給我中文／英文／縮寫／同義詞各 10 個，最後組合成 12 條可直接拿去搜尋的布林式（含 AND／OR／NOT）。"},
+    {type:"prompt",tag:"關鍵字",label:"方法類關鍵字",text:"我想找「方法類」文獻來複製實驗。請提供我 15 組常見方法關鍵字（例如 protocol、assay、calibration、sampling、error analysis 等）以及如何與我的主題（主題詞）組合。"},
+    {type:"h3",text:"提示詞 B — 初篩（快速判斷該不該讀）"},
+    {type:"prompt",tag:"初篩",label:"相關性表格化判讀",text:"以下是 5 篇論文的標題與摘要：（貼上）。請用表格幫我判斷每篇與研究問題（貼上）的相關性（高／中／低），並標出：可能可複製的方法、可能用得到的量測指標、以及看起來的主要限制。最後只推薦我最值得精讀的 3 篇並說明理由。"},
+    {type:"prompt",tag:"初篩",label:"摘要六句重寫",text:"請把這篇摘要用 6 句話重寫：研究目的、假設、方法、樣本／材料、主要結果、限制。不得新增原文沒有的資訊。"},
+    {type:"h3",text:"提示詞 C — 文獻矩陣（整理成可比較表格）"},
+    {type:"prompt",tag:"矩陣",label:"產生領域專屬欄位模板",text:"我正在做文獻矩陣。請給我一個適用於（領域）的欄位模板，至少包含：研究問題、理論／機制、樣本／材料、實驗條件、量測儀器、資料處理方法、主要結果、效果大小或趨勢、限制與偏誤、可延伸點。並說明每欄要怎麼寫才可查核。"},
+    {type:"prompt",tag:"矩陣",label:"方法段落轉「可複製清單」",text:"請把這篇論文的方法段落（貼上）轉成「可複製清單」：材料、濃度／尺寸、時間、溫度、儀器設定、校正方法、樣本數 n、統計方法。若原文沒寫請標註「未提供」。"},
+    {type:"h3",text:"提示詞 D — 綜整與找研究缺口"},
+    {type:"prompt",tag:"缺口",label:"從文獻推回你的題目",text:"根據這些研究摘要（貼上 5–10 篇的摘要或你的矩陣重點），請幫我整理出：目前共識、仍有爭議的點、常見限制（如樣本數不足、控制變因不完整）、以及最有機會讓高中科展做出差異化的 5 個方向。"},
+    {type:"prompt",tag:"缺口",label:"把研究問題改得更尖銳",text:"請幫我把（研究問題）改寫成 3 個更尖銳、更可驗證的研究問題版本，每個版本都要說明：文獻目前做到哪裡、我可以補上的缺口是什麼、我需要新增的量測或控制變因是什麼。"},
+    {type:"h3",text:"提示詞 E — 引用與事實查核"},
+    {type:"prompt",tag:"查核",label:"檢查引用資訊是否完整一致",text:"這是我準備引用的 3 篇文獻資訊（作者、年份、標題、來源／DOI，貼上）。請檢查資訊是否完整一致，並提醒我需要回到哪裡查核（期刊頁、資料庫頁）。如果你無法確認，請直接說「需要人工查核」。"},
+    {type:"prompt",tag:"查核",label:"扮演嚴格審稿人挑文獻探討問題",text:"請扮演嚴格審稿人。閱讀我這段「文獻探討」草稿（貼上），指出哪些句子屬於：沒有來源、過度推論、把相關說成因果、或引用不匹配，並告訴我每一類要如何修正。"}
+  ]
+},
+{
+  group:"研究流程", id:"design", num:"3", title:"實驗設計：變因、樣本數與可重現性",
+  sub:"先交設計表 → 用 AI 挑錯 → 由人定稿",
+  blocks:[
+    {type:"p",text:"生成式 AI 特別適合用來「檢查設計是否完整」：是否有對照組、是否隨機化、量測是否客觀、步驟是否可重做、資料欄位是否先定義。教學上採「<strong>先交設計表、再用 AI 挑錯、再由人定稿</strong>」三步。"},
+    {type:"h3",text:"設計清單（做完才算「可被檢核」）"},
+    {type:"list",items:[
+      "研究問題／假設、操作性定義、材料與儀器",
+      "步驟（可讓他人照做）、自變項與水平、依變項與量測方式",
+      "控制變因、對照組、重複次數（n）、資料記錄格式、風險與倫理"
+    ]},
+    {type:"h3",text:"對照組不只一種"},
+    {type:"list",items:[
+      "<strong>空白對照（blank）</strong>：沒有處理／樣品，用來觀察背景值、污染與儀器漂移。",
+      "<strong>陰性對照</strong>：預期不會有效果的條件，用來排除假陽性與心理預期。",
+      "<strong>陽性對照</strong>：已知會有效果的條件，用來確認系統「真的測得出」效果。"
+    ]},
+    {type:"h3",text:"降低偏誤：隨機化、盲測、區組"},
+    {type:"list",items:[
+      "<strong>隨機化</strong>：避免「順序」變成隱形自變項（抽籤／亂數分派與測量順序）。",
+      "<strong>盲測</strong>：依變項含主觀評分時，讓評分者不知組別；至少用編碼，分析完才揭盲。",
+      "<strong>區組（blocking）</strong>：把已知大干擾（天數／批次／操作者／位置）變成設計的一部分，例如同一天把各組都做一輪。"
+    ]},
+    {type:"h3",text:"重複、樣本數與停止規則"},
+    {type:"callout",variant:"warn",title:"最常被混淆的 n",text:"「同一份樣本測三次」是技術重複，不等於 n=3。科展更需要「樣本／生物／材料重複」（不同個體、不同批次）。先做 pilot 估計變異，再決定 n；n 受限時，至少用「多批次＋呈現原始點」提升可信度。停止規則與剔除規則要先寫，避免被懷疑挑數據。"},
+    {type:"callout",variant:"teacher",title:"老師快問 5 題",items:[
+      "你在比較／操弄的自變項是什麼？有幾個水平？",
+      "依變項用什麼指標量？單位是什麼？",
+      "你的基準對照是什麼？沒有對照時用什麼替代證據？",
+      "你打算每組做幾個獨立重複（n）？批次怎麼記？",
+      "量測怎麼校正、誤差怎麼交代？"
+    ]},
+    {type:"h3",text:"提示詞 — 通用模板"},
+    {type:"prompt",tag:"設計",label:"一次補齊「一頁研究設計摘要」",text:"我的研究問題是（貼上）。請產出一份「一頁研究設計摘要」：研究型態（比較／最佳化／關係／機制）、自變項與水平、依變項與量測方式（含單位）、控制變因、對照組（空白／陰性／陽性若適用）、隨機化／盲測／區組策略、建議重複次數 n、pilot 設計（1–2 週），以及可能失敗點與替代方案。"},
+    {type:"prompt",tag:"設計",label:"用「可重現」角度挑 SOP 缺漏",text:"以下是我擬定的 SOP（貼上）。請用「是否可重現」角度挑出 10 個模糊或缺漏處，並把每一點改寫成可操作的條件（時間／溫度／濃度／距離／轉速／曝光…）。"},
+    {type:"prompt",tag:"安全",label:"扮演安全管理者做風險盤點",text:"請扮演安全管理者，針對我的材料與步驟（貼上）列出：危害、風險等級、預防措施、PPE、廢棄物處理、不可做的替代方案。"},
+    {type:"h3",text:"提示詞 — 跨領域設計範例"},
+    {type:"prompt",tag:"物理",label:"物理 — phyphox 場域量測",text:"我想用手機 phyphox 量測（加速度／聲音頻譜／氣壓／磁場），比較（地點 A／B、材質 A／B、距離不同、時間不同）。請幫我規劃取樣頻率、每組測幾次、如何做隨機化與避免環境干擾（風／人流／回音），以及資料要長什麼樣子才方便後續用 Excel 或 ChatGPT 資料分析。"},
+    {type:"prompt",tag:"化學",label:"化學 — 配方最佳化（DOE 思維）",text:"我有 3 個因子想同時調整（例如比例 A、比例 B、溫度），目標是讓（反應產率／硬度／吸水率）最好。請用簡單的 DOE 思維幫我規劃一個最少試驗數的實驗矩陣（例如 2 水準全因子或簡化版），並說明如何分析主效應與交互作用（以高中程度解釋）。"},
+    {type:"prompt",tag:"生物",label:"生物 — 植物時間序列設計",text:"我想研究（光照／肥料／鹽度）對植物生長的影響。請幫我設計「同一天播種、同盆器／同土壤批次、隨機擺放位置、每週固定時間量測」的流程，並建議依變項至少 3 個（株高／葉面積／乾重等）與拍照量測規格。"},
+    {type:"prompt",tag:"地科",label:"地科 — 環境監測時空取樣",text:"我想做（溫濕度／PM2.5／噪音／水質）監測並比較（位置／時段／天氣條件）。請幫我規劃取樣設計：至少幾個測點、一天測幾次、測幾天、如何記錄背景資料（天氣、風速、人流），以及如何做區組避免「只在某一天測到剛好異常」的偏誤。"},
+    {type:"callout",variant:"hand",title:"最低交付物（老師收這四樣最省力）",items:[
+      "一頁研究設計摘要",
+      "變因表（自／依／控／對照）",
+      "方法表（把文獻方法轉成可執行參數）",
+      "第一版 SOP（含校正與資料欄位）"
+    ]}
+  ]
+},
+{
+  group:"研究流程", id:"data", num:"4", title:"數據整理：清理、統計與視覺化",
+  sub:"先圖像化、再檢定——避免過度解讀",
+  blocks:[
+    {type:"p",text:"多數科展卡在分析，不是因為不會統計，而是<strong>資料長相不適合分析</strong>。採「整潔資料（Tidy Data）」原則：一列＝一筆觀測、一欄＝一個變項（含單位）、一張表＝一種資料層級；同時建立「資料字典」說清楚每欄意義、單位、允許值與缺值代碼。"},
+    {type:"h3",text:"分析五步驟"},
+    {type:"steps",items:[
+      "<strong>先定義欄位與單位</strong>：收一份資料字典草稿，沒過關不讓學生進分析。",
+      "<strong>資料清理</strong>（要可重做、可解釋）：把清理規則寫成「清理 SOP」與 README。",
+      "<strong>探索性分析（EDA）</strong>：先用圖把資料看懂；每張圖要有標題、座標軸、單位、圖例、n，並交代誤差棒意義。",
+      "<strong>需要時再做檢定</strong>：依研究問題決定比較方式，再選方法（t 檢定、ANOVA、迴歸、卡方）。",
+      "<strong>避免過度解讀</strong>：相關不等於因果；結果段只描述趨勢，討論段才談機制與替代解釋。"
+    ]},
+    {type:"h3",text:"需要檢定時怎麼選？"},
+    {type:"table",head:["情境","建議方法"],rows:[
+      ["兩組比較（連續）","獨立樣本 t 檢定；同一樣本前後用成對 t 檢定"],
+      ["多組比較（連續）","單因子 ANOVA；同一樣本多次用重複量數 ANOVA"],
+      ["關係（連續-連續）","相關與線性迴歸（先用散佈圖確認趨勢）"],
+      ["類別資料","卡方檢定（例如比例差異）"],
+      ["加分","除 p 值外，報告效果量（平均差、百分比變化）並說明對研究問題是否重要"]
+    ]},
+    {type:"callout",variant:"warn",title:"常見扣分點",text:"把推測寫成事實、只報告平均不呈現原始點、圖表缺單位與 n、離群值處理不透明。保留 raw／clean／analysis 三份資料鏈＋README，能大幅降低被質疑「事後挑數據」的風險。"},
+    {type:"h3",text:"提示詞 — 資料健檢與清理"},
+    {type:"prompt",tag:"清理",label:"資料健檢報告＋清理 SOP",text:"這是我的資料欄位與前 30 列：（貼上或上傳）。請幫我做「資料健檢報告」：缺值比例、可能的格式問題（日期／單位／文字混入）、可能的重複列、可能的離群值規則（請提出 2 種：IQR 法與基於儀器量程／常識法）。最後請給我一份清理 SOP（逐步清單），每一步都要說明目的與風險。"},
+    {type:"prompt",tag:"清理",label:"批次效應檢查",text:"我有 Batch（天數／批次）欄位。請檢查是否有批次效應：先建議我應該畫哪些圖（分面／顏色），再告訴我若批次效應很大，設計或分析上可以怎麼處理（例如分批比較、加入批次作為共變項、或改進控制）。"},
+    {type:"h3",text:"提示詞 — 圖表與 EDA"},
+    {type:"prompt",tag:"EDA",label:"依研究型態建議最少 5 張圖",text:"我的研究問題是（貼上）。資料欄位是（貼上）。請依研究型態（比較／最佳化／關係／機制）建議我最少要做的 5 張圖（每張圖寫：用哪些欄位、圖型、要看什麼、可能的誤解／陷阱）。"},
+    {type:"prompt",tag:"EDA",label:"誤差棒該用 SD／SE／CI？",text:"請幫我決定誤差棒要用 SD、SE 還是 95% CI，並用高中程度解釋三者差異；再建議我在科展海報上該用哪一種最清楚。"},
+    {type:"h3",text:"提示詞 — 統計方法選擇與結果解釋"},
+    {type:"prompt",tag:"統計",label:"建議最適合的統計方法",text:"我的依變項是（連續／類別），組別數是（2／3／多組），是否同一樣本重複量測（是／否）。請建議我最適合的統計方法（列出 2 個候選方案），並說明各自假設條件、需要檢查什麼圖、以及科展報告該怎麼用一句話交代。"},
+    {type:"prompt",tag:"統計",label:"檢查「相關」是否寫成「因果」",text:"請幫我檢查我是否把「相關」寫成「因果」。以下是我的結論句（貼上）。請標出需要改寫的地方並給出較嚴謹的替代句。"},
+    {type:"h3",text:"提示詞 — 上傳資料後一次到位"},
+    {type:"prompt",tag:"全流程",label:"從資料健檢到結果描述",text:"這是我的資料（上傳 CSV／XLSX）與研究問題（貼上）。請依序輸出：①資料字典健檢（欄位是否缺單位／允許值／缺值代碼）②資料健檢（缺值、重複、格式、離群值規則、批次效應）③最少 5 張 EDA 圖（每張寫：用到哪些欄位、要看什麼、可能誤解）④我還缺哪些資訊（用【待補】列出）。規則：不得自行編造資料或引用。"},
+    {type:"prompt",tag:"寫結果",label:"把圖表重點寫成「結果」段",text:"以下是我已完成的圖表重點與統計輸出（貼上）。請寫「結果」段落：每段對應一張圖；只描述趨勢與差異（含方向、大小、n、誤差棒意義），不解釋原因；不得新增我沒提供的數字。最後請列出 3 點「限制」與 3 點「下一步」（要可檢驗）。"}
+  ]
+},
+{
+  group:"研究流程", id:"writing", num:"5", title:"研究報告撰寫",
+  sub:"用 AI 做結構與文字精煉，但以學生實際做過的內容為準",
+  blocks:[
+    {type:"p",text:"建議採科展常見架構：題目、摘要、研究動機與目的、文獻探討、研究方法、實驗結果、討論、結論與建議、參考文獻、附錄。AI 可協助把口語想法轉成正式段落、統一用詞與邏輯連接，但<strong>必須以學生實際做過的內容為準，禁止補寫沒做過的步驟</strong>。"},
+    {type:"h3",text:"建議工作流程（從大綱到定稿）"},
+    {type:"steps",items:[
+      "先把「你做了什麼」整理成<strong>事實清單</strong>（人先做），當作 AI 唯一素材來源。",
+      "讓 AI 產生章節大綱（先結構、後文字），標示哪些需引用、哪些需數據支撐。",
+      "逐段產生「可被你核對」的初稿；不得新增未提供的步驟／數據，缺的用「待補」提問。",
+      "把文獻整理與引用「鎖回來源」，引用前回到期刊頁／資料庫核對。",
+      "結果與討論分開寫（先描述、再解釋）。",
+      "最後才做全篇一致化與精簡（用詞、單位、圖表引用一致）。",
+      "交叉查核（人負責）：每個數字可追溯？每個主張有支持？每個引用真實存在？"
+    ]},
+    {type:"h3",text:"各段落 AI 寫作重點與風險"},
+    {type:"table",head:["段落","適合交給 AI 的任務","常見風險"],rows:[
+      ["摘要","壓縮字數、調整句序、抓關鍵數字與關鍵詞","只能從全文與圖表抽取，不可新增"],
+      ["前言／動機","重整論述順序、把研究問題與假設寫得更尖銳","「現況」與「他人研究」都要可引用、可查核"],
+      ["文獻探討","做比較表、改寫成你的語言（保留出處）","嚴禁 AI 直接生成引用；避免把相關說成因果"],
+      ["研究方法","把口語／日誌改寫成 SOP、補出缺漏資訊清單","最怕補寫沒做過的步驟；未提供就標「待補」"],
+      ["結果","把圖表重點寫成段落、提醒標示 n／誤差棒／單位","避免在結果段解釋原因；每句要能回到圖或表"],
+      ["討論","產生「可能機制候選清單」、列出評審追問點","避免過度推論；用『推測』語氣並提可檢驗下一步"],
+      ["結論","收斂成「研究問題→證據→結論」三段式","避免擴大適用範圍；只能說研究能支持的程度"],
+      ["參考文獻","檢查格式一致性、缺漏欄位提示","不要讓 AI 代替你『生引用』，用 Zotero 輸出再人工核對"]
+    ]},
+    {type:"h3",text:"提示詞 — 通用與分段模板"},
+    {type:"prompt",tag:"大綱",label:"依事實清單產生章節大綱",text:"你是科學研究寫作助理。以下是我「已完成且可證明」的研究資訊（貼上事實清單／方法表／結果摘要）。請依科學展覽報告格式，先產生一份章節大綱；每個小節用條列列出：必須包含的要點、需要引用的地方、以及我還缺哪些資訊（用問題句列出）。"},
+    {type:"prompt",tag:"摘要",label:"摘要",text:"以下是我全文各段重點（或貼上全文）。請寫一段（指定字數）摘要，必須包含：研究目的、方法概要、最重要的 1–2 個結果（含關鍵數字／趨勢）、結論與意義；不得新增任何未出現在本文或圖表的資訊。"},
+    {type:"prompt",tag:"前言",label:"前言／目的（3 段式）",text:"請用 3 段式幫我寫前言：第 1 段交代背景與重要性（需可引用）；第 2 段整理文獻現況並指出缺口（需可引用）；第 3 段清楚寫出我的研究問題、假設與本研究貢獻。若我提供的資料不足，請列出需要我補的引用或事實。"},
+    {type:"prompt",tag:"方法",label:"研究方法（可重現）",text:"以下是研究日誌／步驟（貼上）。請改寫成「可重現」的研究方法，需包含：材料與儀器、樣本數 n、對照組、變因與操作性定義、流程步驟、量測與校正、資料處理與統計方法。不得補寫沒提供的參數；缺的請用【待補】列出。"},
+    {type:"prompt",tag:"結果",label:"結果（對應圖表）",text:"以下是圖 1–圖 3 的圖說與關鍵觀察（貼上）。請寫「結果」段落：每段對應一張圖；只描述觀察與差異（含方向、大小、n、誤差棒意義），不討論原因；若數字或單位不完整請提醒我補。"},
+    {type:"prompt",tag:"討論",label:"討論（五段順序）",text:"請用「回應研究問題→連結文獻→可能機制與替代解釋→限制→下一步實驗」的順序，撰寫討論。每一句都要標註它依據的是（圖 X／表 Y／文獻），不可空泛；不確定之處請用『推測』語氣並提出可檢驗的下一步。"},
+    {type:"prompt",tag:"審稿",label:"扮演審稿人挑邏輯問題",text:"請扮演審稿人，針對我這段文字（貼上）標出：過度推論、缺乏證據、把相關寫成因果、與前文矛盾、未定義名詞。對每一點給出一個較嚴謹的替代寫法。"}
+  ]
+},
+{
+  group:"研究流程", id:"poster", num:"6", title:"簡報與海報製作",
+  sub:"訊息設計與科展表達——3 秒／30 秒／3 分鐘",
+  blocks:[
+    {type:"h3",text:"科學海報：用三種閱讀情境設計版面"},
+    {type:"list",items:[
+      "<strong>3 秒</strong>：遠看就看得到「題目（或一句話結論）＋最關鍵的一張圖」。",
+      "<strong>30 秒</strong>：靠近後用「問題／方法／結論三框」或 3–5 句超精簡摘要，快速看懂你做了什麼。",
+      "<strong>3 分鐘</strong>：用較小字級放方法細節、對照組、樣本數、統計與限制，供深入閱讀者查看。"
+    ]},
+    {type:"callout",variant:"teacher",title:"海報設計要點",items:[
+      "版面先定格線，閱讀動線左到右、上到下（3 或 4 欄）。",
+      "圖表優先：一張關鍵圖勝過一大段描述；圖標題直接寫結論，不要只有「圖 1」。",
+      "顏色節制：灰階打底＋1–2 個強調色標示結論句與關鍵數字。",
+      "留白不是浪費，它在幫你放大重點；所有元素要對齊。",
+      "誠實交代 2–4 點限制，比假裝完美更能加分。",
+      "列印前一定做「遠看檢查」與 100% 校樣。"
+    ]},
+    {type:"h3",text:"科學簡報：建立層級、一張只講一件事"},
+    {type:"list",items:[
+      "用字級比例建立層級（如 55／34／21／13＝主標／副標／內文／註解），全程一致。",
+      "標題控制在 10 字內，直接說結論；先講觀眾在意的事。",
+      "一張投影片只放一個結論或一個圖表重點；內容與版面都要留白。",
+      "用 Z 字動線、色彩聚焦、對齊引導視線；強調色控制在 1–2 種。",
+      "折線圖看趨勢不背數字；表格框線越少越好。"
+    ]},
+    {type:"h3",text:"提示詞 — 製作科學簡報"},
+    {type:"prompt",tag:"簡報",label:"整理投影片大綱（含字級層級）",text:"你是科展簡報教練。我有口頭報告時間（例如 8 分鐘），觀眾是（科展評審／同學／家長）。請把我的研究內容整理成投影片大綱：共（例如 10–12）張；每張只放 1 個重點；每張提供：①標題（10 字內、直接說結論）②本張要講的 2–3 句口頭講稿 ③建議放的圖表／示意圖 ④建議字級層級（主標／內文／註解）。我提供的研究內容如下：（貼上研究摘要、方法、關鍵結果）。"},
+    {type:"prompt",tag:"簡報",label:"檢查投影片文字是否過多",text:"請檢查我的投影片文字是否過多：我每張大約停留（X）秒，請用「每秒可讀 8 字」估算可接受字數上限，並把每張投影片改寫成更精簡的版本（保留原意、不新增資料），超出的內容請改成我口頭要講的講稿。"},
+    {type:"prompt",tag:"簡報",label:"把標題改成 10 字內結論句",text:"請把每張投影片的標題改成「10 字內結論句」：規則是要能回答「所以呢？」，並且避免只有「研究動機」「結果」「結論」這種空標題。以下是我目前的投影片標題清單：（貼上）。"},
+    {type:"prompt",tag:"簡報",label:"圖表標題＋take-away 三版本",text:"請針對我每一張圖表，產出 3 個版本的「圖表標題＋一句 take-away」：①科學嚴謹版 ②給一般觀眾版 ③超精簡版。規則：標題不要寫「圖 1／表 1」，要直接說重點；不得新增資料沒有的結論。以下是圖表描述或圖說：（貼上）。"},
+    {type:"prompt",tag:"簡報",label:"版面檢查員（動線／對齊／留白／色彩）",text:"你是簡報版面檢查員。請依「Z 字閱讀動線、對齊、留白、色彩聚焦（灰階＋1–2 強調色）」幫我逐張檢查投影片，輸出一份清單：每張有哪些問題、會造成什麼理解障礙、以及具體怎麼改（例如：哪幾個元素要左對齊、哪些文字要改成淡灰、哪個數字要用強調色）。"},
+    {type:"prompt",tag:"簡報",label:"開場改寫成「先講觀眾在意的事」",text:"請把我的簡報開場改寫成「先講觀眾在意的事」：用 30 秒說清楚為何要聽、若不做會失去什麼（避凶），再用一句話點出做了的好處（趨吉）。觀眾是（評審／同學／家長），我的研究主題是（貼上）。"},
+    {type:"h3",text:"提示詞 — 製作科學海報"},
+    {type:"prompt",tag:"海報",label:"用 3 秒／30 秒／3 分鐘改寫海報文案",text:"你是科展海報教練。請用「3 秒／30 秒／3 分鐘」閱讀情境，幫我把研究內容改寫成海報文案：①3 秒區（題目或一句話結論＋關鍵圖建議）②30 秒區（3–5 句超精簡摘要或問題／方法／結論三框）③3 分鐘區（方法細節、對照組、樣本數 n、統計與限制的要點）。不得新增我沒提供的步驟或結果。研究內容如下：（貼上摘要與主要結果）。"},
+    {type:"prompt",tag:"海報",label:"用「最小必要欄位」產出海報大綱",text:"請依「最小必要欄位」幫我產出海報大綱（區塊順序與每區建議字數）：題目、作者與單位、研究問題／動機、方法（變因與對照）、結果（1–3 張關鍵圖）、結論、限制與未來工作、參考／致謝。並提醒哪些資訊應放到附錄或口頭解說，而不是塞在海報。"},
+    {type:"prompt",tag:"海報",label:"挑選最能支持結論的關鍵圖",text:"請幫我挑選最能支持結論的 1–3 張「關鍵圖」：我目前有以下圖表／數據（用文字列出或貼上圖說）。請告訴我：哪張最該放大、哪張可以刪、以及每張圖旁邊應該放哪一句 take-away 才能讓一般觀眾看懂。"},
+    {type:"prompt",tag:"海報",label:"把海報文字改成「可被掃讀」版本",text:"請幫我把海報文字改寫成「可被掃讀」版本：把長段落改成條列；每點不超過 15–20 字；避免「這、它、該」等代名詞，改用明確主詞（本研究／本實驗／結果顯示）。以下是原文：（貼上）。"},
+    {type:"prompt",tag:"海報",label:"寫「限制與下一步」區塊",text:"請幫我寫一個「限制與下一步」區塊：列出 2–4 點限制（樣本數、控制變因、儀器精度、場域限制等）並對應 2–4 個可檢驗的下一步改進。規則：限制要具體，下一步要可做、可測。"},
+    {type:"prompt",tag:"海報",label:"列印前檢查清單",text:"請幫我產出「列印前檢查清單」：包含字級是否能遠看、圖表解析度、顏色對比、對齊與邊界、n／單位／圖例是否完整、引用是否可追溯、100% 校樣與遠看檢查怎麼做。請用勾選清單格式輸出。"}
+  ]
+},
+{
+  group:"研究流程", id:"defense", num:"7", title:"科展比賽與答辯訓練",
+  sub:"Q&A 訓練與臨場策略——答辯是可訓練的科學溝通能力",
+  blocks:[
+    {type:"p",text:"把「答辯」視為一種可訓練的科學溝通能力：用有限時間，清楚說明研究的價值、方法的合理性、數據的可信度，以及你對限制的理解。"},
+    {type:"h3",text:"回答結構：PREP 四步法"},
+    {type:"steps",items:[
+      "<strong>Point（先給結論）</strong>：一句話直接回答，不先鋪陳背景。",
+      "<strong>Reason（給理由）</strong>：1–2 個理由支持結論（通常對應方法設計或數據特徵）。",
+      "<strong>Evidence（拿證據）</strong>：指向一張圖、一次關鍵實驗、或一個數字（n、誤差棒、差異幅度）。",
+      "<strong>Point（收束回主張）</strong>：再用一句話回到結論，自然帶到下一張圖。"
+    ]},
+    {type:"h3",text:"同一題要準備三種長度"},
+    {type:"list",items:[
+      "<strong>30 秒版</strong>（讓評審聽懂）：一句結論＋一句理由＋指向一張圖。",
+      "<strong>2 分鐘版</strong>（讓評審相信）：補對照組／控制變因、n、量測校正與誤差。",
+      "<strong>5 分鐘版</strong>（讓評審願意給高分）：加替代解釋、與文獻連結、方法與統計選擇理由、限制與下一步。"
+    ]},
+    {type:"h3",text:"臨場四步流程"},
+    {type:"steps",items:[
+      "<strong>聽題</strong>：先聽完不搶答，必要時做筆記抓關鍵字（n、對照、誤差、限制）。",
+      "<strong>確認</strong>：用一句話確認你理解的問題，避免答非所問。",
+      "<strong>作答</strong>：用 PREP 結構，指向你的「三張關鍵圖」。",
+      "<strong>收尾</strong>：用一句話把答案收回研究問題或下一步。"
+    ]},
+    {type:"callout",variant:"hand",title:"答辯前必備（老師可點名檢核）",items:[
+      "研究日誌／原始紀錄本（可被追溯）",
+      "三張關鍵圖：研究流程圖、核心結果圖、限制與下一步圖",
+      "一頁「數據可信度卡」：n、重複類型、校正、誤差棒定義、離群值與停止規則",
+      "一頁「名詞與單位表」：自／依變項、控制變因、單位、縮寫與操作性定義"
+    ]},
+    {type:"h3",text:"提示詞 — AI 輔助答辯訓練"},
+    {type:"prompt",tag:"評審出題",label:"AI 扮演評審，依評分重點出題（含追問）",text:"你是科展評審。以下是我的題目與方法摘要（200–300 字）（貼上）。請提出 20 個尖銳但合理的問題，並分成：研究動機、假設與指標、方法與變因控制、對照組、樣本數 n、量測與校正、數據分析、結論與限制、創新與應用。每題再加 1 個「追問」，用來追出細節或找漏洞。"},
+    {type:"prompt",tag:"三版本",label:"把答案練成 30 秒／2 分鐘／5 分鐘",text:"以下是評審問題：（貼上 1 題）。以下是我目前的答案草稿：（貼上）。請用 PREP 結構幫我改成三個長度版本：30 秒（1 結論＋1 理由＋1 證據）、2 分鐘（補對照／控制變因／n／誤差）、5 分鐘（補替代解釋／與文獻連結／限制與下一步）。規則：不得新增我沒提供的數據或步驟；資訊不足時請用【待補資訊】列出我需要補什麼。"},
+    {type:"prompt",tag:"弱點診斷",label:"找出最容易被追問、最容易失分的點",text:"你是嚴格評審。以下是我的研究設計（貼上自變項／依變項／控制變因／對照組／n／量測方式）。請列出 12 個可能的扣分點，並對每個扣分點給我：①評審會怎麼問 ②我可以怎麼回答（30 秒版）③我應該補做／補寫什麼證據才更站得住。"},
+    {type:"prompt",tag:"臨場話術",label:"把「誠實」說得更專業的臨場句型",text:"請根據我的研究內容（貼上摘要與三張關鍵圖的文字描述），幫我寫 8 句「臨場可用句型」，情境包含：①聽不懂問題要請對方重述 ②問題太大要先界定範圍 ③資料不足要誠實說明並提出下一步 ④被質疑時如何不爭辯但守住主張。每句限制在 20–25 字，口語但專業。"}
+  ]
+},
+{
+  group:"示例與收束", id:"example", num:"例", title:"教學示例：把題目做成可驗證研究",
+  sub:"以「空氣品質與專注」示範完整收斂歷程",
+  blocks:[
+    {type:"p",text:"以下提供可直接拿來帶學生操作的「示例教學腳本」：把一個看似很大的想法，逐步收斂成可量測、可重現、可被他人驗證的研究。教師可用「每一步固定要學生交一份產出物」來控品質。"},
+    {type:"h3",text:"示例：校園環境題——「空氣品質與專注」"},
+    {type:"steps",items:[
+      "<strong>研究目的</strong>：通風條件是否影響教室 CO₂ 濃度，以及是否伴隨簡短專注測驗表現的差異。",
+      "<strong>範圍</strong>：同一間教室、同一節課型態、相近人數，連續 X 週。",
+      "<strong>自變項</strong>：通風條件（門窗全關／開窗／開窗＋電扇，或以 CO₂ 門檻策略）。",
+      "<strong>依變項</strong>：CO₂（ppm）時間序列與摘要指標（平均、峰值、超過門檻時間比例），加一個低風險專注指標（反應時間或正確率）。"
+    ]},
+    {type:"callout",variant:"warn",title:"倫理與隱私提醒（務必先做）",text:"若涉及人類受試（測驗分數、反應時間、問卷），採「匿名、最小蒐集」原則：只收必要欄位、以代碼取代姓名、不蒐集可識別個資，並先取得學校／家長同意。若不便做人因測驗，可縮小為「通風條件對 CO₂ 的影響」，仍是完整可驗證研究。"},
+    {type:"h3",text:"資料表欄位（Data Dictionary 示例）"},
+    {type:"tools",items:["Datetime","Condition (A/B/C)","CO2_ppm","Temp_C / RH_%","People_count（區間）","Sensor_location","Batch（天數/操作者）","Note"]},
+    {type:"h3",text:"這個示例可直接用的提示詞（教師版）"},
+    {type:"prompt",tag:"示例",label:"收斂研究問題＋變因操作化",text:"你是科展指導老師。我要把「教室空氣品質是否影響專注」改成可驗證研究。請先把「空氣品質」與「專注」各提出 5 個可量測指標（含單位與量測工具），再從中挑出最適合校園、風險最低、最容易重複的 2 個指標，並寫出 3 個版本的研究問題（比較型／關係型／最佳化型）。"},
+    {type:"prompt",tag:"示例",label:"嚴格評審挑錯（補洞清單）",text:"你是科展評審。以下是我的研究問題與設計（貼上）。請列出 12 個可能的扣分點，並逐點給出具體可行的修正：對照組、控制變因、樣本數 n、取樣頻率、校正、批次效應、倫理與個資。最後請告訴我最小可行的 pilot 應該怎麼做（1–2 週）。"},
+    {type:"prompt",tag:"示例",label:"資料字典與紀錄表設計",text:"請把我的研究設計轉成一份資料表欄位清單與資料字典：每欄的名稱、單位、允許值範圍、缺值代碼、以及為什麼需要這欄。規則：一列＝一個時間點讀值；要包含 Batch（天數／操作者）以便檢查批次效應。"},
+    {type:"prompt",tag:"示例",label:"上傳資料後的分析（先 EDA 再結論）",text:"這是我的資料（上傳 CSV／XLSX）。請先做資料健檢（缺值、離群、格式、批次效應），再產出最少 5 張關鍵圖（時間序列、組別比較、門檻超標比例等），最後用不過度推論的語氣寫 1 段「結果描述」與 1 段「限制與下一步」；不得新增資料沒有的結論。"},
+    {type:"h3",text:"通用「教師提示詞組合包」（跨領域都能套用）"},
+    {type:"callout",variant:"teacher",text:"把提示詞寫得「可驗證」的關鍵，不是叫 AI 生成更多文字，而是把它當成檢核器：每次都要求輸出變因、單位、對照、重複、SOP、資料表欄位、誤差來源與限制。"},
+    {type:"prompt",tag:"組合包",label:"① 題目收斂（把大題變研究問題）",text:"我的大方向是（貼上）。請產出 10 個可檢驗研究問題；每個必須包含：自變項（含水平）、依變項（含單位與量測方法）、控制變因、對照組、1–2 週 pilot。"},
+    {type:"prompt",tag:"組合包",label:"② 可行性與風險（扮演嚴格評審）",text:"你是嚴格評審。針對我的設計（貼上），列出 10 個會被追問的點，並提出可執行的修正；請特別檢查：對照組、重複 n、量測校正、批次效應、倫理與安全。"},
+    {type:"prompt",tag:"組合包",label:"③ SOP 生成（讓別人照做）",text:"以下是我的研究日誌／口語步驟（貼上）。請改寫成可重現 SOP：每步都要有條件（時間／溫度／濃度／距離／轉速等）；缺少資訊請用【待補】列出，不得自行補寫。"},
+    {type:"prompt",tag:"組合包",label:"④ 資料字典（讓分析可重算）",text:"請依我的研究設計產出資料表欄位與資料字典：欄名、單位、允許值、缺值代碼、與為何要收集。務必包含 Batch／Replicate 欄位。"},
+    {type:"prompt",tag:"組合包",label:"⑤ 分析與寫作（只准根據資料）",text:"我提供圖表重點／統計輸出（貼上）。請寫「結果」段落：只描述趨勢與差異，不解釋原因；每段都對應一張圖。再寫「限制與下一步」：限制要具體，下一步要可檢驗。"}
+  ]
+},
+{
+  group:"示例與收束", id:"ethics", num:"險", title:"風險、倫理與常見錯誤",
+  sub:"可預防、可管理、可說明——專題的「開工前安全宣告」",
+  blocks:[
+    {type:"p",text:"學生專題常見風險可分五類：① AI 內容風險（寫得像但不是真的）② 研究設計與數據風險（做了但不可驗證）③ 人類受試與個資倫理（可做但不能這樣做）④ 實驗安全（可行但不安全）⑤ 學術誠信與可答辯性（做了但說不回去）。教師的工作不是「禁止 AI」，而是把 AI 變成流程中的檢核器，並留下可追溯的證據鏈。"},
+    {type:"h3",text:"常見錯誤對照表"},
+    {type:"table",head:["常見錯誤","典型後果","快速修正策略"],rows:[
+      ["引用查不到／DOI 不存在","直接判定不可信；文獻探討失分","把每條引用回到 Scholar／期刊官網；找不到就刪除或改「待查」不寫入正文"],
+      ["沒有對照組或控制變因不足","無法排除替代解釋；結論站不住","補做基線／空白；改成區組；把未控制變因寫進資料欄位並在討論界定範圍"],
+      ["n 太小／只做一次","結果可能是巧合；難以說服","先做 pilot 調整量測與控制；增加獨立批次重複；圖上呈現原始點並誠實寫限制"],
+      ["資料欄位沒先定義、事後補記","不可追溯；被懷疑造假或不嚴謹","建立資料字典；raw／clean 分檔；用日誌記錄每次改動原因"],
+      ["把相關寫成因果、誇大結論","被認為不懂科學論證；討論失分","改用謹慎語氣；加入替代解釋；提出可驗證的下一步實驗"]
+    ]},
+    {type:"callout",variant:"teacher",title:"教師「風險與倫理檢核表」（建議每週勾一次）",items:[
+      "AI 內容查核：關鍵主張是否都有可回查來源？是否出現查不到的引用？是否把相關寫成因果？",
+      "研究設計：是否有對照概念？自／依變項是否操作化（含單位）？是否有 pilot 與 SOP？",
+      "資料管理：是否有資料字典？是否保留 raw／clean／analysis？是否有 Batch 欄位？",
+      "倫理與隱私：是否涉及人類受試？是否已同意與告知？是否最小蒐集、去識別化？",
+      "安全：化學／生物／電／熱風險是否評估？PPE 與廢棄物處理是否明確？",
+      "可答辯性：學生能否用自己的話說清楚研究問題、方法、n、誤差、限制？"
+    ]},
+    {type:"h3",text:"AI 使用揭露模板（可放附錄或致謝）"},
+    {type:"prompt",tag:"揭露",label:"AI 使用揭露聲明",text:"本研究使用（工具名稱）作為輔助工具，使用範圍包含：（例如：發想題目、生成研究問題候選、語句潤稿、整理資料欄位、協助產生圖表／程式草稿）。所有研究設計決策、實驗操作、資料蒐集與結論皆由研究者完成並由指導教師／研究者查核；文獻引用均回到原始來源確認後才寫入。"},
+    {type:"h3",text:"可直接用的「風險挑錯」提示詞（老師版）"},
+    {type:"prompt",tag:"挑錯",label:"全面扣分點盤點",text:"你是科展嚴格評審。以下是我的研究問題、變因表與方法摘要（貼上）。請列出 15 個可能扣分點，分成：引用／事實查核、對照組與控制變因、樣本數 n、量測與校正、批次效應、倫理與安全、過度推論。每點要給我一個「具體可執行的修正」與我需要補做的最小證據。"},
+    {type:"prompt",tag:"挑錯",label:"檢查文獻探討的 AI 幻覺風險",text:"請檢查我這段「文獻探討」是否有 AI 幻覺風險：標出哪些句子需要引用、哪些引用可能查不到、哪些句子屬於過度推論或把相關寫成因果；並提供較謹慎的改寫版本（不新增新主張）。"},
+    {type:"prompt",tag:"倫理",label:"研究倫理審查",text:"你是研究倫理審查者。我的研究涉及（描述是否有問卷／測驗／影像／個資）。請列出需要的同意與告知要點、最小蒐集建議、去識別化做法、資料保存與刪除策略；若風險過高請提出低風險替代設計。"}
+  ]
+},
+{
+  group:"示例與收束", id:"conclusion", num:"結", title:"結論與教學建議",
+  sub:"把 AI 變成課堂規範與研究能力訓練",
+  blocks:[
+    {type:"h3",text:"四個核心結論"},
+    {type:"steps",items:[
+      "<strong>AI 最有價值的角色是「研究助教與檢核器」，不是「代寫作者」</strong>：研究決策與結論必須由學生負責並能清楚答辯。",
+      "<strong>專題成敗關鍵在「可驗證與可重現」</strong>：變因操作化、對照組、重複與資料管理，比華麗敘事更重要。",
+      "<strong>把 AI 用進流程（每週固定交付物）比「偶爾問一下」更有效</strong>：每步都有學生必交產出物，教師更能掌握品質。",
+      "<strong>透明揭露與倫理安全是「加分」不是「負擔」</strong>：清楚寫明 AI 使用範圍、資料處理與查核方式，會提升可信度。"
+    ]},
+    {type:"h3",text:"建議課程節奏"},
+    {type:"table",head:["版本","適用","節奏重點"],rows:[
+      ["4 週密集版","社團／短期專題","發想→pilot→正式實驗一輪→EDA 與 2 分鐘報告"],
+      ["8 週標準版","多數探究與實作","選題與操作化→pilot→多批次實驗→清理與圖表→寫作與答辯"],
+      ["12 週深化版","衝科展／縣市賽／全國賽","文獻矩陣與缺口→pilot 校正→區組實驗累積 n→進階分析→海報簡報→兩輪模擬答辯"]
+    ]},
+    {type:"callout",variant:"hand",title:"期末檢核清單（這 10 項齊了，作品通常不會低分）",items:[
+      "研究問題一句話說得清楚（比較什麼、用什麼指標、在哪個範圍）。",
+      "自／依變項／控制變因／對照概念完整，且可執行。",
+      "有 pilot 並寫得出「改了什麼、為什麼改」。",
+      "SOP 可讓他人照做（條件、單位、校正、停止規則清楚）。",
+      "保留研究日誌與 raw／clean／analysis 三份資料鏈。",
+      "資料字典完整（欄位、單位、允許值、缺值代碼、Batch／Replicate）。",
+      "至少 3–5 張關鍵圖能直接支撐結論（單位、n、誤差棒意義齊）。",
+      "結果段只描述趨勢；討論段才解釋原因並提出替代解釋。",
+      "限制與下一步具體且可檢驗。",
+      "學生能用自己的話回答 n、對照、誤差、離群值、倫理與 AI 使用範圍。"
+    ]},
+    {type:"h3",text:"收束用提示詞"},
+    {type:"prompt",tag:"收束",label:"把結論寫短、寫準、寫得回去",text:"請把我的研究（貼上研究問題、方法摘要、三張關鍵圖的圖說與 take-away）收斂成：①結論 3 點（每點 1 句）②限制 3 點（每點要具體）③下一步 3 點（每點都要可檢驗）。規則：不得新增資料沒有的結果；若資訊不足請用【待補】列出。"},
+    {type:"prompt",tag:"收束",label:"檢查是否過度推論",text:"你是科展評審。根據我提供的結論與圖表重點（貼上），請檢查是否有過度推論或把相關寫成因果的句子；請逐句標出並給出更謹慎的改寫版本。"},
+    {type:"prompt",tag:"收束",label:"把「限制與下一步」改成可答辯版本",text:"請把我的「限制與下一步」改寫成可答辯版本：每個限制都要能對應到一個可能的誤差來源或未控制變因；每個下一步都要對應到一個可執行的實驗／取樣／分析改進。"}
+  ]
+}
+];
+
+/* ============ RENDER ============ */
+const esc = s => s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+function fmtPrompt(t){
+  // highlight （括號）placeholders and 【待補】 markers
+  return esc(t)
+    .replace(/（[^（）]*）/g,m=>'<span class="ph">'+m+'</span>')
+    .replace(/【[^】]*】/g,m=>'<span class="ph">'+m+'</span>');
+}
+let pid=0;
+function block(b){
+  if(b.type==='p') return '<p>'+b.text+'</p>';
+  if(b.type==='h3') return '<h3>'+b.text+'</h3>';
+  if(b.type==='list') return '<ul class="clean">'+b.items.map(i=>'<li>'+i+'</li>').join('')+'</ul>';
+  if(b.type==='steps') return '<ol class="steps">'+b.items.map(i=>'<li>'+i+'</li>').join('')+'</ol>';
+  if(b.type==='tools') return '<div class="tools">'+b.items.map(i=>'<span class="chip">'+i+'</span>').join('')+'</div>';
+  if(b.type==='callout'){
+    const map={teacher:['老師帶領法','🎯'],hand:['學生必交','📋'],warn:['常見扣分點 / 注意','⚠️']};
+    const m=map[b.variant]||['提醒','•'];
+    const t=b.title||m[0];
+    return '<div class="callout '+b.variant+'"><div class="ct"><span class="badge">'+m[1]+'</span>'+t+'</div>'+(b.text?'<p>'+b.text+'</p>':'')+(b.items?'<ul class="clean" style="margin:4px 0">'+b.items.map(i=>'<li>'+i+'</li>').join('')+'</ul>':'')+'</div>';
+  }
+  if(b.type==='table'){
+    return '<div class="tablewrap"><table><thead><tr>'+b.head.map(h=>'<th>'+h+'</th>').join('')+'</tr></thead><tbody>'+
+      b.rows.map(r=>'<tr>'+r.map(c=>'<td>'+c+'</td>').join('')+'</tr>').join('')+'</tbody></table></div>';
+  }
+  if(b.type==='prompt'){
+    const id='p'+(pid++);
+    const tag=b.tag?'<span class="ptag">'+b.tag+'</span>':'';
+    return '<div class="prompt"><div class="phead"><span class="lights"><i></i><i></i><i></i></span>'+
+      '<span class="ptitle">'+esc(b.label||'提示詞')+'</span>'+tag+
+      '<button class="copy-btn" data-id="'+id+'"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>複製</button></div>'+
+      '<pre id="'+id+'" data-raw="'+esc(b.text)+'">'+fmtPrompt(b.text)+'</pre></div>';
+  }
+  return '';
+}
+const app=document.getElementById('app'), nav=document.getElementById('nav');
+let navHTML='';
+SECTIONS.forEach((s,i)=>{
+  if(s.group){navHTML+='<h4>'+s.group+'</h4>';}
+  navHTML+='<a href="#'+s.id+'"><span class="ix">'+(s.num||'')+'</span><span>'+s.title+'</span></a>';
+  let html='<section class="chapter" id="'+s.id+'"><div class="ch-head"><div class="ch-num">'+(s.num||'·')+'</div><div><h2>'+s.title+'</h2>'+(s.sub?'<div class="sub">'+s.sub+'</div>':'')+'</div></div>';
+  html+=s.blocks.map(block).join('');
+  html+='</section>';
+  app.insertAdjacentHTML('beforeend',html);
+});
+nav.innerHTML=navHTML;
+
+/* copy */
+document.addEventListener('click',e=>{
+  const btn=e.target.closest('.copy-btn');
+  if(!btn)return;
+  const pre=document.getElementById(btn.dataset.id);
+  const raw=pre.getAttribute('data-raw');
+  const txt=new DOMParser().parseFromString(raw,'text/html').documentElement.textContent;
+  navigator.clipboard.writeText(txt).then(()=>{
+    btn.classList.add('done');btn.innerHTML='✓ 已複製';
+    setTimeout(()=>{btn.classList.remove('done');btn.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg>複製';},1600);
+  });
+});
+
+/* theme */
+const root=document.documentElement, thBtn=document.getElementById('themeBtn'), thLabel=document.getElementById('thLabel'), thIcon=document.getElementById('thIcon');
+const sun='<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>';
+const moon='<path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/>';
+function setTheme(t){root.setAttribute('data-theme',t);thLabel.textContent=t==='dark'?'淺色':'深色';thIcon.innerHTML=t==='dark'?sun:moon;try{localStorage.setItem('spa-theme',t)}catch(e){}}
+setTheme((()=>{try{return localStorage.getItem('spa-theme')||'light'}catch(e){return 'light'}})());
+thBtn.onclick=()=>setTheme(root.getAttribute('data-theme')==='dark'?'light':'dark');
+
+/* mobile nav */
+const sb=document.getElementById('sidebar'),scrim=document.getElementById('scrim');
+document.getElementById('menuBtn').onclick=()=>{sb.classList.toggle('open');scrim.classList.toggle('show')};
+scrim.onclick=()=>{sb.classList.remove('open');scrim.classList.remove('show')};
+nav.addEventListener('click',e=>{if(e.target.closest('a')){sb.classList.remove('open');scrim.classList.remove('show')}});
+
+/* scrollspy + totop */
+const links=[...nav.querySelectorAll('a')], secs=[...document.querySelectorAll('section.chapter')];
+const toTop=document.getElementById('toTop');
+const io=new IntersectionObserver(es=>{es.forEach(en=>{if(en.isIntersecting){const id=en.target.id;links.forEach(l=>l.classList.toggle('active',l.getAttribute('href')==='#'+id))}})},{rootMargin:'-45% 0px -50% 0px'});
+secs.forEach(s=>io.observe(s));
+addEventListener('scroll',()=>{toTop.classList.toggle('show',scrollY>700)});
+toTop.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script>
+</body>
+</html>

@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>科展研究報告與論文寫作全攻略指南</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Chosen Palette: Warm Professional
+         Background: #F9FAFB (Cool Gray 50) - Clean, academic background
+         Primary: #1E3A8A (Blue 900) - Authoritative, for headers
+         Secondary: #0F766E (Teal 700) - For success/correct examples
+         Accent: #B45309 (Amber 700) - For warnings/pitfalls
+         Neutral: #4B5563 (Gray 600) - For body text
+    -->
+
+    <!-- Application Structure Plan:
+         1. Hero Section: Clear value proposition (From Experiment to Excellence).
+         2. Evaluation Dashboard: Visualizing the "Rules of the Game" (Scoring Criteria).
+            - Goal: Show users WHERE to focus effort immediately.
+         3. The Writing Structure (Core Interactive Module): A vertical flow or tabs representing the standard report structure (Abstract -> Conclusion).
+            - Goal: Deep dive into each section with "Do's/Don'ts" and specific formatting rules.
+         4. Safety & Ethics Station: Critical checkpoint based on the "Safety Review" PDF.
+            - Goal: Prevent disqualification due to safety violations.
+         5. Success vs. Failure Analysis: Comparative insights from the "Success Factors" and "Common Mistakes" PDFs.
+            - Goal: Move from "Good" to "Great" (Phenomenon vs. Mechanism).
+    -->
+
+    <!-- Visualization & Content Choices:
+         1. Scoring Criteria: Doughnut Chart. Shows the 50/30/20 split (Creativity/Content/Structure).
+            - Justification: Immediate visual understanding of priorities.
+         2. Common Mistakes Frequency: Bar Chart. (Hypothetical data based on qualitative report "Most Common").
+            - Justification: Highlights what to avoid (e.g., Format errors, Safety).
+         3. Writing Guide: Interactive Accordion/Tabs.
+            - Justification: Organizes dense text rules into manageable chunks.
+         4. Safety Checklist Cards: Grid layout with icons.
+            - Justification: Quick scanning of distinct risk categories (Chemical, Bio, Human).
+         - CONFIRMATION: NO SVG graphics used. NO Mermaid JS used.
+    -->
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap');
+        
+        body {
+            font-family: 'Noto Sans TC', sans-serif;
+            background-color: #F9FAFB;
+            color: #1F2937;
+        }
+
+        /* Chart Container Styling (Strict Adherence) */
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 400px;
+        }
+
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+
+        /* Custom Scrollbar for content panels */
+        .custom-scroll::-webkit-scrollbar {
+            width: 8px;
+        }
+        .custom-scroll::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        .custom-scroll::-webkit-scrollbar-thumb {
+            background: #cbd5e1; 
+            border-radius: 4px;
+        }
+        .custom-scroll::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8; 
+        }
+
+        .nav-active {
+            border-bottom: 2px solid #1E3A8A;
+            color: #1E3A8A;
+            font-weight: 700;
+        }
+    </style>
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Navigation -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-blue-900">科展論文大師</span>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <button onclick="scrollToSection('dashboard')" class="text-gray-600 hover:text-blue-900 px-3 py-2 text-sm font-medium transition">評分標準</button>
+                    <button onclick="scrollToSection('writing-guide')" class="text-gray-600 hover:text-blue-900 px-3 py-2 text-sm font-medium transition">寫作規範</button>
+                    <button onclick="scrollToSection('safety')" class="text-gray-600 hover:text-blue-900 px-3 py-2 text-sm font-medium transition">安全審查</button>
+                    <button onclick="scrollToSection('success-factors')" class="text-gray-600 hover:text-blue-900 px-3 py-2 text-sm font-medium transition">成功關鍵</button>
+                </div>
+                <!-- Mobile menu button (Simplified for this SPA) -->
+                <div class="md:hidden flex items-center">
+                    <button onclick="toggleMobileMenu()" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        ☰
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t">
+            <button onclick="scrollToSection('dashboard')" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">評分標準</button>
+            <button onclick="scrollToSection('writing-guide')" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">寫作規範</button>
+            <button onclick="scrollToSection('safety')" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">安全審查</button>
+            <button onclick="scrollToSection('success-factors')" class="block w-full text-left px-4 py-2 text-gray-700 hover:bg-gray-100">成功關鍵</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="bg-blue-900 text-white py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">科展研究報告與科學論文寫作全攻略</h1>
+            <p class="text-xl text-blue-100 max-w-3xl mx-auto">
+                從研究構想到完美發表的完整指南。
+                <br>整合「評審標準」、「格式規範」、「常見缺失」與「成功因子」，助你打造特優作品。
+            </p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 space-y-16 w-full">
+
+        <!-- Section 1: Dashboard & Scoring -->
+        <section id="dashboard" class="scroll-mt-20">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4">評審視角：分數是怎麼來的？</h2>
+                <p class="mt-4 text-gray-600 text-lg">
+                    在開始寫作之前，必須了解遊戲規則。科學展覽與小論文競賽並不僅僅看實驗結果，**創意**與**嚴謹度**往往佔據了大部分的分數。根據《科學研究報告 作品說明書 評審標準》，你的精力應該這樣分配：
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+                <!-- Chart Col -->
+                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-100">
+                    <div class="chart-container">
+                        <canvas id="scoringChart"></canvas>
+                    </div>
+                    <p class="text-center text-sm text-gray-500 mt-4">資料來源：科學研究報告 作品說明書 評審標準與分數指標</p>
+                </div>
+
+                <!-- Text Col -->
+                <div class="space-y-6">
+                    <div class="bg-blue-50 p-5 rounded-lg border-l-4 border-blue-500">
+                        <h3 class="font-bold text-blue-900 text-lg">1. 創意與貢獻 (50%)</h3>
+                        <p class="text-gray-700 mt-2">這是決勝關鍵。不是要做多艱深的題目，而是：</p>
+                        <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                            <li>是否發現新的觀念或方法？</li>
+                            <li>題材是否適合學生能力範圍（不要好高騖遠）？</li>
+                            <li>結果是否具備後續發展或應用潛力？</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-teal-50 p-5 rounded-lg border-l-4 border-teal-500">
+                        <h3 class="font-bold text-teal-900 text-lg">2. 內容與專業知識 (30%)</h3>
+                        <p class="text-gray-700 mt-2">科學的硬實力。重點在於「嚴謹」：</p>
+                        <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                            <li>變因控制是否完善？實驗數據是否足夠？</li>
+                            <li>推論是否合乎邏輯？有無過度推論？</li>
+                            <li>實驗紀錄簿是否詳實？</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-gray-50 p-5 rounded-lg border-l-4 border-gray-400">
+                        <h3 class="font-bold text-gray-800 text-lg">3. 表達與組織 (20%)</h3>
+                        <p class="text-gray-700 mt-2">即使研究再好，寫不清楚也會失分。</p>
+                        <ul class="list-disc list-inside mt-2 text-gray-600 space-y-1">
+                            <li>格式是否符合規定（字體、行距、參考文獻）？</li>
+                            <li>圖表標題是否規範？</li>
+                            <li>口頭報告的邏輯是否清晰？</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 2: Writing Guide (Interactive) -->
+        <section id="writing-guide" class="scroll-mt-20">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4">寫作實驗室：一步步構建完美報告</h2>
+                <p class="mt-4 text-gray-600 text-lg">
+                    科展說明書與小論文有著嚴格的格式要求。點擊下方頁籤，深入了解每個章節的**寫作重點**、**常見錯誤**與**專家建議**。
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-xl overflow-hidden border border-gray-200 flex flex-col md:flex-row min-h-[600px]">
+                <!-- Sidebar Tabs -->
+                <div class="md:w-1/4 bg-gray-50 border-r border-gray-200 overflow-y-auto custom-scroll">
+                    <nav class="flex flex-col">
+                        <button onclick="updateGuide('title')" class="guide-tab p-4 text-left hover:bg-white hover:text-blue-700 border-b border-gray-100 transition focus:outline-none bg-white text-blue-900 font-bold border-l-4 border-l-blue-600" id="tab-title">
+                            1. 題目 (Title)
+                        </button>
+                        <button onclick="updateGuide('abstract')" class="guide-tab p-4 text-left hover:bg-white hover:text-blue-700 border-b border-gray-100 transition focus:outline-none text-gray-600 border-l-4 border-l-transparent" id="tab-abstract">
+                            2. 摘要 (Abstract)
+                        </button>
+                        <button onclick="updateGuide('intro')" class="guide-tab p-4 text-left hover:bg-white hover:text-blue-700 border-b border-gray-100 transition focus:outline-none text-gray-600 border-l-4 border-l-transparent" id="tab-intro">
+                            3. 前言 (Introduction)
+                        </button>
+                        <button onclick="updateGuide('method')" class="guide-tab p-4 text-left hover:bg-white hover:text-blue-700 border-b border-gray-100 transition focus:outline-none text-gray-600 border-l-4 border-l-transparent" id="tab-method">
+                            4. 研究器材與方法
+                        </button>
+                        <button onclick="updateGuide('results')" class="guide-tab p-4 text-left hover:bg-white hover:text-blue-700 border-b border-gray-100 transition focus:outline-none text-gray-600 border-l-4 border-l-transparent" id="tab-results">
+                            5. 研究結果 (Results)
+                        </button>
+                        <button onclick="updateGuide('discussion')" class="guide-tab p-4 text-left hover:bg-white hover:text-blue-700 border-b border-gray-100 transition focus:outline-none text-gray-600 border-l-4 border-l-transparent" id="tab-discussion">
+                            6. 討論 (Discussion)
+                        </button>
+                        <button onclick="updateGuide('conclusion')" class="guide-tab p-4 text-left hover:bg-white hover:text-blue-700 border-b border-gray-100 transition focus:outline-none text-gray-600 border-l-4 border-l-transparent" id="tab-conclusion">
+                            7. 結論 (Conclusion)
+                        </button>
+                        <button onclick="updateGuide('references')" class="guide-tab p-4 text-left hover:bg-white hover:text-blue-700 border-b border-gray-100 transition focus:outline-none text-gray-600 border-l-4 border-l-transparent" id="tab-references">
+                            8. 參考文獻 (References)
+                        </button>
+                    </nav>
+                </div>
+
+                <!-- Content Area -->
+                <div class="md:w-3/4 p-8 bg-white overflow-y-auto custom-scroll" id="guide-content">
+                    <!-- Dynamic Content Loaded Here -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 3: Safety Analysis -->
+        <section id="safety" class="scroll-mt-20">
+            <div class="bg-red-50 rounded-2xl p-8 border border-red-100">
+                <div class="mb-6">
+                    <h2 class="text-3xl font-bold text-red-900 flex items-center">
+                        <span class="mr-3 text-4xl">⚠️</span> 
+                        安全審查：你的作品通過了嗎？
+                    </h2>
+                    <p class="mt-4 text-red-800 text-lg">
+                        許多優秀作品因為**違反安全規定**或**倫理審查**而在初審就被刷掉。根據《全國科展安全審查未通過之項目》，以下是三大高風險區：
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <!-- Chemical Risk -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-red-500">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🧪 化學與危險物質</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>未說明強酸強鹼防護措施。</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>未說明廢液處理方式（不能直接倒水槽！）。</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>使用劇毒藥品未詳細評估風險。</li>
+                        </ul>
+                        <div class="mt-4 bg-green-50 p-3 rounded text-xs text-green-800">
+                            <strong>解決方案：</strong>詳列MSDS資料，拍攝穿戴護目鏡、手套操作的照片，說明廢液回收流程。
+                        </div>
+                    </div>
+
+                    <!-- Bio Risk -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-yellow-500">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">🦠 微生物與生物</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>使用未知來源的野生菌株。</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>在家中進行微生物培養（嚴禁！）。</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>未說明高溫滅菌程序。</li>
+                        </ul>
+                        <div class="mt-4 bg-green-50 p-3 rounded text-xs text-green-800">
+                            <strong>解決方案：</strong>僅使用食品級或商用菌株，要在學校實驗室操作，必須有滅菌鍋紀錄。
+                        </div>
+                    </div>
+
+                    <!-- Human Risk -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500">
+                        <h3 class="text-xl font-bold text-gray-900 mb-3">👤 人類研究 (IRB)</h3>
+                        <ul class="text-sm text-gray-600 space-y-2">
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>問卷發放前未經指導老師或IRB審查。</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>未取得受試者（尤其是兒童）監護人同意書。</li>
+                            <li class="flex items-start"><span class="text-red-500 mr-2">✗</span>進行侵入性或體能測試未評估風險。</li>
+                        </ul>
+                        <div class="mt-4 bg-green-50 p-3 rounded text-xs text-green-800">
+                            <strong>解決方案：</strong>一定要簽署「受試者同意書」，問卷內容需去識別化。
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section 4: Success Factors (Comparison) -->
+        <section id="success-factors" class="scroll-mt-20">
+            <div class="mb-8">
+                <h2 class="text-3xl font-bold text-gray-900 border-l-4 border-blue-600 pl-4">從平庸到卓越：成功因子分析</h2>
+                <p class="mt-4 text-gray-600 text-lg">
+                    根據歷年科展評審報告，得獎作品與一般作品的關鍵差異往往在於「深度」。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Common Mistakes -->
+                <div class="bg-white border border-gray-200 rounded-xl p-6 shadow-sm">
+                    <h3 class="text-xl font-bold text-gray-500 mb-4 flex items-center">
+                        <span class="mr-2">📉</span> 常見缺失 (一般作品)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-gray-700">1. 僅止於現象描述</h4>
+                            <p class="text-sm text-gray-600 mt-1">例如：「我發現加了A，植物長得比較高。」但沒有解釋為什麼。</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-gray-700">2. 變因控制不嚴謹</h4>
+                            <p class="text-sm text-gray-600 mt-1">同時改變了兩個變因，導致無法判斷是誰造成的結果。</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-bold text-gray-700">3. 過度推論</h4>
+                            <p class="text-sm text-gray-600 mt-1">數據只顯示微小差異，卻下了一個震驚世界的結論。</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Success Factors -->
+                <div class="bg-white border-2 border-blue-100 rounded-xl p-6 shadow-md">
+                    <h3 class="text-xl font-bold text-blue-700 mb-4 flex items-center">
+                        <span class="mr-2">🏆</span> 成功因子 (特優作品)
+                    </h3>
+                    <div class="space-y-4">
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-900">1. 機制探討與解釋</h4>
+                            <p class="text-sm text-blue-800 mt-1">不只看到「長得高」，還去測量激素、觀察細胞切片，找出「為什麼」長得高。</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-900">2. 數據的再分析</h4>
+                            <p class="text-sm text-blue-800 mt-1">使用統計方法（如T檢定、ANOVA）證明差異是顯著的，而非誤差。</p>
+                        </div>
+                        <div class="bg-blue-50 p-4 rounded-lg border-l-4 border-blue-500">
+                            <h4 class="font-bold text-blue-900">3. 創新的實驗設計</h4>
+                            <p class="text-sm text-blue-800 mt-1">自己設計儀器或改良現有方法，而不只是買現成的套件。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Interactive Checklist for Self Review -->
+            <div class="mt-10 bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">你的報告準備好了嗎？自我檢核表</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4" id="checklist-container">
+                    <!-- JS will populate this -->
+                </div>
+                <div class="mt-6 text-center">
+                    <p id="checklist-result" class="text-lg font-bold text-gray-400">請勾選以上項目進行自我評估</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-300 py-8 mt-12">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="mb-2">資料來源：全國科展指導文件、小論文寫作評分標準、Wordvice學術寫作指南</p>
+            <p class="text-sm text-gray-500">本工具僅供教學參考，詳細規定請以當年度官方公告為準。</p>
+            <!-- Placeholder for CONFIRMATION -->
+            <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+        </div>
+    </footer>
+
+    <script>
+        // Data for Writing Guide
+        const guideData = {
+            title: {
+                title: "1. 題目 (Title)",
+                content: `
+                    <div class="space-y-4 animate-fade-in">
+                        <p class="text-lg text-gray-700">題目是評審的第一印象。一個好的題目應該具備「專一性」且能反映研究內容。</p>
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div class="bg-red-50 p-4 rounded border border-red-200">
+                                <h4 class="font-bold text-red-700 mb-2">❌ 避免這樣寫 (Bad)</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                    <li>太過簡短：如「細菌的研究」。(哪種細菌？研究什麼？)</li>
+                                    <li>太過冗長：像摘要一樣把所有發現都寫進去。</li>
+                                    <li>使用贅字：「關於...的研究」、「...之探討」(這些字通常可以省略)。</li>
+                                    <li>不夠具體：「各種抗生素對細菌的影響」(應具體指出哪類抗生素)。</li>
+                                </ul>
+                            </div>
+                            <div class="bg-green-50 p-4 rounded border border-green-200">
+                                <h4 class="font-bold text-green-700 mb-2">✅ 建議寫法 (Good)</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                    <li>具體指出變因與對象。</li>
+                                    <li>範例：「探討不同波長光線對眼蟲趨光性之影響」。</li>
+                                    <li>範例：「利用廢棄牡蠣殼改良酸性土壤之效益評估」。</li>
+                                    <li>英文題目：名詞片語形式，首字母大寫 (Prepositions除外)。</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="mt-4 p-4 bg-yellow-50 rounded border border-yellow-200">
+                            <span class="font-bold text-yellow-800">💡 專家提示：</span>
+                            <p class="text-sm text-yellow-800 mt-1">標題最好不要超過 20 個字。它應該像新聞標題一樣，吸引人但絕不誇大。</p>
+                        </div>
+                    </div>
+                `
+            },
+            abstract: {
+                title: "2. 摘要 (Abstract)",
+                content: `
+                    <div class="space-y-4 animate-fade-in">
+                        <p class="text-lg text-gray-700">摘要是整份報告的縮影。許多評審只看完摘要就決定了第一印象分數。通常限制在 <strong>300-500字</strong> 以內。</p>
+                        
+                        <div class="bg-blue-50 p-5 rounded-lg">
+                            <h4 class="font-bold text-blue-900 mb-3">摘要的黃金四段式結構：</h4>
+                            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                                <li><strong>研究動機與目的 (Purpose)：</strong>為什麼要做這個研究？想解決什麼問題？(約佔10%)</li>
+                                <li><strong>研究方法 (Methods)：</strong>主要用了什麼技術、儀器或實驗設計？(約佔30%)</li>
+                                <li><strong>研究結果 (Results)：</strong>最重要、最核心的數據發現是什麼？(約佔40%)</li>
+                                <li><strong>結論 (Conclusion)：</strong>這些結果代表什麼意義？(約佔20%)</li>
+                            </ol>
+                        </div>
+
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gray-800">常見錯誤：</h4>
+                            <ul class="list-disc list-inside text-sm text-gray-600 mt-2 space-y-1">
+                                <li>引用參考文獻 (摘要中不應出現引註)。</li>
+                                <li>放入圖表 (摘要純文字)。</li>
+                                <li>寫了一堆背景知識，卻沒寫到自己的實驗結果。</li>
+                                <li>使用「本文」、「本研究」太多次，浪費字數。</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            intro: {
+                title: "3. 前言 (Introduction)",
+                content: `
+                    <div class="space-y-4 animate-fade-in">
+                        <p class="text-lg text-gray-700">前言包含三大要素：研究動機、研究目的、文獻探討。</p>
+                        
+                        <div class="space-y-4">
+                            <div class="border-l-4 border-purple-500 pl-4">
+                                <h4 class="font-bold text-gray-900">研究動機 (Motivation)</h4>
+                                <p class="text-sm text-gray-600">不要只寫「因為老師叫我做」或「我看了一本書」。要從觀察到的現象、社會議題或生活中的疑問出發。例如：「觀察到校園積水處孑孓數量不同，引發對光線影響的好奇...」</p>
+                            </div>
+
+                            <div class="border-l-4 border-purple-500 pl-4">
+                                <h4 class="font-bold text-gray-900">文獻探討 (Literature Review)</h4>
+                                <p class="text-sm text-gray-600">這是展現你「讀書」的地方。重點是：</p>
+                                <ul class="list-disc list-inside text-sm text-gray-600 mt-1">
+                                    <li>前人做過什麼？他們的結果如何？</li>
+                                    <li>前人的研究有什麼不足或缺口？(這就是你的切入點！)</li>
+                                    <li><strong>提出假說 (Hypothesis)：</strong>基於文獻，你預測會發生什麼？(不要用"我們假設"，直接陳述預測關係)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            method: {
+                title: "4. 研究器材與方法",
+                content: `
+                    <div class="space-y-4 animate-fade-in">
+                        <p class="text-lg text-gray-700">這一章必須具備「可重複性」(Reproducibility)。別人照著你的步驟做，必須能得到一樣的結果。</p>
+                        
+                        <div class="grid grid-cols-1 gap-4">
+                            <div class="bg-white border border-gray-200 p-4 rounded-lg shadow-sm">
+                                <h4 class="font-bold text-gray-800 mb-2">設備與器材</h4>
+                                <p class="text-sm text-gray-600">列出清單，包含型號、規格、藥品濃度、產地。如果使用了自製儀器，必須附上設計圖或照片。</p>
+                            </div>
+                            
+                            <div class="bg-white border border-gray-200 p-4 rounded-lg shadow-sm">
+                                <h4 class="font-bold text-gray-800 mb-2">研究步驟 (Process)</h4>
+                                <p class="text-sm text-gray-600 mb-2">建議使用流程圖 (Flowchart) 搭配文字說明。</p>
+                                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                    <li>清楚定義操作變因、控制變因、應變變因。</li>
+                                    <li>說明樣本數 (Sample size)，樣本太少統計無意義。</li>
+                                    <li><strong>安全說明：</strong>必須在此處詳細說明如何處理廢棄物、防護措施 (評分重點！)。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            results: {
+                title: "5. 研究結果 (Results)",
+                content: `
+                    <div class="space-y-4 animate-fade-in">
+                        <p class="text-lg text-gray-700">客觀呈現數據，不要加入主觀解釋 (解釋留給「討論」)。</p>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gray-50 p-4 rounded border border-gray-200">
+                                <h4 class="font-bold text-gray-800 mb-2">圖表規範 (非常重要！)</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                    <li><strong>表 (Table)：</strong>標題在表格「上方」。欄位要有單位。</li>
+                                    <li><strong>圖 (Figure)：</strong>標題在圖片「下方」。座標軸要有標示和單位。</li>
+                                    <li>圖表必須「自明」(Self-explanatory)，讀者不看內文只看圖也要懂。</li>
+                                    <li>先見文，後見圖 (內文要先提到「如圖一所示...」)。</li>
+                                </ul>
+                            </div>
+                            <div class="bg-yellow-50 p-4 rounded border border-yellow-200">
+                                <span class="font-bold text-yellow-800">💡 統計分析：</span>
+                                <p class="text-sm text-yellow-800 mt-1">只列出平均值是不夠的。需要呈現標準差 (Standard Deviation) 或標準誤。如果可以，進行顯著性差異檢定 (t-test, ANOVA) 並標示 p 值。</p>
+                            </div>
+                        </div>
+                    </div>
+                `
+            },
+            discussion: {
+                title: "6. 討論 (Discussion)",
+                content: `
+                    <div class="space-y-4 animate-fade-in">
+                        <p class="text-lg text-gray-700">這是展現你科學素養最核心的部分。許多作品這部分寫得太少。</p>
+                        
+                        <div class="space-y-3">
+                            <h4 class="font-bold text-gray-800">討論應該包含什麼？</h4>
+                            <ul class="list-disc list-inside text-gray-600 space-y-2">
+                                <li><strong>解釋數據：</strong>為什麼會出現這樣的結果？背後的原理機制是什麼？</li>
+                                <li><strong>與文獻比較：</strong>你的結果跟前人研究一致嗎？如果不一致，原因可能是什麼？</li>
+                                <li><strong>實驗誤差分析：</strong>誠實面對實驗的限制。是儀器誤差？人為誤差？還是環境干擾？</li>
+                                <li><strong>意外發現：</strong>有沒有數據是原本沒預期到的？這往往是新發現的開端。</li>
+                            </ul>
+                        </div>
+                    </div>
+                `
+            },
+            conclusion: {
+                title: "7. 結論 (Conclusion)",
+                content: `
+                    <div class="space-y-4 animate-fade-in">
+                        <p class="text-lg text-gray-700">結論必須簡潔有力，直接回答研究目的。</p>
+                        
+                        <div class="bg-teal-50 p-4 rounded border border-teal-200">
+                            <h4 class="font-bold text-teal-800 mb-2">撰寫要點：</h4>
+                            <ul class="list-disc list-inside text-sm text-teal-700 space-y-1">
+                                <li>條列式呈現 (1, 2, 3...)。</li>
+                                <li>不要在此處提出新的數據或論點。</li>
+                                <li>結論必須完全由實驗結果支持 (不要寫出實驗沒證明的推論)。</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="mt-4">
+                            <h4 class="font-bold text-gray-800">建議 (Suggestions)</h4>
+                            <p class="text-sm text-gray-600">針對未來的研究方向提出具體建議。例如：「未來可增加樣本數...」、「可嘗試改變溫度變因...」。具體的建議能顯示你對研究的深刻反思。</p>
+                        </div>
+                    </div>
+                `
+            },
+            references: {
+                title: "8. 參考文獻 (References)",
+                content: `
+                    <div class="space-y-4 animate-fade-in">
+                        <p class="text-lg text-gray-700">參考文獻是評審檢查「格式規範」的重點區域。格式錯誤通常是扣分主因。</p>
+                        
+                        <div class="space-y-4">
+                            <div class="bg-gray-100 p-4 rounded">
+                                <h4 class="font-bold text-gray-800 mb-2">APA 格式範例 (最常用)</h4>
+                                <div class="text-sm font-mono bg-white p-3 border border-gray-300 rounded">
+                                    <p class="mb-2"><strong>期刊：</strong></p>
+                                    <p>作者 (年份)。文章名稱。<em>期刊名稱</em>，<em>卷數</em>(期數)，頁碼。</p>
+                                    <p class="text-gray-500 mt-1">例：林小明 (2023)。台灣蝴蝶研究。<em>科學教育月刊</em>，<em>45</em>(2)，10-15。</p>
+                                    
+                                    <p class="mt-3 mb-2"><strong>書籍：</strong></p>
+                                    <p>作者 (年份)。<em>書名</em>。出版地：出版社。</p>
+                                </div>
+                            </div>
+                            
+                            <div class="bg-red-50 p-4 rounded border border-red-200">
+                                <h4 class="font-bold text-red-700 mb-2">常見扣分地雷</h4>
+                                <ul class="list-disc list-inside text-sm text-gray-600 space-y-1">
+                                    <li>內文有引用，但參考文獻沒列出 (或反之)。</li>
+                                    <li>格式不統一 (一下用APA，一下用MLA)。</li>
+                                    <li>網路資料只貼網址，沒有標題和瀏覽日期。</li>
+                                    <li>中英文文獻沒有分開排列 (通常中文在前，英文在後)。</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                `
+            }
+        };
+
+        // Checklist Data
+        const checklistItems = [
+            "題目是否具體且無贅字？",
+            "摘要是否包含目的、方法、結果、結論四要素？",
+            "是否有詳列化學品與生物安全防護措施？",
+            "變因控制（操作、控制、應變）是否清楚？",
+            "圖表是否有編號、標題，且單位標示正確？",
+            "是否有統計分析（不僅僅是平均值）？",
+            "結論是否完全由數據支持（無過度推論）？",
+            "參考文獻格式是否完全統一且與內文對應？",
+            "實驗日誌（Logbook）是否詳實記錄？",
+            "是否已簽署必要的倫理同意書（如人體研究）？"
+        ];
+
+        // Init
+        document.addEventListener('DOMContentLoaded', () => {
+            // Load Chart
+            initChart();
+            
+            // Load Initial Guide Content
+            updateGuide('title');
+
+            // Load Checklist
+            renderChecklist();
+        });
+
+        // Chart Initialization
+        function initChart() {
+            const ctx = document.getElementById('scoringChart').getContext('2d');
+            new Chart(ctx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['創意及貢獻 (50%)', '內容及專業知識 (30%)', '文字表達及組織 (20%)'],
+                    datasets: [{
+                        data: [50, 30, 20],
+                        backgroundColor: [
+                            'rgba(30, 58, 138, 0.8)', // Blue 900
+                            'rgba(15, 118, 110, 0.8)', // Teal 700
+                            'rgba(156, 163, 175, 0.8)'  // Gray 400
+                        ],
+                        borderColor: '#ffffff',
+                        borderWidth: 2,
+                        hoverOffset: 4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: {
+                                font: {
+                                    size: 14,
+                                    family: "'Noto Sans TC', sans-serif"
+                                },
+                                padding: 20
+                            }
+                        },
+                        tooltip: {
+                            bodyFont: {
+                                size: 14,
+                                family: "'Noto Sans TC', sans-serif"
+                            },
+                            callbacks: {
+                                label: function(context) {
+                                    const explanations = [
+                                        "新觀念、新方法、應用潛力",
+                                        "理論依據、程序完整、數據正確",
+                                        "格式整齊、圖表正確、引用確實"
+                                    ];
+                                    return ` ${context.label}: ${explanations[context.dataIndex]}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        // Guide Tab Logic
+        function updateGuide(key) {
+            // Update Content
+            const contentDiv = document.getElementById('guide-content');
+            const data = guideData[key];
+            
+            contentDiv.innerHTML = `
+                <h3 class="text-2xl font-bold text-blue-900 mb-6 pb-2 border-b border-gray-200">${data.title}</h3>
+                ${data.content}
+            `;
+
+            // Update Active Tab Styles
+            document.querySelectorAll('.guide-tab').forEach(tab => {
+                tab.classList.remove('bg-white', 'text-blue-900', 'font-bold', 'border-l-blue-600');
+                tab.classList.add('text-gray-600', 'border-l-transparent');
+            });
+            const activeTab = document.getElementById(`tab-${key}`);
+            activeTab.classList.add('bg-white', 'text-blue-900', 'font-bold', 'border-l-blue-600');
+            activeTab.classList.remove('text-gray-600', 'border-l-transparent');
+        }
+
+        // Render Checklist
+        function renderChecklist() {
+            const container = document.getElementById('checklist-container');
+            container.innerHTML = checklistItems.map((item, index) => `
+                <div class="flex items-center p-3 bg-gray-50 rounded border border-gray-200 hover:bg-blue-50 transition cursor-pointer" onclick="toggleCheck(${index})">
+                    <input type="checkbox" id="check-${index}" class="form-checkbox h-5 w-5 text-blue-600 rounded focus:ring-blue-500" onchange="updateCheckStatus()">
+                    <label for="check-${index}" class="ml-3 text-gray-700 cursor-pointer select-none">${item}</label>
+                </div>
+            `).join('');
+        }
+
+        function toggleCheck(index) {
+            const checkbox = document.getElementById(`check-${index}`);
+            checkbox.checked = !checkbox.checked;
+            updateCheckStatus();
+        }
+
+        function updateCheckStatus() {
+            const total = checklistItems.length;
+            const checked = document.querySelectorAll('input[type="checkbox"]:checked').length;
+            const resultText = document.getElementById('checklist-result');
+            
+            if (checked === 0) {
+                resultText.textContent = "請勾選以上項目進行自我評估";
+                resultText.className = "text-lg font-bold text-gray-400";
+            } else if (checked === total) {
+                resultText.textContent = "🎉 太棒了！你的報告已經具備特優作品的基礎格式與規範！";
+                resultText.className = "text-lg font-bold text-green-600";
+            } else {
+                resultText.textContent = `目前進度：${checked} / ${total}。加油，還差一點！`;
+                resultText.className = "text-lg font-bold text-blue-600";
+            }
+        }
+
+        // Smooth Scroll
+        function scrollToSection(id) {
+            const element = document.getElementById(id);
+            if (element) {
+                element.scrollIntoView({ behavior: 'smooth' });
+            }
+            // Close mobile menu if open
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+        }
+
+        // Toggle Mobile Menu
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>

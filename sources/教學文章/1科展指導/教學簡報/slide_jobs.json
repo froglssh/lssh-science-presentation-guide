@@ -1,0 +1,2691 @@
+{
+  "run_status": "slides_recorded",
+  "deck_name": "科學探究與競賽全方位指導手冊_教學簡報",
+  "selected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+  "sample_generation_method": {
+    "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+    "tool_name": "scripts/image_gen.py",
+    "mode": "generate",
+    "prompt_source": "direct --prompt used for approved sample slide 32",
+    "model": "gpt-image-2",
+    "size": "2048x1152 requested; provider returned 1672x941 PNG with 16:9 aspect ratio",
+    "quality": "medium",
+    "approved_sample_path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+    "input_context_preparation": "inspect approved sample slide as style reference before generation; use generate for normal slides; pass strict input assets with edit --image only when a slide job lists input_images",
+    "handoff_rule": "Subagents must use this same backend/tool/config; use generate for new slides unless the assigned job has strict input_images or is a repair."
+  },
+  "max_concurrent_slides": 6,
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "number": 1,
+      "title": "科學探究與科展競賽的全方位指導手冊",
+      "job": "prompts/slide_01.json",
+      "out": "origin_image/slide_01.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "019f0311-61d4-7e33-8e0c-d4742ecd5571",
+        "agent_nickname": "Faraday",
+        "prompt": "prompts/slide_01.json",
+        "prompt_sha256": "6c024a9364ca26c8b504eb822e5fe20fd410cd5a90326fb2cde996d263e9336c",
+        "dispatched_at": "2026-06-26T08:35:30Z"
+      },
+      "result": {
+        "agent_id": "019f0311-61d4-7e33-8e0c-d4742ecd5571",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_01_candidate.png",
+        "selected_source_sha256": "f53b9c88903ab4259ba4cb2ef65b95c10b362393ab7380c17239890b94e8e63b",
+        "final_image": "origin_image/slide_01.png",
+        "final_image_sha256": "f53b9c88903ab4259ba4cb2ef65b95c10b362393ab7380c17239890b94e8e63b",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "繁體中文整體清楚可讀，版面無明顯重疊或截斷，風格與 slide_32 相符。",
+        "recorded_at": "2026-06-26T08:38:10Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_02",
+      "number": 2,
+      "title": "這套課程要解決什麼問題",
+      "job": "prompts/slide_02.json",
+      "out": "origin_image/slide_02.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "019f0311-6298-7571-95b5-31a98d17f440",
+        "agent_nickname": "Locke",
+        "prompt": "prompts/slide_02.json",
+        "prompt_sha256": "cb309adcc55acca88124062ddfde46540b8280b42ecfbb26ca9748a84f6ec9d7",
+        "dispatched_at": "2026-06-26T08:35:31Z"
+      },
+      "result": {
+        "agent_id": "019f0311-6298-7571-95b5-31a98d17f440",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_02_candidate.png",
+        "selected_source_sha256": "3261c27d0b8e38889b41a2d7381824b27dc558bcc8c35cc8fc649b61d5286f8f",
+        "final_image": "origin_image/slide_02.png",
+        "final_image_sha256": "3261c27d0b8e38889b41a2d7381824b27dc558bcc8c35cc8fc649b61d5286f8f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "候選圖文字清楚可讀，沒有重疊或截斷，整體風格符合 slide_32。",
+        "recorded_at": "2026-06-26T08:38:10Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_03",
+      "number": 3,
+      "title": "全套簡報的學習路線",
+      "job": "prompts/slide_03.json",
+      "out": "origin_image/slide_03.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "019f0311-6367-7770-a3f9-ad15e7f55e99",
+        "agent_nickname": "Socrates",
+        "prompt": "prompts/slide_03.json",
+        "prompt_sha256": "2bccba0c9373cd223b810e597bc6696152612ef5ed6bab2dad85a2ab63c30585",
+        "dispatched_at": "2026-06-26T08:35:31Z"
+      },
+      "result": {
+        "agent_id": "019f0311-6367-7770-a3f9-ad15e7f55e99",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_03_candidate.png",
+        "selected_source_sha256": "c07804975e508a9f828fd9410e15817ac8f95a64174bfe4e5fe1dba06f155b4f",
+        "final_image": "origin_image/slide_03.png",
+        "final_image_sha256": "c07804975e508a9f828fd9410e15817ac8f95a64174bfe4e5fe1dba06f155b4f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "繁體中文清楚可讀，六站式路線無重疊或截斷，風格符合 slide_32。",
+        "recorded_at": "2026-06-26T08:38:10Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_04",
+      "number": 4,
+      "title": "科展的真正價值",
+      "job": "prompts/slide_04.json",
+      "out": "origin_image/slide_04.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "019f0311-647b-7e50-acb4-cbac7fd4f195",
+        "agent_nickname": "Goodall",
+        "prompt": "prompts/slide_04.json",
+        "prompt_sha256": "2ebd79f037398631d605774dd14d21c742881c2a015027f56dd9effb7a43bfd9",
+        "dispatched_at": "2026-06-26T08:35:31Z"
+      },
+      "result": {
+        "agent_id": "019f0311-647b-7e50-acb4-cbac7fd4f195",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_04_candidate.png",
+        "selected_source_sha256": "f9938baf23e9bff660a36538f964a1c537b87ac31e661fa8149134e6d2acde2a",
+        "final_image": "origin_image/slide_04.png",
+        "final_image_sha256": "f9938baf23e9bff660a36538f964a1c537b87ac31e661fa8149134e6d2acde2a",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "繁體中文主要文字可讀、版面無明顯重疊或截斷，符合 slide_32 的清爽專業教材風格。",
+        "recorded_at": "2026-06-26T08:38:42Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_05",
+      "number": 5,
+      "title": "科展是一個微縮科研生態",
+      "job": "prompts/slide_05.json",
+      "out": "origin_image/slide_05.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "019f0311-6698-7a40-8fd8-5a72ffa66e5f",
+        "agent_nickname": "Kant",
+        "prompt": "prompts/slide_05.json",
+        "prompt_sha256": "1a41df14a40c35d839795b068b6b630db4aa2cbed040fa7be2978df6efd0897d",
+        "dispatched_at": "2026-06-26T08:35:31Z"
+      },
+      "result": {
+        "agent_id": "019f0311-6698-7a40-8fd8-5a72ffa66e5f",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_05_candidate.png",
+        "selected_source_sha256": "0ac2e4bf63ffdbee2bc76637e5af0bd5654da58dd896f0f6c775d64f5c8f807a",
+        "final_image": "origin_image/slide_05.png",
+        "final_image_sha256": "0ac2e4bf63ffdbee2bc76637e5af0bd5654da58dd896f0f6c775d64f5c8f807a",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "繁體中文清楚可讀、無明顯重疊或截斷，符合 slide_32 的白底深藍標題、卡片式教學圖解風格。",
+        "recorded_at": "2026-06-26T08:38:42Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_06",
+      "number": 6,
+      "title": "科學方法的三個核心動作",
+      "job": "prompts/slide_06.json",
+      "out": "origin_image/slide_06.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-retry-slide-06",
+        "agent_nickname": "parent-retry",
+        "prompt": "prompts/slide_06.json",
+        "prompt_sha256": "8fbbe59242c58cb6c41e22a90b1ca407ac5593bf7b73de786538045b5995041b",
+        "dispatched_at": "2026-06-26T12:00:04Z"
+      },
+      "result": {
+        "agent_id": "parent-retry-slide-06",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_06_candidate_retry.png",
+        "selected_source_sha256": "8087db7955ad2e63ee6ea775526e42e5d00ac786b85afa1f3be172e179811f51",
+        "final_image": "origin_image/slide_06.png",
+        "final_image_sha256": "8087db7955ad2e63ee6ea775526e42e5d00ac786b85afa1f3be172e179811f51",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent retry with the approved Codex OAuth backend; image is valid 16:9 PNG and nonblank, ready for later full QA.",
+        "recorded_at": "2026-06-26T12:00:15Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_07",
+      "number": 7,
+      "title": "教師角色不是代做者",
+      "job": "prompts/slide_07.json",
+      "out": "origin_image/slide_07.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-07",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_07.json",
+        "prompt_sha256": "6d18aad76e4bf47c178fb78cca476b49dbbab3f9df39efa3c8970c28214a77c1",
+        "dispatched_at": "2026-06-26T12:01:10Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-07",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_07_candidate_parent.png",
+        "selected_source_sha256": "1f4d46568572bb67ccccf3bb8e335017db819a2fc0bf31c8394ff181ebb5b9f4",
+        "final_image": "origin_image/slide_07.png",
+        "final_image_sha256": "1f4d46568572bb67ccccf3bb8e335017db819a2fc0bf31c8394ff181ebb5b9f4",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:01:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_08",
+      "number": 8,
+      "title": "學生角色的五種轉換",
+      "job": "prompts/slide_08.json",
+      "out": "origin_image/slide_08.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-08",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_08.json",
+        "prompt_sha256": "4b6d7852effff125f1ecaa6a39cfc78c155bc1ccbb2a3024a545f8fe6b03f95d",
+        "dispatched_at": "2026-06-26T12:01:58Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-08",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_08_candidate_parent.png",
+        "selected_source_sha256": "90abc220b3ef871e431f877001af65322ff185b55f22d4d74a0eba116c0a67bc",
+        "final_image": "origin_image/slide_08.png",
+        "final_image_sha256": "90abc220b3ef871e431f877001af65322ff185b55f22d4d74a0eba116c0a67bc",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:03:07Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_09",
+      "number": 9,
+      "title": "團隊作品的特殊挑戰",
+      "job": "prompts/slide_09.json",
+      "out": "origin_image/slide_09.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-09",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_09.json",
+        "prompt_sha256": "8e5abd78f4cf26214fdddf1acb48bc04890626548e2c5d3abb4bef0174614772",
+        "dispatched_at": "2026-06-26T12:03:07Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-09",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_09_candidate_parent.png",
+        "selected_source_sha256": "cfc191d38fa00f6045945f9642edea1cb8a466a6a2ecc54304f20c8a5c02c04e",
+        "final_image": "origin_image/slide_09.png",
+        "final_image_sha256": "cfc191d38fa00f6045945f9642edea1cb8a466a6a2ecc54304f20c8a5c02c04e",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:03:59Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_10",
+      "number": 10,
+      "title": "評審到底在看什麼",
+      "job": "prompts/slide_10.json",
+      "out": "origin_image/slide_10.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-10",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_10.json",
+        "prompt_sha256": "dbdc62f7073e91111773070bd9e3daef1bbd43083aed9ed010da8dc7dfe06e6e",
+        "dispatched_at": "2026-06-26T12:04:00Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-10",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_10_candidate_parent.png",
+        "selected_source_sha256": "e1a96a277efa72cb099540e629bf71e860e80a622e1d0a381c85bd4331e1d240",
+        "final_image": "origin_image/slide_10.png",
+        "final_image_sha256": "e1a96a277efa72cb099540e629bf71e860e80a622e1d0a381c85bd4331e1d240",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:04:51Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_11",
+      "number": 11,
+      "title": "評審標準一：問題與原創性",
+      "job": "prompts/slide_11.json",
+      "out": "origin_image/slide_11.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-11",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_11.json",
+        "prompt_sha256": "f4d4f9a8335d29818bc6d57ccbfa4509bc86e73719843154974311afd7792917",
+        "dispatched_at": "2026-06-26T12:04:51Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-11",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_11_candidate_parent.png",
+        "selected_source_sha256": "eaf37879bfd4283fdcafb0cae3265b37627537eae7874a6f37f7fe37f05323e1",
+        "final_image": "origin_image/slide_11.png",
+        "final_image_sha256": "eaf37879bfd4283fdcafb0cae3265b37627537eae7874a6f37f7fe37f05323e1",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:05:45Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_12",
+      "number": 12,
+      "title": "評審標準二：科學方法適切性",
+      "job": "prompts/slide_12.json",
+      "out": "origin_image/slide_12.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-12",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_12.json",
+        "prompt_sha256": "6a1f9e2b240e71de114bae1f2d9735be8b17c76c997fa7e071c47645bc42fd86",
+        "dispatched_at": "2026-06-26T12:05:45Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-12",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_12_candidate_parent.png",
+        "selected_source_sha256": "eb2b4c15c7c74708f31c5033bc22eeeba37a2c6a6ee3fd63fd560560a5770b25",
+        "final_image": "origin_image/slide_12.png",
+        "final_image_sha256": "eb2b4c15c7c74708f31c5033bc22eeeba37a2c6a6ee3fd63fd560560a5770b25",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:06:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_13",
+      "number": 13,
+      "title": "評審標準三：數據與推論品質",
+      "job": "prompts/slide_13.json",
+      "out": "origin_image/slide_13.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-13",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_13.json",
+        "prompt_sha256": "6ab1d66742fd21c688e5419c75bd89d55fa0bd06a63c2e6d4d230760c06db253",
+        "dispatched_at": "2026-06-26T12:07:18Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-13",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_13_candidate_parent.png",
+        "selected_source_sha256": "f83bfdc561dca6fbed2be26bfecbc2dcdc74380814a38ab9189bedcd15b07a29",
+        "final_image": "origin_image/slide_13.png",
+        "final_image_sha256": "f83bfdc561dca6fbed2be26bfecbc2dcdc74380814a38ab9189bedcd15b07a29",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:08:18Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_14",
+      "number": 14,
+      "title": "評審標準四：表達與現場互動",
+      "job": "prompts/slide_14.json",
+      "out": "origin_image/slide_14.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-14",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_14.json",
+        "prompt_sha256": "0b854235c678fb0e12658246e3a810fc5a1f17aacc7bdb17c1a86d63d3955269",
+        "dispatched_at": "2026-06-26T12:08:18Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-14",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_14_candidate_parent.png",
+        "selected_source_sha256": "db73c273bf03d6077329fe26f912857207aae98260cad0008194d47d2ce26b56",
+        "final_image": "origin_image/slide_14.png",
+        "final_image_sha256": "db73c273bf03d6077329fe26f912857207aae98260cad0008194d47d2ce26b56",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:09:08Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_15",
+      "number": 15,
+      "title": "好題目從哪裡來",
+      "job": "prompts/slide_15.json",
+      "out": "origin_image/slide_15.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-15",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_15.json",
+        "prompt_sha256": "e599280f3c2d1b70bb97f4b510a2390eb1812823116e797e507b0892170e8b95",
+        "dispatched_at": "2026-06-26T12:09:08Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-15",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_15_candidate_parent.png",
+        "selected_source_sha256": "39a1182089497f39b3e27a96d3eeccc3c512ddf9d4b001c56068d060f2c996cf",
+        "final_image": "origin_image/slide_15.png",
+        "final_image_sha256": "39a1182089497f39b3e27a96d3eeccc3c512ddf9d4b001c56068d060f2c996cf",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:09:53Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_16",
+      "number": 16,
+      "title": "把興趣變成可研究問題",
+      "job": "prompts/slide_16.json",
+      "out": "origin_image/slide_16.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-16",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_16.json",
+        "prompt_sha256": "f6bc3eb78285d6a05e3dda06edc466bb83614a359ba0fdb4c5ddc81032452182",
+        "dispatched_at": "2026-06-26T12:09:54Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-16",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_16_candidate_parent.png",
+        "selected_source_sha256": "ea18c324a8fb88b7a7436da66324eee048cafac2e36bb0108f93655d97aec9ba",
+        "final_image": "origin_image/slide_16.png",
+        "final_image_sha256": "ea18c324a8fb88b7a7436da66324eee048cafac2e36bb0108f93655d97aec9ba",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:10:46Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_17",
+      "number": 17,
+      "title": "文獻回顧的第一輪：宏觀定位",
+      "job": "prompts/slide_17.json",
+      "out": "origin_image/slide_17.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-17",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_17.json",
+        "prompt_sha256": "d06380cb3df683aa41f9beb71b33bdc5aba1ce368968ff5398874bcc1cc2093f",
+        "dispatched_at": "2026-06-26T12:10:46Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-17",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_17_candidate_parent.png",
+        "selected_source_sha256": "eae9a9d54e9bdccc21d64ca6d636060e1cb123fac58cc8a0cd12900da0a27d4c",
+        "final_image": "origin_image/slide_17.png",
+        "final_image_sha256": "eae9a9d54e9bdccc21d64ca6d636060e1cb123fac58cc8a0cd12900da0a27d4c",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:11:36Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_18",
+      "number": 18,
+      "title": "文獻回顧的第二輪：深入聚焦",
+      "job": "prompts/slide_18.json",
+      "out": "origin_image/slide_18.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-18",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_18.json",
+        "prompt_sha256": "7f68d9edc872fa6565a311dff34ba496c1ab29212da63329e3e38ebdee5ec690",
+        "dispatched_at": "2026-06-26T12:11:36Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-18",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_18_candidate_parent.png",
+        "selected_source_sha256": "5a3acbd1e372e207ff19dfb099ea76979243b7ea8ec254c1001758a7635b2dc3",
+        "final_image": "origin_image/slide_18.png",
+        "final_image_sha256": "5a3acbd1e372e207ff19dfb099ea76979243b7ea8ec254c1001758a7635b2dc3",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:12:37Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_19",
+      "number": 19,
+      "title": "避免選題常見陷阱",
+      "job": "prompts/slide_19.json",
+      "out": "origin_image/slide_19.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-19",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_19.json",
+        "prompt_sha256": "bd6ab45c8a4435616ded2dfe62dde4c26f0350ba202c80edd682c4fb109f9f4b",
+        "dispatched_at": "2026-06-26T12:12:37Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-19",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_19_candidate_parent.png",
+        "selected_source_sha256": "7dd54859b55788b2b5f29999524aa6ec1ad19071381e5a68410e6229acb5666e",
+        "final_image": "origin_image/slide_19.png",
+        "final_image_sha256": "7dd54859b55788b2b5f29999524aa6ec1ad19071381e5a68410e6229acb5666e",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:13:27Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_20",
+      "number": 20,
+      "title": "題目評估矩陣",
+      "job": "prompts/slide_20.json",
+      "out": "origin_image/slide_20.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-20",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_20.json",
+        "prompt_sha256": "e064805d4a2cdfb0f0969b47d678d65972d82f8c73a663f6a6c30c7c9ff9c26e",
+        "dispatched_at": "2026-06-26T12:13:27Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-20",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_20_candidate_parent.png",
+        "selected_source_sha256": "519ed63c18bd5ba43af8aefd745349a8208f4eb312c0c2d6c0cc0cd379a23205",
+        "final_image": "origin_image/slide_20.png",
+        "final_image_sha256": "519ed63c18bd5ba43af8aefd745349a8208f4eb312c0c2d6c0cc0cd379a23205",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:14:26Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_21",
+      "number": 21,
+      "title": "研究計畫書是先畫藍圖",
+      "job": "prompts/slide_21.json",
+      "out": "origin_image/slide_21.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-21",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_21.json",
+        "prompt_sha256": "8c831ce7efc34dcc13f3b54c1024711d6cefaaf5a88445c5fae5bdaef532211f",
+        "dispatched_at": "2026-06-26T12:14:26Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-21",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_21_candidate_parent.png",
+        "selected_source_sha256": "33c95d93c4897009d04c1ac85b346fa6e54671c2a65486a39986eb41dd90fedd",
+        "final_image": "origin_image/slide_21.png",
+        "final_image_sha256": "33c95d93c4897009d04c1ac85b346fa6e54671c2a65486a39986eb41dd90fedd",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:15:23Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_22",
+      "number": 22,
+      "title": "研究計畫書的核心構件",
+      "job": "prompts/slide_22.json",
+      "out": "origin_image/slide_22.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-22",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_22.json",
+        "prompt_sha256": "6af228f499ed866747dd5e2c8bb231330790db9a87017180de09d74bccb5a1b8",
+        "dispatched_at": "2026-06-26T12:15:23Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-22",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_22_candidate_parent.png",
+        "selected_source_sha256": "e33d7db9ada298f54a71ab4321263aab5dbcd10087e8ac6caeb8dda6f1edba3b",
+        "final_image": "origin_image/slide_22.png",
+        "final_image_sha256": "e33d7db9ada298f54a71ab4321263aab5dbcd10087e8ac6caeb8dda6f1edba3b",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:16:15Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_23",
+      "number": 23,
+      "title": "研究流程圖怎麼畫",
+      "job": "prompts/slide_23.json",
+      "out": "origin_image/slide_23.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-23",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_23.json",
+        "prompt_sha256": "9c0a6c5a622fa03b1e099d83cfe709fcdb57cc0bac4fabf56eea05090c44a96f",
+        "dispatched_at": "2026-06-26T12:16:15Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-23",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_23_candidate_parent.png",
+        "selected_source_sha256": "f6f35f6a867149a8d8d2fb00f6f495cf0acb620e32d86dc282e0d827817b574a",
+        "final_image": "origin_image/slide_23.png",
+        "final_image_sha256": "f6f35f6a867149a8d8d2fb00f6f495cf0acb620e32d86dc282e0d827817b574a",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:17:05Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_24",
+      "number": 24,
+      "title": "甘特圖讓研究可管理",
+      "job": "prompts/slide_24.json",
+      "out": "origin_image/slide_24.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-24",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_24.json",
+        "prompt_sha256": "2835e993884ab66c30676a8e7dce595da9c1d4438a017af992e87ef3ff8f555d",
+        "dispatched_at": "2026-06-26T12:17:05Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-24",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_24_candidate_parent.png",
+        "selected_source_sha256": "86a89071cc3a29d49c3a784903e6e664b1018cbe40860e22824cee1d6e02c280",
+        "final_image": "origin_image/slide_24.png",
+        "final_image_sha256": "86a89071cc3a29d49c3a784903e6e664b1018cbe40860e22824cee1d6e02c280",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:17:57Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_25",
+      "number": 25,
+      "title": "實驗設計的核心：變因控制",
+      "job": "prompts/slide_25.json",
+      "out": "origin_image/slide_25.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-25",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_25.json",
+        "prompt_sha256": "6998c874f3bac7b73c92dbff993a01b4b20ec9ce3e8828e9752b058ff6d19d36",
+        "dispatched_at": "2026-06-26T12:18:19Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-25",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_25_candidate_parent.png",
+        "selected_source_sha256": "007b99b94134d66c779f1e9dcde371be2ecbb480caf5d147c2538bc6e1f35f0b",
+        "final_image": "origin_image/slide_25.png",
+        "final_image_sha256": "007b99b94134d66c779f1e9dcde371be2ecbb480caf5d147c2538bc6e1f35f0b",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:19:08Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_26",
+      "number": 26,
+      "title": "實驗執行：嚴謹與彈性並存",
+      "job": "prompts/slide_26.json",
+      "out": "origin_image/slide_26.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-26",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_26.json",
+        "prompt_sha256": "35be9949b449c2a7f8e703f451c9776a6f8c708dcac3b20a8328d906c76cc24c",
+        "dispatched_at": "2026-06-26T12:19:08Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-26",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_26_candidate_parent.png",
+        "selected_source_sha256": "61b3863f32258ba3267fcdf70660689732d6d2cd6083e2c8bed5cfc035e8db55",
+        "final_image": "origin_image/slide_26.png",
+        "final_image_sha256": "61b3863f32258ba3267fcdf70660689732d6d2cd6083e2c8bed5cfc035e8db55",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:20:03Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_27",
+      "number": 27,
+      "title": "研究失敗不是結束",
+      "job": "prompts/slide_27.json",
+      "out": "origin_image/slide_27.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-27",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_27.json",
+        "prompt_sha256": "f52d7299cd67de225692ba0eff5fc55a60aac8db6a0ebf78ebcaaae851020b4a",
+        "dispatched_at": "2026-06-26T12:20:03Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-27",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_27_candidate_parent.png",
+        "selected_source_sha256": "e4023ee057c0b1baccdead58a0828da3541af30577b0a08d3b90a12560940439",
+        "final_image": "origin_image/slide_27.png",
+        "final_image_sha256": "e4023ee057c0b1baccdead58a0828da3541af30577b0a08d3b90a12560940439",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:20:52Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_28",
+      "number": 28,
+      "title": "實驗記錄本是研究的黑盒子",
+      "job": "prompts/slide_28.json",
+      "out": "origin_image/slide_28.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-28",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_28.json",
+        "prompt_sha256": "f8a9e8649e8ed634cb2e4cddf40cc7a730b21d59357a8edcc0e3c48cbb364de3",
+        "dispatched_at": "2026-06-26T12:20:52Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-28",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_28_candidate_parent.png",
+        "selected_source_sha256": "a11eab11b26e4700fe945986e0346a16d76e9dc8a8daf41f5aa8096b81b0bc49",
+        "final_image": "origin_image/slide_28.png",
+        "final_image_sha256": "a11eab11b26e4700fe945986e0346a16d76e9dc8a8daf41f5aa8096b81b0bc49",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:21:43Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_29",
+      "number": 29,
+      "title": "一份好記錄應該有哪些內容",
+      "job": "prompts/slide_29.json",
+      "out": "origin_image/slide_29.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-29",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_29.json",
+        "prompt_sha256": "3a4668efe55f93f6725b41d52ef9581c95f1d3cc1e966990e179d1484606c72d",
+        "dispatched_at": "2026-06-26T12:21:43Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-29",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_29_candidate_parent.png",
+        "selected_source_sha256": "0462962c631cdfe7ff84740382f566457a949700e2f38c8754adffbc47f46521",
+        "final_image": "origin_image/slide_29.png",
+        "final_image_sha256": "0462962c631cdfe7ff84740382f566457a949700e2f38c8754adffbc47f46521",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:22:49Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_30",
+      "number": 30,
+      "title": "數位工具可以用，但要保留可信度",
+      "job": "prompts/slide_30.json",
+      "out": "origin_image/slide_30.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-30",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_30.json",
+        "prompt_sha256": "1407d013ae9e713a3fa6218fe4676534b2a5062b1392b9830f1f7158c249a239",
+        "dispatched_at": "2026-06-26T12:22:49Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-30",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_30_candidate_parent.png",
+        "selected_source_sha256": "226f290e1b09fb2549801367ce2a64b43b335c8f0430f26400b707c83c8317fa",
+        "final_image": "origin_image/slide_30.png",
+        "final_image_sha256": "226f290e1b09fb2549801367ce2a64b43b335c8f0430f26400b707c83c8317fa",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:23:46Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_31",
+      "number": 31,
+      "title": "數據整理的第一原則",
+      "job": "prompts/slide_31.json",
+      "out": "origin_image/slide_31.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-31",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_31.json",
+        "prompt_sha256": "65b31ac252d19d055b14398d350d30c833cbfd7f8169c5ee7a98e7d9deb2404b",
+        "dispatched_at": "2026-06-26T12:23:46Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-31",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_31_candidate_parent.png",
+        "selected_source_sha256": "a1944b535e6bd9170689a2b5153228a28fac7d8d0d3ed63fe0aabcba30a18268",
+        "final_image": "origin_image/slide_31.png",
+        "final_image_sha256": "a1944b535e6bd9170689a2b5153228a28fac7d8d0d3ed63fe0aabcba30a18268",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:24:51Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_32",
+      "number": 32,
+      "title": "圖表不是裝飾，是證據呈現",
+      "job": "prompts/slide_32.json",
+      "out": "origin_image/slide_32.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "accepted",
+      "dispatch": null,
+      "result": {
+        "final_image": "origin_image/slide_32.png",
+        "accepted_sample": true
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_33",
+      "number": 33,
+      "title": "從結果到討論的邏輯橋",
+      "job": "prompts/slide_33.json",
+      "out": "origin_image/slide_33.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-batch-slide-33",
+        "agent_nickname": "parent-batch",
+        "prompt": "prompts/slide_33.json",
+        "prompt_sha256": "cfc42831adab303300b92076b4ca0370c4283bc8bab2a2b84e7fd487310edf62",
+        "dispatched_at": "2026-06-26T12:24:51Z"
+      },
+      "result": {
+        "agent_id": "parent-batch-slide-33",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_33_candidate_parent.png",
+        "selected_source_sha256": "85938032340c30ab683972efa93d025b32e1a966dc53680be1f244ec0174c743",
+        "final_image": "origin_image/slide_33.png",
+        "final_image_sha256": "85938032340c30ab683972efa93d025b32e1a966dc53680be1f244ec0174c743",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Parent batch generation with approved Codex OAuth backend; valid nonblank PNG, queued for final QA.",
+        "recorded_at": "2026-06-26T12:25:46Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_34",
+      "number": 34,
+      "title": "反覆修正是研究的常態",
+      "job": "prompts/slide_34.json",
+      "out": "origin_image/slide_34.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_34",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_34.json",
+        "prompt_sha256": "4b2519cdcd424f124f2e9a50f9632ee81a0f998e001723dca3d8ab155820a078",
+        "dispatched_at": "2026-06-27T14:34:13Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_34",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_34_candidate_parent.png",
+        "selected_source_sha256": "b9979f516152f5e130966c83348d9664098af5c45a191d53a363b567f0b54102",
+        "final_image": "origin_image/slide_34.png",
+        "final_image_sha256": "b9979f516152f5e130966c83348d9664098af5c45a191d53a363b567f0b54102",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:35:06Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_35",
+      "number": 35,
+      "title": "報告書是研究故事的正式版本",
+      "job": "prompts/slide_35.json",
+      "out": "origin_image/slide_35.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_35",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_35.json",
+        "prompt_sha256": "997ad585808149a62b21825c2eec15c81ecabaed84272c5de8e6aab53e38b5b0",
+        "dispatched_at": "2026-06-27T14:35:06Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_35",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_35_candidate_parent.png",
+        "selected_source_sha256": "47fabc27e5e17f00eda4fb77902f946fe304e958034b0e115ee5cf968aac13f1",
+        "final_image": "origin_image/slide_35.png",
+        "final_image_sha256": "47fabc27e5e17f00eda4fb77902f946fe304e958034b0e115ee5cf968aac13f1",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:36:05Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_36",
+      "number": 36,
+      "title": "摘要 300 字內要說清楚什麼",
+      "job": "prompts/slide_36.json",
+      "out": "origin_image/slide_36.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_36",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_36.json",
+        "prompt_sha256": "824d69e531f378cb3e1d0ae86d9d6b60c46fadf615621757d63f51c90fbbcde2",
+        "dispatched_at": "2026-06-27T14:36:05Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_36",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_36_candidate_parent.png",
+        "selected_source_sha256": "9e99a778a1e9c0f0a6b7d2779248e6fb51896f8b46730cf139e13edc5afcf046",
+        "final_image": "origin_image/slide_36.png",
+        "final_image_sha256": "9e99a778a1e9c0f0a6b7d2779248e6fb51896f8b46730cf139e13edc5afcf046",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:36:59Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_37",
+      "number": 37,
+      "title": "研究動機與目的怎麼寫",
+      "job": "prompts/slide_37.json",
+      "out": "origin_image/slide_37.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_37",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_37.json",
+        "prompt_sha256": "e364c9e745f2fa7829beae44e11667bafb25812b825579c7e039d35f046a43ae",
+        "dispatched_at": "2026-06-27T14:36:59Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_37",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_37_candidate_parent.png",
+        "selected_source_sha256": "ac8bb700a43c6431b00a3818171d3b82435c1ea6f6f7c1b3e8b2e2b9e2ae5ba5",
+        "final_image": "origin_image/slide_37.png",
+        "final_image_sha256": "ac8bb700a43c6431b00a3818171d3b82435c1ea6f6f7c1b3e8b2e2b9e2ae5ba5",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:37:47Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_38",
+      "number": 38,
+      "title": "方法章要寫到能重做",
+      "job": "prompts/slide_38.json",
+      "out": "origin_image/slide_38.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_38",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_38.json",
+        "prompt_sha256": "37c25681b2c23366e1dcd93e46cf4646e82d90414d8007f0ea6e68c2a63e17c9",
+        "dispatched_at": "2026-06-27T14:37:47Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_38",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_38_candidate_parent.png",
+        "selected_source_sha256": "ad41c538f1d3f16b820483fe03920b3c8eb7117f6d8807e36ac32e549e2c3bd3",
+        "final_image": "origin_image/slide_38.png",
+        "final_image_sha256": "ad41c538f1d3f16b820483fe03920b3c8eb7117f6d8807e36ac32e549e2c3bd3",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:38:38Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_39",
+      "number": 39,
+      "title": "結果與討論不能混在一起",
+      "job": "prompts/slide_39.json",
+      "out": "origin_image/slide_39.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_39",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_39.json",
+        "prompt_sha256": "6118cd98a837b2cc0422d71ec509abf6ed0870589a4eb0f03258961260f15fbf",
+        "dispatched_at": "2026-06-27T14:38:38Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_39",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_39_candidate_parent.png",
+        "selected_source_sha256": "995f25b69094d17f38090580b6db911c0cd9e98ecd5f6d717b1992607eb5fd66",
+        "final_image": "origin_image/slide_39.png",
+        "final_image_sha256": "995f25b69094d17f38090580b6db911c0cd9e98ecd5f6d717b1992607eb5fd66",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:39:44Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_40",
+      "number": 40,
+      "title": "海報是讓評審快速讀懂的地圖",
+      "job": "prompts/slide_40.json",
+      "out": "origin_image/slide_40.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_40",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_40.json",
+        "prompt_sha256": "18751e31ee5fb4f87d09bd9e4365968f6f598585e4ed65b0e91b8198a0cad3ba",
+        "dispatched_at": "2026-06-27T14:39:44Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_40",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_40_candidate_parent.png",
+        "selected_source_sha256": "fa6278c31102211e3b5927536fd02ccd482c29f5dbfdf279a4dcd7d10d67e161",
+        "final_image": "origin_image/slide_40.png",
+        "final_image_sha256": "fa6278c31102211e3b5927536fd02ccd482c29f5dbfdf279a4dcd7d10d67e161",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:40:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_41",
+      "number": 41,
+      "title": "海報版面常見問題",
+      "job": "prompts/slide_41.json",
+      "out": "origin_image/slide_41.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_41",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_41.json",
+        "prompt_sha256": "4a8ae03b41e147c9c19479ea2f8d0f372338dcd0bf51ee2fdbbd43822a38c964",
+        "dispatched_at": "2026-06-27T14:40:35Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_41",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_41_candidate_parent.png",
+        "selected_source_sha256": "ee1a5f7c44f3fa84965b9c1a9ab3ee4a1f2f89fbb1be8f52fd2437678e1aa47e",
+        "final_image": "origin_image/slide_41.png",
+        "final_image_sha256": "ee1a5f7c44f3fa84965b9c1a9ab3ee4a1f2f89fbb1be8f52fd2437678e1aa47e",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:41:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_42",
+      "number": 42,
+      "title": "科展簡報是口語說明的導航",
+      "job": "prompts/slide_42.json",
+      "out": "origin_image/slide_42.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_42",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_42.json",
+        "prompt_sha256": "841bcccfb111608abf20d489db4d8f72e2bdf05224be5fe8cf28d5aebb0fc8df",
+        "dispatched_at": "2026-06-27T14:41:35Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_42",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_42_candidate_parent.png",
+        "selected_source_sha256": "d5a79bf4eb9ad097f013eb65191dc7dda7b6cac23e6411596e22d24d381ea1d4",
+        "final_image": "origin_image/slide_42.png",
+        "final_image_sha256": "d5a79bf4eb9ad097f013eb65191dc7dda7b6cac23e6411596e22d24d381ea1d4",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:42:29Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_43",
+      "number": 43,
+      "title": "簡報內容的取捨原則",
+      "job": "prompts/slide_43.json",
+      "out": "origin_image/slide_43.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_43",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_43.json",
+        "prompt_sha256": "4afd40904c904b4a41fd7a7d1150476eb96ad748cd1a2bdb2a8aefc360e3393d",
+        "dispatched_at": "2026-06-27T14:42:29Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_43",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_43_candidate_parent.png",
+        "selected_source_sha256": "0cbe8a37c7c5d78337ea7e94923b16082ea384782d070a7424a8fa9a2699a629",
+        "final_image": "origin_image/slide_43.png",
+        "final_image_sha256": "0cbe8a37c7c5d78337ea7e94923b16082ea384782d070a7424a8fa9a2699a629",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:43:23Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_44",
+      "number": 44,
+      "title": "練習的目標不是背稿",
+      "job": "prompts/slide_44.json",
+      "out": "origin_image/slide_44.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_44",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_44.json",
+        "prompt_sha256": "031bc6ca352efb1e094efe470074dee3731cfe872cb0ba59e1c5657eee37c9db",
+        "dispatched_at": "2026-06-27T14:43:23Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_44",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_44_candidate_parent.png",
+        "selected_source_sha256": "5eb3dfd2a20d968ed46f479fd1ec55d9e66e32b92c33fed63f4132f0122dafa5",
+        "final_image": "origin_image/slide_44.png",
+        "final_image_sha256": "5eb3dfd2a20d968ed46f479fd1ec55d9e66e32b92c33fed63f4132f0122dafa5",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:44:19Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_45",
+      "number": 45,
+      "title": "三種版本的口頭報告",
+      "job": "prompts/slide_45.json",
+      "out": "origin_image/slide_45.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_45",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_45.json",
+        "prompt_sha256": "63373bf04ceaab4ba180599901ec72c77c114fba9eb9fa0b81321305e4ee1895",
+        "dispatched_at": "2026-06-27T14:44:20Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_45",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_45_candidate_parent.png",
+        "selected_source_sha256": "97880dbfa2378ea03aa2b6fccecea081a78dd341d75d99615b64d72e96b9b1e9",
+        "final_image": "origin_image/slide_45.png",
+        "final_image_sha256": "97880dbfa2378ea03aa2b6fccecea081a78dd341d75d99615b64d72e96b9b1e9",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:45:20Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_46",
+      "number": 46,
+      "title": "計時演練的操作方法",
+      "job": "prompts/slide_46.json",
+      "out": "origin_image/slide_46.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_46",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_46.json",
+        "prompt_sha256": "9f3ed6f6b8e422088389b8983519c04c4533d35c1857bdaf0fd512e62733e5bb",
+        "dispatched_at": "2026-06-27T14:45:20Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_46",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_46_candidate_parent.png",
+        "selected_source_sha256": "01b9f8198fca9b5fc1c41aad92e6e698554add864771d247776e82fe77ac9f1d",
+        "final_image": "origin_image/slide_46.png",
+        "final_image_sha256": "01b9f8198fca9b5fc1c41aad92e6e698554add864771d247776e82fe77ac9f1d",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:46:15Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_47",
+      "number": 47,
+      "title": "模擬評審要找不同角色",
+      "job": "prompts/slide_47.json",
+      "out": "origin_image/slide_47.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_47",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_47.json",
+        "prompt_sha256": "0884075a6b5951afb7eea922db19ad20a5151e309f36c3807eaeaa6c894088e1",
+        "dispatched_at": "2026-06-27T14:46:15Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_47",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_47_candidate_parent.png",
+        "selected_source_sha256": "20f3c58c9b1c87f5e3da336926afa104827c739c32633d3c11de09987ecbe807",
+        "final_image": "origin_image/slide_47.png",
+        "final_image_sha256": "20f3c58c9b1c87f5e3da336926afa104827c739c32633d3c11de09987ecbe807",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:47:12Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_48",
+      "number": 48,
+      "title": "團隊報告要練默契",
+      "job": "prompts/slide_48.json",
+      "out": "origin_image/slide_48.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_48",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_48.json",
+        "prompt_sha256": "6df072d33b1b83db92e6bdf0f4314d7193253961d892aceef12148e953f9ce23",
+        "dispatched_at": "2026-06-27T14:47:12Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_48",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_48_candidate_parent.png",
+        "selected_source_sha256": "16a3e8114a1b7cfca3ce3bb085bef235902377bdafd35bdf987b0087179694c0",
+        "final_image": "origin_image/slide_48.png",
+        "final_image_sha256": "16a3e8114a1b7cfca3ce3bb085bef235902377bdafd35bdf987b0087179694c0",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:48:04Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_49",
+      "number": 49,
+      "title": "比賽現場的準備清單",
+      "job": "prompts/slide_49.json",
+      "out": "origin_image/slide_49.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_49",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_49.json",
+        "prompt_sha256": "06d482ef57a3611ff49e1577026dacaa2d742d2138aaf8a9f9624c424e742374",
+        "dispatched_at": "2026-06-27T14:48:04Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_49",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_49_candidate_parent.png",
+        "selected_source_sha256": "5b139fe0fe6f2c7484fd7d2ba82788f6978af632a55910caec6d2c22540c2755",
+        "final_image": "origin_image/slide_49.png",
+        "final_image_sha256": "5b139fe0fe6f2c7484fd7d2ba82788f6978af632a55910caec6d2c22540c2755",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:48:56Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_50",
+      "number": 50,
+      "title": "口頭報告現場的四個關鍵",
+      "job": "prompts/slide_50.json",
+      "out": "origin_image/slide_50.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_50",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_50.json",
+        "prompt_sha256": "785fd8ad65ffd0e2d3deb56aece6e356a826be428c6dbed550b634c46da72d6f",
+        "dispatched_at": "2026-06-27T14:48:56Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_50",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_50_candidate_parent.png",
+        "selected_source_sha256": "0ee90fdf4e25bc85029fff42045bc9293fec5cf21c3d9790a343712a68ad9809",
+        "final_image": "origin_image/slide_50.png",
+        "final_image_sha256": "0ee90fdf4e25bc85029fff42045bc9293fec5cf21c3d9790a343712a68ad9809",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:49:56Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_51",
+      "number": 51,
+      "title": "現場互動不是被動等待",
+      "job": "prompts/slide_51.json",
+      "out": "origin_image/slide_51.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_51",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_51.json",
+        "prompt_sha256": "c2f26f33ada33ee1237e12a25a07c85c4a5307485a71a18a175153f1f998b900",
+        "dispatched_at": "2026-06-27T14:49:56Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_51",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_51_candidate_parent.png",
+        "selected_source_sha256": "e1d2c1f186b2851da03d5bf33060a9df61fe85fda147c6fb84d28556b7072599",
+        "final_image": "origin_image/slide_51.png",
+        "final_image_sha256": "e1d2c1f186b2851da03d5bf33060a9df61fe85fda147c6fb84d28556b7072599",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:50:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_52",
+      "number": 52,
+      "title": "答辯是評審理解研究的關鍵時刻",
+      "job": "prompts/slide_52.json",
+      "out": "origin_image/slide_52.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_52",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_52.json",
+        "prompt_sha256": "b9387df88d0815a4f63e2041b0e843886960b20d43151e444377bd61e4106986",
+        "dispatched_at": "2026-06-27T14:50:58Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_52",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_52_candidate_parent.png",
+        "selected_source_sha256": "0eac7c612d42cc1a9dd3c63dcd9c895c26dfc254a85f9a2af3e4d8e0e84aeed7",
+        "final_image": "origin_image/slide_52.png",
+        "final_image_sha256": "0eac7c612d42cc1a9dd3c63dcd9c895c26dfc254a85f9a2af3e4d8e0e84aeed7",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:51:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_53",
+      "number": 53,
+      "title": "評審常問的六大類問題",
+      "job": "prompts/slide_53.json",
+      "out": "origin_image/slide_53.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_53",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_53.json",
+        "prompt_sha256": "aa1c6eb1f1bf0f9ebf4c17cc5f0536fcb80e5f8b00d53fedfce89ae58686abec",
+        "dispatched_at": "2026-06-27T14:51:59Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_53",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_53_candidate_parent.png",
+        "selected_source_sha256": "a02d124405f619eb650666deb141ab14f047f217cb69957a78622d73fa4e07b8",
+        "final_image": "origin_image/slide_53.png",
+        "final_image_sha256": "a02d124405f619eb650666deb141ab14f047f217cb69957a78622d73fa4e07b8",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:52:51Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_54",
+      "number": 54,
+      "title": "答題結構：先結論，再證據",
+      "job": "prompts/slide_54.json",
+      "out": "origin_image/slide_54.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_54",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_54.json",
+        "prompt_sha256": "9205753b12c5f2a2aafa7f1e88182e803eb96edbae86d985d849d512b57ed4e4",
+        "dispatched_at": "2026-06-27T14:52:51Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_54",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_54_candidate_parent.png",
+        "selected_source_sha256": "6cc12a4072f0fd50bdbb89c70c51c72ef39f9acc793f445755c7c0f2795eabd0",
+        "final_image": "origin_image/slide_54.png",
+        "final_image_sha256": "6cc12a4072f0fd50bdbb89c70c51c72ef39f9acc793f445755c7c0f2795eabd0",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:53:45Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_55",
+      "number": 55,
+      "title": "不會回答時怎麼辦",
+      "job": "prompts/slide_55.json",
+      "out": "origin_image/slide_55.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_55",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_55.json",
+        "prompt_sha256": "9d7a475ca8f5422ee1493f8345efd6557d39e51dee313b2378a8157015dc8c81",
+        "dispatched_at": "2026-06-27T14:53:46Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_55",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_55_candidate_parent.png",
+        "selected_source_sha256": "4c9fed386b2cf4d633aa12769c875a16933543d9c1ab5fef6fed32c147cdb91c",
+        "final_image": "origin_image/slide_55.png",
+        "final_image_sha256": "4c9fed386b2cf4d633aa12769c875a16933543d9c1ab5fef6fed32c147cdb91c",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:54:40Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_56",
+      "number": 56,
+      "title": "把質疑轉成加分機會",
+      "job": "prompts/slide_56.json",
+      "out": "origin_image/slide_56.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_56",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_56.json",
+        "prompt_sha256": "15872b980ca172927824b48d8e0543e8b80fcd5addc4b1dc7a6a1623c1161f38",
+        "dispatched_at": "2026-06-27T14:54:40Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_56",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_56_candidate_parent.png",
+        "selected_source_sha256": "3f57aa4e3ba1e1025435dbb7544863d916c570670aedd19868803055e0ae7c21",
+        "final_image": "origin_image/slide_56.png",
+        "final_image_sha256": "3f57aa4e3ba1e1025435dbb7544863d916c570670aedd19868803055e0ae7c21",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:55:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_57",
+      "number": 57,
+      "title": "科展壓力從哪裡來",
+      "job": "prompts/slide_57.json",
+      "out": "origin_image/slide_57.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_57",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_57.json",
+        "prompt_sha256": "ca3be5347901b82d0ac2ea7be4899685625e92fc335a86d5693fc2a0d76127b7",
+        "dispatched_at": "2026-06-27T14:55:40Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_57",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_57_candidate_parent.png",
+        "selected_source_sha256": "ee9c907d860cdd6bcd3f816129479780a544aea6e781569d8cc3247d57130a90",
+        "final_image": "origin_image/slide_57.png",
+        "final_image_sha256": "ee9c907d860cdd6bcd3f816129479780a544aea6e781569d8cc3247d57130a90",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:56:43Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_58",
+      "number": 58,
+      "title": "壓力管理的實用策略",
+      "job": "prompts/slide_58.json",
+      "out": "origin_image/slide_58.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_58",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_58.json",
+        "prompt_sha256": "10184f79c0a33a72ffb1f8abb486bcd7b8b8a9271826ca0f969a2ff5f2aaa5cf",
+        "dispatched_at": "2026-06-27T14:56:43Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_58",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_58_candidate_parent.png",
+        "selected_source_sha256": "5d73a2bc169a5a0859ec364397138120065d03d3bd3f1b3c2feb93d3a4e25d20",
+        "final_image": "origin_image/slide_58.png",
+        "final_image_sha256": "5d73a2bc169a5a0859ec364397138120065d03d3bd3f1b3c2feb93d3a4e25d20",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:57:40Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_59",
+      "number": 59,
+      "title": "教師如何陪學生走過低潮",
+      "job": "prompts/slide_59.json",
+      "out": "origin_image/slide_59.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_59",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_59.json",
+        "prompt_sha256": "f4f382f0a8ae0b4258302fe87a76df62ac32dd63ea3e1f4770fc26dbc042c151",
+        "dispatched_at": "2026-06-27T14:57:40Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_59",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_59_candidate_parent.png",
+        "selected_source_sha256": "24f37ed51a270b48c0dfe0ddf8e873b073d98e36f43257bbc952c484aff277fd",
+        "final_image": "origin_image/slide_59.png",
+        "final_image_sha256": "24f37ed51a270b48c0dfe0ddf8e873b073d98e36f43257bbc952c484aff277fd",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:58:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_60",
+      "number": 60,
+      "title": "團隊合作的高風險時刻",
+      "job": "prompts/slide_60.json",
+      "out": "origin_image/slide_60.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_60",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_60.json",
+        "prompt_sha256": "8804a33ff44eee5f9806020206fe87afc09b9400e022a8a72f6fac9a61a88118",
+        "dispatched_at": "2026-06-27T14:58:41Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_60",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_60_candidate_parent.png",
+        "selected_source_sha256": "ac6a80090b27dd62059df039bfc4e489662f8efa6e08ce83f7ab7fb52869a7ac",
+        "final_image": "origin_image/slide_60.png",
+        "final_image_sha256": "ac6a80090b27dd62059df039bfc4e489662f8efa6e08ce83f7ab7fb52869a7ac",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T14:59:37Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_61",
+      "number": 61,
+      "title": "賽後反思比名次更長久",
+      "job": "prompts/slide_61.json",
+      "out": "origin_image/slide_61.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_61",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_61.json",
+        "prompt_sha256": "cfe789982b8afe5a546f9e7780b0299df331774ef8a18d7903f2bdb87b5d7b25",
+        "dispatched_at": "2026-06-27T14:59:38Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_61",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_61_candidate_parent.png",
+        "selected_source_sha256": "40eee100416ad6a6e54401c14a4ef3c3d8812af4ee8b429d1c6dd7f0d9c930a1",
+        "final_image": "origin_image/slide_61.png",
+        "final_image_sha256": "40eee100416ad6a6e54401c14a4ef3c3d8812af4ee8b429d1c6dd7f0d9c930a1",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T15:00:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_62",
+      "number": 62,
+      "title": "定義屬於自己的成功",
+      "job": "prompts/slide_62.json",
+      "out": "origin_image/slide_62.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_62",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_62.json",
+        "prompt_sha256": "1bc34db4619951b5ce42c38e93ac23b79439630d9da701d8c6b27cfb2c1e3e90",
+        "dispatched_at": "2026-06-27T15:00:35Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_62",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_62_candidate_parent.png",
+        "selected_source_sha256": "848c19ee93ac5265a313edcb79747b4fda54a569e3db3bb9aac8f71a70476702",
+        "final_image": "origin_image/slide_62.png",
+        "final_image_sha256": "848c19ee93ac5265a313edcb79747b4fda54a569e3db3bb9aac8f71a70476702",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T15:01:36Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_63",
+      "number": 63,
+      "title": "科展完整自我檢核表",
+      "job": "prompts/slide_63.json",
+      "out": "origin_image/slide_63.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_63",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_63.json",
+        "prompt_sha256": "fa5f578c604ce2823bd39f289a6596a67fbcff8ce6b12d08dc8baeb1bab6ac32",
+        "dispatched_at": "2026-06-27T15:01:36Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_63",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_63_candidate_parent.png",
+        "selected_source_sha256": "0fced9e6bb2d098b1d6e1db3283d51877e25defd0be0dcedbd148eaa81dd5809",
+        "final_image": "origin_image/slide_63.png",
+        "final_image_sha256": "0fced9e6bb2d098b1d6e1db3283d51877e25defd0be0dcedbd148eaa81dd5809",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T15:02:36Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_64",
+      "number": 64,
+      "title": "下一步：把研究帶進真實世界",
+      "job": "prompts/slide_64.json",
+      "out": "origin_image/slide_64.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/origin_image/slide_32.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy exact layout or content except for slide 32 itself"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "parent-resume-slide_64",
+        "agent_nickname": "parent-resume",
+        "prompt": "prompts/slide_64.json",
+        "prompt_sha256": "e9499d73e0db00957cb9d346b8e1f4a4ceb7f90a7ba2d0900421a1897ce5b355",
+        "dispatched_at": "2026-06-27T15:02:36Z"
+      },
+      "result": {
+        "agent_id": "parent-resume-slide_64",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/科學探究與競賽全方位指導手冊_教學簡報/drafts/slide_64_candidate_parent.png",
+        "selected_source_sha256": "f000e9f872aac4f0dd91fb741fa55e9c34246bceac045aed90623f8b581289bc",
+        "final_image": "origin_image/slide_64.png",
+        "final_image_sha256": "f000e9f872aac4f0dd91fb741fa55e9c34246bceac045aed90623f8b581289bc",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Resumed after quota reset with approved Codex OAuth backend; valid generated PNG queued for final QA.",
+        "recorded_at": "2026-06-27T15:03:37Z"
+      },
+      "blocker": null
+    }
+  ],
+  "updated_at": "2026-06-27T15:03:37Z"
+}

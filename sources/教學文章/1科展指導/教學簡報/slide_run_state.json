@@ -1,0 +1,30 @@
+{
+  "status": "slides_recorded",
+  "history": [
+    {
+      "from": "created",
+      "to": "jobs_prepared",
+      "at": "2026-06-26T08:33:13Z",
+      "note": "prepared slide prompt jobs"
+    },
+    {
+      "from": "jobs_prepared",
+      "to": "blocked",
+      "at": "2026-06-26T08:36:55Z",
+      "note": "slide_06: Selected Codex OAuth image backend could not be used inside worker because approval policy rejected uploading the local job prompt to the external image service."
+    },
+    {
+      "from": "blocked",
+      "to": "slides_dispatched",
+      "at": "2026-06-27T15:02:36Z",
+      "note": "all slide jobs dispatched"
+    },
+    {
+      "from": "slides_dispatched",
+      "to": "slides_recorded",
+      "at": "2026-06-27T15:03:37Z",
+      "note": "all slide images recorded"
+    }
+  ],
+  "updated_at": "2026-06-27T15:03:37Z"
+}

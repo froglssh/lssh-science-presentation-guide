@@ -4,6 +4,11 @@
 
 ---
 
+## [2026-06-28] query | 學生選題測驗卷設計
+- 響應使用者要求，依據 108 課綱素養導向命題規範，設計一份評估學生「研究選題與題目設計能力」的混合測驗卷。
+- 建立考卷頁面並納入標準答案與 Rubrics 規準：[研究選題測驗卷.md](file:///Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/wiki/guides/研究選題測驗卷.md)。
+- 更新總索引 [index.md](file:///Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/wiki/index.md)，新增「教學評量與工具」區塊。
+
 ## [2026-06-28] lint | 知識庫狀態維護與健檢
 - 執行 Wiki 健全度檢查，發現 3 個懸空實體連結（臺灣全國科展、臺灣國際科展、中學生小論文）。
 - 建立實體頁面並完善其基礎規範介紹：[臺灣全國科展.md](file:///Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/wiki/entities/臺灣全國科展.md)、[臺灣國際科展.md](file:///Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/wiki/entities/臺灣國際科展.md)、[中學生小論文.md](file:///Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/wiki/entities/中學生小論文.md)。

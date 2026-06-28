@@ -31,3 +31,11 @@
 
 - [x] [AI輔助專題研究｜教師教學指南](file:///Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/wiki/summaries/AI輔助專題研究＿教師教學指南.md) - 提供高中專題研究教學的 7 大模組教案、AI 工具特性對照、提示詞品質檢核表及風險因應策略。
 - [x] [AI輔助專題研究簡報 — 林獻升老師](file:///Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/wiki/summaries/AI輔助專題研究＿麗山林獻升.md) - 簡報對應教學指南，展示了蝌蚪視覺、螞蟻清屍行為、氣孔網頁生成及大頭蛇垂直伸展能力等眾多生動的 AI 輔助專題與科展實作案例。
+
+---
+
+## 📝 教學評量與工具 (Assessments & Tools)
+整理用於檢驗學生專題研究能力或課堂演示的評量工具。
+
+- [x] [研究選題與題目設計測驗卷](file:///Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/wiki/guides/研究選題測驗卷.md) - 針對高中專題與科展學生設計的測驗卷，考查四大 AI 選題路徑、變因與假設撰寫、以及實驗可行性評估，附有標準答案與評分規準 (Rubrics)。
+

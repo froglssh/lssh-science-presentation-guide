@@ -1,0 +1,542 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="整合臺灣科展通用得獎策略，並深度強化生物領域研究設計、證據鏈、案例、答辯與送件檢核。">
+  <title>臺灣科展得獎策略全攻略｜生物領域強化版</title>
+  <style>
+    :root{
+      --paper:#f7f8f5;--surface:#fff;--ink:#13231f;--muted:#5e6d68;--line:#d9e0dc;
+      --green:#087f5b;--green-2:#0ca678;--green-soft:#e6f5ee;--amber:#d97706;
+      --amber-soft:#fff3d6;--coral:#c2413a;--navy:#102a43;--navy-soft:#eaf0f5;
+      --shadow:0 18px 50px rgba(20,45,37,.08);--radius:18px;--max:1180px;
+    }
+    [data-theme="dark"]{
+      --paper:#0c1512;--surface:#13201c;--ink:#edf5f1;--muted:#a8b7b1;--line:#2b3b35;
+      --green:#58d6aa;--green-2:#7be3bc;--green-soft:#173a2e;--amber:#f7b955;
+      --amber-soft:#3a2c13;--coral:#ff8b80;--navy:#d6e8f7;--navy-soft:#182936;
+      --shadow:0 18px 50px rgba(0,0,0,.2);
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth;scroll-padding-top:92px}
+    body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans TC","PingFang TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.8}
+    button,a{font:inherit}
+    a{color:inherit}
+    :focus-visible{outline:3px solid var(--amber);outline-offset:3px}
+    .progress{position:fixed;inset:0 0 auto;z-index:100;height:4px;background:transparent}
+    .progress i{display:block;width:0;height:100%;background:linear-gradient(90deg,var(--green),var(--amber))}
+    .topbar{position:sticky;top:0;z-index:90;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+    .topbar-inner{max-width:var(--max);height:72px;margin:auto;padding:0 24px;display:flex;align-items:center;gap:22px}
+    .brand{text-decoration:none;font-weight:900;letter-spacing:.03em;white-space:nowrap;display:flex;align-items:center;gap:10px}
+    .brand-mark{width:34px;height:34px;border-radius:50% 50% 46% 54%;display:grid;place-items:center;background:var(--green);color:#fff;font-family:serif}
+    .nav{display:flex;align-items:center;gap:6px;margin-left:auto}
+    .nav a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:700;padding:8px 10px;border-radius:8px}
+    .nav a:hover,.nav a.active{color:var(--green);background:var(--green-soft)}
+    .icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--ink);width:40px;height:40px;border-radius:50%;cursor:pointer}
+    .menu-btn{display:none}
+    .hero{min-height:670px;display:grid;align-items:center;overflow:hidden;position:relative;border-bottom:1px solid var(--line)}
+    .hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid var(--line);border-radius:50%;right:-150px;top:70px;box-shadow:inset 0 0 0 80px var(--green-soft),inset 0 0 0 81px var(--line)}
+    .hero:after{content:"DNA  ·  DATA  ·  DESIGN";position:absolute;right:30px;bottom:32px;color:var(--muted);font:700 11px/1 monospace;letter-spacing:.26em;writing-mode:vertical-rl}
+    .wrap{max-width:var(--max);margin:auto;padding:0 24px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(300px,.7fr);gap:80px;align-items:center;position:relative}
+    h1,h2,h3{line-height:1.25;margin-top:0}
+    h1{font-family:"Noto Serif TC","Songti TC",serif;font-size:clamp(48px,6.2vw,86px);letter-spacing:-.045em;margin-bottom:28px;max-width:850px}
+    h1 em{color:var(--green);font-style:normal}
+    .author{margin:-12px 0 24px;color:var(--green);font-size:17px;font-weight:800;letter-spacing:.05em}
+    .lead{font-size:clamp(18px,2vw,22px);color:var(--muted);max-width:760px;margin:0 0 34px}
+    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
+    .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;text-decoration:none;border-radius:999px;padding:12px 20px;font-weight:800;border:1px solid var(--green);transition:.2s}
+    .btn-primary{background:var(--green);color:#fff}
+    .btn-secondary{color:var(--green);background:transparent}
+    .btn:hover{transform:translateY(-2px);box-shadow:0 8px 22px rgba(8,127,91,.18)}
+    .hero-note{align-self:end;border-left:3px solid var(--amber);padding:2px 0 2px 20px;color:var(--muted);font-size:14px;max-width:320px}
+    .hero-note b{display:block;color:var(--ink);font-size:18px;margin-bottom:8px}
+    .quickmap{background:var(--surface);border-bottom:1px solid var(--line)}
+    .quickmap-inner{max-width:var(--max);margin:auto;padding:22px 24px;display:grid;grid-template-columns:repeat(4,1fr)}
+    .quickmap a{text-decoration:none;padding:12px 20px;border-right:1px solid var(--line)}
+    .quickmap a:last-child{border:0}
+    .quickmap small{color:var(--green);font-weight:900;letter-spacing:.08em}
+    .quickmap b{display:block;font-family:"Noto Serif TC",serif;font-size:18px}
+    section{padding:110px 0;border-bottom:1px solid var(--line)}
+    .section-head{display:grid;grid-template-columns:140px 1fr;gap:34px;margin-bottom:54px}
+    .section-no{font:800 12px/1.2 ui-monospace,monospace;color:var(--green);letter-spacing:.16em;padding-top:8px}
+    .section-head h2{font-family:"Noto Serif TC","Songti TC",serif;font-size:clamp(34px,4vw,54px);letter-spacing:-.03em;margin-bottom:16px}
+    .section-head p{color:var(--muted);font-size:18px;max-width:820px;margin:0}
+    .thesis{background:var(--navy);color:#fff;border-radius:var(--radius);padding:48px;box-shadow:var(--shadow)}
+    [data-theme="dark"] .thesis{background:#10231e}
+    .thesis h3{font-family:"Noto Serif TC",serif;font-size:30px}
+    .bridge{display:grid;grid-template-columns:1fr 80px 1fr;align-items:center;gap:18px;margin-top:32px}
+    .bridge-box{padding:28px;border:1px solid rgba(255,255,255,.18);border-radius:14px}
+    .bridge-box strong{display:block;font-size:28px;color:#fff}
+    .bridge-box:last-child{background:var(--green);border-color:transparent}
+    .bridge-arrow{text-align:center;color:var(--amber);font-size:34px}
+    .four{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:30px}
+    .principle{padding-top:22px;border-top:3px solid var(--line)}
+    .principle:nth-child(2){border-color:var(--green)}
+    .principle:nth-child(3){border-color:var(--amber)}
+    .principle:nth-child(4){border-color:var(--coral)}
+    .principle span{font:800 12px ui-monospace,monospace;color:var(--muted)}
+    .principle h3{font-size:20px;margin:12px 0 8px}
+    .principle p{color:var(--muted);font-size:15px;margin:0}
+    .split{display:grid;grid-template-columns:1fr 1fr;gap:30px}
+    .panel{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:32px;box-shadow:var(--shadow)}
+    .panel h3{font-family:"Noto Serif TC",serif;font-size:26px;margin-bottom:18px}
+    .clean{list-style:none;padding:0;margin:0}
+    .clean li{position:relative;padding:12px 0 12px 28px;border-bottom:1px solid var(--line)}
+    .clean li:last-child{border:0}
+    .clean li:before{content:"";position:absolute;left:2px;top:24px;width:10px;height:10px;border-radius:50%;background:var(--green)}
+    .danger li:before{background:var(--coral)}
+    .formula{margin-top:32px;padding:30px;border:1px solid var(--amber);background:var(--amber-soft);border-radius:var(--radius);font-family:"Noto Serif TC",serif;font-size:clamp(20px,2.5vw,30px);text-align:center}
+    .timeline{counter-reset:steps;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line);border-left:1px solid var(--line)}
+    .step{counter-increment:steps;padding:30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);min-height:220px;background:var(--surface)}
+    .step:before{content:"0" counter(steps);display:block;color:var(--green);font:900 13px ui-monospace,monospace;margin-bottom:24px}
+    .step h3{font-size:20px;margin-bottom:10px}
+    .step p{font-size:14px;color:var(--muted);margin:0}
+    .bio{background:var(--green-soft);position:relative;overflow:hidden}
+    .bio .section-no{color:var(--green)}
+    .bio-grid{display:grid;grid-template-columns:260px 1fr;gap:44px}
+    .bio-index{position:sticky;top:104px;align-self:start}
+    .bio-index b{display:block;font:900 12px ui-monospace,monospace;letter-spacing:.12em;margin-bottom:14px;color:var(--green)}
+    .bio-index a{display:block;text-decoration:none;color:var(--muted);padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+    .bio-index a:hover{color:var(--green)}
+    .bio-content>article{background:var(--surface);border:1px solid var(--line);padding:40px;margin-bottom:24px;border-radius:var(--radius)}
+    .bio-content h3{font-family:"Noto Serif TC",serif;font-size:28px}
+    .eyeline{font:900 11px ui-monospace,monospace;color:var(--green);letter-spacing:.14em}
+    .evidence{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-top:28px}
+    .evidence div{min-height:140px;padding:18px 14px;background:var(--navy-soft);border-radius:12px;border-bottom:4px solid var(--line)}
+    .evidence div:nth-child(3),.evidence div:nth-child(4){border-color:var(--amber)}
+    .evidence div:last-child{border-color:var(--green);background:var(--green-soft)}
+    .evidence b{display:block;font-size:13px;margin-bottom:8px}
+    .evidence p{font-size:12px;color:var(--muted);margin:0}
+    .rescue{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+    .rescue div{border:1px solid var(--line);border-radius:12px;padding:20px}
+    .rescue strong{color:var(--green);display:block;margin-bottom:8px}
+    .callout{border-left:4px solid var(--amber);padding:18px 22px;background:var(--amber-soft);border-radius:0 12px 12px 0}
+    .matrix{width:100%;border-collapse:collapse;background:var(--surface);font-size:14px}
+    .matrix th,.matrix td{text-align:left;vertical-align:top;padding:16px;border-bottom:1px solid var(--line)}
+    .matrix th{background:var(--navy-soft);font-size:12px;letter-spacing:.06em}
+    .matrix tr:hover td{background:var(--green-soft)}
+    .cases{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+    .case{border-top:1px solid var(--line);padding:24px 0 0}
+    .case small{color:var(--green);font-weight:900}
+    .case h3{font-size:20px;margin:8px 0}
+    .case p{color:var(--muted);font-size:14px}
+    details{background:var(--surface);border-bottom:1px solid var(--line)}
+    summary{cursor:pointer;font-weight:850;padding:20px 52px 20px 0;position:relative;list-style:none}
+    summary::-webkit-details-marker{display:none}
+    summary:after{content:"＋";position:absolute;right:8px;color:var(--green);font-size:24px}
+    details[open] summary:after{content:"−"}
+    details p{color:var(--muted);margin:0;padding:0 52px 22px 0}
+    .check-shell{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
+    .check-top{position:sticky;top:72px;z-index:20;background:var(--surface);padding:24px 30px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+    .score-line{height:10px;background:var(--line);border-radius:10px;overflow:hidden}
+    .score-line i{display:block;width:0;height:100%;background:var(--green);transition:.25s}
+    .score{font:900 24px ui-monospace,monospace;color:var(--green)}
+    .check-grid{display:grid;grid-template-columns:repeat(2,1fr)}
+    .check-group{padding:30px;border-right:1px solid var(--line);border-bottom:1px solid var(--line)}
+    .check-group:nth-child(even){border-right:0}
+    .check-group h3{font-size:18px}
+    .check{display:grid;grid-template-columns:22px 1fr;gap:10px;margin:13px 0;cursor:pointer;color:var(--muted);font-size:14px}
+    .check input{accent-color:var(--green);width:18px;height:18px;margin-top:5px}
+    .check:has(input:checked){color:var(--ink);text-decoration-color:var(--green)}
+    .reset{background:none;border:0;color:var(--coral);font-weight:800;cursor:pointer}
+    footer{padding:60px 24px;background:var(--navy);color:#dce8e3}
+    [data-theme="dark"] footer{background:#08110e}
+    .footer-inner{max-width:var(--max);margin:auto}
+    footer h2{font-family:"Noto Serif TC",serif;font-size:32px;color:#fff}
+    footer p{font-size:13px;color:#b7c8c1}
+    .backtop{position:fixed;right:22px;bottom:22px;z-index:60;opacity:0;pointer-events:none;transition:.2s}
+    .backtop.show{opacity:1;pointer-events:auto}
+    @media(max-width:900px){
+      .menu-btn{display:block;margin-left:auto}.nav{display:none;position:absolute;top:72px;left:12px;right:12px;background:var(--surface);border:1px solid var(--line);padding:12px;border-radius:14px;box-shadow:var(--shadow)}
+      .nav.open{display:grid}.theme-btn{margin-left:0}.hero{min-height:620px}.hero-grid{grid-template-columns:1fr;gap:35px}.hero-note{align-self:auto}
+      .quickmap-inner,.four{grid-template-columns:repeat(2,1fr)}.quickmap a:nth-child(2){border-right:0}
+      .section-head{grid-template-columns:1fr;gap:12px}.split,.footer-inner{grid-template-columns:1fr}
+      .timeline{grid-template-columns:repeat(2,1fr)}.bio-grid{grid-template-columns:1fr}.bio-index{display:none}
+      .evidence{grid-template-columns:repeat(2,1fr)}.rescue{grid-template-columns:1fr}.check-top{top:72px}
+    }
+    @media(max-width:600px){
+      .topbar-inner{padding:0 16px}.brand b{font-size:14px}.hero{min-height:650px}.hero:before{opacity:.45}
+      h1{font-size:46px}.hero-grid{gap:25px}.wrap{padding:0 18px}.quickmap-inner{grid-template-columns:1fr;padding:10px 18px}
+      .quickmap a{border-right:0;border-bottom:1px solid var(--line)}section{padding:76px 0}.thesis{padding:28px}
+      .bridge{grid-template-columns:1fr}.bridge-arrow{transform:rotate(90deg)}.four,.timeline,.evidence,.cases,.check-grid{grid-template-columns:1fr}
+      .step{min-height:auto}.bio-content>article{padding:26px 22px}.check-group{border-right:0}.matrix{font-size:12px}
+      .matrix th,.matrix td{padding:10px}.footer-inner{gap:20px}
+    }
+    @media print{
+      .topbar,.progress,.backtop,.hero-actions,.bio-index,.reset{display:none!important}
+      :root{--paper:#fff;--surface:#fff;--ink:#000;--muted:#333;--line:#bbb}
+      body{font-size:11pt}.hero{min-height:auto;padding:60px 0}.hero:before,.hero:after{display:none}section{padding:35px 0;break-inside:auto}
+      .panel,.bio-content>article,.thesis{box-shadow:none;break-inside:avoid}.check-top{position:static}
+    }
+  </style>
+</head>
+<body>
+  <div class="progress" aria-hidden="true"><i id="readingProgress"></i></div>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="#top"><span class="brand-mark">科</span><b>科展得獎策略全攻略</b></a>
+      <button class="icon-btn menu-btn" id="menuBtn" aria-label="開啟章節選單" aria-expanded="false">☰</button>
+      <nav class="nav" id="mainNav" aria-label="主要章節">
+        <a href="#logic">得獎邏輯</a><a href="#process">研究流程</a><a href="#biology">生物專區</a>
+        <a href="#cases">案例</a><a href="#qa">答辯</a><a href="#checklist">檢核表</a>
+      </nav>
+      <button class="icon-btn theme-btn" id="themeBtn" aria-label="切換深淺色">◐</button>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap hero-grid">
+        <div>
+          <h1>臺灣科展<br><em>得獎策略</em>全攻略</h1>
+          <p class="author">臺北市麗山高中林獻升老師</p>
+          <p class="lead">從好奇出發，以證據抵達機制。先掌握臺灣科展的共同獲獎邏輯，再把生物研究推進到因果、機制與轉譯價值。</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#logic">開始閱讀 ↓</a>
+            <a class="btn btn-secondary" href="#biology">前往生物專區</a>
+          </div>
+        </div>
+        <aside class="hero-note">
+          <b>這不是題型清單，而是一套研究決策系統。</b>
+          適合國小、國中、高中學生自學，也適合指導老師用於選題會議、研究診斷、答辯演練與送件前總檢。
+        </aside>
+      </div>
+    </section>
+
+    <nav class="quickmap" aria-label="快速路徑">
+      <div class="quickmap-inner">
+        <a href="#logic"><small>01 / UNDERSTAND</small><b>先看懂評審如何判斷</b></a>
+        <a href="#process"><small>02 / BUILD</small><b>把研究流程做完整</b></a>
+        <a href="#biology"><small>03 / DEEPEN</small><b>強化生物證據鏈</b></a>
+        <a href="#checklist"><small>04 / VERIFY</small><b>送件前逐項驗證</b></a>
+      </div>
+    </nav>
+
+    <section id="logic">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">CHAPTER 01</div>
+          <div><h2>得獎的真正分水嶺：科學成熟度</h2><p>評審不只問「做了多少」，而是檢視問題、方法、數據、解釋與貢獻是否形成一致而可信的論證。</p></div>
+        </header>
+        <div class="thesis">
+          <h3>從「我看見什麼」跨越到「我如何證明，為何如此」</h3>
+          <div class="bridge">
+            <div class="bridge-box"><small>現象型研究</small><strong>What?</strong><span>描述差異、呈現結果、完成操作</span></div>
+            <div class="bridge-arrow">→</div>
+            <div class="bridge-box"><small>得獎型研究</small><strong>Why &amp; How?</strong><span>排除替代解釋、建立因果、提出機制</span></div>
+          </div>
+        </div>
+        <div class="four">
+          <article class="principle"><span>01 / RIGOR</span><h3>方法嚴謹</h3><p>變因控制、足夠樣本、儀器校正、統計與可重現性。</p></article>
+          <article class="principle"><span>02 / MECHANISM</span><h3>機制深度</h3><p>不只呈現相關，還能解釋作用路徑與必要條件。</p></article>
+          <article class="principle"><span>03 / IMPACT</span><h3>創新價值</h3><p>清楚界定知識缺口，連結在地問題或實際應用。</p></article>
+          <article class="principle"><span>04 / INTEGRITY</span><h3>科學溝通</h3><p>誠實揭露限制，以圖表、日誌與答辯守住可信度。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="winning">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">CHAPTER 02</div>
+          <div><h2>得獎作品與未得獎作品，差在結構</h2><p>亮眼題目只能吸引注意；能否獲獎，取決於研究是否有閉環、資料是否能承受質疑。</p></div>
+        </header>
+        <div class="split">
+          <article class="panel">
+            <h3>五個高勝率結構</h3>
+            <ul class="clean">
+              <li><b>聚焦問題：</b>研究範圍可操作，並清楚指出與前人研究的差異。</li>
+              <li><b>精確量化：</b>將肉眼觀察轉為可測量、可統計、可重複的變數。</li>
+              <li><b>證據閉環：</b>現象、控制、機制與驗證彼此扣合。</li>
+              <li><b>跨域工具：</b>工具為問題服務，不以昂貴儀器替代科學思考。</li>
+              <li><b>清楚貢獻：</b>能回答「所以呢？」以及學生本人完成了什麼。</li>
+            </ul>
+          </article>
+          <article class="panel">
+            <h3>五個常見致命傷</h3>
+            <ul class="clean danger">
+              <li><b>挑數據：</b>排除不符預期的結果，卻沒有事前排除標準。</li>
+              <li><b>只有平均值：</b>沒有樣本數、誤差、個別資料點與推論統計。</li>
+              <li><b>有相關就稱因果：</b>缺乏操弄、對照與救援驗證。</li>
+              <li><b>工具堆疊：</b>高階技術很多，卻沒有共同回答核心假說。</li>
+              <li><b>日誌與倫理破口：</b>事後補寫、引用不實、貢獻不清或審查缺漏。</li>
+            </ul>
+          </article>
+        </div>
+        <div class="formula">得獎競爭力 ＝ 嚴謹方法 × 機制深度 × 創新價值 × 論證與溝通</div>
+      </div>
+    </section>
+
+    <section id="process">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">CHAPTER 03</div>
+          <div><h2>從零到送件：九階研究流程</h2><p>真正有效的流程不是直線。每取得一輪資料，都要回頭修正假說、方法或解釋。</p></div>
+        </header>
+        <div class="timeline">
+          <article class="step"><h3>現象與問題</h3><p>從長期觀察、在地問題或文獻矛盾出發；把大題目改寫成可檢驗問題。</p></article>
+          <article class="step"><h3>文獻與缺口</h3><p>整理已知、未知與爭議；畫出概念圖，寫下本研究的新意。</p></article>
+          <article class="step"><h3>假說與預測</h3><p>假說必須可被反駁；預先寫出若假說成立，各組應出現何種結果。</p></article>
+          <article class="step"><h3>研究設計</h3><p>定義自變因、依變因、控制變因、正負對照、樣本數與重複方式。</p></article>
+          <article class="step"><h3>預試與校正</h3><p>確認測量範圍、儀器精度、操作可行性與排除標準，再進正式實驗。</p></article>
+          <article class="step"><h3>資料與日誌</h3><p>保留原始數據、失敗、日期、照片、版本與決策理由，建立資料字典。</p></article>
+          <article class="step"><h3>分析與驗證</h3><p>呈現個別點、誤差與效果量；選擇符合資料結構的統計方法。</p></article>
+          <article class="step"><h3>解釋與限制</h3><p>區分結果與推論；比較替代解釋，主動說明限制與下一步。</p></article>
+          <article class="step"><h3>論文與答辯</h3><p>每張圖只服務一個論點；以問題—方法—發現—影響建構故事線。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="bio" id="biology">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">BIOLOGY LAB</div>
+          <div><h2>生物領域強化：把生命現象推進成證據鏈</h2><p>生物系統變異大、層次多，也最容易把相關誤認為因果。高品質作品必須同時處理生物變異、時間尺度、機制層級與倫理。</p></div>
+        </header>
+        <div class="bio-grid">
+          <aside class="bio-index">
+            <b>BIOLOGY INDEX</b>
+            <a href="#bio-topic">選題引擎</a><a href="#bio-evidence">證據階梯</a>
+            <a href="#bio-rescue">因果與救援</a><a href="#bio-toolbox">乾濕整合</a><a href="#bio-ethics">倫理與邊界</a>
+          </aside>
+          <div class="bio-content">
+            <article id="bio-topic">
+              <span class="eyeline">B01 / TOPIC ENGINE</span><h3>四條值得深挖的選題路徑</h3>
+              <div class="split">
+                <ul class="clean">
+                  <li><b>精密調控：</b>訊息傳遞、表觀遺傳、非編碼 RNA、細胞自噬。</li>
+                  <li><b>疾病模型：</b>以果蠅、線蟲、斑馬魚等連結基因型、表型與靶點。</li>
+                </ul>
+                <ul class="clean">
+                  <li><b>系統性生理：</b>腸—腦、腸—肝、環境—代謝等跨層次軸線。</li>
+                  <li><b>在地與韌性：</b>本土物種、抗藥性、農業、微塑膠與氣候適應。</li>
+                </ul>
+              </div>
+              <div class="callout"><b>選題三問：</b>題目是否足夠聚焦？能否設計實驗驗證機制？它連結到什麼更大的科學或社會議題？</div>
+            </article>
+            <article id="bio-evidence">
+              <span class="eyeline">B02 / EVIDENCE LADDER</span><h3>生物研究的五階證據梯</h3>
+              <p>不是每個題目都必須做到分子層級，但必須清楚自己站在哪一階，以及下一個最有鑑別力的實驗是什麼。</p>
+              <div class="evidence">
+                <div><b>1　描述</b><p>時間、空間、形態或行為模式。</p></div>
+                <div><b>2　相關</b><p>A 與 B 同時改變，但尚不能稱因果。</p></div>
+                <div><b>3　操弄</b><p>改變 A 後，B 按預測方向改變。</p></div>
+                <div><b>4　機制</b><p>找出中介路徑、必要條件或生理基礎。</p></div>
+                <div><b>5　救援</b><p>恢復 A 能恢復 B，因果鏈更完整。</p></div>
+              </div>
+            </article>
+            <article id="bio-rescue">
+              <span class="eyeline">B03 / CAUSALITY</span><h3>救援實驗：把「可能」推進成「確實」</h3>
+              <div class="rescue">
+                <div><strong>Step 1｜破壞</strong>抑制或移除因子 A，觀察表型 B 是否消失或惡化。</div>
+                <div><strong>Step 2｜恢復</strong>回補正常 A，若 B 恢復，支持 A 是必要原因。</div>
+                <div><strong>Step 3｜機制檢查</strong>回補失去特定功能的 A；若無法救援，鎖定關鍵機制。</div>
+              </div>
+              <p class="callout"><b>替代方案：</b>高中以下若無法做基因操作，也可用拮抗劑／促進劑、環境反轉、正負對照、時間序列或不同測量層級建立較強的因果證據。</p>
+            </article>
+            <article id="bio-toolbox">
+              <span class="eyeline">B04 / DRY × WET</span><h3>工具不是裝飾：每一項技術都要對應一個推論</h3>
+              <table class="matrix">
+                <thead><tr><th>研究任務</th><th>可用工具</th><th>必須回答的問題</th></tr></thead>
+                <tbody>
+                  <tr><td>行為與影像量化</td><td>Tracker、ImageJ、DeepLabCut</td><td>操作定義是否清楚？標註者一致性如何？</td></tr>
+                  <tr><td>生理與分子</td><td>PCR、電泳、WB、ERG、EEG、顯微影像</td><td>有陽性／陰性與 loading control 嗎？</td></tr>
+                  <tr><td>生物資訊與預測</td><td>公開資料庫、序列比對、結構預測</td><td>預測是否用獨立濕實驗或資料集驗證？</td></tr>
+                  <tr><td>感測與自動化</td><td>Arduino、環境感測器、縮時攝影</td><td>儀器校正、漂移與偵測極限為何？</td></tr>
+                  <tr><td>統計與模型</td><td>t 檢定、ANOVA、回歸、混合模型</td><td>實驗單位、重複與檢定前提是否正確？</td></tr>
+                </tbody>
+              </table>
+            </article>
+            <article id="bio-ethics">
+              <span class="eyeline">B05 / ETHICS</span><h3>先過倫理，才談得上科學價值</h3>
+              <div class="split">
+                <ul class="clean">
+                  <li><b>人類研究：</b>知情同意、隱私、風險與必要的審查程序。</li>
+                  <li><b>脊椎動物：</b>遵守 3R——替代、減量、精緻化。</li>
+                </ul>
+                <ul class="clean">
+                  <li><b>微生物與生物安全：</b>菌株來源、操作等級、滅菌與廢棄流程。</li>
+                  <li><b>外來種與野外採集：</b>許可、最小干擾與防逸散。</li>
+                </ul>
+              </div>
+              <p class="callout"><b>指導邊界：</b>清楚標示學生、老師與外部實驗室各自完成的工作。使用高階儀器不會自動加分；不能解釋原理或數據來源反而會失分。</p>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="levels">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">CHAPTER 05</div>
+          <div><h2>依年段與競賽層級調整深度</h2><p>評審期待會隨年段改變；不是把大學技術下放，而是讓研究問題、證據與學生能力相稱。</p></div>
+        </header>
+        <table class="matrix">
+          <thead><tr><th>層級</th><th>合理亮點</th><th>常見加分</th><th>應避免</th></tr></thead>
+          <tbody>
+            <tr><td><b>國小</b></td><td>真實觀察、在地行動、清楚控制與長期記錄</td><td>雙軌驗證、社區連結、學生能完整說明</td><td>超出理解的高階技術堆疊</td></tr>
+            <tr><td><b>國中</b></td><td>精密量化、比較設計、生理或行為機制</td><td>自製裝置校正、時間序列、統計思維</td><td>只做產品效果比較</td></tr>
+            <tr><td><b>高中／全國科展</b></td><td>機制鏈、跨域整合、嚴謹統計與明確貢獻</td><td>多層證據、在地議題、獨立研究能力</td><td>相關當因果、儀器取代理解</td></tr>
+            <tr><td><b>TISF／ISEF</b></td><td>因果驗證、科學精煉、轉譯價值與國際對話</td><td>救援實驗、乾濕整合、清楚獨立貢獻</td><td>過度宣稱、倫理與資料治理缺口</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="cases">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">CHAPTER 06</div>
+          <div><h2>案例不是用來模仿題目，而是拆解論證</h2><p>閱讀得獎作品時，應追問它如何把問題、方法與證據扣在一起，而非只複製研究材料或技術。</p></div>
+        </header>
+        <div class="cases">
+          <article class="case"><small>植物 × 物理</small><h3>浮萍季節消長</h3><p>把光敏素調控與流體現象放進同一解釋架構，示範跨領域不是工具拼貼，而是共同解釋現象。</p></article>
+          <article class="case"><small>環境 × 生理</small><h3>校園樹木固碳量化</h3><p>由校園尺度普查向下連結葉片生理量測，形成宏觀與微觀的交叉驗證。</p></article>
+          <article class="case"><small>農業 × 生醫</small><h3>益生菌與傷口癒合</h3><p>不只比較抑菌圈，還加入菌株安全確認與細胞遷移證據，把產品效果推進到作用與安全。</p></article>
+          <article class="case"><small>動物行為 × AI</small><h3>姿態與捕食行為</h3><p>用影像追蹤將主觀行為描述轉成時間、角度與軌跡，並以明確標註規則確保量測可信。</p></article>
+          <article class="case"><small>基因 × 發育</small><h3>功能破壞與救援</h3><p>以喪失功能、正常回補與功能缺失突變體回補，逐步鎖定真正造成發育表型的機制。</p></article>
+          <article class="case"><small>行為 × 心理物理</small><h3>短影音與時間知覺</h3><p>把主觀感受轉為毫秒級反應與控制實驗，示範行為科學也能有硬證據與嚴謹推論。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="qa">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">CHAPTER 07</div>
+          <div><h2>評審問答：從背稿改成防禦論證</h2><p>最好的回答通常有四步：直接回答、指出證據、承認界線、提出下一步。</p></div>
+        </header>
+        <details open><summary>為什麼選這個題目？新意在哪裡？</summary><p>先說明具體觀察或知識缺口，再用一至兩篇關鍵文獻界定「前人做到哪裡、你多做了什麼」。避免只回答「因為有興趣」。</p></details>
+        <details><summary>你如何確定結果不是其他變因造成？</summary><p>列出最可能的替代解釋，逐一對應控制、隨機化、盲測、校正或補充實驗；若仍不能排除，要清楚承認。</p></details>
+        <details><summary>樣本數為什麼這樣決定？統計方法合適嗎？</summary><p>說明實驗單位、獨立重複、預試變異與資源限制；指出檢定前提、效果量與圖上呈現方式，不只報 p 值。</p></details>
+        <details><summary>這是相關還是因果？</summary><p>清楚分級：目前有哪些操弄、時間順序與對照；是否做過反向操弄或救援。證據不到就不要過度宣稱。</p></details>
+        <details><summary>最大的限制與失敗是什麼？</summary><p>選擇一個真正影響解釋的限制，說明如何發現、怎麼修正，以及仍殘留多少不確定性。誠實比完美更可信。</p></details>
+        <details><summary>外部實驗室或老師協助了什麼？</summary><p>用工作分解表回答：概念、實驗操作、儀器、分析、程式與寫作各由誰完成；學生本人必須能解釋所有採用的證據。</p></details>
+      </div>
+    </section>
+
+    <section id="integrity">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">CHAPTER 08</div>
+          <div><h2>實驗日誌與研究倫理：可信度的底座</h2><p>日誌不是漂亮的成果本，而是能重建研究過程、證明決策真實、讓他人重複操作的原始紀錄。</p></div>
+        </header>
+        <div class="four">
+          <article class="principle"><span>DATE</span><h3>即時與連續</h3><p>每次操作寫日期、目的、條件與結果；失敗照樣保留。</p></article>
+          <article class="principle"><span>RAW</span><h3>原始資料</h3><p>不可擦除或挑選；修正時保留原值、原因與簽註。</p></article>
+          <article class="principle"><span>REPEAT</span><h3>可再現</h3><p>方法細到另一組能照做；程式、版本與儀器設定一併保存。</p></article>
+          <article class="principle"><span>CREDIT</span><h3>引用與貢獻</h3><p>圖、文字、程式與方法皆標來源；清楚切分每位作者工作。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="checklist">
+      <div class="wrap">
+        <header class="section-head">
+          <div class="section-no">FINAL CHECK</div>
+          <div><h2>得獎作品自評檢核</h2><p>勾選結果會保存在這台裝置。分數不是獲獎保證，而是用來找出研究最脆弱的環節。</p></div>
+        </header>
+        <div class="check-shell">
+          <div class="check-top">
+            <div><div class="score-line"><i id="scoreBar"></i></div><small id="verdict">尚未開始檢核</small></div>
+            <div><span class="score" id="score">0%</span> <button class="reset" id="resetChecks">重設</button></div>
+          </div>
+          <div class="check-grid" id="checkGrid">
+            <div class="check-group"><h3>問題與創新</h3>
+              <label class="check"><input type="checkbox"><span>問題聚焦且可檢驗，不是只有大主題。</span></label>
+              <label class="check"><input type="checkbox"><span>文獻能界定知識缺口與本研究差異。</span></label>
+              <label class="check"><input type="checkbox"><span>能用一句話說明科學或應用價值。</span></label>
+            </div>
+            <div class="check-group"><h3>方法與控制</h3>
+              <label class="check"><input type="checkbox"><span>實驗單位、樣本數與獨立重複定義清楚。</span></label>
+              <label class="check"><input type="checkbox"><span>正負對照、控制變因與隨機化合理。</span></label>
+              <label class="check"><input type="checkbox"><span>自製儀器或感測器已校正並記錄誤差。</span></label>
+            </div>
+            <div class="check-group"><h3>數據與統計</h3>
+              <label class="check"><input type="checkbox"><span>保留所有原始數據，排除標準事先訂定。</span></label>
+              <label class="check"><input type="checkbox"><span>圖表呈現個別點、樣本數、誤差與單位。</span></label>
+              <label class="check"><input type="checkbox"><span>統計方法符合資料型態與檢定前提。</span></label>
+            </div>
+            <div class="check-group"><h3>機制與因果</h3>
+              <label class="check"><input type="checkbox"><span>結論區分描述、相關、因果與機制。</span></label>
+              <label class="check"><input type="checkbox"><span>至少排除一個重要替代解釋。</span></label>
+              <label class="check"><input type="checkbox"><span>有操弄、反轉或救援設計支持核心推論。</span></label>
+            </div>
+            <div class="check-group"><h3>生物研究特別檢查</h3>
+              <label class="check"><input type="checkbox"><span>處理個體差異、批次效應與時間尺度。</span></label>
+              <label class="check"><input type="checkbox"><span>預測或資料庫結果有獨立資料驗證。</span></label>
+              <label class="check"><input type="checkbox"><span>人類、動物、微生物與採集倫理合規。</span></label>
+            </div>
+            <div class="check-group"><h3>溝通與誠信</h3>
+              <label class="check"><input type="checkbox"><span>三分鐘內能說清問題、方法、發現與影響。</span></label>
+              <label class="check"><input type="checkbox"><span>能誠實說明失敗、限制與下一步。</span></label>
+              <label class="check"><input type="checkbox"><span>引用、日誌與學生獨立貢獻可被查核。</span></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div><h2>獎牌是結果，可信的研究能力才是帶得走的成果。</h2></div>
+    </div>
+  </footer>
+  <button class="icon-btn backtop" id="backTop" aria-label="回到頂端">↑</button>
+
+  <script>
+    const root=document.documentElement;
+    const nav=document.getElementById('mainNav');
+    const menuBtn=document.getElementById('menuBtn');
+    const themeBtn=document.getElementById('themeBtn');
+    const backTop=document.getElementById('backTop');
+    const progress=document.getElementById('readingProgress');
+    const storedTheme=localStorage.getItem('science-fair-theme');
+    if(storedTheme) root.dataset.theme=storedTheme;
+    themeBtn.addEventListener('click',()=>{
+      root.dataset.theme=root.dataset.theme==='dark'?'light':'dark';
+      localStorage.setItem('science-fair-theme',root.dataset.theme);
+    });
+    menuBtn.addEventListener('click',()=>{
+      const open=nav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded',open);
+    });
+    nav.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{
+      nav.classList.remove('open');
+      menuBtn.setAttribute('aria-expanded','false');
+    }));
+    window.addEventListener('scroll',()=>{
+      const max=document.documentElement.scrollHeight-innerHeight;
+      progress.style.width=(max?scrollY/max*100:0)+'%';
+      backTop.classList.toggle('show',scrollY>700);
+    },{passive:true});
+    backTop.addEventListener('click',()=>scrollTo({top:0,behavior:'smooth'}));
+    const observed=[...document.querySelectorAll('main section[id]')];
+    const navLinks=[...nav.querySelectorAll('a')];
+    const observer=new IntersectionObserver(entries=>{
+      entries.forEach(e=>{if(e.isIntersecting) navLinks.forEach(a=>a.classList.toggle('active',a.hash==='#'+e.target.id));});
+    },{rootMargin:'-20% 0px -70%'});
+    observed.forEach(s=>observer.observe(s));
+    const checks=[...document.querySelectorAll('#checkGrid input')];
+    const score=document.getElementById('score');
+    const scoreBar=document.getElementById('scoreBar');
+    const verdict=document.getElementById('verdict');
+    const saved=JSON.parse(localStorage.getItem('science-fair-checks')||'[]');
+    checks.forEach((c,i)=>c.checked=Boolean(saved[i]));
+    function updateScore(){
+      const done=checks.filter(c=>c.checked).length;
+      const pct=Math.round(done/checks.length*100);
+      score.textContent=pct+'%';scoreBar.style.width=pct+'%';
+      verdict.textContent=pct===100?'結構完整：請用實際證據逐項複核':pct>=80?'接近完整：優先補強未勾選項目':pct>=50?'已有基礎：研究仍有明顯薄弱環節':pct>0?'起步階段：先補方法、證據與控制':'尚未開始檢核';
+      localStorage.setItem('science-fair-checks',JSON.stringify(checks.map(c=>c.checked)));
+    }
+    checks.forEach(c=>c.addEventListener('change',updateScore));
+    document.getElementById('resetChecks').addEventListener('click',()=>{checks.forEach(c=>c.checked=false);updateScore();});
+    updateScore();
+  </script>
+</body>
+</html>

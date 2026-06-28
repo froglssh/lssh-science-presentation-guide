@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>科展競賽賽前總提點 ‧ 綜合整理報告</title>
+<style>
+  :root{
+    --navy:#16395e;
+    --navy-2:#1f4d7a;
+    --teal:#2f7da3;
+    --teal-soft:#e8f1f6;
+    --accent:#e07b39;
+    --accent-soft:#fbece1;
+    --green:#2e8b6f;
+    --green-soft:#e4f3ee;
+    --red:#c0473b;
+    --red-soft:#fbeae8;
+    --ink:#1c2530;
+    --ink-soft:#445064;
+    --line:#d9e2ea;
+    --bg:#f4f7fa;
+    --card:#ffffff;
+    --shadow:0 2px 10px rgba(22,57,94,.07),0 8px 30px rgba(22,57,94,.06);
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang TC","Noto Sans TC","Microsoft JhengHei",-apple-system,"Segoe UI",sans-serif;
+    color:var(--ink);
+    background:var(--bg);
+    line-height:1.85;
+    font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  /* ===== Top navigation ===== */
+  header.topbar{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .topbar-inner{
+    max-width:1180px;margin:0 auto;padding:10px 22px;
+    display:flex;align-items:center;gap:18px;flex-wrap:wrap;
+  }
+  .brand{font-weight:800;color:var(--navy);font-size:1.05rem;letter-spacing:.5px;white-space:nowrap;}
+  .brand .dot{color:var(--accent);}
+  nav.menu{display:flex;gap:4px;flex-wrap:wrap;margin-left:auto;}
+  nav.menu a{
+    color:var(--ink-soft);text-decoration:none;font-size:.92rem;font-weight:600;
+    padding:6px 12px;border-radius:999px;transition:.2s;white-space:nowrap;
+  }
+  nav.menu a:hover{background:var(--teal-soft);color:var(--navy);}
+
+  /* ===== Hero ===== */
+  .hero{
+    background:
+      radial-gradient(1200px 400px at 80% -10%, rgba(224,123,57,.18), transparent 60%),
+      linear-gradient(135deg,var(--navy) 0%, var(--navy-2) 55%, var(--teal) 130%);
+    color:#fff;padding:74px 22px 84px;position:relative;overflow:hidden;
+  }
+  .hero::after{
+    content:"";position:absolute;inset:0;
+    background-image:radial-gradient(rgba(255,255,255,.06) 1.4px, transparent 1.4px);
+    background-size:26px 26px;opacity:.5;
+  }
+  .hero-inner{max-width:1000px;margin:0 auto;position:relative;z-index:1;text-align:center;}
+  .hero .eyebrow{
+    display:inline-block;border:1px solid rgba(255,255,255,.45);
+    padding:6px 16px;border-radius:999px;font-size:.85rem;letter-spacing:2px;margin-bottom:22px;
+  }
+  .hero h1{font-size:3rem;margin:0 0 12px;font-weight:900;letter-spacing:2px;line-height:1.25;}
+  .hero .sub{font-size:1.12rem;opacity:.92;font-weight:500;margin-bottom:6px;}
+  .hero .tags{margin:26px 0 30px;display:flex;gap:10px;justify-content:center;flex-wrap:wrap;}
+  .hero .tags span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.25);
+    padding:7px 15px;border-radius:999px;font-size:.9rem;}
+  .hero .credit{font-size:.92rem;opacity:.82;margin-top:14px;line-height:1.7;}
+  .hero .credit b{font-weight:700;}
+
+  /* ===== Layout ===== */
+  main{max-width:1080px;margin:0 auto;padding:0 22px 90px;}
+  section.block{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    box-shadow:var(--shadow);padding:38px 40px;margin:40px 0;scroll-margin-top:80px;
+  }
+  section.block.intro{margin-top:-46px;position:relative;z-index:5;}
+
+  .chap-head{display:flex;align-items:center;gap:16px;margin-bottom:8px;}
+  .chap-num{
+    flex:0 0 auto;width:54px;height:54px;border-radius:14px;
+    background:linear-gradient(135deg,var(--navy),var(--teal));
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-size:1.4rem;font-weight:800;box-shadow:0 6px 16px rgba(22,57,94,.25);
+  }
+  .chap-head h2{margin:0;font-size:1.7rem;color:var(--navy);font-weight:800;letter-spacing:1px;}
+  .chap-head .kicker{font-size:.82rem;color:var(--teal);font-weight:700;letter-spacing:2px;text-transform:uppercase;}
+
+  h3{
+    font-size:1.22rem;color:var(--navy-2);font-weight:800;margin:34px 0 14px;
+    padding-left:14px;border-left:5px solid var(--accent);line-height:1.4;
+  }
+  h4{font-size:1.05rem;color:var(--navy);margin:22px 0 10px;font-weight:700;}
+  p{margin:0 0 14px;}
+  ul,ol{margin:0 0 16px;padding-left:1.3em;}
+  li{margin:8px 0;}
+  strong{color:var(--navy-2);}
+
+  /* core concept callout */
+  .core{
+    background:var(--teal-soft);border:1px solid #cfe2ee;border-left:6px solid var(--teal);
+    border-radius:12px;padding:18px 22px;margin:18px 0 8px;
+  }
+  .core .label{font-weight:800;color:var(--teal);font-size:.95rem;display:block;margin-bottom:4px;letter-spacing:1px;}
+
+  /* quote */
+  blockquote{
+    margin:20px 0;padding:18px 24px;background:var(--accent-soft);
+    border-left:6px solid var(--accent);border-radius:10px;color:#7a3e16;font-size:1.05rem;font-style:italic;
+  }
+
+  /* tables */
+  .table-wrap{overflow-x:auto;margin:18px 0;border-radius:12px;border:1px solid var(--line);}
+  table{width:100%;border-collapse:collapse;font-size:.97rem;min-width:540px;}
+  thead th{
+    background:linear-gradient(135deg,var(--navy),var(--navy-2));color:#fff;
+    text-align:left;padding:13px 16px;font-weight:700;letter-spacing:.5px;
+  }
+  tbody td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top;}
+  tbody tr:nth-child(even){background:#f7fafc;}
+  tbody tr:hover{background:var(--teal-soft);}
+  td .pill-type{font-weight:800;color:var(--navy);}
+
+  /* checklist */
+  .check-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:16px 0;}
+  .check-item{
+    display:flex;gap:12px;align-items:flex-start;background:#f7fafc;border:1px solid var(--line);
+    border-radius:10px;padding:13px 15px;font-size:.96rem;
+  }
+  .check-item .box{flex:0 0 auto;width:22px;height:22px;border:2px solid var(--teal);border-radius:6px;margin-top:2px;}
+
+  /* numbered facets */
+  .facets{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:16px 0;}
+  .facet{background:#f7fafc;border:1px solid var(--line);border-radius:10px;padding:14px 16px;}
+  .facet b{color:var(--accent);}
+
+  /* QA cards */
+  .qa{
+    border:1px solid var(--line);border-radius:14px;margin:16px 0;overflow:hidden;background:#fff;
+    box-shadow:0 1px 4px rgba(22,57,94,.05);
+  }
+  .qa summary{
+    list-style:none;cursor:pointer;padding:16px 20px;display:flex;gap:14px;align-items:flex-start;
+    background:#f4f8fb;font-weight:700;color:var(--navy);transition:.2s;
+  }
+  .qa summary::-webkit-details-marker{display:none;}
+  .qa summary:hover{background:var(--teal-soft);}
+  .qa summary .q-ic{
+    flex:0 0 auto;width:30px;height:30px;border-radius:8px;background:var(--navy);color:#fff;
+    display:flex;align-items:center;justify-content:center;font-weight:800;font-size:.95rem;
+  }
+  .qa summary .q-tail{margin-left:auto;color:var(--teal);font-size:.85rem;font-weight:700;}
+  .qa[open] summary{border-bottom:1px solid var(--line);}
+  .qa-body{padding:18px 22px 20px;}
+  .ans-block{margin:12px 0;}
+  .ans-block .tag{
+    display:inline-block;font-size:.78rem;font-weight:800;letter-spacing:1px;padding:3px 10px;border-radius:6px;margin-bottom:6px;
+  }
+  .tag.good{background:var(--green-soft);color:var(--green);}
+  .tag.bad{background:var(--red-soft);color:var(--red);}
+  .tag.tip{background:var(--accent-soft);color:var(--accent);}
+  .ans-block.good{border-left:4px solid var(--green);padding-left:14px;}
+  .ans-block.bad{border-left:4px solid var(--red);padding-left:14px;}
+  .ans-block.tip{border-left:4px solid var(--accent);padding-left:14px;}
+
+  /* SWOT / warning chips */
+  .warn-list li{position:relative;}
+
+  /* subject grid */
+  .subj-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:16px 0;}
+  .subj{border:1px solid var(--line);border-radius:12px;padding:16px 18px;background:#fff;}
+  .subj h4{margin:0 0 6px;color:var(--teal);display:flex;align-items:center;gap:8px;}
+  .subj h4 .ico{font-size:1.2rem;}
+
+  .note{font-size:.9rem;color:var(--ink-soft);background:#f7fafc;border:1px dashed var(--line);
+    border-radius:10px;padding:12px 16px;margin:14px 0;}
+
+  .added-badge{
+    display:inline-block;background:var(--accent);color:#fff;font-size:.72rem;font-weight:800;
+    padding:3px 10px;border-radius:999px;letter-spacing:1px;vertical-align:middle;margin-left:8px;
+  }
+
+  /* TOC */
+  .toc{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+  .toc a{
+    text-decoration:none;color:var(--navy);background:#f7fafc;border:1px solid var(--line);
+    border-radius:12px;padding:14px 16px;transition:.2s;display:block;
+  }
+  .toc a:hover{background:var(--teal-soft);transform:translateY(-2px);box-shadow:var(--shadow);}
+  .toc a .t-num{font-size:.78rem;color:var(--teal);font-weight:800;letter-spacing:1px;}
+  .toc a .t-name{font-weight:700;display:block;margin-top:2px;}
+
+  footer{background:var(--navy);color:#cdd9e4;text-align:center;padding:30px 22px;font-size:.9rem;}
+  footer b{color:#fff;}
+
+  .backtop{
+    position:fixed;right:20px;bottom:20px;z-index:90;background:var(--navy);color:#fff;
+    width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;
+    text-decoration:none;box-shadow:var(--shadow);font-size:1.3rem;opacity:.92;
+  }
+  .backtop:hover{background:var(--teal);}
+
+  @media (max-width:760px){
+    body{font-size:16.5px;}
+    .hero h1{font-size:2.1rem;}
+    section.block{padding:26px 20px;}
+    .check-grid,.facets,.subj-grid,.toc{grid-template-columns:1fr;}
+    .chap-head h2{font-size:1.35rem;}
+    nav.menu{display:none;}
+    .topbar-inner{justify-content:center;}
+  }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="topbar-inner">
+    <span class="brand">科展賽前總提點<span class="dot">.</span></span>
+    <nav class="menu">
+      <a href="#intro">導讀</a>
+      <a href="#c1">說明書</a>
+      <a href="#c2">簡報</a>
+      <a href="#c3">海報</a>
+      <a href="#c4">模擬提問</a>
+      <a href="#c5">問題分類</a>
+      <a href="#c6">實戰問答</a>
+      <a href="#appendix">賽前叮嚀</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">賽前準備閉環 ‧ 教師授課 × 學生自學</span>
+    <h1>科展競賽賽前總提點</h1>
+    <div class="sub">綜合整理報告</div>
+    <div class="tags">
+      <span>作品說明書</span><span>競賽簡報</span><span>競賽海報</span>
+      <span>模擬評審問題</span><span>歷屆問題分類</span><span>實戰模擬問答</span>
+    </div>
+    <div class="credit">
+      臺北市麗山高中　<b>林獻升老師</b>　整理<br>
+      林永發老師於臺北市全國科展輔導活動發表資料
+    </div>
+  </div>
+</section>
+
+<main>
+
+  <!-- ===== 導讀 ===== -->
+  <section class="block intro" id="intro">
+    <div class="chap-head">
+      <div class="chap-num" style="background:linear-gradient(135deg,var(--accent),#d8642a)">導</div>
+      <div><div class="kicker">Reading Guide</div><h2>導讀：這份報告怎麼用</h2></div>
+    </div>
+    <p>本報告整理歷屆全國科展，涵蓋上百件作品的實際評審提問、模擬評審互評回饋、SWOT 劣勢分析，以及作品說明書各章節的撰寫共識。其核心精神是：把「<strong>評審會怎麼看、怎麼問</strong>」具體化，讓參賽師生在上場前就能換位思考、提前演練、逐項自我檢核。</p>
+    <p>全篇依五大主軸編排，每一節都先給「核心觀念」，再給「可直接照做的檢核重點」，最後附上自合輯萃取的真實案例或評審原話。建議使用方式：先讀第一至三節打造「<strong>靜態作品</strong>」（說明書、簡報、海報），再用第四、五節進行「<strong>動態演練</strong>」（模擬問答），形成完整的賽前準備閉環。</p>
+    <div class="note">本網頁版另新增 <span class="added-badge">指導老師擴充</span> 的「第六章 實戰模擬問答」，以台灣科展指導老師與評審視角，提供更多評審提問與含範例答法、地雷提醒的完整問答，供賽前演練使用。</div>
+    <div class="toc">
+      <a href="#c1"><span class="t-num">CHAPTER 1</span><span class="t-name">作品說明書（科學寫作）</span></a>
+      <a href="#c2"><span class="t-num">CHAPTER 2</span><span class="t-name">競賽簡報（含口頭發表）</span></a>
+      <a href="#c3"><span class="t-num">CHAPTER 3</span><span class="t-name">競賽海報</span></a>
+      <a href="#c4"><span class="t-num">CHAPTER 4</span><span class="t-name">模擬評審問題</span></a>
+      <a href="#c5"><span class="t-num">CHAPTER 5</span><span class="t-name">歷屆評審問題分類</span></a>
+      <a href="#c6"><span class="t-num">CHAPTER 6 ★</span><span class="t-name">實戰模擬問答（擴充）</span></a>
+      <a href="#appendix"><span class="t-num">APPENDIX</span><span class="t-name">賽前叮嚀與心態調整</span></a>
+    </div>
+  </section>
+
+  <!-- ===== 第一章 ===== -->
+  <section class="block" id="c1">
+    <div class="chap-head">
+      <div class="chap-num">1</div>
+      <div><div class="kicker">Chapter 1</div><h2>作品說明書（科學寫作）</h2></div>
+    </div>
+    <div class="core"><span class="label">核心觀念</span>
+      作品說明書是評審在見到學生前，唯一能完整理解作品的文件。它必須像一張「<strong>研究地圖</strong>」——讓讀者從高空就看見整座森林（動機 → 方法 → 結果 → 價值），並產生想看下去的好奇。
+    </div>
+
+    <h3>一、各章節撰寫重點一覽</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:22%">章節</th><th>撰寫重點與目標</th></tr></thead>
+        <tbody>
+          <tr><td><b>摘要</b></td><td>一段 200～300 字（不分段、不超過 300 字）。開門見山、直指核心，第一句話即點出研究核心；簡述目的、問題、方法與最重要結果，並凸顯特色、創意與研究價值。用簡單直述句，避免成語、俗語與艱澀術語。</td></tr>
+          <tr><td><b>緒論／研究動機與目的</b></td><td>以實據（例子或數據）陳述研究背景與立基點，讓讀者很快理解「想做什麼、為什麼重要」；明確帶出研究目的與待答問題；釐清每個目的所涉及的問題；附名詞解釋與清楚定義。</td></tr>
+          <tr><td><b>文獻探討</b></td><td>說明前人做過什麼、本研究與文獻的差異，藉此凸顯本研究的「地位」、獨特性與重要性；指出尚未解決的問題；說明對實務（生活）的貢獻或意義；強調作品對人類社會的影響高度。</td></tr>
+          <tr><td><b>研究方法</b></td><td>以清楚的「研究架構圖」呈現實驗規劃與整體脈絡（圖像化）；具體敘述研究設計；說明取樣方法、條件、過程與理由（並交代可能的取樣偏見）；方法須兼具信度與效度；操縱變因明確、控制干擾變因；強調創新與創意解法。</td></tr>
+          <tr><td><b>研究結果</b></td><td>以統整後的圖表、正確科學符號呈現數據與變項關係；減少形容詞、用客觀數據描述；可將變化量轉為比例關係分析；結果須與目的、假設相呼應；與文獻比較；有系統地呈現以利引出結論；合宜說明研究限制；釐清自變項與因變項的因果關係。</td></tr>
+          <tr><td><b>研究結論</b></td><td>依結果以「條列式」清楚扼要總結，逐一回應研究目的與問題；在真實情境脈絡中凸顯貢獻與價值；提出未來展望、發展性與實踐方向。</td></tr>
+          <tr><td><b>綜覽（全篇文氣）</b></td><td>遣詞客觀流暢、文意轉折順暢；保有「學生的語氣」，不要太像論文；全篇思考與表達具連貫性（如書法行氣）；具可探究性、開展性、批判性（接受結果時保留遲疑）與反思性（呈現困難與解決策略）。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>二、摘要的兩個比喻（寫好摘要的關鍵）</h3>
+    <ul>
+      <li>把摘要當「<strong>一面簡易地圖</strong>」：引導讀者從高空看見森林——起點（動機、目的）到終點（結果），以及引人好奇、想看下去的路徑（方法）。</li>
+      <li>第一句話就是研究內容的核心；在有限字數內整理全篇材料，提供最多訊息；結果與結論要能呼應研究旨趣。</li>
+    </ul>
+
+    <h3>三、作品說明書自我檢核表（科學寫作）</h3>
+    <p>上場前逐項打勾，任何一項打不過，就是修稿重點：</p>
+    <div class="check-grid">
+      <div class="check-item"><span class="box"></span>主題是否明顯？研究主題和研究內容契合嗎？</div>
+      <div class="check-item"><span class="box"></span>第一手資料是否有重要發現？</div>
+      <div class="check-item"><span class="box"></span>作品／實驗報告是否符合科學寫作格式？</div>
+      <div class="check-item"><span class="box"></span>參考的二手資料是否為該領域最新資料？</div>
+      <div class="check-item"><span class="box"></span>表格與圖片是否按邏輯排列？圖表是否加註字母／數字與文字說明？</div>
+      <div class="check-item"><span class="box"></span>目錄、附錄是否完整？附件是否只是大量積壓充數？</div>
+      <div class="check-item"><span class="box"></span>參考資料是否齊全並有備份？格式是否前後一致？</div>
+      <div class="check-item"><span class="box"></span>打字有無錯誤？是否有冗字、漏字？是否標示頁碼與篇名？</div>
+      <div class="check-item"><span class="box"></span>圖表是否花俏卻無重要（第一手）資料？圖表與結論是否簡明？</div>
+      <div class="check-item"><span class="box"></span>是否已反覆檢查、確認為最佳呈現方式？是否觀摩學習過優秀作品的長處？</div>
+    </div>
+
+    <h3>四、評審最常檢視的九大面向（作品內容自我檢視）</h3>
+    <div class="facets">
+      <div class="facet"><b>1 動機性</b>：研究動機是否強烈？目的是否清楚？</div>
+      <div class="facet"><b>2 相關性</b>：主題與鄉土、教材有關？參考資料與主題相關？</div>
+      <div class="facet"><b>3 獨創性</b>：是否具獨特、創意？是否只是已知結果？</div>
+      <div class="facet"><b>4 獨立性</b>：是否由學生自己完成？</div>
+      <div class="facet"><b>5 嚴密性及完整性</b>：思緒條理、架構清楚；方法嚴謹、完整（數學需驗證）。</div>
+      <div class="facet"><b>6 詳實性</b>：研究日誌或實驗數據必須詳實，必要時附上。</div>
+      <div class="facet"><b>7 目的性</b>：結果與結論是否回答了研究目的與問題？</div>
+      <div class="facet"><b>8 應用性</b>：是否具學術性或實用性價值？</div>
+      <div class="facet"><b>9 表達性</b>：表達能力與生動程度（文字、圖表、比喻、說故事等）。</div>
+    </div>
+  </section>
+
+  <!-- ===== 第二章 ===== -->
+  <section class="block" id="c2">
+    <div class="chap-head">
+      <div class="chap-num">2</div>
+      <div><div class="kicker">Chapter 2</div><h2>競賽簡報（含口頭發表）</h2></div>
+    </div>
+    <div class="core"><span class="label">核心觀念</span>
+      簡報的唯一目標，是讓 3～5 位評審在極短時間內做到三件事——<strong>理解作品</strong>（架構清楚、內容嚴謹完整）、<strong>看見亮點</strong>（創意、獨特性、學術或應用價值）、<strong>看見作者</strong>（表達、思緒、信心、態度、儀容）。
+    </div>
+
+    <h3>一、簡報版面：評審最常見的回饋</h3>
+    <p>綜合歷屆資料，版面問題幾乎一面倒指向同一件事：「<strong>字太多、圖太小、版面太雜</strong>」。改善方向：</p>
+    <ul>
+      <li><strong>字要少、圖要大</strong>：主要的圖放大、文字精簡；結論處補上圖文對照說明，提供立即的視覺感受。</li>
+      <li><strong>善用圖表增加易讀性</strong>：適時改用長條圖／折線圖呈現比較數據；座標軸要標上名稱，圖表單位與科學符號正確。</li>
+      <li><strong>版面統一、循序、簡潔</strong>：用色不要太多、底色盡量單純；排版整齊、留白足夠，避免「視覺好忙、不知道該看哪裡」。</li>
+      <li><strong>基本但常被忽略的細節</strong>：要加頁碼、版面格式前後一致、自己手寫那頁也要清楚可讀。</li>
+    </ul>
+
+    <h3>二、設計多種時間版本的簡報</h3>
+    <p>評審現場常會中途打斷或追問，作者必須能彈性伸縮報告長度：</p>
+    <ul>
+      <li>準備 <strong>10 分鐘、8 分鐘、5 分鐘、3 分鐘</strong> 等不同版本（標準 → 統整 → 簡化）。</li>
+      <li>對自己、朋友、師長不斷演練各版本，並做好「被中斷後接回主軸」的應變準備。</li>
+      <li>自己錄音或錄影回看、換位思考，檢查節奏與冗詞。</li>
+    </ul>
+
+    <h3>三、口頭表達：四大向度與常見扣分點</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:20%">向度</th><th>做到的標準與常見回饋</th></tr></thead>
+        <tbody>
+          <tr><td><b>聚焦主軸</b></td><td>以清晰、簡潔、有邏輯的「故事」呈現；少用學術語言、適時解釋名詞；開頭第一句就要吸引評審注意。常見問題：講太多聽不懂的內容、重點不突出。</td></tr>
+          <tr><td><b>時間掌握</b></td><td>在規定時間內做最完整的報告；速度勿過快（多數回饋是「講太快、太趕」）；組員交接好留長空檔；報告完記得說謝謝。</td></tr>
+          <tr><td><b>流暢度</b></td><td>丟稿流暢、不要逐字逐句唸；像「說故事」而非「背稿」，要有抑揚頓挫；眼睛不要一直往下看稿或亂飄。</td></tr>
+          <tr><td><b>設備與道具</b></td><td>熟練電腦操作（每位成員都要會，以防臨時狀況）；滑鼠／雷射筆跟著報告走、勿亂晃；麥克風距離適當、別人發言時關掉自己的麥克風；學生應親自操作電腦。</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>四、表達技巧（讓報告更有說服力）</h3>
+    <ul>
+      <li>設計橋段讓表達順暢：每個區塊之間要有合理、有意義的過渡與銜接動機。</li>
+      <li>用具體表達抽象、用比喻類比問題、用比例讓聽眾更有概念。</li>
+      <li>用手勢、手指或指揮棒輔助（避免空勢、亂晃），引導評審注意力。</li>
+      <li>用眼神專注並適時轉移到不同評審，讓眼神有穿透的說服力；身體姿勢穩重得體。</li>
+    </ul>
+
+    <h3>五、口頭發表自我檢核（節錄）</h3>
+    <ul>
+      <li>對資料敘述嚴謹；不逐字唸、能丟稿流暢報告。</li>
+      <li>回答能簡短、切入重點，簡單直接不複雜。</li>
+      <li>仔細聆聽、記下問題重點，回答前先對自己重複一遍；能切割問題到自己能處理的範圍。</li>
+      <li>不害怕承認不懂；不確定時有勇氣婉轉請評審再說一次或換種方式說。</li>
+      <li>隨時抬頭挺胸、面帶笑容、自得其樂；喜歡自己的作品，認真而有感情地發表。</li>
+      <li>能掌握內容深度不吃螺絲；能做最完整、也能做最簡短的報告；兼顧邏輯與想像的隨機應答。</li>
+    </ul>
+  </section>
+
+  <!-- ===== 第三章 ===== -->
+  <section class="block" id="c3">
+    <div class="chap-head">
+      <div class="chap-num">3</div>
+      <div><div class="kicker">Chapter 3</div><h2>競賽海報</h2></div>
+    </div>
+    <div class="core"><span class="label">核心觀念</span>
+      海報是評審「<strong>走過去第一眼</strong>」就決定要不要停下來的關鍵。它必須在幾秒內凸顯主題與亮點；若內容繁雜、曲線圖過多又講得太快，評審將難以掌握主要結論。海報的原則與簡報相通——<strong>少字、大圖、主軸清楚</strong>。
+    </div>
+
+    <h3>一、海報製作的核心原則</h3>
+    <ul>
+      <li><strong>聚焦主軸與亮點</strong>：內容勿繁雜贅述細節，否則亮點被淡化、主軸模糊而產生乏味感。</li>
+      <li><strong>圖表要大、要能被快速讀懂</strong>：實驗曲線圖多時，務必標清主要結論；字大一點、圖清楚一點。</li>
+      <li><strong>呈現第一手資料</strong>：避免「圖表花俏卻沒有重要（第一手）資料」；圖表與結論都要簡明。</li>
+      <li><strong>圖表規範</strong>：座標軸標名稱、單位與科學符號正確、圖表加註字母／數字並附文字說明，按邏輯排列。</li>
+      <li><strong>真實呈現研究歷程</strong>：可在海報／簡報中真實呈現實驗日誌與參考文獻；研究日誌應附實驗過程照片。</li>
+    </ul>
+
+    <h3>二、海報常見的扣分警訊（取自 SWOT 劣勢分析）</h3>
+    <ul class="warn-list">
+      <li>字數過多、圖表太小，無法清楚呈現實驗數據（常是因為由家長代勞、非學生自製）。</li>
+      <li>海報與作品說明書「學生參與不足」——評審能從呈現方式看出端倪。</li>
+      <li>補充實驗若有做，務必放上海報；現場才能即時用海報佐證回答（如「不同品牌雞蛋差異」即靠海報補充說明）。</li>
+    </ul>
+
+    <h3>三、海報內容取捨的自我提問</h3>
+    <blockquote>「如果要刪減內容，你會優先刪掉哪些？為什麼？如果還能增加一點內容，你會增加什麼？為什麼？」</blockquote>
+    <p>用這兩個問題反覆檢視海報，能幫助作者分辨什麼是主軸亮點（留）、什麼是枝節（刪），讓版面替你說話。</p>
+  </section>
+
+  <!-- ===== 第四章 ===== -->
+  <section class="block" id="c4">
+    <div class="chap-head">
+      <div class="chap-num">4</div>
+      <div><div class="kicker">Chapter 4</div><h2>模擬評審問題</h2></div>
+    </div>
+    <div class="core"><span class="label">核心觀念</span>
+      「<strong>如果我是評審，我會如何提問？</strong>」——把自己變成評審，是最有效的準備。下列題庫分為『結構問題』（任何作品都會被問）與『細節問題』（針對你作品的專業追問），請逐題備好 1～2 分鐘內的說帖並反覆演練。
+    </div>
+
+    <h3>一、Q&amp;A 的目標與心法</h3>
+    <ul>
+      <li>目標：即時回應評審提問、展現對作品的熟悉度與反應、適時補強不足或強化亮點。</li>
+      <li>在 1～2 分鐘內簡短明確完成回應，並做好「被追問」的準備；針對問題回答，避免答非所問。</li>
+      <li>對沒把握的問題婉轉以對或虛心受教，不辯駁、不浮誇。</li>
+      <li>熟悉研究架構，任何提問都能適時「拉回」研究主軸、核心或亮點。</li>
+    </ul>
+
+    <h3>二、通用結構問題（九問）——務必人人會答</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>模擬提問</th><th style="width:32%">對應面向</th></tr></thead>
+        <tbody>
+          <tr><td>你為什麼會想做這個研究？</td><td>研究動機（Why）</td></tr>
+          <tr><td>這個研究題目是如何產生、轉變與擴展的？</td><td>研究問題形成</td></tr>
+          <tr><td>你的研究重點（主軸、重心）是什麼？</td><td>研究目的、結果（What）</td></tr>
+          <tr><td>用一句話簡單說明，你的研究在做什麼？</td><td>研究摘要</td></tr>
+          <tr><td>你的研究有什麼用？主要貢獻有哪些？（最大成就、最得意、最有趣、應用價值）</td><td>過程、結果（How／What）</td></tr>
+          <tr><td>哪些是你新的論點（自己做的）？哪些是別人做過的？</td><td>結果、文獻（What）</td></tr>
+          <tr><td>你是如何發現這些結果的？</td><td>研究方法、過程（How）</td></tr>
+          <tr><td>這是你獨自完成的嗎？遇到哪些困難？如何解決？</td><td>研究過程（How）</td></tr>
+          <tr><td>研究還有哪些未完成、可以繼續延伸的？</td><td>推廣、未來展望</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>三、實戰常見題（評審臨場最愛問）</h3>
+    <ul>
+      <li>有沒有人做過相關或類似的研究？（文獻探討）</li>
+      <li>你們的作品和某件（往屆或國際科展）相似作品，差別在哪裡？跟它有什麼關係？</li>
+      <li>做這個研究的過程，有沒有什麼感想或心得？</li>
+      <li>研究中最值得你們引以為傲的一個結果是什麼？（亮點）</li>
+      <li>有沒有什麼應用？</li>
+      <li>你們如何分工？指導老師扮演怎樣的角色？</li>
+      <li>（國際科展才有）Say something in English. Only one minute.</li>
+    </ul>
+
+    <h3>四、細節（專業）問題的設計方向</h3>
+    <p>細節問題沒有標準題庫，但評審的追問方向高度可預測。練習時請用以下「題型公式」對自己的作品亂槍打鳥：</p>
+    <ul>
+      <li><strong>名詞與定義型</strong>：請解釋你作品中的關鍵名詞／定理／數值代表什麼意思（如「什麼是○○定理？」「TDS 是什麼？」）。</li>
+      <li><strong>變因與條件型</strong>：若把某條件改變（變大／變小／相反情況），結果會如何？為什麼設定這個條件而非另一個？</li>
+      <li><strong>方法選擇型</strong>：為什麼用這個材料／方法／儀器，而不用另一種？有沒有試過其他材質？</li>
+      <li><strong>數據與誤差型</strong>：這個數據怎麼算的？誤差怎麼控制？統計（如 p 值）代表什麼？多少才算顯著？</li>
+      <li><strong>原理機制型</strong>：這個現象背後的科學原理是什麼？（評審常深入追問物理／化學原理）</li>
+      <li><strong>矛盾檢驗型</strong>：實驗 A 結論與實驗 B 結論看起來是否矛盾？如何自圓其說？</li>
+      <li><strong>應用與價值型</strong>：如何推廣？成本與市售產品相比如何？實務上真的可行、有必要嗎？</li>
+      <li><strong>真實性型</strong>：哪些實驗是你們自己做的？記錄簿在哪？（驗證學生參與度）</li>
+    </ul>
+
+    <h3>五、賽前演練的標準作法</h3>
+    <ol>
+      <li>預擬評審可能提問，每題備好 1～2 分鐘內的說帖，並不斷練習。</li>
+      <li>簡報練習後立刻被「亂槍打鳥」提問，強化對作品的熟悉度。</li>
+      <li>較抽象的內容，嘗試用舉例、簡例、比喻或說故事方式說明。</li>
+      <li>做好小組分工：避免只有一人回答；隊友答不出時其他人能補位搶答，培養默契不冷場。</li>
+      <li>回答結束時適時提醒評審「報告完畢」，避免尷尬停頓。</li>
+    </ol>
+  </section>
+
+  <!-- ===== 第五章 ===== -->
+  <section class="block" id="c5">
+    <div class="chap-head">
+      <div class="chap-num">5</div>
+      <div><div class="kicker">Chapter 5</div><h2>歷屆評審問題分類與整理</h2></div>
+    </div>
+    <div class="core"><span class="label">核心觀念</span>
+      本章將歷屆全國科展的上百則真實評審提問，依「<strong>問題性質</strong>」歸納成八大類型。練習時，請把每一類型代入自己的作品，想像評審會如何提問，藉此精熟作品並提升問題深度。
+    </div>
+
+    <h3>一、八大問題類型（含真實案例）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:18%">類型</th><th style="width:30%">評審關注什麼</th><th>歷屆真實案例（節錄）</th></tr></thead>
+        <tbody>
+          <tr><td><span class="pill-type">① 動機／選題</span></td><td>為何做、題目怎麼來、是誰決定的</td><td>「為什麼想做這個題目？」「研究主題是誰定的？」「你們怎麼知道有這個手機顯微鏡？」</td></tr>
+          <tr><td><span class="pill-type">② 名詞／原理</span></td><td>關鍵名詞、定理、科學原理的理解</td><td>「布魯斯特角解釋為何？」「何謂傅立葉轉換？」「TDS 是什麼？」「電磁感應如何產生？」</td></tr>
+          <tr><td><span class="pill-type">③ 方法／材料選擇</span></td><td>為何選此材料／方法，有無替代方案</td><td>「為什麼用木板測點性？有沒有試其他材質？」「為什麼用快速傅立葉轉換？」「為何不一開始就用生雞糞？」</td></tr>
+          <tr><td><span class="pill-type">④ 變因／實驗設計</span></td><td>變因控制、條件設定、對照組</td><td>「自製 U 型管大小會否影響結果？」「裝置接不接地的差別？」「降雨量怎麼控制？」</td></tr>
+          <tr><td><span class="pill-type">⑤ 數據／統計／誤差</span></td><td>數據計算、再現性、統計意義</td><td>「p 值是什麼？要達多少才算顯著？」「磁場實驗是否有再現性？」「標準差跟平均值哪個重要？」</td></tr>
+          <tr><td><span class="pill-type">⑥ 結果矛盾／追根究柢</span></td><td>結論一致性、深層機制</td><td>「實驗三排水管數量越多越好，但實驗五卻相反，不是矛盾嗎？」「為什麼 n=2 的聲音比 n=1 大？」</td></tr>
+          <tr><td><span class="pill-type">⑦ 文獻／獨特性</span></td><td>與前人差異、原創性、延續性</td><td>「你們的作品跟之前的有何不同？」「確定 double L 擋土牆以前沒人做過嗎？」「延續比例多少？」</td></tr>
+          <tr><td><span class="pill-type">⑧ 應用／推廣／價值</span></td><td>實用性、成本、推廣、二次污染</td><td>「如何推廣？」「吸附重金屬後的粉末如何處理？會否造成二次污染？」「成本與市售相比？」</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>二、依學科觀察到的提問傾向</h3>
+    <div class="subj-grid">
+      <div class="subj"><h4><span class="ico">📐</span>數學科</h4>偏重證明的嚴謹與推廣性、與國際科展作品的差異、數學深度是否足夠（「只用三個定理會不會深度不夠？」）。</div>
+      <div class="subj"><h4><span class="ico">⚛️</span>物理科</h4>深究物理原理與公式推導、誤差來源、測量方法（如流速計算、阻尼／黏滯係數矯正）。</div>
+      <div class="subj"><h4><span class="ico">🧪</span>化學科</h4>成分組成、反應機制、定量分析原理、與既有抗氧化／抗菌研究的區隔。</div>
+      <div class="subj"><h4><span class="ico">🧬</span>生物科</h4>棲地與行為的因果、樣本數量是否足夠統計、生命倫理。</div>
+      <div class="subj"><h4><span class="ico">🌏</span>地球科學</h4>名詞概念（聖嬰、熱島效應）、資料處理軟體與技術、師生付出占比。</div>
+      <div class="subj"><h4><span class="ico">💡</span>生活與應用科技</h4>創新點、與市售產品差異、成本、實用性與必要性、材料耐用度。</div>
+    </div>
+
+    <h3>三、評審常見的『建議型』回饋（非提問，但同等重要）</h3>
+    <p>除了提問，評審也常給延伸建議，反映出他們眼中作品的可強化處：</p>
+    <ul>
+      <li><strong>方法面</strong>：增加實驗次數提高準確性、增加動態測試、設計適當對照組、用更客觀方式取代主觀手感判定。</li>
+      <li><strong>應用面</strong>：降低成本、比對市售價格、申請專利、推廣販售、實際到場域（如河川）測試。</li>
+      <li><strong>延伸面</strong>：研究不同地形／材質／物種、放大裝置提高效率、未來可結合太陽能等不同能源。</li>
+    </ul>
+
+    <h3>四、賽前最該預防的『劣勢與威脅』（SWOT 彙整）</h3>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th style="width:20%">面向</th><th>常見劣勢／威脅，務必提前因應</th></tr></thead>
+        <tbody>
+          <tr><td><b>臨場表達</b></td><td>動機講得不夠強烈、自信不足、眼神少與評審交會、愈講愈快、音量太小被現場噪音壓過。</td></tr>
+          <tr><td><b>臨場壓力</b></td><td>看到別組作品覺得別人比較厲害、安檢未一次通過而手忙腳亂、評審態度影響情緒、情緒起伏影響發揮。</td></tr>
+          <tr><td><b>團隊協作</b></td><td>交換報告走位凌亂、分工不明確或不均、默契不佳、僅一人能回答缺乏團體感、態度過於放鬆。</td></tr>
+          <tr><td><b>主軸亮點</b></td><td>鑽小細節失焦、亮點被淡化、部分成果與主軸無關模糊焦點。</td></tr>
+          <tr><td><b>數據嚴謹</b></td><td>只呈現最終結果讓人誤以為僅定性、量化方法不精準、誤差討論少、儀器穩定性不足、缺實際場域測試。</td></tr>
+          <tr><td><b>變因控制</b></td><td>控制變因過於簡單、變因過多失焦、未說明變因之間的關係與限制。</td></tr>
+          <tr><td><b>文獻理論</b></td><td>學理基礎薄弱、未與前人作品說明區隔、所發現的現象皆為已知。</td></tr>
+          <tr><td><b>原創價值</b></td><td>主題為常見科學營隊題目易被質疑、與市售產品差異不大、難度低、研究地點易被猜出。</td></tr>
+          <tr><td><b>超出能力</b></td><td>由校外實驗室或家長代勞、學生對原理不熟、兩階段評審易出狀況、獎項可能被降至佳作以下。</td></tr>
+          <tr><td><b>研究日誌</b></td><td>日誌無活動照片、撰寫太簡單粗糙；涉及殺死昆蟲等需注意生命倫理。</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ===== 第六章 (擴充) ===== -->
+  <section class="block" id="c6">
+    <div class="chap-head">
+      <div class="chap-num" style="background:linear-gradient(135deg,var(--accent),#cf5d23)">6</div>
+      <div><div class="kicker">Chapter 6 ‧ Extended</div><h2>實戰模擬問答 <span class="added-badge">指導老師擴充</span></h2></div>
+    </div>
+    <div class="core" style="background:var(--accent-soft);border-color:#f1d4bf;border-left-color:var(--accent)">
+      <span class="label" style="color:var(--accent)">本章說明</span>
+      以下由台灣科展指導老師與評審視角，針對前五章的題型補充<strong>更多評審提問</strong>，並為每題附上「<strong>答題策略</strong>、<strong>範例好答法</strong>、<strong>常見地雷</strong>」。點開每張卡片即可演練。建議師生對坐，由老師隨機抽問、學生限時 60～90 秒作答。
+    </div>
+
+    <h3>Part A ‧ 通用九問的範例答法</h3>
+
+    <details class="qa"><summary><span class="q-ic">Q</span>你為什麼會想做這個研究？這個題目是怎麼來的？<span class="q-tail">動機 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>用「<b>觀察 → 疑問 → 查證落差 → 決定研究</b>」四步說一個真實小故事，30 秒內帶到研究問題，切忌只說「老師叫我做」或「因為有興趣」。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「去年颱風後我家附近的擋土牆崩塌，我好奇『牆的轉折角度會不會影響擋土力』。查了文獻發現多數研究只比較高度，很少探討轉折幾何，於是我們決定自製模型來測試 double L 形擋土牆的效果。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>動機講得太弱（「覺得很酷」）、把功勞推給老師或家長、講不出研究問題只講主題。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">Q</span>請用一句話說明你的研究在做什麼，以及最重要的一個發現。<span class="q-tail">摘要 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>練一句「<b>我們透過○○方法，探討○○對○○的影響，發現○○</b>」的萬用句型，這就是你口語版的摘要第一句。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「我們用自製 U 型管量測不同管徑的共振頻率，發現管徑放大一倍時主頻下降約 40%，且與理論預測吻合。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>一句話講成兩分鐘、塞滿術語、講完評審還是不知道你發現了什麼。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">Q</span>這份研究哪些是你自己新做的、哪些是別人做過的？<span class="q-tail">獨創性 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>誠實切割「站在前人肩膀上」與「自己的新貢獻」。先一句承認前人成果，再清楚點出你多做了什麼，這反而展現學術誠信。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「前人證實了 L 形牆比直牆穩，這部分我們沿用；我們新增的是『轉折角度 30～90 度』這個變因，並建立角度與位移量的定量關係式，這在我查到的文獻裡還沒有人做過。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>把別人的成果說成自己的、或反過來把自己的貢獻講得太謙虛而消失。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">Q</span>這是你獨自（你們自己）完成的嗎？過程遇到最大的困難是什麼，怎麼解決的？<span class="q-tail">獨立性 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>這題在驗證「學生參與度」。用具體的失敗→修正細節證明你真的動手做過，並能拿出研究日誌佐證。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「都是我們自己做的。最大的困難是前三批模型一受力就從接縫處裂開，數據完全不能用。後來我們改用整體灌模、並在底部加配重，第四批才穩定，這段失敗紀錄都在日誌第 12～18 頁。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>支吾其詞、答不出細節、現場拿不出日誌、把關鍵步驟說成「老師幫忙弄的」。</div>
+      </div>
+    </details>
+
+    <h3>Part B ‧ 八大題型 × 加碼提問與範例</h3>
+
+    <details class="qa"><summary><span class="q-ic">②</span>請解釋你題目裡的這個關鍵名詞／原理（例：什麼是布魯斯特角？傅立葉轉換在做什麼？）<span class="q-tail">名詞／原理 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>先給「<b>一句白話定義</b>」再給「<b>它在你研究裡的角色</b>」。能用生活比喻最佳，代表你是真懂而非背名詞。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「傅立葉轉換簡單說，就是把一段混在一起的聲音，拆成一個個單純的頻率，像把一杯果汁還原成各種水果。我們用它把管子的振動訊號拆開，才找得出主頻在哪裡。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>背公式卻講不出物理意義、用一個更難的名詞解釋另一個名詞、答「這是老師寫的程式我不太懂」。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">③</span>為什麼選這個材料／方法／儀器？有沒有試過別的？<span class="q-tail">方法選擇 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>給出「<b>比較後的理由</b>」，最好能說「我們試過 A 但因為○○改用 B」，展現這是經過取捨的決定而非隨手拿到。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「我們一開始用保麗龍做模型，但它太軟、受力會變形影響讀數；後來改用密度板，硬度夠又好加工，所以最後採用。壓克力雖然更硬但切割困難、成本也高，就沒採用。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>「因為剛好有」「老師給的」；完全沒比較過替代方案。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">④</span>你怎麼確定是這個變因造成的，而不是其他因素？對照組怎麼設的？<span class="q-tail">變因／實驗設計 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>清楚說出「<b>操縱變因、控制變因、應變變因</b>」三件事，並指出你如何固定其他條件。這是評審判斷實驗嚴謹度的核心。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「我們只改變轉折角度（操縱變因），其餘像牆高、土壤含水量、夯實次數、施力速度都固定（控制變因），測的是牆頂位移量（應變變因）。另外設一組直牆當對照，確認差異真的來自角度。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>同時改了兩個變因卻歸因到一個、沒有對照組、控制變因講不清楚。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">⑤</span>這個數據怎麼算的？做了幾次？誤差多大？有沒有統計檢定？<span class="q-tail">數據／統計／誤差 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>主動報出「<b>重複次數、平均值±標準差、誤差來源</b>」。若做過統計檢定，說出檢定名稱與顯著水準；沒做也要老實說並說明為何。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「每個條件重複 5 次取平均，標準差大約在平均值的 8% 以內。誤差主要來自人工施力的微小差異，所以我們後來改用固定配重來降低它。組間差異我們用 t 檢定，p 值小於 0.05，代表差異不是偶然。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>只做一次就下結論、不知道標準差是什麼、把 p 值背成「越小越好」卻說不出意義。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">⑥</span>你實驗三的結論和實驗五看起來互相矛盾，怎麼解釋？<span class="q-tail">結果矛盾／追根究柢 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>別慌、別硬拗。先肯定評審觀察到的差異，再從「<b>條件不同 / 機制轉折點</b>」說明這不是矛盾而是另有原因；真不確定就誠實說這是未來要釐清的方向。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「謝謝評審，這個點我們也注意到了。實驗三排水管越多越好，是在低流量下；實驗五流量變大後，太多管子反而互相干擾產生亂流，所以出現反轉。我們推測存在一個最佳管數，這正是我們想接著研究的。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>當場否認有矛盾、情緒性辯駁、或亂編一個沒有根據的理由。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">⑦</span>你確定以前沒有人做過嗎？你的研究跟某件相似作品差在哪？<span class="q-tail">文獻／獨特性 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>展現你「<b>查過文獻</b>」。講出你查過的範圍與關鍵字，並用一句話點出與相似作品的關鍵差異（變因、尺度、應用場景）。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「我們查過歷屆全國科展和幾篇期刊。確實有人做過 L 形擋土牆，但他們固定角度只比高度；我們的差異是把『角度』當成主變因並建立定量關係，這是我們找不到前例的部分。當然不敢說絕對沒人做過，但就我們能查到的範圍是新的。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>把話說死「絕對沒人做過」、或完全沒查文獻只能空白以對。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">⑧</span>這個研究實際上能怎麼用？成本如何？跟市售產品比有什麼優勢？會不會造成二次污染？<span class="q-tail">應用／推廣／價值 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>誠實區分「<b>現在能做到</b>」與「<b>未來可發展</b>」。給得出概略成本或場景最好；談環保應用時，務必想過廢棄物與二次污染的處理。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「目前還是實驗室規模，但材料用的是回收蛋殼，成本比市售吸附劑低很多。吸附重金屬後的粉末我們不會直接丟棄，而是規劃用酸液回收金屬、再生吸附劑，避免二次污染——這也是我們下一步要驗證的。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>把實驗室成果誇成「馬上能量產上市」、完全沒想過廢棄物處理、講不出和市售品的差異。</div>
+      </div>
+    </details>
+
+    <h3>Part C ‧ 團隊、分工與指導老師角色</h3>
+
+    <details class="qa"><summary><span class="q-ic">Q</span>你們怎麼分工的？指導老師在這個研究裡扮演什麼角色？<span class="q-tail">分工 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>具體說明「<b>誰負責什麼</b>」，並把老師定位在「引導、提問、把關安全」而非「代做」。讓評審聽見每位成員都動手參與。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「我主要負責模型製作與實驗操作，組員負責數據記錄與圖表分析，報告與文獻是一起討論的。老師主要在我們卡關時提問、提醒實驗安全，方向和數據都是我們自己跑出來的。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>分工不均（明顯只有一人懂）、把核心工作說成老師或外部實驗室完成、組員彼此說法兜不攏。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">Q</span>（針對隊友）剛剛這部分是他講的，那換你說說這個數據是怎麼得到的？<span class="q-tail">補位應答 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>評審常故意點「沒在講話的那位」確認參與度。<b>全員都要能答全段</b>，不能只背自己負責的段落。被點到先複述問題、再簡短回答。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「好的，評審是問這組數據怎麼來的。這是我們在第三批模型上重複測 5 次取平均得到的，當時是我負責讀位移計、組員記錄，所以這部分我蠻熟的。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>被點到愣住、「這部分是他做的我不清楚」、全組只有一人能回答。</div>
+      </div>
+    </details>
+
+    <h3>Part D ‧ 尖銳／挑戰型提問的沉穩應對</h3>
+    <div class="note">評審有時會用較尖銳的方式提問（如「你們作品根本是抄襲」「文獻看太少了吧」），目的常是<strong>測試反應與沉穩度</strong>。記住：對事不對人，不要對號入座、不要情緒化，用科學證據與作品差異性冷靜回應。</div>
+
+    <details class="qa"><summary><span class="q-ic">!</span>「你們這個別人早就做過了，有什麼好做的？」<span class="q-tail">挑戰型 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>先謝謝、不防衛，用「<b>差異點</b>」正面回應，把焦點拉回你獨特的變因或方法。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「謝謝評審。確實有相關研究，不過他們處理的是○○，我們改變的是○○這個還沒被探討的變因，並建立了定量關係，這是我們認為值得做的地方。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>臉色一沉、反駁「才不是」、或被嚇到直接認輸放棄解釋。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">!</span>「這個結果這麼漂亮，真的是你們自己做的嗎？」<span class="q-tail">真實性質疑 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>把這當成「秀出證據」的機會，<b>主動提研究日誌、失敗紀錄、過程照片</b>，並說明踩過的坑——真正自己做的人才講得出失敗細節。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「是的，過程其實很不漂亮（笑）。前面三批模型都失敗，數據在日誌這幾頁都還留著，這張是當時裂掉的照片。也因為這些失敗，我們才知道要改成整體灌模。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>緊張、答不出過程細節、拿不出日誌、只會重複「真的是我們做的」。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">!</span>「如果我說你這個變因控制根本不嚴謹，你怎麼回應？」<span class="q-tail">方法被否定 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>虛心受教，<b>先承認限制、再說明你已做的控制與下一步改善</b>。承認限制不會扣分，硬拗才會。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「謝謝提醒。我們確實有限制，例如人工施力會有誤差，所以後來改用固定配重來控制。如果有更多時間，我們會再加裝感測器自動記錄，讓控制更嚴謹。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>嘴硬說「很嚴謹啊」、與評審爭辯、或全盤否定自己的研究。</div>
+      </div>
+    </details>
+
+    <details class="qa"><summary><span class="q-ic">?</span>評審問了一個你完全不會的問題，怎麼辦？<span class="q-tail">不會的題 ▾</span></summary>
+      <div class="qa-body">
+        <div class="ans-block tip"><span class="tag tip">答題策略</span>不懂就<b>誠實、婉轉、虛心受教</b>，不要硬掰。能答多少答多少，並把它轉成未來方向；聽不清楚可請評審再說一次。</div>
+        <div class="ans-block good"><span class="tag good">範例好答法</span>「這個部分我們目前還沒有深入研究，謝謝評審提醒，這確實是我們可以再延伸的方向。就我們目前理解的程度是○○，但更深的機制我們還需要再查證。」</div>
+        <div class="ans-block bad"><span class="tag bad">常見地雷</span>不懂裝懂亂編、沉默太久造成冷場、慌張影響後面題目的發揮。</div>
+      </div>
+    </details>
+
+    <h3>Part E ‧ 學科別深入追問（含範例方向）</h3>
+    <div class="subj-grid">
+      <div class="subj"><h4><span class="ico">📐</span>數學</h4>「這個結論能不能推廣到 n 維？」「只用三個定理，深度夠嗎？」<br><b>答法方向：</b>說明推廣的限制條件與已驗證範圍，誠實標出尚未證明處。</div>
+      <div class="subj"><h4><span class="ico">⚛️</span>物理</h4>「這個公式怎麼推導出來的？阻尼／黏滯係數怎麼矯正？」<br><b>答法方向：</b>講得出推導關鍵步驟與假設，說明誤差矯正的物理依據。</div>
+      <div class="subj"><h4><span class="ico">🧪</span>化學</h4>「反應機制是什麼？怎麼定量？跟既有抗氧化／抗菌研究差在哪？」<br><b>答法方向：</b>講出反應式與檢測方法，點出與既有研究的區隔。</div>
+      <div class="subj"><h4><span class="ico">🧬</span>生物</h4>「樣本數夠做統計嗎？這是相關還是因果？有沒有生命倫理考量？」<br><b>答法方向：</b>說明樣本數依據、區分相關與因果，交代倫理處置。</div>
+      <div class="subj"><h4><span class="ico">🌏</span>地科</h4>「資料用什麼軟體處理？師生付出占比如何？聖嬰／熱島怎麼定義？」<br><b>答法方向：</b>說明資料處理流程與自己操作的部分，定義講清楚。</div>
+      <div class="subj"><h4><span class="ico">💡</span>應用科技</h4>「創新點在哪？與市售差異？成本？材料耐用嗎？」<br><b>答法方向：</b>點出單一最強創新點，給出成本與耐用度的實測或估計。</div>
+    </div>
+
+    <div class="note" style="background:var(--teal-soft);border-style:solid;border-color:#cfe2ee;">
+      <b>老師演練建議：</b>把以上卡片做成抽問卡，每位學生隨機抽 3 題、限時 90 秒作答，答完全組互評「有沒有拉回主軸、有沒有踩到地雷」。連練三輪，臨場信心會明顯提升。
+    </div>
+  </section>
+
+  <!-- ===== 附錄 ===== -->
+  <section class="block" id="appendix">
+    <div class="chap-head">
+      <div class="chap-num" style="background:linear-gradient(135deg,var(--green),#1f6f57)">附</div>
+      <div><div class="kicker">Appendix</div><h2>賽前最後叮嚀與心態調整</h2></div>
+    </div>
+
+    <h3>一、上場前一天可以做的事</h3>
+    <ul>
+      <li><strong>安定情緒</strong>：圍圈和孩子談心、安靜孩子的心。</li>
+      <li><strong>引導反思</strong>：一起回顧「學到什麼、遇到什麼困難、如何克服、明天擔心與期待什麼」。</li>
+      <li><strong>調整心態</strong>：除了爭取榮譽，更想在這場比賽中獲得什麼？想自我挑戰什麼？</li>
+      <li><strong>建立信心、充分休息</strong>：坦然無懼，早起到戶外走走。</li>
+    </ul>
+
+    <h3>二、跳脫焦點：面對挑戰性提問不要對號入座</h3>
+    <p>評審有時會用較尖銳的方式提問（例如「你們的作品根本是抄襲，以前別人做過」「你們文獻看太少了吧」）。這類問題的目的常是測試反應與沉穩度，作者應避免掉入負面情緒漩渦，冷靜以科學證據與作品差異性回應。</p>
+
+    <h3>三、心態的高度：比賽，還是參展？</h3>
+    <blockquote>比賽是競爭，競爭就會有輸贏；參展是分享，分享帶來合作，合作就會雙贏。得不得獎與研究能力的獲得無關——享受研究的樂趣、享受過程、結交志同道合的朋友，設定比得失更高的目標。</blockquote>
+    <p>瓶頸是問題突破的曙光，好的研究是做不完的。盡心盡性去享受過程，盡意盡力去接受挑戰——願每位參賽師生過程順利滿載、結果超乎想像。</p>
+  </section>
+
+</main>
+
+<a href="#" class="backtop" title="回到頂端">↑</a>
+
+<footer>
+  <p><b>科展競賽賽前總提點 ‧ 綜合整理報告</b></p>
+  <p>臺北市麗山高中 林獻升老師 整理　|　林永發老師於臺北市全國科展輔導活動發表資料</p>
+  <p style="opacity:.7;font-size:.82rem;margin-top:8px;">第六章「實戰模擬問答」為網頁版擴充內容，供賽前演練參考使用。</p>
+</footer>
+
+</body>
+</html>

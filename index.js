@@ -1,6 +1,100 @@
 // AI-assisted Science Presentation Guide Database - Core JS Logic
 
 document.addEventListener('DOMContentLoaded', () => {
+    // FEATURED ONLINE PLATFORMS & INTERACTIVE WEBPAGES
+    const FEATURED_LINKS = [
+        {
+            name: "專題 Padlet 討論板",
+            url: "https://padlet.com/linxiansheng2_1/ai-lj9p3810agu50miv",
+            desc: "線上專題提問、討論與想法分享平台",
+            icon: "bi-clipboard2-data-fill"
+        },
+        {
+            name: "AI輔助專題研究研討會",
+            url: "https://froglssh.github.io/ai-assisted-science-project-presentation/research_workshop.html",
+            desc: "專題研討成果展示與互動研討平台",
+            icon: "bi-people-fill"
+        },
+        {
+            name: "AI輔助專題研究 教學網頁",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/AI%E8%BC%94%E5%8A%A9%E5%B0%88%E9%A1%8C%E7%A0%94%E7%A9%B6%EF%BC%BF%E9%BA%97%E5%B1%B1%E6%9E%97%E7%8D%BB%E5%8D%87_%E6%95%99%E5%AD%B8%E7%B0%A1%E5%A0%B1/AI%E8%BC%94%E5%8A%A9%E5%B0%88%E9%A1%8C%E7%A0%94%E7%A9%B6%EF%BC%BF%E9%BA%97%E5%B1%B1%E6%9E%97%E7%8D%BB%E5%8D%87_%E6%95%99%E5%AD%B8%E7%B6%B2%E9%A0%81.html",
+            desc: "臺北麗山高中林獻升老師主講系列教學網站",
+            icon: "bi-laptop-fill"
+        },
+        {
+            name: "AI輔助專題研究 教師教學指南",
+            url: "https://froglssh.github.io/ai-assisted-science-project-teacher-guide/",
+            desc: "專為指導老師設計的 AI 輔助教學資源網",
+            icon: "bi-person-badge-fill"
+        },
+        {
+            name: "AI輔助專題研究與科展競賽 教學網頁",
+            url: "https://froglssh.github.io/ai-assisted-science-project-presentation/",
+            desc: "引導學生運用 AI 工具進行科學探究的教學站",
+            icon: "bi-rocket-takeoff-fill"
+        },
+        {
+            name: "科展參賽經驗全方位解析",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/10%E5%8F%83%E8%B3%BD%E7%B6%93%E9%A9%97/%E7%A7%91%E5%B1%95%E5%8F%83%E8%B3%BD%E7%B6%93%E9%A9%97%E5%85%A8%E6%96%B9%E4%BD%8D%E8%A7%A3%E6%9E%90.html",
+            desc: "學長姐參賽心路歷程與各科評審評語優缺點統整",
+            icon: "bi-chat-square-quote-fill"
+        },
+        {
+            name: "科學探究與科展競賽指導手冊",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/1%E7%A7%91%E5%B1%95%E6%8C%87%E5%B0%8E/%E7%A7%91%E5%AD%B8%E6%8E%A2%E7%A9%B6%E8%88%87%E7%A7%91%E5%B1%95%E7%AB%B6%E8%B3%BD%E6%8C%87%E5%B0%8E%E6%89%8B%E5%86%8A.html",
+            desc: "手把手引導探究流程與科展參賽基礎攻略",
+            icon: "bi-book-half"
+        },
+        {
+            name: "AI輔助教學_科學探究與競賽",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E7%A7%91%E5%B1%95%E6%83%85%E5%A2%83%E6%95%99%E5%AD%B8%E7%B0%A1%E5%A0%B1/AI%E8%BC%94%E5%8A%A9%E6%95%99%E5%AD%B8_%E7%A7%91%E5%AD%B8%E6%8E%A2%E7%A9%B6%E8%88%87%E7%AB%B6%E8%B3%BD.html",
+            desc: "麗山高中科學探究與 AI 教學投影片成果",
+            icon: "bi-easel3-fill"
+        },
+        {
+            name: "科展報告撰寫教學站",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/2%E5%A0%B1%E5%91%8A%E6%92%B0%E5%AF%AB/%E7%A7%91%E5%B1%95%E5%A0%B1%E5%91%8A%E6%92%B0%E5%AF%AB%E6%95%99%E5%AD%B8%E7%AB%99.html",
+            desc: "引註格式、參考文獻與寫作邏輯線上教學站",
+            icon: "bi-pencil-square"
+        },
+        {
+            name: "科學簡報製作指南_互動網頁",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/3%E7%B0%A1%E5%A0%B1%E8%A3%BD%E4%BD%9C/%E7%A7%91%E5%AD%B8%E7%B0%A1%E5%A0%B1%E8%A3%BD%E4%BD%9C%E6%8C%87%E5%8D%97_%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81.html",
+            desc: "簡報版型、配色與結構化敘事互動網頁",
+            icon: "bi-bezier"
+        },
+        {
+            name: "科展海報製作完全攻略",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/4%E6%B5%B7%E5%A0%B1%E8%A3%BD%E4%BD%9C/%E7%A7%91%E5%B1%95%E6%B5%B7%E5%A0%B1%E8%A3%BD%E4%BD%9C%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5.html",
+            desc: "展示海報（Panel）排版設計與字型規範指南",
+            icon: "bi-image"
+        },
+        {
+            name: "科展生物領域得獎策略全解析",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/6%E4%BD%9C%E5%93%81%E5%88%86%E6%9E%90/0%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F/%E7%A7%91%E5%B1%95%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%85%A8%E8%A7%A3%E6%9E%90.html",
+            desc: "全國科展與北市科展生物科得獎作品深度解析",
+            icon: "bi-heart-pulse-fill"
+        },
+        {
+            name: "科展得獎策略全攻略－生物領域",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/6%E4%BD%9C%E5%93%81%E5%88%86%E6%9E%90/0%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F/%E7%A7%91%E5%B1%95%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%85%A8%E6%94%BB%E7%95%A5%EF%BC%8D%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F.html",
+            desc: "生物科展作品的優劣勢、主題分佈與評審偏好分析",
+            icon: "bi-clipboard2-pulse-fill"
+        },
+        {
+            name: "台灣科展得獎策略完全攻略",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/6%E4%BD%9C%E5%93%81%E5%88%86%E6%9E%90/0%E7%A7%91%E5%B1%95%E6%94%BB%E7%95%A5/%E5%8F%B0%E7%81%A3%E7%A7%91%E5%B1%95%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5.html",
+            desc: "全國與北市科展得獎策略大數據分析精進指南",
+            icon: "bi-graph-up-arrow"
+        },
+        {
+            name: "科展競賽賽前總提點",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/9%E8%B3%BD%E5%89%8D%E6%8F%90%E9%BB%9E/%E7%A7%91%E5%B1%95%E7%AB%B6%E8%B3%BD%E8%B3%BD%E5%89%8D%E7%B8%BD%E6%8F%90%E9%BB%9E.html",
+            desc: "賽前答辯、服裝、心態與高壓簡報實戰策略",
+            icon: "bi-megaphone-fill"
+        }
+    ];
+
     // 1. Core State
     let currentCategory = 'all';    // 'all' or top-level folder names
     let currentSubCategory = 'all'; // 'all' or path strings
@@ -44,6 +138,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const modalBody = document.getElementById('modal-body');
     const modalOpenNew = document.getElementById('modal-open-new');
     const closeModalBtn = document.getElementById('close-modal');
+    
+    // Featured Links Elements
+    const featuredSection = document.getElementById('featured-links-section');
+    const featuredGrid = document.getElementById('featured-links-grid');
 
     // 3. Init Database & Sidebar
     initApp();
@@ -207,6 +305,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // 7. Render Files List (Dynamic Filtering & Grouping)
     function renderFiles() {
         filesContainer.innerHTML = '';
+        
+        // Show/Hide Featured Links Section based on filter state
+        if (currentCategory === 'all' && !searchQuery && currentFileType === 'all') {
+            featuredSection.style.display = 'block';
+            renderFeaturedLinks();
+        } else {
+            featuredSection.style.display = 'none';
+        }
         
         // Filter files based on state
         const filteredFiles = FILES_DATA.filter(file => {
@@ -647,6 +753,29 @@ document.addEventListener('DOMContentLoaded', () => {
                 toast.remove();
             }, 400);
         }, 4000);
+    }
+
+    function renderFeaturedLinks() {
+        featuredGrid.innerHTML = '';
+        FEATURED_LINKS.forEach(link => {
+            const card = document.createElement('a');
+            card.className = 'featured-link-card';
+            card.href = link.url;
+            card.target = '_blank';
+            card.innerHTML = `
+                <div class="featured-card-icon">
+                    <i class="bi ${link.icon}"></i>
+                </div>
+                <div class="featured-card-meta">
+                    <div class="featured-card-name">${link.name}</div>
+                    <div class="featured-card-desc">${link.desc}</div>
+                </div>
+                <div class="featured-card-action">
+                    <i class="bi bi-arrow-right-short"></i>
+                </div>
+            `;
+            featuredGrid.appendChild(card);
+        });
     }
 
     // 12. Helper Utilities

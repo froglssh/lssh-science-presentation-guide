@@ -1,3 +1,11 @@
 *.pptx
 ~$*.pptx
 .DS_Store
+
+# Exclude large development and intermediate folders to avoid Google Drive lockups
+**/drafts/
+**/origin_image/
+**/prompts/
+**/extracted_images/
+**/source_pages/
+**/assets/

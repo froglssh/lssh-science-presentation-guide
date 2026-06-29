@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="file-actions-row">
                 ${previewBtn}
-                <button class="btn-icon-sm btn-cloud-download" title="雲端硬碟備用下載">
+                <button class="btn-icon-sm btn-cloud-download" title="打開 Google Drive 雲端檔案">
                     <i class="bi bi-cloud-arrow-down-fill"></i>
                 </button>
             </div>
@@ -411,26 +411,26 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // 9. Actions Handler
-    // A. Copy cloud folder structure path and redirect to google drive
+    // A. Open direct Google Drive link
     function handleCloudDownload(file) {
-        // Construct standard path in Google Drive
-        // base root in Google Drive: "0 AI輔助專題與科展"
-        // file.path format: "sources/教學文章/8安全審查/全國科展安全規定.pdf"
-        const cloudPath = `0 AI輔助專題與科展/${file.path}`;
-        
-        // Copy to clipboard
-        navigator.clipboard.writeText(cloudPath).then(() => {
-            showToast(`已複製雲端路徑！<br><span style="font-size:0.75rem;opacity:0.8;">${cloudPath}</span><br>正在前往 Google Drive...`);
-            
-            // Wait 1.5s before opening
+        if (file.drive_url) {
+            showToast(`正在前往雲端硬碟檢視/下載：<br><span style="font-size:0.75rem;opacity:0.8;">${file.name}</span>`);
             setTimeout(() => {
+                window.open(file.drive_url, '_blank');
+            }, 500);
+        } else {
+            // Fallback if no direct link
+            const cloudPath = `0 AI輔助專題與科展/${file.path}`;
+            navigator.clipboard.writeText(cloudPath).then(() => {
+                showToast(`已複製雲端路徑！正在前往 Google Drive...`);
+                setTimeout(() => {
+                    window.open('https://drive.google.com/drive/folders/1j5nV08TqqqkSgQvmwo3hT-T7pEk6goYy?usp=drive_link', '_blank');
+                }, 1000);
+            }).catch(err => {
+                console.error('Failed to copy text: ', err);
                 window.open('https://drive.google.com/drive/folders/1j5nV08TqqqkSgQvmwo3hT-T7pEk6goYy?usp=drive_link', '_blank');
-            }, 1000);
-        }).catch(err => {
-            console.error('Failed to copy text: ', err);
-            // fallback redirect immediately
-            window.open('https://drive.google.com/drive/folders/1j5nV08TqqqkSgQvmwo3hT-T7pEk6goYy?usp=drive_link', '_blank');
-        });
+            });
+        }
     }
 
     // B. Media playback handler

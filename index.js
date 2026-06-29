@@ -98,6 +98,12 @@ document.addEventListener('DOMContentLoaded', () => {
             url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/8%E5%AE%89%E5%85%A8%E5%AF%A9%E6%9F%A5/%E7%A7%91%E5%B1%95%E5%AE%89%E5%85%A8%E5%AF%A9%E6%9F%A5%E8%88%87%E5%80%AB%E7%90%86%E6%95%99%E5%AD%B8%E7%B6%B2.html",
             desc: "全國與國際科展安全規範與倫理線上教學網",
             icon: "bi-shield-check"
+        },
+        {
+            name: "科展評審標準完整教學網頁",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/sources/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/5%E8%A9%95%E5%AF%A9%E6%A8%99%E6%BA%96/%E7%A7%91%E5%B1%95%E8%A9%95%E5%AF%A9%E6%A8%99%E6%BA%96%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E7%B6%B2%E9%A0%81.html",
+            desc: "全國科展生物類評分標準與扣分原則解析",
+            icon: "bi-bookmark-check-fill"
         }
     ];
 
@@ -269,8 +275,21 @@ document.addEventListener('DOMContentLoaded', () => {
             });
             subCatPills.appendChild(allPill);
 
-            // Add other pills
-            Array.from(subCats).sort().forEach(subCatPath => {
+            Array.from(subCats).sort((a, b) => {
+                const partsA = a.split(' / ');
+                const labelA = partsA[partsA.length - 1];
+                const partsB = b.split(' / ');
+                const labelB = partsB[partsB.length - 1];
+                
+                // Extract leading numbers, e.g. "9賽前提點" -> 9, "10參賽經驗" -> 10, "1科展指導" -> 1
+                const numA = parseInt(labelA.match(/^\d+/)?.[0] || '0', 10);
+                const numB = parseInt(labelB.match(/^\d+/)?.[0] || '0', 10);
+                
+                if (numA !== numB) {
+                    return numA - numB;
+                }
+                return labelA.localeCompare(labelB, 'zh-Hant');
+            }).forEach(subCatPath => {
                 // Show only the childmost category name in the pill
                 const parts = subCatPath.split(' / ');
                 const displayLabel = parts[parts.length - 1];

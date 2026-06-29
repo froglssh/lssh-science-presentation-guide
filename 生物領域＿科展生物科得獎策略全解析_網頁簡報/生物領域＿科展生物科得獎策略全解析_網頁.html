@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI輔助教學_實驗探究</title>
+<style>
+  :root{
+    --bg:#f4f5f7; --panel:#ffffff; --text:#1c2430; --muted:#5a6573;
+    --accent:#2f7d6b; --accent2:#1f5d50; --border:#e2e6ea; --shadow:rgba(20,40,60,.10);
+    --stage:#0f1115;
+  }
+  body.dark{
+    --bg:#0d0f12; --panel:#15181d; --text:#eef1f4; --muted:#aab3bd;
+    --accent:#4fd0b3; --accent2:#37b89c; --border:#272c33; --shadow:rgba(0,0,0,.5);
+    --stage:#000000;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;height:100%;}
+  body{
+    font-family:"PingFang TC","Microsoft JhengHei","Noto Sans TC",-apple-system,sans-serif;
+    background:var(--bg); color:var(--text);
+    display:flex; flex-direction:column; height:100vh; overflow:hidden;
+    transition:background .35s ease,color .35s ease;
+  }
+  /* ---------- Header ---------- */
+  header{
+    flex:0 0 auto; display:flex; align-items:center; gap:18px;
+    padding:12px 22px; background:var(--panel); border-bottom:1px solid var(--border);
+    box-shadow:0 2px 10px var(--shadow); z-index:10;
+  }
+  header h1{
+    font-size:22px; margin:0; font-weight:800; letter-spacing:.5px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+    white-space:nowrap;
+  }
+  .teacher{font-size:13px; color:var(--muted); white-space:nowrap;}
+  .controls{margin-left:auto; display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
+  .btn{
+    border:1px solid var(--border); background:transparent; color:var(--text);
+    padding:7px 13px; border-radius:9px; cursor:pointer; font-size:13.5px;
+    display:inline-flex; align-items:center; gap:6px; transition:all .2s; font-family:inherit;
+  }
+  .btn:hover{border-color:var(--accent); color:var(--accent);}
+  .btn.primary{background:var(--accent); color:#fff; border-color:var(--accent); font-weight:700;}
+  .btn.primary:hover{background:var(--accent2); color:#fff;}
+  .speed-box{display:flex; align-items:center; gap:6px; font-size:13px; color:var(--muted);}
+  .speed-box input{
+    width:54px; padding:5px 7px; border:1px solid var(--border); border-radius:7px;
+    background:var(--bg); color:var(--text); font-family:inherit; text-align:center; font-size:13.5px;
+  }
+  /* ---------- Main ---------- */
+  main{flex:1 1 auto; display:flex; overflow:hidden; min-height:0;}
+  .stage{
+    flex:0 0 66.66%; background:var(--stage); display:flex; align-items:center; justify-content:center;
+    position:relative; overflow:hidden; transition:background .35s;
+  }
+  .stage img{max-width:100%; max-height:100%; object-fit:contain; display:block; user-select:none;}
+  .nav-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); width:46px; height:46px;
+    border-radius:50%; border:none; background:rgba(0,0,0,.4); color:#fff; font-size:24px;
+    cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background .2s;
+    backdrop-filter:blur(3px); z-index:5;
+  }
+  .nav-arrow:hover{background:var(--accent);}
+  .nav-arrow.prev{left:16px;} .nav-arrow.next{right:16px;}
+  .page-badge{
+    position:absolute; left:16px; bottom:14px; background:rgba(0,0,0,.55); color:#fff;
+    padding:5px 12px; border-radius:20px; font-size:13px; letter-spacing:1px; backdrop-filter:blur(3px);
+  }
+  /* ---------- Right text panel ---------- */
+  .reader{
+    flex:1 1 33.33%; background:var(--panel); padding:30px 30px 20px; overflow-y:auto;
+    display:flex; flex-direction:column; border-left:1px solid var(--border);
+  }
+  .reader .tag{
+    display:inline-block; align-self:flex-start; font-size:13px; font-weight:700; color:#fff;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    padding:4px 12px; border-radius:20px; margin-bottom:14px;
+  }
+  .reader h2{font-size:22px; line-height:1.35; margin:0 0 18px; font-weight:800;}
+  .reader .body{font-size:17.5px; line-height:1.9; color:var(--text); letter-spacing:.2px;}
+  body.dark .reader .body{color:#e2e7ec;}
+  /* ---------- Thumbnail strip ---------- */
+  .filmstrip{
+    flex:0 0 auto; display:flex; gap:8px; padding:10px 14px; background:var(--panel);
+    border-top:1px solid var(--border); overflow-x:auto; scroll-behavior:smooth;
+  }
+  .filmstrip::-webkit-scrollbar{height:8px;}
+  .filmstrip::-webkit-scrollbar-thumb{background:var(--border); border-radius:8px;}
+  .thumb{
+    flex:0 0 auto; width:104px; height:59px; border-radius:6px; overflow:hidden;
+    border:2px solid transparent; cursor:pointer; position:relative; opacity:.65; transition:all .2s;
+  }
+  .thumb img{width:100%; height:100%; object-fit:cover; display:block;}
+  .thumb:hover{opacity:1;}
+  .thumb.active{border-color:var(--accent); opacity:1; box-shadow:0 0 0 1px var(--accent);}
+  .thumb .n{
+    position:absolute; left:3px; top:2px; font-size:10px; color:#fff;
+    background:rgba(0,0,0,.6); padding:0 5px; border-radius:8px;
+  }
+  /* ---------- Fullscreen slideshow ---------- */
+  .fs{
+    position:fixed; inset:0; background:#000; z-index:100; display:none;
+    align-items:center; justify-content:center;
+  }
+  .fs.show{display:flex;}
+  .fs img{max-width:100%; max-height:100%; object-fit:contain;}
+  .fs .fs-ctl{
+    position:absolute; bottom:22px; left:50%; transform:translateX(-50%);
+    display:flex; gap:12px; align-items:center; background:rgba(20,22,26,.75);
+    padding:8px 16px; border-radius:30px; backdrop-filter:blur(6px); opacity:0; transition:opacity .3s;
+  }
+  .fs:hover .fs-ctl{opacity:1;}
+  .fs .fs-ctl button{background:transparent; border:none; color:#fff; font-size:18px; cursor:pointer; padding:4px 8px;}
+  .fs .fs-ctl button:hover{color:var(--accent);}
+  .fs .fs-ctl .pg{color:#fff; font-size:14px; min-width:58px; text-align:center;}
+  .fs .fs-arrow{
+    position:absolute; top:50%; transform:translateY(-50%); background:rgba(255,255,255,.08);
+    border:none; color:#fff; font-size:34px; width:60px; height:90px; cursor:pointer; opacity:0; transition:opacity .3s;
+  }
+  .fs:hover .fs-arrow{opacity:.7;}
+  .fs .fs-arrow:hover{opacity:1; background:rgba(255,255,255,.18);}
+  .fs .fs-arrow.prev{left:0;} .fs .fs-arrow.next{right:0;}
+  .playing-dot{width:9px;height:9px;border-radius:50%;background:#ff5b5b;display:inline-block;animation:pulse 1s infinite;}
+  @keyframes pulse{0%,100%{opacity:1;}50%{opacity:.3;}}
+  footer{
+    flex:0 0 auto; text-align:center; font-size:12.5px; color:var(--muted);
+    padding:7px; background:var(--panel); border-top:1px solid var(--border);
+  }
+  @media(max-width:860px){
+    main{flex-direction:column;}
+    .stage{flex:0 0 48%;} .reader{flex:1 1 auto;}
+    .reader h2{font-size:21px;} .reader .body{font-size:17px; line-height:1.8;}
+    header h1{font-size:17px;} .teacher{display:none;}
+  }
+</style>
+</head>
+<body>
+<header>
+  <h1>AI輔助教學_實驗探究</h1>
+  <span class="teacher">臺北市立麗山高中　林獻升老師</span>
+  <div class="controls">
+    <div class="speed-box">秒數
+      <input id="speed" type="number" min="1" max="60" step="1" value="6"> 秒
+    </div>
+    <button class="btn" id="autoBtn">▶ 自動播放</button>
+    <button class="btn primary" id="fsBtn">⛶ 全螢幕播放</button>
+    <button class="btn" id="themeBtn">🌙 深色</button>
+  </div>
+</header>
+
+<main>
+  <section class="stage" id="stage">
+    <button class="nav-arrow prev" id="prevBtn">‹</button>
+    <img id="slideImg" src="" alt="slide">
+    <button class="nav-arrow next" id="nextBtn">›</button>
+    <div class="page-badge" id="badge">1 / 40</div>
+  </section>
+  <aside class="reader" id="reader">
+    <span class="tag" id="tag">Slide 1</span>
+    <h2 id="title"></h2>
+    <div class="body" id="text"></div>
+  </aside>
+</main>
+
+<div class="filmstrip" id="strip"></div>
+
+<footer>臺北市立麗山高中　林獻升老師　｜　AI輔助教學・實驗探究</footer>
+
+<!-- Fullscreen -->
+<div class="fs" id="fs">
+  <button class="fs-arrow prev" id="fsPrev">‹</button>
+  <img id="fsImg" src="" alt="">
+  <button class="fs-arrow next" id="fsNext">›</button>
+  <div class="fs-ctl">
+    <button id="fsPlay">▶</button>
+    <span class="pg" id="fsPg">1 / 40</span>
+    <button id="fsExit">✕ 離開</button>
+  </div>
+</div>
+
+<script>
+const IMG_DIR = "origin_image/";
+const slides = [
+  {t:"科展生物科得獎策略全解析", x:"這份簡報想帶大家看的，不只是哪些作品最後拿了名次，而是評審在這些作品裡到底看見了什麼。這些年我們觀察到，生物科展的重心已經悄悄移動——從「我發現了一個有趣的現象」，慢慢走向「我能證明這個現象背後的機制」。接下來，我們會沿著評鑑標準、實際得獎案例，一路看到國際舞台的趨勢，希望整理出一套真正帶得進課堂、用得上的指導策略。"},
+  {t:"全章地圖：八個層次看懂得獎規律", x:"這套內容，我們把它拆成八個層次來談。前半段先帶大家站到評審的位置，再用高中、國中到國小的實際案例，看看不同學層的研究可以深到什麼程度；後半段則把標準拉高到 TISF 與 ISEF 的因果論證，最後再收束成選題、研究、溝通與倫理的行動藍圖。要提醒的是，這不是一份作品排行榜，而是一條讓研究品質一步步往上長的路線。"},
+  {t:"生物科展的認識論轉向", x:"過去我們很熟悉的那種作品，往往是花很長時間觀察、把現象描述得很詳實，再整理出幾條規律。這樣的功夫到現在依然有價值，但在頂尖競賽裡，它已經不夠了。我們看到新一代的研究會跨越生態、組織、細胞到分子的尺度，配合嚴謹的控制與定量證據，去回答「為什麼會這樣」。說到底，勝負的關鍵已經從「看見現象」，轉成了「理解現象」。"},
+  {t:"從「A影響B」走向 Why 與 How", x:"「A 會影響 B」這句話，其實只證明了兩者可能有關係。評審接著一定會追問：中間到底經過哪一條路徑？把關鍵因子拿掉之後，效果會不會跟著消失？換另一種方法做，結論還站得住嗎？所以我們會引導學生，要敢把那個黑箱打開，去做變因的隔離、機制的解析，再用多重驗證把話說滿。相關只是線索，機制才是真正的解釋。"},
+  {t:"技術護城河，與回歸基本面", x:"現在的高中生用上 WGS、ERG、TEM 或 Tet-On，已經不算稀奇，技術門檻確實被推高了。但我們始終提醒學生，再高階的儀器，都換不到研究誠信。評審真正在意的，是你懂不懂每一步在做什麼、有沒有把失敗留下來、能不能從原始紀錄講清楚當初為什麼這樣決定。一份真正站得住的研究，是技術能力跟可信的過程同時成立，缺一不可。"},
+  {t:"官方評審四大維度", x:"官方的評分標準，其實可以翻成四個很實際的問題：你的題目夠不夠聚焦、有沒有貢獻？你的創意是真的改變了方法或價值，還是只是換個說法？你的實驗有沒有足夠的對照、樣本跟統計？最後，你能不能用日誌跟口頭表達，證明這份研究是你自己做、也是你自己懂的？這四個面向不是各自獨立的欄位，而是會彼此印證，少了任何一個都補不回來。"},
+  {t:"評審心中的那把尺", x:"除了檯面上的評分表，評審心裡其實還藏著四道隱性的濾網。第一，你有沒有真的深入機制；第二，你的數據懂不懂得尊重測量的極限；第三，你能不能誠實說出哪裡失敗、又是怎麼修正的；第四，你的實驗日誌可不可信。我們特別發現，後面這兩項，常常在口試短短幾分鐘內，就把作品之間的差距拉開了——能把失敗講清楚的學生，往往比只秀完美結果的人更有說服力。"},
+  {t:"高中組總覽：五大子領域的共同升級", x:"這五個領域乍看差異很大，但我們把它們攤開來看，會發現升級的方向其實是一致的。動物醫學走進分子與轉譯，植物結合了物理跟工程，農食用上臨床規格，行為研究導入客觀的生理指標，環境研究則收成一個量化又能談治理的閉環。它們共同說著同一種語言：機制、定量、跨域。要強調的是，跨域不是把工具堆上去，而是真的拿別的學科來解決生物的問題。"},
+  {t:"SLC35C1：完整癌症機制鏈", x:"這件作品讓人印象深刻的地方，在於它不是漫無目的地去找抗癌物質，而是一開始就鎖定高基氏體膜上的 SLC35C1。研究一路追下去——蛋白的岩藻糖化、癌細胞的遷移、骨髓的微環境，最後談到骨轉移，還用共培養去模擬真實的環境。評審看到的，是一條從分子一直連到疾病表型、完整而清楚的因果論述。完整的機制鏈，往往比單一個顯著結果更有分量。"},
+  {t:"TAOK1：Tet-On 的劑量與時間效應", x:"這件作品的亮點，是它把基因研究從「有沒有」，提升到了「多少、多久」。靠著 Tet-On 系統，研究者能用多西環素精準地控制表現量，於是才有辦法去分析劑量跟時間的效應。更難得的是，作者還把 TAOK1 連到神經退化與精神疾病，並大膽提出 BDNF 可能是一種代償性的保護反應。我們常說，好的控制設計，會自己長出更細緻的因果問題。"},
+  {t:"腫瘤新抗原：乾實驗先行", x:"所謂的乾濕整合，重點不在把兩種方法並排展示，而是讓運算真的去改變實驗的決策。這件作品的作者，先用 NetMHCcons 從一大堆候選裡，預測出最有潛力的新抗原，再進到細胞去驗證。這麼做的好處很實在——可以省下大量無效的實驗，把有限的時間跟資源，集中押在最值得測試的假說上。乾實驗負責生成跟排序假說，濕實驗負責驗證，分工很清楚。"},
+  {t:"浮萍：生態、物理與分子三尺度", x:"浮萍的季節消長，乍看是個很傳統的生態題，但這位作者厲害的地方，是他加進了表面張力的「麥片圈效應」，再往下追到光週期、光敏素、POD 與 ROS。我們覺得這件作品最值得學的，其實不是它用了多少工具，而是這三個尺度能彼此相接，共同解釋同一個自然現象。跨尺度不是平行地各說各話，而是要串成一條解釋鏈。"},
+  {t:"從海漂果實到軟體機器人", x:"這兩件作品很有意思。銀葉樹的果實，被重新看成一艘有龍骨、有浮心的生物船艦；颱風草的葉片，則被當成一台可以轉化成氣動裝置的軟體機器人。它們都沒有停在「把形態描述清楚」這一步，而是把形態變成可以量測、可以建模、也可以做出原型的工程問題。仿生真正的核心，是把機制抽取出來，而不是去模仿外觀。"},
+  {t:"益生菌：從食品分離走到臨床規格", x:"一份研究如果想談應用價值，就得同時回答三件事：有沒有效、安不安全、又是怎麼作用的。這件作品用傷口試驗去區分細胞的遷移跟增殖，再用 WGS 確認菌株身上沒有抗藥基因。從菌株的篩選，到安全性與作用機制，整條研究鏈做到了接近學術論文的完整度。我們常提醒學生，應用研究不能只停在「有效」，安全跟機制也要一起說清楚。"},
+  {t:"果蠅眼科模型與循環經濟", x:"這一頁想讓大家看兩種很聰明的資源策略。牛樟芝的研究，用果蠅避開了脊椎動物的倫理負擔，卻靠 ERG 與 TEM 把證據的深度撐住；另一件作品，則把畜牧廢水、微藻跟作物刺激素串成一個循環。好的設計，從來不是去追最昂貴的東西，而是讓手上的每一項資源，都產生最大的解釋力。模型怎麼選、系統怎麼整合，這些其實都是研究創意的一部分。"},
+  {t:"把主觀時間感轉成毫秒級數據", x:"行為研究最容易卡在問卷這一關。這件作品改用 Psytoolkit 設計時間區辨的任務，把「覺得時間過得好快」這種感覺，轉成了反應時間跟正確率，再用心理模型與統計去校正、解釋。我們從這裡看到一個很重要的觀念：主觀經驗不是不能研究，而是你得先找到一個可以重複的客觀指標。測量怎麼設計，往往就決定了社會科學能不能走進因果推論。"},
+  {t:"神經工具改寫社會科學", x:"這兩件作品都很巧。斑馬魚的成癮模型，用晶球漂亮地化解了給藥的難題；神經教育的研究，則用 EEG 的 Gamma 波去驗證學習理論。它們一起示範了同一件事：當研究問題碰到行為或教育，只要能加進適切的生理證據，就能跨過意見調查的層次，把論證建得更客觀。不過要提醒，工具是用來解決研究瓶頸的，不能只是拿來增加科技感。"},
+  {t:"927 棵樹：校園固碳閉環", x:"這個團隊先把校園裡 927 棵樹一一普查清楚，引用 IPCC 的參數去估算，再用 Li-6400 實際量測光合作用，回頭驗證那個宏觀的估算對不對，最後把整套數據變成校園碳中和的具體建議。這就是我們常講的完整閉環——從現場資料、標準模型、微觀驗證，一路走到真正能執行的治理方案。研究的完整性，往往就來自不同尺度之間的互相校驗。"},
+  {t:"相關性不等於因果性", x:"酸性溫泉能殺死孑孓，這是個很有創意的在地發現。可是如果直接就宣稱是某一條硫化學的路徑造成死亡，那就需要更直接的證據了。評審之所以限制名次，不是因為題目不好，而是因為推論一下子跨得太遠。我們總是跟學生說，科學寫作裡最重要的一種自律，就是結論不能超過你手上的證據——「觀察到」跟「推測可能」，一定要分得清清楚楚。"},
+  {t:"國小與國中：兩條進階路線", x:"我們觀察到，國小的優秀作品，常常會把科學帶進社區，直接去改善一個實際的問題；國中的學生則開始走進生理與生物物理，用更精密的工具去挑戰既有的解釋。這兩條路沒有高低之分，而是不同年齡最適合的成長路徑。但殊途同歸，它們最後都得走向一個可以操作、可以驗證的科學解答。"},
+  {t:"睡前娛樂：模型推翻主觀自信", x:"問卷一開始顯示，學生普遍低估了睡前娛樂對自己的影響。於是團隊建立了四組小鼠模型，用水迷宮、Y 型迷宮、社交跟築巢行為去驗證，結果藍光組的尋台時間增加了 163%，還出現了社交退縮的現象。這件作品讓人欣賞的，是問卷跟模型之間是互補的，而不是把小鼠的結果，直接就等同於人類的因果——這條界線，學生拿捏得很好。"},
+  {t:"潮間貝包客：調查、毒理與復育", x:"這份研究的尺度很大，橫跨 9 公里、設了 10 個樣區，先把河口的生態基線建立起來；接著量出紅樹蜆體內的鉛是水體的 33 倍、汞更高達 100 倍，把生物累積的風險攤在眼前；最後再用空心磚做成微棲地，去進行復育實驗。從調查、到機制、再到介入，這是一次行動科學很完整的升級。我們會提醒學生，大尺度的調查，一定要接得上可驗證的操作性實驗。"},
+  {t:"鰻苗混獲走向政策協作", x:"這位學生面對混獲造成的死亡，沒有只是把數量記下來，而是引進了 PES 生態補償的概念，去跟漁民、NGO 合作，把科學數據變成了政策建議。這類作品最珍貴的地方，在於學生從一個觀察者，變成了真正的行動者。後面的蘆薈、山蟻跟噪音研究也是一樣，都是從在地的困擾出發，慢慢長成科學。科學的介入，需要同時讀懂生態、經濟，還有那些利害關係人。"},
+  {t:"長足衛蜈蚣：長週期系統性生物學", x:"這件作品的力量，老實說是來自耐心。團隊克服了飼養上的種種困難，把從卵、八個幼齡期到成蟲的完整生活史都記錄下來，再建立 Type II 的生存曲線，量化牠的領域行為跟主場優勢。我們從這裡看到一件很重要的事：就算沒有昂貴的分子工具，只要資料夠長期、夠完整、又經得起統計，一樣能長成頂尖的研究。系統性的基礎資料本身，就是很重要的科學貢獻。"},
+  {t:"大刀螳螂：精密量測挑戰教科書", x:"氣體偵測器顯示，螳螂在低氧高碳的環境下，呼吸速率接近增加了 400%；熱像儀又量到牠的體溫，平均比環境高出 2.79°C。這些結果暗示，螳螂身上可能有某種調節的機制。我們很鼓勵這種敢挑戰課本的研究，但同時也提醒：語氣要拿捏得精準——這些證據是用來「提出一個新假說」，而不是立刻就改寫定論。挑戰知識框架的時候，更要把發現、推論跟定論分清楚。"},
+  {t:"國小與國中的工具、統計與社會連結", x:"比較這兩個學層的時候，我們會引導學生去看：是研究的目的，在決定要用什麼方法。國小常從生活問題出發，用調查、行為測驗跟環境介入；國中則更聚焦在單一機制，採用熱像、氣體或影像分析，也開始用上 t-test 與 ANOVA。工具跟統計的升級，說到底都應該是為了服務一個更明確的問題，而不是年級越高、工具就堆越多。"},
+  {t:"國際科展：如何證明因果", x:"一旦站上國際舞台，評審問的問題就變了——他不再問你做了多少實驗，而是問：哪一組證據，真的排除了其他的解釋？2026 年的 TISF，把海報面積縮到只剩過去的 60%，這其實是在逼學生把次要的資訊刪掉。我們慢慢體會到，科學的精煉，不是說資料變少，而是能讓最關鍵的那組證據，去撐起一個清楚的故事。"},
+  {t:"因果驗證黃金標準", x:"這套黃金標準，其實是三個步驟。先把 A 移除，如果 B 跟著消失，代表 A 可能是必要條件；再把野生型的 A 補回去，如果 B 也恢復了，就能排掉很多副作用的疑慮；最後，補回一個失去特定功能的 A 突變體，如果這時候還是救不回來，就能把真正的機制定位出來。Naa40 的案例，正是用催化失活的突變體，證明了關鍵就在酵素的活性上。救援不是多做一組而已，而是把因果推論再往前推了一層。"},
+  {t:"Scny：克隆分析與內部對照", x:"全身性的敲除，有時會造成胚胎致死，也容易混進個體之間的差異。這件作品很聰明，它用 UAS-Gal4 跟 CD2 FLP-out，在同一個卵巢裡，同時做出突變跟野生型的細胞，等於把對照組放進了同一個個體。接著再把 Scny 的缺失、H3K4Me3 的累積、細胞的多核化，一路連到 PGCCs 的假說。我們常說，最好的對照，有時候就藏在同一個生物個體裡面。"},
+  {t:"仿免疫突觸微流體晶片", x:"傳統方法碰到極低濃度的稀有細胞時，效率其實很有限。這位作者模擬了免疫突觸，設計出一條具有精確剪切力的微流道，讓結合力最強的那群特異性 T 細胞留下來。最後富集達到 20 倍，細胞的活性還維持得很好，這顯示跨域的工程，是真的解決了臨床上的瓶頸。我們從這裡看到，創意常常來自重新去定義一個問題的物理本質。"},
+  {t:"AI 賦能的 BCD 評估平台", x:"這個平台把患者的 iPSC、eVLPs 先導編輯跟 RPE 細胞整合起來，再用 CNN 去分析明視野影像，預測基因修復的程度，相關係數做到了 0.93。它真正的價值，在於非標記、非破壞，而且能高通量。我們會特別跟學生強調，AI 在這裡不是拿來裝飾的，它替代掉了那些昂貴又具破壞性的篩選步驟——也要小心，別把 0.93 的相關係數，講成「百分之九十三的正確率」。"},
+  {t:"鑑定脂滴自噬受體", x:"這件偏基礎的研究，用酵母的基因敲除，篩選出 Ayr1、Hfd1 等受體，並且證實了微自噬跟巨自噬這兩條路徑，會共同參與脂滴的降解。它沒有急著去做成產品，卻補上了教科書裡的一塊知識缺口。我們從這件作品看到，頂尖的科展同樣很看重扎實的機制發現——轉譯價值不是唯一的價值，把基礎知識的缺口補起來，一樣是重大的貢獻。"},
+  {t:"ISEF：乾濕整合、綠色化學與資源現實", x:"dmPGE2 的研究，把濕實驗、RNA Scope 跟 GWAS 結合在一起，讓軸突再生的結果，同時有了機制跟臨床的脈絡；綠色合成的作品，則用糠醇把抗病毒藥的成本壓下來。但另一方面，數據也告訴我們，大約有 65% 的獲獎者背後，是有專業實驗室資源的——這提醒我們，既要替學生建立導師網絡，也要能清楚證明，學生自己的獨立貢獻在哪裡。資源可以借，但思考跟實作的責任，不能外包出去。"},
+  {t:"勝利方程式① 日誌、機制與證據", x:"前面三項原則，其實會疊成一個很穩固的結構。最底層，是那本可以追溯的實驗日誌；中間，是從現象一步步走向機制的推理階梯；上層，再用行為、生理、分子或宏微觀的證據去交叉驗證。我們發現，這三層只要缺了任何一層，再漂亮的結果，可信度都會跟著塌掉。它們不是三個各自的加分項，而是互相撐住彼此。"},
+  {t:"勝利方程式② 數據衛生與 Glocalization", x:"所謂的數據衛生，是要我們誠實面對樣本、變異跟儀器的限制；而 Glocalization，則是希望研究能從台灣的題材出發，去連結全球的問題、採用國際的標準。銀葉樹、牛樟芝，或是金山的溫泉，其實都可以是很好的題目，前提是你用嚴謹的統計跟可比較的標準，把它的普遍意義撐起來。在地從來不等於格局小，真正會限制貢獻的，是缺乏可以比較的標準。"},
+  {t:"頂尖作品與一般作品的六項差異", x:"這張表，其實可以直接拿來幫作品做健檢。一列一列檢查下去——研究問題、實驗設計、數據深度、跨域方式、轉譯價值，還有最後的呈現。如果你的作品大多還落在右邊那一欄，那就先別急著去美化展板，應該回頭重看研究問題跟證據的設計，因為那才是真正決定名次的根本。我們的建議很簡單：先把研究邏輯修好，再來修視覺呈現。"},
+  {t:"選題策略：知識缺口與機制深度", x:"選題的時候，我們會勸學生別從「哪個題目比較好做」開始問，而是問「哪一個知識缺口，是我能用現有的資源深入下去的」。可以去關注表觀遺傳、自噬、訊息傳遞，也可以用模式生物去連結疾病，或者研究器官的軸線跟在地環境的韌性。題目越聚焦，就越有機會長出一條清楚的機制鏈。判斷的標準，是可深入、可驗證、有缺口，而不是聽起來夠不夠宏大。"},
+  {t:"乾濕閉環＋PMC 機制推理", x:"還沒進實驗室之前，其實就可以先動手——用 AlphaFold、TCGA、GEO 跟各種文獻工具，先把候選假說生成出來；進了濕實驗，再用救援跟定量去驗證，而驗證的結果，又回頭去修正下一輪的乾實驗。在教學上，我們會用 PMC 把問題拆成現象、機制跟組件，幫學生跨越器官、細胞、基因到蛋白這些不同的尺度。乾濕之間從來不是一條直線，而是一個反覆修正的閉環。"},
+  {t:"資源、溝通與學術倫理", x:"要找教授幫忙之前，我們會要求學生先把論文讀過、把問題問得具體；上台報告時，要能在兩三分鐘內，把問題、解法、成果跟影響說清楚。但所有的資源，最後都建立在倫理的底線上——作者要親自做、問卷要取得同意、動物要守 3R、要防逃逸、涉及人體要過 IRB。我們常提醒，學生的貢獻一旦講不清楚，再高階的結果，都可能因此失去資格。"},
+  {t:"像科學家思考，像工程師解題，像史學家記錄", x:"最後，希望大家記得三個角色：像科學家一樣，緊追著機制與證據不放；像工程師一樣，面對限制、想辦法設計出解法；也像史學家一樣，忠實地把每一次失敗跟每一個決定都記下來。走了這麼一圈，我們會發現，真正的得獎公式，其實是在地觀察的那份熱情，再加上學術研究的嚴謹。下一步，你想先把哪一項升級呢？"}
+];
+
+const N = slides.length;
+let cur = 0;
+let autoTimer = null;     // inline autoplay
+let fsTimer = null;       // fullscreen autoplay
+const pad = n => String(n+1).padStart(2,"0");
+const imgSrc = i => IMG_DIR + "slide_" + pad(i) + ".png";
+
+// elements
+const slideImg=document.getElementById("slideImg"), title=document.getElementById("title"),
+      text=document.getElementById("text"), tag=document.getElementById("tag"),
+      badge=document.getElementById("badge"), reader=document.getElementById("reader"),
+      strip=document.getElementById("strip");
+const fs=document.getElementById("fs"), fsImg=document.getElementById("fsImg"), fsPg=document.getElementById("fsPg");
+
+// build filmstrip
+slides.forEach((s,i)=>{
+  const d=document.createElement("div"); d.className="thumb"; d.dataset.i=i;
+  d.innerHTML=`<span class="n">${i+1}</span><img loading="lazy" src="${imgSrc(i)}" alt="">`;
+  d.onclick=()=>{go(i);};
+  strip.appendChild(d);
+});
+
+function render(){
+  slideImg.src=imgSrc(cur);
+  title.textContent=slides[cur].t;
+  text.textContent=slides[cur].x;
+  tag.textContent="Slide "+(cur+1);
+  badge.textContent=(cur+1)+" / "+N;
+  reader.scrollTop=0;
+  document.querySelectorAll(".thumb").forEach((t,i)=>t.classList.toggle("active",i===cur));
+  const act=strip.querySelector(".thumb.active"); if(act) act.scrollIntoView({inline:"center",block:"nearest"});
+  if(fs.classList.contains("show")){ fsImg.src=imgSrc(cur); fsPg.textContent=(cur+1)+" / "+N; }
+}
+function go(i){ cur=(i+N)%N; render(); }
+function next(){ go(cur+1); }
+function prev(){ go(cur-1); }
+
+document.getElementById("nextBtn").onclick=next;
+document.getElementById("prevBtn").onclick=prev;
+
+// ---- inline autoplay ----
+const autoBtn=document.getElementById("autoBtn");
+function secs(){ let v=parseFloat(document.getElementById("speed").value)||6; return Math.max(1,v)*1000; }
+function startAuto(){
+  stopAuto(); autoBtn.innerHTML='<span class="playing-dot"></span> 停止';
+  autoBtn.classList.add("primary");
+  autoTimer=setInterval(next,secs());
+}
+function stopAuto(){
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;}
+  autoBtn.innerHTML='▶ 自動播放'; autoBtn.classList.remove("primary");
+}
+autoBtn.onclick=()=>{ autoTimer?stopAuto():startAuto(); };
+
+// ---- theme ----
+const themeBtn=document.getElementById("themeBtn");
+themeBtn.onclick=()=>{
+  document.body.classList.toggle("dark");
+  const d=document.body.classList.contains("dark");
+  themeBtn.innerHTML=d?"☀️ 淺色":"🌙 深色";
+};
+
+// ---- fullscreen slideshow (image only) ----
+const fsBtn=document.getElementById("fsBtn"), fsPlay=document.getElementById("fsPlay");
+function openFs(){
+  fs.classList.add("show"); fsImg.src=imgSrc(cur); fsPg.textContent=(cur+1)+" / "+N;
+  if(fs.requestFullscreen) fs.requestFullscreen().catch(()=>{});
+  startFsAuto();
+}
+function closeFs(){
+  stopFsAuto(); fs.classList.remove("show");
+  if(document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+}
+function startFsAuto(){ stopFsAuto(); fsPlay.textContent="⏸"; fsTimer=setInterval(next,secs()); }
+function stopFsAuto(){ if(fsTimer){clearInterval(fsTimer);fsTimer=null;} fsPlay.textContent="▶"; }
+fsBtn.onclick=openFs;
+document.getElementById("fsExit").onclick=closeFs;
+fsPlay.onclick=()=>{ fsTimer?stopFsAuto():startFsAuto(); };
+document.getElementById("fsNext").onclick=next;
+document.getElementById("fsPrev").onclick=prev;
+document.addEventListener("fullscreenchange",()=>{ if(!document.fullscreenElement && fs.classList.contains("show")) closeFs(); });
+
+// ---- keyboard ----
+document.addEventListener("keydown",e=>{
+  if(e.key==="ArrowRight"||e.key===" ") {next(); e.preventDefault();}
+  else if(e.key==="ArrowLeft") prev();
+  else if(e.key==="Escape" && fs.classList.contains("show")) closeFs();
+  else if(e.key==="f"||e.key==="F"){ fs.classList.contains("show")?closeFs():openFs(); }
+});
+
+// ---- swipe (touch + mouse drag) on stage and fullscreen ----
+function addSwipe(el){
+  let sx=0, sy=0, down=false;
+  el.addEventListener("touchstart",e=>{sx=e.touches[0].clientX;sy=e.touches[0].clientY;},{passive:true});
+  el.addEventListener("touchend",e=>{
+    const dx=e.changedTouches[0].clientX-sx, dy=e.changedTouches[0].clientY-sy;
+    if(Math.abs(dx)>50 && Math.abs(dx)>Math.abs(dy)){ dx<0?next():prev(); }
+  },{passive:true});
+  el.addEventListener("mousedown",e=>{down=true;sx=e.clientX;sy=e.clientY;});
+  el.addEventListener("mouseup",e=>{
+    if(!down)return; down=false;
+    const dx=e.clientX-sx, dy=e.clientY-sy;
+    if(Math.abs(dx)>60 && Math.abs(dx)>Math.abs(dy)){ dx<0?next():prev(); }
+  });
+  // wheel horizontal navigation
+  let wlock=false;
+  el.addEventListener("wheel",e=>{
+    if(Math.abs(e.deltaX)>Math.abs(e.deltaY) && Math.abs(e.deltaX)>20){
+      e.preventDefault();
+      if(wlock)return; wlock=true; e.deltaX>0?next():prev();
+      setTimeout(()=>wlock=false,350);
+    }
+  },{passive:false});
+}
+addSwipe(document.getElementById("stage"));
+addSwipe(fs);
+
+render();
+</script>
+</body>
+</html>

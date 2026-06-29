@@ -104,6 +104,12 @@ document.addEventListener('DOMContentLoaded', () => {
             url: "https://froglssh.github.io/lssh-science-presentation-guide/sources/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/5%E8%A9%95%E5%AF%A9%E6%A8%99%E6%BA%96/%E7%A7%91%E5%B1%95%E8%A9%95%E5%AF%A9%E6%A8%99%E6%BA%96%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E7%B6%B2%E9%A0%81.html",
             desc: "全國科展生物類評分標準與扣分原則解析",
             icon: "bi-bookmark-check-fill"
+        },
+        {
+            name: "科展生物科得獎策略全解析",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F%EF%BC%BF%E7%A7%91%E5%B1%95%E7%94%9F%E7%89%A9%E7%A7%91%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%85%A8%E8%A7%A3%E6%9E%90_%E7%B6%B2%E9%A0%81%E7%B0%A1%E5%A0%B1/%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F%EF%BC%BF%E7%A7%91%E5%B1%95%E7%94%9F%E7%89%A9%E7%A7%91%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%85%A8%E8%A7%A3%E6%9E%90_%E7%B6%B2%E9%A0%81.html",
+            desc: "生物科展得獎作品的主題分析與口頭答辯策略",
+            icon: "bi-journal-check"
         }
     ];
 

@@ -1,0 +1,1279 @@
+{
+  "run_status": "blocked",
+  "deck_name": "生物領域＿科展生物科得獎策略全解析_網頁簡報",
+  "selected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+  "sample_generation_method": {
+    "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+    "tool_name": "scripts/image_gen.py",
+    "mode": "generate",
+    "model": "gpt-image-2",
+    "prompt_source": "conversation-approved direct sample prompt for Slide 28",
+    "size": "2048x1152",
+    "quality": "medium",
+    "approved_sample_path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+    "input_context_preparation": "Inspect the approved sample as a style reference before generation. There are no strict source images. Use edit --image only for repairs.",
+    "handoff_rule": "Use the same backend, tool, model, size and quality. Use generate for new slides; use edit only for repairs."
+  },
+  "max_concurrent_slides": 3,
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "number": 1,
+      "title": "科展生物科得獎策略全解析",
+      "job": "prompts/slide_01.json",
+      "out": "origin_image/slide_01.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_01_worker",
+        "agent_nickname": "slide_01_worker",
+        "prompt": "prompts/slide_01.json",
+        "prompt_sha256": "78822ffd7e4c1d13b8ad192bdfa9bc62f84cf4f8ef58d59b1979edad287a5699",
+        "dispatched_at": "2026-06-28T16:11:23Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_01_worker",
+        "reason": "Codex OAuth image call was denied by tenant data-exfiltration policy in this worker; no candidate image generated.",
+        "blocked_at": "2026-06-28T16:15:39Z"
+      }
+    },
+    {
+      "slide_id": "slide_02",
+      "number": 2,
+      "title": "全章地圖：八個層次看懂得獎規律",
+      "job": "prompts/slide_02.json",
+      "out": "origin_image/slide_02.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_02_worker",
+        "agent_nickname": "slide_02_worker",
+        "prompt": "prompts/slide_02.json",
+        "prompt_sha256": "3de8332ddd32471b101b0e659c29204173afacfdea4c10630a66155692eb6cd8",
+        "dispatched_at": "2026-06-28T16:11:48Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_02_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_02_candidate.png",
+        "selected_source_sha256": "389de181414f5c8fd043bea29e5d9866304ac40354fefe8434a6e66e0e460b68",
+        "final_image": "origin_image/slide_02.png",
+        "final_image_sha256": "389de181414f5c8fd043bea29e5d9866304ac40354fefe8434a6e66e0e460b68",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "繁體中文清晰；八站學習路徑完整；樣張配色一致；無截斷、重疊、頁碼或浮水印。",
+        "recorded_at": "2026-06-28T16:15:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_03",
+      "number": 3,
+      "title": "生物科展的認識論轉向",
+      "job": "prompts/slide_03.json",
+      "out": "origin_image/slide_03.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_03_worker",
+        "agent_nickname": "slide_03_worker",
+        "prompt": "prompts/slide_03.json",
+        "prompt_sha256": "15e916314131264fc8351bd18ccea7a03e336763776cd1cf53b581b523d8d070",
+        "dispatched_at": "2026-06-28T16:12:11Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_03_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_03_candidate.png",
+        "selected_source_sha256": "a9a759db7dab3e529f0fcae04e723e8149c4aa64527d622cf6b91a955176590a",
+        "final_image": "origin_image/slide_03.png",
+        "final_image_sha256": "a9a759db7dab3e529f0fcae04e723e8149c4aa64527d622cf6b91a955176590a",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "繁體中文清晰；舊新範式對照完整；多尺度圖解符合內容；無截斷、重疊、頁碼或浮水印。",
+        "recorded_at": "2026-06-28T16:15:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_04",
+      "number": 4,
+      "title": "從「A 影響 B」走向 Why 與 How",
+      "job": "prompts/slide_04.json",
+      "out": "origin_image/slide_04.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_02_worker",
+        "agent_nickname": "slide_02_worker",
+        "prompt": "prompts/slide_04.json",
+        "prompt_sha256": "8ab02248d3e9389f399e6e7c5180df3d581d8698d9ace43228e6ff39bdffa14a",
+        "dispatched_at": "2026-06-28T16:16:12Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_02_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_04_candidate.png",
+        "selected_source_sha256": "3033be83383ce6583772808ebcf251e042a94934a630be6b03840c2dba778d17",
+        "final_image": "origin_image/slide_04.png",
+        "final_image_sha256": "3033be83383ce6583772808ebcf251e042a94934a630be6b03840c2dba778d17",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "繁體中文清晰；黑箱、四步驟與透明機制鏈內容完整；無截斷重疊。",
+        "recorded_at": "2026-06-28T16:20:48Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_05",
+      "number": 5,
+      "title": "技術護城河，與回歸基本面",
+      "job": "prompts/slide_05.json",
+      "out": "origin_image/slide_05.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_03_worker",
+        "agent_nickname": "slide_03_worker",
+        "prompt": "prompts/slide_05.json",
+        "prompt_sha256": "9e6e60d3e2ccce60a8122b8d436ce955440e385c4f9fad1fcb147e59abe6ce44",
+        "dispatched_at": "2026-06-28T16:16:48Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_03_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_05_candidate.png",
+        "selected_source_sha256": "1ed96209f609f12d49aefa53992bfdc6d8d636f7075b3df9effd9aecd780971a",
+        "final_image": "origin_image/slide_05.png",
+        "final_image_sha256": "1ed96209f609f12d49aefa53992bfdc6d8d636f7075b3df9effd9aecd780971a",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "繁體中文清晰；技術與日誌天平構圖完整；無截斷重疊。",
+        "recorded_at": "2026-06-28T16:20:48Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_06",
+      "number": 6,
+      "title": "官方評審四大維度",
+      "job": "prompts/slide_06.json",
+      "out": "origin_image/slide_06.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_01_worker",
+        "agent_nickname": "slide_01_worker",
+        "prompt": "prompts/slide_06.json",
+        "prompt_sha256": "d23315a25509127fa60da9bc2c06a3ea8f40a6131ac924f34e88ba22926d4e33",
+        "dispatched_at": "2026-06-28T16:17:18Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_01_worker",
+        "reason": "Codex OAuth image call was again denied by tenant data-exfiltration policy in this worker; no candidate generated.",
+        "blocked_at": "2026-06-28T16:20:48Z"
+      }
+    },
+    {
+      "slide_id": "slide_07",
+      "number": 7,
+      "title": "評審心中的那把尺",
+      "job": "prompts/slide_07.json",
+      "out": "origin_image/slide_07.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_07_worker",
+        "agent_nickname": "slide_07_worker",
+        "prompt": "prompts/slide_07.json",
+        "prompt_sha256": "eeca769e612a96b4300115ac5d0a44577b4a26b119381f59802f3ec4ea4b1cd8",
+        "dispatched_at": "2026-06-28T16:21:26Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_07_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_07_candidate.png",
+        "selected_source_sha256": "35499b542b2dabfa046f991c385d10d70aa1c1e522ef1e5b02aeeaa5a044fda2",
+        "final_image": "origin_image/slide_07.png",
+        "final_image_sha256": "35499b542b2dabfa046f991c385d10d70aa1c1e522ef1e5b02aeeaa5a044fda2",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "四道隱性評審濾網完整，繁體中文清晰，樣張風格一致，無截斷重疊。",
+        "recorded_at": "2026-06-28T16:24:01Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_08",
+      "number": 8,
+      "title": "高中組總覽：五大子領域的共同升級",
+      "job": "prompts/slide_08.json",
+      "out": "origin_image/slide_08.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_02_worker",
+        "agent_nickname": "slide_02_worker",
+        "prompt": "prompts/slide_08.json",
+        "prompt_sha256": "30b17ab96aba97c1b12ab01c6702e3cac815dbf45938dcb3d5c7606c6b2b1131",
+        "dispatched_at": "2026-06-28T16:21:59Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_02_worker",
+        "reason": "Escalation reviewer rejected Codex OAuth image call as external data-upload risk; no candidate generated.",
+        "blocked_at": "2026-06-28T16:24:01Z"
+      }
+    },
+    {
+      "slide_id": "slide_09",
+      "number": 9,
+      "title": "SLC35C1：完整癌症機制鏈",
+      "job": "prompts/slide_09.json",
+      "out": "origin_image/slide_09.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_03_worker",
+        "agent_nickname": "slide_03_worker",
+        "prompt": "prompts/slide_09.json",
+        "prompt_sha256": "2dd19daa9818bca6ba74cfeab7b7fb89df9d38a1137b80431722912fb6beeaae",
+        "dispatched_at": "2026-06-28T16:22:30Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_03_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_09_revised.png",
+        "selected_source_sha256": "38957e09d1850f4708a42136f1b24ff0f3c8fa97256969f9014d455f553bbc1b",
+        "final_image": "origin_image/slide_09.png",
+        "final_image_sha256": "38957e09d1850f4708a42136f1b24ff0f3c8fa97256969f9014d455f553bbc1b",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "修復後僅保留來源支持的五階段機制鏈、共培養與醣生物學；繁體中文清晰，無截斷重疊。",
+        "recorded_at": "2026-06-28T16:31:45Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_10",
+      "number": 10,
+      "title": "TAOK1：Tet-On 的劑量與時間效應",
+      "job": "prompts/slide_10.json",
+      "out": "origin_image/slide_10.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_07_worker",
+        "agent_nickname": "slide_07_worker",
+        "prompt": "prompts/slide_10.json",
+        "prompt_sha256": "364522f55f183f5414571ab8d52c97d3cbce22274ff15c67af68ac9c5e8ed9f2",
+        "dispatched_at": "2026-06-28T16:24:33Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_07_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_10_revised.png",
+        "selected_source_sha256": "595dd58e8e7297769d60216cc8ae0cb4d6a260833da197c6921780d195f2c2c7",
+        "final_image": "origin_image/slide_10.png",
+        "final_image_sha256": "595dd58e8e7297769d60216cc8ae0cb4d6a260833da197c6921780d195f2c2c7",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "修復後移除來源外劑量、時間、數值與疾病例；概念圖明確標為非實驗數據，文字清晰。",
+        "recorded_at": "2026-06-28T16:34:06Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_11",
+      "number": 11,
+      "title": "腫瘤新抗原：乾實驗先行",
+      "job": "prompts/slide_11.json",
+      "out": "origin_image/slide_11.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_11_worker",
+        "agent_nickname": "slide_11_worker",
+        "prompt": "prompts/slide_11.json",
+        "prompt_sha256": "c0ad9904a8aee8d2f4a19ec834241128b81cd28f2177d9d547b7cc7f9d55ed8a",
+        "dispatched_at": "2026-06-28T16:25:12Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_11_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_11_revised.png",
+        "selected_source_sha256": "aaef14ad6a0c3d3dbcf66a78e06f1bd39405ddcd97ff880a35a954f9b746ef58",
+        "final_image": "origin_image/slide_11.png",
+        "final_image_sha256": "aaef14ad6a0c3d3dbcf66a78e06f1bd39405ddcd97ff880a35a954f9b746ef58",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "修復後移除所有來源外資料庫、序列、數值、檢測與疫苗細節；繁體中文清晰，流程完整。",
+        "recorded_at": "2026-06-28T16:36:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_12",
+      "number": 12,
+      "title": "浮萍：生態、物理與分子三尺度",
+      "job": "prompts/slide_12.json",
+      "out": "origin_image/slide_12.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_03_worker",
+        "agent_nickname": "slide_03_worker",
+        "prompt": "prompts/slide_12.json",
+        "prompt_sha256": "bde6b3bcb97efd1a0980ae865b9f237d6346e21f78c1f5864639f58d694556b6",
+        "dispatched_at": "2026-06-28T16:33:13Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_03_worker",
+        "reason": "Codex OAuth usage limit reached; backend indicated retry after approximately 04:12 Asia/Taipei.",
+        "blocked_at": "2026-06-28T16:36:39Z"
+      }
+    },
+    {
+      "slide_id": "slide_13",
+      "number": 13,
+      "title": "從海漂果實到軟體機器人",
+      "job": "prompts/slide_13.json",
+      "out": "origin_image/slide_13.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_07_worker",
+        "agent_nickname": "slide_07_worker",
+        "prompt": "prompts/slide_13.json",
+        "prompt_sha256": "7f09cb9229a824ee326837a9d08856bbd8260e80516731b8cc9dae8b23eb858e",
+        "dispatched_at": "2026-06-28T16:34:54Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_07_worker",
+        "reason": "Codex OAuth usage limit reached; no candidate generated and no fallback used.",
+        "blocked_at": "2026-06-28T16:36:39Z"
+      }
+    },
+    {
+      "slide_id": "slide_14",
+      "number": 14,
+      "title": "益生菌：從食品分離走到臨床規格",
+      "job": "prompts/slide_14.json",
+      "out": "origin_image/slide_14.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_03_worker",
+        "agent_nickname": "slide_03_worker",
+        "prompt": "prompts/slide_14.json",
+        "prompt_sha256": "dcba0e7c7ea2f1bc48a018501914808c0eea04b838e1a7f315fe38069728ac35",
+        "dispatched_at": "2026-06-29T01:32:20Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_03_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_14_revised.png",
+        "selected_source_sha256": "101d48f38d431af9d600eea9ef7b35c4936614068049f167563f95800a923c6f",
+        "final_image": "origin_image/slide_14.png",
+        "final_image_sha256": "101d48f38d431af9d600eea9ef7b35c4936614068049f167563f95800a923c6f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "修復後僅保留來源支持的菌株篩選、傷口遷移／增殖區分、WGS安全與機制鏈；文字清晰。",
+        "recorded_at": "2026-06-29T01:41:23Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_15",
+      "number": 15,
+      "title": "果蠅眼科模型與循環經濟",
+      "job": "prompts/slide_15.json",
+      "out": "origin_image/slide_15.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_07_worker",
+        "agent_nickname": "slide_07_worker",
+        "prompt": "prompts/slide_15.json",
+        "prompt_sha256": "776de226d84339e01e421b5e3d529150829d75fb22ddcbc00d128f4227469410",
+        "dispatched_at": "2026-06-29T01:33:27Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_07_worker",
+        "reason": "Approval reviewer did not recognize direct user authorization in this worker because it was spawned without transcript context; no candidate generated.",
+        "blocked_at": "2026-06-29T01:38:38Z"
+      }
+    },
+    {
+      "slide_id": "slide_16",
+      "number": 16,
+      "title": "把主觀時間感轉成毫秒級數據",
+      "job": "prompts/slide_16.json",
+      "out": "origin_image/slide_16.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_11_worker",
+        "agent_nickname": "slide_11_worker",
+        "prompt": "prompts/slide_16.json",
+        "prompt_sha256": "3f08dbc73e88953b343952c626335381db9eec88d0d3ecc090c4775ddabaed54",
+        "dispatched_at": "2026-06-29T01:34:20Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_11_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_16_candidate.png",
+        "selected_source_sha256": "a0c8f6b03917768d9cbbd1f7c4b16cf40b8444be190c00234144d794c3748af9",
+        "final_image": "origin_image/slide_16.png",
+        "final_image_sha256": "a0c8f6b03917768d9cbbd1f7c4b16cf40b8444be190c00234144d794c3748af9",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "來源支持的Psytoolkit、客觀任務、理論模型與校正方法完整；繁體中文清晰，無截斷重疊。",
+        "recorded_at": "2026-06-29T01:41:23Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_17",
+      "number": 17,
+      "title": "神經工具改寫社會科學",
+      "job": "prompts/slide_17.json",
+      "out": "origin_image/slide_17.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_03_worker",
+        "agent_nickname": "slide_03_worker",
+        "prompt": "prompts/slide_17.json",
+        "prompt_sha256": "8049154edbe8f321f154aaaa09dee95b91746e9bc8e98f07d0b9fa8043900d68",
+        "dispatched_at": "2026-06-29T01:42:24Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_03_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_17_revised.png",
+        "selected_source_sha256": "8d969364828dbe15d1073cab6758fd77a192366217e0bcf41bba70a93635a5c6",
+        "final_image": "origin_image/slide_17.png",
+        "final_image_sha256": "8d969364828dbe15d1073cab6758fd77a192366217e0bcf41bba70a93635a5c6",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "修復後僅保留斑馬魚成癮與晶球給藥、EEG Gamma波與冗餘原則等來源內容；文字清晰。",
+        "recorded_at": "2026-06-29T01:53:09Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_18",
+      "number": 18,
+      "title": "927棵樹：校園固碳閉環",
+      "job": "prompts/slide_18.json",
+      "out": "origin_image/slide_18.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_11_worker",
+        "agent_nickname": "slide_11_worker",
+        "prompt": "prompts/slide_18.json",
+        "prompt_sha256": "15b1387187a7dda07c2fc8c2673491f44181f588cb0485c502f5044a967b53d0",
+        "dispatched_at": "2026-06-29T01:43:39Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_11_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_18_candidate.png",
+        "selected_source_sha256": "6882eddae8b1b8a36e8a91f929833f85a7659d997efe5a100ef8fd866e8fad39",
+        "final_image": "origin_image/slide_18.png",
+        "final_image_sha256": "6882eddae8b1b8a36e8a91f929833f85a7659d997efe5a100ef8fd866e8fad39",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "927棵樹、IPCC、Li-6400與宏觀到政策閉環完整；繁體中文清晰，無截斷重疊。",
+        "recorded_at": "2026-06-29T01:53:10Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_19",
+      "number": 19,
+      "title": "相關性不等於因果性",
+      "job": "prompts/slide_19.json",
+      "out": "origin_image/slide_19.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_19_worker",
+        "agent_nickname": "slide_19_worker",
+        "prompt": "prompts/slide_19.json",
+        "prompt_sha256": "d2829295f5b53417c3469414a6b4a2490b0a5582aadc34fb95e833bf2af22d7b",
+        "dispatched_at": "2026-06-29T01:44:35Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_19_worker",
+        "reason": "Three backend edit attempts failed to correct the Traditional Chinese typo 孑子 to 孑孓; no candidate passed text QA.",
+        "blocked_at": "2026-06-29T02:00:36Z"
+      }
+    },
+    {
+      "slide_id": "slide_20",
+      "number": 20,
+      "title": "國小與國中：兩條進階路線",
+      "job": "prompts/slide_20.json",
+      "out": "origin_image/slide_20.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_03_worker",
+        "agent_nickname": "slide_03_worker",
+        "prompt": "prompts/slide_20.json",
+        "prompt_sha256": "519492754691e6a51134a8d37b0fb172a7f13a40763026073384d30a6e31797a",
+        "dispatched_at": "2026-06-29T01:54:22Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_03_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_20_revised.png",
+        "selected_source_sha256": "a84878a99f8bfbbc070ff015185215228ba04bff8e1f4f319d5b100a9d763519",
+        "final_image": "origin_image/slide_20.png",
+        "final_image_sha256": "a84878a99f8bfbbc070ff015185215228ba04bff8e1f4f319d5b100a9d763519",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "國小與國中兩條進階路線及共同方向完整；無來源外延伸，繁體中文清晰。",
+        "recorded_at": "2026-06-29T02:05:19Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_21",
+      "number": 21,
+      "title": "睡前娛樂：模型推翻主觀自信",
+      "job": "prompts/slide_21.json",
+      "out": "origin_image/slide_21.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_11_worker",
+        "agent_nickname": "slide_11_worker",
+        "prompt": "prompts/slide_21.json",
+        "prompt_sha256": "41aef4b8b55ce8973e56577def88b834abcec703a46e3f8ad71974853c82e767",
+        "dispatched_at": "2026-06-29T01:55:52Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_11_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_21_candidate.png",
+        "selected_source_sha256": "8bee38dd91a2820df86447dd0627066410d7f384b9b9c5ade5d7f18b502a4107",
+        "final_image": "origin_image/slide_21.png",
+        "final_image_sha256": "8bee38dd91a2820df86447dd0627066410d7f384b9b9c5ade5d7f18b502a4107",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "080309、ICR四組、水迷宮等測驗、163%與社交退縮完整；警示模型不可直接外推人類，文字清晰。",
+        "recorded_at": "2026-06-29T02:05:19Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_22",
+      "number": 22,
+      "title": "潮間貝包客：調查、毒理與復育",
+      "job": "prompts/slide_22.json",
+      "out": "origin_image/slide_22.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "/root/slide_22_worker",
+        "agent_nickname": "slide_22_worker",
+        "prompt": "prompts/slide_22.json",
+        "prompt_sha256": "08c8e8a918ed0947bf8509ea70e4e1c02aeee1ce9f45ec5b562a94ad67840950",
+        "dispatched_at": "2026-06-29T02:02:32Z"
+      },
+      "result": {
+        "agent_id": "/root/slide_22_worker",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/drafts/slide_22_revised_2.png",
+        "selected_source_sha256": "bdf28e23d9c631b334f165cd7f59733b385079c4d1fb4ec4bcb6c385f7b6748c",
+        "final_image": "origin_image/slide_22.png",
+        "final_image_sha256": "bdf28e23d9c631b334f165cd7f59733b385079c4d1fb4ec4bcb6c385f7b6748c",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "080307、9公里、10樣區、鉛33倍、汞100倍與空心磚復育完整；繁體中文清晰。",
+        "recorded_at": "2026-06-29T02:10:12Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_23",
+      "number": 23,
+      "title": "鰻苗混獲走向政策協作",
+      "job": "prompts/slide_23.json",
+      "out": "origin_image/slide_23.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_03_worker",
+        "agent_nickname": "slide_03_worker",
+        "prompt": "prompts/slide_23.json",
+        "prompt_sha256": "eced55ebd94a0e83ae84c986ee05aaa49f1fb57508ae3668147295300d52066d",
+        "dispatched_at": "2026-06-29T02:07:22Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_03_worker",
+        "reason": "Candidate added unsupported roles and omitted SDG14/SDG17; repair blocked by Codex OAuth usage limit until approximately 14:29 Asia/Taipei.",
+        "blocked_at": "2026-06-29T02:18:06Z"
+      }
+    },
+    {
+      "slide_id": "slide_24",
+      "number": 24,
+      "title": "長足衛蜈蚣：長週期系統性生物學",
+      "job": "prompts/slide_24.json",
+      "out": "origin_image/slide_24.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_11_worker",
+        "agent_nickname": "slide_11_worker",
+        "prompt": "prompts/slide_24.json",
+        "prompt_sha256": "6808adee4cd6dcc5ecee111a09ba0f31285234dffa8e19e84f1cd8f0c76fe15e",
+        "dispatched_at": "2026-06-29T02:08:28Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_11_worker",
+        "reason": "Candidate Type II survival curve was scientifically incorrect; repair blocked by Codex OAuth usage limit.",
+        "blocked_at": "2026-06-29T02:18:07Z"
+      }
+    },
+    {
+      "slide_id": "slide_25",
+      "number": 25,
+      "title": "大刀螳螂：精密量測挑戰教科書",
+      "job": "prompts/slide_25.json",
+      "out": "origin_image/slide_25.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "blocked",
+      "dispatch": {
+        "agent_id": "/root/slide_22_worker",
+        "agent_nickname": "slide_22_worker",
+        "prompt": "prompts/slide_25.json",
+        "prompt_sha256": "8626c34ada694abc1805ec2d3fb65e95e73c2c75d3c0962ccbdbf6343d3dafa1",
+        "dispatched_at": "2026-06-29T02:11:29Z"
+      },
+      "result": null,
+      "blocker": {
+        "agent_id": "/root/slide_22_worker",
+        "reason": "Candidate invented 180%, 1200 ppm, specific instruments and extra mechanism claims; repair blocked by Codex OAuth usage limit until approximately 14:29 Asia/Taipei.",
+        "blocked_at": "2026-06-29T02:18:07Z"
+      }
+    },
+    {
+      "slide_id": "slide_26",
+      "number": 26,
+      "title": "國小與國中的工具、統計與社會連結",
+      "job": "prompts/slide_26.json",
+      "out": "origin_image/slide_26.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_27",
+      "number": 27,
+      "title": "國際科展：如何證明因果",
+      "job": "prompts/slide_27.json",
+      "out": "origin_image/slide_27.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_28",
+      "number": 28,
+      "title": "因果驗證黃金標準",
+      "job": "prompts/slide_28.json",
+      "out": "origin_image/slide_28.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "accepted",
+      "dispatch": null,
+      "result": {
+        "final_image": "origin_image/slide_28.png",
+        "accepted_sample": true
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_29",
+      "number": 29,
+      "title": "Scny：克隆分析與內部對照",
+      "job": "prompts/slide_29.json",
+      "out": "origin_image/slide_29.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_30",
+      "number": 30,
+      "title": "仿免疫突觸微流體晶片",
+      "job": "prompts/slide_30.json",
+      "out": "origin_image/slide_30.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_31",
+      "number": 31,
+      "title": "AI賦能的BCD評估平台",
+      "job": "prompts/slide_31.json",
+      "out": "origin_image/slide_31.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_32",
+      "number": 32,
+      "title": "鑑定脂滴自噬受體",
+      "job": "prompts/slide_32.json",
+      "out": "origin_image/slide_32.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_33",
+      "number": 33,
+      "title": "ISEF：乾濕整合、綠色化學與資源現實",
+      "job": "prompts/slide_33.json",
+      "out": "origin_image/slide_33.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_34",
+      "number": 34,
+      "title": "勝利方程式① 日誌、機制與證據",
+      "job": "prompts/slide_34.json",
+      "out": "origin_image/slide_34.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_35",
+      "number": 35,
+      "title": "勝利方程式② 數據衛生與Glocalization",
+      "job": "prompts/slide_35.json",
+      "out": "origin_image/slide_35.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_36",
+      "number": 36,
+      "title": "頂尖作品與一般作品的六項差異",
+      "job": "prompts/slide_36.json",
+      "out": "origin_image/slide_36.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_37",
+      "number": 37,
+      "title": "選題策略：知識缺口與機制深度",
+      "job": "prompts/slide_37.json",
+      "out": "origin_image/slide_37.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_38",
+      "number": 38,
+      "title": "乾濕閉環＋PMC機制推理",
+      "job": "prompts/slide_38.json",
+      "out": "origin_image/slide_38.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_39",
+      "number": 39,
+      "title": "資源、溝通與學術倫理",
+      "job": "prompts/slide_39.json",
+      "out": "origin_image/slide_39.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_40",
+      "number": 40,
+      "title": "像科學家思考，像工程師解題，像史學家記錄",
+      "job": "prompts/slide_40.json",
+      "out": "origin_image/slide_40.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "pending",
+      "dispatch": null,
+      "result": null,
+      "blocker": null
+    }
+  ],
+  "updated_at": "2026-06-29T02:18:07Z"
+}

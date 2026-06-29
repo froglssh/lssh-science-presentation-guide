@@ -1,0 +1,460 @@
+{
+  "deck_name": "生物領域＿科展生物科得獎策略全解析_網頁簡報",
+  "language": "Traditional Chinese",
+  "goal": "將生物科展得獎策略完整轉化為教師可播放、學生可自學的科研教學簡報。",
+  "deck_context": {
+    "source_summary": "分析第65屆全國科展、2026 TISF與ISEF生物相關得獎作品，說明競賽如何由現象描述轉向機制、因果、定量與跨域，並提出師生可採行的選題、研究、溝通與倫理策略。",
+    "core_claim": "頂尖生物科展的勝負不在昂貴設備或新奇現象，而在能否用真實紀錄、嚴謹控制、多重證據與跨域方法，將在地觀察推進為可驗證的因果機制。",
+    "canonical_terms": [
+      "What → Why／How",
+      "機制探討",
+      "因果驗證",
+      "救援實驗",
+      "證據三角測量",
+      "數據衛生",
+      "實驗日誌",
+      "Glocalization",
+      "PMC：Phenomena–Mechanism–Components"
+    ]
+  },
+  "selected_image_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+  "max_concurrent_slides": 3,
+  "sample_generation_method": {
+    "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+    "tool_name": "scripts/image_gen.py",
+    "mode": "generate",
+    "model": "gpt-image-2",
+    "prompt_source": "conversation-approved direct sample prompt for Slide 28",
+    "size": "2048x1152",
+    "quality": "medium",
+    "approved_sample_path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+    "input_context_preparation": "Inspect the approved sample as a style reference before generation. There are no strict source images. Use edit --image only for repairs.",
+    "handoff_rule": "Use the same backend, tool, model, size and quality. Use generate for new slides; use edit only for repairs."
+  },
+  "style": {
+    "name": "科研教學資訊圖風",
+    "visual_direction": "formal but approachable Taiwanese science classroom presentation; evidence-first biological infographics; realistic scientific diagrams; strong reading order; useful for teacher projection and student self-study",
+    "color_palette": "white or very light gray background; deep academic blue #0B3A6E for structure; teal #0F766E for validation; amber #F59E0B for warnings; sparing red for failed mechanisms; dark gray text",
+    "typography": "large high-contrast Traditional Chinese sans-serif; bold titles; clear module labels; medium body density; exact readable Chinese",
+    "texture_and_finish": "clean flat academic infographic with subtle borders and shadows; no decorative gradients; no commercial stock-photo look",
+    "deck_consistency": "match the approved Slide 28 palette, typography mood, density, scientific icon language and crisp finish while varying layout by semantic role"
+  },
+  "approved_style_reference": {
+    "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/生物領域＿科展生物科得獎策略全解析_網頁簡報/origin_image/slide_28.png",
+    "role": "approved sample slide style reference",
+    "fidelity": "match palette, typography, density and scientific illustration language only; do not copy its exact three-column layout"
+  },
+  "global_constraints": [
+    "16:9 full-slide image at 2048x1152.",
+    "Use Traditional Chinese exactly and legibly.",
+    "Keep visible text concise but preserve every listed fact, work number and numeric result.",
+    "Use only facts explicitly listed in the slide key points and local context; do not invent extra assays, sample types, instruments, diseases, doses, time points, statistical values, experimental results or causal claims.",
+    "No slide number, watermark, unrelated logo, invented institution mark or decorative nonsense.",
+    "Do not repeat the same layout on adjacent slides.",
+    "Scientific visuals must explain the content rather than decorate it."
+  ],
+  "slides": [
+    {
+      "number": 1,
+      "title": "科展生物科得獎策略全解析",
+      "role": "cover",
+      "intent": "Establish the shift from observation to mechanism and a serious teaching tone.",
+      "key_points": ["生物領域", "從現象描述到機制解析的典範轉移", "以指導老師與國際評審視角整合", "臺北市麗山高中林獻升老師整理"],
+      "local_context": {"required_background": "Cover only. Emphasize progression from field observation to cells, data and international competition."},
+      "layout": {"composition": "Large left-aligned title, compact subtitle and author line, right-side vertical research evolution illustration."},
+      "visual_elements": {"main_visual": "Ecology specimen, cell mechanism, data chart and international science-fair stage connected as one research evolution path."},
+      "constraints": ["Keep cover text sparse and exact."]
+    },
+    {
+      "number": 2,
+      "title": "全章地圖：八個層次看懂得獎規律",
+      "role": "agenda",
+      "intent": "Show the complete learning path.",
+      "key_points": ["認識論轉向", "評鑑體系", "高中五大子領域", "國小與國中", "國際科展", "勝利方程式", "師生戰略", "行動藍圖"],
+      "local_context": {"required_background": "Eight ordered sections form a climb from understanding judging to taking action."},
+      "layout": {"composition": "Eight-stop ascending route with short labels and a start-to-summit reading order."},
+      "visual_elements": {"main_visual": "Academic mountain route with eight restrained milestone nodes."}
+    },
+    {
+      "number": 3,
+      "title": "生物科展的認識論轉向",
+      "role": "comparison",
+      "intent": "Contrast the fading old paradigm with the winning new paradigm.",
+      "key_points": ["第65屆全國科展、2026 TISF、ISEF共同趨勢", "自然觀察與現象描述正失去頂尖優勢", "新範式：機制探討、精確量化、跨領域整合"],
+      "local_context": {"required_background": "Old paradigm is museum-style observation. New paradigm is quasi-academic multi-scale explanation."},
+      "layout": {"composition": "Before-and-after split with an arrow of epistemic transition and bottom takeaway."},
+      "visual_elements": {"main_visual": "Field notebook and magnifier on the left; multi-scale cell, instrument and data model on the right."}
+    },
+    {
+      "number": 4,
+      "title": "從「A 影響 B」走向 Why 與 How",
+      "role": "process",
+      "intent": "Teach the depth progression expected by judges.",
+      "key_points": ["必須回答路徑、分子機制與物理條件", "What → 變因隔離 → Why／How → 多重驗證", "評審重視解釋力，不只現象新奇"],
+      "local_context": {"required_background": "A and B are generic variables. Show correlation as a black box and mechanism as a transparent chain."},
+      "layout": {"composition": "Left black-box correlation, center four-step transformation, right transparent causal chain."},
+      "visual_elements": {"main_visual": "A→B black box opening into pathway, molecule, physical condition and triangulated evidence."}
+    },
+    {
+      "number": 5,
+      "title": "技術護城河，與回歸基本面",
+      "role": "tradeoff",
+      "intent": "Balance advanced techniques with integrity and process.",
+      "key_points": ["WGS、ERG、TEM、Tet-On、心理物理技術已進入高中科展", "高階工具形成技術降維打擊", "實驗日誌危機讓真實失敗與原始紀錄重新成為核心"],
+      "local_context": {"required_background": "The message is not anti-technology. Winning requires both technical capability and trustworthy process."},
+      "layout": {"composition": "Central balance scale: advanced instruments versus authentic notebook; bridge statement beneath."},
+      "visual_elements": {"main_visual": "Scientific instruments and gene tools balanced against a detailed handwritten lab notebook."}
+    },
+    {
+      "number": 6,
+      "title": "官方評審四大維度",
+      "role": "framework",
+      "intent": "Convert the official table into a practical judging compass.",
+      "key_points": ["研究主題：小題目、深挖掘與鄉土相關性", "創意價值：方法論借用、轉化與專利潛力", "科學方法：對照、樣本數與推論統計", "展示表達：實驗日誌具有一票否決效力"],
+      "local_context": {"required_background": "All four official dimensions must retain their practical biological meaning."},
+      "layout": {"composition": "Four-quadrant compass with distinct scientific icons and a central label 評審實質運作."},
+      "visual_elements": {"main_visual": "Topic target, cross-domain spark, controlled experiment, authentic notebook."}
+    },
+    {
+      "number": 7,
+      "title": "評審心中的那把尺",
+      "role": "checklist",
+      "intent": "Reveal the four hidden decision filters.",
+      "key_points": ["機制優先：效果必須追到光敏素、酵素或基因", "數據衛生：有效位數、誤差棒、P值與測量極限", "誠實失敗：能說明困難、推理與修正", "日誌否決權：鉛筆、空白、補謄、過度美化都可能淘汰"],
+      "local_context": {"required_background": "These filters decide award level beyond the formal score."},
+      "layout": {"composition": "Four sequential judge filters narrowing a broad field to a winning project."},
+      "visual_elements": {"main_visual": "Mechanism lens, clean chart, failure-repair loop and integrity notebook."}
+    },
+    {
+      "number": 8,
+      "title": "高中組總覽：五大子領域的共同升級",
+      "role": "section overview",
+      "intent": "Preview five fields and their winning upgrades.",
+      "key_points": ["動物與醫學：分子機制與轉譯醫學", "植物：生物物理與仿生工程", "農業與食品：臨床規格與循環經濟", "行為與社會：客觀生理與計算", "環境：精密量化與治理閉環"],
+      "local_context": {"required_background": "Five fields share the shift toward mechanism, quantification and cross-domain methods."},
+      "layout": {"composition": "Five-petal research map around a central label 機制×定量×跨域."},
+      "visual_elements": {"main_visual": "Cell, leaf, food microbe, brain-behavior and ecosystem icons."}
+    },
+    {
+      "number": 9,
+      "title": "SLC35C1：完整癌症機制鏈",
+      "role": "case study",
+      "intent": "Demonstrate complete molecular reasoning.",
+      "key_points": ["第一名｜作品052014", "SLC35C1 → 岩藻糖化 → 遷移侵襲 → 骨髓微環境 → 骨轉移", "醣生物學與細胞共培養建立完整證據鏈"],
+      "local_context": {"required_background": "SLC35C1 is a Golgi membrane transporter. Show marrow osteoclast/osteoblast microenvironment without clinical sensationalism."},
+      "layout": {"composition": "Horizontal five-stage molecular pathway with evidence callouts and a right-side award insight."},
+      "visual_elements": {"main_visual": "Golgi transporter, fucosylated proteins, migrating cancer cell and bone microenvironment."}
+    },
+    {
+      "number": 10,
+      "title": "TAOK1：Tet-On 的劑量與時間效應",
+      "role": "case study",
+      "intent": "Show rigorous variable control.",
+      "key_points": ["第二名｜作品052007", "多西環素精確控制基因開關與表現量", "不只比較有／無，更研究劑量與時間", "連結神經退化、精神疾病與BDNF代償保護"],
+      "local_context": {"required_background": "TAOK1 is a kinase. BDNF increase is interpreted as a possible compensatory protective mechanism, not a proven cure."},
+      "layout": {"composition": "Adjustable gene switch left, dose-time response matrix center, neural interpretation right."},
+      "visual_elements": {"main_visual": "Tet-On switch, dose curve, clock and neural network."}
+    },
+    {
+      "number": 11,
+      "title": "腫瘤新抗原：乾實驗先行",
+      "role": "workflow",
+      "intent": "Teach efficient dry-wet integration.",
+      "key_points": ["第三名｜作品052009", "NetMHCcons從大數據預測候選抗原", "In Silico → In Vitro", "降低盲目嘗試成本並提升規劃成熟度"],
+      "local_context": {"required_background": "Dry computation prioritizes candidates; wet cell work validates them."},
+      "layout": {"composition": "Funnel workflow from database and algorithm to ranked antigens, cell validation and vaccine concept."},
+      "visual_elements": {"main_visual": "Data cloud, computational filter, antigen ranking and culture dish."}
+    },
+    {
+      "number": 12,
+      "title": "浮萍：生態、物理與分子三尺度",
+      "role": "multi-scale case",
+      "intent": "Show how one biological phenomenon can be explained across scales.",
+      "key_points": ["第一名｜作品052106", "麥片圈效應解釋表面張力群聚", "光週期—光敏素—POD／ROS—連結數", "宏觀季節消長＋中觀物理＋微觀訊號"],
+      "local_context": {"required_background": "Duckweed seasonal dynamics are linked to surface-tension aggregation and molecular light responses."},
+      "layout": {"composition": "Three stacked scales: pond ecology, water-surface physics, cell signaling; connected vertically."},
+      "visual_elements": {"main_visual": "Duckweed clusters, meniscus forces, phytochrome and ROS balance."}
+    },
+    {
+      "number": 13,
+      "title": "從海漂果實到軟體機器人",
+      "role": "paired cases",
+      "intent": "Compare two forms of biomimetic innovation.",
+      "key_points": ["銀葉樹果實｜第二名052101：龍骨、浮心、海流裝置", "颱風草｜第三名052105：泡狀細胞、摺疊角度、氣動仿生", "形態學因工程與演化視角重獲解釋力"],
+      "local_context": {"required_background": "Do not merge the two cases. One treats fruit as a biological ship; the other treats leaf folding as a soft-robot prototype."},
+      "layout": {"composition": "Mirrored left-right case panels with a shared central label 仿生工程."},
+      "visual_elements": {"main_visual": "Floating fruit cross-section and pneumatic folded-leaf prototype."}
+    },
+    {
+      "number": 14,
+      "title": "益生菌：從食品分離走到臨床規格",
+      "role": "evidence chain",
+      "intent": "Show product safety and mechanism as one chain.",
+      "key_points": ["第一名｜作品052207", "傷口試驗區分細胞遷移與細胞增殖", "WGS確認菌株不含抗藥基因", "菌株篩選—安全評估—分子機制"],
+      "local_context": {"required_background": "The probiotic is Lactiplantibacillus plantarum isolated from food; avoid making medical treatment claims beyond the study."},
+      "layout": {"composition": "Three linked evidence stations with one final translational-value takeaway."},
+      "visual_elements": {"main_visual": "Probiotic colony, scratch-wound assay and genome safety check."}
+    },
+    {
+      "number": 15,
+      "title": "果蠅眼科模型與循環經濟",
+      "role": "strategy comparison",
+      "intent": "Compare two smart research-resource strategies.",
+      "key_points": ["牛樟芝｜第三名052209：果蠅＋ERG＋TEM", "低等模型規避倫理限制，高等檢測保證深度", "作品052206：畜牧廢水 → 微藻 → 作物刺激素", "臨床規格與SDGs系統閉環"],
+      "local_context": {"required_background": "Left case is diabetic retinopathy model. Right case is circular agriculture."},
+      "layout": {"composition": "Two large contrasting strategy windows joined by a bottom label 聰明的資源配置."},
+      "visual_elements": {"main_visual": "Fly eye electrophysiology and TEM versus circular waste-algae-crop loop."}
+    },
+    {
+      "number": 16,
+      "title": "把主觀時間感轉成毫秒級數據",
+      "role": "method case",
+      "intent": "Demonstrate hard-science treatment of behavior.",
+      "key_points": ["第一名｜作品052713", "短影片速度、色調、情緒影響注意與時間知覺", "Psytoolkit記錄反應時間與正確率", "注意力門控、內部時鐘、Greenhouse-Geisser校正"],
+      "local_context": {"required_background": "Target population is female high-school students. Emphasize objective task data over opinion survey."},
+      "layout": {"composition": "Phone stimulus sequence, internal-clock model and reaction-time/statistics panel."},
+      "visual_elements": {"main_visual": "Short-video frames, timing task, millisecond clock and corrected plot."}
+    },
+    {
+      "number": 17,
+      "title": "神經工具改寫社會科學",
+      "role": "paired cases",
+      "intent": "Show objective physiological evidence replacing survey-only designs.",
+      "key_points": ["第二名052708：斑馬魚酒精成癮＋晶球給藥", "第三名052705：EEG Gamma波驗證冗餘原則", "技術創新解決操作瓶頸", "神經藥理與神經教育進入高中科展"],
+      "local_context": {"required_background": "Keep addiction model and educational neuroscience visually separate."},
+      "layout": {"composition": "Diagonal dual-scene layout with a central objective-evidence bridge."},
+      "visual_elements": {"main_visual": "Zebrafish behavior tank and classroom EEG waveform."}
+    },
+    {
+      "number": 18,
+      "title": "927棵樹：校園固碳閉環",
+      "role": "data evidence",
+      "intent": "Show completeness from census to policy.",
+      "key_points": ["第一名｜作品052608", "全校927棵樹地毯式普查", "IPCC標準參數＋Li-6400微觀生理驗證", "宏觀普查 → 微觀驗證 → 碳中和政策"],
+      "local_context": {"required_background": "The key is not only the count but cross-validation of macro estimates with physiological measurement."},
+      "layout": {"composition": "Campus tree map left, carbon calculation center, Li-6400 validation and policy card right."},
+      "visual_elements": {"main_visual": "Tree canopy map, carbon flow, photosynthesis instrument and policy arrow."}
+    },
+    {
+      "number": 19,
+      "title": "相關性不等於因果性",
+      "role": "warning case",
+      "intent": "Teach why creativity cannot substitute for mechanism evidence.",
+      "key_points": ["第三名警示案例｜作品052610", "酸性溫泉殺孑孓具創意與在地性", "硫酸根轉二氧化硫缺乏直接證據", "只有死亡現象，不能宣稱特定致死機制"],
+      "local_context": {"required_background": "Use an explicit broken causal link. Do not claim the proposed sulfur mechanism is true."},
+      "layout": {"composition": "Observation on left, unsupported mechanism in center with warning break, required direct evidence on right."},
+      "visual_elements": {"main_visual": "Larvae, hot-spring chemistry path and missing-evidence warning."}
+    },
+    {
+      "number": 20,
+      "title": "國小與國中：兩條進階路線",
+      "role": "section comparison",
+      "intent": "Frame age-appropriate excellence without ranking one above the other.",
+      "key_points": ["國小：社會實踐、行動科學、真實問題", "國中：生理機制、生物物理、精密量化", "共同方向：從描述走向可操作、可驗證"],
+      "local_context": {"required_background": "Primary students move from observer to actor; junior-high students move toward mechanism and precision."},
+      "layout": {"composition": "Two parallel ascending paths converging at 可驗證的科學解答."},
+      "visual_elements": {"main_visual": "Community action path and precision laboratory path."}
+    },
+    {
+      "number": 21,
+      "title": "睡前娛樂：模型推翻主觀自信",
+      "role": "case study",
+      "intent": "Show dual-track validation.",
+      "key_points": ["第一名080309｜新北市中山國小", "問卷揭露認知偏差", "ICR小鼠：對照、探索、飲食吸引、藍光四組", "水迷宮等行為測驗", "藍光組尋台時間多163%，並有社交退縮"],
+      "local_context": {"required_background": "Do not imply direct human causality from mice; present the model as objective evidence complementing the survey."},
+      "layout": {"composition": "Survey belief card versus four-group mouse experiment, ending in numeric evidence badge."},
+      "visual_elements": {"main_visual": "Bedtime phone, four mouse groups, water maze and 163% indicator."}
+    },
+    {
+      "number": 22,
+      "title": "潮間貝包客：調查、毒理與復育",
+      "role": "spatial evidence",
+      "intent": "Show progression from baseline survey to intervention.",
+      "key_points": ["第二名080307｜新北市竹圍國小", "淡水河口至社子島頭9公里、10樣區", "紅樹蜆鉛為水體33倍、汞100倍", "空心磚微棲地操作性復育"],
+      "local_context": {"required_background": "Emphasize bioaccumulation evidence and active habitat intervention."},
+      "layout": {"composition": "Horizontal estuary map with sampling nodes, central metal-ratio bars and right restoration experiment."},
+      "visual_elements": {"main_visual": "Estuary transect, clam and heavy-metal multipliers, hollow-brick habitat."}
+    },
+    {
+      "number": 23,
+      "title": "鰻苗混獲走向政策協作",
+      "role": "social impact case",
+      "intent": "Show action science and partnership.",
+      "key_points": ["第三名080301｜屏東縣墾丁國小", "PES生態系服務付費與漁民補償", "救援數量超過目標物種捕獲量", "與NGO合作形成政策建議", "延伸：蘆薈、山蟻、飛機噪音等在地研究"],
+      "local_context": {"required_background": "Connect to SDG14 and SDG17. Keep supporting cases as a compact strip, not equal visual weight."},
+      "layout": {"composition": "Central stakeholder network with a bottom strip of three additional local-action examples."},
+      "visual_elements": {"main_visual": "Students, fishers, NGO, rescued bycatch and policy document."}
+    },
+    {
+      "number": 24,
+      "title": "長足衛蜈蚣：長週期系統性生物學",
+      "role": "longitudinal case",
+      "intent": "Value patient, systematic natural-history work when quantified rigorously.",
+      "key_points": ["第一名030302｜臺南市長榮中學國中部", "克服肉食性土壤動物飼養瓶頸", "卵、八個幼齡期到成蟲完整生活史", "Type II生存曲線", "領域大小與主場優勢"],
+      "local_context": {"required_background": "This is a local centipede-like soil predator, Scutigera-type long-legged centipede."},
+      "layout": {"composition": "Life-history timeline across top, survival curve and territorial experiment below."},
+      "visual_elements": {"main_visual": "Development stages, Type II curve and standardized arena."}
+    },
+    {
+      "number": 25,
+      "title": "大刀螳螂：精密量測挑戰教科書",
+      "role": "measurement case",
+      "intent": "Show how instruments can challenge a familiar biological classification.",
+      "key_points": ["第二名030312｜南投縣宏仁國中", "低氧高碳下呼吸速率暴增近400%", "體溫平均高於環境約2.79°C", "挑戰外溫動物的傳統定義", "連結廢氣與暖化"],
+      "local_context": {"required_background": "Present the finding as evidence suggesting thermoregulation, not final textbook revision."},
+      "layout": {"composition": "Large mantis thermal image center, gas-response chart left, interpretation ladder right."},
+      "visual_elements": {"main_visual": "Infrared mantis silhouette, gas detector and 400%/2.79°C data callouts."}
+    },
+    {
+      "number": 26,
+      "title": "國小與國中的工具、統計與社會連結",
+      "role": "comparison table",
+      "intent": "Preserve the source table's six dimensions in a readable visual matrix.",
+      "key_points": ["核心目標：行動科學 vs 生理機制", "選題：生活廣度 vs 聚焦深度", "設計：雙軌與介入 vs 精密控制", "工具：調查測驗 vs 熱像、氣體、Tracker、GeoGebra", "統計：描述性 vs t-test／ANOVA", "社會連結：直接改善 vs 理論基礎"],
+      "local_context": {"required_background": "Six comparison rows must all remain visible and readable."},
+      "layout": {"composition": "Two-column, six-row comparison matrix with icons and highlighted differences."},
+      "visual_elements": {"main_visual": "Structured academic comparison matrix, no tiny text."}
+    },
+    {
+      "number": 27,
+      "title": "國際科展：如何證明因果",
+      "role": "international transition",
+      "intent": "Raise the standard from experiment quantity to causal proof and scientific compression.",
+      "key_points": ["評審核心問題：如何證明A直接導致B", "2026 TISF海報面積縮為往年60%", "從龐雜數據篩選新穎且有說服力的核心證據", "建立清晰科學敘事"],
+      "local_context": {"required_background": "The 60% figure refers to display area relative to prior years."},
+      "layout": {"composition": "Large evidence funnel compressing many results into three decisive panels, with 60% poster frame."},
+      "visual_elements": {"main_visual": "Data wall, selection funnel, concise international poster."}
+    },
+    {
+      "number": 28,
+      "title": "因果驗證黃金標準",
+      "role": "process",
+      "intent": "Approved sample slide; teach loss-of-function, rescue and mechanistic check.",
+      "key_points": ["功能喪失：移除A → B消失", "救援：回補A → B恢復", "機制檢驗：回補失活突變體 → B不恢復", "Naa40催化失活突變體無法救援神經管缺陷", "關鍵是Naa40的酵素活性，不是蛋白結構本身"],
+      "local_context": {"required_background": "This is the approved sample. Preserve the existing final image and do not regenerate."},
+      "layout": {"composition": "Existing approved three-stage process with case strip and conclusion band."},
+      "visual_elements": {"main_visual": "Existing approved Slide 28 image."},
+      "sample_approved": true
+    },
+    {
+      "number": 29,
+      "title": "Scny：克隆分析與內部對照",
+      "role": "international case",
+      "intent": "Show advanced internal-control design and translational reasoning.",
+      "key_points": ["TISF青少年科學獎・動物", "UAS-Gal4＋CD2 FLP-out建立同一卵巢內部對照", "Scny缺失 → H3K4Me3累積 → 多核化", "連結PGCCs並提出潛在抗癌靶點"],
+      "local_context": {"required_background": "Scny is a deubiquitinase. Internal control means mutant and wild-type cells coexist in one ovary."},
+      "layout": {"composition": "Ovary mosaic at center, internal-control logic left, epigenetic-to-cancer chain right."},
+      "visual_elements": {"main_visual": "Drosophila ovary mosaic, H3K4Me3 marks and polyploid cells."}
+    },
+    {
+      "number": 30,
+      "title": "仿免疫突觸微流體晶片",
+      "role": "engineering case",
+      "intent": "Show fluid mechanics solving a clinical cell-sorting bottleneck.",
+      "key_points": ["TISF一等獎・醫學", "模擬免疫突觸的微流體晶片", "剪切力保留高結合力特異性T細胞", "富集20倍且細胞活性良好"],
+      "local_context": {"required_background": "Traditional flow or magnetic sorting struggles with extremely rare cells. The device selects by adhesion strength under calibrated shear."},
+      "layout": {"composition": "Cutaway microfluidic channel across center with problem, mechanism and outcome zones."},
+      "visual_elements": {"main_visual": "T cells flowing through immune-synapse-like microstructures under shear force."}
+    },
+    {
+      "number": 31,
+      "title": "AI賦能的BCD評估平台",
+      "role": "AI biomedical case",
+      "intent": "Show non-destructive high-throughput gene-editing assessment.",
+      "key_points": ["TISF二等獎・醫學", "患者iPSC＋eVLPs先導編輯＋RPE細胞", "CNN以明視野影像預測修復程度", "相關係數0.93", "非標記、非破壞、高通量"],
+      "local_context": {"required_background": "BCD is an inherited retinal disease context. Do not invent performance metrics beyond correlation 0.93."},
+      "layout": {"composition": "Pipeline from patient cells to editing, brightfield image, CNN and repair score dashboard."},
+      "visual_elements": {"main_visual": "RPE microscopy tiles, neural network and 0.93 correlation plot."}
+    },
+    {
+      "number": 32,
+      "title": "鑑定脂滴自噬受體",
+      "role": "mechanism discovery",
+      "intent": "Show basic-science gap filling through genetic screening.",
+      "key_points": ["TISF一等獎・生化", "酵母基因敲除篩出Ayr1、Hfd1", "微自噬與巨自噬共同參與脂滴降解", "釐清標記與運輸必要性"],
+      "local_context": {"required_background": "Use yeast cellular context and distinguish microautophagy from macroautophagy."},
+      "layout": {"composition": "Central lipid droplet branching into two autophagy pathways, with receptor labels and knockout evidence."},
+      "visual_elements": {"main_visual": "Yeast cell, lipid droplet, Ayr1/Hfd1 tags and dual degradation routes."}
+    },
+    {
+      "number": 33,
+      "title": "ISEF：乾濕整合、綠色化學與資源現實",
+      "role": "international synthesis",
+      "intent": "Synthesize research excellence, access and independence.",
+      "key_points": ["dmPGE2使軸突再生增加126%，結合RNA Scope與GWAS", "Aza-C-核苷以生物質糠醇降低Galidesivir成本", "細胞與分子生物學大會獎率43%", "約65%獲獎者有專業實驗室資源", "評審嚴查學生獨立貢獻"],
+      "local_context": {"required_background": "Keep the neural-regeneration and green-chemistry cases separate. Percentages describe award outcomes/resources, not causal guarantees."},
+      "layout": {"composition": "Two case panels on top, resource/independence evidence dashboard below."},
+      "visual_elements": {"main_visual": "Regenerating axon with GWAS, green synthesis route, 43% and 65% evidence badges."}
+    },
+    {
+      "number": 34,
+      "title": "勝利方程式① 日誌、機制與證據",
+      "role": "principles",
+      "intent": "Combine the first three winning principles into one actionable model.",
+      "key_points": ["真實日誌：原子筆、不撕頁、邊做邊寫、保留失敗", "機制路徑：What → 變因隔離 → Why／How → 多重驗證", "證據三角測量：行為＋生理＋分子，或宏觀＋微觀", "例：趨光、ERG、TEM、Western Blot"],
+      "local_context": {"required_background": "Notebook integrity is the foundation supporting the mechanism and evidence triangle."},
+      "layout": {"composition": "Notebook foundation at bottom, mechanism ladder center, evidence triangle above."},
+      "visual_elements": {"main_visual": "Authentic notebook, four-step reasoning ladder and triangulated evidence."}
+    },
+    {
+      "number": 35,
+      "title": "勝利方程式② 數據衛生與Glocalization",
+      "role": "principles",
+      "intent": "Join statistical rigor with local-global value.",
+      "key_points": ["t-test、ANOVA、回歸、誤差棒、樣本數", "尊重測量精度與有效位數", "在地題材：銀葉樹、牛樟芝、金山溫泉、酪農", "全球議題：氣候、SDGs、抗藥性", "採用IPCC等國際標準"],
+      "local_context": {"required_background": "Glocalization means local material or problem interpreted with globally relevant questions and standards."},
+      "layout": {"composition": "Clean statistical chart system left, Taiwan-to-world connection map right, shared takeaway band."},
+      "visual_elements": {"main_visual": "Error-bar chart, ruler for significant digits, Taiwan motifs connected to SDGs and IPCC globe."}
+    },
+    {
+      "number": 36,
+      "title": "頂尖作品與一般作品的六項差異",
+      "role": "comparison table",
+      "intent": "Create a diagnostic self-check matrix.",
+      "key_points": ["研究問題：Why／How vs What", "設計：因果救援 vs 相關觀察", "數據：微觀定量 vs 巨觀定性", "跨域：AI／物理／材料 vs 單一套件", "價值：明確So What vs 貢獻模糊", "呈現：科學精煉與真實日誌 vs 流水帳"],
+      "local_context": {"required_background": "All six rows must be visible. Use positive teal and caution amber/red sparingly."},
+      "layout": {"composition": "Six-row, two-column winners-versus-general matrix with concise phrases and icons."},
+      "visual_elements": {"main_visual": "High-contrast diagnostic comparison matrix."}
+    },
+    {
+      "number": 37,
+      "title": "選題策略：知識缺口與機制深度",
+      "role": "strategy",
+      "intent": "Give teachers and students four promising directions and clear avoidances.",
+      "key_points": ["避開綠豆光色、教科書重複與無機制相關研究", "精密調控：表觀遺傳、非編碼RNA、自噬、訊息傳遞", "疾病模型：果蠅、線蟲、斑馬魚", "系統生理：腸—腦、腎—腸—肌、腸—肝", "在地韌性：特有種、抗藥性、微塑膠"],
+      "local_context": {"required_background": "Disease-model reasoning should connect genotype, phenotype and treatment target."},
+      "layout": {"composition": "Central avoid zone with four outward high-potential research lanes."},
+      "visual_elements": {"main_visual": "Four scientific route cards with a small warning pit for repetitive topics."}
+    },
+    {
+      "number": 38,
+      "title": "乾濕閉環＋PMC機制推理",
+      "role": "method framework",
+      "intent": "Turn modern research tools into a teachable workflow.",
+      "key_points": ["乾實驗：AlphaFold／ColabFold、TCGA、GEO、文獻工具", "濕實驗：救援與因果閉環", "定量：ImageJ、DeepLabCut、誤差棒與統計", "PMC：Phenomena—Mechanism—Components", "跨尺度連結表型、組織、基因與蛋白"],
+      "local_context": {"required_background": "PMC is a teaching framework, not a database. Dry and wet work should form an iterative loop."},
+      "layout": {"composition": "Large dry-wet infinity loop with a PMC three-layer model in the center."},
+      "visual_elements": {"main_visual": "Protein prediction, public datasets, lab validation, image quantification and multi-scale PMC stack."}
+    },
+    {
+      "number": 39,
+      "title": "資源、溝通與學術倫理",
+      "role": "practice and ethics",
+      "intent": "Show how to gain support, communicate clearly and preserve ownership and ethics.",
+      "key_points": ["先讀教授論文，再提出具體求助問題", "2–3分鐘說清問題、解法、成果、影響", "BioRender機制圖；誠實面對限制與負面數據", "作者親做、問卷同意、動物3R、外來種防逃逸、人體IRB", "不得挪用大學成果或模糊學生參與度"],
+      "local_context": {"required_background": "3R means Replacement, Reduction, Refinement. Ethics is a hard boundary, not a decorative final note."},
+      "layout": {"composition": "Three connected zones: mentor network, three-minute story, ethics shield with a red hard-boundary line."},
+      "visual_elements": {"main_visual": "Teacher-student-university network, concise story arc and ethics shield."}
+    },
+    {
+      "number": 40,
+      "title": "像科學家思考，像工程師解題，像史學家記錄",
+      "role": "closing",
+      "intent": "End with a memorable action formula.",
+      "key_points": ["新公式：在地觀察的熱情＋學術研究的嚴謹", "從觀察走向機制", "從相關走向因果", "從單一走向跨域", "不必最昂貴設備，但必須擁抱最先進思維"],
+      "local_context": {"required_background": "The three roles are scientist, engineer and historian of the research process."},
+      "layout": {"composition": "Three-role silhouettes converging into one student researcher ascending a science summit; concise closing text."},
+      "visual_elements": {"main_visual": "Microscope-thinking, engineering-problem-solving and honest notebook-recording converging at a summit."}
+    }
+  ]
+}

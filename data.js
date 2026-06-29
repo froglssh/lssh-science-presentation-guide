@@ -1,12 +1,5 @@
 // Auto-generated data file for AI-assisted Science Presentation Guide Database
 const CATEGORIES_INFO = {
-  "實作案例": {
-    "title": "實作案例",
-    "english": "Case Studies & Project Demonstrations",
-    "icon": "bi-git",
-    "color": "teal",
-    "description": "本區收集了歷年國內外各學科的優秀科展作品與題目發想案例，包括麗山高中引以為傲的生物科、物理科以及化學科作品。透過實際的案例分析與數據圖表，指引學生如何從日常觀察中發想題目、如何設計嚴謹的實驗，並展示得獎作品的報告書撰寫風範。"
-  },
   "研習教材": {
     "title": "研習教材",
     "english": "Training & Lecture Materials",
@@ -21,19 +14,19 @@ const CATEGORIES_INFO = {
     "color": "orange",
     "description": "收錄了由臺北麗山高中林獻升老師主講的系列教學投影片。簡報深入淺出地解構如何利用人工智慧（AI）工具輔助文獻檢索、題目篩選、研究架構擬定以及報告撰寫，是現代 AI 輔助科學探究的必讀指引。"
   },
-  "guides": {
-    "title": "得獎策略全解析",
-    "english": "Award Winning Strategy Guides",
-    "icon": "bi-trophy-fill",
-    "color": "gold",
-    "description": "此單元專注於生物科展的奪金策略，針對評審指標、研究主題的獨特性、實驗設計的嚴謹度以及結論的思辨性進行全方位拆解，幫助參賽團隊精準掌握評審心法，突破得獎瓶頸。"
-  },
   "教學文章": {
     "title": "教學文章",
     "english": "Teaching Articles & Guides",
     "icon": "bi-file-earmark-richtext-fill",
     "color": "blue",
     "description": "本區為功能最完整的科學寫作與發表指南，包含從最初的「科展指導」、中期的「報告撰寫」與「安全審查」，到後期的「簡報與海報製作」、「口頭報告答辯演練」，以及「賽前提點」與「學長姐參賽經驗分享」。提供全方位的實戰文章，助你避開常見雷區，完美展現研究成果。"
+  },
+  "實作案例": {
+    "title": "實作案例",
+    "english": "Case Studies & Project Demonstrations",
+    "icon": "bi-git",
+    "color": "teal",
+    "description": "本區收集了歷年國內外各學科的優秀科展作品與題目發想案例，包括麗山高中引以為傲的生物科、物理科以及化學科作品。透過實際的案例分析與數據圖表，指引學生如何從日常觀察中發想題目、如何設計嚴謹的實驗，並展示得獎作品的報告書撰寫風範。"
   }
 };
 
@@ -1907,7 +1900,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 1249845,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/1ORZgZBhVpclMXnb9kdowbtzS-6BAp9Ey/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1qZwE2H3I-FN_Xqn3m7z_UGLDxe6_m0v4/view?usp=drivesdk"
   },
   {
     "name": "index.html",
@@ -1922,7 +1915,7 @@ const FILES_DATA = [
     "type": "web",
     "size": 28609,
     "ext": ".html",
-    "drive_url": "https://drive.google.com/file/d/1pSVYyR5-5BAdmZ3PWsEpIf9cQG5_Q207/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1nnQhYwbN7FTnvZgFORiS7lI7u47wTygl/view?usp=drivesdk"
   },
   {
     "name": "靈芝蛋白類固醇協同機制.png",
@@ -1938,7 +1931,7 @@ const FILES_DATA = [
     "type": "image",
     "size": 4464215,
     "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1P0E6TF57f2_xfKg7NAZuXoGWDiNDVYrr/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1vFp2PEEZrNSgjZO3rqv_R5UBOtqpCFom/view?usp=drivesdk"
   },
   {
     "name": "靈芝蛋白減毒增效抗炎策略.png",
@@ -1954,7 +1947,7 @@ const FILES_DATA = [
     "type": "image",
     "size": 4852696,
     "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1LhkOJko59P9oy-fTa2iAZBH0rU3m2Oo5/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1EB3bEQekY8Kd7IO6oLvwD7ZWzQc7N_Pm/view?usp=drivesdk"
   },
   {
     "name": "GMI_and_Dexamethasone_Precision_Synergy.pdf",
@@ -1970,7 +1963,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 2063886,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/13oUT1yTY0QG4hebvx3JQyu_Ok0ojHufU/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1ayqGlExg81cTRy1PgZer-9KQtb-VCqZ8/view?usp=drivesdk"
   },
   {
     "name": "全國科展作品＿GPT簡報.pdf",
@@ -1986,7 +1979,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 5305801,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/1mVCT-tSeZKSUnQwXh0vwwC1E_moWP2Ka/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1Xa2lgZvtQK-sZtcpnnH6ETzqddblw3Fg/view?usp=drivesdk"
   },
   {
     "name": "GMI_and_Dexamethasone_Synergistic_Anti-Inflammation.pdf",
@@ -2002,7 +1995,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 3418278,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/14IzzPWOzpeWE_MB5ZEZSWdsdwOUkl3yI/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1Fr2Wet-KGq5QJ_89I_UBW_M1cgdyvWHf/view?usp=drivesdk"
   },
   {
     "name": "全國科展作品＿LM簡報.pdf",
@@ -2018,7 +2011,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 5292093,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/1aSGdEBBOT-LLcKiPjI4Czqk2M_acwk6M/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1_9_3Iz-fB87NJ9uQkYYboHiTIp9Xq0Xk/view?usp=drivesdk"
   },
   {
     "name": "報告書＿深度研究.pdf",
@@ -2034,7 +2027,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 571450,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/1RVlgvD_TYD_wMZVC3bSUXfrIB6Py3h-w/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1GIJNZE-e2PUaWNYvfOyZFz6PBJf8D44A/view?usp=drivesdk"
   },
   {
     "name": "靈芝蛋白與類固醇之抗發炎協同與減量效應 - NotebookLM.pdf",
@@ -2050,7 +2043,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 821180,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/1HYlgNuKF1g4nxlGppfX2NMj1oJJM_fM2/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/17plBPxo9hfFP0q22FLOfLNMnmx4FLc0w/view?usp=drivesdk"
   },
   {
     "name": "報告書＿金牌教練評審.pdf",
@@ -2066,7 +2059,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 593722,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/1XHsE6qUzWc_c_hOpD6218z1_RspaJXEp/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1-XXt3PAErhzPYPF9hrd-Zss3yejC8qEm/view?usp=drivesdk"
   },
   {
     "name": "破解類固醇：真菌蛋白質的鉗形攻勢.mp4",
@@ -2082,7 +2075,7 @@ const FILES_DATA = [
     "type": "video",
     "size": 34782331,
     "ext": ".mp4",
-    "drive_url": "https://drive.google.com/file/d/1gTzC1UZ8zt46LIEPGEyWuwCw0lh1q2Xd/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1damA63t1wRshagnGN97UTKCMz4kF1FPv/view?usp=drivesdk"
   },
   {
     "name": "靈芝蛋白助類固醇減藥十六倍.m4a",
@@ -2098,7 +2091,7 @@ const FILES_DATA = [
     "type": "audio",
     "size": 2444515,
     "ext": ".m4a",
-    "drive_url": "https://drive.google.com/file/d/1rZdjRaXWZYqve3eQalC8f_-HjyHYTME8/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1NrKtdIWTjY3BvKwGPlPs4P0l05wUldrV/view?usp=drivesdk"
   },
   {
     "name": "index.html",
@@ -2113,7 +2106,7 @@ const FILES_DATA = [
     "type": "web",
     "size": 38209,
     "ext": ".html",
-    "drive_url": "https://drive.google.com/file/d/1OUpz6KdL9z_pJbp0P_LMYtBIqa6Y38HV/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1CMpyHCaQIr-M8e7o18392PMyHdmHajWI/view?usp=drivesdk"
   },
   {
     "name": "gmi_dex_light.html",
@@ -2128,582 +2121,7 @@ const FILES_DATA = [
     "type": "web",
     "size": 40539,
     "ext": ".html",
-    "drive_url": "https://drive.google.com/file/d/1gyk-EUgORqRBil1T8zEv3CO1yQk03nhW/view?usp=drivesdk"
-  },
-  {
-    "name": "gmi-dex-mechanism.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/gmi-dex-mechanism.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets"
-    ],
-    "type": "image",
-    "size": 4464215,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1h6NwlFI2ay2XAJLi4CeKKDD6Vv6oSEdW/view?usp=drivesdk"
-  },
-  {
-    "name": "gmi-dex-strategy.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/gmi-dex-strategy.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets"
-    ],
-    "type": "image",
-    "size": 4852696,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1JLgcLMaxBpRuZSKY7gyMPONRBu5sTPLy/view?usp=drivesdk"
-  },
-  {
-    "name": "page-29.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-29.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 492479,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1SbcF3OttFnqqrExgWoKXOxeTBv9ywibr/view?usp=drivesdk"
-  },
-  {
-    "name": "page-15.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-15.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 319948,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1njtZLVpuqTCNL-Eiy-uI5nHJIm0_wFlK/view?usp=drivesdk"
-  },
-  {
-    "name": "page-01.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-01.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 112852,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1J6NUuPHxqIbDknN5GoGpZwEUGtfkGbB6/view?usp=drivesdk"
-  },
-  {
-    "name": "page-14.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-14.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 310029,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1HsHQISnKepfyRTmqnjON8WVi3mp1ZQlQ/view?usp=drivesdk"
-  },
-  {
-    "name": "page-28.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-28.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 498650,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1EcHkqoEjqUuv8zwTxjRqCSQZsHsHZUit/view?usp=drivesdk"
-  },
-  {
-    "name": "page-02.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-02.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 229141,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1fxeyApgItva0bzxdZOHdhnFxlyd7-yoA/view?usp=drivesdk"
-  },
-  {
-    "name": "page-16.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-16.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 456587,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1y02VAEx_0CgB6qb4Kejtic4WfF4OrKB9/view?usp=drivesdk"
-  },
-  {
-    "name": "page-17.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-17.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 269666,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1BEtWXp8dMDrQHo6DUtb2Q5cKLDNjZeMj/view?usp=drivesdk"
-  },
-  {
-    "name": "page-03.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-03.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 538342,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1rDcdD4wL0VmjdYhv63axW1ocoCPSZQLd/view?usp=drivesdk"
-  },
-  {
-    "name": "page-07.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-07.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 243252,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1Rgd5llS-kAlWLIggReRSr5TqAXoO5Gh-/view?usp=drivesdk"
-  },
-  {
-    "name": "page-13.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-13.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 393827,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1QZqz-mzccB3wfDLqF30N74w6rp57YiAA/view?usp=drivesdk"
-  },
-  {
-    "name": "page-12.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-12.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 310248,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1eI7hMCRTvmBm9upCrDPJgbDbILbswlGG/view?usp=drivesdk"
-  },
-  {
-    "name": "page-06.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-06.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 309017,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1MxgxwoFnIjWwX4ahusWj3CQWSI-_gNLu/view?usp=drivesdk"
-  },
-  {
-    "name": "page-10.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-10.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 196258,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1or7j4ZtD4A6v-rkgWhap5DTU0WSH2_oJ/view?usp=drivesdk"
-  },
-  {
-    "name": "page-04.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-04.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 344042,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1OWZkD3ll-dAHLHu4OqUBnrWdaOJPFNoY/view?usp=drivesdk"
-  },
-  {
-    "name": "page-05.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-05.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 601911,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1NlOzDrJJShVIAvgroI9KafE-U-NfkoeY/view?usp=drivesdk"
-  },
-  {
-    "name": "page-11.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-11.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 305666,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1zRlNUk6DkuSSHi0MD4G-bNVzIyTSNay0/view?usp=drivesdk"
-  },
-  {
-    "name": "page-08.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-08.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 355843,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1yK2zrgxkxbKUxFbZpMF_Fmh_2_iz_Ghl/view?usp=drivesdk"
-  },
-  {
-    "name": "page-20.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-20.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 341727,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/19IgsrmQlD01-jfVLlmrjm4uynH0mQP5x/view?usp=drivesdk"
-  },
-  {
-    "name": "page-21.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-21.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 297530,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1douOgteaJb6WfCdm6LGrezhRlewKdNbj/view?usp=drivesdk"
-  },
-  {
-    "name": "page-09.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-09.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 331004,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1do5PPns766e2lk4XYsOBUPluInwNVqtb/view?usp=drivesdk"
-  },
-  {
-    "name": "page-23.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-23.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 320732,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1RJIwkBRBVpKQcxXdOe3UZMFVyipAEnTc/view?usp=drivesdk"
-  },
-  {
-    "name": "page-22.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-22.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 380547,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1xX9f_y-LOz7ZIBmZuKOBLpBfc1hhsOXU/view?usp=drivesdk"
-  },
-  {
-    "name": "page-26.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-26.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 540254,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1zHD_zKSmYoKH1bJiQMCRqpnlwilTBX9K/view?usp=drivesdk"
-  },
-  {
-    "name": "page-27.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-27.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 558244,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1QAHX0SCOPgXa9ZkmxUQHVsiv-w4NUrGj/view?usp=drivesdk"
-  },
-  {
-    "name": "page-31.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-31.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 176059,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1rqoF26bvpMuauM1LBBS_HgDu2PjWbHg4/view?usp=drivesdk"
-  },
-  {
-    "name": "page-25.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-25.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 562904,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1bMvwXgea51I4pZYnoYxm-6mq0dEWM3-l/view?usp=drivesdk"
-  },
-  {
-    "name": "page-19.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-19.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 301396,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1VfZ02gJjXhuTNuIfQykdmoqaCqqO48zO/view?usp=drivesdk"
-  },
-  {
-    "name": "page-18.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-18.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 331201,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1PDxnOML9hm970ijryo-RaP0-5ISm7IwV/view?usp=drivesdk"
-  },
-  {
-    "name": "page-24.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-24.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 511782,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1DLM33HBrrmOQtbC0uVKM7xfVV0-DaXzj/view?usp=drivesdk"
-  },
-  {
-    "name": "page-30.png",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/pages/page-30.png",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets",
-      "pages"
-    ],
-    "type": "image",
-    "size": 350671,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1sUbJeLSON_6uvYYaPkkfsQvtSppjWuDW/view?usp=drivesdk"
-  },
-  {
-    "name": "report.pdf",
-    "path": "sources/實作案例/3科展競賽/1國內科展/2全國科展/全國科展作品網頁_Cowork/site-assets/report.pdf",
-    "categories": [
-      "實作案例",
-      "3科展競賽",
-      "1國內科展",
-      "2全國科展",
-      "全國科展作品網頁_Cowork",
-      "site-assets"
-    ],
-    "type": "pdf",
-    "size": 1249845,
-    "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/1hdxQ8OwJU5FONcnBrngaZfqqkrfzwU-O/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1TAoO-1jDKvYRJvxtPIL_ocwAlj9GP3kN/view?usp=drivesdk"
   },
   {
     "name": "科學探究與競賽的全方位指導手冊.pdf",
@@ -2976,21 +2394,6 @@ const FILES_DATA = [
     "drive_url": "https://drive.google.com/file/d/1n11yetBLu1vE-xpY0Bl-fVpC3v2LfY3j/view?usp=drivesdk"
   },
   {
-    "name": "output.png",
-    "path": "sources/presentations/教學簡報/AI輔助專題研究＿麗山林獻升_教學簡報/output/imagegen/output.png",
-    "categories": [
-      "presentations",
-      "教學簡報",
-      "AI輔助專題研究＿麗山林獻升_教學簡報",
-      "output",
-      "imagegen"
-    ],
-    "type": "image",
-    "size": 1478133,
-    "ext": ".png",
-    "drive_url": "https://drive.google.com/file/d/1phAdAHGXZFYzbOqzgXzeGfDzkg4t3zsA/view?usp=drivesdk"
-  },
-  {
     "name": "AI輔助專題研究＿麗山林獻升_教學簡報.pptx",
     "path": "sources/presentations/教學簡報/AI輔助專題研究＿麗山林獻升_教學簡報/AI輔助專題研究＿麗山林獻升_教學簡報.pptx",
     "categories": [
@@ -3014,7 +2417,7 @@ const FILES_DATA = [
     "type": "web",
     "size": 79740,
     "ext": ".html",
-    "drive_url": "https://drive.google.com/file/d/1vBoYdS9m4TcPywi_ZxT74_AO3vhhYloc/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1nycrLhwNE7derzq1xwlEO0ovz9y-FqLW/view?usp=drivesdk"
   },
   {
     "name": "AI輔助專題研究與科展競賽＿教學簡報.pdf",
@@ -3027,7 +2430,7 @@ const FILES_DATA = [
     "type": "pdf",
     "size": 14235884,
     "ext": ".pdf",
-    "drive_url": "https://drive.google.com/file/d/1y8-hNLS-TTpUm9SLoO-iNVakBv4AsBMD/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1tXlgKe-92ayJ9ZYDDGVcuVD8ul2tRD_H/view?usp=drivesdk"
   },
   {
     "name": "AI輔助專題研究與科展競賽＿教學簡報.pptx",
@@ -3053,7 +2456,7 @@ const FILES_DATA = [
     "type": "web",
     "size": 80669,
     "ext": ".html",
-    "drive_url": "https://drive.google.com/file/d/1wlUUVxnHEU1CfF1ep0vBYijEpTz-l9ZH/view?usp=drivesdk"
+    "drive_url": "https://drive.google.com/file/d/1o27kUir7j8WiKSJVqZTnxStFiq29doJz/view?usp=drivesdk"
   },
   {
     "name": "research_workshop.html",
@@ -3066,7 +2469,7 @@ const FILES_DATA = [
     "type": "web",
     "size": 80669,
     "ext": ".html",
-    "drive_url": "https://drive.google.com/drive/folders/1j5nV08TqqqkSgQvmwo3hT-T7pEk6goYy?usp=drive_link"
+    "drive_url": "https://drive.google.com/file/d/1ta2i-9F5yAIB_cG-uG-yI_0vonakdZvE/view?usp=drivesdk"
   },
   {
     "name": "AI輔助專題研究＿麗山林獻升.pptx",
@@ -3094,7 +2497,7 @@ const FILES_DATA = [
     "name": "AI輔助專題研究＿教師教學指南.html",
     "path": "sources/guides/AI輔助專題研究＿教師教學指南.html",
     "categories": [
-      "guides"
+      "研習教材"
     ],
     "type": "web",
     "size": 73231,

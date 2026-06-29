@@ -1,0 +1,18 @@
+{
+  "status": "blocked",
+  "history": [
+    {
+      "from": "created",
+      "to": "jobs_prepared",
+      "at": "2026-06-28T16:05:13Z",
+      "note": "prepared slide prompt jobs"
+    },
+    {
+      "from": "jobs_prepared",
+      "to": "blocked",
+      "at": "2026-06-28T16:15:39Z",
+      "note": "slide_01: Codex OAuth image call was denied by tenant data-exfiltration policy in this worker; no candidate image generated."
+    }
+  ],
+  "updated_at": "2026-06-29T02:18:07Z"
+}

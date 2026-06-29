@@ -92,6 +92,12 @@ document.addEventListener('DOMContentLoaded', () => {
             url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/9%E8%B3%BD%E5%89%8D%E6%8F%90%E9%BB%9E/%E7%A7%91%E5%B1%95%E7%AB%B6%E8%B3%BD%E8%B3%BD%E5%89%8D%E7%B8%BD%E6%8F%90%E9%BB%9E.html",
             desc: "賽前答辯、服裝、心態與高壓簡報實戰策略",
             icon: "bi-megaphone-fill"
+        },
+        {
+            name: "科展安全審查與倫理教學網",
+            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/8%E5%AE%89%E5%85%A8%E5%AF%A9%E6%9F%A5/%E7%A7%91%E5%B1%95%E5%AE%89%E5%85%A8%E5%AF%A9%E6%9F%A5%E8%88%87%E5%80%AB%E7%90%86%E6%95%99%E5%AD%B8%E7%B6%B2.html",
+            desc: "全國與國際科展安全規範與倫理線上教學網",
+            icon: "bi-shield-check"
         }
     ];
 

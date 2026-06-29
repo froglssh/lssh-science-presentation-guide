@@ -1,5 +1,5 @@
 {
-  "status": "blocked",
+  "status": "slides_recorded",
   "history": [
     {
       "from": "created",
@@ -12,7 +12,19 @@
       "to": "blocked",
       "at": "2026-06-28T16:15:39Z",
       "note": "slide_01: Codex OAuth image call was denied by tenant data-exfiltration policy in this worker; no candidate image generated."
+    },
+    {
+      "from": "blocked",
+      "to": "slides_dispatched",
+      "at": "2026-06-29T04:06:10Z",
+      "note": "all slide jobs dispatched"
+    },
+    {
+      "from": "slides_dispatched",
+      "to": "slides_recorded",
+      "at": "2026-06-29T04:07:19Z",
+      "note": "all slide images recorded"
     }
   ],
-  "updated_at": "2026-06-29T02:18:07Z"
+  "updated_at": "2026-06-29T04:07:19Z"
 }

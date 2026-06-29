@@ -1,0 +1,1979 @@
+{
+  "deck_name": "AI輔助專題研究與科展競賽＿教學簡報",
+  "slide_count": 80,
+  "language": "Chinese",
+  "visual_style": {
+    "name": "清爽專業風 (風格 A)",
+    "color_palette": {
+      "background": "#F7F9FA (淺灰白色)",
+      "primary_text": "#1E293B (深石板灰/深藍灰色)",
+      "accent_color": "#0D9488 (藍綠色/青色)",
+      "supporting_color": "#64748B (中灰色)"
+    },
+    "typography": {
+      "font_family": "Noto Sans TC / Microsoft JhengHei (無襯線黑體)",
+      "header_weight": "Bold",
+      "body_weight": "Normal",
+      "alignment": "Left-aligned with clean vertical grids"
+    },
+    "visual_brief": "整體設計乾淨、嚴謹且具有學術與教育科技感。利用淺灰色背景拉開留白，文字使用深藍灰色以保證高對比度，並以亮眼的藍綠色做為核心強調色。簡報中多使用箭頭、方框、區塊、卡片等關係圖案（圖示化）來呈現文字重點，文字大小適中，沒有雜亂的裝飾元素，字型統一為現代黑體。"
+  },
+  "deck_context": {
+    "source_summary": "本教學文件說明教師如何在「不取代學生思考」的前提下，運用生成式 AI 與資料分析工具輔助專題研究與科展競賽。內容涵蓋題目發想、文獻檢索、實驗設計、數據整理、研究報告撰寫、簡報海報製作及答辯準備。",
+    "core_claim": "生成式 AI 與資料分析工具應作為『研究助教與檢核器』輔助專題研究，核心關鍵在於『學生主導、AI 協作、可查核』以兼顧研究品質與自主誠信。",
+    "canonical_terms": [
+      "人主導、AI 協作、可查核",
+      "操作化 (Operationalization)",
+      "前導試驗 (Pilot)",
+      "Tidy Data 與資料字典",
+      "PREP 回答結構",
+      "學術誠信與 AI 揭露"
+    ]
+  },
+  "sample_generation_method": {
+    "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+    "tool_name": "scripts/image_gen.py",
+    "mode": "generate",
+    "prompt_source": "Visual brief of Slide 1 (Cover) based on Style A.",
+    "size": "1024x576 (16:9)",
+    "quality": "standard",
+    "approved_sample_path": "origin_image/slide_01.png"
+  },
+  "approved_style_reference": {
+    "path": "origin_image/slide_01.png",
+    "role": "approved sample slide style reference",
+    "fidelity": "match style only; do not copy layout or content"
+  },
+  "slides": [
+    {
+      "number": 1,
+      "title": "封面",
+      "role": "cover",
+      "key_points": [
+        "主講人：麗山高中林獻升老師整理",
+        "核心定位：AI 作為教學與研究助理",
+        "基本原則：人主導、AI 協作、可查核"
+      ],
+      "layout": {
+        "role": "cover",
+        "intent": "中央為大標題，下方為指南針與 AI 網絡節點相連的簡約科技感插圖，體現「指引」與「AI 輔助」的結合。",
+        "composition": "Visual style: cover presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "中央為大標題，下方為指南針與 AI 網絡節點相連的簡約科技感插圖，體現「指引」與「AI 輔助」的結合。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ],
+      "approved_sample": true
+    },
+    {
+      "number": 2,
+      "title": "簡報導覽與目錄",
+      "role": "agenda",
+      "key_points": [
+        "第一章：背景與目的",
+        "第二章：AI 工具類型與使用原則",
+        "第三章：AI 輔助專題研究流程（發想、文獻、實驗、數據、寫作、簡報、答辯）",
+        "第四章：實務示例（空氣品質與專注力）",
+        "第五章：風險、倫理與誠信管控",
+        "第六章：結論與教學建議"
+      ],
+      "layout": {
+        "role": "agenda",
+        "intent": "以一個水平時間軸或六個並排的資訊卡，列出簡報的六大章節，並高亮當前導覽。",
+        "composition": "Visual style: agenda presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "以一個水平時間軸或六個並排的資訊卡，列出簡報的六大章節，並高亮當前導覽。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 3,
+      "title": "專題研究的教育現場需求",
+      "role": "concept",
+      "key_points": [
+        "真實問題出發：經歷提出問題、設計方法、蒐集數據的歷程",
+        "核心能力養成：培養科學思維與解決問題的能力",
+        "成果展現方式：以專題研究或科學展覽作為終端展現"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "左邊顯示傳統「講授式學習」，右邊顯示「專題式探究與實作」，中間以箭頭連接，強調「學生自主歷程」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "左邊顯示傳統「講授式學習」，右邊顯示「專題式探究與實作」，中間以箭頭連接，強調「學生自主歷程」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 4,
+      "title": "生成式 AI 導入的契機",
+      "role": "concept",
+      "key_points": [
+        "快速資訊檢索：縮短文獻整理與背景閱讀的時間",
+        "寫作與分析輔助：生成草稿、輔助程式碼撰寫與統計分析",
+        "降低技能門檻：幫助學生跨越複雜程式與版面設計的難關"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個 AI 機器人手持四個工具箱（資訊整理、初稿生成、程式輔助、視覺化），服務站在一旁的師生。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個 AI 機器人手持四個工具箱（資訊整理、初稿生成、程式輔助、視覺化），服務站在一旁的師生。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 5,
+      "title": "AI 導入專題研究的挑戰",
+      "role": "comparison",
+      "key_points": [
+        "幻覺與錯誤資訊：AI 可能編造虛假文獻或實驗結果",
+        "抄寫式依賴：學生失去獨立思考與主導研究的機會",
+        "學術誠信危機：不當引用或隱瞞 AI 使用，導致被評審扣分"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "以天平左右對比：「AI 帶來的效率」 vs 「抄襲依賴與學術失信」。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "以天平左右對比：「AI 帶來的效率」 vs 「抄襲依賴與學術失信」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 6,
+      "title": "本指引的定位與對象",
+      "role": "concept",
+      "key_points": [
+        "定位：一套「教師可落地執行」的 AI 輔助專題流程",
+        "核心理念：不取代學生思考，兼顧研究品質與自主性",
+        "適用對象：國中至高中（含職校）指導教師"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "三道關卡鎖鑰（規則、查核、揭露），中央為教師「把關者」的角色。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "三道關卡鎖鑰（規則、查核、揭露），中央為教師「把關者」的角色。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 7,
+      "title": "常見 AI 工具的四大分類",
+      "role": "concept",
+      "key_points": [
+        "生成對話：ChatGPT, Claude, Gemini",
+        "文獻整理：Elicit, SciSpace, NotebookLM",
+        "統計分析：Julius AI, Google Colab, Excel Copilot",
+        "簡報海報：Canva, Gamma"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "2x2 的網格，分別代表生成對話、文獻搜尋、數據分析與簡報表達四大類型。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "2x2 的網格，分別代表生成對話、文獻搜尋、數據分析與簡報表達四大類型。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 8,
+      "title": "工具類型（一）：生成對話與教學助理",
+      "role": "concept",
+      "key_points": [
+        "腦力激盪：輔助發想題目與教案大綱",
+        "改寫與摘要：精煉口語文字，協助文字重整",
+        "模擬答辯：扮演嚴格評審，進行多輪問答模擬"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "對話框圖案，展示老師與學生的雙向互動，AI 作為中間的「虛擬助教」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "對話框圖案，展示老師與學生的雙向互動，AI 作為中間的「虛擬助教」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 9,
+      "title": "工具類型（二）：文獻搜尋與查核工具",
+      "role": "concept",
+      "key_points": [
+        "精準搜尋與抽取：Elicit, Consensus（回答是非題）",
+        "PDF 閱讀與解析：SciSpace（讀懂公式與方法細節）",
+        "文獻關係網絡：ResearchRabbit, Connected Papers"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個放大鏡聚焦在一本學術書上，書旁延伸出許多互連的分子網格（代表文獻地圖）。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個放大鏡聚焦在一本學術書上，書旁延伸出許多互連的分子網格（代表文獻地圖）。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 10,
+      "title": "工具類型（三）：數據整理與分析工具",
+      "role": "concept",
+      "key_points": [
+        "自動化分析：ChatGPT Data Analysis 協助產生圖表與解釋",
+        "專屬數據 AI：Julius AI 適合直接上傳數據進行問答與擬合",
+        "統計工具集成：Google Colab (Python) 與 RStudio 的程式碼生成"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個混亂的表格通過 AI 過濾器，變成整齊的折線圖與條形圖。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個混亂的表格通過 AI 過濾器，變成整齊的折線圖與條形圖。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 11,
+      "title": "工具類型（四）：簡報與海報輔助工具",
+      "role": "concept",
+      "key_points": [
+        "大綱生成：PowerPoint + Copilot 從大綱直接轉投影片",
+        "版面設計：Canva 內建 Magic Design 提供海報排版與文案",
+        "快速生成：Gamma 用文字快速產生簡報雛形與網頁"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一張大簡報投影片與海報草圖，在多個設計調色盤與版面框線中被排版完成。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一張大簡報投影片與海報草圖，在多個設計調色盤與版面框線中被排版完成。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 12,
+      "title": "教師指導的 5 大原則",
+      "role": "process",
+      "key_points": [
+        "AI 是輔助不是作者：研究主導權必須在學生手上",
+        "先求可驗證：無來源不可採信",
+        "保留歷程證據：保留提示詞與研究日誌",
+        "隱私優先：不隨意上傳個資",
+        "引用披露：在報告中透明揭露 AI 使用範圍"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "五個連貫的環形徽章，每個徽章代表一項原則。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "五個連貫的環形徽章，每個徽章代表一項原則。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 13,
+      "title": "題目發想：生活與校園情境",
+      "role": "concept",
+      "key_points": [
+        "生活中的噪音、光照、空氣品質",
+        "動線不順與用水用電效率問題",
+        "餐飲保存與學習效率觀察"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個校園地圖，標示出「教室」、「走廊」、「操場」等多個生活痛點。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個校園地圖，標示出「教室」、「走廊」、「操場」等多個生活痛點。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 14,
+      "title": "題目發想：環境特色與技術驅動",
+      "role": "comparison",
+      "key_points": [
+        "環境觀測：氣候雨量、河川水質、都市熱島效應",
+        "感測器驅動：CO2 感測器、micro:bit、光譜儀",
+        "歷屆競賽作品：研讀前人作品並尋找改良點"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "左側代表「地方特色（河川水質、在地農作）」，右側代表「手邊科技（感測器、Arduino）」。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "左側代表「地方特色（河川水質、在地農作）」，右側代表「手邊科技（感測器、Arduino）」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 15,
+      "title": "題目收斂四步法",
+      "role": "process",
+      "key_points": [
+        "1. 擴散（寫下 20-30 個點子）",
+        "2. 聚焦（用五大指標打分，篩出 5 個）",
+        "3. 可測（把抽象名詞轉化成可量測的依變項）",
+        "4. 可做（設計 1-2 週的最小可行前導實驗）"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "漏斗形狀，從最上方寬口的「擴散」逐漸收窄到最下方的「可做」。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "漏斗形狀，從最上方寬口的「擴散」逐漸收窄到最下方的「可做」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 16,
+      "title": "四步法之一：擴散與聚焦",
+      "role": "concept",
+      "key_points": [
+        "擴散階段：不評論、先記錄，每題配一句「為什麼有趣」",
+        "聚焦階段：五項指標（1-5分）打分，淘汰直覺選題",
+        "教師把關點：快速排除不可行或高風險的方向"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一張評分表，展示五個候選題目在「有趣度、可測量、資源、時間、風險」上的打分。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一張評分表，展示五個候選題目在「有趣度、可測量、資源、時間、風險」上的打分。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 17,
+      "title": "四步法之二：將題目「操作化」",
+      "role": "comparison",
+      "key_points": [
+        "抽象「清潔力」 → 量化「去污率 (%)、殘留質量 (g)」",
+        "抽象「專注度」 → 量化「正確率 (%)、反應時間 (ms)」",
+        "抽象「保鮮效果」 → 量化「菌落數、pH 值、重量損失率」"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "左右對比卡片：「抽象詞彙（健康、乾淨）」 vs 「量化依變項（生長高度、濁度）」。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "左右對比卡片：「抽象詞彙（健康、乾淨）」 vs 「量化依變項（生長高度、濁度）」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 18,
+      "title": "把題目寫成「研究問題」",
+      "role": "concept",
+      "key_points": [
+        "比較型：在不同水平自變項下，依變項是否有差異？",
+        "最佳化型：自變項取何值，能使依變項達到最佳？",
+        "關係型：自變項與依變項之間是否呈現線性關係？"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個拼圖，將「自變項」、「依變項」、「研究對象/範圍」拼在一起，組成一句研究問題。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個拼圖，將「自變項」、「依變項」、「研究對象/範圍」拼在一起，組成一句研究問題。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 19,
+      "title": "可行性把關：前導試驗 (Pilot)",
+      "role": "process",
+      "key_points": [
+        "最小成本：用 1-2 週確認儀器讀值是否穩定",
+        "快速驗證：確認操作步驟的流程是否能在有限時間做完",
+        "沒有 Pilot 報告就不進正式實驗"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "一個警示標誌與一個迷宮出口，標示出「測得到嗎？」、「差異看得出來嗎？」、「做完嗎？」。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個警示標誌與一個迷宮出口，標示出「測得到嗎？」、「差異看得出來嗎？」、「做完嗎？」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 20,
+      "title": "題目發想與評估的 AI 提示詞",
+      "role": "concept",
+      "key_points": [
+        "提示詞規格：要求 AI 以表格輸出「研究問題、自變項、依變項、對照組」",
+        "避坑規則：限定 AI 不得自行編造資料，不足處列出「待補問題」",
+        "提示詞 A/B 範本：大量發想、縮小題目、可行性評估"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個對話框，內含結構化的 AI 提示詞語法（包含限制條件、輸出規格為表格）。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個對話框，內含結構化的 AI 提示詞語法（包含限制條件、輸出規格為表格）。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 21,
+      "title": "文獻搜尋的三個目的",
+      "role": "concept",
+      "key_points": [
+        "避免重複踩雷：確認是否已有人做過相同的研究",
+        "複製成熟方法：尋找已被證實的量測指標與實驗步驟",
+        "尋找差異化缺口：在既有研究的限制上，提出改進"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "三片多米諾骨牌，分別標示：避免重複、複製方法、找出差異化缺口。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "三片多米諾骨牌，分別標示：避免重複、複製方法、找出差異化缺口。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 22,
+      "title": "檢索策略與關鍵字擴展",
+      "role": "process",
+      "key_points": [
+        "關鍵字階梯：中文關鍵字 → 英文同義詞 → 精準學名/技術詞",
+        "布林邏輯組合：使用 AND 收斂、OR 擴展、NOT 排除",
+        "保留檢索式：將用過的 5-10 組檢索式記錄下來備查"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "由一個核心名詞向外輻射擴充成中文同義詞、英文學術詞與布林邏輯式的圖示。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "由一個核心名詞向外輻射擴充成中文同義詞、英文學術詞與布林邏輯式的圖示。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 23,
+      "title": "三層閱讀法",
+      "role": "process",
+      "key_points": [
+        "第一層：讀摘要與關鍵圖表，判斷相關性（值不值得讀）",
+        "第二層：讀方法，檢查是否可複製（濃度、儀器等參數）",
+        "第三層：讀討論與限制，尋找研究缺口"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "金字塔形狀，從底部的「摘要與圖表」篩選，到中層的「方法」，再到頂層的「討論」。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "金字塔形狀，從底部的「摘要與圖表」篩選，到中層的「方法」，再到頂層的「討論」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 24,
+      "title": "避免 AI 幻覺引用",
+      "role": "concept",
+      "key_points": [
+        "AI 的幻覺風險：AI 容易編造不存在的論文、作者與 DOI",
+        "回查三步驟：資料庫檢索 → 找到原文 → 核對內容",
+        "硬規則：正文引用旁必須有可回查的來源資訊，查不到不寫"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個印章蓋在文獻檔案上，寫著「可回查 / 具真實 DOI」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個印章蓋在文獻檔案上，寫著「可回查 / 具真實 DOI」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 25,
+      "title": "進階文獻追溯技巧",
+      "role": "concept",
+      "key_points": [
+        "引用追溯：從「種子論文」往回找基礎理論與方法來源",
+        "被引追蹤：往後找最新的延伸研究與反駁觀點",
+        "追蹤團隊：鎖定該領域 3-5 位活躍作者，追蹤其最新發表"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "文獻樹狀圖，一本書向前延伸出「參考文獻（Backward）」，向後延伸出「被引用文獻（Forward）」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "文獻樹狀圖，一本書向前延伸出「參考文獻（Backward）」，向後延伸出「被引用文獻（Forward）」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 26,
+      "title": "文獻蒐集相關 AI 工具實務",
+      "role": "concept",
+      "key_points": [
+        "Elicit：自訂欄位抽取多篇文獻的特徵（方法、樣本）",
+        "SciSpace：與 PDF 對話，讀懂複雜公式與步驟細節",
+        "Scite：檢查論文引用是否被後續研究支持或反駁",
+        "NotebookLM：上傳 PDF，自動整理主題大綱與比較表"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "四個軟體卡片，列出 Elicit, SciSpace, Scite, NotebookLM，並有簡單的文字說明其用途。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "四個軟體卡片，列出 Elicit, SciSpace, Scite, NotebookLM，並有簡單的文字說明其用途。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 27,
+      "title": "建議的文獻工作流",
+      "role": "process",
+      "key_points": [
+        "1. 粗搜 (Scholar) 2. 補齊 (文獻地圖)",
+        "3. 篩選 (Elicit) 4. 讀細節 (SciSpace)",
+        "5. 查核 (Scite) 6. 整理 (Zotero)"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "六個步驟的流水線：Google Scholar → Connected Papers → Elicit → SciSpace → Scite → Zotero。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "六個步驟的流水線：Google Scholar → Connected Papers → Elicit → SciSpace → Scite → Zotero。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 28,
+      "title": "文獻搜尋與整理的 AI 提示詞",
+      "role": "concept",
+      "key_points": [
+        "提示詞：請幫我建立文獻筆記表與文獻矩陣",
+        "欄位包含：理論機制、實驗條件、量測儀器、結論趨勢",
+        "改寫提示詞：如何將 AI 摘要改寫成自己的科學語氣"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "顯示文獻筆記表的欄位結構（問題、材料、方法、限制、可借鏡處）。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "顯示文獻筆記表的欄位結構（問題、材料、方法、限制、可借鏡處）。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 29,
+      "title": "實驗設計完整性檢查",
+      "role": "concept",
+      "key_points": [
+        "操作性定義：步驟必須具體到「數字、單位與條件」",
+        "對照與變因：明確界定處理組與基準組",
+        "最低交付物：方法表、第一版 SOP 與資料記錄表格"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一張打勾的檢核清單，列出研究問題、假設、步驟、重複、對照、安全等項目。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一張打勾的檢核清單，列出研究問題、假設、步驟、重複、對照、安全等項目。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 30,
+      "title": "樣本數觀念與重複類型",
+      "role": "comparison",
+      "key_points": [
+        "技術重複：驗證儀器與操作流程的穩定度",
+        "生物/樣本重複：反映群體的自然變異，科展更需要此重複",
+        "批次重複：不同天、不同批次製作，排除環境干擾"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "左邊顯示「技術重複（同一個樣品測三次，代表儀器穩定）」，右邊顯示「生物/樣本重複（三個獨立樣品，代表自然變異）」。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "左邊顯示「技術重複（同一個樣品測三次，代表儀器穩定）」，右邊顯示「生物/樣本重複（三個獨立樣品，代表自然變異）」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 31,
+      "title": "實驗可重現性與步驟文件化",
+      "role": "process",
+      "key_points": [
+        "拒絕模糊詞彙：避免使用「充分攪拌」、「在室溫下」、「適量」",
+        "數字化條件：改用「攪拌 200 rpm/5分鐘」、「25°C 水浴」",
+        "建立資料字典：預先定義欄位名稱與缺值代碼"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "一本 SOP 操作手冊，從第一步到最後一步，每步都有清晰的溫度、時間與用量參數。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一本 SOP 操作手冊，從第一步到最後一步，每步都有清晰的溫度、時間與用量參數。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 32,
+      "title": "變因設計：繪製變因樹",
+      "role": "architecture",
+      "key_points": [
+        "第一層：主動操弄的自變項",
+        "第二層：必須固定控制的干擾變因",
+        "第三層：無法控制但必須記錄的背景變因（如氣溫、氣壓）"
+      ],
+      "layout": {
+        "role": "architecture",
+        "intent": "一棵樹的結構，樹幹為「研究問題」，分出三個主枝：「自變項」、「依變項」、「控制變因與背景變因」。",
+        "composition": "Visual style: architecture presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一棵樹的結構，樹幹為「研究問題」，分出三個主枝：「自變項」、「依變項」、「控制變因與背景變因」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 33,
+      "title": "對照組的設計",
+      "role": "comparison",
+      "key_points": [
+        "空白對照：無樣品，用來觀察背景雜訊與儀器漂移",
+        "陰性對照：預期無效果的條件，用來排除心理預期與假陽性",
+        "陽性對照：已知有效果的條件，用來確認實驗系統正常運作"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "三個卡片並排，分別是「空白對照（Blank）」、「陰性對照」與「陽性對照」，並列出其對應的功能。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "三個卡片並排，分別是「空白對照（Blank）」、「陰性對照」與「陽性對照」，並列出其對應的功能。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 34,
+      "title": "降低實驗偏誤：隨機化與區組",
+      "role": "concept",
+      "key_points": [],
+      "layout": {
+        "role": "concept",
+        "intent": "隨機抽籤箱的圖案，以及分批做實驗的排程圖表，體現「隨機分派」與「區組（Blocking）」概念。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "隨機抽籤箱的圖案，以及分批做實驗的排程圖表，體現「隨機分派」與「區組（Blocking）」概念。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 35,
+      "title": "實驗設計可用的輔助工具",
+      "role": "concept",
+      "key_points": [
+        "phyphox：利用手機感測器量測加速度、頻譜與磁場",
+        "Tracker：物理影片分析，取出物體位移與速度軌跡",
+        "Fiji (ImageJ)：顯微影像量測，自動計算面積與粒徑"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "列出多個科技工具的圖示（Tracker, phyphox, Fiji/ImageJ），並附有量測示意圖。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "列出多個科技工具的圖示（Tracker, phyphox, Fiji/ImageJ），並附有量測示意圖。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 36,
+      "title": "實驗設計的 AI 提示詞",
+      "role": "concept",
+      "key_points": [
+        "提示詞範例：我是高中生，這是我的方法，請找出 10 個可能被追問的漏洞",
+        "要求輸出：針對漏洞給出「可執行修正」與「最小證據清單」",
+        "SOP 精煉：請 AI 將口語步驟改寫成符合科學標準的 SOP"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個對話框架，輸入研究設計，AI 輸出挑錯報告與 SOP 改進建議。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個對話框架，輸入研究設計，AI 輸出挑錯報告與 SOP 改進建議。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 37,
+      "title": "數據規格化：Tidy Data",
+      "role": "concept",
+      "key_points": [
+        "整潔資料原則：不要把不同單位或多種實驗混在同一張表",
+        "欄位命名一致：例如使用 Temp_C, pH, Mass_g, Group",
+        "保留原始資料：Raw Data 唯讀保存，清理後另存為 Clean Data"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個整潔的數據表，高亮「一列 = 一筆觀測」、「一欄 = 一個變項」、「一張表 = 一個層級」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個整潔的數據表，高亮「一列 = 一筆觀測」、「一欄 = 一個變項」、「一張表 = 一個層級」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 38,
+      "title": "資料清理 SOP 與 README",
+      "role": "process",
+      "key_points": [
+        "資料清理：格式檢查、範圍檢查、缺值與重複處理",
+        "離群值規則：不可事後偷偷刪除，須依規則（如 IQR 法）並保留理由",
+        "撰寫 README：說明清理規則、缺值代碼與欄位定義"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "一條資料清理的管道：原始資料 → 刪除離群/極值 → 統一拼字 → 單位換算 → 清理後資料。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一條資料清理的管道：原始資料 → 刪除離群/極值 → 統一拼字 → 單位換算 → 清理後資料。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 39,
+      "title": "探索性數據分析 (EDA)",
+      "role": "concept",
+      "key_points": [
+        "看分布：直方圖/密度圖（看偏態）、箱型圖（看離群）",
+        "看比較：箱型圖或散佈加抖動（Jitter），避免只看平均值",
+        "看關係：散佈圖加趨勢線，確認是否為假相關"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "四種基本圖表小圖（直方圖、箱型圖、折線圖、散佈圖），並標示其適用的數據類型。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "四種基本圖表小圖（直方圖、箱型圖、折線圖、散佈圖），並標示其適用的數據類型。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 40,
+      "title": "數據分析圖表規格",
+      "role": "concept",
+      "key_points": [
+        "圖表標題：直接寫出重點結論，而非「XX 關係圖」",
+        "誤差棒表示：明確說明誤差棒代表 SD、SE 還是 95% 信賴區間",
+        "圖說完整性：包含條件、樣本數與統計處理說明"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一張完整的散佈圖，清晰標註「圖表標題（結論句）」、「座標軸與單位」、「誤差棒說明（SD/SE/CI）」與「n 值」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一張完整的散佈圖，清晰標註「圖表標題（結論句）」、「座標軸與單位」、「誤差棒說明（SD/SE/CI）」與「n 值」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 41,
+      "title": "統計檢定的選擇",
+      "role": "architecture",
+      "key_points": [
+        "兩組比較：獨立樣本 t 檢定、成對樣本 t 檢定",
+        "多組比較：單因子變異數分析 (ANOVA)",
+        "關係分析：相關分析與線性迴歸",
+        "類別資料：卡方檢定（比例差異）"
+      ],
+      "layout": {
+        "role": "architecture",
+        "intent": "決策樹分支圖：自變項與依變項類型 → 兩組/多組 → 獨立/成對 → 選擇對應檢定。",
+        "composition": "Visual style: architecture presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "決策樹分支圖：自變項與依變項類型 → 兩組/多組 → 獨立/成對 → 選擇對應檢定。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 42,
+      "title": "結果解讀與避免過度解讀",
+      "role": "comparison",
+      "key_points": [
+        "相關不等於因果：看到 A 與 B 相關，不可直接寫 A 導致 B",
+        "結果只描述趨勢：不加入主觀推測，推測與解釋留在討論段",
+        "誠實談限制：樣本數不足、控制未完美，均需在文中說明"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "左右對比卡片：「過度推論的寫法」 vs 「嚴謹科學的寫法」。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "左右對比卡片：「過度推論的寫法」 vs 「嚴謹科學的寫法」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 43,
+      "title": "數據整理與分析的 AI 工具",
+      "role": "concept",
+      "key_points": [
+        "ChatGPT Data Analysis：上傳資料，要求自動進行 EDA 與資料健檢",
+        "Julius AI：適合進行圖表擬合、迴歸分析與統計檢定",
+        "Claude in Excel：利用側邊欄協助公式除錯與跨表摘要"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "Julius AI 與 ChatGPT Data Analysis 的圖示，展示將 CSV 上傳後生成程式碼與圖表的互動歷程。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "Julius AI 與 ChatGPT Data Analysis 的圖示，展示將 CSV 上傳後生成程式碼與圖表的互動歷程。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 44,
+      "title": "數據整理與統計的 AI 提示詞",
+      "role": "concept",
+      "key_points": [
+        "提示詞指令：請幫我對這份數據進行健檢，輸出清理 SOP",
+        "結果撰寫提示：請依圖表數據寫結果描述，只描述趨勢、不推測原因",
+        "語氣規定：嚴禁 AI 自動捏造任何數據或無來源結論"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個對話框，內含「引導 AI 先做資料健檢、再做 EDA、最後才寫結果段落」的步驟式提示詞。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個對話框，內含「引導 AI 先做資料健檢、再做 EDA、最後才寫結果段落」的步驟式提示詞。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 45,
+      "title": "科展報告的常見結構",
+      "role": "process",
+      "key_points": [
+        "前言 (Introduction)：交代背景、現況缺口與研究目的",
+        "方法 (Methods)：材料、變因控制、SOP 與統計法",
+        "結果 (Results)：客觀呈現數據、圖表與趨勢描述",
+        "討論 (Discussion)：機制解釋、文獻對照、限制與下一步"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "書本目錄的圖案，展示 IMRaD 架構：前言 → 方法 → 結果 → 討論。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "書本目錄的圖案，展示 IMRaD 架構：前言 → 方法 → 結果 → 討論。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 46,
+      "title": "研究報告撰寫工作流",
+      "role": "process",
+      "key_points": [
+        "1. 事實清單：先把做過的實驗數據列出，作為 AI 唯一素材",
+        "2. 逐段產生：每次只寫一個段落，若資料不足用【待補】列出",
+        "3. 交叉查核：逐句檢查數字是否可追溯、引用是否真實"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "一個循環流水線：口述筆記 → 整理事實清單 → AI 生成初稿 → 人工核對 → 文獻比對 → 全篇一致化。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個循環流水線：口述筆記 → 整理事實清單 → AI 生成初稿 → 人工核對 → 文獻比對 → 全篇一致化。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 47,
+      "title": "寫作時的 AI 學術倫理",
+      "role": "concept",
+      "key_points": [
+        "作者責任：研究問題、決策與結論必須由學生完全負責",
+        "嚴禁捏造：禁止請 AI 直接生成文獻或未做過的實驗步驟",
+        "透明揭露：在附錄或致謝中說明使用 AI 的工具與範圍"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個誠信宣誓標章，包含「作者責任不可外包」與「AI 使用揭露」兩大核心。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個誠信宣誓標章，包含「作者責任不可外包」與「AI 使用揭露」兩大核心。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 48,
+      "title": "報告段落重點：摘要與前言",
+      "role": "concept",
+      "key_points": [
+        "摘要：用最短篇幅交代目的、方法、主要結果與意義",
+        "前言第一段：背景與重要性；第二段：文獻現況與缺口",
+        "前言第三段：明確的研究問題、假設與貢獻"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "高亮前言的三段式結構卡片（背景 → 缺口 → 目的）。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "高亮前言的三段式結構卡片（背景 → 缺口 → 目的）。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 49,
+      "title": "報告段落重點：研究方法",
+      "role": "concept",
+      "key_points": [],
+      "layout": {
+        "role": "concept",
+        "intent": "一個齒輪運作圖，表示方法段是可拆解、可複製的精密機械。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個齒輪運作圖，表示方法段是可拆解、可複製的精密機械。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 50,
+      "title": "報告段落重點：結果與討論",
+      "role": "comparison",
+      "key_points": [
+        "結果段：每一段對應一張圖表，只描述客觀趨勢",
+        "討論段：解釋為什麼會這樣、是否與前人研究衝突",
+        "討論段：提出可能的機制解釋，並列出限制與下一步"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "左右對比卡片：「結果段（只描述數據趨勢，不解釋原因）」 vs 「討論段（解釋機制，與文獻對照，誠實談限制）」。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "左右對比卡片：「結果段（只描述數據趨勢，不解釋原因）」 vs 「討論段（解釋機制，與文獻對照，誠實談限制）」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 51,
+      "title": "報告段落重點：參考文獻與附錄",
+      "role": "concept",
+      "key_points": [
+        "文獻格式：確保作者、年份、期刊、DOI 完整且格式一致",
+        "附錄內容：補充原始數據、計算流程、SOP 細節",
+        "AI 使用說明：將使用到的提示詞與修改歷程放入附錄"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "列出規範整齊的參考文獻清單與附錄表格圖示。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "列出規範整齊的參考文獻清單與附錄表格圖示。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 52,
+      "title": "報告撰寫的 AI 提示詞與模板",
+      "role": "concept",
+      "key_points": [
+        "前言提示詞：請依我提供的背景與目的，寫出三段式前言大綱",
+        "方法提示詞：請將我的實驗日記改寫成正式、可重現的方法段",
+        "討論提示詞：請將這三張圖的結論串起，並扮演審稿人找出過度推論"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個對話框，內含「摘要生成、研究方法重整、結果改寫、討論串接」的四個提示詞卡片。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個對話框，內含「摘要生成、研究方法重整、結果改寫、討論串接」的四個提示詞卡片。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 53,
+      "title": "科學海報製作：閱讀情境",
+      "role": "concept",
+      "key_points": [
+        "3 秒原則：遠處看，一眼被「題目/結論 + 關鍵圖」吸引",
+        "30 秒原則：走近看，快速掃讀「問題、方法、結論摘要」",
+        "3 分鐘原則：停留看，閱讀方法細節、對照組與統計限制"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "海報展示板，前有觀眾從遠處看、近處看、停留看的動線圖。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "海報展示板，前有觀眾從遠處看、近處看、停留看的動線圖。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 54,
+      "title": "科學海報製作：版面格線與留白",
+      "role": "architecture",
+      "key_points": [
+        "欄式佈局：固定每欄寬度，讓觀眾不用猜閱讀順序",
+        "呼吸空間：在區塊、文字與圖表間預留足夠留白",
+        "對齊原則：區塊邊界、標題基線完全對齊，提升專業感"
+      ],
+      "layout": {
+        "role": "architecture",
+        "intent": "一張海報被切割成 3 欄或 4 欄，箭頭標示「左到右、上到下」的閱讀動線，並高亮留白邊界。",
+        "composition": "Visual style: architecture presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一張海報被切割成 3 欄或 4 欄，箭頭標示「左到右、上到下」的閱讀動線，並高亮留白邊界。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 55,
+      "title": "科學海報製作：字級層級與顏色",
+      "role": "concept",
+      "key_points": [
+        "觀展距離：主標遠看辨識，內文站立距離（約 1 米）可輕鬆讀",
+        "色彩限制：以黑白灰建立整體一致性，強調色標示關鍵結論",
+        "高對比度：確保在現場燈光下，文字與背景清晰可分"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "文字層級金字塔（主標大、標題中、內文小、註解極小），以及「黑白灰打底 + 1-2 個強調色」的調色盤。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "文字層級金字塔（主標大、標題中、內文小、註解極小），以及「黑白灰打底 + 1-2 個強調色」的調色盤。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 56,
+      "title": "科學海報製作：圖表優先原則",
+      "role": "concept",
+      "key_points": [
+        "一張好圖勝千言：海報上放大的圖表要最能支持核心結論",
+        "標題即結論：圖表標題寫「加入 A 後反應速率提升 30%」",
+        "文字輔助：文字只負責引導觀眾「這張圖要看哪個差異」"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "海報中央放大呈現 1-2 張核心數據圖，文字僅圍繞在周圍作為簡短解說。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "海報中央放大呈現 1-2 張核心數據圖，文字僅圍繞在周圍作為簡短解說。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 57,
+      "title": "科學海報的必備資訊與致謝",
+      "role": "concept",
+      "key_points": [
+        "限制區塊：寫出 2-4 點研究限制（樣本數、儀器精度）",
+        "文獻精簡：僅列出 3-5 筆核心方法來源，在需要處標示",
+        "透明致謝：感謝指導老師、實驗場地與資源提供者"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "海報底部的兩個小卡片，標示「研究限制與下一步」以及「關鍵文獻與致謝」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "海報底部的兩個小卡片，標示「研究限制與下一步」以及「關鍵文獻與致謝」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 58,
+      "title": "科學海報製作的 AI 提示詞",
+      "role": "concept",
+      "key_points": [
+        "海報大綱提示詞：請依我的研究，產出符合 3s/30s/3m 的海報大綱",
+        "精簡指令：請把這段報告改寫成條列，每點不超過 20 字",
+        "客觀用語：避免使用「這、它、該」，改用明確主詞"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "AI 輸入長篇報告，輸出精簡、條列式、無代名詞的海報文案。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "AI 輸入長篇報告，輸出精簡、條列式、無代名詞的海報文案。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 59,
+      "title": "科學簡報製作：文字黃金比例",
+      "role": "concept",
+      "key_points": [
+        "字級層級：用字級大小建立閱讀順序，抓取觀眾視線",
+        "全程一致：同一份簡報中，相同層級的字級完全統一",
+        "行距舒服：行距設定為字級的 50% - 75% 最容易閱讀"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "數字對比：主標 55pt / 副標 34pt / 內文 21pt / 註解 13pt，並有實際投影片版面示意。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "數字對比：主標 55pt / 副標 34pt / 內文 21pt / 註解 13pt，並有實際投影片版面示意。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 60,
+      "title": "科學簡報：一張只講一件事",
+      "role": "comparison",
+      "key_points": [
+        "訊息單一：每張投影片只傳達一個主要結論或一個圖表重點",
+        "觀眾消化：簡報時觀眾要聽、看、想，字數過多會分散注意力",
+        "口頭補充：投影片放關鍵句，細節與過程留給口頭說明"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "左邊投影片密密麻麻塞滿文字（打叉），右邊投影片一張圖配一句大結論（打勾）。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "左邊投影片密密麻麻塞滿文字（打叉），右邊投影片一張圖配一句大結論（打勾）。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 61,
+      "title": "科學簡報：版面留白與視覺動線",
+      "role": "architecture",
+      "key_points": [
+        "安全邊界：投影片四周預留空間，避免投影時被裁切",
+        "Z 字動線：標題放左上，關鍵圖放右上，結論/下一步放下方",
+        "對齊原則：所有文字、圖表彼此對齊，視覺感受更穩定"
+      ],
+      "layout": {
+        "role": "architecture",
+        "intent": "投影片四周留出安全邊界，並用箭頭畫出「左上 → 右上 → 左下 → 右下」的 Z 字視線移動路徑。",
+        "composition": "Visual style: architecture presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "投影片四周留出安全邊界，並用箭頭畫出「左上 → 右上 → 左下 → 右下」的 Z 字視線移動路徑。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 62,
+      "title": "科學簡報：數據圖表的呈現",
+      "role": "concept",
+      "key_points": [
+        "折線圖：簡化多餘線條與刻度，保留關鍵轉折點即可",
+        "表格框線：框線越少越好，用留白或淡灰色做區隔，重點數字加粗",
+        "標題重點：圖表上方直接寫結論，如「改善後 CO2 濃度下降 30%」"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "折線圖高亮「最高點、最低點、轉折點」，其餘數據點淡化，並有聚光燈半透明壓光效果。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "折線圖高亮「最高點、最低點、轉折點」，其餘數據點淡化，並有聚光燈半透明壓光效果。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 63,
+      "title": "科學簡報：品牌色與聚光燈",
+      "role": "concept",
+      "key_points": [
+        "品牌色：固定 1 個主色（如深藍） + 1 個強烈對比色（如亮橘）",
+        "色彩聚焦：將不重要的文字改為淡灰，用強調色指向重點",
+        "遮罩聚焦：當畫面資訊多時，用半透明黑色壓低背景，突出重點"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個調色盤（1 主色 + 1 強調色），以及半透明遮罩在複雜圖表上進行局部打亮的「聚光燈」圖示。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個調色盤（1 主色 + 1 強調色），以及半透明遮罩在複雜圖表上進行局部打亮的「聚光燈」圖示。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 64,
+      "title": "科學簡報製作的 AI 提示詞",
+      "role": "concept",
+      "key_points": [
+        "大綱提示詞：請將我的研究整理成 12 張投影片大綱",
+        "字數檢查指令：請幫我檢查每頁字數，依每秒讀8字估算上限",
+        "拆分指令：請幫我將這張塞太多重點的投影片拆成 3 張"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "對話框，輸入研究摘要，AI 輸出包含投影片標題、口頭講稿、建議圖表示意圖的簡報企劃。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "對話框，輸入研究摘要，AI 輸出包含投影片標題、口頭講稿、建議圖表示意圖的簡報企劃。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 65,
+      "title": "答辯訓練的教師指導目標",
+      "role": "process",
+      "key_points": [
+        "30 秒版（快問快答）：說清研究問題、方法一句話與主要結論",
+        "2 分鐘版（相信專業）：補齊對照組、n值、校正與誤差來源",
+        "5 分鐘版（高分關鍵）：深入變因控制、模型選擇、限制與下一步"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "三個同心圓或三張卡片，分別標示「30 秒版」、「2 分鐘版」、「5 分鐘版」的架構與要點。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "三個同心圓或三張卡片，分別標示「30 秒版」、「2 分鐘版」、「5 分鐘版」的架構與要點。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 66,
+      "title": "評審在看什麼？",
+      "role": "concept",
+      "key_points": [
+        "問題是否清楚可檢驗：自變項與依變項明確",
+        "方法是否合理可重現：有對照組、有校正、步驟明確",
+        "數據是否可信：n 值足夠、有誤差棒、無挑數據嫌疑",
+        "結論是否被證據支持：無過度推論，誠實面對限制"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "評審戴著眼鏡看報告，眼鏡鏡片上映出五個關鍵詞：問題、方法、數據、結論、限制。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "評審戴著眼鏡看報告，眼鏡鏡片上映出五個關鍵詞：問題、方法、數據、結論、限制。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 67,
+      "title": "答辯前的學生必備清單",
+      "role": "concept",
+      "key_points": [
+        "研究日誌：記錄所有失敗與修正，是最好的證據來源",
+        "三張關鍵圖：研究流程圖、核心結果圖、限制與下一步圖",
+        "可信度卡：記錄 n、重複類型、校正法、離群值規則"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個百寶箱，裡面裝著「研究日誌」、「三張關鍵圖表」與「數據可信度卡」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個百寶箱，裡面裝著「研究日誌」、「三張關鍵圖表」與「數據可信度卡」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 68,
+      "title": "回答結構：PREP 四步法",
+      "role": "process",
+      "key_points": [
+        "1. Point：先用一句話直接回答問題，不鋪陳背景",
+        "2. Reason：給出 1-2 個方法設計或數據特徵的理由",
+        "3. Example：指出簡報上的某張圖、數據或 n 值作為證據",
+        "4. Point：再用一句話回到你的結論，並自然帶到下一句或下一張圖"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "四個連續的箭頭卡片：Point (結論) → Reason (理由) → Example (證據) → Point (收束)。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "四個連續的箭頭卡片：Point (結論) → Reason (理由) → Example (證據) → Point (收束)。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 69,
+      "title": "臨場策略：不會答時怎麼說",
+      "role": "concept",
+      "key_points": [
+        "不硬拗、不閃躲：坦承目前資料不足，但指出目前做到的證據",
+        "界定範圍：說明在研究範圍內可支持什麼，超出部分需要控制",
+        "提出下一步：說明若要回答此問題，下一步會如何設計實驗"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個對話框，展示當被問到不會的題目時，如何以「這是一個好角度，目前的數據還不足...」來誠實加分。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個對話框，展示當被問到不會的題目時，如何以「這是一個好角度，目前的數據還不足...」來誠實加分。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 70,
+      "title": "口頭簡報 vs 海報答辯",
+      "role": "comparison",
+      "key_points": [
+        "口頭簡報：注重時間精準與流暢轉場，Q&A 針對未講的細節",
+        "海報答辯：不逐字讀，用手勢帶著評審看關鍵圖，依興趣調整",
+        "共同原則：先說結論、用圖表說話、誠實談限制"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "左右對比卡片：「口頭簡報（時間控制、講故事、Q&A在後）」 vs 「海報答辯（走讀互動、手勢引導、邊問邊答）」。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "左右對比卡片：「口頭簡報（時間控制、講故事、Q&A在後）」 vs 「海報答辯（走讀互動、手勢引導、邊問邊答）」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 71,
+      "title": "一週密集答辯訓練流程",
+      "role": "process",
+      "key_points": [
+        "D1-D2：確認三張關鍵圖與一句话结论，寫出 10 個最怕被問題目",
+        "D3-D4：寫出 30s/2min 版答案，進行 60 秒快問快答快訓",
+        "D5-D6：補齊數據可信度卡，進行全流程模擬（海報+3min+Q&A）",
+        "D7：整理「標準答案庫」備查"
+      ],
+      "layout": {
+        "role": "process",
+        "intent": "一週七天的行事曆，每天標註不同的訓練任務。",
+        "composition": "Visual style: process presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一週七天的行事曆，每天標註不同的訓練任務。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 72,
+      "title": "答辯訓練的 AI 提示詞",
+      "role": "concept",
+      "key_points": [
+        "出題提示詞：我是評審，請針對這份題目摘要出 20 個尖銳問題",
+        "回答修改提示詞：請用 PREP 結構幫我把這段草稿改成 30 秒版",
+        "弱點診斷提示詞：請列出 12 個可能扣分點，並給出回答模板"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "學生與 AI 的對話示意，AI 輸出 20 個尖銳問題與追問，學生練習回答並由 AI 改進語氣。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "學生與 AI 的對話示意，AI 輸出 20 個尖銳問題與追問，學生練習回答並由 AI 改進語氣。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 73,
+      "title": "示例背景：空氣品質與專注力",
+      "role": "concept",
+      "key_points": [
+        "研究目的：通風條件是否影響教室內 CO2 濃度與專注力表現？",
+        "研究範圍：同一間教室、同一節課、相近人數、連續數週",
+        "自變項：三種通風條件（全關、開窗30%、開窗+電扇）",
+        "依變項：CO2 濃度 (ppm)、專注力測驗正確率 (%) 與反應時間 (ms)"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一間教室，標註二氧化碳感測器位置，一旁學生在進行專注力測驗，體現「通風對 CO2 與專注力的影響」。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一間教室，標註二氧化碳感測器位置，一旁學生在進行專注力測驗，體現「通風對 CO2 與專注力的影響」。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 74,
+      "title": "示例：學生必交變因表與前導實驗",
+      "role": "comparison",
+      "key_points": [
+        "控制變因：同教室、相近人數、固定感測器位置、同一操作者",
+        "Pilot 排雷 1：在無人教室放 15 分鐘，確認感測器基線穩定",
+        "Pilot 排雷 2：先做全關 vs 開窗對比，確認 CO2 濃度有顯著差異"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "一張變因表，列出自變項、依變項與 5 個控制變因（教室、人數、時間、感測器位置等），以及 pilot 排雷步驟。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一張變因表，列出自變項、依變項與 5 個控制變因（教室、人數、時間、感測器位置等），以及 pilot 排雷步驟。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 75,
+      "title": "示例：資料欄位與分析計畫",
+      "role": "concept",
+      "key_points": [
+        "欄位規格：一列一個時間點，包含時間、條件、濃度、人數與批次",
+        "分析主要圖：①各條件 CO2 時間序列 ②各條件峰值/平均箱型圖",
+        "統計計畫：若重複天數足夠，進行獨立樣本 t 檢定或單因子 ANOVA"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "展示整潔資料結構表，包含 Datetime, Condition, CO2_ppm, People_count, Batch 欄位與主要圖表計畫。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "展示整潔資料結構表，包含 Datetime, Condition, CO2_ppm, People_count, Batch 欄位與主要圖表計畫。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 76,
+      "title": "不同學科的可驗證研究示例",
+      "role": "architecture",
+      "key_points": [
+        "物理：不同砂紙粗糙度與最大靜摩擦係數關係（量角度 θc）",
+        "化學：溫度與催化劑用量對 H2O2 分解速率影響（量排水集氣體積）",
+        "生物：不同光照顏色對植物發芽率與株高影響（量株高與影像面積）",
+        "地科：不同地表類型對地表溫度與氣溫影響（量紅外線地表溫度）"
+      ],
+      "layout": {
+        "role": "architecture",
+        "intent": "四個象限或四張卡片，分別列出四個學科的示例題目、自變項與可量測依變項。",
+        "composition": "Visual style: architecture presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "四個象限或四張卡片，分別列出四個學科的示例題目、自變項與可量測依變項。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 77,
+      "title": "專題研究常見的 5 大風險",
+      "role": "concept",
+      "key_points": [
+        "內容風險：AI 的幻覺、錯誤文獻引用與過度推論",
+        "設計數據風險：無對照組、樣本數 (n) 不足、忽略批次效應",
+        "倫理與個資：人類受試未獲同意、收集敏感資訊、未去識別化",
+        "安全與誠信：化學/生物安全未防護、將 AI 生成直接當最終答案"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "一個雷達圖，展示五個風險面向：內容風險、設計風險、倫理風險、安全風險、誠信風險。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個雷達圖，展示五個風險面向：內容風險、設計風險、倫理風險、安全風險、誠信風險。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 78,
+      "title": "常見錯誤對照表",
+      "role": "comparison",
+      "key_points": [
+        "錯誤：引用查不到 → 補救：每條引用回到資料庫核對，找不到就刪",
+        "錯誤：無對照組 → 補救：補做基線/空白對照，或在方法中寫明替代",
+        "錯誤：事後刪數據 → 補救：預先在 SOP 寫明剔除規則（如儀器故障）"
+      ],
+      "layout": {
+        "role": "comparison",
+        "intent": "三欄表格：常見錯誤（如無對照、n太小、事後刪離群值） → 典型後果（結論站不住、被評審質疑） → 修正策略。",
+        "composition": "Visual style: comparison presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "三欄表格：常見錯誤（如無對照、n太小、事後刪離群值） → 典型後果（結論站不住、被評審質疑） → 修正策略。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 79,
+      "title": "風險與倫理檢核表及揭露模板",
+      "role": "concept",
+      "key_points": [
+        "教師檢核表：建議每週勾選一次，確認學生實驗與資料管理的嚴謹度",
+        "揭露模板：清楚寫明 AI 工具名稱、用途（如發想、潤稿、程式）",
+        "誠信宣告：聲明所有設計決策、實驗與結論皆由學生完成並經查核"
+      ],
+      "layout": {
+        "role": "concept",
+        "intent": "教師勾選清單（AI查核、設計、資料、倫理、安全），一旁附有一段透明的 AI 使用揭露說明文字。",
+        "composition": "Visual style: concept presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "教師勾選清單（AI查核、設計、資料、倫理、安全），一旁附有一段透明的 AI 使用揭露說明文字。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    },
+    {
+      "number": 80,
+      "title": "核心結論與教學建議",
+      "role": "summary",
+      "key_points": [
+        "AI 定位：它是「研究助教與檢核器」，不是代寫作者",
+        "關鍵在可驗證：先把自/依/控變因寫清、做 pilot、建資料鏈",
+        "流程化管理：每步都有必交產出物（問題、SOP、資料字典等）",
+        "小步快跑：用最小可行研究 (MVP) 重複迭代，累積研究能力"
+      ],
+      "layout": {
+        "role": "summary",
+        "intent": "一個獎牌圖案，旁邊圍繞四個重點卡片，總結本指南的精華。",
+        "composition": "Visual style: summary presentation slide with clear textual points.",
+        "variation_rule": "keep clean sans-serif layout"
+      },
+      "visual_elements": {
+        "main_visual": "一個獎牌圖案，旁邊圍繞四個重點卡片，總結本指南的精華。",
+        "supporting_elements": "minimal vector card layout"
+      },
+      "constraints": [
+        "The final image itself must contain the title and key points.",
+        "Ensure all text is readable and correctly spelled."
+      ]
+    }
+  ]
+}

@@ -1,0 +1,3222 @@
+{
+  "run_status": "slides_recorded",
+  "deck_name": "AI輔助專題研究與科展競賽＿教學簡報",
+  "selected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+  "sample_generation_method": {
+    "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+    "tool_name": "scripts/image_gen.py",
+    "mode": "generate",
+    "prompt_source": "Visual brief of Slide 1 (Cover) based on Style A.",
+    "size": "1024x576 (16:9)",
+    "quality": "standard",
+    "approved_sample_path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png"
+  },
+  "max_concurrent_slides": 6,
+  "slides": [
+    {
+      "slide_id": "slide_01",
+      "number": 1,
+      "title": "封面",
+      "job": "prompts/slide_01.json",
+      "out": "origin_image/slide_01.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "accepted",
+      "dispatch": null,
+      "result": {
+        "final_image": "origin_image/slide_01.png",
+        "accepted_sample": true
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_02",
+      "number": 2,
+      "title": "簡報導覽與目錄",
+      "job": "prompts/slide_02.json",
+      "out": "origin_image/slide_02.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "f486beef-aab3-4d76-9445-1ab7632940f2",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_02.json",
+        "prompt_sha256": "94f82841527d999da24b9a278e854c0fa4ba30f870556af0edda28a9595cac91",
+        "dispatched_at": "2026-06-26T08:33:43Z"
+      },
+      "result": {
+        "agent_id": "f486beef-aab3-4d76-9445-1ab7632940f2",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_02_candidate.png",
+        "selected_source_sha256": "f4c071190645679598e59fe3fd5431a2c267471a215fe5224e25d8c523febb78",
+        "final_image": "origin_image/slide_02.png",
+        "final_image_sha256": "f4c071190645679598e59fe3fd5431a2c267471a215fe5224e25d8c523febb78",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 2 was successfully generated with perfect Traditional Chinese typography, consistent teal/blue theme, and clean visual cards layout showing the agenda chapters.",
+        "recorded_at": "2026-06-26T08:35:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_03",
+      "number": 3,
+      "title": "專題研究的教育現場需求",
+      "job": "prompts/slide_03.json",
+      "out": "origin_image/slide_03.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "9678622f-6639-490a-b953-6f415150c93d",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_03.json",
+        "prompt_sha256": "65408a311343f6670b5b8508cdde8c260f014ceec70a29cfcf3845618d2c19bb",
+        "dispatched_at": "2026-06-26T08:33:43Z"
+      },
+      "result": {
+        "agent_id": "9678622f-6639-490a-b953-6f415150c93d",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_03_candidate.png",
+        "selected_source_sha256": "255484151b9d3b8ebb031fba7b38ec98128bfe192b7422a949397101989ddf07",
+        "final_image": "origin_image/slide_03.png",
+        "final_image_sha256": "255484151b9d3b8ebb031fba7b38ec98128bfe192b7422a949397101989ddf07",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 3 generation succeeded with clear contrast, perfectly rendered Chinese characters, and a neat layout illustrating both learning styles.",
+        "recorded_at": "2026-06-26T08:35:33Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_04",
+      "number": 4,
+      "title": "生成式 AI 導入的契機",
+      "job": "prompts/slide_04.json",
+      "out": "origin_image/slide_04.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "927662fb-dc98-44b8-9081-702ffbf0d694",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_04.json",
+        "prompt_sha256": "5ac68d718efef3aa2fc1cbf295d9defb92bd507b4eb1ae01e70e3afbe7da0c1d",
+        "dispatched_at": "2026-06-26T08:33:43Z"
+      },
+      "result": {
+        "agent_id": "927662fb-dc98-44b8-9081-702ffbf0d694",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_04_candidate.png",
+        "selected_source_sha256": "c187154d80e9335c3703fe5b72205a1021a213dd4bb80e36132a1c7be88acb1f",
+        "final_image": "origin_image/slide_04.png",
+        "final_image_sha256": "c187154d80e9335c3703fe5b72205a1021a213dd4bb80e36132a1c7be88acb1f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 4 was successfully generated with clear and readable Traditional Chinese text, featuring a high-quality robot illustration matching Style A.",
+        "recorded_at": "2026-06-26T08:35:08Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_05",
+      "number": 5,
+      "title": "AI 導入專題研究的挑戰",
+      "job": "prompts/slide_05.json",
+      "out": "origin_image/slide_05.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "c69d043f-de54-4f7b-9f2f-c3296193b297",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_05.json",
+        "prompt_sha256": "db7fe1f1e507f81f0efebd574f6c72f91933209b9dd511d2850d4521b0c8f490",
+        "dispatched_at": "2026-06-26T08:33:43Z"
+      },
+      "result": {
+        "agent_id": "c69d043f-de54-4f7b-9f2f-c3296193b297",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_05_candidate.png",
+        "selected_source_sha256": "ddbef656d0ee2d7c9415e2c19058b2f9ed7a15f0810b28a9f7d60c11d1a1a526",
+        "final_image": "origin_image/slide_05.png",
+        "final_image_sha256": "ddbef656d0ee2d7c9415e2c19058b2f9ed7a15f0810b28a9f7d60c11d1a1a526",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 5 has been generated successfully with high-quality Chinese text representing the comparison of AI benefits vs challenges via a balance scale.",
+        "recorded_at": "2026-06-26T08:35:26Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_06",
+      "number": 6,
+      "title": "本指引的定位與對象",
+      "job": "prompts/slide_06.json",
+      "out": "origin_image/slide_06.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "5cd1bb7e-2211-4ba8-8c98-c542454ac5a6",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_06.json",
+        "prompt_sha256": "4331a0221b8838e6283f0053b7289d564d0f72e1f27428ef951f3b8a9d834ec0",
+        "dispatched_at": "2026-06-26T08:33:43Z"
+      },
+      "result": {
+        "agent_id": "5cd1bb7e-2211-4ba8-8c98-c542454ac5a6",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_06_candidate.png",
+        "selected_source_sha256": "1c989a0f62035ba2ea03c579ba3275ff10bccd442062d0a74b4198e9f9e23edb",
+        "final_image": "origin_image/slide_06.png",
+        "final_image_sha256": "1c989a0f62035ba2ea03c579ba3275ff10bccd442062d0a74b4198e9f9e23edb",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The slide layout successfully depicts the teacher as a gatekeeper with the three key pillars (rules, audit, disclosure) matching the clean vector styling of the cover sample.",
+        "recorded_at": "2026-06-26T08:35:21Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_07",
+      "number": 7,
+      "title": "常見 AI 工具的四大分類",
+      "job": "prompts/slide_07.json",
+      "out": "origin_image/slide_07.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "43ede9a6-0861-4bd5-9f65-41e0fea3fb51",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_07.json",
+        "prompt_sha256": "777776dd2e4903910d4e55e4b435790fb9391c8e092af175a054128877b170da",
+        "dispatched_at": "2026-06-26T08:33:43Z"
+      },
+      "result": {
+        "agent_id": "43ede9a6-0861-4bd5-9f65-41e0fea3fb51",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_07_candidate.png",
+        "selected_source_sha256": "d768df5ab0c34047f33fb2ddb4ee1125b1349ef55d4ed3ba59000902f362cfd4",
+        "final_image": "origin_image/slide_07.png",
+        "final_image_sha256": "d768df5ab0c34047f33fb2ddb4ee1125b1349ef55d4ed3ba59000902f362cfd4",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 7 candidate image has been successfully generated in a clean 2x2 grid style; all Chinese texts are correct, legible, and match the approved template.",
+        "recorded_at": "2026-06-26T08:35:33Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_08",
+      "number": 8,
+      "title": "工具類型（一）：生成對話與教學助理",
+      "job": "prompts/slide_08.json",
+      "out": "origin_image/slide_08.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "a698d0ce-4852-4692-859a-5db4bf1d0f82",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_08.json",
+        "prompt_sha256": "4e731cbabe8fac021b08fead6c58454f05269980f793f842d68ab98b2df199a8",
+        "dispatched_at": "2026-06-26T08:35:53Z"
+      },
+      "result": {
+        "agent_id": "a698d0ce-4852-4692-859a-5db4bf1d0f82",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_08_candidate.png",
+        "selected_source_sha256": "e623e1102d44a0f42fbad0d66c667a3cc2ea15f47c5e9865d77c33f2c827613f",
+        "final_image": "origin_image/slide_08.png",
+        "final_image_sha256": "e623e1102d44a0f42fbad0d66c667a3cc2ea15f47c5e9865d77c33f2c827613f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Text readable and correctly spelled. Layout shows beautiful diagram of teacher-AI-student interaction and key points.",
+        "recorded_at": "2026-06-26T08:37:12Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_09",
+      "number": 9,
+      "title": "工具類型（二）：文獻搜尋與查核工具",
+      "job": "prompts/slide_09.json",
+      "out": "origin_image/slide_09.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "3d26891b-f20f-41e5-8429-6a28456b890f",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_09.json",
+        "prompt_sha256": "0bf3f50a7190f860e6bb745354565520754b8f2b591305c78de0f2eb95c5c77b",
+        "dispatched_at": "2026-06-26T08:35:53Z"
+      },
+      "result": {
+        "agent_id": "3d26891b-f20f-41e5-8429-6a28456b890f",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_09_candidate.png",
+        "selected_source_sha256": "e0b0167fadccfb7ee88b2ab5e9f9e4cbe67380219fd3b4f8396de45ce2f5decd",
+        "final_image": "origin_image/slide_09.png",
+        "final_image_sha256": "e0b0167fadccfb7ee88b2ab5e9f9e4cbe67380219fd3b4f8396de45ce2f5decd",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 09 has been successfully generated; the Chinese characters are rendered perfectly with correct spelling, the layout is clean and matches the deck's style, and the central magnifying glass and literature network graphic corresponds exactly to the requested intent.",
+        "recorded_at": "2026-06-26T08:37:15Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_10",
+      "number": 10,
+      "title": "工具類型（三）：數據整理與分析工具",
+      "job": "prompts/slide_10.json",
+      "out": "origin_image/slide_10.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "cf1ff429-b4ac-4c9c-ab14-f5b515c9f817",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_10.json",
+        "prompt_sha256": "b2abf35bd836484410736f705f78276aa24abbef2ac166b74aaa71155edafe6e",
+        "dispatched_at": "2026-06-26T08:35:53Z"
+      },
+      "result": {
+        "agent_id": "cf1ff429-b4ac-4c9c-ab14-f5b515c9f817",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_10_candidate.png",
+        "selected_source_sha256": "5262236b857b2d8113505ed4ccf4cc220f4a1e1f4005563c870530a7d85774b2",
+        "final_image": "origin_image/slide_10.png",
+        "final_image_sha256": "5262236b857b2d8113505ed4ccf4cc220f4a1e1f4005563c870530a7d85774b2",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 10 generated successfully. The style matches slide_01.png, all Chinese text is readable and correctly spelled, and the visual flow layout is perfectly executed.",
+        "recorded_at": "2026-06-26T08:37:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_11",
+      "number": 11,
+      "title": "工具類型（四）：簡報與海報輔助工具",
+      "job": "prompts/slide_11.json",
+      "out": "origin_image/slide_11.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "58407fe8-021e-4a83-a6fc-85307165399b",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_11.json",
+        "prompt_sha256": "ed84e37b1987adb0bdd8732cee1a9a0197e00f5ce0c4daafbf101f02ec0b55f4",
+        "dispatched_at": "2026-06-26T08:35:53Z"
+      },
+      "result": {
+        "agent_id": "58407fe8-021e-4a83-a6fc-85307165399b",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_11_candidate.png",
+        "selected_source_sha256": "bc8ae7ffc5484cedef933a0ed1a3c1bfb904f55c27da64f59415464810df9ec0",
+        "final_image": "origin_image/slide_11.png",
+        "final_image_sha256": "bc8ae7ffc5484cedef933a0ed1a3c1bfb904f55c27da64f59415464810df9ec0",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 11 candidate image generated successfully with perfect Traditional Chinese typography and card layouts for PowerPoint, Canva, and Gamma.",
+        "recorded_at": "2026-06-26T08:37:22Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_12",
+      "number": 12,
+      "title": "教師指導的 5 大原則",
+      "job": "prompts/slide_12.json",
+      "out": "origin_image/slide_12.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "17778d8b-7056-4e81-b448-71f93528a636",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_12.json",
+        "prompt_sha256": "7a8d8e6abb89b4cb01348fd1b94d3dc51596014992067b0639d62b97053f7c52",
+        "dispatched_at": "2026-06-26T08:35:53Z"
+      },
+      "result": {
+        "agent_id": "17778d8b-7056-4e81-b448-71f93528a636",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_12_candidate.png",
+        "selected_source_sha256": "bcc205950d413f2274a1ad3e0c2a9e1c6700b6b3b766db02340334a96675b3b7",
+        "final_image": "origin_image/slide_12.png",
+        "final_image_sha256": "bcc205950d413f2274a1ad3e0c2a9e1c6700b6b3b766db02340334a96675b3b7",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 12 candidate generated successfully with clear Chinese text and five sequential process circles matching the style guidelines.",
+        "recorded_at": "2026-06-26T08:37:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_13",
+      "number": 13,
+      "title": "題目發想：生活與校園情境",
+      "job": "prompts/slide_13.json",
+      "out": "origin_image/slide_13.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "094897e2-9b0a-475a-afa8-9db806eb5f2a",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_13.json",
+        "prompt_sha256": "0d128e612ff855e0e0a9aa17d9b5326935497654777e13fbd81d4b7ecb21ca6d",
+        "dispatched_at": "2026-06-26T08:36:11Z"
+      },
+      "result": {
+        "agent_id": "094897e2-9b0a-475a-afa8-9db806eb5f2a",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_13_candidate.png",
+        "selected_source_sha256": "f7eefa22e5d4399599f0a4f80e377b7c565fea25d542a9b58de65697f5241633",
+        "final_image": "origin_image/slide_13.png",
+        "final_image_sha256": "f7eefa22e5d4399599f0a4f80e377b7c565fea25d542a9b58de65697f5241633",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated campus map matching the concept layout. All text rendered perfectly in Chinese, style aligns with approved slide.",
+        "recorded_at": "2026-06-26T08:37:30Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_14",
+      "number": 14,
+      "title": "題目發想：環境特色與技術驅動",
+      "job": "prompts/slide_14.json",
+      "out": "origin_image/slide_14.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "b26d1339-f3eb-46a4-a546-239fa8327f26",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_14.json",
+        "prompt_sha256": "60e6c7851885cb2e2cd446b64d18586c8759663b86a1a213a365ee171f8b6a97",
+        "dispatched_at": "2026-06-26T08:37:31Z"
+      },
+      "result": {
+        "agent_id": "b26d1339-f3eb-46a4-a546-239fa8327f26",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_14_candidate.png",
+        "selected_source_sha256": "200c6d66d87ec3405f947ce279d7cacc0499ef970a8f9893aa246cf11c0b46b2",
+        "final_image": "origin_image/slide_14.png",
+        "final_image_sha256": "200c6d66d87ec3405f947ce279d7cacc0499ef970a8f9893aa246cf11c0b46b2",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 14 generated successfully; Chinese text matches the topic prompt and style consistency is maintained.",
+        "recorded_at": "2026-06-26T08:38:55Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_15",
+      "number": 15,
+      "title": "題目收斂四步法",
+      "job": "prompts/slide_15.json",
+      "out": "origin_image/slide_15.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "03ea1fa8-9ba3-4e07-9c4d-7b92a394d1cb",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_15.json",
+        "prompt_sha256": "6d0b543b2da22cae23ce871412105c1518f44addcc2ee5cc1ac1024797c654ed",
+        "dispatched_at": "2026-06-26T08:38:21Z"
+      },
+      "result": {
+        "agent_id": "03ea1fa8-9ba3-4e07-9c4d-7b92a394d1cb",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_15_candidate.png",
+        "selected_source_sha256": "65211ee3e1a83dd285446a8b533a4c72a91659b48e16761f672a97f0cbb4d668",
+        "final_image": "origin_image/slide_15.png",
+        "final_image_sha256": "65211ee3e1a83dd285446a8b533a4c72a91659b48e16761f672a97f0cbb4d668",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The slide image successfully generated a high-quality funnel layout with correct Chinese text and consistent style.",
+        "recorded_at": "2026-06-26T08:39:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_16",
+      "number": 16,
+      "title": "四步法之一：擴散與聚焦",
+      "job": "prompts/slide_16.json",
+      "out": "origin_image/slide_16.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "3a7c1253-5f68-4595-878d-c5282b1aa8cf",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_16.json",
+        "prompt_sha256": "b76db0416671d92174d546198e138c92118753f5373be84e08222504c92d0160",
+        "dispatched_at": "2026-06-26T08:38:21Z"
+      },
+      "result": {
+        "agent_id": "3a7c1253-5f68-4595-878d-c5282b1aa8cf",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_16_candidate.png",
+        "selected_source_sha256": "6adc09ae38502391e639ef387d69a1c38ba8e603c32016fe6faa1fd5d9f4fd9f",
+        "final_image": "origin_image/slide_16.png",
+        "final_image_sha256": "6adc09ae38502391e639ef387d69a1c38ba8e603c32016fe6faa1fd5d9f4fd9f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 16 image successfully generated. The visual layout maps candidate topics evaluation chart on '有趣度、可測量、資源、時間、風險' using a vector card styling. Title and key points are incorporated.",
+        "recorded_at": "2026-06-26T08:39:34Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_17",
+      "number": 17,
+      "title": "四步法之二：將題目「操作化」",
+      "job": "prompts/slide_17.json",
+      "out": "origin_image/slide_17.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "6c0b88d3-f908-4f44-84ca-4e5fc23760e4",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_17.json",
+        "prompt_sha256": "831240b4d76983e5cb74f94630b0a9fa4e73b9050200a888732ced97cc7f0d78",
+        "dispatched_at": "2026-06-26T08:38:21Z"
+      },
+      "result": {
+        "agent_id": "6c0b88d3-f908-4f44-84ca-4e5fc23760e4",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_17_candidate.png",
+        "selected_source_sha256": "564c89a0321378756e989d07f2ce3d546b7a9d6b600e0aff0d402b3e27d165b8",
+        "final_image": "origin_image/slide_17.png",
+        "final_image_sha256": "564c89a0321378756e989d07f2ce3d546b7a9d6b600e0aff0d402b3e27d165b8",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The slide successfully represents the operationalization concept with a clean comparison layout, perfectly matching the approved visual style without any text errors.",
+        "recorded_at": "2026-06-26T08:39:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_18",
+      "number": 18,
+      "title": "把題目寫成「研究問題」",
+      "job": "prompts/slide_18.json",
+      "out": "origin_image/slide_18.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "b37def65-9f9a-486d-887f-8d07b1aaeac5",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_18.json",
+        "prompt_sha256": "6bc7011f87a62a8fae10c90ec8d3f63d01397400bab43e0e5334f33ed7cd7406",
+        "dispatched_at": "2026-06-26T08:38:21Z"
+      },
+      "result": {
+        "agent_id": "b37def65-9f9a-486d-887f-8d07b1aaeac5",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_18_candidate.png",
+        "selected_source_sha256": "60d832204b9d4d14efc98da420d4bc431ef86da686acb9b8e9dce7daa679a5d1",
+        "final_image": "origin_image/slide_18.png",
+        "final_image_sha256": "60d832204b9d4d14efc98da420d4bc431ef86da686acb9b8e9dce7daa679a5d1",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "投影片 18 生成成功。文字清晰且拼圖拼合『自變項、依變項、研究對象/範圍』之版面設計極佳，與 approved sample 風格完美一致，未發現任何浮水印或錯字。",
+        "recorded_at": "2026-06-26T08:39:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_19",
+      "number": 19,
+      "title": "可行性把關：前導試驗 (Pilot)",
+      "job": "prompts/slide_19.json",
+      "out": "origin_image/slide_19.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "a41a3285-9952-471e-bd27-1ee803f75836",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_19.json",
+        "prompt_sha256": "dc8d921b9098dfec1c39598aa03556e9f9e2fcb02513de5b8062deba2bf0a84a",
+        "dispatched_at": "2026-06-26T08:38:21Z"
+      },
+      "result": {
+        "agent_id": "a41a3285-9952-471e-bd27-1ee803f75836",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_19_candidate.png",
+        "selected_source_sha256": "7a3f08ba7e9dc9070c91eeb0e1ee6002dc76a11a3084e60b9c5cb5417d8d1ac2",
+        "final_image": "origin_image/slide_19.png",
+        "final_image_sha256": "7a3f08ba7e9dc9070c91eeb0e1ee6002dc76a11a3084e60b9c5cb5417d8d1ac2",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 19 has been generated successfully with correct key points and aligned visual elements, and Chinese texts are clear and readable.",
+        "recorded_at": "2026-06-26T08:39:58Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_20",
+      "number": 20,
+      "title": "題目發想與評估的 AI 提示詞",
+      "job": "prompts/slide_20.json",
+      "out": "origin_image/slide_20.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "d206a599-be4a-4e25-b108-3558e2d3a271",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_20.json",
+        "prompt_sha256": "1d0d7b1d9827531d7a420f13ff93e0c11f3dce2d3c9cc0b715eeb99be494678c",
+        "dispatched_at": "2026-06-26T08:39:10Z"
+      },
+      "result": {
+        "agent_id": "d206a599-be4a-4e25-b108-3558e2d3a271",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_20_candidate.png",
+        "selected_source_sha256": "ecccebb6b0a432545f7dac4931fafb26b2bec8617b4dece99c6cc2ea52b63499",
+        "final_image": "origin_image/slide_20.png",
+        "final_image_sha256": "ecccebb6b0a432545f7dac4931fafb26b2bec8617b4dece99c6cc2ea52b63499",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 20 image generated successfully with correct text, structured layout, and style consistency.",
+        "recorded_at": "2026-06-26T08:40:46Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_21",
+      "number": 21,
+      "title": "文獻搜尋的三個目的",
+      "job": "prompts/slide_21.json",
+      "out": "origin_image/slide_21.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "cabec3db-3a5c-49c1-a15b-f0ab3cd0826f",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_21.json",
+        "prompt_sha256": "ddf823d757720f01e693a65102f1cef18746ee854a9afb4565ca7d27176eb6fd",
+        "dispatched_at": "2026-06-26T08:39:58Z"
+      },
+      "result": {
+        "agent_id": "cabec3db-3a5c-49c1-a15b-f0ab3cd0826f",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_21_candidate.png",
+        "selected_source_sha256": "29ffe1837518d7fc2e9288f03c55c99467f121c1e5c5bc94a6732eeabaa903fa",
+        "final_image": "origin_image/slide_21.png",
+        "final_image_sha256": "29ffe1837518d7fc2e9288f03c55c99467f121c1e5c5bc94a6732eeabaa903fa",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 21 candidate successfully generated with three domino-card visuals, clear typography, and matching visual identity.",
+        "recorded_at": "2026-06-26T08:41:28Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_22",
+      "number": 22,
+      "title": "檢索策略與關鍵字擴展",
+      "job": "prompts/slide_22.json",
+      "out": "origin_image/slide_22.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "c4f2602e-2473-4634-b213-b3e1dd5b96f8",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_22.json",
+        "prompt_sha256": "ebbec43f6ded4562b35f8b62a82c5ecd751684ed1a6952c301a17aad9bd9beba",
+        "dispatched_at": "2026-06-26T08:39:58Z"
+      },
+      "result": {
+        "agent_id": "c4f2602e-2473-4634-b213-b3e1dd5b96f8",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_22_candidate.png",
+        "selected_source_sha256": "49baf463b42a8cc30097fb618ed1726b9a8afe601c24fd21137b96ef66dc94d2",
+        "final_image": "origin_image/slide_22.png",
+        "final_image_sha256": "49baf463b42a8cc30097fb618ed1726b9a8afe601c24fd21137b96ef66dc94d2",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "圖片文字清晰且正確呈現中文與英文，版面設計與結構完全符合投影片22的要求，布林邏輯及關鍵字擴展的示意圖表非常精美且無錯字或亂碼。",
+        "recorded_at": "2026-06-26T08:41:45Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_23",
+      "number": 23,
+      "title": "三層閱讀法",
+      "job": "prompts/slide_23.json",
+      "out": "origin_image/slide_23.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "3a379273-72b7-4ba9-b4bd-df0c26db04d5",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_23.json",
+        "prompt_sha256": "653ea64bed951dce21100387a7f5cac2244828f8cf0776b766ccd676f10e3a57",
+        "dispatched_at": "2026-06-26T08:40:23Z"
+      },
+      "result": {
+        "agent_id": "3a379273-72b7-4ba9-b4bd-df0c26db04d5",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_23_candidate.png",
+        "selected_source_sha256": "047418c18186b104acf50a17a5a2cde39a4cd84426b406b5d1ea7c6e30b5d0a9",
+        "final_image": "origin_image/slide_23.png",
+        "final_image_sha256": "047418c18186b104acf50a17a5a2cde39a4cd84426b406b5d1ea7c6e30b5d0a9",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "投影片23「三層閱讀法」已成功生成。金字塔圖形及右側對應文字排版精美，繁體中文文字清晰無誤且無亂碼，視覺風格與樣式範本一致。",
+        "recorded_at": "2026-06-26T08:41:28Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_24",
+      "number": 24,
+      "title": "避免 AI 幻覺引用",
+      "job": "prompts/slide_24.json",
+      "out": "origin_image/slide_24.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "b0bec4bf-8f23-4451-8b40-3e577b466fa1",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_24.json",
+        "prompt_sha256": "998f31d8ea01acb43aa411217685cc7b178d7526070a5e951cd42d8761b6c362",
+        "dispatched_at": "2026-06-26T08:40:23Z"
+      },
+      "result": {
+        "agent_id": "b0bec4bf-8f23-4451-8b40-3e577b466fa1",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_24_candidate.png",
+        "selected_source_sha256": "20ca02cba32aee625e261ac80e0a4a513ee9e8893173505fc6534a3c7f49d68c",
+        "final_image": "origin_image/slide_24.png",
+        "final_image_sha256": "20ca02cba32aee625e261ac80e0a4a513ee9e8893173505fc6534a3c7f49d68c",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The generated image correctly displays the title, bullet points, and the required visual elements (a document icon with a stamp saying \"可回查 / 具真實 DOI\"). The Chinese text is fully readable, correctly rendered, and error-free.",
+        "recorded_at": "2026-06-26T08:41:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_25",
+      "number": 25,
+      "title": "進階文獻追溯技巧",
+      "job": "prompts/slide_25.json",
+      "out": "origin_image/slide_25.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "f9b535fb-6e4c-45de-acaf-d9b4b4a13c29",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_25.json",
+        "prompt_sha256": "e6aa63bd93d9c7762cf7d75381ccd8af8a5036780e7140276ce674b1e240d03f",
+        "dispatched_at": "2026-06-26T08:40:23Z"
+      },
+      "result": {
+        "agent_id": "f9b535fb-6e4c-45de-acaf-d9b4b4a13c29",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_25_candidate.png",
+        "selected_source_sha256": "b7539d61b3e5dce7378c0d6447197a10e64ebd207c6ef5b92468ba06bde4c66f",
+        "final_image": "origin_image/slide_25.png",
+        "final_image_sha256": "b7539d61b3e5dce7378c0d6447197a10e64ebd207c6ef5b92468ba06bde4c66f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "投影片25「進階文獻追溯技巧」已成功生成。簡潔的無襯線排版及文獻樹狀圖設計清晰美觀，繁體中文文字完整易讀，視覺風格與風格樣式範本一致。",
+        "recorded_at": "2026-06-26T08:41:37Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_26",
+      "number": 26,
+      "title": "文獻蒐集相關 AI 工具實務",
+      "job": "prompts/slide_26.json",
+      "out": "origin_image/slide_26.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "07b7e6a1-47fa-4f96-b291-244a524be198",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_26.json",
+        "prompt_sha256": "ae3bb771fb6aea8d652ab607b09865cf581361c1e9b1c0bc1adb6fb2f57ef831",
+        "dispatched_at": "2026-06-26T08:41:02Z"
+      },
+      "result": {
+        "agent_id": "07b7e6a1-47fa-4f96-b291-244a524be198",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_26_candidate.png",
+        "selected_source_sha256": "53bdda2bf43ec9ff340019539a894a3c684aa6f5a6f47e4371ff4da5531b4e7d",
+        "final_image": "origin_image/slide_26.png",
+        "final_image_sha256": "53bdda2bf43ec9ff340019539a894a3c684aa6f5a6f47e4371ff4da5531b4e7d",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 26 generated successfully. The slide contains four software cards for Elicit, SciSpace, Scite, and NotebookLM with correct and readable Chinese text, matching the visual style of the approved sample slide.",
+        "recorded_at": "2026-06-26T08:42:28Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_27",
+      "number": 27,
+      "title": "建議的文獻工作流",
+      "job": "prompts/slide_27.json",
+      "out": "origin_image/slide_27.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "ba3a7751-f437-4556-b004-27878d6a02ad",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_27.json",
+        "prompt_sha256": "2c0e9992508ab37495d845d87861a37e8c9ec21c6bf6cadfca127740a1ae056e",
+        "dispatched_at": "2026-06-26T08:42:15Z"
+      },
+      "result": {
+        "agent_id": "ba3a7751-f437-4556-b004-27878d6a02ad",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_27_candidate.png",
+        "selected_source_sha256": "acc8f9e96a89200f942dd3eeb610f1a71e0b5837af77444e377c7397648e3afb",
+        "final_image": "origin_image/slide_27.png",
+        "final_image_sha256": "acc8f9e96a89200f942dd3eeb610f1a71e0b5837af77444e377c7397648e3afb",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The slide title is correctly rendered. All six pipeline steps (Google Scholar, Connected Papers, Elicit, SciSpace, Scite, Zotero) are clearly shown with their description cards.",
+        "recorded_at": "2026-06-26T08:43:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_28",
+      "number": 28,
+      "title": "文獻搜尋與整理的 AI 提示詞",
+      "job": "prompts/slide_28.json",
+      "out": "origin_image/slide_28.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "d67eef7f-5c20-4aa9-9f0d-2fac506d93cb",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_28.json",
+        "prompt_sha256": "d5dfbc51fa92a5bad4df7bdfb26aca73717ab5eecf310fa5ddbd5229a2884f0b",
+        "dispatched_at": "2026-06-26T08:42:15Z"
+      },
+      "result": {
+        "agent_id": "d67eef7f-5c20-4aa9-9f0d-2fac506d93cb",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_28_candidate.png",
+        "selected_source_sha256": "6bb9a486484da050c68d8c0997ec5128f9f6eae3f19f5b7061ef04e6eb32dca6",
+        "final_image": "origin_image/slide_28.png",
+        "final_image_sha256": "6bb9a486484da050c68d8c0997ec5128f9f6eae3f19f5b7061ef04e6eb32dca6",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The title and all three key bullet points are perfectly rendered in Traditional Chinese. Under the bullet points, the slide displays a beautifully structured 5-column table/card layout representing the literature matrix fields.",
+        "recorded_at": "2026-06-26T08:43:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_29",
+      "number": 29,
+      "title": "實驗設計完整性檢查",
+      "job": "prompts/slide_29.json",
+      "out": "origin_image/slide_29.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "c56a1cb6-04de-4a02-8a62-34b3d74246c5",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_29.json",
+        "prompt_sha256": "31c194f0f1d087666236aae7dc7a1e2f01e98a4b155012c877a610d70bbeee95",
+        "dispatched_at": "2026-06-26T08:42:15Z"
+      },
+      "result": {
+        "agent_id": "c56a1cb6-04de-4a02-8a62-34b3d74246c5",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_29_candidate.png",
+        "selected_source_sha256": "66c1fbf186bd85cc1aa53a1b294f2fd379ffe71bba40b427af1fe96a82958584",
+        "final_image": "origin_image/slide_29.png",
+        "final_image_sha256": "66c1fbf186bd85cc1aa53a1b294f2fd379ffe71bba40b427af1fe96a82958584",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The slide has been generated successfully. It displays the title '實驗設計完整性檢查' along with all key points in clear, legible Chinese text, using a beautiful checklist dashboard design.",
+        "recorded_at": "2026-06-26T08:44:00Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_30",
+      "number": 30,
+      "title": "樣本數觀念與重複類型",
+      "job": "prompts/slide_30.json",
+      "out": "origin_image/slide_30.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "e48782d8-ec55-40b1-9183-b72fbb47fe02",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_30.json",
+        "prompt_sha256": "634f8e0e0ede6ab503b45c21f50a49d7019b75dd1f503bfea0ec7c89a4d27c88",
+        "dispatched_at": "2026-06-26T08:42:15Z"
+      },
+      "result": {
+        "agent_id": "e48782d8-ec55-40b1-9183-b72fbb47fe02",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_30_candidate.png",
+        "selected_source_sha256": "190aa942dbe974a05245c809e7cf6367b9697ed41a0efd9e87b087fb297f8ebb",
+        "final_image": "origin_image/slide_30.png",
+        "final_image_sha256": "190aa942dbe974a05245c809e7cf6367b9697ed41a0efd9e87b087fb297f8ebb",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The slide image for slide 30 was successfully generated with clear comparison graphics, precise Chinese texts, and excellent styling.",
+        "recorded_at": "2026-06-26T08:43:29Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_31",
+      "number": 31,
+      "title": "實驗可重現性與步驟文件化",
+      "job": "prompts/slide_31.json",
+      "out": "origin_image/slide_31.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "f5446163-e4fc-4dc4-b838-39c218282162",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_31.json",
+        "prompt_sha256": "ea004f1a9817bbe531ef40feccf500cc29616770cf702849c44e5efca10e4eb0",
+        "dispatched_at": "2026-06-26T08:42:15Z"
+      },
+      "result": {
+        "agent_id": "f5446163-e4fc-4dc4-b838-39c218282162",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_31_candidate.png",
+        "selected_source_sha256": "f1772f7b4a80d74a7939e7ae26d38ebbe14904740b6d726ec78e7421f1f30e85",
+        "final_image": "origin_image/slide_31.png",
+        "final_image_sha256": "f1772f7b4a80d74a7939e7ae26d38ebbe14904740b6d726ec78e7421f1f30e85",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "The generated slide perfectly lists all key points in Traditional Chinese, layout is professional with a visual SOP handbook on the right, matches the deck style.",
+        "recorded_at": "2026-06-26T08:43:32Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_32",
+      "number": 32,
+      "title": "變因設計：繪製變因樹",
+      "job": "prompts/slide_32.json",
+      "out": "origin_image/slide_32.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "196b0803-2b80-4377-932e-0fa7651b80a4",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_32.json",
+        "prompt_sha256": "9952f4ac2f60c70cb7c9382c59af0477e2f138eb6f557ce40a3a4bfad2388565",
+        "dispatched_at": "2026-06-26T08:42:47Z"
+      },
+      "result": {
+        "agent_id": "196b0803-2b80-4377-932e-0fa7651b80a4",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_32_candidate.png",
+        "selected_source_sha256": "3c38bde8f37e610afa4a283c2c42fe619e137aaa40535553300a02275a06e216",
+        "final_image": "origin_image/slide_32.png",
+        "final_image_sha256": "3c38bde8f37e610afa4a283c2c42fe619e137aaa40535553300a02275a06e216",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Text readable and rendered correctly, layout matches slide role with highly appropriate tree illustration, style is consistent with sample.",
+        "recorded_at": "2026-06-26T08:44:02Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_33",
+      "number": 33,
+      "title": "對照組的設計",
+      "job": "prompts/slide_33.json",
+      "out": "origin_image/slide_33.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "c10bd19a-1189-48d2-bcfa-c12732d5c7d9",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_33.json",
+        "prompt_sha256": "510505871e960cd1d3305e162751abd766c0648bbf5d80db84cd58ece8ba4e51",
+        "dispatched_at": "2026-06-26T08:43:59Z"
+      },
+      "result": {
+        "agent_id": "c10bd19a-1189-48d2-bcfa-c12732d5c7d9",
+        "backend_used": "scripts/image_gen.py",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_33_candidate.png",
+        "selected_source_sha256": "d7146091a1ae56cfd3c5a9eaf31d4a17224f4fb24b7d48f49ad7b1a698b0f480",
+        "final_image": "origin_image/slide_33.png",
+        "final_image_sha256": "d7146091a1ae56cfd3c5a9eaf31d4a17224f4fb24b7d48f49ad7b1a698b0f480",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 33 generated successfully. 3-card comparison layout is correct and aligned with the approved style.",
+        "recorded_at": "2026-06-26T08:45:18Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_34",
+      "number": 34,
+      "title": "降低實驗偏誤：隨機化與區組",
+      "job": "prompts/slide_34.json",
+      "out": "origin_image/slide_34.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "d545d393-7431-4e9e-821d-f20ac37a2f32",
+        "agent_nickname": null,
+        "prompt": "prompts/slide_34.json",
+        "prompt_sha256": "1ecc2ce4a69217b4a9e2960efdc11a3b082a4f85062eab004058507ec5af58c4",
+        "dispatched_at": "2026-06-26T08:44:00Z"
+      },
+      "result": {
+        "agent_id": "d545d393-7431-4e9e-821d-f20ac37a2f32",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_34_candidate.png",
+        "selected_source_sha256": "47167fec8007e1e12c676b6f398d40e5dd87216f8d85684f690b88dc8620152e",
+        "final_image": "origin_image/slide_34.png",
+        "final_image_sha256": "47167fec8007e1e12c676b6f398d40e5dd87216f8d85684f690b88dc8620152e",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Slide 34 generated successfully with perfectly legible Chinese text, matching style references, and clear random selection/blocking visual models.",
+        "recorded_at": "2026-06-26T08:45:33Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_35",
+      "number": 35,
+      "title": "實驗設計可用的輔助工具",
+      "job": "prompts/slide_35.json",
+      "out": "origin_image/slide_35.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468459.27372
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_35_candidate.png",
+        "selected_source_sha256": "19fd9cf3ee01d0f421f39753720a06680ecb422a7b87db34b2104d5e6f7ac677",
+        "final_image": "origin_image/slide_35.png",
+        "final_image_sha256": "19fd9cf3ee01d0f421f39753720a06680ecb422a7b87db34b2104d5e6f7ac677",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Recovered and recorded directly from pre-existing candidate.",
+        "recorded_at": "2026-06-26T10:07:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_36",
+      "number": 36,
+      "title": "實驗設計的 AI 提示詞",
+      "job": "prompts/slide_36.json",
+      "out": "origin_image/slide_36.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468459.3659
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_36_candidate.png",
+        "selected_source_sha256": "6cf6a2a44ad0116c870bd24dead25ec753d400eb563d835bd75969737529a700",
+        "final_image": "origin_image/slide_36.png",
+        "final_image_sha256": "6cf6a2a44ad0116c870bd24dead25ec753d400eb563d835bd75969737529a700",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Recovered and recorded directly from pre-existing candidate.",
+        "recorded_at": "2026-06-26T10:07:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_37",
+      "number": 37,
+      "title": "數據規格化：Tidy Data",
+      "job": "prompts/slide_37.json",
+      "out": "origin_image/slide_37.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468459.4476109
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_37_candidate.png",
+        "selected_source_sha256": "d60734b7caf3b6ac4cf7272ef1597d9679b433b8f18969fbe47f0f4ebcb64183",
+        "final_image": "origin_image/slide_37.png",
+        "final_image_sha256": "d60734b7caf3b6ac4cf7272ef1597d9679b433b8f18969fbe47f0f4ebcb64183",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Recovered and recorded directly from pre-existing candidate.",
+        "recorded_at": "2026-06-26T10:07:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_38",
+      "number": 38,
+      "title": "資料清理 SOP 與 README",
+      "job": "prompts/slide_38.json",
+      "out": "origin_image/slide_38.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468459.5374131
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_38_candidate.png",
+        "selected_source_sha256": "207be16933984461983c3b9a0f66f887792db1930f7d02bda289418ed32fe770",
+        "final_image": "origin_image/slide_38.png",
+        "final_image_sha256": "207be16933984461983c3b9a0f66f887792db1930f7d02bda289418ed32fe770",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Recovered and recorded directly from pre-existing candidate.",
+        "recorded_at": "2026-06-26T10:07:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_39",
+      "number": 39,
+      "title": "探索性數據分析 (EDA)",
+      "job": "prompts/slide_39.json",
+      "out": "origin_image/slide_39.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468459.620215
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_39_candidate.png",
+        "selected_source_sha256": "c5a59d92561a84b741f9ab576e6e3ed31698c746513543a91dab3c12517b4734",
+        "final_image": "origin_image/slide_39.png",
+        "final_image_sha256": "c5a59d92561a84b741f9ab576e6e3ed31698c746513543a91dab3c12517b4734",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Recovered and recorded directly from pre-existing candidate.",
+        "recorded_at": "2026-06-26T10:07:39Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_40",
+      "number": 40,
+      "title": "數據分析圖表規格",
+      "job": "prompts/slide_40.json",
+      "out": "origin_image/slide_40.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468459.688958
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_40_candidate.png",
+        "selected_source_sha256": "6e7d69065d7f240010a5a1e78d502f5b404889d7e1e8bdc2a7c8f54157828acc",
+        "final_image": "origin_image/slide_40.png",
+        "final_image_sha256": "6e7d69065d7f240010a5a1e78d502f5b404889d7e1e8bdc2a7c8f54157828acc",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:08:40Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_41",
+      "number": 41,
+      "title": "統計檢定的選擇",
+      "job": "prompts/slide_41.json",
+      "out": "origin_image/slide_41.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468565.266936
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_41_candidate.png",
+        "selected_source_sha256": "1554a3d7949d45e56b70fc3dad0ff1226e6652b7d88f7e1904e1edcd1bfcedce",
+        "final_image": "origin_image/slide_41.png",
+        "final_image_sha256": "1554a3d7949d45e56b70fc3dad0ff1226e6652b7d88f7e1904e1edcd1bfcedce",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:10:28Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_42",
+      "number": 42,
+      "title": "結果解讀與避免過度解讀",
+      "job": "prompts/slide_42.json",
+      "out": "origin_image/slide_42.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468673.165759
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_42_candidate.png",
+        "selected_source_sha256": "e129ee5d95663df96b29e8e477ab0f69b888dfa47c83ef15251c2b18d9c8c136",
+        "final_image": "origin_image/slide_42.png",
+        "final_image_sha256": "e129ee5d95663df96b29e8e477ab0f69b888dfa47c83ef15251c2b18d9c8c136",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:12:06Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_43",
+      "number": 43,
+      "title": "數據整理與分析的 AI 工具",
+      "job": "prompts/slide_43.json",
+      "out": "origin_image/slide_43.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468803.8605518
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_43_candidate.png",
+        "selected_source_sha256": "cc046b46b6c76442f627b3b0384c1e5e267ac98d3ccbd343ea8181c23f1f997f",
+        "final_image": "origin_image/slide_43.png",
+        "final_image_sha256": "cc046b46b6c76442f627b3b0384c1e5e267ac98d3ccbd343ea8181c23f1f997f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:14:25Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_44",
+      "number": 44,
+      "title": "數據整理與統計的 AI 提示詞",
+      "job": "prompts/slide_44.json",
+      "out": "origin_image/slide_44.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782468910.967356
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_44_candidate.png",
+        "selected_source_sha256": "4cb9782c2fd7d0cbfe3f39f507fbda95748a556127ff065c42c1ec942f604b49",
+        "final_image": "origin_image/slide_44.png",
+        "final_image_sha256": "4cb9782c2fd7d0cbfe3f39f507fbda95748a556127ff065c42c1ec942f604b49",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:16:08Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_45",
+      "number": 45,
+      "title": "科展報告的常見結構",
+      "job": "prompts/slide_45.json",
+      "out": "origin_image/slide_45.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469013.62753
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_45_candidate.png",
+        "selected_source_sha256": "d4266b3f5dde380a38583eeb596dc19a8aa5f51afa8a07bd81f1d65d0ef34cfb",
+        "final_image": "origin_image/slide_45.png",
+        "final_image_sha256": "d4266b3f5dde380a38583eeb596dc19a8aa5f51afa8a07bd81f1d65d0ef34cfb",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:17:43Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_46",
+      "number": 46,
+      "title": "研究報告撰寫工作流",
+      "job": "prompts/slide_46.json",
+      "out": "origin_image/slide_46.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469108.416859
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_46_candidate.png",
+        "selected_source_sha256": "74a1073e3d9a7aaf0ed604168bb4331dbfeb2cbaaca4916c724a44349564ea38",
+        "final_image": "origin_image/slide_46.png",
+        "final_image_sha256": "74a1073e3d9a7aaf0ed604168bb4331dbfeb2cbaaca4916c724a44349564ea38",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:19:25Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_47",
+      "number": 47,
+      "title": "寫作時的 AI 學術倫理",
+      "job": "prompts/slide_47.json",
+      "out": "origin_image/slide_47.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469210.553792
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_47_candidate.png",
+        "selected_source_sha256": "13a5fa49619ed0ecec8050b3424a7ef9331499e96e424945fcc9be5e42e628c5",
+        "final_image": "origin_image/slide_47.png",
+        "final_image_sha256": "13a5fa49619ed0ecec8050b3424a7ef9331499e96e424945fcc9be5e42e628c5",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:21:03Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_48",
+      "number": 48,
+      "title": "報告段落重點：摘要與前言",
+      "job": "prompts/slide_48.json",
+      "out": "origin_image/slide_48.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469308.976883
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_48_candidate.png",
+        "selected_source_sha256": "da366bcb398b8bb3344db7db3e2d35c15519c9c4a0940eec7a1993634b4446af",
+        "final_image": "origin_image/slide_48.png",
+        "final_image_sha256": "da366bcb398b8bb3344db7db3e2d35c15519c9c4a0940eec7a1993634b4446af",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:22:44Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_49",
+      "number": 49,
+      "title": "報告段落重點：研究方法",
+      "job": "prompts/slide_49.json",
+      "out": "origin_image/slide_49.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469409.6931388
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_49_candidate.png",
+        "selected_source_sha256": "2200be2b08ea87e4fc9d40062599c773119a450039228b31ad6aabf380db1c02",
+        "final_image": "origin_image/slide_49.png",
+        "final_image_sha256": "2200be2b08ea87e4fc9d40062599c773119a450039228b31ad6aabf380db1c02",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:24:25Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_50",
+      "number": 50,
+      "title": "報告段落重點：結果與討論",
+      "job": "prompts/slide_50.json",
+      "out": "origin_image/slide_50.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469510.659963
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_50_candidate.png",
+        "selected_source_sha256": "6309d601dad49d774d6f858427ebdc5a95a56fc139e209d743a110272ff2d7ed",
+        "final_image": "origin_image/slide_50.png",
+        "final_image_sha256": "6309d601dad49d774d6f858427ebdc5a95a56fc139e209d743a110272ff2d7ed",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:26:04Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_51",
+      "number": 51,
+      "title": "報告段落重點：參考文獻與附錄",
+      "job": "prompts/slide_51.json",
+      "out": "origin_image/slide_51.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469609.087023
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_51_candidate.png",
+        "selected_source_sha256": "6ee81972ecb5fa94c90602fc42da3cde40c2e289d48cd42ba3d99e7f3ba42a3d",
+        "final_image": "origin_image/slide_51.png",
+        "final_image_sha256": "6ee81972ecb5fa94c90602fc42da3cde40c2e289d48cd42ba3d99e7f3ba42a3d",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:27:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_52",
+      "number": 52,
+      "title": "報告撰寫的 AI 提示詞與模板",
+      "job": "prompts/slide_52.json",
+      "out": "origin_image/slide_52.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469706.700177
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_52_candidate.png",
+        "selected_source_sha256": "c20003647403fb4c849f835b938a5cdb95e766b7ef2d1aba323281b754fdc94a",
+        "final_image": "origin_image/slide_52.png",
+        "final_image_sha256": "c20003647403fb4c849f835b938a5cdb95e766b7ef2d1aba323281b754fdc94a",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:29:15Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_53",
+      "number": 53,
+      "title": "科學海報製作：閱讀情境",
+      "job": "prompts/slide_53.json",
+      "out": "origin_image/slide_53.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469800.895906
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_53_candidate.png",
+        "selected_source_sha256": "c004ba6ba53d1d551dd874e2af7ed1dc8c0207067a23dd621bb7360946754ccc",
+        "final_image": "origin_image/slide_53.png",
+        "final_image_sha256": "c004ba6ba53d1d551dd874e2af7ed1dc8c0207067a23dd621bb7360946754ccc",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:31:13Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_54",
+      "number": 54,
+      "title": "科學海報製作：版面格線與留白",
+      "job": "prompts/slide_54.json",
+      "out": "origin_image/slide_54.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782469918.4630349
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_54_candidate.png",
+        "selected_source_sha256": "e69fadfe12cd002a4d91dbea55496307349a325b8b93d88c58e7ea54e50593f3",
+        "final_image": "origin_image/slide_54.png",
+        "final_image_sha256": "e69fadfe12cd002a4d91dbea55496307349a325b8b93d88c58e7ea54e50593f3",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:33:02Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_55",
+      "number": 55,
+      "title": "科學海報製作：字級層級與顏色",
+      "job": "prompts/slide_55.json",
+      "out": "origin_image/slide_55.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470027.3797991
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_55_candidate.png",
+        "selected_source_sha256": "f948128c8d64b079f5058fe101a31f8126c86f1e05a61bfe281880c8bdc6235d",
+        "final_image": "origin_image/slide_55.png",
+        "final_image_sha256": "f948128c8d64b079f5058fe101a31f8126c86f1e05a61bfe281880c8bdc6235d",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:34:44Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_56",
+      "number": 56,
+      "title": "科學海報製作：圖表優先原則",
+      "job": "prompts/slide_56.json",
+      "out": "origin_image/slide_56.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470129.5041258
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_56_candidate.png",
+        "selected_source_sha256": "eb387a87eccacbcb4c84cd4b765be97e56832e643845fd69e05c0a24203443c2",
+        "final_image": "origin_image/slide_56.png",
+        "final_image_sha256": "eb387a87eccacbcb4c84cd4b765be97e56832e643845fd69e05c0a24203443c2",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:36:35Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_57",
+      "number": 57,
+      "title": "科學海報的必備資訊與致謝",
+      "job": "prompts/slide_57.json",
+      "out": "origin_image/slide_57.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470240.32145
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_57_candidate.png",
+        "selected_source_sha256": "a78b5cd7ed040d62a475a2d23cf5943d50946fafb995bcec173bcd020a76e7c3",
+        "final_image": "origin_image/slide_57.png",
+        "final_image_sha256": "a78b5cd7ed040d62a475a2d23cf5943d50946fafb995bcec173bcd020a76e7c3",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:38:09Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_58",
+      "number": 58,
+      "title": "科學海報製作的 AI 提示詞",
+      "job": "prompts/slide_58.json",
+      "out": "origin_image/slide_58.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470334.556841
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_58_candidate.png",
+        "selected_source_sha256": "11c287727d06fb856f2fdc154175b24869389806d3b32bc5307f81c70e9b0f2a",
+        "final_image": "origin_image/slide_58.png",
+        "final_image_sha256": "11c287727d06fb856f2fdc154175b24869389806d3b32bc5307f81c70e9b0f2a",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:39:51Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_59",
+      "number": 59,
+      "title": "科學簡報製作：文字黃金比例",
+      "job": "prompts/slide_59.json",
+      "out": "origin_image/slide_59.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470436.702935
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_59_candidate.png",
+        "selected_source_sha256": "f6c843e53c43923e552f8368c340da0b8f7177f85be39d3d0b871fd24c8bb483",
+        "final_image": "origin_image/slide_59.png",
+        "final_image_sha256": "f6c843e53c43923e552f8368c340da0b8f7177f85be39d3d0b871fd24c8bb483",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:41:30Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_60",
+      "number": 60,
+      "title": "科學簡報：一張只講一件事",
+      "job": "prompts/slide_60.json",
+      "out": "origin_image/slide_60.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470535.400418
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_60_candidate.png",
+        "selected_source_sha256": "09b9415345878d1e9053aab31db33c45bb49a18f5e160adec65dfb31b2a0d4f3",
+        "final_image": "origin_image/slide_60.png",
+        "final_image_sha256": "09b9415345878d1e9053aab31db33c45bb49a18f5e160adec65dfb31b2a0d4f3",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:43:01Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_61",
+      "number": 61,
+      "title": "科學簡報：版面留白與視覺動線",
+      "job": "prompts/slide_61.json",
+      "out": "origin_image/slide_61.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470626.382048
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_61_candidate.png",
+        "selected_source_sha256": "ce37d773375850bcb4bef13ab443dc34f959b878fc862d251a756b16b90f9813",
+        "final_image": "origin_image/slide_61.png",
+        "final_image_sha256": "ce37d773375850bcb4bef13ab443dc34f959b878fc862d251a756b16b90f9813",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:44:43Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_62",
+      "number": 62,
+      "title": "科學簡報：數據圖表的呈現",
+      "job": "prompts/slide_62.json",
+      "out": "origin_image/slide_62.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470728.137685
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_62_candidate.png",
+        "selected_source_sha256": "e4eaa659a74782c243d4c1cf4e9469b85774a5130b2a73a5b2ee2f1453fc041d",
+        "final_image": "origin_image/slide_62.png",
+        "final_image_sha256": "e4eaa659a74782c243d4c1cf4e9469b85774a5130b2a73a5b2ee2f1453fc041d",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:46:32Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_63",
+      "number": 63,
+      "title": "科學簡報：品牌色與聚光燈",
+      "job": "prompts/slide_63.json",
+      "out": "origin_image/slide_63.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470837.319159
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_63_candidate.png",
+        "selected_source_sha256": "177186660a9d3942e6198cdf55171a54b48b33b384f70340cc8b86d4896555f3",
+        "final_image": "origin_image/slide_63.png",
+        "final_image_sha256": "177186660a9d3942e6198cdf55171a54b48b33b384f70340cc8b86d4896555f3",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:48:16Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_64",
+      "number": 64,
+      "title": "科學簡報製作的 AI 提示詞",
+      "job": "prompts/slide_64.json",
+      "out": "origin_image/slide_64.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782470941.632451
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_64_candidate.png",
+        "selected_source_sha256": "c07367841080c631e5f60a9076bba5cf06f694515a7bcfac8150c0909990950f",
+        "final_image": "origin_image/slide_64.png",
+        "final_image_sha256": "c07367841080c631e5f60a9076bba5cf06f694515a7bcfac8150c0909990950f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:49:49Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_65",
+      "number": 65,
+      "title": "答辯訓練的教師指導目標",
+      "job": "prompts/slide_65.json",
+      "out": "origin_image/slide_65.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471034.981018
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_65_candidate.png",
+        "selected_source_sha256": "1466a2fde0691bee4b292125f675b54b3ccf445264fe012e01ec8decab765e93",
+        "final_image": "origin_image/slide_65.png",
+        "final_image_sha256": "1466a2fde0691bee4b292125f675b54b3ccf445264fe012e01ec8decab765e93",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:51:20Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_66",
+      "number": 66,
+      "title": "評審在看什麼？",
+      "job": "prompts/slide_66.json",
+      "out": "origin_image/slide_66.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471125.791666
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_66_candidate.png",
+        "selected_source_sha256": "4c6dff112393a71b4f88185a47f17f119c6c3a266383461487eed8d1cf759802",
+        "final_image": "origin_image/slide_66.png",
+        "final_image_sha256": "4c6dff112393a71b4f88185a47f17f119c6c3a266383461487eed8d1cf759802",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:52:55Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_67",
+      "number": 67,
+      "title": "答辯前的學生必備清單",
+      "job": "prompts/slide_67.json",
+      "out": "origin_image/slide_67.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471220.782423
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_67_candidate.png",
+        "selected_source_sha256": "3d5c23e848c5565ca95fbe8fdb9dc5db6b9e34696def13b477fb55ea4f93b0d1",
+        "final_image": "origin_image/slide_67.png",
+        "final_image_sha256": "3d5c23e848c5565ca95fbe8fdb9dc5db6b9e34696def13b477fb55ea4f93b0d1",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:54:34Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_68",
+      "number": 68,
+      "title": "回答結構：PREP 四步法",
+      "job": "prompts/slide_68.json",
+      "out": "origin_image/slide_68.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471319.6240032
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_68_candidate.png",
+        "selected_source_sha256": "ebb627b65be5471d438ab5f2b9fe4843e32de8131744d7d99307925aec9ec49b",
+        "final_image": "origin_image/slide_68.png",
+        "final_image_sha256": "ebb627b65be5471d438ab5f2b9fe4843e32de8131744d7d99307925aec9ec49b",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:56:02Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_69",
+      "number": 69,
+      "title": "臨場策略：不會答時怎麼說",
+      "job": "prompts/slide_69.json",
+      "out": "origin_image/slide_69.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471407.35373
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_69_candidate.png",
+        "selected_source_sha256": "b9efbe7cfe168afae9a70a756718087fbec7f3a672e75dba80d2260df224f110",
+        "final_image": "origin_image/slide_69.png",
+        "final_image_sha256": "b9efbe7cfe168afae9a70a756718087fbec7f3a672e75dba80d2260df224f110",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:57:48Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_70",
+      "number": 70,
+      "title": "口頭簡報 vs 海報答辯",
+      "job": "prompts/slide_70.json",
+      "out": "origin_image/slide_70.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471513.3284311
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_70_candidate.png",
+        "selected_source_sha256": "ad816b9feff967d4a2640f392c5a29c95fef1d5b0b933df4f771dce7f51a2f3c",
+        "final_image": "origin_image/slide_70.png",
+        "final_image_sha256": "ad816b9feff967d4a2640f392c5a29c95fef1d5b0b933df4f771dce7f51a2f3c",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T10:59:25Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_71",
+      "number": 71,
+      "title": "一週密集答辯訓練流程",
+      "job": "prompts/slide_71.json",
+      "out": "origin_image/slide_71.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471610.858588
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_71_candidate.png",
+        "selected_source_sha256": "d0bab692a525c9d28916a78ff44aa2f3593e9156ec346b067a6b22f9e84e3cff",
+        "final_image": "origin_image/slide_71.png",
+        "final_image_sha256": "d0bab692a525c9d28916a78ff44aa2f3593e9156ec346b067a6b22f9e84e3cff",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:01:01Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_72",
+      "number": 72,
+      "title": "答辯訓練的 AI 提示詞",
+      "job": "prompts/slide_72.json",
+      "out": "origin_image/slide_72.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471706.996175
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_72_candidate.png",
+        "selected_source_sha256": "9e841da671a3086a3d9a0f92495e9d1400c0da7a1673e15a2e4870dda864d3ab",
+        "final_image": "origin_image/slide_72.png",
+        "final_image_sha256": "9e841da671a3086a3d9a0f92495e9d1400c0da7a1673e15a2e4870dda864d3ab",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:02:52Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_73",
+      "number": 73,
+      "title": "示例背景：空氣品質與專注力",
+      "job": "prompts/slide_73.json",
+      "out": "origin_image/slide_73.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471817.043275
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_73_candidate.png",
+        "selected_source_sha256": "f616459b68f2020ff0c1b7eb9b6646a174faafed65ac0e573e714af935c7a89c",
+        "final_image": "origin_image/slide_73.png",
+        "final_image_sha256": "f616459b68f2020ff0c1b7eb9b6646a174faafed65ac0e573e714af935c7a89c",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:04:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_74",
+      "number": 74,
+      "title": "示例：學生必交變因表與前導實驗",
+      "job": "prompts/slide_74.json",
+      "out": "origin_image/slide_74.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782471926.065231
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_74_candidate.png",
+        "selected_source_sha256": "e0317d20d9df5a6fb4bb81f49646eff3bbf0611d6d0dee9855a5eea8d546192f",
+        "final_image": "origin_image/slide_74.png",
+        "final_image_sha256": "e0317d20d9df5a6fb4bb81f49646eff3bbf0611d6d0dee9855a5eea8d546192f",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:06:20Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_75",
+      "number": 75,
+      "title": "示例：資料欄位與分析計畫",
+      "job": "prompts/slide_75.json",
+      "out": "origin_image/slide_75.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782472025.237227
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_75_candidate.png",
+        "selected_source_sha256": "5624f5a2f2dc566cf20a551123266e3f3c2b981c108e47c050551d0cdd054d19",
+        "final_image": "origin_image/slide_75.png",
+        "final_image_sha256": "5624f5a2f2dc566cf20a551123266e3f3c2b981c108e47c050551d0cdd054d19",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:08:01Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_76",
+      "number": 76,
+      "title": "不同學科的可驗證研究示例",
+      "job": "prompts/slide_76.json",
+      "out": "origin_image/slide_76.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782472126.280035
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_76_candidate.png",
+        "selected_source_sha256": "e0af9c478b4c86b0da8ed62543b38c4bb184020994be37a7454e9c9ee13f55a2",
+        "final_image": "origin_image/slide_76.png",
+        "final_image_sha256": "e0af9c478b4c86b0da8ed62543b38c4bb184020994be37a7454e9c9ee13f55a2",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:09:40Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_77",
+      "number": 77,
+      "title": "專題研究常見的 5 大風險",
+      "job": "prompts/slide_77.json",
+      "out": "origin_image/slide_77.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782472225.3597271
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_77_candidate.png",
+        "selected_source_sha256": "15898c8911c1c151d9918d57c10c08a80f842a7c4927b61fa58e2e1748acc04a",
+        "final_image": "origin_image/slide_77.png",
+        "final_image_sha256": "15898c8911c1c151d9918d57c10c08a80f842a7c4927b61fa58e2e1748acc04a",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:11:19Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_78",
+      "number": 78,
+      "title": "常見錯誤對照表",
+      "job": "prompts/slide_78.json",
+      "out": "origin_image/slide_78.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782472324.776358
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_78_candidate.png",
+        "selected_source_sha256": "26ac20e34f6afefd1960bbc402e00e820b076c7cadf094abf0babbd584e054bb",
+        "final_image": "origin_image/slide_78.png",
+        "final_image_sha256": "26ac20e34f6afefd1960bbc402e00e820b076c7cadf094abf0babbd584e054bb",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:12:59Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_79",
+      "number": 79,
+      "title": "風險與倫理檢核表及揭露模板",
+      "job": "prompts/slide_79.json",
+      "out": "origin_image/slide_79.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782472424.975744
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_79_candidate.png",
+        "selected_source_sha256": "88a6d429c42b35f7717115a33d95b57d1bb9f0b72fa9d683a08cc11f5f7e1144",
+        "final_image": "origin_image/slide_79.png",
+        "final_image_sha256": "88a6d429c42b35f7717115a33d95b57d1bb9f0b72fa9d683a08cc11f5f7e1144",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:14:41Z"
+      },
+      "blocker": null
+    },
+    {
+      "slide_id": "slide_80",
+      "number": 80,
+      "title": "核心結論與教學建議",
+      "job": "prompts/slide_80.json",
+      "out": "origin_image/slide_80.png",
+      "input_images": [],
+      "style_reference_images": [
+        {
+          "path": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/origin_image/slide_01.png",
+          "role": "approved sample slide style reference",
+          "fidelity": "match style only; do not copy layout or content"
+        }
+      ],
+      "requires_context_images": false,
+      "expected_generation_mode": "generate",
+      "status": "recorded",
+      "dispatch": {
+        "agent_id": "local-sequencer",
+        "dispatched_at": 1782472526.688805
+      },
+      "result": {
+        "agent_id": "local-sequencer",
+        "backend_used": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "selected_source": "/Users/froglssh/Library/CloudStorage/GoogleDrive-frog@lssh.tp.edu.tw/我的雲端硬碟/0AI應用/0 AI輔助專題與科展/AI輔助專題研究與科展競賽＿教學簡報/drafts/slide_80_candidate.png",
+        "selected_source_sha256": "9dbda465230ee4d1a969116e6b8824836c301ccf94e853043ea3793e93051b86",
+        "final_image": "origin_image/slide_80.png",
+        "final_image_sha256": "9dbda465230ee4d1a969116e6b8824836c301ccf94e853043ea3793e93051b86",
+        "expected_backend": "scripts/image_gen.py --backend auto (codex-oauth)",
+        "expected_backend_labels": [
+          "scripts/image_gen.py --backend auto (codex-oauth)",
+          "scripts/image_gen.py"
+        ],
+        "sample_generation_method_matched": true,
+        "qa_note": "Generated sequentially locally to prevent rate limit.",
+        "recorded_at": "2026-06-26T11:16:11Z"
+      },
+      "blocker": null
+    }
+  ],
+  "updated_at": "2026-06-26T11:16:11Z"
+}

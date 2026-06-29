@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI輔助教學_實驗探究</title>
+<style>
+  :root {
+    --bg: #f5f5f5;
+    --surface: #ffffff;
+    --text: #1a1a1a;
+    --text-sub: #555;
+    --border: #ddd;
+    --accent: #2563eb;
+    --accent-hover: #1d4ed8;
+    --nav-bg: #fff;
+    --shadow: 0 2px 12px rgba(0,0,0,0.10);
+    --slide-shadow: 0 4px 24px rgba(0,0,0,0.15);
+  }
+  body.dark {
+    --bg: #111827;
+    --surface: #1f2937;
+    --text: #f3f4f6;
+    --text-sub: #9ca3af;
+    --border: #374151;
+    --accent: #3b82f6;
+    --accent-hover: #60a5fa;
+    --nav-bg: #1f2937;
+    --shadow: 0 2px 12px rgba(0,0,0,0.40);
+    --slide-shadow: 0 4px 24px rgba(0,0,0,0.50);
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    transition: background 0.3s, color 0.3s;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    padding: 12px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: var(--shadow);
+    z-index: 100;
+    flex-shrink: 0;
+  }
+  .header-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: 0.05em;
+  }
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .btn {
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 7px 14px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    font-weight: 600;
+    transition: background 0.2s, transform 0.1s;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+  }
+  .btn:hover { background: var(--accent-hover); transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    border: 1.5px solid var(--border);
+  }
+  .btn-ghost:hover { background: var(--border); }
+
+  /* ── MAIN LAYOUT ── */
+  .main-view {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+    height: calc(100vh - 120px);
+  }
+
+  /* ── SLIDE PANEL (LEFT 2/3) ── */
+  .slide-panel {
+    flex: 0 0 66.66%;
+    background: #000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .slide-panel img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+    box-shadow: var(--slide-shadow);
+    display: block;
+  }
+  .slide-counter-overlay {
+    position: absolute;
+    bottom: 12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0,0,0,0.55);
+    color: #fff;
+    padding: 4px 14px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    pointer-events: none;
+  }
+
+  /* ── TEXT PANEL (RIGHT 1/3) ── */
+  .text-panel {
+    flex: 0 0 33.34%;
+    background: var(--surface);
+    border-left: 1px solid var(--border);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .text-panel-header {
+    padding: 14px 18px 10px;
+    border-bottom: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+  .text-panel-header h2 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    line-height: 1.4;
+  }
+  .text-content {
+    flex: 1;
+    overflow-y: auto;
+    padding: 18px;
+    line-height: 1.85;
+    font-size: 1.05rem;
+    color: var(--text);
+    scrollbar-width: thin;
+    scrollbar-color: var(--border) transparent;
+  }
+  .text-content p { margin-bottom: 14px; }
+  .text-content p:last-child { margin-bottom: 0; }
+  .text-content strong { color: var(--accent); }
+
+  /* ── BOTTOM NAV ── */
+  .nav-bar {
+    background: var(--nav-bg);
+    border-top: 1px solid var(--border);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 -2px 10px rgba(0,0,0,0.06);
+  }
+  .nav-bar .btn { min-width: 90px; }
+  .slide-progress {
+    font-size: 0.95rem;
+    font-weight: 700;
+    color: var(--text);
+    min-width: 80px;
+    text-align: center;
+  }
+  /* ── PAGE SLIDER ── */
+  .slider-wrap {
+    flex: 1;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 3px;
+    position: relative;
+  }
+  .page-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 6px;
+    border-radius: 3px;
+    background: linear-gradient(to right, var(--accent) var(--fill, 0%), var(--border) var(--fill, 0%));
+    outline: none;
+    cursor: pointer;
+    transition: height 0.15s;
+  }
+  .page-slider:hover { height: 10px; }
+  .page-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .page-slider::-webkit-slider-thumb:hover,
+  .page-slider:active::-webkit-slider-thumb {
+    transform: scale(1.25);
+    box-shadow: 0 2px 8px rgba(37,99,235,0.45);
+  }
+  .page-slider::-moz-range-thumb {
+    width: 18px; height: 18px;
+    border-radius: 50%;
+    background: var(--accent);
+    border: 2px solid #fff;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.25);
+    cursor: pointer;
+  }
+  .slider-tooltip {
+    position: absolute;
+    top: -32px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 3px 8px;
+    border-radius: 6px;
+    pointer-events: none;
+    white-space: nowrap;
+    transform: translateX(-50%);
+    opacity: 0;
+    transition: opacity 0.15s;
+    z-index: 10;
+  }
+  .slider-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%; left: 50%;
+    transform: translateX(-50%);
+    border: 4px solid transparent;
+    border-top-color: var(--accent);
+  }
+  .slider-wrap:hover .slider-tooltip,
+  .slider-wrap:focus-within .slider-tooltip { opacity: 1; }
+
+  /* ── AUTOPLAY CONTROLS ── */
+  .autoplay-wrap {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    color: var(--text-sub);
+  }
+  .autoplay-wrap label { white-space: nowrap; }
+  .time-input {
+    width: 52px;
+    padding: 4px 6px;
+    border: 1.5px solid var(--border);
+    border-radius: 6px;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 0.88rem;
+    text-align: center;
+  }
+
+  /* ── FULLSCREEN MODE ── */
+  body.fullscreen .main-view { height: 100vh; }
+  body.fullscreen header,
+  body.fullscreen .nav-bar,
+  body.fullscreen .text-panel { display: none !important; }
+  body.fullscreen .slide-panel { flex: 1; }
+  body.fullscreen .main-view { height: 100vh; }
+
+  .fs-exit-btn {
+    display: none;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    background: rgba(0,0,0,0.6);
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+  body.fullscreen .fs-exit-btn { display: block; }
+
+  .fs-nav-overlay {
+    display: none;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 9999;
+    background: rgba(0,0,0,0.65);
+    border-radius: 30px;
+    padding: 8px 20px;
+    gap: 16px;
+    align-items: center;
+    color: #fff;
+  }
+  body.fullscreen .fs-nav-overlay { display: flex; }
+  .fs-nav-overlay button {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.3);
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px 14px;
+    cursor: pointer;
+    font-size: 0.88rem;
+    transition: background 0.2s;
+  }
+  .fs-nav-overlay button:hover { background: rgba(255,255,255,0.25); }
+  .fs-counter { font-size: 0.88rem; min-width: 70px; text-align: center; }
+  .fs-autoplay-btn {
+    font-size: 1.1rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+    padding: 0 4px;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-sub);
+    padding: 6px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+  }
+
+  /* ── THUMBNAIL STRIP (optional click to jump) ── */
+  .thumb-strip {
+    display: flex;
+    gap: 6px;
+    overflow-x: auto;
+    padding: 8px 16px;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    flex-shrink: 0;
+    scrollbar-width: thin;
+  }
+  .thumb-strip img {
+    height: 44px;
+    cursor: pointer;
+    border-radius: 3px;
+    border: 2px solid transparent;
+    opacity: 0.6;
+    transition: opacity 0.2s, border-color 0.2s;
+    flex-shrink: 0;
+  }
+  .thumb-strip img.active {
+    border-color: var(--accent);
+    opacity: 1;
+  }
+  .thumb-strip img:hover { opacity: 1; }
+
+  @media (max-width: 768px) {
+    .main-view { flex-direction: column; height: auto; }
+    .slide-panel { flex: none; width: 100%; min-height: 240px; }
+    .text-panel { flex: none; width: 100%; border-left: none; border-top: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+  <div class="header-title">🔬 AI輔助教學＿實驗探究</div>
+  <div class="header-controls">
+    <div class="autoplay-wrap">
+      <label for="intervalInput">⏱ 秒/頁</label>
+      <input type="number" id="intervalInput" class="time-input" value="8" min="2" max="60">
+    </div>
+    <button class="btn btn-ghost" id="autoplayBtn" onclick="toggleAutoplay()">▶ 自動播放</button>
+    <button class="btn btn-ghost" onclick="openFullscreen()">⛶ 全螢幕</button>
+    <button class="btn btn-ghost" onclick="toggleDark()" id="darkBtn">🌙 暗色</button>
+  </div>
+</header>
+
+<!-- MAIN VIEW -->
+<div class="main-view">
+  <!-- LEFT: SLIDE IMAGE -->
+  <div class="slide-panel" id="slidePanel">
+    <img id="slideImg" src="" alt="投影片">
+    <div class="slide-counter-overlay" id="slideCounterOverlay">1 / 80</div>
+  </div>
+
+  <!-- RIGHT: TEXT -->
+  <div class="text-panel">
+    <div class="text-panel-header">
+      <h2 id="slideTitle">第 1 頁</h2>
+    </div>
+    <div class="text-content" id="textContent"></div>
+  </div>
+</div>
+
+<!-- THUMBNAIL STRIP -->
+<div class="thumb-strip" id="thumbStrip"></div>
+
+<!-- BOTTOM NAV -->
+<div class="nav-bar">
+  <button class="btn btn-ghost" onclick="goTo(0)">⏮ 首頁</button>
+  <button class="btn" onclick="prevSlide()">◀ 上一頁</button>
+  <div class="slider-wrap">
+    <span class="slider-tooltip" id="sliderTooltip">第 1 頁</span>
+    <input type="range" class="page-slider" id="pageSlider" min="1" max="80" value="1">
+  </div>
+  <div class="slide-progress" id="slideProgress">1 / 80</div>
+  <button class="btn" onclick="nextSlide()">下一頁 ▶</button>
+  <button class="btn btn-ghost" onclick="goTo(79)">末頁 ⏭</button>
+</div>
+
+<!-- FOOTER -->
+<footer>臺北市立麗山高中 ｜ 林獻升老師 ｜ AI 輔助專題研究與科展競賽教學簡報</footer>
+
+<!-- FULLSCREEN OVERLAY CONTROLS -->
+<button class="fs-exit-btn" onclick="exitFullscreen()">✕ 離開全螢幕</button>
+<div class="fs-nav-overlay">
+  <button onclick="prevSlide()">◀</button>
+  <span class="fs-counter" id="fsCounter">1 / 80</span>
+  <button onclick="nextSlide()">▶</button>
+  <button class="fs-autoplay-btn" id="fsAutoBtn" onclick="toggleAutoplay()" title="自動播放">▶</button>
+  <div class="autoplay-wrap" style="color:#ccc">
+    <input type="number" id="fsIntervalInput" class="time-input" value="8" min="2" max="60" style="background:rgba(255,255,255,0.1);border-color:rgba(255,255,255,0.3);color:#fff">
+    <label style="color:#ccc">秒</label>
+  </div>
+</div>
+
+<script>
+// ────────────────────────────────────────────
+// SLIDE DATA — 80 slides
+// ────────────────────────────────────────────
+const slides = [
+  {
+    title: "Slide 1：AI 輔助老師指導專題研究",
+    img: "origin_image/slide_01.png",
+    text: `<p>本套指引所探討的核心主題，是「AI 輔助老師指導專題研究」。隨著生成式 AI 工具的普及，學生開始嘗試在研究歷程中導入 AI 協作。然而，如何讓 AI 真正扮演研究助教的角色，而非成為投機代寫的捷徑，正是我們這套指引希望回應的根本問題。</p>
+<p>從選題發想，一路到科展競賽的正式發表，我們所依循的三個核心原則貫穿始終：<strong>由人類主導研究方向</strong>、<strong>與 AI 進行深度協作</strong>、<strong>所有 AI 產出皆須可查核驗證</strong>。這三個原則，決定了整套流程的設計邏輯，也是師生在使用 AI 時最重要的思維基礎。</p>`
+  },
+  {
+    title: "Slide 2：簡報章節導覽",
+    img: "origin_image/slide_02.png",
+    text: `<p>整份教學簡報共規劃六個核心章節。首先，我們會從教育現場的需求出發，說明導入 AI 的背景與目的；接著介紹專題研究中常見的 AI 工具分類，並釐清基本使用原則。</p>
+<p>第三章是本次教學的重心，完整拆解從題目發想、文獻檢索、實驗設計，到數據分析、報告撰寫、簡報答辯的 AI 輔助流程。第四章以「空氣品質與專注力」作為實務示例進行演練，最後兩章則聚焦於風險與誠信管控，並為指導教師提供具體的教學建議。</p>`
+  },
+  {
+    title: "Slide 3：專題研究的教育現場需求",
+    img: "origin_image/slide_03.png",
+    text: `<p>在 108 課綱的推動下，探究與實作以及跨領域學習已成為中學教育的核心精神。專題式學習的理念，是讓學生從真實生活情境出發，親身經歷「提出問題、設計方法、蒐集數據、論證溝通」的完整科學探究歷程。</p>
+<p>在這個過程中，我們更在意的不是學生是否做出了震驚世界的重大發現，而是他們在整個歷程中能否培養出獨立的科學思維與解決問題的能力。科學展覽或專題研究報告，正是學生展現這些核心素養的終端成果。但對師生而言，這同時也是一場極具挑戰性的智力與心力耐力賽。</p>`
+  },
+  {
+    title: "Slide 4：生成式 AI 導入的契機",
+    img: "origin_image/slide_04.png",
+    text: `<p>如果引導得當，生成式 AI 能成為專題研究中相當強大的助理。在資訊整理層面，AI 可以協助學生快速完成文獻的初篩與背景閱讀，節省大量盲目搜尋的時間；在寫作與分析層面，AI 可以協助精煉文字、產出大綱，甚至輔助撰寫統計分析所需的程式碼。</p>
+<p>更重要的是，AI 能有效降低技術門檻，讓學生不因不會寫程式或不懂版面設計而在研究途中卡關，從而把更多心力聚焦在核心的科學邏輯與問題探討上。這，正是 AI 導入專題研究最值得期待的價值所在。</p>`
+  },
+  {
+    title: "Slide 5：AI 導入專題研究的挑戰",
+    img: "origin_image/slide_05.png",
+    text: `<p>水能載舟，亦能覆舟。若缺乏引導地讓學生盲目使用 AI，風險是顯而易見的。首先是「AI 幻覺」問題——大型語言模型常會編造根本不存在的文獻、實驗數據或科學理論；其次是「抄寫式依賴」，當學生習慣直接複製 AI 的回答，他們便失去了獨立思考與實驗規劃的鍛鍊機會。</p>
+<p>最嚴重的是「學術誠信危機」：若學生在報告中隱瞞使用 AI 的事實，或將 AI 捏造的結果直接用於參賽，一旦被評審察覺，將面臨扣分甚至取消資格的後果。這三類風險，正是我們設計這套指引所需要正面回應的核心挑戰。</p>`
+  },
+  {
+    title: "Slide 6：本指引的定位與對象",
+    img: "origin_image/slide_06.png",
+    text: `<p>本指引的定位，並非單純教導如何操作 AI 工具，而是提供一套「教師可落地執行」的 AI 指導專題流程。我們的核心理念是：在借助 AI 提升效率的同時，絕不取代學生的自主思考。</p>
+<p>教師在這套流程中扮演「把關者」的角色，透過設定明確的使用規則、查核機制與揭露規範，確保整個研究歷程的品質與學術誠信。這套指引適用於國中、高中及職校的專題指導教師，幫助各位在教學現場有條不紊地引導學生，讓 AI 真正成為師生最得力的科研助手。</p>`
+  },
+  {
+    title: "Slide 7：常見 AI 工具的四大分類",
+    img: "origin_image/slide_07.png",
+    text: `<p>在進入流程討論之前，我們需要先了解不同研究階段有哪些適用的 AI 工具。大致可以分為四大類：</p>
+<p><strong>生成對話工具</strong>（如 ChatGPT、Claude、Gemini）：適合前期腦力激盪與文字整理。<strong>文獻整理工具</strong>（如 Elicit、SciSpace、NotebookLM）：能快速撈取並摘要學術文獻。<strong>數據分析工具</strong>（如 Julius AI、Google Colab）：協助數據視覺化與程式碼生成。<strong>簡報海報表達工具</strong>（如 Canva、Gamma）：協助視覺化排版與版面設計。分類的目的，在於讓師生在不同階段選擇最適切的工具，而非一概而論地盲目套用。</p>`
+  },
+  {
+    title: "Slide 8：工具類型一：生成對話與教學助理",
+    img: "origin_image/slide_08.png",
+    text: `<p>像 ChatGPT 或 Claude 這類生成對話工具，在專題研究中可以扮演師生的虛擬助教。在第一階段，學生可以利用它進行題目大綱的腦力激盪；在撰寫報告時，AI 能協助精煉學生的口語表達，使其更具科學語氣與學術嚴謹度。</p>
+<p>到了競賽準備階段，這些對話工具更能扮演「嚴格的科展評審」，針對研究大綱進行多輪的虛擬問答與模擬答辯。只要賦予合適的角色設定，它便能提供即時而多角度的反饋。不過，學生必須將 AI 的回答加以重整內化，而不是直接複製貼上。</p>`
+  },
+  {
+    title: "Slide 9：工具類型二：文獻搜尋與查核工具",
+    img: "origin_image/slide_09.png",
+    text: `<p>針對「科學文獻」的 AI 工具，對中學生而言尤其關鍵，因為閱讀學術文獻的門檻本來就相當高。Elicit 或 Consensus 這類工具可以直接輸入研究問題，從真實資料庫中檢索，並給出有證據支持的回答，有效降低 AI 幻覺的風險。</p>
+<p>SciSpace 是與 PDF 對話的優秀工具，學生若看不懂論文中的複雜公式或方法細節，可以直接圈選並請 AI 解釋。ResearchRabbit 則能建立文獻地圖，找出不同論文之間的引用與關聯網絡，讓文獻回顧更具系統性。</p>`
+  },
+  {
+    title: "Slide 10：工具類型三：數據整理與分析工具",
+    img: "origin_image/slide_10.png",
+    text: `<p>進入實驗階段後，學生往往面對大量混亂的數據。ChatGPT 的進階數據分析功能可以協助進行初步的資料健檢，並自動繪製趨勢圖；Julius AI 則是專為數據設計的分析工具，只要上傳 CSV 檔，就能以自然語言請它進行曲線擬合或統計檢定。</p>
+<p>對於想學習程式的學生，AI 也能在 Google Colab 或 RStudio 中輔助生成數據清理與分析的程式碼，幫助學生跨越語法學習的障礙，把心力放在真正重要的科學問題上。</p>`
+  },
+  {
+    title: "Slide 11：工具類型四：簡報與海報輔助工具",
+    img: "origin_image/slide_11.png",
+    text: `<p>不論研究做得多好，若無法清晰表達，效果便會大打折扣。學生常花費過多時間在排版與視覺設計上，此時可以善用 PowerPoint 搭配 Copilot，從文字大綱直接轉化為簡報架構；Canva 的 Magic Design 可以根據研究主題提供符合氛圍的海報排版模板；而 Gamma 則讓學生用文字描述快速生成簡報雛形。</p>
+<p>這些工具能在符合科學專業的前提下，協助學生快速建立高質感的視覺呈現。更重要的是，把排版時間省下來，留給口頭報告的反覆練習。</p>`
+  },
+  {
+    title: "Slide 12：教師指導的 5 大原則",
+    img: "origin_image/slide_12.png",
+    text: `<p>在引導學生使用各式 AI 工具時，教師必須堅守五大基本原則：</p>
+<p><strong>AI 是輔助，不是作者</strong>：研究的核心論點與實驗決策必須由學生主導。<strong>先求可驗證</strong>：AI 提供的任何資料，在查證前都不可直接採信。<strong>保留歷程證據</strong>：要求學生記錄與 AI 的對話歷程、提示詞與修改筆記。<strong>隱私優先</strong>：嚴禁學生上傳任何未公開的個人資料或敏感數據。<strong>引用披露</strong>：報告中必須透明說明在哪些環節使用了 AI。這五大原則，是維持學術誠信最重要的底線。</p>`
+  },
+  {
+    title: "Slide 13：題目發想：生活與校園情境",
+    img: "origin_image/slide_13.png",
+    text: `<p>好的題目，往往來自最真實的日常觀察。教師可以引導學生從校園或生活周遭的痛點出發——教室裡的噪音、不同位置的光照差異、通風不良對空氣品質的影響、學校走廊動線的不順暢、用水用電效率的問題，乃至餐飲保存方式與不同環境下的學習效率，都是可以發展為嚴謹研究題目的起點。</p>
+<p>從這些切身有感的情境出發，不僅能提高學生的研究動機，也因為可以在校內方便取樣與觀測，大幅降低了實驗執行的難度。選題越貼近真實情境，研究的可行性往往越高。</p>`
+  },
+  {
+    title: "Slide 14：題目發想：環境特色與技術驅動",
+    img: "origin_image/slide_14.png",
+    text: `<p>除了生活觀察，我們也可以引導學生結合在地環境特色或手邊可得的技術來發想題目。例如學校附近的河川水質變化、在地特有農作物的生長情況、都市熱島效應的觀測，都是具有在地特色的研究方向。</p>
+<p>在技術驅動方面，學校常備有二氧化碳感測器、micro:bit、光譜儀等硬體，學生可以思考如何利用這些感測器收集數據。閱讀歷屆科展或小論文的獲獎作品，也是極佳的靈感來源——從前人研究的限制或未解問題中切入，並提出改良方案，往往就是最有說服力的選題策略。</p>`
+  },
+  {
+    title: "Slide 15：題目收斂四步法",
+    img: "origin_image/slide_15.png",
+    text: `<p>當學生有了許多天馬行空的想法之後，引導他們收斂是教師最關鍵的任務。我們推薦使用「題目收斂四步法」來系統化地篩選：</p>
+<p>第一步「擴散」：讓學生寫下 20 至 30 個有趣的點子，不加任何限制；第二步「聚焦」：用五大指標打分，篩選出最優的 5 個方向；第三步「可測」：把抽象題目轉化為現有條件下可量測的具體依變項；第四步「可做」：要求學生設計 1 至 2 週的最小可行前導實驗。透過這個漏斗式的篩選流程，才能確保最終選定的題目真正可行且具備科學價值。</p>`
+  },
+  {
+    title: "Slide 16：四步法之一：擴散與聚焦",
+    img: "origin_image/slide_16.png",
+    text: `<p>在擴散階段，學生需要在表格中寫下點子，並附上「為什麼這個有趣？」的一句說明。聚焦階段則使用五個指標逐一評分（每項 1 至 5 分）：有趣度、是否可測量、資源可得性、時間可行性、研究風險。</p>
+<p>這種量化的評分方式，幫助學生理性評估，淘汰掉那些只靠直覺卻實際上無法執行的方向。此時教師的把關重點，在於快速排除涉及高危險性、昂貴材料或需要極長實驗週期的不切實際選項。</p>`
+  },
+  {
+    title: "Slide 17：四步法之二：將題目「操作化」",
+    img: "origin_image/slide_17.png",
+    text: `<p>「操作化」是科學研究能否落實的關鍵步驟。很多學生喜歡選「探討如何讓教室更乾淨」或「如何提升學習專注力」這類題目，但這些概念太過抽象，無法直接進行量測。</p>
+<p>教師需要引導學生將抽象概念轉譯為可量測的指標：抽象的「清潔力」在實驗中要量化為去污率的百分比或殘留污垢的質量；「專注度」要轉化為專注力測驗的正確率或點擊反應時間；「保鮮效果」則量化為菌落數、pH 值變化或重量損失率。沒有明確的操作型定義，實驗便無從開始。</p>`
+  },
+  {
+    title: "Slide 18：把題目寫成「研究問題」",
+    img: "origin_image/slide_18.png",
+    text: `<p>完成操作化後，下一步是引導學生把題目寫成精準的研究問題。一個標準的研究問題，應該像拼圖一樣，清楚結合自變項、依變項與研究範圍。</p>
+<p>常見的三種類型：<strong>比較型</strong>——「在不同通風條件下，教室內的二氧化碳濃度是否有顯著差異？」；<strong>最佳化型</strong>——「自變項控制在多少數值時，植物生長速率能達到最大？」；<strong>關係型</strong>——探討自變項與依變項之間是否呈現線性關係。明確的問句，能讓後續的實驗設計更具靶向性。</p>`
+  },
+  {
+    title: "Slide 19：可行性把關：前導試驗",
+    img: "origin_image/slide_19.png",
+    text: `<p>在學生正式進入大規模實驗之前，必須設下一個關卡：「前導試驗（Pilot Study）」。這是專題研究的排雷工作。我們要求學生用最小的成本、花 1 至 2 週的時間，先測試儀器讀值是否穩定、操作步驟是否有意料之外的困難，以及兩個處理組之間的差異能否被偵測到。</p>
+<p>實際上，很多學生在這個階段會發現儀器故障，或一次操作需要五個小時根本做不完。我們必須堅守一個鐵律：<strong>沒有前導試驗報告，絕對不能進入正式實驗。</strong></p>`
+  },
+  {
+    title: "Slide 20：題目發想與評估的 AI 提示詞",
+    img: "origin_image/slide_20.png",
+    text: `<p>當學生在選題階段遭遇瓶頸，可以引導他們使用 AI 協助發想——但必須給予精準的提示詞規格。例如要求 AI 以表格輸出，欄位包含「研究問題、自變項、依變項、對照組、所需關鍵感測器」。</p>
+<p>同時，需要設定「避坑規則」：明確限定 AI 不得自行編造不存在的儀器或物理常數，若有不確定之處，必須在表格下方列出「待補問題」。我們在指引中提供了大量發想、縮小題目及可行性評估的提示詞範本，各位教師可以直接提供給學生使用，讓師生與 AI 的互動更有效率。</p>`
+  },
+  {
+    title: "Slide 21：文獻搜尋的三個目的",
+    img: "origin_image/slide_21.png",
+    text: `<p>確立研究方向之後，文獻搜尋是不可跳過的關鍵步驟。許多學生急著動手做實驗，卻忽略了文獻閱讀的重要性。事實上，文獻搜尋主要服務三個核心目的：</p>
+<p><strong>避免重複踩雷</strong>：確認是否已有人做過相同研究，若有，就必須修正切入角度；<strong>複製成熟方法</strong>：尋找前人已驗證可行的實驗步驟、儀器參數與量測指標；<strong>尋找差異化缺口</strong>：在了解既有研究的限制後，提出創新或改進方案——這才是專題研究真正有價值的地方。文獻搜尋，是整個研究的基石。</p>`
+  },
+  {
+    title: "Slide 22：檢索策略與關鍵字擴展",
+    img: "origin_image/slide_22.png",
+    text: `<p>精準找到高相關文獻的關鍵，在於系統化的檢索策略。首先是「關鍵字階梯」——不能只用簡單的中文關鍵字，應將中文轉換為英文同義詞，甚至更精準的學術專有名詞。接著靈活運用布林邏輯組合：AND 收斂範圍、OR 擴展同義詞、NOT 排除無關干擾。</p>
+<p>最重要的一點，是將每次檢索所使用的 5 至 10 組檢索式完整記錄下來。這樣在日後需要補充文獻或撰寫報告時，才能隨時回查並呈現完整的檢索軌跡——這既是學術誠信的體現，也是研究歷程透明化的重要環節。</p>`
+  },
+  {
+    title: "Slide 23：三層閱讀法",
+    img: "origin_image/slide_23.png",
+    text: `<p>面對大量文獻，逐篇從頭讀到尾既耗時又不切實際。高效的「三層閱讀法」可以解決這個問題：</p>
+<p><strong>第一層</strong>：先看摘要與關鍵圖表，判斷這篇論文是否與研究方向相關、值不值得深讀；通過篩選後，<strong>第二層</strong>重點閱讀方法（Method），仔細檢查濃度、儀器參數、實驗步驟等細節，評估我們能否在實驗室中複製；只有對高度相關的種子文獻，才進入<strong>第三層</strong>「討論與限制」，探究作者在結論中發現的不足，進而找到自己的研究切入點。</p>`
+  },
+  {
+    title: "Slide 24：避免 AI 幻覺引用",
+    img: "origin_image/slide_24.png",
+    text: `<p>許多學生會使用 AI 協助搜尋文獻或撰寫摘要，但必須特別警覺一個致命陷阱——「AI 幻覺」。大型語言模型非常容易為了回應提問而編造根本不存在的論文標題、作者名甚至 DOI，而這在科學寫作中屬於學術不端行為。</p>
+<p>因此，我們必須嚴格執行「回查三步驟」：利用資料庫檢索確認論文存在、實際找到原文、並核對文內細節是否與 AI 摘要相符。報告正文中引用的每一條文獻，都必須附有可回查的真實來源。查不到的，絕對不能寫進報告。</p>`
+  },
+  {
+    title: "Slide 25：進階文獻追溯技巧",
+    img: "origin_image/slide_25.png",
+    text: `<p>找到一篇高度相關的種子論文後，可以利用「順藤摸瓜」的技巧擴展文獻庫。這分為兩個方向：<strong>往回找（Backward）</strong>，閱讀該論文的參考文獻，追溯理論基礎與實驗方法的源頭；<strong>往前找（Forward）</strong>，搜尋有哪些較新的論文引用了這篇種子論文，以掌握最新的延伸研究與不同學術觀點。</p>
+<p>我們也建議鎖定該領域 3 至 5 位最活躍的研究團隊，持續追蹤他們最新發表的成果。這樣的追蹤策略，能讓研究的文獻基礎始終站在最前沿的位置。</p>`
+  },
+  {
+    title: "Slide 26：文獻蒐集相關 AI 工具實務",
+    img: "origin_image/slide_26.png",
+    text: `<p>在文獻收集與分析上，有幾款強大的 AI 工具各有其獨特強項。<strong>Elicit</strong> 可以自訂欄位，快速抽取多篇文獻的特徵（方法、樣本數等）並整理成表格；<strong>SciSpace</strong> 適合與 PDF 對話，特別擅長解讀論文中複雜的數學公式與實驗步驟細節；<strong>Scite</strong> 能幫我們檢查某篇論文是被後續研究「支持」還是「反駁」，對推論可靠性的查核極為有用；<strong>NotebookLM</strong> 則非常適合上傳多篇 PDF，自動生成主題大綱與比較表。</p>
+<p>每款工具都有其最適用的場景，不同階段應有所偏重，而非用一個工具包辦所有事。</p>`
+  },
+  {
+    title: "Slide 27：建議的文獻工作流",
+    img: "origin_image/slide_27.png",
+    text: `<p>我們設計了一套完整的文獻工作流，讓整個檢索與管理過程有清楚的脈絡可循：從 Google Scholar 粗搜開始；使用 Connected Papers 補齊文獻關係圖，找到核心種子論文；透過 Elicit 進行多篇文獻的特徵篩選；再將鎖定的文獻放入 SciSpace 深入閱讀；用 Scite 查核結論是否被後續研究支持；最後將所有確認引用的文獻導入 Zotero 進行分類整理與自動生成引用格式。</p>
+<p>這樣條理分明的工作流，能大幅提升文獻整理的效率，也讓研究歷程的文件紀錄更加完整。</p>`
+  },
+  {
+    title: "Slide 28：文獻搜尋與整理的 AI 提示詞",
+    img: "origin_image/slide_28.png",
+    text: `<p>如何向 AI 下指令，才能得到真正有用的文獻整理結果？我們可以請 AI 建立結構化的「文獻筆記表與文獻矩陣」，要求包含理論機制、實驗條件、量測儀器與結論趨勢等欄位。</p>
+<p>我們也可以把 AI 摘要出來的粗糙文字，透過改寫提示詞，精煉成更符合學術口吻的科學語氣。這裡必須提醒的是，AI 生成的摘要僅供參考，我們仍需對照原文進行最終的確認與修改。AI 是加速工具，而非取代閱讀判斷的替代品。</p>`
+  },
+  {
+    title: "Slide 29：實驗設計完整性檢查",
+    img: "origin_image/slide_29.png",
+    text: `<p>準備動手做實驗之前，必須先進行「實驗設計完整性檢查」。這張檢核表就像一張安全防護網：首先，實驗步驟的操作性定義必須精確到具體的「數字、單位與條件」；其次，要明確界定處理組與基準對照組，確保變因被嚴格控制。</p>
+<p>在動手之前，學生必須先提交三項最低限度的產出：完整的實驗方法表、第一版 SOP 操作手冊，以及用來記錄數據的空白表格。唯有做足這些準備，實驗數據才具有科學可信度。缺乏準備的實驗，往往事後才發現問題，補救成本遠高於事前規劃。</p>`
+  },
+  {
+    title: "Slide 30：樣本數觀念與重複類型",
+    img: "origin_image/slide_30.png",
+    text: `<p>在科學研究中，有一個常見的嚴重觀念誤區：把「量三次」直接當作「樣本數 n=3」。我們必須清楚區分兩種不同的重複類型：</p>
+<p><strong>技術重複</strong>：對同一個樣品測量三次，這只能驗證儀器的穩定性與操作的偏差，並不能反映群體的自然變異。<strong>生物或樣本重複</strong>：測量三個獨立的樣品，這才能真正代表群體的自然差異。在科展評審眼中，只有生物或樣本重複才算真正的樣本數 n。此外，在不同天、不同批次製作樣品的「批次重複」，能幫助排除環境變化的干擾，提升研究結果的穩定性。</p>`
+  },
+  {
+    title: "Slide 31：實驗可重現性與步驟文件化",
+    img: "origin_image/slide_31.png",
+    text: `<p>科學研究最重要的特質之一就是「可重現性」——任何人照著實驗步驟操作，都應該能得到相近的結果。因此，撰寫步驟時必須拒絕模糊的口語詞彙，例如「充分攪拌」、「在室溫下」或「適量」。</p>
+<p>這些描述應全部改為數字化的精準條件，例如「使用磁力攪拌器以 200 rpm 攪拌 5 分鐘」、「置於 25°C 恆溫水浴槽中」。同時，要預先建立「資料字典」，明確定義每個記錄欄位的名稱、單位與缺失值代碼，讓整套實驗流程完全規範化。</p>`
+  },
+  {
+    title: "Slide 32：變因設計：繪製變因樹",
+    img: "origin_image/slide_32.png",
+    text: `<p>一個實驗往往涉及許多錯綜複雜的因素。我們可以使用「變因樹」進行視覺化的解構：以研究問題為樹幹，向上分出三個主要枝椏。</p>
+<p>第一層是我們主動操弄、想觀察其影響的<strong>自變項</strong>；第二層是必須固定下來、絕對不能讓它變動的<strong>控制變因</strong>——這是最容易被忽略的隱形漏洞；第三層則是我們無法控制、但必須在實驗過程中詳實記錄的<strong>背景變因</strong>，例如當天的氣溫、濕度或大氣壓力。透過變因樹，可以確保沒有任何關鍵變因被遺漏在設計之外。</p>`
+  },
+  {
+    title: "Slide 33：對照組的設計",
+    img: "origin_image/slide_33.png",
+    text: `<p>對照組是排除外在干擾、確立因果關係的基準。在設計實驗時，通常有三種對照組需要考量：</p>
+<p><strong>空白對照（Blank）</strong>：不加入任何樣品，用來觀察背景雜訊和儀器本身的漂移；<strong>陰性對照</strong>：預期不會產生任何實驗效果的條件，用來排除心理預期、操作誤差或假陽性的干擾；<strong>陽性對照</strong>：使用已知且確定會產生預期效果的條件，用來確認整個實驗系統正處於正常運作狀態。三者相輔相成，缺一不可。</p>`
+  },
+  {
+    title: "Slide 34：降低實驗偏誤：隨機化與區組",
+    img: "origin_image/slide_34.png",
+    text: `<p>在進行測量時，許多看不見的干擾會悄悄影響數據。我們需要藉由隨機化、盲測與區組設計來排除偏誤。</p>
+<p><strong>隨機化</strong>：不應按照固定順序測量樣品，否則儀器老化、溫度上升等時間相關因素就會變成隱形的自變項；<strong>盲測</strong>：特別是涉及主觀評分時，應對樣品編碼，直到分析結束後才揭盲；<strong>區組（Blocking）</strong>：若實驗必須分多天或多批次進行，應將這些已知的批次干擾設計為區組，在統計時加以控制，以提高結果的精準度。</p>`
+  },
+  {
+    title: "Slide 35：實驗設計可用的輔助工具",
+    img: "origin_image/slide_35.png",
+    text: `<p>在數位工具的輔助下，許多免費且專業的觀測軟體可以幫助師生實現高精度量測。<strong>phyphox</strong> 能直接讀取手機內建感測器，測量加速度、聲波頻譜與磁場強度，瞬間將手機變成物理實驗室；<strong>Tracker</strong> 是強大的影片分析軟體，只要拍攝物體運動影片，就能自動追蹤並取出位移、速度與加速度軌跡；<strong>Fiji（ImageJ）</strong> 則是分析顯微影像的利器，能自動計算細胞數量、面積與粒子直徑。</p>
+<p>善用這些工具，不只能提升數據的說服力，更能讓學生體會到科技輔助探究的真實樂趣。</p>`
+  },
+  {
+    title: "Slide 36：實驗設計的 AI 提示詞",
+    img: "origin_image/slide_36.png",
+    text: `<p>設計好實驗方案後，如何利用 AI 查漏補缺？我們可以請 AI 扮演一位「極度嚴格的評審」，將實驗設計輸入給它，請它列出 10 個最可能在答辯時被追問的漏洞，並要求給出具體的修正建議與最小證據清單。</p>
+<p>此外，若學生的實驗日記記錄得比較口語零碎，也可以提供給 AI，請它協助改寫成符合科學標準、用字精確的 SOP 操作步驟。這種「主動讓 AI 挑錯」的紅隊（Red Team）思維，能確保進入實驗前就將潛在的問題全部預先排除。</p>`
+  },
+  {
+    title: "Slide 37：數據規格化：Tidy Data",
+    img: "origin_image/slide_37.png",
+    text: `<p>實驗完成後，許多學生的 Excel 表格往往凌亂不堪，根本無法直接進行統計分析。我們必須導入「整潔資料（Tidy Data）」的原則，把資料整理成可分析的結構：</p>
+<p>三個硬性規則：<strong>每一列代表一筆獨立的觀測值</strong>；<strong>每一欄代表一個變項</strong>（例如溫度、pH 值、組別）；<strong>每一張表只記錄同一個層級的資訊</strong>。另外，欄位命名應使用英文和底線，保持一致性。最重要的是：原始數據（Raw Data）一定要唯讀保存，所有清理與修改都只能在備份中進行。</p>`
+  },
+  {
+    title: "Slide 38：資料清理 SOP 與 README",
+    img: "origin_image/slide_38.png",
+    text: `<p>數據分析過程中，我們常需要處理格式錯誤、範圍外的異常值或缺失值，這個過程稱為「資料清理」。這是相當嚴肅的工作，所有清理動作都必須有透明的歷程記錄。</p>
+<p>若要刪除某個離群值，絕對不能私底下偷偷刪除，必須遵循公認的統計規則（例如 IQR 四分位距法），並詳實記錄原因。我們必須為數據集撰寫一份 README 文件，清楚說明資料的清理規則、缺失值的代碼，以及每個欄位的具體物理定義。這能確保研究的透明度與誠信，是可重現性的重要保障。</p>`
+  },
+  {
+    title: "Slide 39：探索性數據分析（EDA）",
+    img: "origin_image/slide_39.png",
+    text: `<p>拿到乾淨的資料後，很多學生會急著進行統計檢定，但這是不對的。應該先進行「探索性數據分析（EDA）」，先用圖表把資料「看懂」，再決定後續的統計策略。</p>
+<p>可以畫直方圖或密度圖觀察數據的分布形態；用箱型圖檢查是否有明顯的離群值；比較組別差異時，不要只看平均值，應使用箱型圖或加上抖動點（Jitter）的散佈圖，才能看清數據的真實分布。繪製自變項與依變項的散佈圖並加上趨勢線，能幫助初步判斷兩者之間是否存在真實的相關性。</p>`
+  },
+  {
+    title: "Slide 40：數據分析圖表規格",
+    img: "origin_image/slide_40.png",
+    text: `<p>在科展中，一張不專業的圖表會讓評審對研究品質立即打折扣。符合科展標準的專業圖表，必須具備幾個規格：</p>
+<p><strong>標題即結論</strong>：不要寫無意義的「XX 關係圖」，應直接寫出核心發現，例如「添加 A 後反應速率提升 30%」；<strong>座標軸</strong>：必須有清晰的標籤與單位；<strong>誤差棒</strong>：數據點上必須標示誤差棒，並在圖說中明確說明代表的是標準差（SD）、標準誤（SE）還是 95% 信賴區間，同時標註樣本數 n。細節完美的圖表，才能傳遞出真正的科學嚴謹性。</p>`
+  },
+  {
+    title: "Slide 41：統計檢定的選擇",
+    img: "origin_image/slide_41.png",
+    text: `<p>收集到實驗數據後，必須根據自變項和依變項的類型來選擇正確的統計方法，而不能隨便套用公式。</p>
+<p>想比較兩組平均值是否有顯著差異：不同受試者用「獨立樣本 t 檢定」，同一受試者前後對比則用「成對樣本 t 檢定」。三組或更多組別的比較（如不同通風條件），必須使用「單因子變異數分析（ANOVA）」。探討兩個連續變項之間的關係，使用相關分析或線性迴歸；針對類別資料的比例差異，則用卡方檢定。理解變項類型與檢定方法的對應關係，遠比背公式更重要。</p>`
+  },
+  {
+    title: "Slide 42：結果解讀與避免過度解讀",
+    img: "origin_image/slide_42.png",
+    text: `<p>得到統計結果後，解讀數據時必須秉持「數據說多少話，就寫多少結論」的嚴謹精神。最常見的錯誤是把「相關性」直接當作「因果關係」——例如發現二氧化碳濃度上升與學生反應時間變長高度相關，不能直接斷定是二氧化碳「導致」反應變慢，因為可能還有其他因素的影響。</p>
+<p>在結果段落中，只需客觀描述數據呈現的趨勢，不要加入主觀推測；那些合理的推論與機制解釋，應留到討論段。同時，誠實面對研究限制不僅不會扣分，反而能向評審展現對科學方法的深刻理解。</p>`
+  },
+  {
+    title: "Slide 43：數據整理與分析的 AI 工具",
+    img: "origin_image/slide_43.png",
+    text: `<p>許多強大的 AI 工具可以輔助我們進行數據分析，讓師生不需要一開始就精通複雜的統計程式。ChatGPT 的 Data Analysis 功能只要上傳 CSV 檔，就能進行初步的資料檢查與探索性分析，快速找出異常值；Julius AI 專為數據分析優化，擅長繪製專業圖表、進行統計檢定，甚至能做複雜的迴歸分析與曲線擬合。</p>
+<p>即使使用傳統 Excel，也可以透過 Claude 側邊欄協助檢查公式是否正確，或在多張表格之間快速摘要。這些 AI 工具就像是專屬的統計助教，讓學生把精力集中在結果解釋與科學討論上，而非繁瑣的操作細節。</p>`
+  },
+  {
+    title: "Slide 44：數據整理與統計的 AI 提示詞",
+    img: "origin_image/slide_44.png",
+    text: `<p>要讓 AI 給出真正有用且符合學術誠信的分析結果，需要設計精確的提示詞。不能只丟下一句「幫我分析這些數據」，而是要遵循三個核心步驟：</p>
+<p>第一步請 AI 進行資料健檢，找出異常值、缺值或格式錯誤，並輸出清理 SOP；第二步進行探索性數據分析，引導 AI 依據數據特徵提供建議的圖表與檢定方法；第三步撰寫結果描述，可以下達類似「請依據圖表數據，以科學論文的口吻寫出結果描述，只能依據數據趨勢客觀描述，絕對不能推測原因或加入未經證實的因果關係」的指令。這樣的語氣限制，是確保 AI 產出嚴謹且真實的關鍵。</p>`
+  },
+  {
+    title: "Slide 45：科展報告的常見結構",
+    img: "origin_image/slide_45.png",
+    text: `<p>完成實驗與數據分析後，將成果寫成正式研究報告時，無論是校內專題還是全國科展，都遵循 IMRaD 的經典骨架。</p>
+<p><strong>前言（Introduction）</strong>：交代研究背景、現有知識缺口以及研究目的；<strong>研究方法（Methods）</strong>：詳述材料規格、變因控制、實驗步驟 SOP 及統計分析方法；<strong>結果（Results）</strong>：以客觀圖表和趨勢描述呈現數據；<strong>討論（Discussion）</strong>：解釋數據背後的機制、與既有文獻對照，並說明研究限制與未來改進方向。掌握這個骨架，報告就能條理清晰、層次分明。</p>`
+  },
+  {
+    title: "Slide 46：研究報告撰寫工作流",
+    img: "origin_image/slide_46.png",
+    text: `<p>使用 AI 輔助寫作時，必須建立嚴謹的工作流，以避免文章流於空泛或產生幻覺。首先，把實驗日誌與客觀數據整理成「事實清單」，作為提供給 AI 的唯一素材，嚴禁讓 AI 憑空捏造。</p>
+<p>接著採取「逐段產生」策略，每次只讓 AI 撰寫一個小節；資料不足的地方用【待補】標注。初稿生成後，最關鍵的步驟是「人工核對與交叉查核」——逐字逐句核對文中數字是否與原始數據相符、引用的參考文獻是否確實存在且正確。最後進行全篇語氣的一致化修飾。人是最終的把關者，唯有嚴格查核，才能寫出高品質且真實的研究報告。</p>`
+  },
+  {
+    title: "Slide 47：寫作時的 AI 學術倫理",
+    img: "origin_image/slide_47.png",
+    text: `<p>在 AI 輔助寫作的過程中，學術誠信的底線必須嚴格遵守。<strong>作者責任不可外包</strong>：研究的核心問題、關鍵決策與最終結論，必須由學生完全主導並負責，AI 只是打字或潤飾的工具。<strong>嚴禁捏造與編造</strong>：絕對不能讓 AI 憑空生成文獻，或預測編造沒做過的實驗數據與步驟。</p>
+<p><strong>透明揭露</strong>：應在報告的附錄或致謝中，主動說明使用了哪些 AI 工具、使用範圍在哪裡（例如文獻文法潤飾、程式碼除錯等），並附上關鍵提示詞與修改歷程。誠實揭露，不僅是科學家應有的態度，更是保護自己研究成果不受倫理質疑的最佳方式。</p>`
+  },
+  {
+    title: "Slide 48：報告段落重點：摘要與前言",
+    img: "origin_image/slide_48.png",
+    text: `<p>摘要與前言是評審對研究的第一印象。摘要必須在有限字數內，精準交代研究目的、核心方法、主要結果以及研究的科學價值，讓人一眼看出亮點。</p>
+<p>前言建議採用「漏斗型」的三段式結構：第一段寫<strong>背景與重要性</strong>，說明研究領域為什麼重要；第二段指出<strong>現況與知識缺口</strong>，說明前人做到哪裡、還存在什麼未解之謎；第三段明確寫出<strong>研究問題、假設與預期貢獻</strong>，告訴讀者如何填補這個缺口。前言的邏輯鏈越強，整篇報告的說服力就越高。</p>`
+  },
+  {
+    title: "Slide 49：報告段落重點：研究方法",
+    img: "origin_image/slide_49.png",
+    text: `<p>研究方法的核心要求只有四個字：<strong>可重現性</strong>。任何一個不認識你的科學家，照著方法操作，都應該能得到相同的結果。因此材料規格、儀器型號和環境條件都必須清楚交代——不要只寫「使用感測器」，要寫出具體型號與廠牌。</p>
+<p>同時要確保邏輯連貫，變因表、SOP 步驟、數據量測方式和統計方法必須一一對應。必須<strong>拒絕模糊詞彙</strong>：「充分攪拌」、「室溫下」、「適量」都是不合格的描述，應改寫為「在 25°C 下，以 200 rpm 磁力攪拌 5 分鐘」這樣精準的數字化條件，以確保實驗的嚴謹性。</p>`
+  },
+  {
+    title: "Slide 50：報告段落重點：結果與討論",
+    img: "origin_image/slide_50.png",
+    text: `<p>許多學生在寫作時會把「結果」和「討論」混為一談，但這兩部分在科學寫作中有本質的區別。<strong>結果段</strong>是客觀描述數據——每段對應一張圖表，把圖表的趨勢、最大值、最小值或統計顯著性用中立的文字寫下來，絕對不能在這個階段加入個人推測或原因解釋。</p>
+<p><strong>討論段</strong>才是展現科學深度的舞台：解釋「為什麼會得到這樣的結果」、背後的科學機制為何，並把結果拿來與文獻對照，看看是支持還是衝突。最後誠實面對研究限制，並提出未來可以進行的下一步實驗方向。</p>`
+  },
+  {
+    title: "Slide 51：報告段落重點：參考文獻與附錄",
+    img: "origin_image/slide_51.png",
+    text: `<p>文獻格式與附錄是研究的堅強後盾。參考文獻清單必須格式統一，無論 APA 或 IEEE 格式，作者、年份、文章標題、期刊名稱與 DOI 都必須齊全——這代表了對學術界前輩的尊重，也方便讀者回查。</p>
+<p>「附錄」則存放那些無法放在正文但相當重要的細節，例如大量原始數據、詳細計算公式推導，或更長的 SOP 步驟。特別值得強調的是，「AI 使用揭露說明」——包括使用的提示詞和與 AI 協作的修改歷程——應一併整理放入附錄。這樣做不僅符合學術誠信，更讓評審看見嚴謹的研究歷程。</p>`
+  },
+  {
+    title: "Slide 52：報告撰寫的 AI 提示詞與模板",
+    img: "origin_image/slide_52.png",
+    text: `<p>為讓 AI 在報告寫作中發揮最大效益，我們可以為各段落準備專屬的指令模板。撰寫「前言」時，可以輸入：「請依據我提供的研究背景和目的，幫我寫出符合『背景、現況缺口、研究目的』三段式邏輯的前言大綱」。整理「研究方法」時，可以使用：「請將我以下口語化的實驗日記，改寫成正式、客觀、可重現的科學研究方法段落，確保所有計量單位、時間和溫度都有精確數字標註」。</p>
+<p>撰寫「討論」時，可以請 AI 扮演嚴厲評審：「請將我這三張圖表的結論串聯起來，並指出是否有過度推論的地方，提出可能的機制解釋方向」。這些指令能引導 AI 提供精準的協助，而非漫無邊際的生成。</p>`
+  },
+  {
+    title: "Slide 53：科學海報製作：閱讀情境",
+    img: "origin_image/slide_53.png",
+    text: `<p>參加科展競賽時，海報是我們與評審和觀眾溝通的主要橋樑。設計海報必須考量觀眾的「走讀情境」，可以用三個原則概括：</p>
+<p><strong>3 秒原則</strong>：評審在幾公尺外走動時，海報的大標題和核心數據圖必須在 3 秒內抓住目光；<strong>30 秒原則</strong>：評審走近時，應能在 30 秒內掃讀完研究問題、基本方法與關鍵結論；<strong>3 分鐘原則</strong>：當評審決定停下聽我們講解時，詳細方法、對照組設計與統計誤差棒等細節，要能支持這 3 分鐘的深入問答。設計海報前，必須把這三種距離與時間感牢記在心。</p>`
+  },
+  {
+    title: "Slide 54：科學海報製作：版面格線與留白",
+    img: "origin_image/slide_54.png",
+    text: `<p>好的海報排版，應能引導觀眾的視線自然流動，不需讓人猜「現在該看哪裡」。我們推薦使用清晰的「欄式佈局」，通常將海報分割成 3 欄或 4 欄，讓閱讀動線遵循「由左至右、由上至下」的自然習慣。</p>
+<p>設計時要特別注意「留白與呼吸空間」——不要為了塞滿內容而把文字邊距縮到最小，區塊與區塊之間都要預留空隙，視覺上才不會有壓迫感。同時嚴格遵守「對齊原則」，區塊邊界、標題起始線、圖表邊界都必須用格線完全對齊。整齊對齊、層次分明的版面，能在無形中提升研究的專業感與可信度。</p>`
+  },
+  {
+    title: "Slide 55：科學海報製作：字級層級與顏色",
+    img: "origin_image/slide_55.png",
+    text: `<p>海報上的文字大小與色彩配置，直接影響閱讀的舒適度與資訊傳遞的效率。字級方面，必須建立明顯的層級：主標題要非常大，確保在兩三公尺外就能看清；小標題與章節名稱次之；內文字級以在 1 公尺站立距離能輕鬆閱讀為標準，切忌字體過小。</p>
+<p>顏色方面，建議遵守色彩限制原則：使用黑、白、灰色打底，建立海報的整體一致性，再挑選 1 至 2 個與背景有強烈對比的強調色（如亮橘色或藍綠色）來標示關鍵數據或結論。最重要的是確保文字與背景有極高的對比度，即使在會場燈光不佳的環境下也能清晰易讀。</p>`
+  },
+  {
+    title: "Slide 56：科學海報製作：圖表優先原則",
+    img: "origin_image/slide_56.png",
+    text: `<p>一個核心原則必須記住：「一張好的數據圖，勝過千言萬語」。海報的有限版面，絕對不能放密密麻麻的文字報告，而是要貫徹「圖表優先」的設計思維。應把最能支持研究結論的 1 至 2 張核心圖表放大，放在海報最顯眼的中間區域，讓它成為視覺焦點。</p>
+<p>圖表標題不要只寫無意義的「XX 關係圖」，而是直接寫出核心結論，例如「通風條件改善使 CO₂ 濃度降低 30%」。海報上的文字只需扮演配角，條列式地引導觀眾看「圖中哪個轉折點是關鍵」、「處理組與對照組的差異在哪裡」。讓證據自己說話，就是最棒的科學溝通。</p>`
+  },
+  {
+    title: "Slide 57：科學海報的必備資訊與致謝",
+    img: "origin_image/slide_57.png",
+    text: `<p>在海報的底部，有幾個常被忽視但極為關鍵的必備區塊。<strong>研究限制與未來展望</strong>：主動列出 2 至 4 點研究的局限性（例如受限於儀器精度或樣本數量），並說明下一步的研究方向——評審看到這部分，會知道學生對科學方法有深刻的認識。</p>
+<p><strong>關鍵參考文獻</strong>：海報上不需要長長的文獻清單，精簡挑選 3 至 5 筆最核心的方法來源即可。<strong>致謝區</strong>：誠實透明地感謝在研究過程中提供場地、硬體資源或給予指導的教師與專家。研究限制不是扣分項，而是向評審展現批判性思考能力的機會；致謝則是學術誠信的具體體現。</p>`
+  },
+  {
+    title: "Slide 58：科學海報製作的 AI 提示詞",
+    img: "origin_image/slide_58.png",
+    text: `<p>將幾萬字的研究報告濃縮成海報上的簡短文案，常讓學生感到困難。此時可以利用 AI 協助進行精簡與重整，例如使用類似這樣的提示詞：「請依據我上傳的這段研究報告，為我產出符合海報閱讀情境的條列式文案。請遵守以下限制：每點字數不超過 20 字；句子中嚴禁使用『它』、『這』、『該』等模糊代名詞，必須換成具體主詞（例如『二氧化碳感測器』或『通風孔面積』）；語氣要完全客觀中立，只呈現數據事實。」</p>
+<p>透過 AI 的快速過濾，能迅速得到乾淨有力、適合海報呈現的精準句子，讓觀眾一眼就能抓住重點。去除「它、這、該」等代名詞，能大幅提升海報文案的客觀性與可讀性。</p>`
+  },
+  {
+    title: "Slide 59：科學簡報製作：文字黃金比例",
+    img: "origin_image/slide_59.png",
+    text: `<p>投影片要好看好讀，關鍵在於建立文字大小的「黃金比例」。為了讓坐在後排的評審和聽眾也能舒適閱讀，推薦這套字級規範：主標題 55pt、副標題或二級標題 34pt、內文 21pt、圖表下方的次要說明 13pt。</p>
+<p>在整份簡報中，同一個層級的文字大小必須完全一致，不能這頁主標是 55pt，下一頁又變成 40pt。行距一般設定在字級的 50% 至 75% 之間（即 1.5 至 1.75 倍行高），這樣才不會讓字堆疊在一起，閱讀起來才會輕鬆自然。「全篇字級一致」與「行距舒適」，是提升簡報質感最簡單也最有效的方法。</p>`
+  },
+  {
+    title: "Slide 60：科學簡報：一張只講一件事",
+    img: "origin_image/slide_60.png",
+    text: `<p>設計科學簡報時，最忌諱的就是把投影片當成口頭講稿，密密麻麻地塞滿文字。請記住這個黃金法則：<strong>一張投影片，只講一件事</strong>。若一頁簡報塞了太多重點，評審在聽說明的同時還要費力閱讀畫面文字，最後反而什麼都沒記住。</p>
+<p>正確的做法是，每頁投影片只放一張關鍵圖表或一句核心結論，讓視覺焦點高度集中。實驗細節、具體步驟或繁雜的背景數據，應留給口頭說明，由口頭表達補充，投影片只是視覺輔助工具。學會大刀闊斧地刪減投影片文字，發表就會變得無比清晰且有說服力。</p>`
+  },
+  {
+    title: "Slide 61：科學簡報：版面留白與視覺動線",
+    img: "origin_image/slide_61.png",
+    text: `<p>製作科學簡報時，版面絕對不能塞得太滿，必須保留足夠的「呼吸空間」，這就是留白的設計哲學。人類的視覺閱讀習慣通常是從左上到右上，再到左下、最後到右下，呈現一個「Z 字型」的視覺動線。</p>
+<p>排版時要順應這個動線：最關鍵的標題和核心問題放在左上方，最吸引人的關鍵圖表放在右上方，具體結論或下一步計畫則放在下方。所有文字和圖表一定要嚴格對齊，這樣在視覺上才能給評審一種專業、穩定而不費力的閱讀體驗。對齊與留白不是美化，而是降低讀者大腦認知負荷的設計。</p>`
+  },
+  {
+    title: "Slide 62：科學簡報：數據圖表的呈現",
+    img: "origin_image/slide_62.png",
+    text: `<p>簡報中的圖表是用來看「趨勢」的，而不是要讓評審在短時間內去解讀密密麻麻的數字。以折線圖為例，應把多餘的背景線條和刻度簡化，只將最關鍵的最高點、最低點或轉折點高亮顯示，其他數據點適度淡化。</p>
+<p>如果是表格，框線越少越好，盡量用留白或淡灰色區隔，並把重點數據加粗。最重要的是，圖表上方不要只寫「數據分析」，而是直接把結論當成標題——例如「改善後二氧化碳濃度下降 30%」，讓評審一目了然。圖表標題寫結論句，遠比描述句更具說服力。</p>`
+  },
+  {
+    title: "Slide 63：科學簡報：品牌色與聚光燈",
+    img: "origin_image/slide_63.png",
+    text: `<p>為了讓簡報顯得專業，色彩的控制相當關鍵。建議在整套簡報中固定使用「一個主色」搭配「一個強烈對比的強調色」，例如深藍色搭配亮橘色。主色用在一般標題或結構上，強調色則專門用來引導評審的視線，例如圖表中的異常值或關鍵結論。</p>
+<p>當畫面資訊真的很多且無法刪減時，可以使用半透明遮罩的「聚光燈」效果，把背景壓暗，只亮出想讓評審看的地方，這樣能在幾秒鐘之內引導全場的注意力。色彩控制在 1 主色 + 1 強調色，避免五顏六色分散焦點，是維持簡報學術感的基本原則。</p>`
+  },
+  {
+    title: "Slide 64：科學簡報製作的 AI 提示詞",
+    img: "origin_image/slide_64.png",
+    text: `<p>如何利用 AI 協助製作簡報？首先，切勿直接叫 AI 幫你寫出整份簡報內容。可以先提供研究摘要，請 AI 幫忙規劃投影片大綱，例如：「將我的研究整理成 12 張投影片大綱，並給出每張的設計建議」。</p>
+<p>為了避免字數過多，可以輸入字數檢查指令，請 AI 根據「每秒朗讀 8 個字」的語速，估算並限制每頁的口頭講稿字數。若發現某張投影片資訊量太龐大，也可以下指令請 AI 把這一頁的重點合理拆分成三張投影片，確保簡報品質。AI 用於結構化大綱與字數校驗，而非代寫全部內容，這是正確的使用定位。</p>`
+  },
+  {
+    title: "Slide 65：答辯訓練的教師指導目標",
+    img: "origin_image/slide_65.png",
+    text: `<p>在科展或專題發表中，學生必須準備三種不同長度的口頭說明策略。<strong>30 秒快問快答版</strong>：在評審快速走過或發問時，用一句話講清楚研究問題、核心方法與主要結論；<strong>2 分鐘版</strong>：在 30 秒版的基礎上，補齊對照組設計、樣本數 n 值、儀器校正與誤差來源，展現實驗嚴謹性；<strong>5 分鐘完整版</strong>：這是拿高分的關鍵，需要深入說明變因控制、理論模型選擇、研究限制以及未來的下一步規劃。</p>
+<p>三個版本的準備，讓學生能在不同的答辯場景中都從容應對。</p>`
+  },
+  {
+    title: "Slide 66：評審在看什麼？",
+    img: "origin_image/slide_66.png",
+    text: `<p>知己知彼，百戰百勝。學生上場前一定要了解評審的審查視角。評審在看作品時，通常關注五大重點：</p>
+<p><strong>研究問題</strong>是否清楚且可檢驗，自變項與依變項是否明確；<strong>實驗方法</strong>是否合理且可重現，有沒有對照組和校正步驟；<strong>數據可信度</strong>——樣本數是否足夠、圖表有沒有誤差棒、有沒有刻意挑選數據的嫌疑；<strong>結論</strong>是否被證據支持、有沒有過度推論；<strong>研究限制</strong>是否被誠實面對。掌握這五點，就能有效應對大多數評審的提問方向。</p>`
+  },
+  {
+    title: "Slide 67：答辯前的學生必備清單",
+    img: "origin_image/slide_67.png",
+    text: `<p>正式上場前，每組學生都應該準備一張「救命備忘卡」或隨身百寶箱，包含三樣核心法寶：</p>
+<p><strong>研究日誌</strong>：記錄所有失敗與嘗試的過程，當評審質疑參數選擇時，這就是最好的實證依據；<strong>三張關鍵圖</strong>：研究流程圖、核心結果圖，以及說明限制與下一步的圖表，遇到問題時隨時可以指給評審看；<strong>數據可信度卡</strong>：把樣本數 n、重複實驗次數、儀器校正方法和離群值剔除規則整理在卡片上，方便隨時查閱。這三樣法寶，能讓學生在現場的每一個問題都有具體的證據可以回應。</p>`
+  },
+  {
+    title: "Slide 68：回答結構：PREP 四步法",
+    img: "origin_image/slide_68.png",
+    text: `<p>評審提問時，很多學生因為緊張而開始長篇大論，卻沒有回答到重點。這裡推薦使用「PREP 四步回答法」：</p>
+<p><strong>Point</strong>：先用一句話直接回答評審的問題，不要鋪陳背景；<strong>Reason</strong>：給出這樣回答的理由，例如方法設計或數據特徵；<strong>Example</strong>：直接指出簡報或海報上的某張圖表、具體數據或樣本數作為佐證；最後再以<strong>Point</strong>：用一句話把話題收束回核心結論。這樣的回答結構不僅條理分明，也能讓評審清楚感受到學生對自己研究的掌握程度。</p>`
+  },
+  {
+    title: "Slide 69：臨場策略：不會答時怎麼說",
+    img: "origin_image/slide_69.png",
+    text: `<p>答辯時最怕遇到超出研究範圍或學生不會回答的問題。此時的臨場策略是：絕對不要硬拗，也不要刻意閃躲，而是以專業且坦誠的態度應對。</p>
+<p>可以這樣說：「這是一個非常好的思考角度，我們目前的數據在這部分還不夠完整，但根據現有的證據，在我們界定的研究範圍內可以支持這樣的結論。若要進一步探討您提到的問題，我們下一步會朝這個方向來設計實驗。」這樣做不僅誠實，還能向評審展現學生具有科學家的研究思維與未來規劃能力——這本身就是一種加分。</p>`
+  },
+  {
+    title: "Slide 70：口頭簡報 vs 海報答辯",
+    img: "origin_image/slide_70.png",
+    text: `<p>口頭簡報和海報答辯在策略上有相當大的差異。口頭簡報通常有嚴格的時間限制，必須像說故事一樣流暢，精準控制節奏，把問答留到最後；而海報答辯更像一場「走讀互動」，需要主動用手勢引導評審的視線，並在講解過程中隨時與評審對話。</p>
+<p>不過，兩種形式都共享三個核心原則：<strong>先說結論</strong>、<strong>用圖表說話</strong>、<strong>誠實談論研究限制</strong>。只要掌握這三個原則，不論在哪種答辯場合都能游刃有餘。</p>`
+  },
+  {
+    title: "Slide 71：一週密集答辯訓練流程",
+    img: "origin_image/slide_71.png",
+    text: `<p>為幫學生做好充足準備，我們設計了一套「一週密集答辯訓練流程」。第一至二天：確認三張關鍵圖和一句話結論，並請學生寫出十個最害怕被問到的題目；第三至四天：針對這些題目寫出 30 秒和 2 分鐘版的回答，進行 60 秒快問快答訓練；第五至六天：補齊數據可信度卡，進行包含海報、3 分鐘口頭發表及 Q&A 的全流程模擬；第七天：整理「標準答案庫」進行備查。</p>
+<p>透過這樣有系統的練習，能大幅消除學生的臨場緊張感，讓他們在真正面對評審時，已經歷過許多次的「實戰演練」。</p>`
+  },
+  {
+    title: "Slide 72：答辯訓練的 AI 提示詞",
+    img: "origin_image/slide_72.png",
+    text: `<p>除了教師的帶練，我們也可以引導學生利用 AI 作為虛擬的答辯教練。可以讓 AI 扮演嚴格的學術評審，針對研究大綱或摘要提出 20 個最尖銳甚至刁鑽的問題；接著讓學生把自己的回答草稿提供給 AI，下指令：「請用 PREP 結構幫我把這段回答修改成 30 秒的精簡版本，並優化語氣。」</p>
+<p>最後，還可以用弱點診斷提示詞，請 AI 列出這項研究中可能被扣分的 12 個潛在問題，並提供對應的回答模板，讓學生的準備更加周全。AI 作為虛擬的嚴格評審，是答辯準備階段最具效益的輔助應用之一。</p>`
+  },
+  {
+    title: "Slide 73：示例背景：空氣品質與專注力",
+    img: "origin_image/slide_73.png",
+    text: `<p>我們用一個實際的教學示例，說明如何把一個看似龐大複雜的題目，轉化成嚴謹且可驗證的研究設計。這個示例的主題是「通風對二氧化碳濃度與學生專注力的影響」。</p>
+<p>研究範圍限制在同一班級、同一教室、上同一節課、人數相近的情況下，連續進行數週的實驗。自變項設定為三種明確的通風條件：全關、開窗 30% 以及開窗加電扇；依變項則量測二氧化碳濃度（ppm）、專注力測驗的正確率和反應時間。這樣的設計讓變因清晰、可操控，是選題操作化的具體範例。</p>`
+  },
+  {
+    title: "Slide 74：示例：學生必交變因表與前導實驗",
+    img: "origin_image/slide_74.png",
+    text: `<p>正式收集數據之前，學生必須提交「變因表」並進行前導實驗。變因表中需嚴格列出控制變因：相同的教室、人數、感測器的固定擺放位置以及同一位操作者。</p>
+<p>前導實驗的排雷步驟包含兩項：第一，在沒有人的教室裡擺放感測器 15 分鐘，確認儀器基準線穩定、沒有訊號漂移；第二，先進行全關和開窗的對比測試，確認在極端情況下二氧化碳濃度的量測值確實有顯著差異。這些步驟能確保後續正式實驗不是白忙一場，而是建立在可靠的測量基礎上。</p>`
+  },
+  {
+    title: "Slide 75：示例：資料欄位與分析計畫",
+    img: "origin_image/slide_75.png",
+    text: `<p>數據收集階段，需要引導學生建立整潔的「資料字典」：每一行代表一個時間點，包含時間、實驗條件、二氧化碳濃度、教室人數以及實驗批次。這樣的結構讓數據從一開始就符合 Tidy Data 的規格，後續分析才能順暢進行。</p>
+<p>分析計畫中包含兩張主要圖表：不同通風條件下二氧化碳濃度的時間序列變化圖，以及各條件下二氧化碳峰值和平均值的箱型圖。若重複實驗天數足夠，就可以引導學生進行獨立樣本 t 檢定或單因子 ANOVA，用統計學驗證不同條件下的差異是否真的顯著。</p>`
+  },
+  {
+    title: "Slide 76：不同學科的可驗證研究示例",
+    img: "origin_image/slide_76.png",
+    text: `<p>除了空氣品質的示例，各個學科都有具體可驗證的研究選題骨架。物理科：探討不同砂紙粗糙度與最大靜摩擦係數的關係，透過測量臨界角度計算；化學科：研究溫度與催化劑用量對過氧化氫分解速率的影響，藉由排水集氣量測氣體體積；生物科：探討不同光照顏色對植物發芽率與株高的影響，量測株高與葉片影像面積；地科：研究不同地表類型對地表溫度及氣溫的影響，使用紅外線溫度計量測。</p>
+<p>這些骨架的共同特徵是自變項和依變項都相當清晰，師生可以根據學校的既有資源加以調整發展。</p>`
+  },
+  {
+    title: "Slide 77：專題研究常見的 5 大風險",
+    img: "origin_image/slide_77.png",
+    text: `<p>專題研究中常見的風險主要有五大類，教師在指導時需要特別把關：</p>
+<p><strong>內容風險</strong>：包括 AI 幻覺、引用錯誤的文獻或結論過度推論；<strong>設計與數據風險</strong>：缺乏對照組、重複次數不足，或忽視不同批次實驗之間的誤差；<strong>倫理與個資風險</strong>：進行人類受試時沒有取得知情同意，或沒有將敏感資訊去識別化；<strong>安全風險</strong>：化學或生物實驗缺乏防護措施；<strong>誠信風險</strong>：把 AI 生成的成果直接當作最終研究成果而不加查核或揭露。從各個面向把關，才能讓整個研究歷程真正達到學術規範。</p>`
+  },
+  {
+    title: "Slide 78：常見錯誤對照表",
+    img: "origin_image/slide_78.png",
+    text: `<p>這裡整理了一份常見錯誤與補救對照表，幫助教師在指導時迅速辨別問題所在。在文獻部分，最常見的錯誤是引用了查不到的虛構論文——後果是被懷疑學術誠信，補救方法是將每條引用回資料庫核對，查不到就必須刪除。</p>
+<p>在實驗設計上，常見的問題是沒有對照組，導致結論站不住腳，此時應盡量補做基線或空白對照實驗。另一個頻繁發生的情況是學生因數據不合預期而事後刪除數據，這會被質疑有挑選數據的嫌疑——補救方法是在實驗 SOP 中預先寫明離群值的剔除規則，讓一切透明化。</p>`
+  },
+  {
+    title: "Slide 79：風險與倫理檢核表及揭露模板",
+    img: "origin_image/slide_79.png",
+    text: `<p>為幫助教師在日常教學中快速把關，我們提供了一份「風險與倫理檢核表」和「AI 使用揭露模板」。建議教師每週使用一次檢核表，確認學生的實驗設計、資料管理和安全防護是否到位。</p>
+<p>在 AI 使用揭露方面，應引導學生在作品中清楚說明：使用了哪些 AI 工具、用途是什麼（例如點子發想、潤稿還是程式碼生成），並附上一份誠信宣告，聲明所有核心設計決策、實際實驗操作以及結論推論，都是由學生本人完成並經指導教師查核的。這樣的揭露規範，是在 AI 工具普及時代維護學術誠信最重要的制度設計。</p>`
+  },
+  {
+    title: "Slide 80：核心結論與教學建議",
+    img: "origin_image/slide_80.png",
+    text: `<p>綜合整份教學簡報，引導學生使用 AI 進行專題研究時，有四個關鍵點值得教師銘記：</p>
+<p><strong>AI 定位</strong>：AI 是學生的研究助教與檢核器，而不是代寫報告的作者；<strong>關鍵在可驗證</strong>：必須先把自變項、依變項、控制變因寫清楚，做好前導實驗，並建立完整的原始資料鏈；<strong>流程化管理</strong>：每個步驟都要有必須繳交的產出物；<strong>小步快跑</strong>：引導學生用最小可行研究進行重複迭代，讓真實的研究能力在每一次嘗試中逐步累積。希望這套方法能幫助各位教師，引導學生在 AI 時代做出一流的研究。</p>`
+  }
+];
+
+// ────────────────────────────────────────────
+// STATE
+// ────────────────────────────────────────────
+let current = 0;
+let autoplayTimer = null;
+let isAutoplaying = false;
+
+// ────────────────────────────────────────────
+// INIT
+// ────────────────────────────────────────────
+function init() {
+  buildThumbs();
+  renderSlide(0);
+}
+
+function buildThumbs() {
+  const strip = document.getElementById('thumbStrip');
+  slides.forEach((s, i) => {
+    const img = document.createElement('img');
+    img.src = s.img;
+    img.title = s.title;
+    img.onclick = () => goTo(i);
+    if (i === 0) img.classList.add('active');
+    strip.appendChild(img);
+  });
+}
+
+function renderSlide(idx) {
+  current = idx;
+  const s = slides[idx];
+  document.getElementById('slideImg').src = s.img;
+  document.getElementById('slideTitle').textContent = s.title;
+  document.getElementById('textContent').innerHTML = s.text;
+  document.getElementById('textContent').scrollTop = 0;
+
+  const total = slides.length;
+  const n = idx + 1;
+  const pct = (n / total * 100).toFixed(1);
+  document.getElementById('slideProgress').textContent = `${n} / ${total}`;
+  document.getElementById('slideCounterOverlay').textContent = `${n} / ${total}`;
+  document.getElementById('fsCounter').textContent = `${n} / ${total}`;
+  // sync slider
+  const slider = document.getElementById('pageSlider');
+  slider.value = n;
+  const fillPct = ((n - 1) / (total - 1) * 100).toFixed(2);
+  slider.style.setProperty('--fill', fillPct + '%');
+  updateTooltip(slider, n);
+
+  // update thumbs
+  document.querySelectorAll('#thumbStrip img').forEach((img, i) => {
+    img.classList.toggle('active', i === idx);
+    if (i === idx) img.scrollIntoView({ block: 'nearest', inline: 'center' });
+  });
+}
+
+function nextSlide() {
+  if (current < slides.length - 1) renderSlide(current + 1);
+  else if (isAutoplaying) stopAutoplay();
+}
+function prevSlide() { if (current > 0) renderSlide(current - 1); }
+function goTo(idx) { renderSlide(idx); }
+
+// ────────────────────────────────────────────
+// AUTOPLAY
+// ────────────────────────────────────────────
+function getInterval() {
+  const v = parseInt(document.getElementById('intervalInput').value) || 8;
+  return Math.max(2, v) * 1000;
+}
+
+function toggleAutoplay() {
+  if (isAutoplaying) stopAutoplay(); else startAutoplay();
+}
+
+function startAutoplay() {
+  isAutoplaying = true;
+  document.getElementById('autoplayBtn').textContent = '⏸ 暫停';
+  document.getElementById('fsAutoBtn').textContent = '⏸';
+  scheduleNext();
+}
+
+function stopAutoplay() {
+  isAutoplaying = false;
+  clearTimeout(autoplayTimer);
+  document.getElementById('autoplayBtn').textContent = '▶ 自動播放';
+  document.getElementById('fsAutoBtn').textContent = '▶';
+}
+
+function scheduleNext() {
+  clearTimeout(autoplayTimer);
+  autoplayTimer = setTimeout(() => {
+    if (isAutoplaying) {
+      nextSlide();
+      if (isAutoplaying) scheduleNext();
+    }
+  }, getInterval());
+}
+
+// sync interval inputs
+document.getElementById('intervalInput').addEventListener('change', () => {
+  document.getElementById('fsIntervalInput').value = document.getElementById('intervalInput').value;
+  if (isAutoplaying) scheduleNext();
+});
+document.getElementById('fsIntervalInput').addEventListener('change', () => {
+  document.getElementById('intervalInput').value = document.getElementById('fsIntervalInput').value;
+  if (isAutoplaying) scheduleNext();
+});
+
+// ────────────────────────────────────────────
+// FULLSCREEN
+// ────────────────────────────────────────────
+function openFullscreen() {
+  document.body.classList.add('fullscreen');
+  const el = document.documentElement;
+  if (el.requestFullscreen) el.requestFullscreen().catch(()=>{});
+}
+function exitFullscreen() {
+  document.body.classList.remove('fullscreen');
+  if (document.fullscreenElement) document.exitFullscreen().catch(()=>{});
+}
+document.addEventListener('fullscreenchange', () => {
+  if (!document.fullscreenElement) document.body.classList.remove('fullscreen');
+});
+
+// ────────────────────────────────────────────
+// DARK MODE
+// ────────────────────────────────────────────
+function toggleDark() {
+  document.body.classList.toggle('dark');
+  document.getElementById('darkBtn').textContent = document.body.classList.contains('dark') ? '☀️ 亮色' : '🌙 暗色';
+}
+
+// ────────────────────────────────────────────
+// KEYBOARD
+// ────────────────────────────────────────────
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') nextSlide();
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') prevSlide();
+  if (e.key === 'Escape') exitFullscreen();
+  if (e.key === 'f' || e.key === 'F') openFullscreen();
+  if (e.key === ' ') { e.preventDefault(); toggleAutoplay(); }
+});
+
+// ────────────────────────────────────────────
+// PAGE SLIDER
+// ────────────────────────────────────────────
+function updateTooltip(slider, pageNum) {
+  const tooltip = document.getElementById('sliderTooltip');
+  const pct = (pageNum - 1) / (slides.length - 1);
+  // position tooltip over the thumb
+  const thumbW = 18;
+  const trackW = slider.offsetWidth - thumbW;
+  const left = thumbW / 2 + pct * trackW;
+  tooltip.style.left = left + 'px';
+  tooltip.textContent = `第 ${pageNum} 頁`;
+}
+
+(function initSlider() {
+  const slider = document.getElementById('pageSlider');
+  slider.max = slides.length;
+
+  // live drag — update tooltip & preview title only (no re-render for performance)
+  slider.addEventListener('input', () => {
+    const n = parseInt(slider.value);
+    const fillPct = ((n - 1) / (slides.length - 1) * 100).toFixed(2);
+    slider.style.setProperty('--fill', fillPct + '%');
+    updateTooltip(slider, n);
+    // instant slide switch while dragging
+    renderSlide(n - 1);
+  });
+
+  // also reposition tooltip on window resize
+  window.addEventListener('resize', () => updateTooltip(slider, current + 1));
+})();
+
+// START
+init();
+</script>
+</body>
+</html>

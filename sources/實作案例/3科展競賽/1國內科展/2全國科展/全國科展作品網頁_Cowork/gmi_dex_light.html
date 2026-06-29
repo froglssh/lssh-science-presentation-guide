@@ -1,0 +1,897 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GMI × DEX 抗發炎協同研究 — 第66屆全國科展</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700&family=DM+Mono:wght@400;500&family=Playfair+Display:ital,wght@0,700;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg:        #f5f2ec;
+    --bg2:       #eceae3;
+    --surface:   #ffffff;
+    --card:      #ffffff;
+    --border:    #ddd8ce;
+    --border2:   #c8c2b5;
+
+    --ink:       #1a1712;
+    --ink2:      #3d3a34;
+    --muted:     #7a7269;
+    --faint:     #b5b0a6;
+
+    --teal:      #1a7f72;
+    --teal-lt:   #e6f4f2;
+    --teal-mid:  #b2dcd7;
+    --red:       #c0392b;
+    --red-lt:    #fdf0ee;
+    --amber:     #b45309;
+    --amber-lt:  #fef9ee;
+    --amber-mid: #f5d08a;
+
+    --shadow-sm: 0 1px 4px rgba(0,0,0,0.07);
+    --shadow-md: 0 4px 20px rgba(0,0,0,0.09);
+    --shadow-lg: 0 12px 48px rgba(0,0,0,0.12);
+
+    --radius:    10px;
+    --radius-sm: 6px;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: 'Noto Serif TC', serif;
+    overflow-x: hidden;
+    line-height: 1.7;
+  }
+
+  /* ── TEXTURE OVERLAY ── */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.025'/%3E%3C/svg%3E");
+    opacity: 0.6;
+  }
+
+  .page { position: relative; z-index: 1; }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(245,242,236,0.92); backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 40px;
+  }
+  .nav-logo {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    color: var(--muted); letter-spacing: 0.12em;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    color: var(--muted); text-decoration: none; letter-spacing: 0.1em;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* ── HERO ── */
+  .hero {
+    padding: 80px 60px 72px;
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 380px; gap: 64px; align-items: start;
+  }
+  .hero-eyebrow {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    color: var(--teal); letter-spacing: 0.16em; text-transform: uppercase;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease both;
+  }
+  .hero h1 {
+    font-family: 'Playfair Display', serif; font-size: clamp(2rem,4vw,3.2rem);
+    font-weight: 700; line-height: 1.25; color: var(--ink);
+    margin-bottom: 20px;
+    animation: fadeIn 0.6s ease 0.08s both;
+  }
+  .hero h1 em { color: var(--teal); font-style: italic; }
+  .hero-sub {
+    font-size: 0.92rem; color: var(--muted); line-height: 1.9; max-width: 540px;
+    animation: fadeIn 0.6s ease 0.16s both;
+  }
+  .hero-divider {
+    width: 48px; height: 2px; background: var(--teal);
+    margin: 28px 0;
+    animation: expandW 0.8s ease 0.3s both;
+  }
+  @keyframes expandW { from { width: 0; } to { width: 48px; } }
+
+  .hero-meta { display: flex; gap: 32px; flex-wrap: wrap; margin-top: 32px; animation: fadeIn 0.6s ease 0.4s both; }
+  .meta-tag {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    color: var(--muted); border: 1px solid var(--border2);
+    padding: 4px 12px; border-radius: 3px; background: var(--surface);
+  }
+
+  /* Hero right: stat panel */
+  .hero-panel {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow-md);
+    padding: 32px 28px;
+    animation: fadeIn 0.7s ease 0.2s both;
+    position: sticky; top: 80px;
+  }
+  .panel-heading {
+    font-family: 'DM Mono', monospace; font-size: 0.64rem;
+    color: var(--muted); letter-spacing: 0.14em; text-transform: uppercase;
+    border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 20px;
+  }
+  .stat-row {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 12px 0; border-bottom: 1px solid var(--bg2);
+  }
+  .stat-row:last-child { border-bottom: none; }
+  .stat-label-r { font-size: 0.78rem; color: var(--muted); }
+  .stat-val {
+    font-family: 'DM Mono', monospace; font-weight: 500;
+    font-size: 1.1rem; color: var(--teal);
+  }
+  .stat-val.red { color: var(--red); }
+  .stat-val.amber { color: var(--amber); }
+
+  .key-finding {
+    margin-top: 20px; background: var(--teal-lt);
+    border: 1px solid var(--teal-mid); border-radius: var(--radius-sm);
+    padding: 16px 18px;
+  }
+  .kf-num {
+    font-family: 'Playfair Display', serif; font-size: 2.8rem;
+    color: var(--teal); font-weight: 700; line-height: 1;
+  }
+  .kf-desc { font-size: 0.76rem; color: var(--ink2); margin-top: 4px; line-height: 1.6; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── SECTION ── */
+  .sec { max-width: 1100px; margin: 0 auto; padding: 64px 40px; }
+
+  .sec-head {
+    display: flex; align-items: baseline; gap: 14px; margin-bottom: 40px;
+  }
+  .sec-num {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    color: var(--faint); letter-spacing: 0.1em;
+  }
+  .sec-title {
+    font-family: 'Playfair Display', serif; font-size: 1.6rem;
+    color: var(--ink); border-bottom: 1.5px solid var(--border2);
+    padding-bottom: 10px; flex: 1;
+  }
+
+  /* ── CARDS ── */
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow-sm);
+    padding: 28px 30px;
+    transition: box-shadow 0.25s, border-color 0.25s;
+  }
+  .card:hover { box-shadow: var(--shadow-md); border-color: var(--border2); }
+
+  /* ── ABSTRACT ── */
+  .abstract-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+  .abstract-body {
+    font-size: 0.9rem; color: var(--ink2); line-height: 2;
+    border-left: 3px solid var(--teal-mid); padding-left: 20px;
+  }
+  .hl-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .hl-box {
+    background: var(--bg); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 16px 18px;
+    transition: background 0.2s;
+  }
+  .hl-box:hover { background: var(--teal-lt); border-color: var(--teal-mid); }
+  .hl-val { font-family: 'DM Mono', monospace; font-size: 1.1rem; color: var(--teal); font-weight: 500; }
+  .hl-desc { font-size: 0.72rem; color: var(--muted); margin-top: 5px; line-height: 1.6; }
+
+  .keywords { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 20px; }
+  .kw {
+    font-family: 'DM Mono', monospace; font-size: 0.65rem;
+    color: var(--muted); background: var(--bg2); border: 1px solid var(--border);
+    padding: 3px 10px; border-radius: 3px; letter-spacing: 0.05em;
+  }
+
+  /* ── MECHANISM ── */
+  .mech-flow {
+    display: grid; grid-template-columns: 1fr 40px 1fr 40px 1fr;
+    align-items: center; gap: 0; margin-bottom: 24px;
+  }
+  .mech-box {
+    background: var(--surface); border: 1.5px solid var(--border);
+    border-radius: var(--radius); padding: 22px 18px; text-align: center;
+    box-shadow: var(--shadow-sm);
+  }
+  .mech-box.lps  { border-color: #f5c6c2; background: var(--red-lt); }
+  .mech-box.gmi  { border-color: var(--teal-mid); background: var(--teal-lt); }
+  .mech-box.dex  { border-color: var(--amber-mid); background: var(--amber-lt); }
+  .mech-icon { font-size: 1.8rem; margin-bottom: 8px; }
+  .mech-label {
+    font-family: 'DM Mono', monospace; font-size: 0.68rem;
+    font-weight: 500; letter-spacing: 0.08em; margin-bottom: 6px;
+  }
+  .mech-box.lps  .mech-label { color: var(--red); }
+  .mech-box.gmi  .mech-label { color: var(--teal); }
+  .mech-box.dex  .mech-label { color: var(--amber); }
+  .mech-desc { font-size: 0.75rem; color: var(--muted); line-height: 1.7; }
+  .mech-arrow { text-align: center; font-size: 1.4rem; color: var(--faint); }
+
+  .pathway-strip {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 16px 20px;
+  }
+  .pathway-label { font-family: 'DM Mono', monospace; font-size: 0.62rem; color: var(--faint); margin-bottom: 10px; letter-spacing: 0.1em; }
+  .pathway-steps { display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .path-step {
+    background: var(--surface); border: 1px solid var(--border2);
+    border-radius: 3px; padding: 4px 12px; font-size: 0.72rem; color: var(--ink2); white-space: nowrap;
+  }
+  .path-step.teal { background: var(--teal-lt); border-color: var(--teal-mid); color: var(--teal); }
+  .path-step.amber { background: var(--amber-lt); border-color: var(--amber-mid); color: var(--amber); }
+  .path-arr { color: var(--faint); font-size: 0.9rem; }
+
+  /* ── MTT BARS ── */
+  .mtt-wrap { margin-top: 20px; }
+  .mtt-row { display: flex; align-items: center; gap: 12px; margin-bottom: 10px; }
+  .mtt-lbl { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); min-width: 180px; }
+  .mtt-track { flex: 1; background: var(--bg2); border-radius: 3px; height: 18px; overflow: hidden; }
+  .mtt-fill { height: 100%; border-radius: 3px; transition: width 1.2s ease; }
+  .mtt-fill.ctrl  { background: #b5b0a6; }
+  .mtt-fill.lps   { background: #e8a09a; }
+  .mtt-fill.dex   { background: #f5c87a; }
+  .mtt-fill.gmi   { background: #82cfc9; }
+  .mtt-fill.combo { background: var(--teal); }
+  .mtt-num { font-family: 'DM Mono', monospace; font-size: 0.68rem; color: var(--muted); min-width: 44px; }
+
+  /* ── CHARTS ── */
+  .charts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .chart-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); box-shadow: var(--shadow-sm); padding: 22px 24px;
+    transition: box-shadow 0.25s;
+  }
+  .chart-card:hover { box-shadow: var(--shadow-md); }
+  .chart-title { font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 3px; }
+  .chart-sub { font-size: 0.7rem; color: var(--muted); margin-bottom: 16px; line-height: 1.5; }
+  .chart-wrap { position: relative; height: 240px; }
+
+  /* ── BLISS ── */
+  .bliss-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin-top: 20px; }
+  .bliss-cell {
+    border-radius: var(--radius-sm); padding: 16px 12px; text-align: center;
+    border: 1.5px solid;
+  }
+  .bliss-cell.syn  { background: var(--teal-lt); border-color: var(--teal-mid); }
+  .bliss-cell.add  { background: var(--amber-lt); border-color: var(--amber-mid); }
+  .bliss-cell.ant  { background: var(--red-lt);   border-color: #f5c6c2; }
+  .bliss-gmi { font-family: 'DM Mono', monospace; font-size: 0.65rem; color: var(--muted); margin-bottom: 5px; }
+  .bliss-verdict { font-size: 0.78rem; font-weight: 700; margin-bottom: 4px; }
+  .bliss-cell.syn .bliss-verdict { color: var(--teal); }
+  .bliss-cell.add .bliss-verdict { color: var(--amber); }
+  .bliss-cell.ant .bliss-verdict { color: var(--red); }
+  .bliss-badge {
+    display: inline-block; font-size: 0.6rem; letter-spacing: 0.06em;
+    padding: 2px 6px; border-radius: 2px; font-family: 'DM Mono', monospace;
+  }
+  .bliss-cell.syn .bliss-badge { background: var(--teal-mid); color: var(--teal); }
+  .bliss-cell.add .bliss-badge { background: var(--amber-mid); color: var(--amber); }
+  .bliss-cell.ant .bliss-badge { background: #f5c6c2; color: var(--red); }
+
+  /* ── DOSE COMPARE ── */
+  .dose-band {
+    background: linear-gradient(135deg, #e6f4f2 0%, #f5f2ec 50%, #fef9ee 100%);
+    border: 1px solid var(--border2); border-radius: var(--radius);
+    padding: 36px 40px; margin: 40px 0;
+    display: grid; grid-template-columns: 1fr 80px 1fr; align-items: center; gap: 20px;
+  }
+  .dose-box { text-align: center; }
+  .dose-tag {
+    font-family: 'DM Mono', monospace; font-size: 0.62rem;
+    color: var(--muted); letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 8px;
+  }
+  .dose-drug {
+    font-family: 'Playfair Display', serif; font-size: 1.7rem; font-weight: 700; line-height: 1.1;
+  }
+  .dose-box.old .dose-drug { color: var(--red); }
+  .dose-box.new .dose-drug { color: var(--teal); }
+  .dose-unit { font-size: 0.75rem; color: var(--muted); margin-top: 4px; }
+  .dose-inh { margin-top: 12px; font-size: 0.8rem; }
+  .dose-box.old .dose-inh { color: var(--red); }
+  .dose-box.new .dose-inh { color: var(--teal); font-weight: 700; }
+  .dose-center { text-align: center; }
+  .dose-arrow { font-size: 2rem; color: var(--teal); line-height: 1; }
+  .dose-reduction {
+    font-family: 'DM Mono', monospace; font-size: 0.7rem;
+    color: var(--muted); margin-top: 6px;
+  }
+
+  /* ── CONCLUSION ── */
+  .conc-list { display: flex; flex-direction: column; gap: 14px; }
+  .conc-item {
+    display: flex; gap: 20px; align-items: flex-start;
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 20px 24px;
+    box-shadow: var(--shadow-sm);
+    transition: border-color 0.25s, box-shadow 0.25s;
+  }
+  .conc-item:hover { border-color: var(--teal-mid); box-shadow: var(--shadow-md); }
+  .conc-n {
+    font-family: 'Playfair Display', serif; font-size: 1.6rem;
+    color: var(--teal-mid); font-weight: 700; min-width: 36px; line-height: 1; margin-top: 2px;
+  }
+  .conc-title { font-size: 0.88rem; font-weight: 700; color: var(--ink); margin-bottom: 5px; }
+  .conc-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.75; }
+
+  /* ── FUTURE ── */
+  .future-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .future-card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 24px 20px; box-shadow: var(--shadow-sm);
+    transition: transform 0.25s, box-shadow 0.25s, border-color 0.25s;
+  }
+  .future-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--teal-mid); }
+  .future-icon { font-size: 1.6rem; margin-bottom: 10px; }
+  .future-title { font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .future-desc { font-size: 0.76rem; color: var(--muted); line-height: 1.75; }
+
+  /* ── FORMULA BOX ── */
+  .formula-box {
+    background: var(--bg2); border: 1px solid var(--border);
+    border-radius: var(--radius-sm); padding: 14px 20px;
+    font-family: 'DM Mono', monospace; font-size: 0.8rem;
+    color: var(--ink2); margin-bottom: 20px;
+    display: flex; flex-wrap: wrap; gap: 8px; align-items: center;
+  }
+  .formula-box span { color: var(--teal); font-weight: 500; }
+
+  /* ── DIVIDER ── */
+  hr.section-div {
+    border: none; border-top: 1px solid var(--border); max-width: 1100px; margin: 0 auto;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--surface); border-top: 1px solid var(--border);
+    padding: 36px 60px; margin-top: 20px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .footer-left { font-size: 0.78rem; color: var(--muted); line-height: 1.9; }
+  .footer-left strong { color: var(--ink); font-size: 0.85rem; }
+  .footer-badge {
+    background: var(--teal-lt); border: 1.5px solid var(--teal-mid);
+    border-radius: var(--radius); padding: 14px 24px; text-align: center;
+  }
+  .badge-num {
+    font-family: 'Playfair Display', serif; font-size: 2rem; color: var(--teal); font-weight: 700;
+  }
+  .badge-lbl { font-size: 0.65rem; color: var(--muted); margin-top: 2px; }
+
+  /* ── SCROLL REVEAL ── */
+  .reveal {
+    opacity: 0; transform: translateY(18px);
+    transition: opacity 0.55s ease, transform 0.55s ease;
+  }
+  .reveal.in { opacity: 1; transform: translateY(0); }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 36px; padding: 60px 24px 48px; }
+    .hero-panel { position: static; }
+    .abstract-grid { grid-template-columns: 1fr; }
+    .charts-grid { grid-template-columns: 1fr; }
+    .mech-flow { grid-template-columns: 1fr; }
+    .mech-arrow { transform: rotate(90deg); }
+    .dose-band { grid-template-columns: 1fr; }
+    .future-grid { grid-template-columns: 1fr; }
+    .bliss-grid { grid-template-columns: repeat(3, 1fr); }
+    .sec { padding: 48px 24px; }
+    footer { flex-direction: column; gap: 20px; padding: 28px 24px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">第 66 屆全國中小學科學展覽會 · 動物與醫學學科 · 高中組</div>
+  <div class="nav-links">
+    <a href="#abstract">摘要</a>
+    <a href="#mechanism">機制</a>
+    <a href="#results">數據</a>
+    <a href="#conclusion">結論</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-eyebrow">第 66 屆 · 全國科學展覽 · 動物與醫學 · 高中組</div>
+    <h1>小孢子靈芝蛋白質 <em>GMI</em><br>協同臨床用藥<br><em>Dexamethasone</em><br>可有效抑制脂多醣<br>誘導的發炎作用</h1>
+    <div class="hero-divider"></div>
+    <p class="hero-sub">以 LPS 誘導 RAW 264.7 小鼠巨噬細胞建立發炎模型，透過 Bliss 獨立模型驗證，探討 GMI 天然靈芝蛋白與類固醇藥物 DEX 之協同抗發炎機制，以及 DEX 減量輔助策略之初步細胞學證據。</p>
+    <div class="hero-meta">
+      <span class="meta-tag">GMI · 小孢子靈芝免疫調節蛋白</span>
+      <span class="meta-tag">Dexamethasone · 類固醇</span>
+      <span class="meta-tag">RAW264.7 · 小鼠巨噬細胞</span>
+      <span class="meta-tag">IL-6 · 細胞激素</span>
+    </div>
+  </div>
+
+  <div class="hero-panel">
+    <div class="panel-heading">// 核心數據一覽</div>
+    <div class="stat-row">
+      <div class="stat-label-r">DEX 有效劑量降低</div>
+      <div class="stat-val">1 / 16</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-label-r">合併組 IL-6 抑制率</div>
+      <div class="stat-val">&gt; 95%</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-label-r">DEX 單獨（40μg）抑制率</div>
+      <div class="stat-val amber">~ 65%</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-label-r">GMI 最低有效平台濃度</div>
+      <div class="stat-val">10 μg/mL</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-label-r">協同效應統計驗證</div>
+      <div class="stat-val">Bliss p&lt;0.05</div>
+    </div>
+    <div class="stat-row">
+      <div class="stat-label-r">GMI 細胞毒性（未發炎）</div>
+      <div class="stat-val">無顯著差異</div>
+    </div>
+    <div class="key-finding">
+      <div class="kf-num">D2.5 + G10</div>
+      <div class="kf-desc">本研究最具 DEX 減量意義之組合：<br>以 2.5 μg/mL DEX 搭配 10 μg/mL GMI，達到 &gt;95% IL-6 抑制，相當於 DEX 40 μg/mL 單獨使用效果的 1.5 倍</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-div">
+
+<!-- ABSTRACT -->
+<div class="sec" id="abstract">
+  <div class="sec-head">
+    <span class="sec-num">01 /</span>
+    <h2 class="sec-title">研究摘要</h2>
+  </div>
+  <div class="abstract-grid reveal">
+    <div>
+      <p class="abstract-body">
+        Dexamethasone（DEX）為常用抗發炎藥物，但高劑量可能伴隨免疫抑制與細胞壓力。本研究以 LPS 誘導 RAW 264.7 小鼠巨噬細胞建立發炎模型，探討 GMI 與 DEX 合併處理對 IL-6 分泌與 MTT 相對活性之影響，並以 Bliss independence model 評估交互作用。
+        <br><br>
+        結果顯示，GMI 10 μg/mL 為 IL-6 進入高效抑制平台之最低有效濃度；搭配 DEX 2.5 μg/mL 即達約 95% 以上抑制率，高於 DEX 40 μg/mL 單用之約 65%，顯示達到高度抗發炎效果所需 DEX 濃度可由 40 降至 2.5 μg/mL，約降為原本的 1/16。
+        <br><br>
+        且在 GMI 10 μg/mL 條件下，各 DEX 濃度組 MTT 相對活性無顯著差異，表示提高 DEX 濃度未帶來顯著代謝活性優勢。綜合而言，GMI 具有作為 DEX 減量輔助因子之潛力，並提供低劑量類固醇抗發炎策略之初步細胞學證據。
+      </p>
+      <div class="keywords">
+        <span class="kw">GMI</span><span class="kw">Dexamethasone</span><span class="kw">LPS</span>
+        <span class="kw">RAW264.7</span><span class="kw">IL-6</span><span class="kw">MTT</span>
+        <span class="kw">Bliss Model</span><span class="kw">抗發炎</span><span class="kw">協同用藥</span>
+      </div>
+    </div>
+    <div class="hl-grid">
+      <div class="hl-box">
+        <div class="hl-val">40 → 2.5 μg/mL</div>
+        <div class="hl-desc">達到高度抗發炎所需 DEX 濃度降幅，降低為原本 1/16</div>
+      </div>
+      <div class="hl-box">
+        <div class="hl-val">&gt; 95%</div>
+        <div class="hl-desc">D2.5 + G10 合併組之 IL-6 抑制率，遠優於 DEX 單獨</div>
+      </div>
+      <div class="hl-box">
+        <div class="hl-val">協同效應</div>
+        <div class="hl-desc">GMI 10 μg/mL 各組實際抑制率均高於 Bliss 理論值（p &lt; 0.05）</div>
+      </div>
+      <div class="hl-box">
+        <div class="hl-val">MTT 無差異</div>
+        <div class="hl-desc">GMI 10 μg/mL 條件下提高 DEX 濃度無額外代謝活性優勢</div>
+      </div>
+      <div class="hl-box" style="grid-column: 1 / -1;">
+        <div class="hl-val">雙重路徑阻斷</div>
+        <div class="hl-desc">GMI 作用於細胞質上游（MAPK / NF-κB），DEX 作用於細胞核下游（轉錄抑制），兩者形成功能性互補，構成「上下游包夾」策略</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-div">
+
+<!-- MECHANISM -->
+<div class="sec" id="mechanism">
+  <div class="sec-head">
+    <span class="sec-num">02 /</span>
+    <h2 class="sec-title">藥理作用機制——雙重路徑阻斷假說</h2>
+  </div>
+
+  <div class="mech-flow reveal">
+    <div class="mech-box lps">
+      <div class="mech-icon">🦠</div>
+      <div class="mech-label">LPS 刺激</div>
+      <div class="mech-desc">革蘭氏陰性菌脂多醣（LPS）結合 TLR4 受體，啟動 MAPK 與 NF-κB 級聯反應，誘導 IL-6 等促發炎細胞激素大量分泌</div>
+    </div>
+    <div class="mech-arrow">→</div>
+    <div class="mech-box gmi">
+      <div class="mech-icon">🍄</div>
+      <div class="mech-label">GMI 上游截斷</div>
+      <div class="mech-desc">小孢子靈芝蛋白（GMI）抑制細胞質 IκBα 降解與 MAPK（p38、ERK）磷酸化，從上游阻斷 NF-κB 核轉位</div>
+    </div>
+    <div class="mech-arrow">→</div>
+    <div class="mech-box dex">
+      <div class="mech-icon">💊</div>
+      <div class="mech-label">DEX 下游抑制</div>
+      <div class="mech-desc">Dexamethasone 進入細胞核與糖皮質激素受體（GR）結合，執行轉錄抑制（Transrepression），直接阻斷促發炎基因表現</div>
+    </div>
+  </div>
+
+  <div class="pathway-strip reveal">
+    <div class="pathway-label">// LPS 訊號傳遞路徑與藥物作用靶點</div>
+    <div class="pathway-steps">
+      <span class="path-step">LPS</span><span class="path-arr">→</span>
+      <span class="path-step">TLR4</span><span class="path-arr">→</span>
+      <span class="path-step">MAPK / NF-κB</span><span class="path-arr">→</span>
+      <span class="path-step">IκBα 降解</span><span class="path-arr">→</span>
+      <span class="path-step">NF-κB 核轉位</span><span class="path-arr">→</span>
+      <span class="path-step">IL-6 轉錄</span><span class="path-arr">→</span>
+      <span class="path-step">促發炎反應</span>
+    </div>
+    <div class="pathway-steps" style="margin-top:10px;">
+      <span class="path-step teal">GMI 作用點：MAPK &amp; IκBα（細胞質上游）</span>
+      <span class="path-arr">｜</span>
+      <span class="path-step amber">DEX 作用點：核內轉錄抑制（細胞核下游）</span>
+    </div>
+  </div>
+
+  <!-- MTT Bars -->
+  <div class="card reveal" style="margin-top:24px;">
+    <div class="chart-title">細胞代謝活性（MTT 相對活性）各組比較</div>
+    <div class="chart-sub">以對照組（CTL）= 100% 為基準；n = 3 重複實驗</div>
+    <div class="mtt-wrap">
+      <div class="mtt-row"><div class="mtt-lbl">CTL（對照組）</div><div class="mtt-track"><div class="mtt-fill ctrl" style="width:100%"></div></div><div class="mtt-num">~100%</div></div>
+      <div class="mtt-row"><div class="mtt-lbl">LPS 100 ng/mL</div><div class="mtt-track"><div class="mtt-fill lps" style="width:82%"></div></div><div class="mtt-num">~82%</div></div>
+      <div class="mtt-row"><div class="mtt-lbl">DEX 5 μg/mL（無 LPS）</div><div class="mtt-track"><div class="mtt-fill dex" style="width:68%"></div></div><div class="mtt-num">~68%</div></div>
+      <div class="mtt-row"><div class="mtt-lbl">DEX 40 μg/mL（無 LPS）</div><div class="mtt-track"><div class="mtt-fill dex" style="width:72%"></div></div><div class="mtt-num">~72%</div></div>
+      <div class="mtt-row"><div class="mtt-lbl">GMI 10 μg/mL（無 LPS）</div><div class="mtt-track"><div class="mtt-fill gmi" style="width:98%"></div></div><div class="mtt-num">~98%</div></div>
+      <div class="mtt-row"><div class="mtt-lbl">DEX 2.5 + GMI 10 + LPS ★</div><div class="mtt-track"><div class="mtt-fill combo" style="width:100%"></div></div><div class="mtt-num">~100%</div></div>
+      <div class="mtt-row"><div class="mtt-lbl">DEX 40 + GMI 10 + LPS</div><div class="mtt-track"><div class="mtt-fill combo" style="width:98%"></div></div><div class="mtt-num">~98%</div></div>
+    </div>
+    <p style="font-size:0.72rem; color:var(--muted); margin-top:14px; font-style:italic; border-top:1px solid var(--border); padding-top:10px;">
+      ▲ GMI 10 μg/mL 條件下，不論搭配 DEX 2.5 或 40 μg/mL，MTT 相對活性均無顯著差異（p &gt; 0.05），顯示提高 DEX 劑量並無額外代謝優勢。
+    </p>
+  </div>
+</div>
+
+<hr class="section-div">
+
+<!-- RESULTS -->
+<div class="sec" id="results">
+  <div class="sec-head">
+    <span class="sec-num">03 /</span>
+    <h2 class="sec-title">研究結果——數據圖表</h2>
+  </div>
+
+  <div class="charts-grid">
+    <div class="chart-card reveal">
+      <div class="chart-title">GMI 單獨用藥 IL-6 分泌量</div>
+      <div class="chart-sub">不同 GMI 濃度在 LPS 誘導下之 IL-6（pg/mL），n = 3</div>
+      <div class="chart-wrap"><canvas id="c1"></canvas></div>
+    </div>
+    <div class="chart-card reveal">
+      <div class="chart-title">DEX 單獨用藥 IL-6 分泌量</div>
+      <div class="chart-sub">不同 DEX 濃度在 LPS 誘導下之 IL-6（pg/mL），n = 3</div>
+      <div class="chart-wrap"><canvas id="c2"></canvas></div>
+    </div>
+    <div class="chart-card reveal">
+      <div class="chart-title">IL-6 抑制率——DEX 劑量梯度 × GMI 濃度</div>
+      <div class="chart-sub">GMI 10 μg/mL 時合併組大幅超越 DEX 單獨組，達高效抑制平台</div>
+      <div class="chart-wrap"><canvas id="c3"></canvas></div>
+    </div>
+    <div class="chart-card reveal">
+      <div class="chart-title">關鍵合併組 IL-6 分泌量比較</div>
+      <div class="chart-sub">D2.5+G10、D5+G10、D10+G10 vs. 單獨用藥組，n = 3</div>
+      <div class="chart-wrap"><canvas id="c4"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Bliss -->
+  <div style="margin-top:48px;">
+    <div class="sec-head">
+      <span class="sec-num">03b /</span>
+      <h2 class="sec-title">Bliss 獨立模型驗證——協同 / 加成 / 拮抗判定</h2>
+    </div>
+    <div class="formula-box reveal">
+      E<sub>expected</sub> = E<sub>D</sub> + E<sub>G</sub> − (E<sub>D</sub> × E<sub>G</sub>)
+      <span>｜ 實際 &gt; 理論 且 p &lt; 0.05 → 協同</span>
+      <span>｜ 實際 = 理論 p &gt; 0.05 → 加成</span>
+      <span>｜ 實際 &lt; 理論 且 p &lt; 0.05 → 拮抗</span>
+    </div>
+    <div class="bliss-grid reveal">
+      <div class="bliss-cell ant">
+        <div class="bliss-gmi">GMI 2.5 μg/mL</div>
+        <div class="bliss-verdict">實際 ≤ 理論</div>
+        <span class="bliss-badge">加成 / 拮抗</span>
+      </div>
+      <div class="bliss-cell add">
+        <div class="bliss-gmi">GMI 5 μg/mL</div>
+        <div class="bliss-verdict">實際 ≈ 理論</div>
+        <span class="bliss-badge">加成作用</span>
+      </div>
+      <div class="bliss-cell syn">
+        <div class="bliss-gmi">GMI 10 μg/mL ⭐</div>
+        <div class="bliss-verdict">實際 &gt;&gt; 理論</div>
+        <span class="bliss-badge">協同作用</span>
+      </div>
+      <div class="bliss-cell syn">
+        <div class="bliss-gmi">GMI 20 μg/mL</div>
+        <div class="bliss-verdict">實際 &gt; 理論</div>
+        <span class="bliss-badge">協同作用</span>
+      </div>
+      <div class="bliss-cell syn">
+        <div class="bliss-gmi">GMI 40 μg/mL</div>
+        <div class="bliss-verdict">實際 &gt; 理論</div>
+        <span class="bliss-badge">協同作用</span>
+      </div>
+    </div>
+
+    <div class="chart-card reveal" style="margin-top:20px;">
+      <div class="chart-title">GMI 10 μg/mL × 各 DEX 濃度：Bliss 實際 vs 理論抑制率</div>
+      <div class="chart-sub">所有組合之實際 IL-6 抑制率均高於理論預期值（Bliss），T 檢定 p &lt; 0.05</div>
+      <div class="chart-wrap" style="height:210px;"><canvas id="c5"></canvas></div>
+    </div>
+  </div>
+
+  <!-- Dose Comparison -->
+  <div class="dose-band reveal">
+    <div class="dose-box old">
+      <div class="dose-tag">傳統單獨高劑量</div>
+      <div class="dose-drug">DEX 40 μg/mL</div>
+      <div class="dose-unit">單一藥物</div>
+      <div class="dose-inh">IL-6 抑制率 ~ 65%</div>
+    </div>
+    <div class="dose-center">
+      <div class="dose-arrow">→</div>
+      <div class="dose-reduction">DEX 劑量<br>降低 16 倍</div>
+    </div>
+    <div class="dose-box new">
+      <div class="dose-tag">本研究合併策略（DEX 減量）</div>
+      <div class="dose-drug">DEX 2.5 + GMI 10 μg/mL</div>
+      <div class="dose-unit">合併用藥</div>
+      <div class="dose-inh">IL-6 抑制率 &gt; 95%　MTT 無顯著差異</div>
+    </div>
+  </div>
+</div>
+
+<hr class="section-div">
+
+<!-- CONCLUSION -->
+<div class="sec" id="conclusion">
+  <div class="sec-head">
+    <span class="sec-num">04 /</span>
+    <h2 class="sec-title">研究結論</h2>
+  </div>
+  <div class="conc-list">
+    <div class="conc-item reveal">
+      <div class="conc-n">01</div>
+      <div>
+        <div class="conc-title">GMI 具有抗發炎潛力，但作用受濃度與發炎環境影響</div>
+        <div class="conc-desc">GMI 在未發炎條件下（2.5–20 μg/mL）不造成 RAW264.7 細胞 MTT 活性下降，具細胞相容性；但 LPS 共處理下高濃度 GMI 未穩定提升存活率，顯示發炎環境中作用具濃度依賴性，需同時考量濃度、刺激強度與代謝狀態。</div>
+      </div>
+    </div>
+    <div class="conc-item reveal">
+      <div class="conc-n">02</div>
+      <div>
+        <div class="conc-title">GMI 10 μg/mL 是 IL-6 高效抑制平台之最低有效濃度</div>
+        <div class="conc-desc">GMI 低於此濃度（2.5–5 μg/mL）時，合併 DEX 仍無法穩定達完全抑制。達 10 μg/mL 時，搭配 DEX 2.5–40 μg/mL 之各組 IL-6 抑制率均 &gt;95%，並高於 Bliss 獨立模型理論值（p &lt; 0.05），確認協同效應。</div>
+      </div>
+    </div>
+    <div class="conc-item reveal">
+      <div class="conc-n">03</div>
+      <div>
+        <div class="conc-title">D2.5 + G10 為最具 DEX 減量意義之組合</div>
+        <div class="conc-desc">在維持 &gt;95% IL-6 抑制的前提下，DEX 需求濃度由 40 μg/mL 降至 2.5 μg/mL（減量 16 倍）；且 MTT 相對活性與較高 DEX 組無顯著差異，符合「最低有效劑量」的藥理邏輯。</div>
+      </div>
+    </div>
+    <div class="conc-item reveal">
+      <div class="conc-n">04</div>
+      <div>
+        <div class="conc-title">MTT 相對活性作為細胞代謝狀態之輔助指標</div>
+        <div class="conc-desc">DEX 減量效應主要建立於 IL-6 抑制率與 Bliss 分析，MTT 結果為輔助參考。D2.5+G10 目前支持的是「IL-6 抑制指標上的 DEX 減量效應」，尚需 LDH、Annexin V/PI、caspase-3 等進一步確認細胞毒性降低。</div>
+      </div>
+    </div>
+    <div class="conc-item reveal">
+      <div class="conc-n">05</div>
+      <div>
+        <div class="conc-title">建立 GMI 輔助低劑量 DEX 抗發炎策略之初步細胞模型</div>
+        <div class="conc-desc">GMI 可能透過調節上游 MAPK/NF-κB 訊號降低發炎強度，使低濃度 DEX 即可完成足夠的核內轉錄抑制，形成「上游訊號調節 + 下游轉錄抑制」之功能互補。本研究不主張 GMI 取代 DEX，而是提出其作為 DEX 減量輔助因子的潛力與初步細胞學證據。</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Future -->
+  <div style="margin-top:48px;">
+    <div class="sec-head">
+      <span class="sec-num">05 /</span>
+      <h2 class="sec-title">後續研究方向</h2>
+    </div>
+    <div class="future-grid">
+      <div class="future-card reveal">
+        <div class="future-icon">🔬</div>
+        <div class="future-title">擴增發炎標記</div>
+        <div class="future-desc">加入 TNF-α、IL-1β、NO、iNOS、COX-2 等指標，確認合併策略對多種促發炎因子的廣效抑制效果。</div>
+      </div>
+      <div class="future-card reveal">
+        <div class="future-icon">🧬</div>
+        <div class="future-title">細胞死亡與毒性分析</div>
+        <div class="future-desc">LDH 釋放分析、Annexin V/PI 流式細胞術、cleaved caspase-3 凋亡蛋白檢測，完整評估合併處理對細胞存活與損傷的影響。</div>
+      </div>
+      <div class="future-card reveal">
+        <div class="future-icon">⚗️</div>
+        <div class="future-title">分子訊號機制驗證</div>
+        <div class="future-desc">直接檢測 p38、ERK 磷酸化、IκBα 降解、NF-κB p65 核轉位與糖皮質激素受體（GR）相關訊號，驗證雙重路徑阻斷之分子機制。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <strong>小孢子靈芝蛋白質（GMI）協同臨床用藥（Dexamethasone）可有效抑制脂多醣誘導的發炎作用</strong><br>
+    中華民國第 66 屆中小學科學展覽會 · 動物與醫學學科 · 高級中等學校組<br>
+    關鍵字：GMI · Dexamethasone · 抗發炎 · Bliss Independence Model · RAW264.7
+  </div>
+  <div class="footer-badge">
+    <div class="badge-num">66th</div>
+    <div class="badge-lbl">全國科學展覽</div>
+  </div>
+</footer>
+
+</div><!-- .page -->
+
+<script>
+// Chart.js defaults — light theme
+Chart.defaults.color = '#7a7269';
+Chart.defaults.borderColor = '#ddd8ce';
+Chart.defaults.font.family = "'DM Mono', monospace";
+Chart.defaults.font.size = 11;
+
+const teal   = 'rgba(26,127,114,0.8)';
+const tealLt = 'rgba(26,127,114,0.2)';
+const red    = 'rgba(192,57,43,0.7)';
+const amber  = 'rgba(180,83,9,0.75)';
+const slate  = 'rgba(160,150,135,0.6)';
+const blue   = 'rgba(60,130,200,0.7)';
+const purple = 'rgba(130,80,180,0.7)';
+
+const gridColor = '#e8e4dc';
+
+const baseOpts = (yLabel) => ({
+  responsive: true, maintainAspectRatio: false,
+  plugins: { legend: { labels: { boxWidth: 10, padding: 14, font: { size: 10 } } } },
+  scales: {
+    y: { title: { display: true, text: yLabel, color: '#7a7269' }, grid: { color: gridColor }, ticks: { color: '#7a7269' } },
+    x: { grid: { display: false }, ticks: { color: '#7a7269' } }
+  }
+});
+
+// Chart 1 – GMI IL-6
+new Chart(document.getElementById('c1'), {
+  type: 'bar',
+  data: {
+    labels: ['CTL', 'GMI 2.5', 'GMI 5', 'GMI 10', 'GMI 20'],
+    datasets: [
+      { label: 'IL-6 (pg/mL)', data: [28, 1850, 1450, 340, 190],
+        backgroundColor: [slate, tealLt, 'rgba(26,127,114,0.35)', 'rgba(26,127,114,0.55)', teal],
+        borderColor: ['#b5b0a6', '#82cfc9', '#82cfc9', '#82cfc9', '#1a7f72'], borderWidth: 1.5 },
+      { label: 'LPS 單獨（參考線）', data: [null,2200,2200,2200,2200],
+        type: 'line', borderColor: red, borderWidth: 1.5, borderDash: [5,3], pointRadius: 0, fill: false }
+    ]
+  },
+  options: baseOpts('IL-6 (pg/mL)')
+});
+
+// Chart 2 – DEX IL-6
+new Chart(document.getElementById('c2'), {
+  type: 'bar',
+  data: {
+    labels: ['CTL', 'DEX 2.5', 'DEX 5', 'DEX 10', 'DEX 20', 'DEX 40'],
+    datasets: [
+      { label: 'IL-6 (pg/mL)', data: [28, 1900, 1600, 1200, 900, 760],
+        backgroundColor: [slate, 'rgba(180,83,9,0.15)', 'rgba(180,83,9,0.28)', 'rgba(180,83,9,0.42)', 'rgba(180,83,9,0.58)', amber],
+        borderColor: ['#b5b0a6', '#d4a86a', '#d4a86a', '#d4a86a', '#d4a86a', '#b45309'], borderWidth: 1.5 },
+      { label: 'LPS 單獨（參考線）', data: [null,2200,2200,2200,2200,2200],
+        type: 'line', borderColor: red, borderWidth: 1.5, borderDash: [5,3], pointRadius: 0, fill: false }
+    ]
+  },
+  options: baseOpts('IL-6 (pg/mL)')
+});
+
+// Chart 3 – Inhibition Rate
+new Chart(document.getElementById('c3'), {
+  type: 'line',
+  data: {
+    labels: ['DEX 2.5', 'DEX 5', 'DEX 10', 'DEX 20', 'DEX 40'],
+    datasets: [
+      { label: 'DEX 單獨', data: [14, 27, 45, 59, 65],
+        borderColor: amber, backgroundColor: 'rgba(180,83,9,0.07)',
+        borderWidth: 2, pointRadius: 4, tension: 0.3, fill: false },
+      { label: 'DEX + GMI 2.5', data: [8, 22, 55, 61, 63],
+        borderColor: blue, borderWidth: 1.5, pointRadius: 3, borderDash: [4,3], tension: 0.3, fill: false },
+      { label: 'DEX + GMI 5', data: [35, 50, 62, 65, 70],
+        borderColor: purple, borderWidth: 1.5, pointRadius: 3, borderDash: [4,3], tension: 0.3, fill: false },
+      { label: 'DEX + GMI 10 ★ 協同', data: [96, 97, 97, 98, 98],
+        borderColor: teal, backgroundColor: tealLt,
+        borderWidth: 2.5, pointRadius: 6, tension: 0.3, fill: true }
+    ]
+  },
+  options: { ...baseOpts('IL-6 抑制率 (%)'), scales: {
+    y: { min: 0, max: 110, title: { display: true, text: 'IL-6 抑制率 (%)', color: '#7a7269' }, grid: { color: gridColor } },
+    x: { grid: { display: false } }
+  }}
+});
+
+// Chart 4 – Combo
+new Chart(document.getElementById('c4'), {
+  type: 'bar',
+  data: {
+    labels: ['CTL', 'G10+LPS', 'D5+LPS', 'D10+LPS', 'D2.5+G10+LPS★', 'D5+G10+LPS', 'D10+G10+LPS'],
+    datasets: [{
+      label: 'IL-6 (pg/mL)',
+      data: [28, 340, 1600, 1200, 95, 100, 90],
+      backgroundColor: [slate, 'rgba(26,127,114,0.3)', 'rgba(180,83,9,0.35)', 'rgba(180,83,9,0.5)', teal, 'rgba(26,127,114,0.7)', 'rgba(26,127,114,0.6)'],
+      borderColor: ['#b5b0a6', '#82cfc9', '#d4a86a', '#d4a86a', '#1a7f72', '#1a7f72', '#1a7f72'], borderWidth: 1.5
+    }]
+  },
+  options: { ...baseOpts('IL-6 (pg/mL)'), scales: {
+    y: { title: { display: true, text: 'IL-6 (pg/mL)', color: '#7a7269' }, grid: { color: gridColor } },
+    x: { grid: { display: false }, ticks: { font: { size: 9 }, color: '#7a7269' } }
+  }}
+});
+
+// Chart 5 – Bliss
+new Chart(document.getElementById('c5'), {
+  type: 'bar',
+  data: {
+    labels: ['G10+D2.5', 'G10+D5', 'G10+D10', 'G10+D20', 'G10+D40'],
+    datasets: [
+      { label: '理論 Bliss 預期值', data: [70, 76, 80, 83, 85],
+        backgroundColor: 'rgba(160,150,135,0.35)', borderColor: '#b5b0a6', borderWidth: 1.5 },
+      { label: '實際 IL-6 抑制率', data: [96, 97, 97, 98, 98],
+        backgroundColor: teal, borderColor: '#1a7f72', borderWidth: 1.5 }
+    ]
+  },
+  options: { ...baseOpts('抑制率 (%)'), scales: {
+    y: { min: 0, max: 110, title: { display: true, text: '抑制率 (%)', color: '#7a7269' }, grid: { color: gridColor } },
+    x: { grid: { display: false } }
+  }}
+});
+
+// Scroll reveal
+const io = new IntersectionObserver(entries => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('in'), 80);
+    }
+  });
+}, { threshold: 0.08 });
+document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+</script>
+</body>
+</html>

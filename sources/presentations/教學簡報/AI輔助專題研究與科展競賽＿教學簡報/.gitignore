@@ -1,0 +1,5 @@
+# Ignore temporary slide drafts and compiled files
+drafts/
+*.log
+*.pptx
+.DS_Store

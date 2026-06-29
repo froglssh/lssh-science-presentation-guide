@@ -1,0 +1,1157 @@
+<!doctype html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>小孢子靈芝蛋白質 GMI 協同 Dexamethasone 抑制發炎反應｜科展報告網頁</title>
+  <meta name="description" content="中華民國第 66 屆中小學科學展覽會作品網頁：小孢子靈芝蛋白質 GMI 協同 Dexamethasone 可有效抑制 LPS 誘導的發炎作用。">
+  <style>
+    :root {
+      --ink: #17212b;
+      --muted: #5c6a72;
+      --line: #d9e0e4;
+      --paper: #f7f9f8;
+      --white: #ffffff;
+      --teal: #176b63;
+      --teal-soft: #dff2ee;
+      --coral: #b5443c;
+      --coral-soft: #f8e3df;
+      --gold: #9b721e;
+      --gold-soft: #f5ecd3;
+      --blue: #285b8f;
+      --blue-soft: #e0ecf8;
+      --shadow: 0 18px 42px rgba(23, 33, 43, .12);
+      --radius: 8px;
+      --max: 1180px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      color: var(--ink);
+      font-family: "PingFang TC", "Noto Sans TC", "Microsoft JhengHei", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      line-height: 1.72;
+      background: var(--paper);
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 30;
+      border-bottom: 1px solid rgba(23, 33, 43, .12);
+      background: rgba(255, 255, 255, .94);
+      backdrop-filter: blur(14px);
+    }
+
+    .topbar-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      min-height: 58px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 220px;
+      font-weight: 800;
+      letter-spacing: 0;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: conic-gradient(from 120deg, var(--teal), var(--blue), var(--coral), var(--gold), var(--teal));
+      box-shadow: 0 0 0 3px rgba(23, 107, 99, .12);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      overflow-x: auto;
+      white-space: nowrap;
+      scrollbar-width: thin;
+    }
+
+    nav a {
+      padding: 8px 10px;
+      border-radius: 6px;
+      text-decoration: none;
+      color: #31404a;
+      font-size: 14px;
+      font-weight: 650;
+    }
+
+    nav a:hover,
+    nav a:focus-visible {
+      outline: none;
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .hero {
+      color: #fff;
+      background:
+        linear-gradient(90deg, rgba(7, 22, 30, .86), rgba(7, 22, 30, .62), rgba(7, 22, 30, .18)),
+        url("site-assets/pages/page-05.png") center/cover no-repeat;
+      min-height: 76vh;
+      display: grid;
+      align-items: end;
+    }
+
+    .hero-inner {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+      padding: 96px 0 72px;
+    }
+
+    .kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 16px;
+      color: #e9fff9;
+      font-weight: 800;
+    }
+
+    .kicker::before {
+      content: "";
+      width: 42px;
+      height: 2px;
+      background: #ffd36b;
+    }
+
+    h1 {
+      max-width: 920px;
+      margin: 0;
+      font-size: clamp(34px, 6vw, 72px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .hero-copy {
+      max-width: 760px;
+      margin: 22px 0 0;
+      color: rgba(255, 255, 255, .9);
+      font-size: 19px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 44px;
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      border-radius: 6px;
+      background: var(--white);
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .button.secondary {
+      border-color: rgba(255, 255, 255, .5);
+      background: rgba(255, 255, 255, .08);
+      color: #fff;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    section {
+      padding: 72px 0;
+    }
+
+    .band-white {
+      background: var(--white);
+    }
+
+    .band-ink {
+      background: #17212b;
+      color: #edf4f4;
+    }
+
+    .wrap {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .section-head {
+      max-width: 820px;
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      margin: 0 0 12px;
+      font-size: clamp(28px, 4vw, 46px);
+      line-height: 1.2;
+      letter-spacing: 0;
+    }
+
+    h3 {
+      margin: 0 0 10px;
+      font-size: 22px;
+      line-height: 1.35;
+      letter-spacing: 0;
+    }
+
+    p {
+      margin: 0 0 14px;
+    }
+
+    .lead {
+      color: var(--muted);
+      font-size: 18px;
+    }
+
+    .band-ink .lead,
+    .band-ink .muted {
+      color: #b9c7cb;
+    }
+
+    .highlight {
+      color: var(--coral);
+      font-weight: 900;
+    }
+
+    .grid {
+      display: grid;
+      gap: 18px;
+    }
+
+    .grid.two {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .grid.three {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .metric-row {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      margin-top: -36px;
+      position: relative;
+      z-index: 5;
+    }
+
+    .metric {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 18px;
+      box-shadow: var(--shadow);
+      min-height: 150px;
+    }
+
+    .metric strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--teal);
+      font-size: clamp(26px, 4vw, 42px);
+      line-height: 1.05;
+      letter-spacing: 0;
+    }
+
+    .metric span {
+      color: var(--muted);
+      font-weight: 650;
+    }
+
+    .panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+      padding: 22px;
+    }
+
+    .band-ink .panel {
+      border-color: rgba(255, 255, 255, .18);
+      background: rgba(255, 255, 255, .06);
+    }
+
+    .tagline {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .tag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 10px;
+      background: var(--white);
+      color: #31404a;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .tag.teal {
+      border-color: #b6ddd5;
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .tag.coral {
+      border-color: #efc7c0;
+      background: var(--coral-soft);
+      color: var(--coral);
+    }
+
+    .tag.gold {
+      border-color: #ead899;
+      background: var(--gold-soft);
+      color: var(--gold);
+    }
+
+    .figure {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--white);
+    }
+
+    .figure img {
+      width: 100%;
+      background: #eef2f4;
+    }
+
+    .caption {
+      padding: 12px 14px;
+      color: var(--muted);
+      font-size: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 12px;
+      counter-reset: step;
+    }
+
+    .step {
+      position: relative;
+      display: grid;
+      grid-template-columns: 46px 1fr;
+      gap: 14px;
+      align-items: start;
+      padding: 16px;
+      border-left: 4px solid var(--teal);
+      background: #f2f7f6;
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .step::before {
+      counter-increment: step;
+      content: counter(step);
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--teal);
+      color: #fff;
+      font-weight: 900;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      border: 1px solid var(--line);
+      background: var(--white);
+      font-size: 15px;
+    }
+
+    th,
+    td {
+      padding: 12px;
+      border-bottom: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: #edf4f2;
+      color: #22313b;
+      font-weight: 900;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .evidence-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+      align-items: start;
+    }
+
+    .callout {
+      border-left: 5px solid var(--coral);
+      padding: 18px 20px;
+      background: var(--coral-soft);
+      border-radius: 0 var(--radius) var(--radius) 0;
+    }
+
+    .callout.teal {
+      border-left-color: var(--teal);
+      background: var(--teal-soft);
+    }
+
+    .callout.gold {
+      border-left-color: var(--gold);
+      background: var(--gold-soft);
+    }
+
+    .gallery-tools {
+      display: grid;
+      grid-template-columns: minmax(180px, 1fr) auto;
+      gap: 12px;
+      align-items: center;
+      margin: 0 0 18px;
+    }
+
+    .search {
+      min-height: 44px;
+      width: 100%;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      padding: 10px 12px;
+      font: inherit;
+      background: #fff;
+    }
+
+    .page-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .page-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--white);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .page-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .page-button {
+      appearance: none;
+      display: block;
+      width: 100%;
+      padding: 0;
+      border: 0;
+      background: transparent;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .page-card img {
+      width: 100%;
+      aspect-ratio: 1 / 1.38;
+      object-fit: cover;
+      object-position: top center;
+      background: #eef2f4;
+    }
+
+    .page-meta {
+      min-height: 118px;
+      padding: 13px 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .page-meta strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--teal);
+      font-size: 16px;
+    }
+
+    .page-meta span {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 60;
+      display: none;
+      place-items: center;
+      padding: 20px;
+      background: rgba(4, 10, 14, .84);
+    }
+
+    .modal.is-open {
+      display: grid;
+    }
+
+    .modal-inner {
+      width: min(1120px, 100%);
+      max-height: 96vh;
+      display: grid;
+      grid-template-rows: auto 1fr auto;
+      overflow: hidden;
+      border-radius: var(--radius);
+      background: #fff;
+    }
+
+    .modal-head,
+    .modal-foot {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .modal-foot {
+      border-top: 1px solid var(--line);
+      border-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .icon-button {
+      width: 38px;
+      height: 38px;
+      display: grid;
+      place-items: center;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: #fff;
+      color: var(--ink);
+      font-size: 22px;
+      cursor: pointer;
+    }
+
+    .modal-body {
+      overflow: auto;
+      background: #eef2f4;
+    }
+
+    .modal-body img {
+      width: min(100%, 980px);
+      margin: 0 auto;
+    }
+
+    .footer {
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+      background: #fff;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .print-note {
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .topbar-inner {
+        align-items: stretch;
+        flex-direction: column;
+        padding: 10px 0;
+      }
+
+      nav {
+        padding-bottom: 4px;
+      }
+
+      .metric-row,
+      .grid.three,
+      .grid.two,
+      .evidence-grid,
+      .page-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        min-height: 68vh;
+      }
+
+      section {
+        padding: 54px 0;
+      }
+    }
+
+    @media print {
+      .topbar,
+      .hero-actions,
+      .gallery-tools,
+      .modal {
+        display: none;
+      }
+
+      body {
+        background: #fff;
+      }
+
+      .hero {
+        min-height: auto;
+        color: var(--ink);
+        background: #fff;
+      }
+
+      .hero-inner {
+        padding: 30px 0;
+      }
+
+      .metric-row {
+        margin-top: 0;
+      }
+
+      .page-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span>GMI × DEX 科展報告</span>
+      </div>
+      <nav aria-label="主要導覽">
+        <a href="#overview">研究總覽</a>
+        <a href="#design">方法設計</a>
+        <a href="#results">結果圖表</a>
+        <a href="#discussion">討論限制</a>
+        <a href="#appendix">原頁附錄</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <p class="kicker">中華民國第 66 屆中小學科學展覽會｜動物與醫學學科</p>
+        <h1>小孢子靈芝蛋白質 GMI 協同 Dexamethasone 抑制 LPS 誘導的發炎作用</h1>
+        <p class="hero-copy">本網頁依作品說明書與簡報輸出整理，整合研究背景、實驗設計、統計結果、討論結論與 31 頁原始報告圖像。核心發現是：<strong>GMI 10 μg/mL 搭配 DEX 2.5 μg/mL，可在細胞層級呈現高 IL-6 抑制率，並支持 DEX 減量輔助策略。</strong></p>
+        <div class="hero-actions">
+          <a class="button" href="#results">查看關鍵圖表</a>
+          <a class="button secondary" href="site-assets/report.pdf">開啟原始 PDF</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="wrap">
+      <div class="metric-row" aria-label="研究關鍵數據">
+        <div class="metric">
+          <strong>RAW 264.7</strong>
+          <span>LPS 誘導小鼠巨噬細胞發炎模型，作為抗發炎藥物篩選平台。</span>
+        </div>
+        <div class="metric">
+          <strong>IL-6</strong>
+          <span>以 ELISA 定量促發炎細胞激素分泌量，作為主要抗發炎判準。</span>
+        </div>
+        <div class="metric">
+          <strong>10 μg/mL</strong>
+          <span>GMI 在本濃度梯度中進入高效 IL-6 抑制平台的最低有效濃度。</span>
+        </div>
+        <div class="metric">
+          <strong>1/16</strong>
+          <span>DEX 由 40 降至 2.5 μg/mL 仍可搭配 GMI 達高度抑制的減量意義。</span>
+        </div>
+      </div>
+    </div>
+
+    <section id="overview" class="band-white">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>研究總覽</h2>
+          <p class="lead">本研究從臨床類固醇抗發炎藥物的副作用問題出發，探討小孢子靈芝免疫調節蛋白 GMI 是否能作為 Dexamethasone 的減量輔助因子。</p>
+        </div>
+        <div class="grid two">
+          <div class="panel">
+            <h3>研究問題</h3>
+            <p>DEX 可透過糖皮質激素受體與 NF-κB 等轉錄因子互作，抑制促發炎基因表現；但高劑量或長期使用可能造成免疫抑制與細胞壓力。本作品追問：若使用 GMI 同時調節發炎訊號，是否能在維持抗發炎效果的同時降低 DEX 所需劑量？</p>
+            <div class="tagline">
+              <span class="tag teal">GMI</span>
+              <span class="tag coral">Dexamethasone</span>
+              <span class="tag gold">LPS</span>
+              <span class="tag">RAW 264.7</span>
+              <span class="tag">IL-6</span>
+            </div>
+          </div>
+          <div class="panel">
+            <h3>核心結論</h3>
+            <p>GMI 單獨處理在 2.5–20 μg/mL 範圍內對未發炎細胞具一定相容性；但在 LPS 發炎環境中，高濃度 GMI 可能因過度抑制 NF-κB 相關存活訊號而影響 MTT 相對活性。最具減量意義的組合為 <strong class="highlight">DEX 2.5 μg/mL + GMI 10 μg/mL</strong>，因其在 IL-6 抑制上優於高劑量 DEX 單用，且固定 GMI 10 μg/mL 時，提高 DEX 濃度未呈現顯著 MTT 優勢。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-white">
+      <div class="wrap evidence-grid">
+        <figure class="figure">
+          <img src="site-assets/pages/page-05.png" alt="圖一：GMI、DEX 與 LPS 發炎路徑之文獻背景與藥理機制模型">
+          <figcaption class="caption">圖一將 LPS/TLR4、MAPK、NF-κB、IL-6 與 DEX/GMI 作用位置放在同一機制圖中，是本研究「雙重路徑阻斷」假說的視覺核心。</figcaption>
+        </figure>
+        <div>
+          <h2>研究假說</h2>
+          <p class="lead">DEX 偏向下游轉錄抑制，GMI 則可透過抑制 IκB 降解與 MAPK 磷酸化干預發炎訊號。若兩者作用位置不同，合併處理可能產生加成或協同效果。</p>
+          <div class="callout teal">
+            <p><strong>假說重點：</strong>GMI 不是單純取代 DEX，而是作為輔助因子，讓 DEX 在較低濃度下仍能有效降低 LPS 誘導的 IL-6 分泌。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="wrap">
+        <div class="section-head">
+          <h2>研究視覺素材</h2>
+          <p class="lead">除原始報告圖表外，網頁也納入目前工作區中已整理出的研究視覺圖，可作為首頁展示、口頭說明或評審快速理解機制使用。</p>
+        </div>
+        <div class="grid two">
+          <figure class="figure">
+            <img src="site-assets/gmi-dex-mechanism.png" alt="靈芝蛋白與類固醇之抗發炎協同機制圖">
+            <figcaption class="caption">視覺素材一：以圖像化方式呈現 GMI 與 DEX 在發炎訊號中的協同作用位置。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="site-assets/gmi-dex-strategy.png" alt="靈芝蛋白減毒增效抗炎策略圖">
+            <figcaption class="caption">視覺素材二：凸顯低劑量 DEX 搭配 GMI 的減毒增效與抗發炎策略。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section id="design">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>方法設計</h2>
+          <p class="lead">研究採標準化細胞藥理學流程，包含細胞培養、藥物處理、MTT 細胞活性測定、ELISA 定量與統計分析。</p>
+        </div>
+        <div class="grid two">
+          <div>
+            <div class="timeline">
+              <div class="step">
+                <div>
+                  <h3>細胞模型</h3>
+                  <p>使用 RAW 264.7 小鼠巨噬細胞，因其對 TLR4 配體 LPS 反應穩定，適合建立發炎反應與抗發炎藥物篩選模型。</p>
+                </div>
+              </div>
+              <div class="step">
+                <div>
+                  <h3>發炎誘導</h3>
+                  <p>以 LPS 100 ng/mL 刺激細胞，誘導促發炎細胞激素 IL-6 大量產生，形成可比較的發炎基準組。</p>
+                </div>
+              </div>
+              <div class="step">
+                <div>
+                  <h3>藥物處理</h3>
+                  <p>DEX 濃度梯度為 0、2.5、5、10、20、40 μg/mL；GMI 濃度梯度為 0、2.5、5、10、20 μg/mL，並設計單獨與合併處理組。</p>
+                </div>
+              </div>
+              <div class="step">
+                <div>
+                  <h3>定量與統計</h3>
+                  <p>以 MTT 評估相對代謝活性，以 ELISA 測定 IL-6 分泌量；統計使用 ANOVA、Tukey multiple comparisons test、Unpaired t-test 與 Bliss independence model。</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <figure class="figure">
+            <img src="site-assets/pages/page-11.png" alt="圖二：實驗流程概述">
+            <figcaption class="caption">圖二呈現完整流程：細胞培養、藥物處理、MTT、ELISA 與統計分析。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-white">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>實驗分組與判讀指標</h2>
+          <p class="lead">網頁保留原始頁面圖像，同時將分組與指標整理成可快速檢索的表格，方便展示與口頭報告使用。</p>
+        </div>
+        <div class="grid two">
+          <table>
+            <thead>
+              <tr>
+                <th>組別</th>
+                <th>處理方式</th>
+                <th>研究意義</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>CTL</td>
+                <td>僅更換新鮮培養基，不含藥物與 LPS</td>
+                <td>建立未發炎、未用藥基準。</td>
+              </tr>
+              <tr>
+                <td>LPS</td>
+                <td>LPS 100 ng/mL</td>
+                <td>建立發炎誘導基準，作為 IL-6 抑制率計算分母。</td>
+              </tr>
+              <tr>
+                <td>DEX 單用</td>
+                <td>2.5、5、10、20、40 μg/mL</td>
+                <td>評估 DEX 濃度對細胞活性與 IL-6 抑制的效果。</td>
+              </tr>
+              <tr>
+                <td>GMI 單用</td>
+                <td>2.5、5、10、20 μg/mL</td>
+                <td>評估 GMI 細胞相容性與抗發炎潛力。</td>
+              </tr>
+              <tr>
+                <td>DEX + GMI + LPS</td>
+                <td>固定或交叉濃度合併處理</td>
+                <td>檢驗加成、協同趨勢與 DEX 減量效應。</td>
+              </tr>
+            </tbody>
+          </table>
+          <table>
+            <thead>
+              <tr>
+                <th>指標</th>
+                <th>方法</th>
+                <th>判讀重點</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>MTT 相對活性</td>
+                <td>吸光值換算細胞代謝還原能力</td>
+                <td>可輔助判讀細胞存活與代謝狀態，但不宜單獨等同細胞數。</td>
+              </tr>
+              <tr>
+                <td>IL-6 分泌量</td>
+                <td>ELISA 定量上清液細胞激素</td>
+                <td>本研究主要抗發炎效果判準。</td>
+              </tr>
+              <tr>
+                <td>IL-6 抑制率</td>
+                <td>[RL − R處理組] / RL × 100%</td>
+                <td>比較 DEX、GMI、合併組對 LPS 誘導 IL-6 的抑制幅度。</td>
+              </tr>
+              <tr>
+                <td>Bliss model</td>
+                <td>比較理論獨立加成與實際合併抑制率</td>
+                <td>判定合併處理是否高於理論預期。</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="results" class="band-ink">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>結果圖表與原始證據</h2>
+          <p class="lead">以下挑選報告中最重要的圖表頁面，保留原圖並附上科展展示時可直接說明的判讀文字。</p>
+        </div>
+        <div class="grid two">
+          <figure class="figure">
+            <img src="site-assets/pages/page-12.png" alt="GMI 細胞毒性與 LPS 後細胞存活率圖表">
+            <figcaption class="caption">結果一：GMI 2.5–20 μg/mL 單獨處理未造成顯著存活率下降；但 LPS 共處理時，高濃度 GMI 並未穩定提升 MTT 相對活性。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="site-assets/pages/page-14.png" alt="DEX 與 LPS 細胞存活率圖表">
+            <figcaption class="caption">結果二：DEX 單用可能降低 MTT 相對活性；在 LPS 存在下，DEX + LPS 組讀值回升，需從免疫代謝重整角度謹慎解讀。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="site-assets/pages/page-18.png" alt="IL-6 分泌反應圖表">
+            <figcaption class="caption">結果三：CTL、DEX、GMI 本身幾乎不誘導 IL-6；LPS 會強烈誘導 IL-6，低濃度 DEX 或 GMI 單獨處理未必能顯著降低 IL-6。</figcaption>
+          </figure>
+          <figure class="figure">
+            <img src="site-assets/pages/page-21.png" alt="IL-6 抑制率與 Bliss 理論值比較圖表">
+            <figcaption class="caption">結果四：GMI 10 μg/mL 合併 DEX 後，IL-6 抑制率高於 Bliss 理論值並達顯著差異，是報告中支持協同趨勢的重要證據。</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-white">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>主要發現</h2>
+          <p class="lead">本研究的強處不只是「看到抑制」，而是進一步把濃度平台、減量效果與細胞代謝判讀連成一個論證。</p>
+        </div>
+        <div class="grid three">
+          <div class="panel">
+            <h3>一、GMI 具抗發炎潛力</h3>
+            <p>GMI 於未發炎條件下具一定細胞相容性，並可在合併處理中降低 IL-6 分泌；但其作用受濃度與發炎環境影響，不宜簡化成濃度越高越好。</p>
+          </div>
+          <div class="panel">
+            <h3>二、GMI 10 μg/mL 是平台界點</h3>
+            <p>在本研究濃度設計中，GMI 10 μg/mL 是促使 IL-6 合併抑制進入高效平台的最低有效濃度。不過報告也明確指出，尚未測試 5–10 μg/mL 間更細梯度，因此它是本設計下的界點，不是絕對閾值。</p>
+          </div>
+          <div class="panel">
+            <h3>三、D2.5 + G10 最具減量意義</h3>
+            <p>DEX 40 μg/mL 單用約達 65% IL-6 抑制，而 DEX 2.5 μg/mL + GMI 10 μg/mL 可達約 95% 以上抑制率，代表 DEX 濃度可降為原本 1/16，仍維持高度抗發炎效果。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="discussion">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>討論、限制與後續研究</h2>
+          <p class="lead">一份好的科展報告不只呈現成功結果，也要說清楚資料能支持到哪裡，以及下一步要如何補強。</p>
+        </div>
+        <div class="grid two">
+          <div class="callout">
+            <h3>NF-κB 的雙面刃效應</h3>
+            <p>GMI 可抑制 IκB 降解與 MAPK 磷酸化，阻斷下游發炎訊號；但 NF-κB 同時涉及細胞存活與抗凋亡基因表現。因此高濃度 GMI 雖可能降低 IL-6，卻也可能因過度抑制正常存活訊號而影響 MTT 相對活性。</p>
+          </div>
+          <div class="callout gold">
+            <h3>MTT 不等於單純細胞數</h3>
+            <p>MTT 反映細胞代謝還原能力。LPS 或藥物處理改變巨噬細胞免疫代謝時，讀值可能同時包含存活與代謝重整訊號，因此報告將 MTT 作為輔助指標，並與 IL-6 抑制結果共同判讀。</p>
+          </div>
+        </div>
+        <div class="grid three" style="margin-top: 18px;">
+          <div class="panel">
+            <h3>建議補強 1：濃度梯度</h3>
+            <p>補測 GMI 5–10 μg/mL 之間更細梯度，例如 6、7.5、8.5、9 μg/mL，以確認 10 μg/mL 是否真為最低有效平台濃度。</p>
+          </div>
+          <div class="panel">
+            <h3>建議補強 2：重複數與統計</h3>
+            <p>增加獨立實驗重複數，讓誤差線、p 值與 Bliss model 的可靠度更高，也能提升全國科展評審對再現性的信心。</p>
+          </div>
+          <div class="panel">
+            <h3>建議補強 3：機制驗證</h3>
+            <p>可加入 NF-κB 核轉位、IκB 降解、MAPK 磷酸化或 IFN-β 表現等指標，讓「雙重路徑阻斷」從推論提升為機制證據。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="band-white">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>科展口頭報告敘事</h2>
+          <p class="lead">建議把報告說成一個清楚的科學故事：從臨床缺口出發，到細胞模型驗證，再回到 DEX 減量價值。</p>
+        </div>
+        <table>
+          <thead>
+            <tr>
+              <th>時間</th>
+              <th>內容重點</th>
+              <th>展示頁面</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1 分鐘</td>
+              <td>說明 DEX 高劑量副作用與 GMI 協同減量的研究價值。</td>
+              <td>第 3–5 頁</td>
+            </tr>
+            <tr>
+              <td>2 分鐘</td>
+              <td>介紹 RAW 264.7/LPS 發炎模型、藥物分組、MTT 與 ELISA 方法。</td>
+              <td>第 8–11 頁</td>
+            </tr>
+            <tr>
+              <td>4 分鐘</td>
+              <td>聚焦細胞活性、IL-6 抑制與 Bliss 協同趨勢三組結果。</td>
+              <td>第 12–23 頁</td>
+            </tr>
+            <tr>
+              <td>2 分鐘</td>
+              <td>回答 GMI 有效濃度界點與 DEX 減量是否成立。</td>
+              <td>第 24–29 頁</td>
+            </tr>
+            <tr>
+              <td>1 分鐘</td>
+              <td>提出限制與未來方向，展現研究成熟度。</td>
+              <td>第 27–29 頁</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="appendix">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>完整報告書原頁附錄</h2>
+          <p class="lead">以下保留第 1–31 頁原始報告截圖，包含完整文字、表格、數據圖表與參考文獻。可用關鍵字搜尋頁面標題或內容摘要，點擊縮圖可放大檢視。</p>
+        </div>
+        <div class="gallery-tools">
+          <input id="pageSearch" class="search" type="search" placeholder="搜尋：IL-6、MTT、Bliss、結論、參考文獻..." aria-label="搜尋報告頁面">
+          <span id="countText" class="print-note">31 頁</span>
+        </div>
+        <div id="pageGrid" class="page-grid" aria-live="polite"></div>
+      </div>
+    </section>
+  </main>
+
+  <div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-inner">
+      <div class="modal-head">
+        <strong id="modalTitle">報告頁面</strong>
+        <button class="icon-button" type="button" id="closeModal" aria-label="關閉放大頁面">×</button>
+      </div>
+      <div class="modal-body">
+        <img id="modalImage" src="" alt="">
+      </div>
+      <div class="modal-foot">
+        <span id="modalCaption"></span>
+        <a id="modalLink" href="" target="_blank" rel="noreferrer">開啟圖片</a>
+      </div>
+    </div>
+  </div>
+
+  <footer class="footer">
+    <div class="wrap">
+      <p>本網頁由工作區內 PDF、簡報 Markdown 與報告頁面 PNG 整理製作。所有圖表與照片證據保留於「完整報告書原頁附錄」。</p>
+    </div>
+  </footer>
+
+  <script>
+    const pages = [
+      ["01", "封面與作品資訊", "中華民國第 66 屆中小學科學展覽會；科別：動物與醫學學科；作品名稱與關鍵詞。"],
+      ["02", "摘要", "DEX 高劑量問題、RAW 264.7/LPS 模型、GMI 10 μg/mL、DEX 2.5 μg/mL 與 1/16 減量重點。"],
+      ["03", "研究動機", "糖皮質激素之臨床價值、副作用與降低類固醇劑量的研究缺口。"],
+      ["04", "DEX 機制與副作用", "Dexamethasone、GR、NF-κB、Transrepression 與免疫抑制背景。"],
+      ["05", "文獻背景與藥理機制模型", "LPS/TLR4、MAPK、NF-κB、IL-6、GMI 與 DEX 作用位置整合圖。"],
+      ["06", "研究目的與試劑表", "IL-6 抑制率、Bliss independence model、DEX 減量與主要試劑。"],
+      ["07", "耗材與儀器", "96 孔盤、細胞計數盤、離心管、無菌操作台、CO2 培養箱與微盤分析儀。"],
+      ["08", "研究方法總覽", "RAW 264.7 細胞、DMEM、FBS、抗生素、無菌培養與基本實驗條件。"],
+      ["09", "藥物處理與分組", "CTL、LPS、DEX 梯度、GMI 梯度、LPS + 藥物合併處理組。"],
+      ["10", "IL-6 ELISA", "上清液收集、捕獲抗體、封閉、加樣、檢測抗體與讀值流程。"],
+      ["11", "實驗流程與統計分析", "MTT、ELISA、ANOVA、Tukey post-hoc test、顯著性標記與 Bliss model。"],
+      ["12", "GMI 細胞毒性與 LPS 後存活率", "GMI 2.5–20 μg/mL、MTT、LPS 共處理與細胞活性結果。"],
+      ["13", "GMI 結論與 DEX 實驗目的", "GMI 低中濃度安全性、發炎環境影響與 DEX 細胞毒性設計。"],
+      ["14", "DEX 與 LPS 細胞存活率", "DEX 濃度梯度、Viability、顯著性標記與 LPS 條件下比較。"],
+      ["15", "GMI 10 與 DEX 合併比較", "DEX 10 + L + GMI 10、Tukey multiple comparisons test、p = 0.0015。"],
+      ["16", "低濃度合併與統計", "DEX 2.5 + GMI 2.5/5/10、LPS 組比較與 p = 0.0184。"],
+      ["17", "DEX 10 + GMI 10 條件", "DEX 10 + L、GMI 10、合併組與 p = 0.9846 等比較。"],
+      ["18", "IL-6 分泌反應", "CTL、DEX、GMI、LPS、低濃度 DEX/GMI 對 IL-6 的影響。"],
+      ["19", "合併處理降低 IL-6", "DEX 10 + L + GMI 10 顯著低於 DEX 10 + L，p = 0.0002。"],
+      ["20", "IL-6 抑制率公式", "RL、RD、RG、RD+G 與抑制率計算，DEX 減量效應分析起點。"],
+      ["21", "抑制率圖表與理論極限", "D+L、D+G2.5+L、D+G5+L、D+G10+L、D+G20+L 與 Bliss 比較圖。"],
+      ["22", "Bliss 統計與 GMI 有效濃度", "GMI 10 μg/mL 合併組高於 Bliss 理論值，進入高效抑制平台。"],
+      ["23", "DEX 單用與 LPS 存在下 MTT", "DEX 單用降低代謝活性；LPS 條件下 MTT 讀值與代謝狀態判讀。"],
+      ["24", "討論：NF-κB 雙重效應", "高濃度 GMI、IκB、MAPK、NF-κB、Bcl-2 與細胞存活率關聯。"],
+      ["25", "討論：GMI 10 μg/mL 界點", "GMI 10 是本濃度設計下的最低有效平台濃度，而非絕對閾值。"],
+      ["26", "討論：DEX 減量的免疫學意義", "IFN-β、抗微生物因子、ROS、粒線體凋亡與低 DEX 濃度策略。"],
+      ["27", "研究限制：MTT 與免疫代謝", "MTT 讀值可能反映存活與代謝重整，需搭配 IL-6 與機制資料。"],
+      ["28", "結論：GMI 抗發炎潛力", "GMI 濃度與發炎環境依賴性，合併處理效果與研究整體結論。"],
+      ["29", "結論：D2.5 + G10 減量意義", "固定 GMI 10 下 DEX 濃度差異、MTT 輔助判讀與未來應用。"],
+      ["30", "參考文獻", "GMI、Dexamethasone、glucocorticoid、MTT、NF-κB 與相關文獻。"],
+      ["31", "參考文獻續頁", "O’Neil、Taylor、Frontiers in Immunology 等文獻續頁。"]
+    ];
+
+    const pageGrid = document.getElementById("pageGrid");
+    const pageSearch = document.getElementById("pageSearch");
+    const countText = document.getElementById("countText");
+    const modal = document.getElementById("modal");
+    const modalTitle = document.getElementById("modalTitle");
+    const modalImage = document.getElementById("modalImage");
+    const modalCaption = document.getElementById("modalCaption");
+    const modalLink = document.getElementById("modalLink");
+    const closeModal = document.getElementById("closeModal");
+
+    function imagePath(pageNo) {
+      return `site-assets/pages/page-${pageNo}.png`;
+    }
+
+    function renderPages(filter = "") {
+      const query = filter.trim().toLowerCase();
+      const filtered = pages.filter(([no, title, desc]) => {
+        return `${no} ${title} ${desc}`.toLowerCase().includes(query);
+      });
+
+      pageGrid.innerHTML = filtered.map(([no, title, desc]) => `
+        <article class="page-card">
+          <button class="page-button" type="button" data-page="${no}" aria-label="放大第 ${Number(no)} 頁：${title}">
+            <img loading="lazy" src="${imagePath(no)}" alt="報告書第 ${Number(no)} 頁：${title}">
+            <span class="page-meta">
+              <strong>第 ${Number(no)} 頁｜${title}</strong>
+              <span>${desc}</span>
+            </span>
+          </button>
+        </article>
+      `).join("");
+
+      countText.textContent = `${filtered.length} / ${pages.length} 頁`;
+    }
+
+    function openModal(pageNo) {
+      const page = pages.find(([no]) => no === pageNo);
+      if (!page) return;
+      const [no, title, desc] = page;
+      const src = imagePath(no);
+      modalTitle.textContent = `第 ${Number(no)} 頁｜${title}`;
+      modalImage.src = src;
+      modalImage.alt = `報告書第 ${Number(no)} 頁：${title}`;
+      modalCaption.textContent = desc;
+      modalLink.href = src;
+      modal.classList.add("is-open");
+      closeModal.focus();
+    }
+
+    function hideModal() {
+      modal.classList.remove("is-open");
+      modalImage.src = "";
+    }
+
+    pageSearch.addEventListener("input", (event) => renderPages(event.target.value));
+
+    pageGrid.addEventListener("click", (event) => {
+      const button = event.target.closest("[data-page]");
+      if (button) openModal(button.dataset.page);
+    });
+
+    closeModal.addEventListener("click", hideModal);
+    modal.addEventListener("click", (event) => {
+      if (event.target === modal) hideModal();
+    });
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape" && modal.classList.contains("is-open")) hideModal();
+    });
+
+    renderPages();
+  </script>
+</body>
+</html>

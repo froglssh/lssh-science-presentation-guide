@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: "AI輔助專題研究 教學網頁",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/AI%E8%BC%94%E5%8A%A9%E5%B0%88%E9%A1%8C%E7%A0%94%E7%A9%B6%EF%BC%BF%E9%BA%97%E5%B1%B1%E6%9E%97%E7%8D%BB%E5%8D%87_%E6%95%99%E5%AD%B8%E7%B0%A1%E5%A0%B1/AI%E8%BC%94%E5%8A%A9%E5%B0%88%E9%A1%8C%E7%A0%94%E7%A9%B6%EF%BC%BF%E9%BA%97%E5%B1%B1%E6%9E%97%E7%8D%BB%E5%8D%87_%E6%95%99%E5%AD%B8%E7%B6%B2%E9%A0%81.html",
+            url: "../sources/presentations/教學簡報/AI輔助專題研究＿麗山林獻升_教學簡報/AI輔助專題研究＿麗山林獻升_教學網頁.html",
             desc: "臺北麗山高中林獻升老師主講系列教學網站",
             icon: "bi-laptop-fill"
         },
@@ -35,79 +35,79 @@ document.addEventListener('DOMContentLoaded', () => {
         },
         {
             name: "科展參賽經驗全方位解析",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/10%E5%8F%83%E8%B3%BD%E7%B6%93%E9%A9%97/%E7%A7%91%E5%B1%95%E5%8F%83%E8%B3%BD%E7%B6%93%E9%A9%97%E5%85%A8%E6%96%B9%E4%BD%8D%E8%A7%A3%E6%9E%90.html",
+            url: "../sources/教學文章/10參賽經驗/科展參賽經驗全方位解析.html",
             desc: "學長姐參賽心路歷程與各科評審評語優缺點統整",
             icon: "bi-chat-square-quote-fill"
         },
         {
             name: "科學探究與科展競賽指導手冊",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/1%E7%A7%91%E5%B1%95%E6%8C%87%E5%B0%8E/%E7%A7%91%E5%AD%B8%E6%8E%A2%E7%A9%B6%E8%88%87%E7%A7%91%E5%B1%95%E7%AB%B6%E8%B3%BD%E6%8C%87%E5%B0%8E%E6%89%8B%E5%86%8A.html",
+            url: "../sources/教學文章/1科展指導/科學探究與科展競賽指導手冊.html",
             desc: "手把手引導探究流程與科展參賽基礎攻略",
             icon: "bi-book-half"
         },
         {
             name: "AI輔助教學_科學探究與競賽",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E7%A7%91%E5%B1%95%E6%83%85%E5%A2%83%E6%95%99%E5%AD%B8%E7%B0%A1%E5%A0%B1/AI%E8%BC%94%E5%8A%A9%E6%95%99%E5%AD%B8_%E7%A7%91%E5%AD%B8%E6%8E%A2%E7%A9%B6%E8%88%87%E7%AB%B6%E8%B3%BD.html",
+            url: "../sources/教學文章/1科展指導/教學簡報/AI輔助教學_科學探究與競賽.html",
             desc: "麗山高中科學探究與 AI 教學投影片成果",
             icon: "bi-easel3-fill"
         },
         {
             name: "科展報告撰寫教學站",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/2%E5%A0%B1%E5%91%8A%E6%92%B0%E5%AF%AB/%E7%A7%91%E5%B1%95%E5%A0%B1%E5%91%8A%E6%92%B0%E5%AF%AB%E6%95%99%E5%AD%B8%E7%AB%99.html",
+            url: "../sources/教學文章/2報告撰寫/科展報告撰寫教學站.html",
             desc: "引註格式、參考文獻與寫作邏輯線上教學站",
             icon: "bi-pencil-square"
         },
         {
             name: "科學簡報製作指南_互動網頁",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/3%E7%B0%A1%E5%A0%B1%E8%A3%BD%E4%BD%9C/%E7%A7%91%E5%AD%B8%E7%B0%A1%E5%A0%B1%E8%A3%BD%E4%BD%9C%E6%8C%87%E5%8D%97_%E4%BA%92%E5%8B%95%E7%B6%B2%E9%A0%81.html",
+            url: "../sources/教學文章/3簡報製作/科學簡報製作指南_互動網頁.html",
             desc: "簡報版型、配色與結構化敘事互動網頁",
             icon: "bi-bezier"
         },
         {
             name: "科展海報製作完全攻略",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/4%E6%B5%B7%E5%A0%B1%E8%A3%BD%E4%BD%9C/%E7%A7%91%E5%B1%95%E6%B5%B7%E5%A0%B1%E8%A3%BD%E4%BD%9C%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5.html",
+            url: "../sources/教學文章/4海報製作/科展海報製作完全攻略.html",
             desc: "展示海報（Panel）排版設計與字型規範指南",
             icon: "bi-image"
         },
         {
             name: "科展生物領域得獎策略全解析",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/6%E4%BD%9C%E5%93%81%E5%88%86%E6%9E%90/0%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F/%E7%A7%91%E5%B1%95%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%85%A8%E8%A7%A3%E6%9E%90.html",
+            url: "../sources/教學文章/6作品分析/0生物領域/科展生物領域得獎策略全解析.html",
             desc: "全國科展與北市科展生物科得獎作品深度解析",
             icon: "bi-heart-pulse-fill"
         },
         {
             name: "科展得獎策略全攻略－生物領域",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/6%E4%BD%9C%E5%93%81%E5%88%86%E6%9E%90/0%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F/%E7%A7%91%E5%B1%95%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%85%A8%E6%94%BB%E7%95%A5%EF%BC%8D%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F.html",
+            url: "../sources/教學文章/6作品分析/0生物領域/科展得獎策略全攻略－生物領域.html",
             desc: "生物科展作品的優劣勢、主題分佈與評審偏好分析",
             icon: "bi-clipboard2-pulse-fill"
         },
         {
             name: "台灣科展得獎策略完全攻略",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/6%E4%BD%9C%E5%93%81%E5%88%86%E6%9E%90/0%E7%A7%91%E5%B1%95%E6%94%BB%E7%95%A5/%E5%8F%B0%E7%81%A3%E7%A7%91%E5%B1%95%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%AE%8C%E5%85%A8%E6%94%BB%E7%95%A5.html",
+            url: "../sources/教學文章/6作品分析/0科展攻略/台灣科展得獎策略完全攻略.html",
             desc: "全國與北市科展得獎策略大數據分析精進指南",
             icon: "bi-graph-up-arrow"
         },
         {
             name: "科展競賽賽前總提點",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/9%E8%B3%BD%E5%89%8D%E6%8F%90%E9%BB%9E/%E7%A7%91%E5%B1%95%E7%AB%B6%E8%B3%BD%E8%B3%BD%E5%89%8D%E7%B8%BD%E6%8F%90%E9%BB%9E.html",
+            url: "../sources/教學文章/9賽前提點/科展競賽賽前總提點.html",
             desc: "賽前答辯、服裝、心態與高壓簡報實戰策略",
             icon: "bi-megaphone-fill"
         },
         {
             name: "科展安全審查與倫理教學網",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/8%E5%AE%89%E5%85%A8%E5%AF%A9%E6%9F%A5/%E7%A7%91%E5%B1%95%E5%AE%89%E5%85%A8%E5%AF%A9%E6%9F%A5%E8%88%87%E5%80%AB%E7%90%86%E6%95%99%E5%AD%B8%E7%B6%B2.html",
+            url: "../sources/教學文章/8安全審查/科展安全審查與倫理教學網.html",
             desc: "全國與國際科展安全規範與倫理線上教學網",
             icon: "bi-shield-check"
         },
         {
             name: "科展評審標準完整教學網頁",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/sources/%E6%95%99%E5%AD%B8%E6%96%87%E7%AB%A0/5%E8%A9%95%E5%AF%A9%E6%A8%99%E6%BA%96/%E7%A7%91%E5%B1%95%E8%A9%95%E5%AF%A9%E6%A8%99%E6%BA%96%E5%AE%8C%E6%95%B4%E6%95%99%E5%AD%B8%E7%B6%B2%E9%A0%81.html",
+            url: "../sources/教學文章/5評審標準/科展評審標準完整教學網頁.html",
             desc: "全國科展生物類評分標準與扣分原則解析",
             icon: "bi-bookmark-check-fill"
         },
         {
             name: "科展生物科得獎策略全解析",
-            url: "https://froglssh.github.io/lssh-science-presentation-guide/%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F%EF%BC%BF%E7%A7%91%E5%B1%95%E7%94%9F%E7%89%A9%E7%A7%91%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%85%A8%E8%A7%A3%E6%9E%90_%E7%B6%B2%E9%A0%81%E7%B0%A1%E5%A0%B1/%E7%94%9F%E7%89%A9%E9%A0%98%E5%9F%9F%EF%BC%BF%E7%A7%91%E5%B1%95%E7%94%9F%E7%89%A9%E7%A7%91%E5%BE%97%E7%8D%8E%E7%AD%96%E7%95%A5%E5%85%A8%E8%A7%A3%E6%9E%90_%E7%B6%B2%E9%A0%81.html",
+            url: "../生物領域＿科展生物科得獎策略全解析_網頁簡報/生物領域＿科展生物科得獎策略全解析_網頁.html",
             desc: "生物科展得獎作品的主題分析與口頭答辯策略",
             icon: "bi-journal-check"
         }
@@ -167,6 +167,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function initApp() {
         // Setup initial badge counts
         document.getElementById('count-all').textContent = FILES_DATA.length;
+        catDescription.textContent = `本資料庫依據 Google Drive 原始資料夾重建，完整收錄 ${FILES_DATA.length.toLocaleString('zh-TW')} 個檔案的原始路徑與雲端連結。您可以搜尋檔名、路徑、分類及副檔名。`;
         
         // Render Top-Level Categories in Sidebar
         renderSidebarCategories();
@@ -236,7 +237,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (categoryKey === 'all') {
             catTitle.textContent = '全部資源';
             catEnglish.textContent = 'All Resources';
-            catDescription.textContent = '本資料庫系統化整理了由臺北麗山高中林獻升老師指導的 AI 輔助專題研究與科展文獻、研習教材、實作案例及教學文章。您可以使用上方搜尋框即時檢索 390+ 個檔案，並直接進行線上預覽或下載。';
+            catDescription.textContent = `本資料庫依據 Google Drive 原始資料夾重建，完整收錄 ${FILES_DATA.length.toLocaleString('zh-TW')} 個檔案的原始路徑與雲端連結。您可以搜尋檔名、路徑、分類及副檔名。`;
             subCatWrapper.style.display = 'none';
         } else {
             const info = CATEGORIES_INFO[categoryKey];
@@ -369,10 +370,11 @@ document.addEventListener('DOMContentLoaded', () => {
             if (searchQuery) {
                 const lowerQuery = searchQuery.toLowerCase();
                 const nameMatch = file.name.toLowerCase().includes(lowerQuery);
+                const pathMatch = file.path.toLowerCase().includes(lowerQuery);
                 const catMatch = file.categories.some(cat => cat.toLowerCase().includes(lowerQuery));
                 const extMatch = file.ext.toLowerCase().includes(lowerQuery);
                 
-                if (!nameMatch && !catMatch && !extMatch) {
+                if (!nameMatch && !pathMatch && !catMatch && !extMatch) {
                     return false;
                 }
             }
@@ -479,6 +481,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     <span class="file-size-badge">${sizeStr}</span>
                     <span>${file.ext.toUpperCase()}</span>
                 </div>
+                <div class="file-subtext" title="${file.path}" style="margin-top:6px;">
+                    <i class="bi bi-folder2-open"></i>
+                    <span style="overflow:hidden;text-overflow:ellipsis;white-space:nowrap;">${file.path}</span>
+                </div>
             </div>
             <div class="file-actions-row">
                 ${previewBtn}
@@ -542,6 +548,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 return { icon: 'bi-file-earmark-play-fill', color: 'var(--color-video)', alphaColor: 'rgba(6, 182, 212, 0.15)' };
             case 'image':
                 return { icon: 'bi-file-earmark-image-fill', color: 'var(--color-image)', alphaColor: 'rgba(236, 72, 153, 0.15)' };
+            case 'text':
+                return { icon: 'bi-file-earmark-text-fill', color: 'var(--color-doc)', alphaColor: 'rgba(59, 130, 246, 0.15)' };
+            case 'archive':
+                return { icon: 'bi-file-earmark-zip-fill', color: 'var(--color-other)', alphaColor: 'rgba(107, 114, 128, 0.15)' };
             default:
                 return { icon: 'bi-file-earmark-fill', color: 'var(--color-other)', alphaColor: 'rgba(107, 114, 128, 0.15)' };
         }

@@ -118,6 +118,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentSubCategory = 'all'; // 'all' or path strings
     let currentFileType = 'all';   // 'all' or 'pdf', 'presentation', etc.
     let searchQuery = '';
+    let renderLimit = 120;
+    let lastRenderKey = '';
 
     // 2. DOM Elements
     const searchInput = document.getElementById('search-input');
@@ -387,9 +389,17 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
+        const renderKey = [currentCategory, currentSubCategory, currentFileType, searchQuery].join('|');
+        if (renderKey !== lastRenderKey) {
+            renderLimit = 120;
+            lastRenderKey = renderKey;
+        }
+
+        const visibleFiles = filteredFiles.slice(0, renderLimit);
+
         // Group files by Category Path for better structure
         const grouped = {};
-        filteredFiles.forEach(file => {
+        visibleFiles.forEach(file => {
             // Group path string, e.g., "教學文章 > 8安全審查"
             const groupName = file.categories.join(' > ') || '根目錄';
             if (!grouped[groupName]) {
@@ -421,6 +431,24 @@ document.addEventListener('DOMContentLoaded', () => {
             groupSection.appendChild(grid);
             filesContainer.appendChild(groupSection);
         });
+
+        if (visibleFiles.length < filteredFiles.length) {
+            const loadMoreWrap = document.createElement('div');
+            loadMoreWrap.style.cssText = 'display:flex;flex-direction:column;align-items:center;gap:10px;padding:24px 0 8px;';
+            loadMoreWrap.innerHTML = `
+                <p style="margin:0;color:var(--text-secondary);">
+                    已顯示 ${visibleFiles.length.toLocaleString('zh-TW')} / ${filteredFiles.length.toLocaleString('zh-TW')} 筆
+                </p>
+                <button class="btn-secondary" id="load-more-files">
+                    <i class="bi bi-plus-circle"></i> 再載入 120 筆
+                </button>
+            `;
+            filesContainer.appendChild(loadMoreWrap);
+            loadMoreWrap.querySelector('#load-more-files').addEventListener('click', () => {
+                renderLimit += 120;
+                renderFiles();
+            });
+        }
     }
 
     // Create single file card
